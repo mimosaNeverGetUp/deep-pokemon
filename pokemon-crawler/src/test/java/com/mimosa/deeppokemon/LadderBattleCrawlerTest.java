@@ -88,7 +88,7 @@ public class LadderBattleCrawlerTest {
                 battleCrawler.getFormat(), battleCrawler.getPageLimit(), battleCrawler.getRankMoreThan(),
                 battleCrawler.getMinElo(), battleCrawler.getMinGxe(), battleCrawler.getDateAfter()));
         List<Player> players = battleCrawler.crawLadeerName();
-        playerService.saveAll(players);
+        //playerService.saveAll(players);
         List<Battle> battles = battleCrawler.crawLadderBattle();
         battleSevice.savaAll(battles);
     }

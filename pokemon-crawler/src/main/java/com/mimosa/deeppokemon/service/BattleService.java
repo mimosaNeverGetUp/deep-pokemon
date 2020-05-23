@@ -22,7 +22,7 @@ public class BattleService {
     public void save(Battle battle) {
         log.info("save a battle:"+battle.getBattleID());
         try {
-            mongoTemplate.insert(battle);
+            mongoTemplate.save(battle);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             log.error(e.getMessage());
@@ -34,7 +34,9 @@ public class BattleService {
     public void savaAll(List<Battle> battles) {
         log.info("save battles:"+battles.get(0).getBattleID());
         try {
-            mongoTemplate.insertAll(battles);
+            for (Battle battle : battles) {
+                mongoTemplate.save(battle);
+            }
         }catch (Exception e) {
             System.out.println(e.getMessage());
             log.error(e.getMessage());

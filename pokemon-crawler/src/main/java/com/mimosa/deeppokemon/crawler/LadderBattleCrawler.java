@@ -67,7 +67,9 @@ public class LadderBattleCrawler {
         for (Player player : players) {
             String playerName = player.getName();
             List<Battle> battleList = crawPlayerBattleIfAbesent(playerName, preUrls);
-            battles.addAll(battleList);
+            if (battleList != null) {
+                battles.addAll(battleList);
+            }
         }
         return battles;
     }

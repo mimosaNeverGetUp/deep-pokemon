@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      database: deep_pokemon_test
+      host: localhost
+      port: 27017
+      username: mimosa
+      password: filter
+  jackson:
+    timeZone : GMT+8

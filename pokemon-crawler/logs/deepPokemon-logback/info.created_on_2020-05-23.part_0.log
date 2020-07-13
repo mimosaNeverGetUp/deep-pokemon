@@ -306,3 +306,8 @@
 2020-05-23 16:36:32,855 [main] INFO  [com.mimosa.deeppokemon.LadderBattleCrawlerTest] StartupInfoLogger.java:61 - Started LadderBattleCrawlerTest in 11.03 seconds (JVM running for 15.67)
 2020-05-23 16:36:34,002 [main] INFO  [com.mimosa.deeppokemon.LadderBattleCrawlerTest] LadderBattleCrawlerTest.java:87 - craw start: format:gen8ou pageLimit:1 rankLimit:30 eloLimit:1800 gxeLimit:80.000000 dateLimit:2020-04-23
 2020-05-23 16:36:52,989 [main] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:30}] to localhost:27017
+2020-05-23 16:53:38,540 [main] INFO  [org.apache.http.impl.execchain.RetryExec] RetryExec.java:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://replay.pokemonshowdown.com:443: The target server failed to respond
+2020-05-23 16:53:38,542 [main] INFO  [org.apache.http.impl.execchain.RetryExec] RetryExec.java:112 - Retrying request to {s}->https://replay.pokemonshowdown.com:443
+2020-05-23 16:54:02,318 [main] INFO  [com.mimosa.deeppokemon.service.BattleService] BattleService.java:35 - save battles:gen8ou-1109360283
+2020-05-23 16:54:03,584 [SpringContextShutdownHook] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:218 - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-23 16:54:03,589 [SpringContextShutdownHook] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Closed connection [connectionId{localValue:2, serverValue:30}] to localhost:27017 because the pool has been closed.

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+    <style type="text/css">
+
+        a:link{color:black;}
+
+        a:visited{color:black;}
+
+    </style>
+</head>
+<body>
+<table  border="0" align="center"  cellspacing="50" th:marginheight="10" >
+    <tr align="center">
+        <td style="text-align: center;border-style: none" >
+            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" th:text="排行榜"></a>
+        </td>
+        <td style="text-align: center;border-style: none">
+            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team?page=1'" th:text="队伍集"></a>
+        </td>
+        <td style="text-align: center;border-style: none" >
+            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/stat'}" th:text="宝可梦"></a>
+        </td>
+    </tr>
+</table>
+<table  border="0" align="center"  cellspacing="50" th:marginheight="10" >
+    <tr  align="center">
+        <td colspan="2">
+            <p th:text="'Name: ' + ${name}"></p>
+            <p th:text="'Pick Rate: ' + ${pair.getKey().getKey()}"></p>
+            <p th:text="'Win Rate: ' + ${pair.getKey().getValue()}"></p>
+        </td>
+    </tr>
+</table>
+<table border="1" align="center" cellspacing="50" width="1200">
+    <tr>
+        <td style="text-align: center;border-style: none">player</td>
+        <td style="text-align: center;border-style: none">team</td>
+    </tr>
+    <tr th:each="team :  ${pair.getValue()}">
+        <td style="text-align: center;border-style: none">
+            <a th:text="${team.getPlayerName()}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'record?page=1&name='+${team.getPlayerName()}"></a>
+        </td>
+        <td style="text-align: center;border-style: none" colspan="2">
+            <table border="0" align="center">
+                <tr>
+                    <td th:each="pokemon : ${team.getPokemons()}">
+                        <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.toString()}">
+                    </td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>

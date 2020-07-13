@@ -15,6 +15,6 @@ public class PokemoCrawlerApplication {
     @Bean
     LadderBattleCrawler crawler(){
         return new LadderBattleCrawler("gen8ou", 1,
-                30, 1800, LocalDate.now().minusMonths(1), 80.0f);
+                50, 1600, LocalDate.now().minusMonths(1), 60.0f);
     }
 }

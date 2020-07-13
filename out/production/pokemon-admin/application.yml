@@ -1,0 +1,23 @@
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      database: deep_pokemon_test
+      host: localhost
+      port: 27017
+      username: mimosa
+      password: filter
+  jackson:
+    timeZone : GMT+8
+
+  thymeleaf:
+  #模板的模式，支持 HTML, XML TEXT JAVASCRIPT
+    mode: HTML5
+  #编码 可不用配置
+    encoding: UTF-8
+  #开发配置为false,避免修改模板还要重启服务器
+    cache: false
+
+
+  resources:
+  static-locations: classpath:/resources/, classpath:/static/ ,classpath:/templates/

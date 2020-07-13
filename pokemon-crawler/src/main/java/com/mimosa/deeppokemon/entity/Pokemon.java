@@ -26,6 +26,14 @@ public class Pokemon {
         return item;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setItem(String item) {
         this.item = item;
     }
@@ -40,6 +48,37 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return String.format("      %s @%s \n       -%s \n \n", name, item, moves);
+        String m = "\n";
+        if (moves != null) {
+            for (String move : moves) {
+                m += "-" + move + "\n";
+            }
+            for (int i = 0; i < 4 - moves.size(); i++) {
+                m += "-???\n";
+            }
+        }
+        String it = "";
+        if (item != null) {
+            it = "@"+item;
+        } else {
+            it = "@???";
+        }
+        return name + it + m;
+        //return String.format("      %s @%s \n       -%s \n \n", name, item, moves);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Pokemon pokemon = (Pokemon) o;
+
+        return name != null ? name.equals(pokemon.name) : pokemon.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
     }
 }

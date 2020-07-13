@@ -1,0 +1,15 @@
+com\mimosa\deeppokemon\crawler\RegexTeamCrawler.class
+com\mimosa\deeppokemon\crawler\PlayerUrlExtracter.class
+com\mimosa\deeppokemon\crawler\TeamCrawler.class
+com\mimosa\deeppokemon\entity\Team.class
+com\mimosa\deeppokemon\entity\Player.class
+com\mimosa\deeppokemon\entity\Battle.class
+com\mimosa\deeppokemon\service\BattleService.class
+com\mimosa\deeppokemon\service\PlayerService.class
+com\mimosa\deeppokemon\crawler\PokemonIconExtracter.class
+com\mimosa\deeppokemon\PokemoCrawlerApplication.class
+com\mimosa\deeppokemon\crawler\HtmlTeamExtracter.class
+com\mimosa\deeppokemon\entity\Pokemon.class
+com\mimosa\deeppokemon\config\ScheduledConfig.class
+com\mimosa\deeppokemon\crawler\LadderPlayerExtracter.class
+com\mimosa\deeppokemon\crawler\LadderBattleCrawler.class

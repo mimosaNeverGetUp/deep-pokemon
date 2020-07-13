@@ -1,0 +1,1167 @@
+2020-07-10 09:09:52,618 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 5584 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 09:09:52,625 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 09:09:53,935 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 09:09:53,975 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 30ms. Found 0 MongoDB repository interfaces.
+2020-07-10 09:09:55,076 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 09:09:55,090 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 09:09:55,090 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 09:09:55,095 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 09:09:55,098 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 09:09:55,099 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 09:09:55,109 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 09:09:55,405 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 09:09:55,406 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2715 ms
+2020-07-10 09:09:55,756 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 09:09:55,757 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 09:09:56,196 [cluster-ClusterId{value='5f07bfe308b9132fe16bfe31', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
+2020-07-10 09:09:56,208 [cluster-ClusterId{value='5f07bfe308b9132fe16bfe31', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5596449}
+2020-07-10 09:09:56,211 [cluster-ClusterId{value='5f07bfe308b9132fe16bfe31', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 09:09:56,704 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 09:09:57,167 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 09:09:57,173 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.554 seconds (JVM running for 10.424)
+2020-07-10 09:10:13,252 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 09:10:13,254 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 09:10:13,267 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 13 ms
+2020-07-10 09:10:13,824 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
+2020-07-10 09:17:08,497 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 3252 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 09:17:08,506 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 09:17:10,019 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 09:17:10,056 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-07-10 09:17:10,977 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 09:17:10,996 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 09:17:10,997 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 09:17:11,000 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 09:17:11,001 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 09:17:11,002 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 09:17:11,008 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 09:17:11,293 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 09:17:11,293 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2615 ms
+2020-07-10 09:17:11,790 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 09:17:11,791 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 09:17:11,885 [cluster-ClusterId{value='5f07c197b9ce976755651b86', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:3}] to localhost:27017
+2020-07-10 09:17:11,895 [cluster-ClusterId{value='5f07c197b9ce976755651b86', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5646425}
+2020-07-10 09:17:11,897 [cluster-ClusterId{value='5f07c197b9ce976755651b86', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 09:17:12,539 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 09:17:12,998 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 09:17:13,008 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.404 seconds (JVM running for 8.216)
+2020-07-10 09:17:19,126 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 09:17:19,127 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 09:17:19,138 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 11 ms
+2020-07-10 09:17:19,637 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:4}] to localhost:27017
+2020-07-10 09:24:44,165 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 952 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 09:24:44,240 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 09:24:45,692 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 09:24:45,725 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 24ms. Found 0 MongoDB repository interfaces.
+2020-07-10 09:24:46,602 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 09:24:46,621 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 09:24:46,622 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 09:24:46,626 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 09:24:46,626 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 09:24:46,627 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 09:24:46,635 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 09:24:46,883 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 09:24:46,884 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2541 ms
+2020-07-10 09:24:47,377 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 09:24:47,378 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 09:24:47,480 [cluster-ClusterId{value='5f07c35f5a21d34de80fbfe9', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:5}] to localhost:27017
+2020-07-10 09:24:47,491 [cluster-ClusterId{value='5f07c35f5a21d34de80fbfe9', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5730314}
+2020-07-10 09:24:47,493 [cluster-ClusterId{value='5f07c35f5a21d34de80fbfe9', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 09:24:48,172 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 09:24:48,597 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 09:24:48,606 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.451 seconds (JVM running for 7.797)
+2020-07-10 09:24:58,627 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 09:24:58,630 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 09:24:58,637 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 7 ms
+2020-07-10 09:24:59,040 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:6}] to localhost:27017
+2020-07-10 09:27:06,335 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 3872 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 09:27:06,341 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 09:27:07,845 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 09:27:07,900 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 36ms. Found 0 MongoDB repository interfaces.
+2020-07-10 09:27:09,004 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 09:27:09,023 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 09:27:09,024 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 09:27:09,027 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 09:27:09,028 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 09:27:09,028 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 09:27:09,035 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 09:27:09,269 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 09:27:09,270 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2830 ms
+2020-07-10 09:27:09,772 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 09:27:09,773 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 09:27:09,878 [cluster-ClusterId{value='5f07c3edc80eac1bfe525e26', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:7}] to localhost:27017
+2020-07-10 09:27:09,892 [cluster-ClusterId{value='5f07c3edc80eac1bfe525e26', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7885986}
+2020-07-10 09:27:09,895 [cluster-ClusterId{value='5f07c3edc80eac1bfe525e26', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 09:27:10,600 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 09:27:11,070 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 09:27:11,080 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.7 seconds (JVM running for 8.2)
+2020-07-10 09:27:15,243 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 09:27:15,244 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 09:27:15,256 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 12 ms
+2020-07-10 09:27:15,746 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:8}] to localhost:27017
+2020-07-10 09:38:24,632 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 3204 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 09:38:24,639 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 09:38:25,876 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 09:38:25,914 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-07-10 09:38:26,894 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 09:38:26,915 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 09:38:26,916 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 09:38:26,920 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 09:38:26,920 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 09:38:26,921 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 09:38:26,928 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 09:38:27,131 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 09:38:27,132 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2397 ms
+2020-07-10 09:38:27,705 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 09:38:27,706 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 09:38:27,800 [cluster-ClusterId{value='5f07c6939003321a8294a62d', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:9}] to localhost:27017
+2020-07-10 09:38:27,811 [cluster-ClusterId{value='5f07c6939003321a8294a62d', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5601803}
+2020-07-10 09:38:27,813 [cluster-ClusterId{value='5f07c6939003321a8294a62d', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 09:38:28,482 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 09:38:28,995 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 09:38:29,004 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.619 seconds (JVM running for 8.632)
+2020-07-10 09:38:33,805 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 09:38:33,806 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 09:38:33,818 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 12 ms
+2020-07-10 09:38:34,300 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:10}] to localhost:27017
+2020-07-10 09:39:09,387 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 6568 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 09:39:09,401 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 09:39:11,237 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 09:39:11,275 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 28ms. Found 0 MongoDB repository interfaces.
+2020-07-10 09:39:12,363 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 09:39:12,386 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 09:39:12,388 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 09:39:12,392 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 09:39:12,393 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 09:39:12,393 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 09:39:12,401 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 09:39:12,646 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 09:39:12,647 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 3033 ms
+2020-07-10 09:39:13,130 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 09:39:13,131 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 09:39:13,252 [cluster-ClusterId{value='5f07c6c174202c5b95e1fc7a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:11}] to localhost:27017
+2020-07-10 09:39:13,264 [cluster-ClusterId{value='5f07c6c174202c5b95e1fc7a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6721807}
+2020-07-10 09:39:13,266 [cluster-ClusterId{value='5f07c6c174202c5b95e1fc7a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 09:39:13,937 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 09:39:14,410 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 09:39:14,420 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 6.154 seconds (JVM running for 8.707)
+2020-07-10 09:39:16,540 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 09:39:16,541 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 09:39:16,551 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 10 ms
+2020-07-10 09:39:17,008 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:12}] to localhost:27017
+2020-07-10 15:04:11,980 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 9036 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 15:04:12,057 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 15:04:13,975 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 15:04:14,014 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 29ms. Found 0 MongoDB repository interfaces.
+2020-07-10 15:04:15,057 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 15:04:15,080 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 15:04:15,082 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 15:04:15,086 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 15:04:15,087 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 15:04:15,088 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 15:04:15,095 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 15:04:15,367 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 15:04:15,368 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 3118 ms
+2020-07-10 15:04:15,773 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 15:04:15,774 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 15:04:15,878 [cluster-ClusterId{value='5f0812ef5c6310799c7a7b1c', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:37}] to localhost:27017
+2020-07-10 15:04:15,888 [cluster-ClusterId{value='5f0812ef5c6310799c7a7b1c', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5427333}
+2020-07-10 15:04:15,891 [cluster-ClusterId{value='5f0812ef5c6310799c7a7b1c', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 15:04:16,613 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 15:04:17,180 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 15:04:17,191 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 6.469 seconds (JVM running for 9.371)
+2020-07-10 15:04:20,108 [http-nio-8080-exec-2] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 15:04:20,110 [http-nio-8080-exec-2] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 15:04:20,133 [http-nio-8080-exec-2] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 22 ms
+2020-07-10 15:04:20,892 [http-nio-8080-exec-2] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:38}] to localhost:27017
+2020-07-10 15:27:34,300 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 7192 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 15:27:34,306 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 15:27:36,397 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 15:27:36,454 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 44ms. Found 0 MongoDB repository interfaces.
+2020-07-10 15:27:37,746 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 15:27:37,770 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 15:27:37,771 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 15:27:37,777 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 15:27:37,778 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 15:27:37,779 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 15:27:37,788 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 15:27:38,134 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 15:27:38,159 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 3578 ms
+2020-07-10 15:27:38,725 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 15:27:38,727 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 15:27:38,860 [cluster-ClusterId{value='5f08186a3c75d120c6a100d9', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:39}] to localhost:27017
+2020-07-10 15:27:38,875 [cluster-ClusterId{value='5f08186a3c75d120c6a100d9', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7993078}
+2020-07-10 15:27:38,878 [cluster-ClusterId{value='5f08186a3c75d120c6a100d9', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 15:27:39,641 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 15:27:40,216 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 15:27:40,227 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 7.658 seconds (JVM running for 12.778)
+2020-07-10 15:27:45,841 [http-nio-8080-exec-2] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 15:27:45,842 [http-nio-8080-exec-2] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 15:27:45,855 [http-nio-8080-exec-2] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 11 ms
+2020-07-10 15:27:46,296 [http-nio-8080-exec-2] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:40}] to localhost:27017
+2020-07-10 15:28:37,075 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 8228 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 15:28:37,089 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 15:28:40,082 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 15:28:40,143 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 46ms. Found 0 MongoDB repository interfaces.
+2020-07-10 15:28:41,446 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 15:28:41,470 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 15:28:41,471 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 15:28:41,475 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 15:28:41,476 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 15:28:41,477 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 15:28:41,487 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 15:28:41,740 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 15:28:41,741 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 4471 ms
+2020-07-10 15:28:42,509 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 15:28:42,510 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 15:28:42,663 [cluster-ClusterId{value='5f0818aab5dcc67a56f98be4', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:41}] to localhost:27017
+2020-07-10 15:28:42,678 [cluster-ClusterId{value='5f0818aab5dcc67a56f98be4', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7955597}
+2020-07-10 15:28:42,680 [cluster-ClusterId{value='5f0818aab5dcc67a56f98be4', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 15:28:43,571 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 15:28:44,173 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 15:28:44,183 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 8.375 seconds (JVM running for 11.495)
+2020-07-10 15:29:15,361 [http-nio-8080-exec-2] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 15:29:15,362 [http-nio-8080-exec-2] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 15:29:15,376 [http-nio-8080-exec-2] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 13 ms
+2020-07-10 15:29:15,826 [http-nio-8080-exec-2] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:42}] to localhost:27017
+2020-07-10 15:29:50,457 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 5340 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 15:29:50,464 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 15:29:52,233 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 15:29:52,321 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 50ms. Found 0 MongoDB repository interfaces.
+2020-07-10 15:29:53,995 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 15:29:54,042 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 15:29:54,044 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 15:29:54,051 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 15:29:54,052 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 15:29:54,052 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 15:29:54,074 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 15:29:54,521 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 15:29:54,522 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 3884 ms
+2020-07-10 15:29:55,259 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 15:29:55,261 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 15:29:55,402 [cluster-ClusterId{value='5f0818f3c657794597fc6e90', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:43}] to localhost:27017
+2020-07-10 15:29:55,416 [cluster-ClusterId{value='5f0818f3c657794597fc6e90', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7403626}
+2020-07-10 15:29:55,418 [cluster-ClusterId{value='5f0818f3c657794597fc6e90', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 15:29:56,138 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 15:29:56,648 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 15:29:56,657 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 7.325 seconds (JVM running for 10.377)
+2020-07-10 15:30:15,945 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 15:30:15,946 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 15:30:15,960 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 14 ms
+2020-07-10 15:30:16,401 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:44}] to localhost:27017
+2020-07-10 15:32:54,352 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 6764 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 15:32:54,368 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 15:32:55,819 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 15:32:55,865 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 31ms. Found 0 MongoDB repository interfaces.
+2020-07-10 15:32:56,841 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 15:32:56,861 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 15:32:56,862 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 15:32:56,867 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 15:32:56,868 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 15:32:56,868 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 15:32:56,876 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 15:32:57,146 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 15:32:57,146 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2616 ms
+2020-07-10 15:32:57,673 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 15:32:57,675 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 15:32:57,792 [cluster-ClusterId{value='5f0819a98923a3551f9c2705', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:45}] to localhost:27017
+2020-07-10 15:32:57,803 [cluster-ClusterId{value='5f0819a98923a3551f9c2705', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5534424}
+2020-07-10 15:32:57,806 [cluster-ClusterId{value='5f0819a98923a3551f9c2705', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 15:32:58,503 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 15:32:59,014 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 15:32:59,024 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.609 seconds (JVM running for 8.126)
+2020-07-10 15:33:00,902 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 15:33:00,904 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 15:33:00,918 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 14 ms
+2020-07-10 15:33:01,719 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:46}] to localhost:27017
+2020-07-10 15:36:07,161 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 5704 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 15:36:07,169 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 15:36:08,812 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 15:36:08,847 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-07-10 15:36:09,787 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 15:36:09,809 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 15:36:09,810 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 15:36:09,813 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 15:36:09,814 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 15:36:09,815 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 15:36:09,824 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 15:36:10,067 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 15:36:10,068 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2625 ms
+2020-07-10 15:36:10,564 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 15:36:10,565 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 15:36:10,676 [cluster-ClusterId{value='5f081a6adc36a07693bb059a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:47}] to localhost:27017
+2020-07-10 15:36:10,686 [cluster-ClusterId{value='5f081a6adc36a07693bb059a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6059622}
+2020-07-10 15:36:10,689 [cluster-ClusterId{value='5f081a6adc36a07693bb059a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 15:36:11,345 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 15:36:11,851 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 15:36:11,859 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 6.401 seconds (JVM running for 10.297)
+2020-07-10 15:36:14,919 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 15:36:14,920 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 15:36:14,933 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 12 ms
+2020-07-10 15:36:15,368 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:48}] to localhost:27017
+2020-07-10 17:16:54,029 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 8508 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 17:16:54,036 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 17:16:55,560 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 17:16:55,599 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 28ms. Found 0 MongoDB repository interfaces.
+2020-07-10 17:16:56,510 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 17:16:56,530 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 17:16:56,531 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 17:16:56,534 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 17:16:56,535 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 17:16:56,536 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 17:16:56,543 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 17:16:56,852 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 17:16:56,853 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2702 ms
+2020-07-10 17:16:57,464 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 17:16:57,466 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 17:16:57,618 [cluster-ClusterId{value='5f083209d8dd3e74feaf7444', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:52}] to localhost:27017
+2020-07-10 17:16:57,634 [cluster-ClusterId{value='5f083209d8dd3e74feaf7444', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7193458}
+2020-07-10 17:16:57,642 [cluster-ClusterId{value='5f083209d8dd3e74feaf7444', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 17:16:58,343 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 17:16:58,862 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 17:16:58,871 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.972 seconds (JVM running for 9.32)
+2020-07-10 17:17:01,220 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 17:17:01,221 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 17:17:01,233 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 11 ms
+2020-07-10 17:17:01,656 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:53}] to localhost:27017
+2020-07-10 17:35:21,251 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 2756 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 17:35:21,261 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 17:35:23,778 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 17:35:23,841 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 49ms. Found 0 MongoDB repository interfaces.
+2020-07-10 17:35:25,217 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 17:35:25,243 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 17:35:25,245 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 17:35:25,249 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 17:35:25,250 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 17:35:25,251 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 17:35:25,260 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 17:35:25,567 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 17:35:25,568 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 3993 ms
+2020-07-10 17:35:26,109 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 17:35:26,110 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 17:35:26,229 [cluster-ClusterId{value='5f08365eb4b5b507be8d8215', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:54}] to localhost:27017
+2020-07-10 17:35:26,240 [cluster-ClusterId{value='5f08365eb4b5b507be8d8215', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5648656}
+2020-07-10 17:35:26,243 [cluster-ClusterId{value='5f08365eb4b5b507be8d8215', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 17:35:26,875 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 17:35:27,413 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 17:35:27,423 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 7.714 seconds (JVM running for 11.601)
+2020-07-10 17:35:29,725 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 17:35:29,726 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 17:35:29,740 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 13 ms
+2020-07-10 17:35:30,237 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:55}] to localhost:27017
+2020-07-10 20:16:43,495 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 8300 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 20:16:43,503 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 20:16:44,910 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 20:16:44,948 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 28ms. Found 0 MongoDB repository interfaces.
+2020-07-10 20:16:45,936 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 20:16:45,966 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 20:16:45,968 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 20:16:45,972 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 20:16:45,973 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 20:16:45,974 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 20:16:45,985 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 20:16:46,270 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 20:16:46,270 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2640 ms
+2020-07-10 20:16:46,877 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 20:16:46,878 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 20:16:47,007 [cluster-ClusterId{value='5f085c2e2eac1d0c52de674d', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:58}] to localhost:27017
+2020-07-10 20:16:47,023 [cluster-ClusterId{value='5f085c2e2eac1d0c52de674d', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7817269}
+2020-07-10 20:16:47,026 [cluster-ClusterId{value='5f085c2e2eac1d0c52de674d', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 20:16:47,737 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 20:16:48,236 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 20:16:48,249 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.855 seconds (JVM running for 9.227)
+2020-07-10 20:17:08,473 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 20:17:08,474 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 20:17:08,485 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 11 ms
+2020-07-10 20:17:08,910 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:59}] to localhost:27017
+2020-07-10 20:21:31,316 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 4968 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 20:21:31,322 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 20:21:33,153 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 20:21:33,193 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 30ms. Found 0 MongoDB repository interfaces.
+2020-07-10 20:21:34,397 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 20:21:34,418 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 20:21:34,419 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 20:21:34,422 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 20:21:34,422 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 20:21:34,423 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 20:21:34,430 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 20:21:34,680 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 20:21:34,682 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 3232 ms
+2020-07-10 20:21:35,244 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 20:21:35,245 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 20:21:35,367 [cluster-ClusterId{value='5f085d4f320c5e3f6e9ab869', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:60}] to localhost:27017
+2020-07-10 20:21:35,380 [cluster-ClusterId{value='5f085d4f320c5e3f6e9ab869', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7335801}
+2020-07-10 20:21:35,383 [cluster-ClusterId{value='5f085d4f320c5e3f6e9ab869', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 20:21:36,083 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 20:21:36,587 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 20:21:36,598 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 6.686 seconds (JVM running for 9.518)
+2020-07-10 20:22:08,160 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 20:22:08,162 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 20:22:08,174 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 11 ms
+2020-07-10 20:22:08,590 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:61}] to localhost:27017
+2020-07-10 20:42:51,452 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 6072 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 20:42:51,465 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 20:42:53,057 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 20:42:53,107 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 37ms. Found 0 MongoDB repository interfaces.
+2020-07-10 20:42:54,088 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 20:42:54,111 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 20:42:54,112 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 20:42:54,116 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 20:42:54,116 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 20:42:54,117 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 20:42:54,125 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 20:42:54,367 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 20:42:54,368 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2762 ms
+2020-07-10 20:42:54,881 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 20:42:54,882 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 20:42:54,988 [cluster-ClusterId{value='5f08624e50f4f40fb8664588', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:62}] to localhost:27017
+2020-07-10 20:42:55,002 [cluster-ClusterId{value='5f08624e50f4f40fb8664588', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6894047}
+2020-07-10 20:42:55,004 [cluster-ClusterId{value='5f08624e50f4f40fb8664588', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 20:42:55,759 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 20:42:56,276 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 20:42:56,287 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.885 seconds (JVM running for 8.661)
+2020-07-10 20:43:22,757 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 20:43:22,758 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 20:43:22,770 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 12 ms
+2020-07-10 20:43:23,234 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:63}] to localhost:27017
+2020-07-10 21:06:56,984 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 6008 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 21:06:56,995 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 21:06:58,966 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 21:06:59,055 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 79ms. Found 0 MongoDB repository interfaces.
+2020-07-10 21:07:00,209 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 21:07:00,232 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 21:07:00,233 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 21:07:00,236 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 21:07:00,237 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 21:07:00,238 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 21:07:00,248 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 21:07:00,489 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 21:07:00,490 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 3300 ms
+2020-07-10 21:07:01,074 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 21:07:01,075 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 21:07:01,185 [cluster-ClusterId{value='5f0867f5bd7abc7291510235', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:64}] to localhost:27017
+2020-07-10 21:07:01,196 [cluster-ClusterId{value='5f0867f5bd7abc7291510235', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6127446}
+2020-07-10 21:07:01,199 [cluster-ClusterId{value='5f0867f5bd7abc7291510235', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 21:07:02,007 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 21:07:02,533 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 21:07:02,544 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 6.84 seconds (JVM running for 11.303)
+2020-07-10 21:07:08,271 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 21:07:08,271 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 21:07:08,285 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 13 ms
+2020-07-10 21:07:08,815 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:65}] to localhost:27017
+2020-07-10 22:16:22,708 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 8140 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 22:16:22,715 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 22:16:23,973 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 22:16:24,011 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-07-10 22:16:25,003 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 22:16:25,025 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 22:16:25,026 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 22:16:25,029 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 22:16:25,030 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 22:16:25,031 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 22:16:25,039 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 22:16:25,314 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 22:16:25,315 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 2477 ms
+2020-07-10 22:16:25,818 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 22:16:25,820 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 22:16:26,333 [cluster-ClusterId{value='5f08783998051313f53e56d7', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:66}] to localhost:27017
+2020-07-10 22:16:26,346 [cluster-ClusterId{value='5f08783998051313f53e56d7', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6552245}
+2020-07-10 22:16:26,349 [cluster-ClusterId{value='5f08783998051313f53e56d7', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 22:16:26,649 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 22:16:27,159 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 22:16:27,170 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 5.725 seconds (JVM running for 13.032)
+2020-07-10 22:16:31,916 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 22:16:31,917 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 22:16:31,933 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 15 ms
+2020-07-10 22:16:32,447 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:67}] to localhost:27017
+2020-07-10 22:56:11,134 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 8224 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 22:56:11,178 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 22:56:12,859 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 22:56:12,895 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-07-10 22:56:14,046 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 22:56:14,070 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 22:56:14,071 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 22:56:14,076 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-07-10 22:56:14,077 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-10 22:56:14,077 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-10 22:56:14,087 [main] INFO  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:173 - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-07-10 22:56:14,367 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 22:56:14,368 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 3060 ms
+2020-07-10 22:56:14,915 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 22:56:14,917 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 22:56:15,032 [cluster-ClusterId{value='5f08818e6d7a6a048efde264', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:68}] to localhost:27017
+2020-07-10 22:56:15,042 [cluster-ClusterId{value='5f08818e6d7a6a048efde264', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5713804}
+2020-07-10 22:56:15,045 [cluster-ClusterId{value='5f08818e6d7a6a048efde264', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 22:56:15,755 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 22:56:16,266 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 22:56:16,277 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 6.381 seconds (JVM running for 9.213)
+2020-07-10 22:56:22,463 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 22:56:22,464 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 22:56:22,475 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 10 ms
+2020-07-10 22:56:22,881 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:69}] to localhost:27017
+2020-07-10 23:13:18,009 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 8248 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:13:18,014 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:13:22,051 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:13:22,079 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 21ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:13:22,891 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:13:24,485 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:13:24,498 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:13:24,499 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:13:24,732 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:13:24,733 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 4383 ms
+2020-07-10 23:13:26,575 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:13:26,576 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:13:26,715 [cluster-ClusterId{value='5f08859680b06454587ee057', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:70}] to localhost:27017
+2020-07-10 23:13:26,730 [cluster-ClusterId{value='5f08859680b06454587ee057', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7880185}
+2020-07-10 23:13:26,732 [cluster-ClusterId{value='5f08859680b06454587ee057', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:13:27,363 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:13:27,703 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:13:27,708 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 14.921 seconds (JVM running for 38.178)
+2020-07-10 23:13:48,113 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:13:48,113 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:13:48,122 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 8 ms
+2020-07-10 23:13:48,673 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:71}] to localhost:27017
+2020-07-10 23:39:05,009 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 7376 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:39:05,017 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:39:05,959 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:39:05,989 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 23ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:39:06,381 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:39:06,717 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:39:06,784 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:39:06,785 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:39:06,937 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:39:06,938 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1816 ms
+2020-07-10 23:39:07,543 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:39:07,543 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:39:07,637 [cluster-ClusterId{value='5f088b9b2fd2aa05744de964', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:78}] to localhost:27017
+2020-07-10 23:39:07,646 [cluster-ClusterId{value='5f088b9b2fd2aa05744de964', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6248817}
+2020-07-10 23:39:07,648 [cluster-ClusterId{value='5f088b9b2fd2aa05744de964', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:39:08,179 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:39:08,535 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:39:08,540 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.497 seconds (JVM running for 6.125)
+2020-07-10 23:39:12,740 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:39:12,741 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:39:12,748 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 7 ms
+2020-07-10 23:39:13,238 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:79}] to localhost:27017
+2020-07-10 23:39:36,565 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 7088 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:39:36,570 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:39:37,458 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:39:37,486 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 20ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:39:37,861 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:39:38,173 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:39:38,188 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:39:38,189 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:39:38,335 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:39:38,336 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1668 ms
+2020-07-10 23:39:39,051 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:39:39,052 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:39:39,152 [cluster-ClusterId{value='5f088bbbcd47aa6988673ab1', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:80}] to localhost:27017
+2020-07-10 23:39:39,168 [cluster-ClusterId{value='5f088bbbcd47aa6988673ab1', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9258549}
+2020-07-10 23:39:39,169 [cluster-ClusterId{value='5f088bbbcd47aa6988673ab1', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:39:39,749 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:39:40,076 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:39:40,081 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.422 seconds (JVM running for 6.236)
+2020-07-10 23:39:42,972 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:39:42,973 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:39:42,984 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 9 ms
+2020-07-10 23:39:43,378 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:81}] to localhost:27017
+2020-07-10 23:42:49,306 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 5544 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:42:49,312 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:42:50,405 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:42:50,443 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 30ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:42:50,828 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:42:51,182 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:42:51,246 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:42:51,247 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:42:51,412 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:42:51,412 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1954 ms
+2020-07-10 23:42:52,059 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:42:52,060 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:42:52,151 [cluster-ClusterId{value='5f088c7c05aa0f75b0ceaa38', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:82}] to localhost:27017
+2020-07-10 23:42:52,159 [cluster-ClusterId{value='5f088c7c05aa0f75b0ceaa38', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5054296}
+2020-07-10 23:42:52,162 [cluster-ClusterId{value='5f088c7c05aa0f75b0ceaa38', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:42:52,713 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:42:53,071 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:42:53,076 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.845 seconds (JVM running for 6.652)
+2020-07-10 23:43:00,145 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:43:00,146 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:43:00,155 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 8 ms
+2020-07-10 23:43:00,580 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:83}] to localhost:27017
+2020-07-10 23:44:24,235 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 7596 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:44:24,240 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:44:25,216 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:44:25,247 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 23ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:44:25,611 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:44:25,930 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:44:25,987 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:44:25,987 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:44:26,125 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:44:26,126 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1783 ms
+2020-07-10 23:44:26,736 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:44:26,738 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:44:26,819 [cluster-ClusterId{value='5f088cda34df6c012485079b', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:84}] to localhost:27017
+2020-07-10 23:44:26,826 [cluster-ClusterId{value='5f088cda34df6c012485079b', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4935602}
+2020-07-10 23:44:26,828 [cluster-ClusterId{value='5f088cda34df6c012485079b', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:44:27,359 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:44:27,696 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:44:27,701 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.405 seconds (JVM running for 6.036)
+2020-07-10 23:44:31,086 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:44:31,087 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:44:31,095 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 8 ms
+2020-07-10 23:44:31,682 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:85}] to localhost:27017
+2020-07-10 23:49:42,024 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 6316 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:49:42,035 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:49:42,988 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:49:43,023 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:49:43,426 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:49:43,765 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:49:43,781 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:49:43,782 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:49:43,961 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:49:43,961 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1826 ms
+2020-07-10 23:49:44,655 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:49:44,656 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:49:44,742 [cluster-ClusterId{value='5f088e18d98f9d28afe51f5f', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:86}] to localhost:27017
+2020-07-10 23:49:44,751 [cluster-ClusterId{value='5f088e18d98f9d28afe51f5f', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4883395}
+2020-07-10 23:49:44,753 [cluster-ClusterId{value='5f088e18d98f9d28afe51f5f', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:49:45,401 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:49:45,726 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:49:45,730 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.61 seconds (JVM running for 6.322)
+2020-07-10 23:49:49,427 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:49:49,428 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:49:49,439 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 11 ms
+2020-07-10 23:49:49,886 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:87}] to localhost:27017
+2020-07-10 23:51:10,336 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 4572 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:51:10,345 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:51:11,260 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:51:11,287 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 20ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:51:11,654 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:51:11,988 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:51:12,003 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:51:12,003 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:51:12,200 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:51:12,201 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1742 ms
+2020-07-10 23:51:12,883 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:51:12,884 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:51:12,961 [cluster-ClusterId{value='5f088e7009a42a08c35f0a50', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:88}] to localhost:27017
+2020-07-10 23:51:12,968 [cluster-ClusterId{value='5f088e7009a42a08c35f0a50', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4263600}
+2020-07-10 23:51:12,969 [cluster-ClusterId{value='5f088e7009a42a08c35f0a50', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:51:13,495 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:51:13,819 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:51:13,824 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.414 seconds (JVM running for 6.035)
+2020-07-10 23:51:17,829 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:51:17,830 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:51:17,842 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 12 ms
+2020-07-10 23:51:18,380 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:89}] to localhost:27017
+2020-07-10 23:55:32,251 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 8072 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:55:32,265 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:55:33,197 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:55:33,228 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 23ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:55:33,594 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:55:33,925 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:55:33,942 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:55:33,943 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:55:34,118 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:55:34,119 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1673 ms
+2020-07-10 23:55:34,798 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:55:34,799 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:55:34,881 [cluster-ClusterId{value='5f088f76868bd86539afc36a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:90}] to localhost:27017
+2020-07-10 23:55:34,892 [cluster-ClusterId{value='5f088f76868bd86539afc36a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7764169}
+2020-07-10 23:55:34,893 [cluster-ClusterId{value='5f088f76868bd86539afc36a', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:55:35,407 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:55:35,754 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:55:35,759 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.469 seconds (JVM running for 6.076)
+2020-07-10 23:55:38,323 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:55:38,324 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:55:38,338 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 13 ms
+2020-07-10 23:55:38,896 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:91}] to localhost:27017
+2020-07-10 23:56:12,035 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 6516 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:56:12,042 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:56:13,002 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:56:13,033 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 23ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:56:13,419 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:56:13,752 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:56:13,768 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:56:13,768 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:56:13,910 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:56:13,911 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1742 ms
+2020-07-10 23:56:14,799 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:56:14,803 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:56:14,944 [cluster-ClusterId{value='5f088f9e0c95820777191631', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:92}] to localhost:27017
+2020-07-10 23:56:14,959 [cluster-ClusterId{value='5f088f9e0c95820777191631', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=12102733}
+2020-07-10 23:56:14,961 [cluster-ClusterId{value='5f088f9e0c95820777191631', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:56:15,503 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:56:15,894 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:56:15,898 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.869 seconds (JVM running for 6.505)
+2020-07-10 23:56:19,537 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:56:19,538 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:56:19,545 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 7 ms
+2020-07-10 23:56:19,950 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:93}] to localhost:27017
+2020-07-10 23:56:40,105 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 6048 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:56:40,112 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:56:41,050 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:56:41,078 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 20ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:56:41,444 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:56:41,804 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:56:41,820 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:56:41,821 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:56:41,957 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:56:41,957 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1754 ms
+2020-07-10 23:56:42,595 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:56:42,595 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:56:42,682 [cluster-ClusterId{value='5f088fbaf6f47c67319571d1', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:94}] to localhost:27017
+2020-07-10 23:56:42,689 [cluster-ClusterId{value='5f088fbaf6f47c67319571d1', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4124827}
+2020-07-10 23:56:42,691 [cluster-ClusterId{value='5f088fbaf6f47c67319571d1', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:56:43,199 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:56:43,512 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:56:43,516 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.37 seconds (JVM running for 6.075)
+2020-07-10 23:56:50,802 [http-nio-8080-exec-1] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 23:56:50,803 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:525 - Initializing Servlet 'dispatcherServlet'
+2020-07-10 23:56:50,813 [http-nio-8080-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] FrameworkServlet.java:547 - Completed initialization in 10 ms
+2020-07-10 23:56:51,296 [http-nio-8080-exec-1] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:2, serverValue:95}] to localhost:27017
+2020-07-10 23:59:40,321 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:55 - Starting PokemonPortalApplication on Yao-PC with PID 8948 (E:\java\study\deep-pokemon\pokemon-portal\target\classes started by Yao in E:\java\study\deep-pokemon)
+2020-07-10 23:59:40,328 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] SpringApplication.java:651 - No active profile set, falling back to default profiles: default
+2020-07-10 23:59:41,238 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:127 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-10 23:59:41,269 [main] INFO  [o.s.d.r.config.RepositoryConfigurationDelegate] RepositoryConfigurationDelegate.java:187 - Finished Spring Data repository scanning in 22ms. Found 0 MongoDB repository interfaces.
+2020-07-10 23:59:41,622 [main] WARN  [org.apache.catalina.core.AprLifecycleListener] DirectJDKLog.java:175 - The APR based Apache Tomcat Native library failed to load. The error reported was [E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform]
+java.lang.UnsatisfiedLinkError: E:\apache-tomcat-7.0.100\bin\tcnative-1.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1941)
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1857)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.apache.tomcat.jni.Library.<init>(Library.java:69)
+	at org.apache.tomcat.jni.Library.initialize(Library.java:206)
+	at org.apache.catalina.core.AprLifecycleListener.init(AprLifecycleListener.java:198)
+	at org.apache.catalina.core.AprLifecycleListener.isAprAvailable(AprLifecycleListener.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getDefaultLifecycleListeners(TomcatServletWebServerFactory.java:168)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.<init>(TomcatServletWebServerFactory.java:119)
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat.tomcatServletWebServerFactory(ServletWebServerFactoryConfiguration.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.mimosa.pokemon.portal.PokemonPortalApplication.main(PokemonPortalApplication.java:10)
+2020-07-10 23:59:41,961 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:91 - Tomcat initialized with port(s): 8080 (http)
+2020-07-10 23:59:41,979 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2020-07-10 23:59:41,980 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-07-10 23:59:42,159 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2020-07-10 23:59:42,160 [main] INFO  [org.springframework.web.context.ContextLoader] ServletWebServerApplicationContext.java:284 - Root WebApplicationContext: initialization completed in 1731 ms
+2020-07-10 23:59:42,754 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-07-10 23:59:42,755 [main] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Adding discovered server localhost:27017 to client view of cluster
+2020-07-10 23:59:42,843 [cluster-ClusterId{value='5f08906e6323491df9507857', description='null'}-localhost:27017] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Opened connection [connectionId{localValue:1, serverValue:98}] to localhost:27017
+2020-07-10 23:59:42,850 [cluster-ClusterId{value='5f08906e6323491df9507857', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4570597}
+2020-07-10 23:59:42,851 [cluster-ClusterId{value='5f08906e6323491df9507857', description='null'}-localhost:27017] INFO  [org.mongodb.driver.cluster] SLF4JLogger.java:71 - Discovered cluster type of STANDALONE
+2020-07-10 23:59:43,370 [main] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:181 - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 23:59:43,736 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:203 - Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 23:59:43,741 [main] INFO  [com.mimosa.pokemon.portal.PokemonPortalApplication] StartupInfoLogger.java:61 - Started PokemonPortalApplication in 4.366 seconds (JVM running for 6.174)

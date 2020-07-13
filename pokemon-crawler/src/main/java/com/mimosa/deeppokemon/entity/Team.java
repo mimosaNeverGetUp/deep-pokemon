@@ -42,6 +42,25 @@ public class Team {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+        for (Pokemon pokemon : pokemons) {
+            if (!team.pokemons.contains(pokemon)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return pokemons != null ? pokemons.hashCode() : 0;
+    }
+
+    @Override
     public String toString() {
         return  " Team:" +"\n"+
                 "       playerName:'" + playerName + '\'' +"\n"+

@@ -1,12 +1,8 @@
 spring:
     data:
         mongodb:
-            authentication-database: admin
+            uri: mongodb://mimosa:filter@localhost:27017/?authSource=admin
             database: deep_pokemon_test
-            host: localhost
-            port: 27017
-            username: mimosa
-            password: filter
     jackson:
         timeZone : GMT+8
 

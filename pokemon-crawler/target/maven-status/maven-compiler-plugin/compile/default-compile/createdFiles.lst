@@ -12,4 +12,5 @@ com\mimosa\deeppokemon\crawler\HtmlTeamExtracter.class
 com\mimosa\deeppokemon\entity\Pokemon.class
 com\mimosa\deeppokemon\config\ScheduledConfig.class
 com\mimosa\deeppokemon\crawler\LadderPlayerExtracter.class
+com\mimosa\deeppokemon\config\MyCommandLineRunner.class
 com\mimosa\deeppokemon\crawler\LadderBattleCrawler.class

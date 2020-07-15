@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>player-record</title>
+    <style type="text/css">
+
+        a:link{color:black;}
+
+        a:visited{color:black;}
+
+    </style>
+</head>
+<body>
+<table  border="0" align="center"  cellspacing="50" th:marginheight="10" >
+    <tr align="center">
+        <td style="text-align: center;border-style: none" >
+            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" th:text="排行榜"></a>
+        </td>
+        <td style="text-align: center;border-style: none">
+            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team?page=1'" th:text="队伍集"></a>
+        </td>
+        <td style="text-align: center;border-style: none" >
+            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/stat'}" th:text="宝可梦"></a>
+        </td>
+    </tr>
+</table>
+    <table  border="0" align="center"  cellspacing="50" th:marginheight="10" >
+        <tr  align="center">
+            <td colspan="2">
+                <!--/*@thymesVar id="player" type="com.mimosa.deeppokemon.entity.Player"*/-->
+                <p th:text="'Name: ' + ${player.getName()  }">
+                    t
+                </p>
+                <p th:text="'ELo: ' + ${player.getElo()  }">
+                    t
+                </p>
+                <p th:text="'Rank: ' + ${player.getRank()  }">
+                    t
+                </p>
+                <p th:text="'Gxe: ' + ${player.getGxe()  }">
+                    t
+                </p>
+            </td>
+        </tr>
+        <!--/*@thymesVar id="battleList" type="java.util.List"*/-->
+        <tr  th:each="battle : ${battleList}" align="center">
+
+            <table border="1" align="center" cellspacing="50" width="1200"
+                   th:style="${battle.getWinner() == player.getName()?'background-color:#a3cfec' : 'background-color:#e2b6b3' }">
+                <tr th:height="50">
+                    <td align="centre" colspan="2" style="text-align: center;border-style:none" >
+                        <a th:text=" ${battle.getBattleID()}" th:href="'https://replay.pokemonshowdown.com/'
+                        + ${battle.getBattleID()}" >
+                        </a>
+                        <p th:text="${battle.getDate()}"></p>
+                    </td>
+                </tr>
+                <tr align="centre">
+                    <td th:each="team : ${battle.getTeams()}"    align="centre" valign="middle" style="text-align: center;border-style:none">
+                        <table border="0" align="centre" valign="middle" width="500">
+                            <tr>
+                                <td th:text="${team.getPlayerName()}" align="centre" colspan="6" style="text-align: center;border-style:none"   >
+                                    1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td th:each="pokemon: ${team.getPokemons()}" style="text-align: center;border-style:none"  >
+                                    <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.toString()}">
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+            </table>
+        </tr>
+    </table>
+    <table  border="0" align="center"  cellspacing="50" th:marginheight="10" >
+        <tr>
+            <td style="text-align: center;border-style: none" colspan="2">
+                <a th:href="${#httpServletRequest.getRequestURI()}+'?page='+${page-1}+'&name='+${player.getName()}" th:text="上一页"></a>
+            </td>
+            <td style="text-align: center;border-style: none" colspan="2">
+                <a th:href="${#httpServletRequest.getRequestURI()}+'?page='+${page+1}+'&name='+${player.getName()}" th:text="下一页"></a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

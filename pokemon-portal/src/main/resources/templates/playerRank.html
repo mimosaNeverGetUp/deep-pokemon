@@ -12,47 +12,114 @@
         a:visited {
             color: black;
         }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+        .td{
+            text-align: center;
+            border-left-style: none;
+            border-right-style: none;
+            height: 180px;
+        }
+
+
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            width: 180px;
+            /* 定位 */
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            right: 105%;
+
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
-<table  border="0" align="center"  cellspacing="50" th:marginheight="10" >
-    <tr align="center">
-        <td style="text-align: center;border-style: none" >
-            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" th:text="排行榜"></a>
-        </td>
-        <td style="text-align: center;border-style: none">
-            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team?page=1'" th:text="队伍集"></a>
-        </td>
-        <td style="text-align: center;border-style: none" >
-            <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/stat'}" th:text="宝可梦"></a>
-        </td>
+<ul>
+    <li><a class="active" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" style="color: white">排行榜</a></li>
+    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team?page=1'" style="color: white" >队伍集</a></li>
+    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
+    + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
+    <li style="float: right;color: white;padding: 14px 16px;"> <span th:text="'最近更新:' + ${playerList.get(0).getInfoDate()}"> </span></li>
+</ul>
+
+
+<table border="1" align="center"  width="100%" STYLE="border-collapse : collapse;background-color: gainsboro">
+    <tr style="height: 50px">
+        <th style="text-align: center;border-style: none">rank</th>
+        <th style="text-align: center;border-style: none">player</th>
+        <th style="text-align: center;border-style: none">elo</th>
+        <th style="text-align: center;border-style: none">gxe</th>
+        <th style="text-align: center;border-style: none">recent team</th>
     </tr>
-</table>
-<table border="1" align="center" cellspacing="50" width="1200">
-    <tr>
-        <td style="text-align: center;border-style: none">rank</td>
-        <td style="text-align: center;border-style: none">player</td>
-        <td style="text-align: center;border-style: none">elo</td>
-        <td style="text-align: center;border-style: none">gxe</td>
-        <td style="text-align: center;border-style: none">recent team</td>
-    </tr>
-    <tr th:each="player :  ${playerList}">
-        <td style="text-align: center;border-style: none" th:text="${player.getRank()}">rank</td>
-        <td style="text-align: center;border-style: none">
+    <tr th:each="player :  ${playerList}" >
+        <td  th:text="${player.getRank()}" class="td">rank</td>
+        <td class="td" >
             <a th:text="${player.getName()}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'record?page=1&name='+${player.getName()}"></a>
         </td>
-        <td style="text-align: center;border-style: none" th:text="${player.getElo()}">elo</td>
-        <td style="text-align: center;border-style: none" th:text="${player.getGxe()}">gxe</td>
-        <td style="text-align: center;border-style: none" colspan="2">
-            <table border="0" align="center">
+        <td  class="td" th:text="${player.getElo()}">elo</td>
+        <td class="td" th:text="${player.getGxe()}">gxe</td>
+        <td  class="td" colspan="3">
+            <table border="0" align="center" style="width: 70%;">
                 <tr>
-                    <td th:each="pokemon : ${teamList.get(2*playerStat.index).getPokemons()}">
-                        <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.toString()}">
-                    </td>
+                        <td th:each="pokemon : ${teamList.get(2*playerStat.index).getPokemons()}" >
+                            <div class="tooltip">
+                                <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.getName()}" >
+                                <div class="tooltiptext" >
+                                    <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
+                                    <p th:each="move : ${pokemon.getMoves()}">
+                                        <span th:text="'-' + ${move}"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
                 </tr>
                 <tr>
-                    <td th:each="pokemon : ${teamList.get(2*playerStat.index+1).getPokemons()}">
-                        <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.toString()}">
+                    <td th:each="pokemon : ${teamList.get(2*playerStat.index+1).getPokemons()}" >
+                        <div class="tooltip">
+                            <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.getName()}" >
+                            <div class="tooltiptext" >
+                                <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
+                                <p th:each="move : ${pokemon.getMoves()}">
+                                    <span th:text="'-' + ${move}"></span>
+                                </p>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </table>

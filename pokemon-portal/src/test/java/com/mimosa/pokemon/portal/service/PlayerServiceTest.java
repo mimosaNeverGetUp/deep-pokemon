@@ -20,7 +20,7 @@ class PlayerServiceTest {
 
     @Test
     void listPlayerRank() {
-        List<Player> playerList = playerService.listPlayerRank();
+        List<Player> playerList = playerService.listPlayerRank(1);
         for (Player player :playerList ) {
             System.out.println(player);
         }

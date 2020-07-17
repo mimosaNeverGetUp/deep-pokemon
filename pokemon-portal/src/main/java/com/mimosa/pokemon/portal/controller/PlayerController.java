@@ -24,6 +24,10 @@ public class PlayerController {
     public String player(String name, Model model,int page) {
         List<Battle> battleList = battleService.listBattleByName(name,page);
         Player player = playerService.findPlayerByName(name);
+        if (player == null) {
+            player = new Player();
+            player.setName(name);
+        }
         model.addAttribute("player", player);
         model.addAttribute("battleList", battleList);
         model.addAttribute("page", page);

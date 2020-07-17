@@ -21,10 +21,16 @@ public class PlayerListController {
 
     @RequestMapping("/list")
     public String list(Model model) {
-        List<Player> playerList = playerService.listPlayerRank();
+        return "redirect:/rank?page=1";
+    }
+
+    @RequestMapping("/rank")
+    public String list(Model model,int page) {
+        List<Player> playerList = playerService.listPlayerRank(page);
         List<Team> teamList = battleService.listTeamByPlayerList(playerList);
         model.addAttribute("playerList", playerList);
         model.addAttribute("teamList", teamList);
+        model.addAttribute("page", page);
         return "playerRank";
     }
 

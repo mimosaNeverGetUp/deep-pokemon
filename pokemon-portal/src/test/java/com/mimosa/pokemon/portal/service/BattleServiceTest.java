@@ -26,7 +26,7 @@ class BattleServiceTest {
 
     @Test
     void listTeamByPlayerList() {
-        List<Player> playerList = playerService.listPlayerRank();
+        List<Player> playerList = playerService.listPlayerRank(1);
         List<Team> teamList = battleService.listTeamByPlayerList(playerList);
         for (Player player : playerList) {
             System.out.println(player.getName());

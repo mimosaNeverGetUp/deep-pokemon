@@ -4,6 +4,7 @@ E:\java\study\deep-pokemon\pokemon-crawler\src\main\java\com\mimosa\deeppokemon\
 E:\java\study\deep-pokemon\pokemon-crawler\src\main\java\com\mimosa\deeppokemon\crawler\HtmlTeamExtracter.java
 E:\java\study\deep-pokemon\pokemon-crawler\src\main\java\com\mimosa\deeppokemon\crawler\PokemonIconExtracter.java
 E:\java\study\deep-pokemon\pokemon-crawler\src\main\java\com\mimosa\deeppokemon\entity\Team.java
+E:\java\study\deep-pokemon\pokemon-crawler\src\main\java\com\mimosa\deeppokemon\controller\CrawPlayerController.java
 E:\java\study\deep-pokemon\pokemon-crawler\src\main\java\com\mimosa\deeppokemon\crawler\TeamCrawler.java
 E:\java\study\deep-pokemon\pokemon-crawler\src\main\java\com\mimosa\deeppokemon\crawler\PlayerUrlExtracter.java
 E:\java\study\deep-pokemon\pokemon-crawler\src\main\java\com\mimosa\deeppokemon\crawler\LadderBattleCrawler.java

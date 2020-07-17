@@ -4,6 +4,7 @@ com\mimosa\deeppokemon\crawler\TeamCrawler.class
 com\mimosa\deeppokemon\entity\Team.class
 com\mimosa\deeppokemon\entity\Player.class
 com\mimosa\deeppokemon\entity\Battle.class
+com\mimosa\deeppokemon\controller\CrawPlayerController.class
 com\mimosa\deeppokemon\service\BattleService.class
 com\mimosa\deeppokemon\service\PlayerService.class
 com\mimosa\deeppokemon\crawler\PokemonIconExtracter.class

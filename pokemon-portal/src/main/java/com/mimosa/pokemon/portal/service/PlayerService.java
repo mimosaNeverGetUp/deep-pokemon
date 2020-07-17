@@ -35,8 +35,11 @@ public class PlayerService {
         return playerList;
     }
 
-    public List<Player> listPlayerRank()  {
+    public List<Player> listPlayerRank(int page)  {
         //查询数据库里储存的最新的日期
+        int num_perPage=25;
+        int start = num_perPage * (page-1);
+        int end = start +num_perPage;
         Query query = new BasicQuery("{}")
                 .with(Sort.by(Sort.Order.desc("infoDate")))
                 .limit(1);
@@ -46,9 +49,11 @@ public class PlayerService {
         query = new BasicQuery("{}")
                 .with(Sort.by(Sort.Order.asc("rank")));
         Criteria criteria = Criteria.where("infoDate").gte(date);
+        Criteria criteria1 = Criteria.where("rank").gt(start).lte(end);
         query.addCriteria(criteria);
+        query.addCriteria(criteria1);
         List<Player> playerList = mongoTemplate.find(query, Player.class, "player");
-        //去除列表里重复
+        //去除列表里重复和范围外元素
         for (int i = 0; i < playerList.size(); ++i) {
            for (int j = playerList.size() - 1; j > i; --j) {
                if (playerList.get(i).equals(playerList.get(j))) {

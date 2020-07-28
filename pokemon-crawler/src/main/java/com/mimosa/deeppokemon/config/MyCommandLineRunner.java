@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component  // @Compoent 注解将 MyCommandLineRunner 注册为Spring容器中的一个 Bean。
+//@Component  // @Compoent 注解将 MyCommandLineRunner 注册为Spring容器中的一个 Bean。
 @Order(100) //@Order注解，表示这个启动任务的执行优先级，在一个项目中，启动任务可能有多个，所以需要有一个排序。@Order 注解中，数字越小，优先级越大，默认情况下，优先级的值为 Integer.MAX_VALUE，表示优先级最低。
 public class MyCommandLineRunner implements CommandLineRunner {
     @Autowired

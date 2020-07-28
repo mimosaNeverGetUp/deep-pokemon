@@ -1,10 +1,13 @@
 package com.mimosa.deeppokemon.entity;
 
+import javafx.util.Pair;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 @Document(collection = "battle")
 public class Battle {
@@ -15,15 +18,31 @@ public class Battle {
     private String winner;
     private float avageRating;
     private Team[] teams;
+    private String healthLinePairJsonString;
+    private String highLightJsonString;
+
+
+
     public Battle(Team[] teams) {
         this.teams = teams;
     }
 
-    public Battle(Team[] teams, LocalDate date, String winner, float avageRating) {
+    public Battle(String battleID, String info, LocalDate date, String winner, float avageRating, Team[] teams) {
+        this.battleID = battleID;
+        this.info = info;
+        this.date = date;
+        this.winner = winner;
+        this.avageRating = avageRating;
+        this.teams = teams;
+    }
+
+    public Battle(Team[] teams, LocalDate date, String winner, float avageRating, String healthLinePairJsonString) {
+
         this.teams = teams;
         this.date = date;
         this.winner = winner;
         this.avageRating = avageRating;
+        this.healthLinePairJsonString = healthLinePairJsonString;
     }
 
     public Battle() {
@@ -90,6 +109,20 @@ public class Battle {
                 "\n\n").replaceAll(","," ");
     }
 
+    public String getHealthLinePairJsonString() {
+        return healthLinePairJsonString;
+    }
+
+    public void setHealthLinePairJsonString(String healthLinePairJsonString) {
+        this.healthLinePairJsonString = healthLinePairJsonString;
+    }
+    public String getHighLightJsonString() {
+        return highLightJsonString;
+    }
+
+    public void setHighLightJsonString(String highLightJsonString) {
+        this.highLightJsonString = highLightJsonString;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

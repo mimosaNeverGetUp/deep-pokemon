@@ -1,3 +1,4 @@
 com\mimosa\deeppokemon\crawler\PokemonIconExtracterTest.class
+com\mimosa\deeppokemon\crawler\HtmlTeamExtracterTest.class
 com\mimosa\deeppokemon\LadderBattleCrawlerTest.class
 com\mimosa\deeppokemon\TeamCrawlerTest.class

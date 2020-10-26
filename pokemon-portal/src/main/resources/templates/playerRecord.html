@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66581373" charset="UTF-8"></script>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>player-record</title>
@@ -64,6 +65,13 @@
             visibility: visible;
         }
     </style>
+    <script>
+        function showStat(id){
+            var picture = document.getElementById(id);
+            picture.style.display = picture.style.display == "none" ? "" : "none";
+        }
+
+    </script>
 </head>
 <body>
 <ul>
@@ -120,7 +128,7 @@
                             <tr>
                                 <td th:each="pokemon : ${team.getPokemons()}" style="text-align: center;border-style:none" >
                                     <div class="tooltip">
-                                        <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.getName()}" >
+                                        <img th:src="'/test/'+ ${pokemon.getName().replace('\*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                                         <div class="tooltiptext" >
                                             <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                             <p th:each="move : ${pokemon.getMoves()}">
@@ -136,9 +144,10 @@
                 </tr>
                 <input type="button"  th:value="${battle.getHighLightJsonString()}" th:id="'tt'+${battleStat.index}" style="display: none" />
                 <input type="button"  th:value="${battle.getHealthLinePairJsonString()}" th:id="'t'+${battleStat.index}" style="display: none" />
-                <tr th:height="30" th:style="${battle.getHealthLinePairJsonString() == null? 'display: none':''}" >
-                    <td align="centre"  style="text-align: center;border-style:none">
-                            <canvas th:id="'myChart'+${battleStat.index}"  style="align-content: center"></canvas>
+                <tr  th:height="30" th:style="${battle.getHealthLinePairJsonString() == null? 'display: none':''}" >
+                    <td align="centre"  style="text-align: center;border-style:none" colspan="2">
+                            <canvas th:id="'myChart'+${battleStat.index}"  style="align-content: center;display: none"></canvas>
+                        <button type="button" th:onclick="'showStat(\'myChart'+${battleStat.index}+'\')'">more</button>
                     </td>
                 </tr>
 

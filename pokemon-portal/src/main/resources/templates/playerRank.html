@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66581373" charset="UTF-8"></script>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>player-list</title>
@@ -99,7 +100,7 @@
                 <tr>
                         <td th:each="pokemon : ${teamList.get(2*playerStat.index).getPokemons()}" >
                             <div class="tooltip">
-                                <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.getName()}" >
+                                <img th:src="'/test/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                                 <div class="tooltiptext" >
                                     <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                     <p th:each="move : ${pokemon.getMoves()}">
@@ -112,7 +113,7 @@
                 <tr>
                     <td th:each="pokemon : ${teamList.get(2*playerStat.index+1).getPokemons()}" >
                         <div class="tooltip">
-                            <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.getName()}" >
+                            <img th:src="'/test/'+ ${pokemon.getName().replace('\*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                             <div class="tooltiptext" >
                                 <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                 <p th:each="move : ${pokemon.getMoves()}">

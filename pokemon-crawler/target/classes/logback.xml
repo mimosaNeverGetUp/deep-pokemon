@@ -44,6 +44,7 @@
         </encoder>
     </appender>
 
+
     <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--如果只是想要 Error 级别的日志，那么需要过滤一下，默认是 info 级别的，ThresholdFilter-->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -72,5 +73,6 @@
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE_INFO"/>
         <appender-ref ref="FILE_ERROR"/>
+
     </root>
 </configuration>

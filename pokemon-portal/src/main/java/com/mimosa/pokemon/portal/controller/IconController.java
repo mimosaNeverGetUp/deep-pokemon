@@ -36,7 +36,7 @@ public class IconController {
             os.close();
             return;
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -49,4 +49,5 @@ public class IconController {
         }
         return output.toByteArray();
     }
+
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66581373" charset="UTF-8"></script>
 <head>
     <meta charset="UTF-8">
     <title>form</title>
@@ -80,8 +81,6 @@
 </ul>
 <div>
     <form method="post" th:action="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/result'}">
-        <label for="name">名字(大写):</label>
-        <input type="text" id="name" name="name" placeholder="Your name.." value="Clefable">
         <br>
         <label for="DA">日期(晚于):</label>
         <input type="date" id="DA" name="dayAfter">

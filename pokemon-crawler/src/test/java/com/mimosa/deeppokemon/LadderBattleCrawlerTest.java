@@ -92,4 +92,8 @@ public class LadderBattleCrawlerTest {
         List<Battle> battles = battleCrawler.crawLadderBattle();
         battleSevice.savaAll(battles);
     }
+
+    @Test
+    public void name() {
+    }
 }

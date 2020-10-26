@@ -3,8 +3,13 @@ spring:
         mongodb:
             uri: mongodb://mimosa:filter@localhost:27017/?authSource=admin
             database: deep_pokemon_test
-    jackson:
+        jackson:
         timeZone : GMT+8
 
+logging:
+    config: classpath:logback.xml
 server:
-    port: 8080
+    tomcat:
+        accesslog:
+            enabled: true
+            directory: /logs/access

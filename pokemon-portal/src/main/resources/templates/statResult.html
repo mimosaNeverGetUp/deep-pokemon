@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66581373" charset="UTF-8"></script>
 <head>
     <meta charset="UTF-8">
     <title>result</title>
@@ -76,47 +76,52 @@
     <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
     + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
 </ul>
-
-<table  border="0" align="center"  cellspacing="50"   style="background-color: #333;width: 100%;color: white">
-    <tr>
-        <td style="width: 142px">
-            <img th:src="'/icon?name=lulu'" width="142" height="149">
-        </td>
-        <td>
-            <p th:text="${name}"></p>
-            <p th:text="'登场率: ' + ${pair.getKey().getKey()}"></p>
-            <p th:text="'胜率: ' + ${pair.getKey().getValue()}"></p>
-        </td>
-    </tr>
-</table>
-<table border="1" align="center" cellspacing="50" width="100%" style="background-color: gainsboro">
-    <tr>
-        <td style="border-style: none;text-align: center">player</td>
-        <td style="border-style: none;text-align: center">team</td>
-    </tr>
-    <tr th:each="team :  ${pair.getValue()}">
-        <td style="text-align: center;border-style: none">
-            <a th:text="${team.getPlayerName()}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'record?page=1&name='+${team.getPlayerName()}"></a>
-        </td>
-        <td style="text-align: center;border-style: none" colspan="2">
-            <table border="0" align="center">
-                <tr>
-                    <td th:each="pokemon : ${team.getPokemons()}" >
-                        <div class="tooltip">
-                            <img th:src="'/icon?name='+ ${pokemon.getName()}" align="centre" th:title="${pokemon.getName()}" >
-                            <div class="tooltiptext" >
-                                <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
-                                <p th:each="move : ${pokemon.getMoves()}">
-                                    <span th:text="'-' + ${move}"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </td>
-
-    </tr>
+<table width="100%">
+    <input type="button" id="currentIdNumber"  th:value="20"  style="display: none" />
+    <table  th:id="'stat'+${resultStat.index}"border="0" align="center"  cellspacing="50"
+            th:style="'background-color: #333;width: 100%;color: white;'
+            + ${resultStat.index >20? 'display: none':''}"  th:each="result: ${list}">
+        <tr>
+            <td style="width: 142px">
+                <img th:src="'/test/'+${result.get_id().replace('\*','')+'.png'}" width="142" height="149">
+            </td>
+            <td>
+                <p th:text="${resultStat.index+1+'. '+result.get_id()}"></p>
+                <p th:text="'登场率: ' + ${T(java.lang.String).format('%.2f', result.getValue().getUse()/result.getValue().getTotal())}"></p>
+                <p th:text="'登场率变化: ' + ${T(java.lang.String).format('%+.2f', result.getValue().getUseDiff())}"
+                    th:style="${result.getValue().getUseDiff()>0 ?'background-color:green':'background-color:red'}" ></p>
+                <p th:text="'胜率: ' + ${T(java.lang.String).format('%.2f',result.getValue().getWin()/result.getValue().getUse())}"></p>
+                <p th:text="'胜率变化: ' + ${T(java.lang.String).format('%+.2f', result.getValue().getWinDiff())}"
+                   th:style="${result.getValue().getWinDiff()>0 ?'background-color:green':'background-color:red'}"></p>
+            </td>
+            <td width="50%" style="text-align: center">
+                <div th:each="key: ${result.getValue().getMoves().keySet()}">
+                    <p th:text="${T(java.lang.String).format('%20s %.2f',key+'',result.getValue().getMoves().get(key))}"></p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table width="100%" style="background-color: #333">
+        <tr>
+            <td align="centre"  style="text-align: center;border-style:none;align-items: center;align-content: center" colspan="2" width="100%" >
+                <button type="button" th:onclick="more()">more</button>
+            </td>
+        </tr>
+    </table>
 </table>
 </body>
 </html>
+<script type="text/javascript">
+    function more(){
+        var currentIdTag = document.getElementById('currentIdNumber');
+        var id = parseInt(currentIdTag.value);
+        var newId = id + 20;
+        window.location.hash = '#stat' + id.toString();
+        for (var i = id; i < newId; ++i) {
+            var stat = document.getElementById('stat'+i.toString());
+            stat.style.display = '';
+        }
+        currentIdTag.value = newId.toString();
+        }
+
+</script>

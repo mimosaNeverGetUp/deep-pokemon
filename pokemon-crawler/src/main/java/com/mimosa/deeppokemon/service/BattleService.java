@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
@@ -65,5 +66,11 @@ public class BattleService {
             return null;
         }
         return battle.getDate();
+    }
+
+    public List<Battle> find100BattleSortByDate() {
+        Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date"))).limit(100);
+        List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
+        return battles;
     }
 }

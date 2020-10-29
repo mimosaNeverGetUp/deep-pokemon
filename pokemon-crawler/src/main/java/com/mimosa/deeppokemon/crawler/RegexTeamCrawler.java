@@ -12,6 +12,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,9 @@ import java.util.regex.Pattern;
 
 @Component
 public class RegexTeamCrawler implements TeamCrawler {
+
+    @Autowired
+    private HtmlTeamExtracter htmlTeamExtracter;
     private static Logger log = LoggerFactory.getLogger(RegexTeamCrawler.class);
     public RegexTeamCrawler() {
     }
@@ -29,7 +33,7 @@ public class RegexTeamCrawler implements TeamCrawler {
         HttpGet httpGet = initGet(url);
         try (CloseableHttpClient httpClient = initClient();CloseableHttpResponse HttpResponse=httpClient.execute(httpGet);){
             String html = EntityUtils.toString(HttpResponse.getEntity());
-            Battle battle = HtmlTeamExtracter.extract(html);
+            Battle battle = htmlTeamExtracter.extract(html);
             String battleID = extractBattleID(url);
             battle.setBattleID(battleID);
             return battle;

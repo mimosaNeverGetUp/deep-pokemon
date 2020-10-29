@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66581373" charset="UTF-8"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<style type="text/css">
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #111;
+    }
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=date], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+
+<body>
+<ul>
+    <li><a class="active" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" style="color: white">排行榜</a></li>
+    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" style="color: white" >队伍集</a></li>
+    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
+    + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
+</ul>
+<table style="width: 100%;background-color: #f2f2f2;height: 100%">
+    <tr style="width: 100%">
+        <td style="width: 25%;text-align: center" >
+            <p>
+                <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'teamList?page=1'">
+                    <img width="60" height="60" src="/test1/Landorus-Therian.png" >
+
+                </a>
+            </p>
+            <p style="text-align: center">全部</p>
+        </td>
+        <td style="width: 25%;text-align: center;text" >
+            <p>
+                <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'teamList?page=1&tag=ATTACK'">
+                    <img width="60" height="60" src="/test1/Naganadel.png" >
+                </a>
+            </p>
+            <p style="text-align: center">攻向</p>
+        </td>
+        <td style="width: 25%;text-align: center" >
+            <p>
+                <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'teamList?page=1&tag=BALANCE'">
+                    <img width="60" height="60" src="/test1/Magearna.png" >
+                </a>
+            </p>
+            <p style="text-align: center">平衡向</p>
+        </td>
+        <td style="width: 25%;text-align: center" >
+            <p>
+                <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'teamList?page=1&tag=STAFF'">
+                    <img width="60" height="60" src="/test1/Chansey.png" >
+                </a>
+            </p>
+            <p style="text-align: center">受向</p>
+        </td>
+    </tr>
+    <tr style="width: 100%">
+        <div>
+            <form method="get" th:action="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/teamList'}">
+                <br>
+                <label for="name">包含精灵</label>
+                <input type="text" id="name" name="pokemonName">
+                <br>
+                <label for="tag">队伍风格</label>
+                <input type="text" id="tag" name="tag" list="typelist" placeholder="下拉选择">
+                <datalist id="typelist">
+                    　　<option>STAFF</option>
+                    　　<option>BALANCE</option>
+                    　　<option>ATTACK</option>
+                </datalist>
+                <br>
+                <label for="DA">日期(晚于):</label>
+                <input type="date" id="DA" name="dayAfter">
+                <br>
+                <label for="DB">日期(早于):</label>
+                <input type="date" id="DB" name="dayBefore"  >
+                <input type="text" name="page" value="1" style="display: none">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </tr>
+</table>
+</body>
+</html>

@@ -5,6 +5,10 @@ import com.mimosa.deeppokemon.entity.Battle;
 import javafx.util.Pair;
 import net.minidev.json.JSONArray;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +16,11 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
 class HtmlTeamExtracterTest {
+    @Autowired
+    private HtmlTeamExtracter htmlTeamExtracter;
 
     @Test
     void extractHealthLineDataTest() throws Exception {
@@ -496,7 +503,7 @@ class HtmlTeamExtracterTest {
                 "\t<script src=\"/js/replay.js?6887ea68\"></script>\n" +
                 "\n" +
                 "</body></html>\n");
-        Battle battle = HtmlTeamExtracter.extract(html);
+        Battle battle = htmlTeamExtracter.extract(html);
 
 //        for (ArrayList<HashMap<String, Float>> arrayList : lists) {
 //            for (HashMap<String, Float> hashMap : arrayList) {
@@ -991,7 +998,7 @@ class HtmlTeamExtracterTest {
                 "\t<script src=\"/js/replay.js?6887ea68\"></script>\n" +
                 "\n" +
                 "</body></html>\n");
-        HtmlTeamExtracter.extractHighLight(html);
+        htmlTeamExtracter.extractHighLight(html);
     }
 }
 

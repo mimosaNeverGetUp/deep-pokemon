@@ -6,6 +6,10 @@ import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Player;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.PlayerService;
+import com.mimosa.deeppokemon.tagger.TeamAttackDefenceTagProvider;
+import com.mimosa.deeppokemon.tagger.TeamPopularTagProvider;
+import com.mimosa.deeppokemon.tagger.TeamTagProvider;
+import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +18,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication

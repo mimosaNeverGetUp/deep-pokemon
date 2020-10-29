@@ -5,6 +5,8 @@ import com.mimosa.deeppokemon.crawler.LadderBattleCrawler;
 import com.mimosa.deeppokemon.crawler.RegexTeamCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Player;
+import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.PlayerService;
 import org.junit.Test;
@@ -88,9 +90,18 @@ public class LadderBattleCrawlerTest {
                 battleCrawler.getFormat(), battleCrawler.getPageLimit(), battleCrawler.getRankMoreThan(),
                 battleCrawler.getMinElo(), battleCrawler.getMinGxe(), battleCrawler.getDateAfter()));
         List<Player> players = battleCrawler.crawLadeerName();
-        playerService.saveAll(players);
         List<Battle> battles = battleCrawler.crawLadderBattle();
         battleSevice.savaAll(battles);
+        System.out.println(battles.size());
+        for (Battle battle : battles) {
+            for (Team team:battle.getTeams()) {
+                for (Pokemon pokemon : team.getPokemons()) {
+                    System.out.println(pokemon.getName());
+                }
+                System.out.println(team.getTagSet());
+            }
+        }
+
     }
 
     @Test

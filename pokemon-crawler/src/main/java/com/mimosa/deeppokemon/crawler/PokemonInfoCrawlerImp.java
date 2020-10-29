@@ -1,21 +1,25 @@
 package com.mimosa.deeppokemon.crawler;
 import com.mimosa.deeppokemon.entity.BaseStats;
+import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Type;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+
 /**
  * @program: deep-pokemon
- * @description: 宝可梦数据爬取
+ * @description: 宝可梦数据爬取,创建时储存在内存里减少io但增加内存负担
  * @author: mimosa
  * @create: 2020//10//18
  */
@@ -23,10 +27,45 @@ import java.util.List;
 
 @Component
 public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
-    private final String dataPath = "src/main/resources/META-INF/pokemonInfo.txt";
+
+    private static Logger logger = LoggerFactory.getLogger(PokemonInfoCrawlerImp.class);
+    private final String dataPath = "META-INF/pokemoninfo.txt";
+    private HashMap<String, PokemonInfo> infoHashMap =new HashMap<>(900);
+
+    public PokemonInfoCrawlerImp()  {
+        try {
+            List<PokemonInfo> pokemonInfos = craw();
+            for (PokemonInfo pokemonInfo : pokemonInfos) {
+                infoHashMap.put(pokemonInfo.getName(), pokemonInfo);
+            }
+        } catch (Exception e) {
+            logger.info("宝可梦信息爬取创建失败",e);
+        }
+    }
+
+
+    public PokemonInfo getPokemonInfo(Pokemon pokemon) {
+        if (infoHashMap == null) {
+            return null;
+        }
+        String name = pokemon.getName();
+        //由于多形态而带后缀的名字消去后缀
+        if (name.contains("-*")) {
+            name = name.replace("-*","");
+        }
+        PokemonInfo info = infoHashMap.get(name);
+        if (info != null) {
+            info.getTags().clear();//清理之前贴上的标签
+        }
+        return info;
+    }
+
     @Override
     public List<PokemonInfo> craw() throws IOException {
-        byte[] dataByte = Files.readAllBytes(new File(dataPath).toPath());
+//        URL fileURL = this.getClass().getClassLoader().getResource(dataPath);
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(dataPath);
+        byte[] dataByte = toByteArray(inputStream);
+//        byte[] dataByte = Files.readAllBytes(new File(fileURL.getFile()).toPath());
         String dataString = new String(dataByte);
         JSONObject jsonObject = new JSONObject(dataString);
         Iterator<String> iterator = jsonObject.keys();
@@ -71,5 +110,15 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
         }
         PokemonInfo pokemonInfo = new PokemonInfo(baseStats, types, tier, name, abilities);
         return pokemonInfo;
+    }
+
+    private byte[] toByteArray(InputStream input) throws IOException {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        int n = 0;
+        while (-1 != (n = input.read(buffer))) {
+            output.write(buffer, 0, n);
+        }
+        return output.toByteArray();
     }
 }

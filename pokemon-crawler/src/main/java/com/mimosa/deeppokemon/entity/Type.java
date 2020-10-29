@@ -29,7 +29,7 @@ public enum Type {
             "12111" + "U1112" + "21111" + "211"),
 
     BUG("BUG", "1U121" + "1UUU1" + "U2UU2" + "U1U",
-            "121U1" + "1U2U2" + "U11111" + "111"),
+            "121U1" + "1U2U2" + "U1111" + "111"),
 
     FLYING("FLYING", "1112U" + "1211U" + "21111" + "U11",
             "111U2" + "2U102" + "U1111" + "111"),
@@ -66,7 +66,7 @@ public enum Type {
 
 
     //一般、火、水、草、电、   冰、虫、飞行、地面、岩石、   格斗、超能力、幽灵、毒、恶、   钢、龙、妖精
-    private static final List<String> TYPEORDER;
+    public static final List<String> TYPEORDER;
     static {
         TYPEORDER = new ArrayList<>(18);
         TYPEORDER.add("NORMAL");
@@ -99,5 +99,45 @@ public enum Type {
         this.name = name;
         this.effectiveType_attack_bitString = effectiveType_attack_bitString;
         this.effectiveType_defense_bitString = effectiveType_defense_bitString;
+    }
+
+    public static List<Float> getResistanceRate(PokemonInfo pokemonInfo){
+        List<Type> types = pokemonInfo.getTypes();
+        List<Float> resistanceRates = new ArrayList<>(18);
+        //单属性，直接转换
+        if (types.size() == 1) {
+            Type type = types.get(0);
+            String s = type.effectiveType_defense_bitString;
+            for (int j = 0; j < s.length(); ++j) {
+                if (s.charAt(j) == 'U') {
+                    resistanceRates.add(0.5F);
+                } else {
+                    resistanceRates.add(Float.parseFloat(String.valueOf(s.charAt(j))));
+                }
+            }
+            return resistanceRates;
+        }
+        //双属性，属性修正相乘
+        Type firstType = types.get(0);
+        Type secondType = types.get(1);
+        for (int i = 0; i < firstType.effectiveType_defense_bitString.length(); ++i) {
+            char firstResistanceRateChar = firstType.effectiveType_defense_bitString.charAt(i);
+            char secondResistanceRateChar = secondType.effectiveType_defense_bitString.charAt(i);
+            //“U”对应0.5
+            float firstResistanceRate;
+            float secondResistanceRate;
+            if (firstResistanceRateChar == 'U') {
+                firstResistanceRate = 0.5f;
+            } else {
+                firstResistanceRate = Float.parseFloat(String.valueOf(firstResistanceRateChar));
+            }
+            if (secondResistanceRateChar == 'U') {
+                secondResistanceRate = 0.5f;
+            } else {
+                secondResistanceRate = Float.parseFloat(String.valueOf(secondResistanceRateChar));
+            }
+            resistanceRates.add(firstResistanceRate * secondResistanceRate);
+        }
+        return resistanceRates;
     }
 }

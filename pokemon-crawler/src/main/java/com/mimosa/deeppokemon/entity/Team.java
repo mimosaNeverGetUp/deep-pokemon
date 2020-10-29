@@ -2,12 +2,14 @@ package com.mimosa.deeppokemon.entity;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Team {
     private  String playerName;
     private  String tier;
     private ArrayList<Pokemon> pokemons;
-
+    private HashSet<Tag> tagSet=new HashSet<>();
     public String getTier() {
         return tier;
     }
@@ -41,6 +43,14 @@ public class Team {
         this.pokemons = pokemons;
     }
 
+    public HashSet<Tag> getTagSet() {
+        return tagSet;
+    }
+
+    public void setTagSet(HashSet<Tag> tagSet) {
+        this.tagSet = tagSet;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,10 +72,11 @@ public class Team {
 
     @Override
     public String toString() {
-        return  " Team:" +"\n"+
-                "       playerName:'" + playerName + '\'' +"\n"+
-                "       tier:'" + tier + '\'' +"\n"+
-                        pokemons +
-                "\n\n";
+        return "Team{" +
+                "playerName='" + playerName + '\'' +
+                ", tier='" + tier + '\'' +
+                ", pokemons=" + pokemons +
+                ", tagSet=" + tagSet +
+                '}';
     }
 }

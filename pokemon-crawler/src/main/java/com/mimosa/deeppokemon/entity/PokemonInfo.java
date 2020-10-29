@@ -90,6 +90,8 @@ public class PokemonInfo {
         this.tags = tags;
     }
 
+
+
     @Override
     public String toString() {
         return "PokemonInfo{" +

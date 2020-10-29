@@ -4,6 +4,7 @@ import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Player;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.PlayerService;
+import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;

@@ -72,7 +72,7 @@
     <li><a class="active" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
      ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" style="color: white">排行榜</a></li>
     <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team?page=1'" style="color: white" >队伍集</a></li>
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" style="color: white" >队伍集</a></li>
     <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
     + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
 </ul>
@@ -83,7 +83,7 @@
             + ${resultStat.index >20? 'display: none':''}"  th:each="result: ${list}">
         <tr>
             <td style="width: 142px">
-                <img th:src="'/test/'+${result.get_id().replace('\*','')+'.png'}" width="142" height="149">
+                <img th:src="'/test1/'+${result.get_id().replace('*','')+'.png'}" width="142" height="149">
             </td>
             <td>
                 <p th:text="${resultStat.index+1+'. '+result.get_id()}"></p>

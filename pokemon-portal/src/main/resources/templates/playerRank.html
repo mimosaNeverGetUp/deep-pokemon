@@ -73,7 +73,7 @@
     <li><a class="active" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
      ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" style="color: white">排行榜</a></li>
     <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team?page=1'" style="color: white" >队伍集</a></li>
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" style="color: white" >队伍集</a></li>
     <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
     + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
     <li style="float: right;color: white;padding: 14px 16px;"> <span th:text="'最近更新:' + ${playerList.get(0).getInfoDate()}"> </span></li>
@@ -100,7 +100,7 @@
                 <tr>
                         <td th:each="pokemon : ${teamList.get(2*playerStat.index).getPokemons()}" >
                             <div class="tooltip">
-                                <img th:src="'/test/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
+                                <img th:src="'/test1/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                                 <div class="tooltiptext" >
                                     <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                     <p th:each="move : ${pokemon.getMoves()}">
@@ -113,7 +113,7 @@
                 <tr>
                     <td th:each="pokemon : ${teamList.get(2*playerStat.index+1).getPokemons()}" >
                         <div class="tooltip">
-                            <img th:src="'/test/'+ ${pokemon.getName().replace('\*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
+                            <img th:src="'/test1/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                             <div class="tooltiptext" >
                                 <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                 <p th:each="move : ${pokemon.getMoves()}">

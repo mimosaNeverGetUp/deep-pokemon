@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PokemonStatsTagProvider implements PokemonTagProvider {
     //种族分类判断阈值（除hp外）
-    private static final int THRESOLD_BAD = 80;
+    private static final int THRESOLD_BAD = 85;
     private static final int THRESOLD_NROMAL = 100;
     private static final int THRESOLD_GOOD = 120;
     private static final int THRESOLD_EXCELLENT = 140;

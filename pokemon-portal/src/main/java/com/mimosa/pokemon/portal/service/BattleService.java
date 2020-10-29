@@ -1,23 +1,24 @@
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Player;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.pokemon.portal.entity.MapResult;
 import com.mimosa.pokemon.portal.entity.Statistic;
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationOperation;
 import org.springframework.data.mongodb.core.mapreduce.MapReduceOptions;
 import org.springframework.data.mongodb.core.mapreduce.MapReduceResults;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
@@ -312,5 +313,78 @@ public class BattleService {
         }
     }
 
+    public List<Pair<Team, String>> Team1(int page,String tag,String pokemonName,String dayAfter,String dayBefore) {
+        int num_perPage = 20;
+        ArrayList<Team> teamList = new ArrayList<>();
+        List<Pair<Team, String>> teams = new ArrayList<>();
 
+        List<AggregationOperation> operations = new ArrayList<>();
+
+
+
+
+        //设置页数条件
+        operations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
+//        operations.add(Aggregation.unwind("teams"));//将一个文档根据teams拆成多个文档，方便后面查找
+       //动态设置条件
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        if (!StringUtils.isEmpty(dayAfter)) {
+            LocalDate after = LocalDate.parse(dayAfter, format);
+            operations.add(Aggregation.match(Criteria.where("date").gte(after)));
+        }
+        if (!StringUtils.isEmpty(dayBefore)) {
+            LocalDate before = LocalDate.parse(dayBefore, format);
+            operations.add(Aggregation.match(Criteria.where("date").lte(before)));
+        }
+        if (!StringUtils.isEmpty(tag)) {
+            operations.add(Aggregation.match(Criteria.where("teams.tagSet").is(tag)));
+        }
+        if (!StringUtils.isEmpty(pokemonName)) {
+            operations.add(Aggregation.match(Criteria.where("teams.pokemons.name").is(pokemonName)));
+        }
+        operations.add(Aggregation.skip((long) (page - 1) * num_perPage));
+        operations.add(Aggregation.limit(num_perPage));
+        Aggregation aggregation = Aggregation.newAggregation(operations);
+
+        List<Battle> battles = mongoTemplate.aggregate(aggregation, "battle",Battle.class).getMappedResults();
+        for (Battle battle : battles) {
+            for (Team team : battle.getTeams()) {
+                if (team == null) {
+                    continue;
+                }
+                //需要进一步过滤battle里不符合条件或者重复的队伍
+                boolean canAdd = true;
+                for (int i = 0; i < teamList.size(); ++i) {
+                    //检查重复
+                    if (team.equals(teamList.get(i))) {
+                        canAdd = false;
+                        break;
+                    }
+                }
+                if (!StringUtils.isEmpty(pokemonName)) {
+                    boolean hasSpecifyPokemon = false;
+                    for (Pokemon pokemon : team.getPokemons()) {
+                        if (pokemonName.equals(pokemon.getName())) {
+                            hasSpecifyPokemon = true;
+                        }
+                    }
+                    if (!hasSpecifyPokemon) {
+                        canAdd = false;
+                    }
+                }
+                if (!StringUtils.isEmpty(tag)) {
+                    if (!team.getTagSet().contains(Tag.valueOf(tag))) {
+                        canAdd = false;
+                    }
+                }
+                if (canAdd) {
+                    teamList.add(team);
+                    Pair<Team, String> pair = new Pair<>(team, battle.getBattleID());
+                    teams.add(pair);
+                }
+            }
+        }
+        return teams;
+
+    }
 }

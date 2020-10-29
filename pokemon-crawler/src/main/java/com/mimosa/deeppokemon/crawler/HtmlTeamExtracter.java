@@ -5,7 +5,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.tagger.TeamTagger;
 import javafx.util.Pair;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -17,14 +20,23 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class HtmlTeamExtracter {
 
-    public static Battle extract(String html)throws Exception{
+    @Autowired
+    private TeamTagger teamTagger;
+
+
+    public Battle extract(String html)throws Exception{
         try{
             System.out.println("extract Team start");
             String[] playName = extractPlayerName(html);
             String tier = extractTier(html);
             Team[] teams = extractTeam(html);
+            //贴标签
+            for (Team team : teams) {
+                teamTagger.tagTeam(team);
+            }
             ArrayList<ArrayList<HashMap<String, Float>>> lists = extractHealthLineData(html);
             ArrayList<ArrayList<String>> list = extractHighLight(html);
             for (int j = 0; j < lists.size(); ++j) {

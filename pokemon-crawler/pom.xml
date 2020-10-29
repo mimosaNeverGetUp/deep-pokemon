@@ -74,14 +74,11 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.mimosa.deeppokemon.PokemoCrawlerApplication</mainClass>
-                        </manifest>
-                    </archive>
+                    <mainClass>com.mimosa.deeppokemon.PokemoCrawlerApplication</mainClass>
+                    <classifier>exec</classifier>
                     <skip>true</skip>
                 </configuration>
             </plugin>

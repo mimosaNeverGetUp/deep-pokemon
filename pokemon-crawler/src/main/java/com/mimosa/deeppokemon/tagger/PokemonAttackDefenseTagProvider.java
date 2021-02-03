@@ -78,7 +78,6 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             highLevelTagSet.add(Tag.ABILITY_WEATHER);
         }
         pokemonInfo.setTags(highLevelTagSet);
-        String tier = pokemonInfo.getTier();
     }
 
     private int getLevelOfStat(PokemonInfo pokemonInfo,String pattern) throws Exception {

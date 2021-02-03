@@ -79,7 +79,6 @@
                 <configuration>
                     <mainClass>com.mimosa.deeppokemon.PokemoCrawlerApplication</mainClass>
                     <classifier>exec</classifier>
-                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

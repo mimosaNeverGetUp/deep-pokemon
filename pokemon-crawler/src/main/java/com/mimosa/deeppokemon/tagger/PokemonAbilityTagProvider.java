@@ -66,18 +66,18 @@ public class PokemonAbilityTagProvider implements  PokemonTagProvider {
             if (ABILITIES_ATTACK_PRETTY.contains(ability)) {
                 maxAttackLevel = 3;
             } else if (ABILITIES_ATTACK_GOOD.contains(ability)) {
-                maxAttackLevel = maxAttackLevel < 2 ? 2 : maxAttackLevel;
+                maxAttackLevel = Math.max(maxAttackLevel, 2);
             } else if (ABILITIES_ATTACK_BAD.contains(ability)) {
-                maxAttackLevel = maxAttackLevel < 1 ? 1 : maxAttackLevel;
+                maxAttackLevel = Math.max(maxAttackLevel, 1);
             }
 
 
             if (ABILITIES_DEFENSE_PRETTY.contains(ability)) {
                 maxDefenceLevel = 3;
             } else if (ABILITIES_DEFENSE_GOOD.contains(ability)) {
-                maxDefenceLevel = maxDefenceLevel < 2 ? 2 : maxDefenceLevel;
+                maxDefenceLevel = Math.max(maxDefenceLevel, 2);
             } else if (ABILITIES_DEFENSE_BAD.contains(ability)) {
-                maxDefenceLevel = maxDefenceLevel < 1 ? 1 : maxDefenceLevel;
+                maxDefenceLevel = Math.max(maxDefenceLevel, 1);
             }
         }
 

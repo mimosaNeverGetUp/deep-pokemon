@@ -31,12 +31,9 @@ public class ScheduledConfig {
 
     @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 1 * * ?")
     private void test() {
-        log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
-                battleCrawler.getFormat(), battleCrawler.getPageLimit(), battleCrawler.getRankMoreThan(),
-                battleCrawler.getMinElo(), battleCrawler.getMinGxe(), battleCrawler.getDateAfter()));
         List<Player> players = battleCrawler.crawLadeerName();
-        playerService.saveAll(players);
         List<Battle> battles = battleCrawler.crawLadderBattle();
+        playerService.saveAll(players);
         battleSevice.savaAll(battles);
     }
 }

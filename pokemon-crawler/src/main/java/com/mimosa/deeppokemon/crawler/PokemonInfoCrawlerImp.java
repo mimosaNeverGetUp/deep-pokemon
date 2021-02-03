@@ -63,6 +63,7 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
     @Override
     public List<PokemonInfo> craw() throws IOException {
 //        URL fileURL = this.getClass().getClassLoader().getResource(dataPath);
+        logger.info("start read pokemonInfo resource,path:[{}]", dataPath);
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(dataPath);
         byte[] dataByte = toByteArray(inputStream);
 //        byte[] dataByte = Files.readAllBytes(new File(fileURL.getFile()).toPath());
@@ -75,11 +76,11 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
             PokemonInfo pokemonInfo = extractPokeInfo(pokemonName, jsonObject);
             pokemonInfos.add(pokemonInfo);
         }
+        logger.info("pokemoninfo create and craw successfully, total {} pokemonInfo",pokemonInfos.size());
         return pokemonInfos;
     }
 
     private PokemonInfo extractPokeInfo(String pokemonName, JSONObject jsonObject) {
-
         JSONObject pokemonJson =jsonObject.getJSONObject(pokemonName);
         //提取名字和分级
         String name = pokemonJson.getString("name");
@@ -109,6 +110,7 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
             abilities.add(abilitesJson.getString(abilitiesKey));
         }
         PokemonInfo pokemonInfo = new PokemonInfo(baseStats, types, tier, name, abilities);
+        logger.debug("craw [{}] end,info is:[{}]",pokemonName,pokemonInfo);
         return pokemonInfo;
     }
 

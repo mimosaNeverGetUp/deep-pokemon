@@ -63,9 +63,14 @@ public class LadderBattleCrawler {
 
     public LinkedList<Battle> crawLadderBattle() {
         LinkedList<Battle> battles = new LinkedList<>();
+        log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
+                getFormat(), getPageLimit(), getRankMoreThan(),
+                getMinElo(), getMinGxe(), getDateAfter()));
+        log.info("start craw ladder player");
         ArrayList<Player> players = crawLadeerName();
         HashSet<String> preUrls = new HashSet<>();
         for (Player player : players) {
+            log.info("start craw battle of player : {}", player.getName());
             String playerName = player.getName();
             List<Battle> battleList = crawPlayerBattleIfAbesent(playerName, preUrls);
             if (battleList != null) {
@@ -118,12 +123,12 @@ public class LadderBattleCrawler {
             if (battleService != null) {
                 earliestestBattleDate = battleService.findPlayerBattleEarliest(name);
                 latestBattleDate = battleService.findPlayerBattleLatest(name);
-                System.out.println(String.format("find %s  earliestBattleDate:%tF", name, earliestestBattleDate));
-                System.out.println(String.format("find %s  latestBattleDate:%tF", name, latestBattleDate));
+                log.debug(String.format("find %s  earliestBattleDate:%tF", name, earliestestBattleDate));
+                log.debug(String.format("find %s  latestBattleDate:%tF", name, latestBattleDate));
             }
             LinkedList<Battle> battles = new LinkedList<>();
             for (String url : replayUrls) {
-                System.out.println("extract url:" + url);
+                log.info("extract url:" + url);
                 if(url.contains(format)){
                     Battle battle = teamCrawler.craw(url);
                     if (battle != null) {
@@ -153,7 +158,7 @@ public class LadderBattleCrawler {
 
     private HttpGet initLadeerQueryGet(){
         String url = ladderQueryUrl + String.format("&format=%s", format);
-        System.out.println(url);
+        log.debug("init ladderQuery: {}",url);
         HttpGet httpGet=new HttpGet(url);
         httpGet.addHeader("Accept", "*/*");
         httpGet.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Mobile Safari/537.36");

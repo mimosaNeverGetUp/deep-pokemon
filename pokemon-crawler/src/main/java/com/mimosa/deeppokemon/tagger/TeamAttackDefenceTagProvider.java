@@ -36,8 +36,7 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
             for (Pokemon pokemon : team.getPokemons()) {
                 PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon);
                 if (pokemonInfo == null) {
-                    System.out.println(pokemon.getName());
-                    logger.error("pokemoninfo not found and team tag fail");
+                    logger.error("pokemoninfo {} not found and team tag fail",pokemon.getName());
                     return;
                 }
                 pokemonAttackDefenseTagProvider.tag(pokemonInfo);
@@ -75,8 +74,9 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
             } else {
                 tags.add(Tag.BALANCE);
             }
+            logger.debug("{} attackDefence diff is {}",team.getPokemons(),attackDefenseDif);
         } catch (Exception e) {
-            logger.error("tag team fail!",e);
+            logger.error("tag team fail",e);
         }
 
     }

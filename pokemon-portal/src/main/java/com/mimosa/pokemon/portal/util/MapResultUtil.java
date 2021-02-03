@@ -28,6 +28,9 @@ public class MapResultUtil
                 mapResult.getValue().setUseDiff(useDiff);
                 float winDiff = getWinRate(mapResult) - getWinRate(compare);
                 mapResult.getValue().setWinDiff(winDiff);
+            } else {
+                mapResult.getValue().setUseDiff(getUseRate(mapResult));
+                mapResult.getValue().setWinDiff(getWinRate(mapResult));
             }
         }
     }

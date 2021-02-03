@@ -86,12 +86,10 @@ public class LadderBattleCrawlerTest {
 
     @Test
     public void craw() {
-        log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
-                battleCrawler.getFormat(), battleCrawler.getPageLimit(), battleCrawler.getRankMoreThan(),
-                battleCrawler.getMinElo(), battleCrawler.getMinGxe(), battleCrawler.getDateAfter()));
         List<Player> players = battleCrawler.crawLadeerName();
         List<Battle> battles = battleCrawler.crawLadderBattle();
-        battleSevice.savaAll(battles);
+//        playerService.saveAll(players);
+//        battleSevice.savaAll(battles);
         System.out.println(battles.size());
         for (Battle battle : battles) {
             for (Team team:battle.getTeams()) {

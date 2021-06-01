@@ -30,6 +30,7 @@ public class HtmlTeamExtracter {
             logger.debug("extract Team start");
             String[] playName = extractPlayerName(html);
             String tier = extractTier(html);
+            List<Turn> turnList = extractTurn(html);
             Team[] teams = extractTeam(html);
             //贴标签
             for (Team team : teams) {
@@ -79,7 +80,7 @@ public class HtmlTeamExtracter {
             return battle;
         }
         catch (Exception e){
-            throw  e;
+            throw e;
         }
     }
 
@@ -130,7 +131,7 @@ public class HtmlTeamExtracter {
         return  teams;
     }
 
-    private  static Pokemon extractPokemon(String html,String pokemonName,int playerNumber){
+    private static Pokemon extractPokemon(String html,String pokemonName,int playerNumber){
         Pokemon pokemon = new Pokemon(pokemonName);
         String pokemonMoveName = extractMoveName(html, pokemonName, playerNumber);
         String regex = String.format(new String("move\\|p%da: %s\\|([^\\|]*)\\|"), playerNumber, pokemonMoveName);
@@ -485,6 +486,10 @@ public class HtmlTeamExtracter {
             }
             mapList.add(analysisMap);
         }
+        return null;
+    }
+
+    private List<Turn> extractTurn(String html) {
         return null;
     }
 }

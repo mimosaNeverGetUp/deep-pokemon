@@ -8,19 +8,34 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 @Document(collection = "battle")
 public class Battle {
     @Id
     private String battleID;
+    // 简介
     private String info;
+    // 对局日期
     private LocalDate date;
+    // 胜方
     private String winner;
+    // 排名
     private float avageRating;
+    // 队伍
     private Team[] teams;
+    // 总血线变化表，json字符串
     private String healthLinePairJsonString;
+    // 比赛highlight表，json字符串
     private String highLightJsonString;
-
+    // 宝可梦正负值变化表，json字符串
+    private String valuePairJsonString;
+    // 宝可梦进攻贡献变化表，json字符串
+    private String attackValueJsonString;
+    // 队伍对局分析
+    private TeamBattleAnalysis teamBattleAnalysis;
+    // 回合记录
+    private List<Turn> turnList;
 
 
     public Battle(Team[] teams) {
@@ -37,7 +52,6 @@ public class Battle {
     }
 
     public Battle(Team[] teams, LocalDate date, String winner, float avageRating, String healthLinePairJsonString) {
-
         this.teams = teams;
         this.date = date;
         this.winner = winner;
@@ -100,13 +114,13 @@ public class Battle {
     @Override
     public String toString() {
         return ("Battle:\n" +
-                "   info:" + String.format("%s  vs %s", teams[0].getPlayerName(), teams[1].getPlayerName()) +"\n"+
+                "   info:" + String.format("%s  vs %s", teams[0].getPlayerName(), teams[1].getPlayerName()) + "\n" +
                 "   battle id:" + battleID + "\n" +
                 "   date:" + date + "\n" +
                 "   winner:" + winner + "\n" +
                 "   avageRating:" + avageRating + "\n\n" +
-                 Arrays.toString(teams) +
-                "\n\n").replaceAll(","," ");
+                Arrays.toString(teams) +
+                "\n\n").replaceAll(",", " ");
     }
 
     public String getHealthLinePairJsonString() {
@@ -116,6 +130,7 @@ public class Battle {
     public void setHealthLinePairJsonString(String healthLinePairJsonString) {
         this.healthLinePairJsonString = healthLinePairJsonString;
     }
+
     public String getHighLightJsonString() {
         return highLightJsonString;
     }
@@ -123,6 +138,39 @@ public class Battle {
     public void setHighLightJsonString(String highLightJsonString) {
         this.highLightJsonString = highLightJsonString;
     }
+
+    public List<Turn> getTurnList() {
+        return turnList;
+    }
+
+    public void setTurnList(List<Turn> turnList) {
+        this.turnList = turnList;
+    }
+
+    public String getValuePairJsonString() {
+        return valuePairJsonString;
+    }
+
+    public void setValuePairJsonString(String valuePairJsonString) {
+        this.valuePairJsonString = valuePairJsonString;
+    }
+
+    public String getAttackValueJsonString() {
+        return attackValueJsonString;
+    }
+
+    public void setAttackValueJsonString(String attackValueJsonString) {
+        this.attackValueJsonString = attackValueJsonString;
+    }
+
+    public TeamBattleAnalysis getTeamBattleAnalysis() {
+        return teamBattleAnalysis;
+    }
+
+    public void setTeamBattleAnalysis(TeamBattleAnalysis teamBattleAnalysis) {
+        this.teamBattleAnalysis = teamBattleAnalysis;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -137,4 +185,5 @@ public class Battle {
     public int hashCode() {
         return battleID != null ? battleID.hashCode() : 0;
     }
+
 }

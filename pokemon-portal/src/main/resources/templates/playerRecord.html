@@ -69,6 +69,15 @@
         function showStat(id){
             var picture = document.getElementById(id);
             picture.style.display = picture.style.display == "none" ? "" : "none";
+            var index= id.match(/\d+/g);
+            if (id != "diffChart" + index) {
+                picture = document.getElementById("diffChart" + index);
+                picture.style.display = "none";
+            }
+            if (id != "myChart" + index) {
+                picture = document.getElementById("myChart" + index);
+                picture.style.display = "none";
+            }
         }
 
     </script>
@@ -107,6 +116,7 @@
         <!--/*@thymesVar id="battleList" type="java.util.List"*/-->
         <tr  th:each="battle : ${battleList}" align="center">
             <input type="text" th:value="${battleList.size()}" style="display:none;" id="battleLength">
+            <input type="text" th:value="${player.getName()  }" style="display:none;" id="playerName">
             <table border="1" align="center" cellspacing="50" width="100%" style="border-collapse: collapse"
                    th:style="${battle.getWinner() == player.getName()?'background-color:#a3cfec' : 'background-color:#e2b6b3' }">
                 <tr th:height="50">
@@ -144,13 +154,23 @@
                 </tr>
                 <input type="button"  th:value="${battle.getHighLightJsonString()}" th:id="'tt'+${battleStat.index}" style="display: none" />
                 <input type="button"  th:value="${battle.getHealthLinePairJsonString()}" th:id="'t'+${battleStat.index}" style="display: none" />
+                <tr th:height="30">
+                    <td a lign="centre"  style="text-align: center;border-style:none" colspan="2">
+                        <button type="button" th:onclick="'showStat(\'myChart'+${battleStat.index}+'\')'">总览1</button>
+                        <button type="button" th:onclick="'showStat(\'diffChart'+${battleStat.index}+'\')'">总览2</button>
+                        </button>
+                    </td>
+                </tr>
                 <tr  th:height="30" th:style="${battle.getHealthLinePairJsonString() == null? 'display: none':''}" >
                     <td align="centre"  style="text-align: center;border-style:none" colspan="2">
                             <canvas th:id="'myChart'+${battleStat.index}"  style="align-content: center;display: none"></canvas>
-                        <button type="button" th:onclick="'showStat(\'myChart'+${battleStat.index}+'\')'">more</button>
                     </td>
                 </tr>
-
+                <tr  th:height="30" th:style="${battle.getHealthLinePairJsonString() == null? 'display: none':''}" >
+                    <td align="centre"  style="text-align: center;border-style:none" colspan="2">
+                        <canvas th:id="'diffChart'+${battleStat.index}"  style="align-content: center;display: none"></canvas>
+                    </td>
+                </tr>
             </table>
         </tr>
 
@@ -169,6 +189,7 @@
 <script src="./js/Chart.min.js"></script>
 <script type="text/javascript" >
     var battleLength = document.getElementById('battleLength').value;
+    var playerName =document.getElementById('playerName').value;
     for (var k = 0; k < battleLength ; ++k) {
         var ctx = document.getElementById('myChart'+k).getContext('2d');
         var health=0;
@@ -186,6 +207,12 @@
             var obj2 = obj[i];
             var turnLength = obj2.length;
             for(var j = 0, l2 = obj2.length;j<l2;j++){
+                if (j == 0) {
+                    data.push({
+                        x:0,
+                        y:600
+                    });
+                }
                 if (i == 0) {
                     labels.push((j + 1).toString());
                 }
@@ -202,7 +229,7 @@
                 keylength = 0;
                 health = 0;
             }
-            if (i == 0) {
+            if (labelElement == playerName ) {
                 lineColor = "blue";
             } else {
                 lineColor = "red";
@@ -211,7 +238,8 @@
                 label: labelElement,
                 data: data,
                 borderColor: lineColor,
-                borderWidth: 1
+                borderWidth: 1,
+                pointRadius: 2
             };
             datasets.push(tempData);
             data = [];
@@ -220,6 +248,7 @@
         var txt1 = document.getElementById(id1).value;
         var obj1 = JSON.parse(txt1);
         for (var i1 = 0; i1 < obj1.length; ++i1) {
+            var labelElement =  document.getElementById('player'+k+i1).innerHTML;
             var obj22 = obj1[i1];
             for (var j1 = 0, l22 = obj22.length; j1 < l22; j1++) {
                 var str = obj22[j1];
@@ -227,7 +256,7 @@
                 var pointBackgroundColor;
                 var y;
                 var x = j1 + 1;
-                if (i1 == 0) {
+                if (labelElement == playerName) {
                     pointBackgroundColor = "blue";
                     y = -100;
                 } else {
@@ -287,9 +316,172 @@
                     xAxes: [{
                         type: 'linear',
                         ticks: {
-                            min: 1,
+                            min: 0,
                             max: turnLength,
                             stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+</script>
+<script type="text/javascript" >
+    var battleLength = document.getElementById('battleLength').value;
+    var playerName =document.getElementById('playerName').value;
+    for (var k = 0; k < battleLength ; ++k) {
+        var ctx = document.getElementById('diffChart'+k).getContext('2d');
+        var healthDiff=0;
+        var healthA=0;
+        var healthB=0;
+        var keylengthA = 0;
+        var keylengthB = 0;
+        var id = 't' + k;
+        var txt = document.getElementById(id).value;
+        var data = [];
+        var datasets = [];
+        var lineColor = [];
+        var labels=[];
+        var obj = JSON.parse(txt);
+        var playerA = obj[0];
+        var playerB = obj[1];
+        var playerMaxGap = 0;
+        var maxGap = 0;
+        var turnLength = playerA.length;
+        var playerAName =  document.getElementById('player'+k+0).innerHTML;
+        data.push({
+            x:0,
+            y:0
+        });
+        for(var j = 0, l2 = playerA.length;j<l2;j++){
+            for(var key in playerA[j]){
+                healthA = healthA + playerA[j][key];
+                keylengthA = keylengthA + 1;
+            }
+            healthA = healthA + 100*(6-keylengthA);
+            for(var key in playerB[j]){
+                healthB = healthB + playerB[j][key];
+                keylengthB = keylengthB + 1;
+            }
+            healthB = healthB + 100*(6-keylengthB);
+            if (playerAName == playerName) {
+                healthDiff = healthA - healthB;
+            } else {
+                healthDiff = healthB - healthA;
+            }
+            if (healthDiff < maxGap) {
+                maxGap = healthDiff;
+            }
+            if (healthDiff > playerMaxGap) {
+                playerMaxGap = healthDiff;
+            }
+            data.push({
+                x:j+1,
+                y:healthDiff
+            });
+            if (healthDiff >= 0 ) {
+                lineColor.push("blue");
+            } else {
+                lineColor.push("red");
+            }
+            keylengthA = 0;
+            healthA = 0;
+            keylengthB = 0;
+            healthB = 0;
+        }
+        var tempData = {
+            label: playerName,
+            borderColor: lineColor,
+            strokeColor: lineColor,
+            data: data,
+            borderWidth: 1,
+            pointRadius: 2
+        };
+        datasets.push(tempData);
+        var id1 = 'tt' + k;
+        var txt1 = document.getElementById(id1).value;
+        var obj1 = JSON.parse(txt1);
+        for (var i1 = 0; i1 < obj1.length; ++i1) {
+            var labelElement =  document.getElementById('player'+k+i1).innerHTML;
+            var obj22 = obj1[i1];
+            for (var j1 = 0, l22 = obj22.length; j1 < l22; j1++) {
+                var str = obj22[j1];
+                var pointRadius = 1;
+                var pointBackgroundColor;
+                var y;
+                var x = j1 + 1;
+                if (labelElement == playerName) {
+                    pointBackgroundColor = "blue";
+                    y = -700;
+                } else {
+                    pointBackgroundColor = "red";
+                    y = -800;
+                }
+                if (str.indexOf("faint") != -1) {
+                    pointRadius = 8;
+                }else if (str.indexOf("Stealth Rock") != -1) {
+                    pointRadius = 4;
+                }else if (str.indexOf("(") != -1) {
+                    pointRadius = 4;
+                }else if (str.indexOf("Spikes") != -1) {
+                    pointRadius = 4;
+                }else if (str.indexOf("Toxic Spikes") != -1) {
+                    pointRadius = 4;
+                }else if (str.indexOf("Defog") != -1) {
+                    pointRadius = 4;
+                }else if (str.indexOf("Rapid Spin") != -1) {
+                    pointRadius = 4;
+                }
+                datasets.push({
+                    pointBackgroundColor: pointBackgroundColor,
+                    pointRadius: pointRadius,
+                    pointHoverRadius: pointRadius,
+                    pointHitRadiu: 8,
+                    label: str,
+                    type: "scatter",
+                    data: [
+                        {
+                            x: x,
+                            y: y
+                        }
+                    ]
+                });
+            }
+        }
+        var dataElment ={
+            datasets: datasets
+        };
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: dataElment,
+            options: {
+                animations: false,
+                animation: {
+                    duration: 0 // 一般动画时间
+                },
+                hover: {
+                    animationDuration: 0 // 悬停项目时动画的持续时间
+                },
+                responsiveAnimationDuration: 0 ,// 调整大小后的动画持续时间
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        ticks: {
+                            min: 0,
+                            max: turnLength,
+                            stepSize: 1
+                        }
+                    }],
+                    yAxes: [{
+                        type: 'linear',
+                        ticks: {
+                            min: -800,
+                            max: 600,
+                            stepSize: 100
                         }
                     }]
                 }

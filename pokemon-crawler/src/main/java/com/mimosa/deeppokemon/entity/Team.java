@@ -1,14 +1,15 @@
 package com.mimosa.deeppokemon.entity;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Team {
     private  String playerName;
     private  String tier;
-    private ArrayList<Pokemon> pokemons;
+    private Map<String,Pokemon> pokemons;
     private HashSet<Tag> tagSet=new HashSet<>();
     public String getTier() {
         return tier;
@@ -19,7 +20,7 @@ public class Team {
     }
 
     public Team(ArrayList<Pokemon> pokemons) {
-        this.pokemons = pokemons;
+        this.pokemons = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity()));
     }
 
     public Team() {
@@ -36,11 +37,15 @@ public class Team {
 
 
     public ArrayList<Pokemon> getPokemons() {
+        return new ArrayList<>(pokemons.values());
+    }
+
+    public Map<String,Pokemon> getPokemonMap() {
         return pokemons;
     }
 
     public void setPokemons(ArrayList<Pokemon> pokemons) {
-        this.pokemons = pokemons;
+        this.pokemons = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity()));
     }
 
     public HashSet<Tag> getTagSet() {
@@ -55,10 +60,9 @@ public class Team {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Team team = (Team) o;
-        for (Pokemon pokemon : pokemons) {
-            if (!team.pokemons.contains(pokemon)) {
+        for (Pokemon pokemon : pokemons.values()) {
+            if (!team.pokemons.containsValue(pokemon)) {
                 return false;
             }
         }

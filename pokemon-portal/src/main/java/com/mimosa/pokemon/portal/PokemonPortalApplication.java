@@ -7,12 +7,13 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class PokemonPortalApplication extends SpringBootServletInitializer{
+public class PokemonPortalApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(PokemonPortalApplication.class);
     }
+
     public static void main(String[] args) {
         SpringApplication.run(PokemonPortalApplication.class, args);
     }

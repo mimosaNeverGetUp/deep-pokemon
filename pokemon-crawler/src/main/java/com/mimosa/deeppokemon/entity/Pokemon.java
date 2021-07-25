@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 public class Pokemon {
     private String name;
-    private HashSet<String> moves;
+    private HashSet<String> moves = new HashSet<>();
 
     private String item;
     private String ablity;
@@ -35,7 +35,10 @@ public class Pokemon {
     }
 
     public void setItem(String item) {
-        this.item = item;
+        if (item == null) {
+            // 只可以修改一次，代表原始配置
+            this.item = item;
+        }
     }
 
     public String getAblity() {

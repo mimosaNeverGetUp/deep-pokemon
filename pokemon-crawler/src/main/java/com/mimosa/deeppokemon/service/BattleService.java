@@ -44,7 +44,7 @@ public class BattleService {
         }
     }
 
-    public LocalDate findPlayerBattleEarliest(String playerName) {
+    public String findPlayerBattleIdEarliest(String playerName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("teams.playerName").is(playerName));
         query.with(Sort.by(Sort.Order.asc("date")));
@@ -53,10 +53,10 @@ public class BattleService {
         if (battle == null) {
             return null;
         }
-        return battle.getDate();
+        return battle.getBattleID();
     }
 
-    public LocalDate findPlayerBattleLatest(String playerName) {
+    public String findPlayerBattleIdLatest(String playerName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("teams.playerName").is(playerName));
         query.with(Sort.by(Sort.Order.desc("date")));
@@ -65,7 +65,7 @@ public class BattleService {
         if (battle == null) {
             return null;
         }
-        return battle.getDate();
+        return battle.getBattleID();
     }
 
     public List<Battle> find100BattleSortByDate() {

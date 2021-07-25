@@ -22,12 +22,20 @@ public class PokemonBattleAnalysis {
     // 出招回合数
     protected Integer moveCount;
     // 有效操作数
-    protected Integer effectiveMCount;
-    // 有效伤害变化表
-    protected List<Integer> effectiveDamageTrend;
-    // 贡献值变化表
-    protected List<Integer> healLineValueTrend;
+    protected Integer effectiveMoveCount;
+    // 对局评分
+    protected Float score;
 
+    public PokemonBattleAnalysis(String pokemonName) {
+        this.pokemonName = pokemonName;
+        kill = 0;
+        switchCount = 0;
+        healLineValue = 0.0F;
+        effectiveDamage = 0.0F;
+        moveCount = 0;
+        effectiveMoveCount = 0;
+        score = 0.0F;
+    }
     public String getPokemonName() {
         return pokemonName;
     }
@@ -76,27 +84,19 @@ public class PokemonBattleAnalysis {
         this.moveCount = moveCount;
     }
 
-    public Integer getEffectiveMCount() {
-        return effectiveMCount;
+    public Integer getEffectiveMoveCount() {
+        return effectiveMoveCount;
     }
 
-    public void setEffectiveMCount(Integer effectiveMCount) {
-        this.effectiveMCount = effectiveMCount;
+    public void setEffectiveMoveCount(Integer effectiveMoveCount) {
+        this.effectiveMoveCount = effectiveMoveCount;
     }
 
-    public List<Integer> getEffectiveDamageTrend() {
-        return effectiveDamageTrend;
+    public Float getScore() {
+        return score;
     }
 
-    public void setEffectiveDamageTrend(List<Integer> effectiveDamageTrend) {
-        this.effectiveDamageTrend = effectiveDamageTrend;
-    }
-
-    public List<Integer> getHealLineValueTrend() {
-        return healLineValueTrend;
-    }
-
-    public void setHealLineValueTrend(List<Integer> healLineValueTrend) {
-        this.healLineValueTrend = healLineValueTrend;
+    public void setScore(Float score) {
+        this.score = score;
     }
 }

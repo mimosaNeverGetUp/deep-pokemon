@@ -1,14 +1,10 @@
 package com.mimosa.deeppokemon.entity;
 
-import javafx.util.Pair;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 @Document(collection = "battle")
 public class Battle {
@@ -28,15 +24,10 @@ public class Battle {
     private String healthLinePairJsonString;
     // 比赛highlight表，json字符串
     private String highLightJsonString;
-    // 宝可梦正负值变化表，json字符串
-    private String valuePairJsonString;
-    // 宝可梦进攻贡献变化表，json字符串
-    private String attackValueJsonString;
-    // 队伍对局分析
-    private TeamBattleAnalysis teamBattleAnalysis;
-    // 回合记录
-    private List<Turn> turnList;
-
+    // 队伍对局分析;
+    private TeamBattleAnalysis[] teamBattleAnalysis;
+    // 对局趋势变化
+    private BattleTrend battleTrend;
 
     public Battle(Team[] teams) {
         this.teams = teams;
@@ -139,35 +130,19 @@ public class Battle {
         this.highLightJsonString = highLightJsonString;
     }
 
-    public List<Turn> getTurnList() {
-        return turnList;
+    public BattleTrend getBattleTrend() {
+        return battleTrend;
     }
 
-    public void setTurnList(List<Turn> turnList) {
-        this.turnList = turnList;
+    public void setBattleTrend(BattleTrend battleTrend) {
+        this.battleTrend = battleTrend;
     }
 
-    public String getValuePairJsonString() {
-        return valuePairJsonString;
-    }
-
-    public void setValuePairJsonString(String valuePairJsonString) {
-        this.valuePairJsonString = valuePairJsonString;
-    }
-
-    public String getAttackValueJsonString() {
-        return attackValueJsonString;
-    }
-
-    public void setAttackValueJsonString(String attackValueJsonString) {
-        this.attackValueJsonString = attackValueJsonString;
-    }
-
-    public TeamBattleAnalysis getTeamBattleAnalysis() {
+    public TeamBattleAnalysis[] getTeamBattleAnalysis() {
         return teamBattleAnalysis;
     }
 
-    public void setTeamBattleAnalysis(TeamBattleAnalysis teamBattleAnalysis) {
+    public void setTeamBattleAnalysis(TeamBattleAnalysis[] teamBattleAnalysis) {
         this.teamBattleAnalysis = teamBattleAnalysis;
     }
 

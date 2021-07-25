@@ -23,10 +23,9 @@ public class TeamCrawlerTest {
 
     @Test
     public void Crawler(){
-        String url = "https://replay.pokemonshowdown.com/gen8ou-1119226837";
+        String url = "https://replay.pokemonshowdown.com/gen8ou-1332551230";
         Battle battle = crawler.craw(url);
         Team[] teams = battle.getTeams();
         assertNotNull(teams);
-        battleSevice.save(battle);
     }
 }

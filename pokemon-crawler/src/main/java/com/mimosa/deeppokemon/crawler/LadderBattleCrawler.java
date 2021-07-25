@@ -117,26 +117,27 @@ public class LadderBattleCrawler {
                 replayUrls.removeIf(preUrls::contains);
                 preUrls.addAll(replayUrls);
             }
-
-            LocalDate earliestestBattleDate = null;
-            LocalDate latestBattleDate = null;
+            String latestBattleId = null;
             if (battleService != null) {
-                earliestestBattleDate = battleService.findPlayerBattleEarliest(name);
-                latestBattleDate = battleService.findPlayerBattleLatest(name);
-                log.debug(String.format("find %s  earliestBattleDate:%tF", name, earliestestBattleDate));
-                log.debug(String.format("find %s  latestBattleDate:%tF", name, latestBattleDate));
+                latestBattleId = battleService.findPlayerBattleIdLatest(name);
+                log.debug(String.format("find %s  latestBattleId:%s", name, latestBattleId));
             }
             LinkedList<Battle> battles = new LinkedList<>();
             for (String url : replayUrls) {
+                String battleId = url.substring(url.indexOf("//"));
+                if (latestBattleId != null && latestBattleId.equals(battleId)) {
+                    // 爬取到已有的数据，结束
+                    break;
+                }
                 log.info("extract url:" + url);
                 if(url.contains(format)){
                     Battle battle = teamCrawler.craw(url);
                     if (battle != null) {
                         LocalDate date = battle.getDate();
-                        if (earliestestBattleDate != null && latestBattleDate != null) {
-                            if (!earliestestBattleDate.isAfter(date) && !latestBattleDate.isBefore(date)) { continue;}
+                        if (dateAfter != null && date.isBefore(dateAfter)) {
+                            // 爬取日期不符合要求，结束
+                            break;
                         }
-                        if (dateAfter != null && date.isBefore(dateAfter)) { break;}
                         battles.add(battle);
                     }
                 }

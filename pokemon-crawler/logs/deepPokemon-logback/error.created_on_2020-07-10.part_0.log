@@ -1,2 +1,0 @@
-2020-07-10 17:48:10,843 [main] ERROR [com.mimosa.deeppokemon.crawler.RegexTeamCrawler] RegexTeamCrawler.java:39 - Read timed out
-2020-07-10 17:49:54,859 [main] ERROR [com.mimosa.deeppokemon.crawler.RegexTeamCrawler] RegexTeamCrawler.java:39 - match battle win relations failed

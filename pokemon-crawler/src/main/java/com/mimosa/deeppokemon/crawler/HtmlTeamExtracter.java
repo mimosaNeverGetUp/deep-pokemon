@@ -3,6 +3,7 @@ package com.mimosa.deeppokemon.crawler;
 import com.alibaba.fastjson.JSONObject;
 import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
+import com.mimosa.deeppokemon.util.BattleTurnExtracterHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ public class HtmlTeamExtracter {
     private static Pattern fromPattern = Pattern.compile(new String("\\[from\\] ([^\\|]+)"));
     private static Pattern ofPattern = Pattern.compile(new String("\\[of\\] p([12]+)a: (.*)"));
     private static Pattern turnPattern = Pattern.compile(new String("([\\d\\D]*?)(\\|turn\\|([0-9]+)|\\|win)"));
+    private static Pattern statusPattern = Pattern.compile(new String("\\|-(status|curestatus)\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)(.*)"));
 
     public Battle extract(String html)throws Exception{
         try{
@@ -605,8 +607,8 @@ public class HtmlTeamExtracter {
         battle.setAvageRating(rating);
     }
 
-    /*
-     *提取宝可梦配置，统计血线、贡献变化以及击杀、行动回合以及有效行动数
+    /**
+     * 提取宝可梦配置，统计血线、贡献变化以及击杀、行动回合以及有效行动数
      */
     public static void extarctTurn(String html, Battle battle) {
         BattleTurnExtracterHelper turnExtracterHelper = new BattleTurnExtracterHelper(battle);
@@ -616,16 +618,43 @@ public class HtmlTeamExtracter {
             //正则匹配到回合数是下一回合的开始提示，需要减一
             int turnIndex = Integer.parseInt(turnMatcher.group(3)) - 1;
             String turnContext = turnMatcher.group(1);
-            if (0 == turnIndex) {
-                // 第一回合开始前，提取派人情况
-                extractSwitch(turnContext, turnExtracterHelper);
-                continue;
+            String[] events = turnContext.split("\\n");
+            for (String event : events) {
+                String[] subStr = event.split("\\|");
+                if (subStr.length < 2) {
+                    continue;
+                }
+                String eventType = event.split("\\|")[1];
+                switch (eventType) {
+                    case "switch":
+                        extractSwitch(event, turnExtracterHelper);
+                        break;
+
+                    case "move":
+                        extractPokemonMove(event, turnExtracterHelper);
+                        break;
+
+                    case "-heal":
+                    case "-damage":
+                        extractDamageOrHealth(turnIndex,event, turnExtracterHelper);
+                        break;
+
+                    case "-sidestart":
+                    case "-sideend":
+                        extractSpaceTrend(turnIndex, event, turnExtracterHelper);
+                        break;
+
+                    case "-status":
+                        extractStatus(turnIndex, event, turnExtracterHelper);
+                        break;
+
+                    case "-weather":
+                        //todo
+                        break;
+                }
             }
-            extractSwitch(turnContext, turnExtracterHelper);
-            extractPokemonMove(turnContext, turnExtracterHelper);
             extractPokemonItem(turnContext, turnExtracterHelper);
-            extractSpaceTrend(turnIndex, turnContext, turnExtracterHelper);
-            extractDamage(turnIndex, turnContext, turnExtracterHelper);
+            turnExtracterHelper.afterTurn();
         }
         //特殊化处理
         for (Team team : battle.getTeams()) {
@@ -652,10 +681,12 @@ public class HtmlTeamExtracter {
 
     public static void extractPokemonMove(String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
         Matcher moveMatcher = movePattern.matcher(turnContext);
-        while (moveMatcher.find()) {
+        if (moveMatcher.find()) {
             int playerIndex = Integer.parseInt(moveMatcher.group(1));
+            String pokemonMoveName = moveMatcher.group(2);
             String move = moveMatcher.group(3);
-            turnExtracterHelper.addMove(playerIndex, move);
+            turnExtracterHelper.addMove(playerIndex,pokemonMoveName, move);
+            turnExtracterHelper.addMoveCount(playerIndex, pokemonMoveName);
         }
     }
 
@@ -699,7 +730,7 @@ public class HtmlTeamExtracter {
 
     public static void extractSpaceTrend(int turnIndex,String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
         Matcher spaceMatcher = spacePattern.matcher(turnContext);
-        while (spaceMatcher.find()) {
+        if (spaceMatcher.find()) {
             boolean exist = "start".equals(spaceMatcher.group(1));
             int playerIndex = Integer.parseInt(spaceMatcher.group(2));
             String move = spaceMatcher.group(3);
@@ -707,18 +738,18 @@ public class HtmlTeamExtracter {
         }
     }
 
-    public static void extractDamage(int turnIndex, String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
+    public static void extractDamageOrHealth(int turnIndex, String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
         Matcher damageMatcher = damagePattern.matcher(turnContext);
-        while (damageMatcher.find()) {
+        if (damageMatcher.find()) {
             boolean isDamage = "damage".equals(damageMatcher.group(1));
             int playerIndex = Integer.parseInt(damageMatcher.group(2));
             String moveName = damageMatcher.group(3);
-            short health = Short.parseShort(damageMatcher.group(4));
-            turnExtracterHelper.setHealthTrend(turnIndex,playerIndex, moveName, health);
+            short currentHealth = Short.parseShort(damageMatcher.group(4));
+            int damage = turnExtracterHelper.setHealthTrendAndReturnDiff(turnIndex, playerIndex, moveName, currentHealth);
+            String damageFrom = null, damageOf = null;
+            int ofPlayerIndex = 0;
             if (damageMatcher.groupCount() == 5) {
                 String extraDamageInfo = damageMatcher.group(5);
-                String damageFrom, damageOf;
-                int ofPlayerIndex;
                 // 伤害来源及归属宝可梦提取
                 Matcher fromMatcher = fromPattern.matcher(extraDamageInfo);
                 Matcher ofMatcher = ofPattern.matcher(extraDamageInfo);
@@ -730,17 +761,48 @@ public class HtmlTeamExtracter {
                     damageOf = ofMatcher.group(2);
                 }
             }
+            if (isDamage) {
+                turnExtracterHelper.countPokemonDamage(playerIndex,  damage, damageFrom, damageOf, ofPlayerIndex);
+            } else {
+                // 统计回复
+                turnExtracterHelper.countPokemonHeal(playerIndex, damage);
+            }
         }
     }
+
+
     public static void extractSwitch(String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
         Matcher switchMatcher = switchPattern.matcher(turnContext);
-        while (switchMatcher.find()) {
+        if (switchMatcher.find()) {
             int playerIndex = Integer.parseInt(switchMatcher.group(1)) - 1;
             String moveName = switchMatcher.group(2);
             String pokemonName = switchMatcher.group(3);
             turnExtracterHelper.setPresentPokemon(playerIndex,pokemonName);
             turnExtracterHelper.setMovePokemonName(playerIndex,moveName,pokemonName);
             turnExtracterHelper.addSwitchCount(playerIndex, pokemonName);
+        }
+    }
+
+    public static void extractStatus(int turnIndex, String event, BattleTurnExtracterHelper turnExtracterHelper) {
+        Matcher statusMatcher = statusPattern.matcher(event);
+        String statusFrom, statusOf;
+        Integer ofPlayerIndex;
+        if (statusMatcher.find()) {
+            boolean cure = statusMatcher.group(1).contains("cure");
+            int playerIndex = Integer.parseInt(statusMatcher.group(2)) - 1;
+            String moveName = statusMatcher.group(3);
+            String status = cure ? Status.HEALTH.getName() : statusMatcher.group(4);
+            String extraSourceInfo = statusMatcher.group(5);
+            Matcher fromMatcher = fromPattern.matcher(extraSourceInfo);
+            Matcher ofMatcher = ofPattern.matcher(extraSourceInfo);
+            if (fromMatcher.find()) {
+                statusFrom = fromMatcher.group(1);
+            }
+            if (ofMatcher.find()) {
+                ofPlayerIndex = Integer.parseInt(ofMatcher.group(1));
+                statusOf = ofMatcher.group(2);
+            }
+            turnExtracterHelper.setStatusTrend(turnIndex, playerIndex, moveName, status);
         }
     }
 }

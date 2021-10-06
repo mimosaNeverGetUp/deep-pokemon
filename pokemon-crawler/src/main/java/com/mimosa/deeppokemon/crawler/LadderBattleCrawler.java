@@ -36,7 +36,7 @@ public class LadderBattleCrawler {
     private String replayUrlRoot = "https://replay.pokemonshowdown.com/";
 
     @Autowired
-    private RegexTeamCrawler teamCrawler;
+    private TeamCrawler teamCrawler;
 
     @Autowired
     private BattleService battleService;

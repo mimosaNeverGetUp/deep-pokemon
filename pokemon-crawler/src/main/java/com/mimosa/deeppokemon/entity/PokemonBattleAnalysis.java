@@ -17,7 +17,7 @@ public class PokemonBattleAnalysis {
     protected Integer switchCount;
     // 宝可梦在该局比赛的血线变化贡净献值，从该精灵的上场回合后开始计算，直到换下回合为止
     protected Float healLineValue;
-    // 有效伤害
+    // 有效伤害,不计算我方血线
     protected Float effectiveDamage;
     // 出招回合数
     protected Integer moveCount;
@@ -99,4 +99,5 @@ public class PokemonBattleAnalysis {
     public void setScore(Float score) {
         this.score = score;
     }
+
 }

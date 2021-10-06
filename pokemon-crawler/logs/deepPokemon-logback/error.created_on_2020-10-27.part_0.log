@@ -1,0 +1,909 @@
+2020-10-27 22:08:16,406 [main] ERROR [c.mimosa.deeppokemon.crawler.PokemonInfoCrawlerImp] PokemonInfoCrawlerImp.java:45 - craw pokemonInfo error!
+2020-10-27 23:35:17,627 [main] ERROR [c.mimosa.deeppokemon.crawler.PokemonInfoCrawlerImp] PokemonInfoCrawlerImp.java:45 - craw pokemonInfo error!
+2020-10-27 23:35:20,523 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:24,901 [main] ERROR [c.mimosa.deeppokemon.crawler.PokemonInfoCrawlerImp] PokemonInfoCrawlerImp.java:45 - craw pokemonInfo error!
+2020-10-27 23:37:26,962 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,963 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,963 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,963 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,964 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,964 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,964 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,965 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,965 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,965 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,966 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,966 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,967 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,967 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,967 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,968 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,968 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,968 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,968 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,969 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,969 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,969 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,970 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,970 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,970 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,970 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,971 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,971 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,971 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,971 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,972 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,972 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,972 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,973 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,973 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,973 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,974 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,974 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,975 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,975 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,975 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,976 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,976 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,977 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,977 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,978 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,978 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,979 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,979 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,980 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,980 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,981 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,981 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,981 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,982 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,982 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,983 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,983 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,983 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,983 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,984 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,984 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,984 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,985 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,985 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,986 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,986 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,986 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,986 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,987 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,987 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,987 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,988 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,988 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,988 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,988 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,989 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,989 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,989 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,989 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,990 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,990 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,990 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,990 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,991 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,991 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,991 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,991 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,992 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,992 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,992 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,992 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,993 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,993 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,993 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,994 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,994 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,994 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,994 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,995 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,995 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,995 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,995 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,996 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,996 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,996 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,996 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,997 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,997 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,997 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,998 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,998 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,999 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,999 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:26,999 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,000 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,000 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,001 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,001 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,002 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,002 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,002 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,003 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,003 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,003 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,003 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,003 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,004 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,004 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,005 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,005 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,006 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,007 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,008 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,008 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,009 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,009 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,009 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,009 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,010 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,010 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,010 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,011 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,011 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,011 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,012 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,012 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,012 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,012 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,013 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,013 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,013 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,013 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,013 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,014 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,014 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,014 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,014 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,015 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,015 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,015 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,015 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,015 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,016 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,016 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,016 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,016 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,017 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,017 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,017 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,017 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,017 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,018 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,018 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,018 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,018 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,019 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,019 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,019 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,019 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,020 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,020 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,020 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,021 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,021 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,021 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,021 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,022 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,022 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,022 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,022 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,023 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,023 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,023 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,023 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,024 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,024 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,024 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,025 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:37:27,025 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:40,733 [main] ERROR [c.mimosa.deeppokemon.crawler.PokemonInfoCrawlerImp] PokemonInfoCrawlerImp.java:46 - craw pokemonInfo error!
+java.lang.NullPointerException: null
+	at com.mimosa.deeppokemon.crawler.PokemonInfoCrawlerImp.<init>(PokemonInfoCrawlerImp.java:42)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:204)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1312)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:882)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:126)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:98)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$5(ClassBasedTestDescriptor.java:337)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:342)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:337)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1382)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312)
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:743)
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:742)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:336)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:259)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:252)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:251)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:29)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:107)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:107)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:75)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+2020-10-27 23:39:42,795 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,796 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,797 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,797 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,798 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,798 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,798 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,799 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,799 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,799 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,800 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,800 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,800 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,801 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,801 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,802 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,802 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,802 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,803 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,803 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,803 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,804 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,804 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,804 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,805 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,805 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,805 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,806 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,806 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,806 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,806 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,807 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,807 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,807 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,808 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,808 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,808 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,809 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,809 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,810 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,811 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,811 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,811 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,811 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,812 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,812 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,812 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,812 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,813 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,813 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,813 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,813 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,814 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,814 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,814 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,814 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,815 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,815 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,815 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,815 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,816 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,816 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,816 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,817 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,817 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,817 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,818 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,818 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,818 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,818 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,819 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,819 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,819 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,819 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,820 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,820 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,820 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,820 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,821 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,821 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,821 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,821 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,821 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,822 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,822 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,822 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,822 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,823 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,823 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,824 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,824 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,824 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,825 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,825 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,825 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,825 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,826 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,826 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,826 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,826 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,827 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,827 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,827 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,827 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,828 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,828 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,828 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,828 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,829 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,829 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,829 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,829 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,830 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,830 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,830 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,830 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,830 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,831 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,831 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,831 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,831 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,832 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,832 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,832 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,832 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,833 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,833 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,833 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,833 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,834 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,834 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,834 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,834 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,835 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,835 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,835 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,835 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,835 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,836 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,836 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,836 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,836 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,837 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,837 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,837 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,837 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,838 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,838 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,838 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,838 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,839 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,839 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,839 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,839 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,840 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,840 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,840 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,841 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,841 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,841 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,841 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,842 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,842 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,842 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,843 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,843 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,843 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,843 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,844 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,844 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,844 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,844 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,844 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,845 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,845 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,845 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,845 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,846 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,846 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,846 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,849 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,849 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,849 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,850 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,850 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,850 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,850 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,851 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,851 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,851 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,851 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,851 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,852 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,852 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,852 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,853 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,854 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,854 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,855 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:39:42,855 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,287 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,288 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,289 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,289 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,289 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,290 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,290 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,290 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,291 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,291 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,291 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,292 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,292 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,292 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,293 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,293 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,294 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,294 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,294 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,294 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,295 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,296 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,296 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,297 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,297 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,298 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,298 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,298 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,299 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,299 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,300 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,300 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,301 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,301 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,302 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,302 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,302 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,303 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,303 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,304 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,304 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,305 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,305 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,305 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,305 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,306 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,306 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,306 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,307 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,307 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,307 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,307 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,308 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,308 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,308 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,308 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,309 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,309 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,309 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,309 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,310 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,310 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,310 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,310 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,311 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,311 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,311 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,312 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,312 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,312 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,313 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,313 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,313 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,314 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,314 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,314 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,315 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,315 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,315 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,315 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,315 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,316 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,316 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,316 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,317 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,317 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,317 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,317 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,317 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,318 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,318 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,318 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,318 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,319 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,319 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,319 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,320 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,320 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,320 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,320 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,321 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,321 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,321 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,321 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,322 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,322 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,322 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,322 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,323 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,323 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,323 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,324 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,324 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,324 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,325 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,325 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,325 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,325 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,325 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,326 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,326 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,326 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,326 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,327 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,327 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,327 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,327 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,328 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,328 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,328 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,329 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,329 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,329 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,329 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,330 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,330 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,331 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,331 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,331 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,332 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,332 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,332 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,332 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,333 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,333 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,333 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,333 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,334 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,334 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,334 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,334 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,334 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,335 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,335 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,335 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,335 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,336 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,336 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,336 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,336 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,337 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,337 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,337 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,337 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,338 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,338 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,338 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,339 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,339 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,339 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,339 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,340 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,340 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,340 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,341 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,341 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,341 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,341 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,342 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,342 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,342 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,342 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,343 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,343 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,343 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,344 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,344 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,344 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,344 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,345 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,345 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,345 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,345 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,345 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,346 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,346 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,346 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,347 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,347 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:41:06,347 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,877 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,880 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,887 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,889 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,892 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,893 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,895 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,895 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,896 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,896 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,897 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,898 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,899 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,900 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,900 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,901 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,902 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,902 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,903 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,903 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,903 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,904 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,905 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,906 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,907 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,908 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,908 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,909 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,910 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,911 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,913 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,915 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,917 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,918 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,920 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,921 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,923 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,925 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,925 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,927 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,928 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,929 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,929 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,930 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,930 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,933 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,934 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,935 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,936 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,937 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,938 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,939 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,941 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,945 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,945 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,946 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,947 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,947 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,947 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,948 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,948 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,949 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,950 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,950 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,957 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,957 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,962 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,964 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,965 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,967 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,967 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:42:56,971 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,324 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,328 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,335 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,337 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,341 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,343 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,345 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,346 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,347 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,347 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,349 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,351 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,352 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,353 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,354 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,355 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,356 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,356 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,357 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,357 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,358 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,359 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,360 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,361 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,364 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,365 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,366 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,366 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,367 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,369 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,370 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,373 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,375 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,377 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,380 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,381 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,382 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,383 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,383 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,384 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,385 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,385 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,385 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,386 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,386 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,389 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,390 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,391 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,392 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,392 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,393 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,393 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,395 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,398 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,399 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,400 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,400 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,401 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,401 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,402 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,403 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,403 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,404 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,405 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,414 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,415 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,418 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,419 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,420 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,422 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,423 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:44:08,428 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:31,996 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:31,999 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,007 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,009 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,014 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,016 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,018 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,018 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,019 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,019 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,020 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,022 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,024 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,024 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,025 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,027 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,027 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,028 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,028 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,029 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,029 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,030 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,031 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,032 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,035 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,036 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,037 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,038 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,040 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,044 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,047 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,051 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,055 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,058 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,062 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,063 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,065 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,066 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,067 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,069 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,069 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,070 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,070 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,071 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,072 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,076 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,077 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,079 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,079 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,080 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,080 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,081 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,083 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,086 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,087 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,088 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,088 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,089 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,089 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,089 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,090 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,090 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,091 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,092 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,099 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,101 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,106 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,107 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,108 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,110 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,111 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail
+2020-10-27 23:48:32,115 [main] ERROR [c.m.d.tagger.TeamAttackDefenceTagProvider] TeamAttackDefenceTagProvider.java:39 - pokemoninfo not found and team tag fail

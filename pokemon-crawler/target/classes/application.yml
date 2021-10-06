@@ -11,3 +11,9 @@ spring:
     timeZone : GMT+8
 server:
   port: 8081
+#logging:
+#  level:
+#   com:
+#       mimosa:
+#          deeppokemon:
+#           crawler: DEBUG

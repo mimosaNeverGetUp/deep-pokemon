@@ -1,9 +1,0 @@
-2020-05-17 00:10:36,189 [main] INFO  [org.apache.http.impl.execchain.RetryExec] RetryExec.java:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://replay.pokemonshowdown.com:443: The target server failed to respond
-2020-05-17 00:10:36,191 [main] INFO  [org.apache.http.impl.execchain.RetryExec] RetryExec.java:112 - Retrying request to {s}->https://replay.pokemonshowdown.com:443
-2020-05-17 00:13:35,681 [main] INFO  [org.apache.http.impl.execchain.RetryExec] RetryExec.java:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://replay.pokemonshowdown.com:443: The target server failed to respond
-2020-05-17 00:13:35,682 [main] INFO  [org.apache.http.impl.execchain.RetryExec] RetryExec.java:112 - Retrying request to {s}->https://replay.pokemonshowdown.com:443
-2020-05-17 00:21:42,800 [main] INFO  [org.apache.http.impl.execchain.RetryExec] RetryExec.java:96 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://replay.pokemonshowdown.com:443: The target server failed to respond
-2020-05-17 00:21:42,801 [main] INFO  [org.apache.http.impl.execchain.RetryExec] RetryExec.java:112 - Retrying request to {s}->https://replay.pokemonshowdown.com:443
-2020-05-17 00:26:16,859 [main] INFO  [com.mimosa.deeppokemon.service.BattleSevice] BattleSevice.java:26 - save battles:gen8ou-1109148852
-2020-05-17 00:26:17,524 [SpringContextShutdownHook] INFO  [o.s.scheduling.concurrent.ThreadPoolTaskExecutor] ExecutorConfigurationSupport.java:218 - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-17 00:26:17,529 [SpringContextShutdownHook] INFO  [org.mongodb.driver.connection] SLF4JLogger.java:71 - Closed connection [connectionId{localValue:2, serverValue:19}] to localhost:27017 because the pool has been closed.

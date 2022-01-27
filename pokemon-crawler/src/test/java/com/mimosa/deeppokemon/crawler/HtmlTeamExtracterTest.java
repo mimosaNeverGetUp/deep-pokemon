@@ -26,7 +26,6 @@ package com.mimosa.deeppokemon.crawler;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mimosa.deeppokemon.entity.Battle;
-import javafx.util.Pair;
 import net.minidev.json.JSONArray;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

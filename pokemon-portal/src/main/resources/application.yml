@@ -5,7 +5,8 @@ spring:
             database: deep_pokemon_test
         jackson:
         timeZone : GMT+8
-
+    profiles:
+#        active: startCraw
 logging:
     config: classpath:logback.xml
 server:

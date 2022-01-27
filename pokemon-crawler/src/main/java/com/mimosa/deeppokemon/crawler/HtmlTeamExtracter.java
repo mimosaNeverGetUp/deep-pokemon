@@ -1,9 +1,32 @@
+/*
+ * The MIT License
+ *
+ * Copyright (c) [2022] [Xiaocong Huang]
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.mimosa.deeppokemon.crawler;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
-import com.mimosa.deeppokemon.util.BattleTurnExtracterHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,23 +47,23 @@ public class HtmlTeamExtracter {
     private static final Logger logger = LoggerFactory.getLogger(HtmlTeamExtracter.class);
     @Autowired
     private TeamTagger teamTagger;
-    private static Pattern playerPattern = Pattern.compile(new String("\\|player\\|p([12])\\|([^//|]*)\\|"));
-    private static Pattern tierPattern = Pattern.compile(new String("\\|tier\\|(.*)"));
-    private static Pattern winPattern = Pattern.compile(new String("win\\|(.*)"));
-    private static Pattern datePattern = Pattern.compile(new String("Uploaded:</em>([^\\|<]*)"));
-    private static Pattern rankPattern = Pattern.compile(new String("Rating:</em> ([0-9]+)"));
-    private static Pattern pokePattern = Pattern.compile(new String("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]"));
-    private static Pattern movePattern = Pattern.compile(new String("\\|move\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)\\|"));
-    private static Pattern switchPattern = Pattern.compile(new String("\\|switch\\|p([12]+)a: ([^\\|]+)\\|"));
-    private static Pattern endItemPattern = Pattern.compile(new String("\\-enditem\\|p([12]+)a: ([^\\|]+)\\|([^\\|]*)"));
-    private static Pattern rockyHelmetPattern = Pattern.compile(new String("item: Rocky Helmet\\|\\[of\\] p([12]+)a: (.*)"));
-    private static Pattern trickPattern = Pattern.compile(new String("\\-item\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)\\|\\[from\\] move: Trick"));
-    private static Pattern spacePattern = Pattern.compile(new String("\\-side(end|start)\\|p([12]+): ([^\\|]+)\\|move: (.*)"));
-    private static Pattern damagePattern = Pattern.compile(new String("(\\|\\-damage|\\|\\-heal)\\|p([12]+)a: (.*?)\\|([0-9]+)(.*)"));
-    private static Pattern fromPattern = Pattern.compile(new String("\\[from\\] ([^\\|]+)"));
-    private static Pattern ofPattern = Pattern.compile(new String("\\[of\\] p([12]+)a: (.*)"));
-    private static Pattern turnPattern = Pattern.compile(new String("([\\d\\D]*?)(\\|turn\\|([0-9]+)|\\|win)"));
-    private static Pattern statusPattern = Pattern.compile(new String("\\|-(status|curestatus)\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)(.*)"));
+    private static final Pattern playerPattern = Pattern.compile(new String("\\|player\\|p([12])\\|([^//|]*)\\|"));
+    private static final Pattern tierPattern = Pattern.compile(new String("\\|tier\\|(.*)"));
+    private static final Pattern winPattern = Pattern.compile(new String("win\\|(.*)"));
+    private static final Pattern datePattern = Pattern.compile(new String("Uploaded:</em>([^\\|<]*)"));
+    private static final Pattern rankPattern = Pattern.compile(new String("Rating:</em> ([0-9]+)"));
+    private static final Pattern pokePattern = Pattern.compile(new String("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]"));
+    private static final Pattern movePattern = Pattern.compile(new String("\\|move\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)\\|"));
+    private static final Pattern switchPattern = Pattern.compile(new String("\\|switch\\|p([12]+)a: ([^\\|]+)\\|"));
+    private static final Pattern endItemPattern = Pattern.compile(new String("\\-enditem\\|p([12]+)a: ([^\\|]+)\\|([^\\|]*)"));
+    private static final Pattern rockyHelmetPattern = Pattern.compile(new String("item: Rocky Helmet\\|\\[of\\] p([12]+)a: (.*)"));
+    private static final Pattern trickPattern = Pattern.compile(new String("\\-item\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)\\|\\[from\\] move: Trick"));
+    private static final Pattern spacePattern = Pattern.compile(new String("\\-side(end|start)\\|p([12]+): ([^\\|]+)\\|move: (.*)"));
+    private static final Pattern damagePattern = Pattern.compile(new String("(\\|\\-damage|\\|\\-heal)\\|p([12]+)a: (.*?)\\|([0-9]+)(.*)"));
+    private static final Pattern fromPattern = Pattern.compile(new String("\\[from\\] ([^\\|]+)"));
+    private static final Pattern ofPattern = Pattern.compile(new String("\\[of\\] p([12]+)a: (.*)"));
+    private static final Pattern turnPattern = Pattern.compile(new String("([\\d\\D]*?)(\\|turn\\|([0-9]+)|\\|win)"));
+    private static final Pattern statusPattern = Pattern.compile(new String("\\|-(status|curestatus)\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)(.*)"));
 
     public Battle extract(String html)throws Exception{
         try{
@@ -61,7 +84,7 @@ public class HtmlTeamExtracter {
                     for (String s : hashMap.keySet()) {
                         Float f = hashMap.get(s);
                         if (f != null && f < 50.0f &&  f!=0.0f) {
-                            HashMap<String, Float> hashMapPrevious = arrayList.get(i-1);
+                            HashMap<String, Float> hashMapPrevious = arrayList.get(i - 1);
                             Float f1 = hashMapPrevious.get(s);
                             logger.debug(f + " and" + f1);
                             if (f1 == null || f1 >= 50.0f) {
@@ -72,7 +95,7 @@ public class HtmlTeamExtracter {
                                     pos = 0;
                                 }
                                 String str = list.get(pos).get(i);
-                                list.get(pos).set(i, str + "(opp's " + s + " hp " + f.toString()+")");
+                                list.get(pos).set(i, str + "(opp's " + s + " hp " + f+")");
                                 logger.debug(list.get(pos).get(i));
                             }
                         }
@@ -120,7 +143,7 @@ public class HtmlTeamExtracter {
         return  playerNames;
     }
 
-    private  static Team[] extractTeam(String html)throws  Exception{
+    private static Team[] extractTeam(String html)throws  Exception{
         Pattern pattern = Pattern.compile("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]");
         Matcher matcher = pattern.matcher(html);
         ArrayList<Pokemon> pokemons1 = new ArrayList<Pokemon>(6);
@@ -654,7 +677,6 @@ public class HtmlTeamExtracter {
                 }
             }
             extractPokemonItem(turnContext, turnExtracterHelper);
-            turnExtracterHelper.afterTurn();
         }
         //特殊化处理
         for (Team team : battle.getTeams()) {

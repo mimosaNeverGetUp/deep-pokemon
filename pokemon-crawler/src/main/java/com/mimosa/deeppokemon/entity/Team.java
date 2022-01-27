@@ -1,16 +1,49 @@
+/*
+ * The MIT License
+ *
+ * Copyright (c) [2022] [Xiaocong Huang]
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.mimosa.deeppokemon.entity;
 
-import java.lang.reflect.Array;
+import org.springframework.data.annotation.Transient;
+
 import java.util.*;
 import java.util.function.Function;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Team {
     private  String playerName;
     private  String tier;
-    private Map<String,Pokemon> pokemons;
+    private ArrayList<Pokemon> pokemons;
     private HashSet<Tag> tagSet=new HashSet<>();
+
+    /**
+     * 非持久化变量,pokemons的map形式，方便查询
+     * map形式可以替代list,但由于需要兼容旧版本，需要保留pokemons变量,待重构解决
+     * key:pokemonName value: pokemon
+     */
+    @Transient
+    private Map<String, Pokemon> pokemonMap;
+
     public String getTier() {
         return tier;
     }
@@ -20,7 +53,8 @@ public class Team {
     }
 
     public Team(ArrayList<Pokemon> pokemons) {
-        this.pokemons = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity()));
+        this.pokemons = pokemons;
+        pokemonMap = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity()));
     }
 
     public Team() {
@@ -34,18 +68,13 @@ public class Team {
         this.playerName = playerName;
     }
 
-
-
     public ArrayList<Pokemon> getPokemons() {
-        return new ArrayList<>(pokemons.values());
-    }
-
-    public Map<String,Pokemon> getPokemonMap() {
         return pokemons;
     }
 
     public void setPokemons(ArrayList<Pokemon> pokemons) {
-        this.pokemons = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity()));
+        this.pokemons = pokemons;
+        pokemonMap = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity(), (p1, p2) -> p1));
     }
 
     public HashSet<Tag> getTagSet() {
@@ -56,13 +85,17 @@ public class Team {
         this.tagSet = tagSet;
     }
 
+    public Pokemon getPokemon(String pokemonName) {
+        return pokemonMap.get(pokemonName);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
-        for (Pokemon pokemon : pokemons.values()) {
-            if (!team.pokemons.containsValue(pokemon)) {
+        for (Pokemon pokemon : pokemons) {
+            if (!team.pokemons.contains(pokemon)) {
                 return false;
             }
         }

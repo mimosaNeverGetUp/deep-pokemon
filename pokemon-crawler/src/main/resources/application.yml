@@ -9,6 +9,8 @@ spring:
       password: filter
   jackson:
     timeZone : GMT+8
+  profiles:
+    active: startCraw
 server:
   port: 8081
 #logging:

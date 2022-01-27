@@ -1,0 +1,523 @@
+#此文本为pokemonshowdown replay回放爬取文字脚本,用于观察文本格式以及单元测试使用
+#此回放世代为gen8ou,包含以下元素:
+#1.熔岩风暴
+#2.连续攻击(水流连打)
+#回放来源:https://replay.pokemonshowdown.com/smogtours-gen8ou-563040
+
+|t:|1622344024
+|gametype|singles
+|player|p1|Analytic|#wcop2021asia|
+|player|p2|kitoothe|#wcop2021china|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|8
+|tier|[Gen 8] OU
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Dynamax Clause: You cannot dynamax
+|clearpoke
+|poke|p1|Urshifu-*, F|
+|poke|p1|Tapu Koko|
+|poke|p1|Landorus-Therian, M|
+|poke|p1|Heatran, M|
+|poke|p1|Slowking, M|
+|poke|p1|Bisharp, F|
+|poke|p2|Blissey, F|
+|poke|p2|Landorus-Therian, M|
+|poke|p2|Dragapult, F|
+|poke|p2|Ferrothorn, F|
+|poke|p2|Urshifu-*, M|
+|poke|p2|Melmetal|
+|teampreview
+|c|☆kitoothe|hf
+|c|☆Analytic|u2
+|c|+Sand Castle|BOA SORTE
+|inactive|kitoothe has 270 seconds left.
+|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!<\/strong><br \/>Only users of rank ☆ and higher can talk.<\/div>
+|
+|t:|1622344070
+|start
+|switch|p1a: Tapu Koko|Tapu Koko|100\/100
+|switch|p2a: Landorus|Landorus-Therian, M|100\/100
+|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p1a: Tapu Koko
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Tapu Koko|atk|1
+|turn|1
+|
+|t:|1622344083
+|switch|p1a: Landorus|Landorus-Therian, M|100\/100
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|Toxic|p1a: Landorus
+|-status|p1a: Landorus|tox
+|
+|-damage|p1a: Landorus|94\/100 tox|[from] psn
+|upkeep
+|turn|2
+|
+|t:|1622344089
+|move|p1a: Landorus|U-turn|p2a: Landorus
+|-resisted|p2a: Landorus
+|-damage|p2a: Landorus|92\/100
+|
+|t:|1622344103
+|switch|p1a: Urshifu|Urshifu-Rapid-Strike, F|100\/100|[from]move: U-turn
+|move|p2a: Landorus|Stealth Rock|p1a: Urshifu
+|-sidestart|p1: Analytic|move: Stealth Rock
+|
+|-heal|p2a: Landorus|98\/100|[from] item: Leftovers
+|upkeep
+|turn|3
+|inactive|kitoothe has 270 seconds left.
+|inactive|Analytic has 270 seconds left.
+|inactive|kitoothe has 240 seconds left.
+|
+|t:|1622344168
+|switch|p2a: Dragapult|Dragapult, F|100\/100
+|move|p1a: Urshifu|U-turn|p2a: Dragapult
+|-resisted|p2a: Dragapult
+|-damage|p2a: Dragapult|77\/100
+|
+|t:|1622344176
+|switch|p1a: Heatran|Heatran, M|100\/100|[from]move: U-turn
+|-damage|p1a: Heatran|88\/100|[from] Stealth Rock
+|
+|-heal|p1a: Heatran|94\/100|[from] item: Leftovers
+|upkeep
+|turn|4
+|
+|t:|1622344185
+|move|p2a: Dragapult|U-turn|p1a: Heatran
+|-resisted|p1a: Heatran
+|-damage|p1a: Heatran|91\/100
+|inactive|kitoothe has 240 seconds left.
+|
+|t:|1622344206
+|switch|p2a: Landorus|Landorus-Therian, M|98\/100|[from]move: U-turn
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Heatran|atk|1
+|move|p1a: Heatran|Stealth Rock|p2a: Landorus
+|-sidestart|p2: kitoothe|move: Stealth Rock
+|
+|-heal|p2a: Landorus|100\/100|[from] item: Leftovers
+|-heal|p1a: Heatran|97\/100|[from] item: Leftovers
+|upkeep
+|turn|5
+|
+|t:|1622344214
+|switch|p1a: Landorus|Landorus-Therian, M|94\/100 tox
+|-damage|p1a: Landorus|82\/100 tox|[from] Stealth Rock
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|U-turn|p1a: Landorus
+|-resisted|p1a: Landorus
+|-damage|p1a: Landorus|77\/100 tox
+|
+|t:|1622344218
+|switch|p2a: Urshifu|Urshifu-Rapid-Strike, M|100\/100|[from]move: U-turn
+|-damage|p2a: Urshifu|94\/100|[from] Stealth Rock
+|
+|-heal|p1a: Landorus|83\/100 tox|[from] item: Leftovers
+|-damage|p1a: Landorus|77\/100 tox|[from] psn
+|-fieldend|move: Electric Terrain
+|upkeep
+|turn|6
+|inactive|kitoothe has 240 seconds left.
+|inactive|Analytic has 270 seconds left.
+|
+|t:|1622344259
+|switch|p1a: Slowking|Slowking, M|100\/100
+|move|p2a: Urshifu|U-turn|p1a: Slowking
+|-supereffective|p1a: Slowking
+|-damage|p1a: Slowking|25\/100
+|inactive|kitoothe has 240 seconds left.
+|
+|t:|1622344265
+|switch|p2a: Landorus|Landorus-Therian, M|100\/100|[from]move: U-turn
+|-damage|p2a: Landorus|88\/100|[from] Stealth Rock
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Slowking|atk|1
+|
+|-heal|p2a: Landorus|94\/100|[from] item: Leftovers
+|upkeep
+|turn|7
+|
+|t:|1622344275
+|switch|p1a: Landorus|Landorus-Therian, M|77\/100 tox
+|-damage|p1a: Landorus|65\/100 tox|[from] Stealth Rock
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|U-turn|p1a: Landorus
+|-resisted|p1a: Landorus
+|-damage|p1a: Landorus|60\/100 tox
+|
+|t:|1622344278
+|switch|p2a: Urshifu|Urshifu-Rapid-Strike, M|94\/100|[from]move: U-turn
+|-damage|p2a: Urshifu|88\/100|[from] Stealth Rock
+|
+|-heal|p1a: Landorus|66\/100 tox|[from] item: Leftovers
+|-damage|p1a: Landorus|60\/100 tox|[from] psn
+|upkeep
+|turn|8
+|inactive|Analytic has 270 seconds left.
+|inactive|Analytic has 240 seconds left.
+|inactive|Analytic has 210 seconds left.
+|
+|t:|1622344362
+|switch|p1a: Tapu Koko|Tapu Koko|100\/100
+|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p1a: Tapu Koko
+|move|p2a: Urshifu|Surging Strikes|p1a: Tapu Koko
+|-crit|p1a: Tapu Koko
+|-damage|p1a: Tapu Koko|59\/100
+|-crit|p1a: Tapu Koko
+|-damage|p1a: Tapu Koko|16\/100
+|-crit|p1a: Tapu Koko
+|-damage|p1a: Tapu Koko|0 fnt
+|faint|p1a: Tapu Koko
+|-hitcount|p1: Tapu Koko|3
+|
+|upkeep
+|
+|t:|1622344372
+|switch|p1a: Urshifu|Urshifu-Rapid-Strike, F|100\/100
+|-damage|p1a: Urshifu|94\/100|[from] Stealth Rock
+|turn|9
+|inactive|kitoothe has 270 seconds left.
+|inactive|kitoothe has 240 seconds left.
+|
+|t:|1622344437
+|switch|p2a: Ferrothorn|Ferrothorn, F|100\/100
+|-damage|p2a: Ferrothorn|94\/100|[from] Stealth Rock
+|move|p1a: Urshifu|Ice Punch|p2a: Ferrothorn
+|-damage|p2a: Ferrothorn|72\/100
+|-damage|p1a: Urshifu|82\/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn
+|
+|-heal|p2a: Ferrothorn|78\/100|[from] item: Leftovers
+|upkeep
+|turn|10
+|inactive|kitoothe has 210 seconds left.
+|
+|t:|1622344465
+|switch|p1a: Heatran|Heatran, M|97\/100
+|-damage|p1a: Heatran|85\/100|[from] Stealth Rock
+|move|p2a: Ferrothorn|Spikes|p1a: Heatran
+|-sidestart|p1: Analytic|Spikes
+|
+|-heal|p1a: Heatran|91\/100|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|84\/100|[from] item: Leftovers
+|upkeep
+|turn|11
+|
+|t:|1622344476
+|switch|p1a: Landorus|Landorus-Therian, M|60\/100 tox
+|-damage|p1a: Landorus|47\/100 tox|[from] Stealth Rock
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Ferrothorn|atk|1
+|switch|p2a: Landorus|Landorus-Therian, M|94\/100
+|-damage|p2a: Landorus|82\/100|[from] Stealth Rock
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Landorus|atk|1
+|
+|-heal|p1a: Landorus|54\/100 tox|[from] item: Leftovers
+|-heal|p2a: Landorus|88\/100|[from] item: Leftovers
+|-damage|p1a: Landorus|47\/100 tox|[from] psn
+|upkeep
+|turn|12
+|inactive|kitoothe has 180 seconds left.
+|
+|t:|1622344512
+|move|p1a: Landorus|Defog|p2a: Landorus
+|-unboost|p2a: Landorus|evasion|1
+|-sideend|p2: kitoothe|Stealth Rock|[from] move: Defog|[of] p1a: Landorus
+|-sideend|p1: Analytic|Spikes|[from] move: Defog|[of] p1a: Landorus
+|-sideend|p1: Analytic|Stealth Rock|[from] move: Defog|[of] p1a: Landorus
+|-fieldend|move: Electric Terrain
+|move|p2a: Landorus|Stealth Rock|p1a: Landorus
+|-sidestart|p1: Analytic|move: Stealth Rock
+|
+|-heal|p1a: Landorus|54\/100 tox|[from] item: Leftovers
+|-heal|p2a: Landorus|94\/100|[from] item: Leftovers
+|-damage|p1a: Landorus|41\/100 tox|[from] psn
+|upkeep
+|turn|13
+|
+|t:|1622344520
+|switch|p1a: Urshifu|Urshifu-Rapid-Strike, F|82\/100
+|-damage|p1a: Urshifu|76\/100|[from] Stealth Rock
+|move|p2a: Landorus|U-turn|p1a: Urshifu
+|-resisted|p1a: Urshifu
+|-damage|p1a: Urshifu|64\/100
+|inactive|kitoothe has 180 seconds left.
+|
+|t:|1622344541
+|switch|p2a: Dragapult|Dragapult, F|77\/100|[from]move: U-turn
+|
+|upkeep
+|turn|14
+|
+|t:|1622344552
+|switch|p1a: Heatran|Heatran, M|91\/100
+|-damage|p1a: Heatran|79\/100|[from] Stealth Rock
+|move|p2a: Dragapult|Shadow Ball|p1a: Heatran
+|-damage|p1a: Heatran|40\/100
+|
+|-heal|p1a: Heatran|46\/100|[from] item: Leftovers
+|upkeep
+|turn|15
+|inactive|kitoothe has 180 seconds left.
+|
+|t:|1622344578
+|switch|p2a: Landorus|Landorus-Therian, M|94\/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Heatran|atk|1
+|move|p1a: Heatran|Magma Storm|p2a: Landorus
+|-damage|p2a: Landorus|54\/100
+|-activate|p2a: Landorus|move: Magma Storm|[of] p1a: Heatran
+|
+|-heal|p2a: Landorus|60\/100|[from] item: Leftovers
+|-heal|p1a: Heatran|53\/100|[from] item: Leftovers
+|-damage|p2a: Landorus|47\/100|[from] move: Magma Storm|[partiallytrapped]
+|upkeep
+|turn|16
+|
+|t:|1622344587
+|switch|p1a: Landorus|Landorus-Therian, M|41\/100 tox
+|-damage|p1a: Landorus|29\/100 tox|[from] Stealth Rock
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|Earthquake|p1a: Landorus
+|-immune|p1a: Landorus
+|
+|-heal|p1a: Landorus|35\/100 tox|[from] item: Leftovers
+|-heal|p2a: Landorus|54\/100|[from] item: Leftovers
+|-damage|p1a: Landorus|29\/100 tox|[from] psn
+|-end|p2a: Landorus|Magma Storm|[partiallytrapped]|[silent]
+|upkeep
+|turn|17
+|inactive|kitoothe has 180 seconds left.
+|
+|t:|1622344605
+|move|p1a: Landorus|Toxic|p2a: Landorus
+|-status|p2a: Landorus|tox
+|move|p2a: Landorus|U-turn|p1a: Landorus
+|-resisted|p1a: Landorus
+|-damage|p1a: Landorus|24\/100 tox
+|
+|t:|1622344624
+|switch|p2a: Dragapult|Dragapult, F|77\/100|[from]move: U-turn
+|
+|-heal|p1a: Landorus|30\/100 tox|[from] item: Leftovers
+|-damage|p1a: Landorus|18\/100 tox|[from] psn
+|upkeep
+|turn|18
+|
+|t:|1622344637
+|move|p2a: Dragapult|Shadow Ball|p1a: Landorus
+|-damage|p1a: Landorus|0 fnt
+|faint|p1a: Landorus
+|
+|upkeep
+|
+|t:|1622344641
+|switch|p1a: Bisharp|Bisharp, F|100\/100
+|-damage|p1a: Bisharp|95\/100|[from] Stealth Rock
+|turn|19
+|inactive|kitoothe has 180 seconds left.
+|
+|t:|1622344657
+|switch|p2a: Ferrothorn|Ferrothorn, F|84\/100
+|switch|p1a: Urshifu|Urshifu-Rapid-Strike, F|64\/100
+|-damage|p1a: Urshifu|58\/100|[from] Stealth Rock
+|
+|-heal|p2a: Ferrothorn|90\/100|[from] item: Leftovers
+|upkeep
+|turn|20
+|inactive|kitoothe has 180 seconds left.
+|
+|t:|1622344670
+|move|p1a: Urshifu|Close Combat|p2a: Ferrothorn
+|-supereffective|p2a: Ferrothorn
+|-damage|p2a: Ferrothorn|0 fnt
+|-unboost|p1a: Urshifu|def|1
+|-unboost|p1a: Urshifu|spd|1
+|-damage|p1a: Urshifu|46\/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn
+|faint|p2a: Ferrothorn
+|
+|upkeep
+|
+|t:|1622344674
+|switch|p2a: Dragapult|Dragapult, F|77\/100
+|turn|21
+|
+|t:|1622344684
+|switch|p1a: Bisharp|Bisharp, F|95\/100
+|-damage|p1a: Bisharp|89\/100|[from] Stealth Rock
+|move|p2a: Dragapult|Shadow Ball|p1a: Bisharp
+|-resisted|p1a: Bisharp
+|-damage|p1a: Bisharp|42\/100
+|
+|upkeep
+|turn|22
+|inactive|kitoothe has 180 seconds left.
+|inactive|Analytic has 240 seconds left.
+|inactive|Analytic has 210 seconds left.
+|inactive|Analytic has 180 seconds left.
+|
+|t:|1622344769
+|switch|p2a: Blissey|Blissey, F|100\/100
+|switch|p1a: Urshifu|Urshifu-Rapid-Strike, F|46\/100
+|-damage|p1a: Urshifu|40\/100|[from] Stealth Rock
+|
+|upkeep
+|turn|23
+|inactive|kitoothe has 180 seconds left.
+|
+|t:|1622344779
+|move|p1a: Urshifu|Close Combat|p2a: Blissey
+|-supereffective|p2a: Blissey
+|-damage|p2a: Blissey|0 fnt
+|-unboost|p1a: Urshifu|def|1
+|-unboost|p1a: Urshifu|spd|1
+|faint|p2a: Blissey
+|
+|upkeep
+|
+|t:|1622344782
+|switch|p2a: Dragapult|Dragapult, F|77\/100
+|turn|24
+|inactive|Analytic has 180 seconds left.
+|
+|t:|1622344818
+|switch|p1a: Heatran|Heatran, M|53\/100
+|-damage|p1a: Heatran|40\/100|[from] Stealth Rock
+|move|p2a: Dragapult|Shadow Ball|p1a: Heatran
+|-damage|p1a: Heatran|1\/100
+|-unboost|p1a: Heatran|spd|1
+|
+|-heal|p1a: Heatran|8\/100|[from] item: Leftovers
+|upkeep
+|turn|25
+|
+|t:|1622344840
+|move|p2a: Dragapult|Shadow Ball|p1a: Heatran
+|-damage|p1a: Heatran|0 fnt
+|faint|p1a: Heatran
+|
+|upkeep
+|
+|t:|1622344847
+|switch|p1a: Bisharp|Bisharp, F|42\/100
+|-damage|p1a: Bisharp|36\/100|[from] Stealth Rock
+|turn|26
+|inactive|kitoothe has 210 seconds left.
+|inactive|Analytic has 150 seconds left.
+|
+|t:|1622344865
+|switch|p2a: Urshifu|Urshifu-Rapid-Strike, M|88\/100
+|switch|p1a: Urshifu|Urshifu-Rapid-Strike, F|40\/100
+|-damage|p1a: Urshifu|33\/100|[from] Stealth Rock
+|
+|upkeep
+|turn|27
+|inactive|kitoothe has 210 seconds left.
+|inactive|Analytic has 150 seconds left.
+|inactive|Analytic has 120 seconds left.
+|
+|t:|1622344909
+|switch|p2a: Landorus|Landorus-Therian, M|54\/100 tox
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Urshifu|atk|1
+|move|p1a: Urshifu|Close Combat|p2a: Landorus
+|-resisted|p2a: Landorus
+|-damage|p2a: Landorus|32\/100 tox
+|-unboost|p1a: Urshifu|def|1
+|-unboost|p1a: Urshifu|spd|1
+|
+|-heal|p2a: Landorus|38\/100 tox|[from] item: Leftovers
+|-damage|p2a: Landorus|32\/100 tox|[from] psn
+|upkeep
+|turn|28
+|inactive|Analytic has 120 seconds left.
+|
+|t:|1622344920
+|switch|p1a: Slowking|Slowking, M|58\/100
+|move|p2a: Landorus|Earthquake|p1a: Slowking
+|-damage|p1a: Slowking|12\/100
+|
+|-heal|p2a: Landorus|38\/100 tox|[from] item: Leftovers
+|-damage|p2a: Landorus|26\/100 tox|[from] psn
+|upkeep
+|turn|29
+|
+|t:|1622344928
+|move|p2a: Landorus|Earthquake|p1a: Slowking
+|-damage|p1a: Slowking|0 fnt
+|faint|p1a: Slowking
+|
+|-heal|p2a: Landorus|32\/100 tox|[from] item: Leftovers
+|-damage|p2a: Landorus|14\/100 tox|[from] psn
+|upkeep
+|inactive|Analytic has 120 seconds left.
+|c|☆kitoothe|gg
+|inactive|Analytic has 90 seconds left.
+|
+|t:|1622344973
+|switch|p1a: Urshifu|Urshifu-Rapid-Strike, F|33\/100
+|-damage|p1a: Urshifu|27\/100|[from] Stealth Rock
+|turn|30
+|inactive|Analytic has 90 seconds left.
+|
+|t:|1622344985
+|move|p1a: Urshifu|Surging Strikes|p2a: Landorus
+|-supereffective|p2a: Landorus
+|-crit|p2a: Landorus
+|-damage|p2a: Landorus|0 fnt
+|faint|p2a: Landorus
+|-hitcount|p2: Landorus|1
+|
+|upkeep
+|
+|t:|1622344991
+|switch|p2a: Dragapult|Dragapult, F|77\/100
+|turn|31
+|
+|t:|1622344995
+|move|p2a: Dragapult|Shadow Ball|p1a: Urshifu
+|-damage|p1a: Urshifu|0 fnt
+|faint|p1a: Urshifu
+|
+|upkeep
+|
+|t:|1622344997
+|switch|p1a: Bisharp|Bisharp, F|36\/100
+|-damage|p1a: Bisharp|30\/100|[from] Stealth Rock
+|turn|32
+|
+|t:|1622344999
+|move|p1a: Bisharp|Sucker Punch|p2a: Dragapult
+|-supereffective|p2a: Dragapult
+|-damage|p2a: Dragapult|0 fnt
+|faint|p2a: Dragapult
+|
+|upkeep
+|
+|t:|1622345001
+|switch|p2a: Monki|Melmetal|100\/100
+|turn|33
+|
+|t:|1622345009
+|move|p1a: Bisharp|Iron Head|p2a: Monki
+|-resisted|p2a: Monki
+|-damage|p2a: Monki|87\/100
+|move|p2a: Monki|Earthquake|p1a: Bisharp
+|-supereffective|p1a: Bisharp
+|-damage|p1a: Bisharp|0 fnt
+|faint|p1a: Bisharp
+|
+|win|kitoothe
+|c|☆Analytic|gg
+|player|p2|kitoothe|#wcop2021china

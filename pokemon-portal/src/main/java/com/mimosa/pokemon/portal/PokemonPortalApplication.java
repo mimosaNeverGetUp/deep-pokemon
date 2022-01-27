@@ -30,6 +30,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+/**
+ * deeppokemon应用入口
+ * 使用scanBasePackages导入其他模块
+ *
+ * @author huangxiaocong(2070132549@qq.com)
+ */
 @SpringBootApplication(scanBasePackages = {"com.mimosa.deeppokemon","com.mimosa.pokemon"})
 public class PokemonPortalApplication extends SpringBootServletInitializer {
 

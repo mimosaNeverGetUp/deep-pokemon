@@ -1,0 +1,14 @@
+spring:
+    data:
+        mongodb:
+            uri: mongodb://mimosa:filter@localhost:27017/?authSource=admin
+            database: deep_pokemon_dev_env
+        jackson:
+        timeZone : GMT+8
+logging:
+    config: classpath:logback.xml
+server:
+    tomcat:
+        accesslog:
+            enabled: true
+            directory: /logs/access

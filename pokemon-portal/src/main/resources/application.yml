@@ -1,16 +1,5 @@
 spring:
-    data:
-        mongodb:
-            uri: mongodb://mimosa:17471335qwe@localhost:27017/?authSource=admin
-            database: deep_pokemon_test
-        jackson:
-        timeZone : GMT+8
     profiles:
-#        active: startCraw
-logging:
-    config: classpath:logback.xml
-server:
-    tomcat:
-        accesslog:
-            enabled: true
-            directory: /logs/access
+        active: startCraw,develop
+#        active: production
+

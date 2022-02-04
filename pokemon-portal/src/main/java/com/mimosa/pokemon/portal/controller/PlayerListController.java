@@ -52,6 +52,7 @@ public class PlayerListController {
 
     @RequestMapping("/rank")
     public String list(Model model,int page) {
+        // TODO: 2022/2/4 rank列表去重，根本解决可能需要清楚当天多次爬取造成的重复数据
         List<Player> playerList = (List<Player>) (playerService.listPlayerRank(page,25).getData());
         List<Team> teamList = battleService.listTeamByPlayerList(playerList);
         model.addAttribute("playerList", playerList);

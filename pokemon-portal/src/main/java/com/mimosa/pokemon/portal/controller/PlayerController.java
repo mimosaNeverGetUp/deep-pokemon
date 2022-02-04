@@ -57,13 +57,4 @@ public class PlayerController {
         model.addAttribute("page", page);
         return "playerRecord";
     }
-
-    @RequestMapping("/test")
-    public ModelAndView test() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("fuck.html");
-        return modelAndView;
-    }
-
-
 }

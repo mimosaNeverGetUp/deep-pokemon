@@ -162,7 +162,7 @@
                                 <td th:each="pokemon : ${team.getPokemons()}" style="text-align: center;border-style:none" >
                                     <div class="tooltip">
                                         <img
-                                                th:src="${#request.getContextPath()}+'/test1/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
+                                                th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                                         <div class="tooltiptext" >
                                             <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                             <p th:each="move : ${pokemon.getMoves()}">

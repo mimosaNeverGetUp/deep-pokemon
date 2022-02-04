@@ -53,7 +53,7 @@ public class CrawPlayerController {
 
     private static Logger logger = LoggerFactory.getLogger(CrawPlayerController.class);
 
-    @RequestMapping("craw")
+    @RequestMapping("crawPlayer")
     @ResponseBody
     public String crawPlyaer(String name) {
         List<Battle> list = ladderBattleCrawler.crawPlayerBattle(name);

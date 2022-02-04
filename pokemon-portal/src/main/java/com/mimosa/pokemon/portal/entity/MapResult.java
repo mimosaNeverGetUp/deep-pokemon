@@ -38,13 +38,9 @@ import java.util.HashMap;
 
 @Document
 public class MapResult  {
-
-
     @MongoId
     private String _id;
     private Statistic value;
-
-
 
 
     @Override
@@ -57,8 +53,6 @@ public class MapResult  {
 
     public MapResult() {
     }
-
-
 
     public String get_id() {
         return _id;

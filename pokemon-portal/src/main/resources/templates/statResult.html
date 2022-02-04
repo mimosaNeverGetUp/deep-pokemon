@@ -106,7 +106,7 @@
             + ${resultStat.index >20? 'display: none':''}"  th:each="result: ${list}">
         <tr>
             <td style="width: 142px">
-                <img th:src="${#request.getContextPath()}+'/test1/'+${result.get_id().replace('*','')+'.png'}"
+                <img th:src="${#request.getContextPath()}+'/pokemonicon/'+${result.get_id().replace('*','')+'.png'}"
                      width="142" height="149">
             </td>
             <td>

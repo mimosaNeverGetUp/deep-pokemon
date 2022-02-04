@@ -111,7 +111,6 @@ public class BattleService {
         return battles;
     }
 
-    @RequestMapping("crawLadder")
     public void crawLadder( ) throws Exception {
         log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
                 ladderBattleCrawler.getFormat(), ladderBattleCrawler.getPageLimit(), ladderBattleCrawler.getRankMoreThan(),

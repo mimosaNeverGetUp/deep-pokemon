@@ -64,10 +64,10 @@ class BattleServiceTest {
 
     @Test
     void team() {
-        List<Pair<Team, String>> list = battleService.Team(1);
-        for (Pair<Team, String> pair : list) {
-            System.out.println(pair.getKey()+pair.getValue());
-        }
+//        List<Pair<Team, String>> list = battleService.Team(1);
+//        for (Pair<Team, String> pair : list) {
+//            System.out.println(pair.getKey()+pair.getValue());
+//        }
     }
 
 //    @Test

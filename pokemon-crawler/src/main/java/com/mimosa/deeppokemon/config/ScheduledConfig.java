@@ -54,7 +54,7 @@ public class ScheduledConfig {
     private static Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
 
     /**
-     * 定时任务,爬取排行榜与回放
+     * 定时任务爬取排行榜与回放
      *
      * @author huangxiaocong(2070132549@qq.com)
      */

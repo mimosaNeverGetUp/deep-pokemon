@@ -108,17 +108,16 @@
             <p>
                 <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
      ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'teamList?page=1'">
-                    <img width="60" height="60" src="/test1/Landorus-Therian.png" >
-
+                    <img width="60" height="60" th:src="${#request.getContextPath()}+'/pokemonicon/Landorus-Therian.png'" >
                 </a>
             </p>
             <p style="text-align: center">全部</p>
         </td>
-        <td style="width: 25%;text-align: center;text" >
+        <td style="width: 25%;text-align: center" >
             <p>
                 <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
      ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'teamList?page=1&tag=ATTACK'">
-                    <img width="60" height="60" src="/test1/Naganadel.png" >
+                    <img width="60" height="60" th:src="${#request.getContextPath()}+'/pokemonicon/Naganadel.png'" >
                 </a>
             </p>
             <p style="text-align: center">攻向</p>
@@ -127,7 +126,7 @@
             <p>
                 <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
      ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'teamList?page=1&tag=BALANCE'">
-                    <img width="60" height="60" src="/test1/Magearna.png" >
+                    <img width="60" height="60" th:src="${#request.getContextPath()}+'/pokemonicon/Magearna.png'" >
                 </a>
             </p>
             <p style="text-align: center">平衡向</p>
@@ -136,7 +135,7 @@
             <p>
                 <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
      ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'teamList?page=1&tag=STAFF'">
-                    <img width="60" height="60" src="/test1/Chansey.png" >
+                    <img width="60" height="60" th:src="${#request.getContextPath()}+'/pokemonicon/Chansey.png'" >
                 </a>
             </p>
             <p style="text-align: center">受向</p>

@@ -55,7 +55,7 @@ public class TeamListController {
         String dayAfter = request.getParameter("dayAftter");
         String tag = request.getParameter("tag");
         String pokemonName = request.getParameter("pokemonName");
-        List<Pair<Team, String>> list = battleService.Team1( page,tag,pokemonName,dayAfter,dayBefore);
+        List<Pair<Team, String>> list = battleService.Team( page,tag,pokemonName,dayAfter,dayBefore);
         //传入上一页和下一页需要的查询参数语句
         String originQuery = "page=" + String.valueOf(page);
         String nextPageQuery = "page=" + String.valueOf(page+1);

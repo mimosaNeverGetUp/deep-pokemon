@@ -91,35 +91,6 @@ public class BattleService {
         }
         return teamList;
     }
-
-    public List<Pair<Team, String>> Team(int page) {
-        int num_perPage = 20;
-        ArrayList<Team> teamList = new ArrayList<>();
-        List<Pair<Team, String>> teams = new ArrayList<>();
-        Query query = new BasicQuery("{}")
-                .with(Sort.by(Sort.Order.desc("date")))
-                .limit(num_perPage).skip((page - 1) * num_perPage);
-        List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
-        for (Battle battle : battles) {
-            for (Team team : battle.getTeams()) {
-                boolean b = true;
-                for (int i = 0; i < teamList.size(); ++i) {
-                    if (team.equals(teamList.get(i))) {
-                        b = false;
-                        break;
-                    }
-                }
-                if (b) {
-                    teamList.add(team);
-                    Pair<Team, String> pair = new Pair<>(team, battle.getBattleID());
-                    teams.add(pair);
-                }
-            }
-        }
-        return teams;
-
-    }
-
     public Pair<Pair<Float, Float>, List<Team>> statistic(String name, LocalDate dayAfter, LocalDate dayBefore) throws Exception {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date")));
         Criteria criteria = Criteria.where("date").gte(dayAfter).lte(dayBefore);
@@ -337,19 +308,14 @@ public class BattleService {
         }
     }
 
-    public List<Pair<Team, String>> Team1(int page,String tag,String pokemonName,String dayAfter,String dayBefore) {
+    public List<Pair<Team, String>> Team(int page,String tag,String pokemonName,String dayAfter,String dayBefore) {
         int num_perPage = 20;
         ArrayList<Team> teamList = new ArrayList<>();
         List<Pair<Team, String>> teams = new ArrayList<>();
 
         List<AggregationOperation> operations = new ArrayList<>();
-
-
-
-
         //设置页数条件
         operations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
-//        operations.add(Aggregation.unwind("teams"));//将一个文档根据teams拆成多个文档，方便后面查找
        //动态设置条件
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         if (!StringUtils.isEmpty(dayAfter)) {

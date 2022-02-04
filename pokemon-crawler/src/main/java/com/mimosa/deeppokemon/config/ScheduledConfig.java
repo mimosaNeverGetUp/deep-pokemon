@@ -54,7 +54,7 @@ public class ScheduledConfig {
     private static Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
 
     @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 1 * * ?")
-    private void test() {
+    private void crawLadder() {
         List<Player> players = battleCrawler.crawLadeerName();
         List<Battle> battles = battleCrawler.crawLadderBattle();
         playerService.saveAll(players);

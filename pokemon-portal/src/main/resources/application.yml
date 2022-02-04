@@ -1,5 +1,5 @@
 spring:
     profiles:
-        active: startCraw,develop
+        active: develop,startCraw
 #        active: production,startCraw
 

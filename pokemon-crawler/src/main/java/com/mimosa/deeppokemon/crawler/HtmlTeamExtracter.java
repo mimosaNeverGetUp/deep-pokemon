@@ -238,7 +238,7 @@ public class HtmlTeamExtracter {
         return 0;//zero mean unkown
     }
 
-    private static String extractMoveName (String html,String pokemonName,int playerNumber){
+    private static String extractMoveName(String html,String pokemonName,int playerNumber){
         String regex = String.format("switch\\|p%da: ([^\\|]*)\\|%s", playerNumber, pokemonName);
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(html);
@@ -250,7 +250,7 @@ public class HtmlTeamExtracter {
         return pokemonName;
     }
 
-    private static String extractPokemonName (String html,String moveName,int playerNumber){
+    private static String extractPokemonName(String html,String moveName,int playerNumber){
         String regex = String.format("switch\\|p%da: %s\\|([^,\\|]*)", playerNumber, moveName);
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(html);

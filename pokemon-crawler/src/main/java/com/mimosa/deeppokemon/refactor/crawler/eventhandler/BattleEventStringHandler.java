@@ -22,29 +22,19 @@
  * SOFTWARE.
  */
 
-package com.mimosa.deeppokemon.refactor.entity;
+package com.mimosa.deeppokemon.refactor.crawler.eventhandler;
 
-import org.json.JSONObject;
+import com.mimosa.deeppokemon.refactor.entity.metadata.battle.BattleMetaData;
+import com.mimosa.deeppokemon.refactor.exception.EventHandlerNotSupportException;
 
-/**
- * 爬取资源的统一实体接口，爬取资源例如比赛replay的html/json文件
- *
- *
- * @author huangxiaocong(2070132549@qq.com)
- */
-public interface CrawResource {
-
+public interface BattleEventStringHandler {
     /**
-     * 字符串形式返回数据
+     * 处理事件字符串
      *
+     * @param eventString 事件字符串
+     * @param battleMetaData 比赛元数据
      * @author huangxiaocong(2070132549@qq.com)
      */
-    String getDataString();
+    void handle(String eventString, BattleMetaData battleMetaData) throws EventHandlerNotSupportException;
 
-    /**
-     * json形式返回数据
-     *
-     * @author huangxiaocong(2070132549@qq.com)
-     */
-    JSONObject getDataJson();
 }

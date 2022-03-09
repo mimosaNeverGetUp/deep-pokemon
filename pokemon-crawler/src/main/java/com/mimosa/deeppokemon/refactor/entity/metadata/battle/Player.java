@@ -24,6 +24,8 @@
 
 package com.mimosa.deeppokemon.refactor.entity.metadata.battle;
 
+import java.util.Objects;
+
 /**
  * 对局玩家信息
  *
@@ -37,10 +39,37 @@ public class Player {
     private int number;
 
     /**
+     *  玩家名
+     */
+    private String name;
+
+    /**
      * 对局使用队伍
      *
      */
     private Team team;
+
+    public Player() {
+    }
+
+    public Player(int number, String name, Team team) {
+        this.number = number;
+        this.name = name;
+        this.team = team;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return number == player.number && Objects.equals(name, player.name) && Objects.equals(team, player.team);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, name, team);
+    }
 
     public int getNumber() {
         return number;
@@ -48,6 +77,14 @@ public class Player {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Team getTeam() {

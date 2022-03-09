@@ -24,6 +24,8 @@
 
 package com.mimosa.deeppokemon.refactor.entity.metadata.battle;
 
+import java.util.Objects;
+
 /**
  * 对局宝可梦信息
  *
@@ -38,6 +40,27 @@ public class Pokemon {
      * 对局中宝可梦的昵称
      */
     private String nickName;
+
+    public Pokemon() {
+    }
+
+    public Pokemon(String pokemonName, String nickName) {
+        this.pokemonName = pokemonName;
+        this.nickName = nickName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pokemon pokemon = (Pokemon) o;
+        return Objects.equals(pokemonName, pokemon.pokemonName) && Objects.equals(nickName, pokemon.nickName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pokemonName, nickName);
+    }
 
     public String getPokemonName() {
         return pokemonName;
@@ -54,4 +77,6 @@ public class Pokemon {
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
+
+
 }

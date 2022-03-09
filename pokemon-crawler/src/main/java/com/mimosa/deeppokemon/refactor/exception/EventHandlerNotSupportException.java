@@ -1,6 +1,6 @@
 /*
  * The MIT License
- *
+ *n
  * Copyright (c) [2022] [Xiaocong Huang]
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,29 +22,18 @@
  * SOFTWARE.
  */
 
-package com.mimosa.deeppokemon.refactor.entity;
+package com.mimosa.deeppokemon.refactor.exception;
 
-import org.json.JSONObject;
+public class EventHandlerNotSupportException extends Exception {
+    public EventHandlerNotSupportException() {
+        super();
+    }
 
-/**
- * 爬取资源的统一实体接口，爬取资源例如比赛replay的html/json文件
- *
- *
- * @author huangxiaocong(2070132549@qq.com)
- */
-public interface CrawResource {
+    public EventHandlerNotSupportException(String message) {
+        super(message);
+    }
 
-    /**
-     * 字符串形式返回数据
-     *
-     * @author huangxiaocong(2070132549@qq.com)
-     */
-    String getDataString();
-
-    /**
-     * json形式返回数据
-     *
-     * @author huangxiaocong(2070132549@qq.com)
-     */
-    JSONObject getDataJson();
+    public EventHandlerNotSupportException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

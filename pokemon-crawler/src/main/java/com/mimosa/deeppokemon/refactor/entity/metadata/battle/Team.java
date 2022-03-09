@@ -27,6 +27,7 @@ package com.mimosa.deeppokemon.refactor.entity.metadata.battle;
 import com.mimosa.deeppokemon.refactor.entity.metadata.battle.Pokemon;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 比赛对局队伍
@@ -40,6 +41,26 @@ public class Team {
      */
     private List<Pokemon> pokemons;
 
+    public Team() {
+    }
+
+    public Team(List<Pokemon> pokemons) {
+        this.pokemons = pokemons;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Team team = (Team) o;
+        return Objects.equals(pokemons, team.pokemons);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pokemons);
+    }
+
     public List<Pokemon> getPokemons() {
         return pokemons;
     }
@@ -47,4 +68,5 @@ public class Team {
     public void setPokemons(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
     }
+
 }

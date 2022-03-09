@@ -83,12 +83,13 @@ public class BattleMetaData extends MetaData {
         if (o == null || getClass() != o.getClass()) return false;
         BattleMetaData that = (BattleMetaData) o;
         return Float.compare(that.averageRating, averageRating) == 0 && Objects.equals(battleID, that.battleID)
-                && Objects.equals(date, that.date) && Objects.equals(winnerName, that.winnerName);
+                && Objects.equals(date, that.date) && Objects.equals(winnerName, that.winnerName)
+                && Objects.equals(playerList, that.playerList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(battleID, date, averageRating, winnerName);
+        return Objects.hash(battleID, date, averageRating, winnerName, playerList);
     }
 
     public String getBattleID() {

@@ -1,10 +1,12 @@
 spring:
-    data:
+  data:
         mongodb:
             uri: mongodb://mimosa:filter@localhost:27017/?authSource=admin
             database: deep_pokemon_dev_env
-        jackson:
-        timeZone : GMT+8
+            timeZone : GMT+8
+#禁用templates缓存，方便hotswap
+  thymeleaf:
+      cache: false
 logging:
     config: classpath:logback.xml
 server:

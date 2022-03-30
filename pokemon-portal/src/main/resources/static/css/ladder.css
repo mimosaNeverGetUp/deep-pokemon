@@ -22,40 +22,91 @@
  * SOFTWARE.
  */
 
-a:link {
+body {
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+a {
     color: black;
 }
 
-a:visited {
-    color: black;
+/*导航栏*/
+.navi {
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    z-index: 1;
+    background-color: #333;
+    justify-content: center;
+    width: 100%;
+}
+
+
+table:nth-of-type(1) {
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
 }
 
 .navi-list {
     display: flex;
+    justify-content: flex-start;
     list-style-type: none;
+    align-items: center;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
 }
 
-li a {
-    display: block;
+.navi-item {
     color: white;
-    text-align: center;
+    height: 100%;
+    display: block;
     padding: 14px 16px;
+}
+
+.navi-logo {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+}
+
+.navi-href {
     text-decoration: none;
 }
 
-li a:hover {
+.navi-href:hover {
     background-color: #111;
 }
 
-.td{
+/*排行榜表格样式*/
+.ladder {
+    width: 90%;
+    margin: 60px auto 0px; /*表格下移以适应绝对定位的导航栏*/
+    border-collapse: collapse;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(230, 230, 230);
+}
+
+.ladder-td{
     text-align: center;
     border-left-style: none;
     border-right-style: none;
+    border-bottom: 1px solid #ebeef1;
     height: 180px;
+}
+
+.ladder-th{
+    text-align: center;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid #ebeef1;
 }
 
 .tooltip {

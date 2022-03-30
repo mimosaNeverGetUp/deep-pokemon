@@ -23,102 +23,70 @@
   -->
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>player-list</title>
-    <style type="text/css">
-        a:link {
-            color: black;
-        }
-
-        a:visited {
-            color: black;
-        }
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover {
-            background-color: #111;
-        }
-        .td{
-            text-align: center;
-            border-left-style: none;
-            border-right-style: none;
-            height: 180px;
-        }
-
-
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            background-color: black;
-            color: #fff;
-            width: 180px;
-            /* 定位 */
-            position: absolute;
-            z-index: 1;
-            top: -5px;
-            right: 105%;
-
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-        }
-    </style>
+    <title>showdown-ladder</title>
+    <link rel="stylesheet" th:href="${#request.getContextPath()}+'/css/ladder.css'">
 </head>
 <body>
-<ul>
-    <li><a class="active" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" style="color: white">排行榜</a></li>
-    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" style="color: white" >队伍集</a></li>
-    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
-    + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
-    <li style="float: right;color: white;padding: 14px 16px;"> <span th:text="'最近更新:' + ${playerList.get(0).getInfoDate()}"> </span></li>
-</ul>
+<div class="navi">
+    <nav>
+        <ul class="navi-list">
+            <li>
+                <a class="navi-item"
+                   th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}">
+                    <img class="navi-logo" src="pokemonicon/pokemon.png" alt="deep-pokemon">
+                </a>
+            </li>
 
+            <li>
+                <a class="navi-href navi-item"
+                   th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}">
+                    排行榜
+                </a>
+            </li>
 
-<table border="1" align="center"  width="100%" STYLE="border-collapse : collapse;background-color: gainsboro">
+            <li>
+                <a class="navi-href navi-item"
+                   th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" >
+                    队伍集
+                </a>
+            </li>
+
+            <li>
+                <a class="navi-href navi-item"
+                   th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
+                   + #request.getServerPort()  + #request.getContextPath() + '/stat'}" >
+                    宝可梦
+                </a>
+            </li>
+        </ul>
+        <div>
+            <span class="navi-item" th:text="'最近更新:' + ${playerList.get(0).getInfoDate()}"></span>
+        </div>
+    </nav>
+</div>
+
+<table class="ladder">
     <tr style="height: 50px">
-        <th style="text-align: center;border-style: none">rank</th>
-        <th style="text-align: center;border-style: none">player</th>
-        <th style="text-align: center;border-style: none">elo</th>
-        <th style="text-align: center;border-style: none">gxe</th>
-        <th style="text-align: center;border-style: none">recent team</th>
+        <th class="ladder-th">rank</th>
+        <th class="ladder-th">player</th>
+        <th class="ladder-th">elo</th>
+        <th class="ladder-th">gxe</th>
+        <th class="ladder-th">recent team</th>
     </tr>
     <tr th:each="player :  ${playerList}" >
-        <td  th:text="${player.getRank()}" class="td">rank</td>
-        <td class="td" >
+        <td  th:text="${player.getRank()}" class="ladder-td">rank</td>
+        <td class="ladder-td" >
             <a th:text="${player.getName()}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'record?page=1&name='+${player.getName()}"></a>
         </td>
-        <td  class="td" th:text="${player.getElo()}">elo</td>
-        <td class="td" th:text="${player.getGxe()}">gxe</td>
-        <td  class="td" colspan="3">
+        <td  class="ladder-td" th:text="${player.getElo()}">elo</td>
+        <td class="ladder-td" th:text="${player.getGxe()}">gxe</td>
+        <td  class="ladder-td" colspan="3">
             <table border="0" align="center" style="width: 70%;">
                 <tr>
                         <td th:each="pokemon : ${teamList.get(2*playerStat.index).getPokemons()}" >

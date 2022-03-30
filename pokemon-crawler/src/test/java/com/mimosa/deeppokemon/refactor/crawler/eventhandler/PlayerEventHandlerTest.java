@@ -93,5 +93,4 @@ public class PlayerEventHandlerTest {
         Assertions.assertEquals(name,player.getName());
     }
 
-
 }

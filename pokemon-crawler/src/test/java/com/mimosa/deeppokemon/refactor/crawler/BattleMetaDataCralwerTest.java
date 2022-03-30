@@ -72,6 +72,11 @@ public class BattleMetaDataCralwerTest {
         exceptBattleMetaData = new BattleMetaData("smogtours-gen8ou-560155",LocalDate.of(2021, 5, 9),
                 0.0F,"Separation");
 
+
+        exceptBattleMetaData.setPlayerList(buildExceptPlayerList());
+    }
+
+    private List<Player> buildExceptPlayerList(){
         List<Player> playerList = new ArrayList<>();
         List<Pokemon> pokemonListA = Arrays.asList(
                 new Pokemon("Zeraora", null),
@@ -91,7 +96,7 @@ public class BattleMetaDataCralwerTest {
         playerList.add(new Player(1,"Separation", new Team(pokemonListA)));
         playerList.add(new Player(2, "Serene Grace",new Team(pokemonListB)));
 
-        exceptBattleMetaData.setPlayerList(playerList);
+        return playerList;
     }
 
     @Test

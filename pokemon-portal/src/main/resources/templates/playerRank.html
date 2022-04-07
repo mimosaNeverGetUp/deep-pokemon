@@ -73,11 +73,11 @@
 
 <table class="ladder">
     <tr style="height: 50px">
-        <th class="ladder-th">rank</th>
-        <th class="ladder-th">player</th>
+        <th class="ladder-th">排名</th>
+        <th class="ladder-th">玩家名</th>
         <th class="ladder-th">elo</th>
         <th class="ladder-th">gxe</th>
-        <th class="ladder-th">recent team</th>
+        <th class="ladder-th">最近使用队伍</th>
     </tr>
     <tr th:each="player :  ${playerList}" >
         <td  th:text="${player.getRank()}" class="ladder-td">rank</td>
@@ -87,36 +87,34 @@
         <td  class="ladder-td" th:text="${player.getElo()}">elo</td>
         <td class="ladder-td" th:text="${player.getGxe()}">gxe</td>
         <td  class="ladder-td" colspan="3">
-            <table border="0" align="center" style="width: 70%;">
-                <tr>
-                        <td th:each="pokemon : ${teamList.get(2*playerStat.index).getPokemons()}" >
-                            <div class="tooltip">
-                                <img
-                                        th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
-                                <div class="tooltiptext" >
+            <div class="team-list">
+                <ul class="pokemon-list">
+                        <li th:each="pokemon : ${teamList.get(2*playerStat.index).getPokemons()}" >
+                            <div class="set-tip">
+                                <img th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
+                                <div class="set-tip-text" >
                                     <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                     <p th:each="move : ${pokemon.getMoves()}">
                                         <span th:text="'-' + ${move}"></span>
                                     </p>
                                 </div>
                             </div>
-                        </td>
-                </tr>
-                <tr>
-                    <td th:each="pokemon : ${teamList.get(2*playerStat.index+1).getPokemons()}" >
-                        <div class="tooltip">
-                            <img
-                                    th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
-                            <div class="tooltiptext" >
+                        </li>
+                </ul>
+                <ul class="pokemon-list">
+                    <li th:each="pokemon : ${teamList.get(2*playerStat.index+1).getPokemons()}" >
+                        <div class="set-tip">
+                            <img th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
+                            <div class="set-tip-text" >
                                 <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                 <p th:each="move : ${pokemon.getMoves()}">
                                     <span th:text="'-' + ${move}"></span>
                                 </p>
                             </div>
                         </div>
-                    </td>
-                </tr>
-            </table>
+                    </li>
+                </ul>
+            </div>
         </td>
     </tr>
 </table>

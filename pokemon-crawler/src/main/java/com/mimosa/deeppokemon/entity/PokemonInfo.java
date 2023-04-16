@@ -35,32 +35,34 @@ import java.util.Set;
  * @create: 2020//10//18
  */
 public class PokemonInfo {
+    String id;
+    Integer number;
+    String name;
     BaseStats baseStats;
     List<Type> types;
     String tier;
-    String name;
     List<String> abilities;
     Set<Tag> tags =new HashSet<>();
     public PokemonInfo() {
     }
 
-
-
-    public PokemonInfo(BaseStats baseStats, List<Type> types, String tier, String name, List<String> abilities, Set<Tag> tags) {
+    public PokemonInfo(String id, Integer number,String name,BaseStats baseStats, List<Type> types, String tier,
+                       List<String> abilities) {
+        this.id = id;
+        this.name = name;
+        this.number = number;
         this.baseStats = baseStats;
         this.types = types;
         this.tier = tier;
-        this.name = name;
         this.abilities = abilities;
-        this.tags = tags;
     }
 
-    public PokemonInfo(BaseStats baseStats, List<Type> types, String tier, String name, List<String> abilities) {
-        this.baseStats = baseStats;
-        this.types = types;
-        this.tier = tier;
-        this.name = name;
-        this.abilities = abilities;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void addTag(Tag tag){
@@ -114,15 +116,23 @@ public class PokemonInfo {
         this.tags = tags;
     }
 
+    public Integer getNumber() {
+        return number;
+    }
 
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 
     @Override
     public String toString() {
         return "PokemonInfo{" +
-                "baseStats=" + baseStats +
+                "id='" + id + '\'' +
+                ", number='" + number + '\'' +
+                ", name='" + name + '\'' +
+                ", baseStats=" + baseStats +
                 ", types=" + types +
                 ", tier='" + tier + '\'' +
-                ", name='" + name + '\'' +
                 ", abilities=" + abilities +
                 ", tags=" + tags +
                 '}';

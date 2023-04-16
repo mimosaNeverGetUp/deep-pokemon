@@ -24,18 +24,30 @@
 
 package com.mimosa.deeppokemon.crawler;
 
+import com.mimosa.deeppokemon.entity.PokemonInfo;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.util.List;
 
 class PokemonIconExtracterTest {
+    public static final String iconPath = "C:\\Users\\Miyu\\IdeaProjects\\deep-pokemon\\pokemon-crawler\\src\\main" +
+            "\\resources\\META-INF\\pokemonicon\\pokemonicons-sheet.png";
+
+    public static final String pokemonIconIndexPath = "C:\\Users\\Miyu\\IdeaProjects\\deep-pokemon\\pokemon-crawler" +
+            "\\src\\main\\resources\\META-INF\\pokemonicon\\pokemonInconIndex.json";
 
     @Test
-    void extract() {
+    void extract() throws IOException {
         try {
-            PokemonIconExtracter.extract("E:\\java\\study\\deep-pokemon\\pokemon-crawler\\src\\main\\resources\\META-INF\\pokemonicon\\pokemonicons-sheet.png");
+            PokemonInfoCrawler pokemonInfoCrawler = new PokemonInfoCrawlerImp();
+            List<PokemonInfo> pokemonInfos = pokemonInfoCrawler.craw();
+            PokemonIconExtracter pokemonIconExtracter = new PokemonIconExtracter(iconPath, pokemonIconIndexPath,
+                    pokemonInfos);
+            pokemonIconExtracter.extract();
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
     }
 }

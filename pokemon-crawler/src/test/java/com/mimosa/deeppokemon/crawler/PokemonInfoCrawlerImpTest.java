@@ -24,15 +24,13 @@
 
 package com.mimosa.deeppokemon.crawler;
 
+import com.mimosa.deeppokemon.entity.PokemonInfo;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
-
+import java.util.Comparator;
+import java.util.List;
 
 
 class PokemonInfoCrawlerImpTest {
@@ -40,6 +38,14 @@ class PokemonInfoCrawlerImpTest {
     @Test
     void craw() throws IOException {
         PokemonInfoCrawler pokemonInfoCrawler = new PokemonInfoCrawlerImp();
-        pokemonInfoCrawler.craw();
+        List<PokemonInfo> pokemonInfos = pokemonInfoCrawler.craw();
+        pokemonInfos.sort(Comparator.comparingInt(PokemonInfo::getNumber));
+        for (PokemonInfo pokemonInfo : pokemonInfos) {
+            Assertions.assertNotNull(pokemonInfo);
+            Assertions.assertNotNull(pokemonInfo.getId());
+            Assertions.assertNotNull(pokemonInfo.getName());
+            Assertions.assertNotNull(pokemonInfo.getNumber());
+        }
     }
+
 }

@@ -24,22 +24,29 @@
 
 package com.mimosa.deeppokemon.crawler;
 
-import com.mimosa.deeppokemon.entity.Player;
+import com.mimosa.deeppokemon.entity.Ladder;
+import com.mimosa.deeppokemon.entity.LadderRank;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LadderPlayerExtracter {
-    private static final Logger logger = LoggerFactory.getLogger(LadderPlayerExtracter.class);
-    public static ArrayList<Player> extract(String html, int RankMoreThan, int minElo, float minGxe, String format) {
-        LocalDate today = LocalDate.now();
-        Pattern pattern = Pattern.compile("<td>([0-9]{1,3})</td>[^<]*<td>([^<]*)</td>[^<]*<td><strong>([0-9]{4})</strong></td>[^<]*<td>([^<]*)<small>");
+public class LadderExtracter {
+    private static final Logger logger = LoggerFactory.getLogger(LadderExtracter.class);
+
+    public static final Pattern pattern = Pattern.compile("<td>([0-9]{1,3})</td>[^<]*<td>([^<]*)</td>[^<]*<td><strong>([0-9]{4})</strong></td>[^<]*<td>([^<]*)<small>");
+
+    public static Ladder extract(String html, int RankMoreThan, int minElo, float minGxe, String format) {
+        LocalDate date = LocalDate.now();
         Matcher matcher = pattern.matcher(html);
-        ArrayList<Player> playerNames = new ArrayList<>();
+        Ladder ladder = new Ladder();
+        ladder.setDate(date);
+        ladder.setFormat(format);
+        List<LadderRank> ladderRankList = new ArrayList<>();
         while (matcher.find()) {
             int rank = Integer.parseInt(matcher.group(1));
             String playerName = matcher.group(2);
@@ -47,11 +54,12 @@ public class LadderPlayerExtracter {
             float gxe = Float.parseFloat(matcher.group(4));
             logger.debug(String.format("match ladder %s , rank :%d , elo:%d gex:%f", playerName, rank, elo, gxe));
             if (elo < minElo || rank > RankMoreThan || gxe < minGxe) {
-                continue;
+                logger.debug(String.format("player %s is not match ladder quality, rank :%d , elo:%d gex:%f", playerName, rank, elo, gxe));
             } else {
-                playerNames.add(new Player(today, playerName, elo, rank, gxe, format));
+                ladderRankList.add(new LadderRank(playerName, elo, rank, gxe));
             }
         }
-        return playerNames;
+        ladder.setLadderRankList(ladderRankList);
+        return ladder;
     }
 }

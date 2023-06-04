@@ -24,9 +24,8 @@
 
 package com.mimosa.deeppokemon.service;
 
-import com.mimosa.deeppokemon.crawler.LadderBattleCrawler;
+import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,6 @@ import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import java.util.List;
@@ -47,12 +45,12 @@ public class BattleService {
     private MongoTemplate mongoTemplate;
 
     @Autowired
-    LadderBattleCrawler ladderBattleCrawler;
+    LadderCrawler ladderCrawler;
 
     @Autowired
-    PlayerService playerService;
+    LadderService ladderService;
 
-    private static Logger log = LoggerFactory.getLogger(BattleService.class);
+    private static final Logger log = LoggerFactory.getLogger(BattleService.class);
 
     public void save(Battle battle) {
         log.info("save a battle:"+battle.getBattleID());
@@ -62,8 +60,6 @@ public class BattleService {
             System.out.println(e.getMessage());
             log.error(e.getMessage());
         }
-
-
     }
 
     public void savaAll(List<Battle> battles) {
@@ -113,11 +109,8 @@ public class BattleService {
 
     public void crawLadder( ) throws Exception {
         log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
-                ladderBattleCrawler.getFormat(), ladderBattleCrawler.getPageLimit(), ladderBattleCrawler.getRankMoreThan(),
-                ladderBattleCrawler.getMinElo(), ladderBattleCrawler.getMinGxe(), ladderBattleCrawler.getDateAfter()));
-        List<Player> players = ladderBattleCrawler.crawLadeerName();
-        playerService.saveAll(players);
-        List<Battle> battles = ladderBattleCrawler.crawLadderBattle();
-        savaAll(battles);
+                ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
+                ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter()));
+        ladderCrawler.crawLadder();
     }
 }

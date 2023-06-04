@@ -24,11 +24,10 @@
 
 package com.mimosa.deeppokemon.controller;
 
-import com.mimosa.deeppokemon.crawler.LadderBattleCrawler;
+import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Player;
 import com.mimosa.deeppokemon.service.BattleService;
-import com.mimosa.deeppokemon.service.PlayerService;
+import com.mimosa.deeppokemon.service.LadderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,30 +35,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller
 public class CrawPlayerController {
 
     @Autowired
-    LadderBattleCrawler ladderBattleCrawler;
+    LadderCrawler ladderCrawler;
 
     @Autowired
     BattleService battleService;
 
     @Autowired
-    PlayerService playerService;
+    LadderService ladderService;
 
-    private static Logger logger = LoggerFactory.getLogger(CrawPlayerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CrawPlayerController.class);
 
     @RequestMapping("crawPlayer")
     @ResponseBody
     public String crawPlyaer(String name) {
-        List<Battle> list = ladderBattleCrawler.crawPlayerBattle(name);
-        Player player = new Player();
-        player.setName(name);
-        playerService.save(player);
+        List<Battle> list = ladderCrawler.crawPlayerBattle(name);
         battleService.savaAll(list);
         return "success";
     }

@@ -54,8 +54,7 @@ public class BattleService {
         int num_perPage = 15;
         Query query = new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName))
                 .with(Sort.by(Sort.Order.desc("date"))).limit(num_perPage).skip((page - 1) * num_perPage);
-        List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
-        return battles;
+        return mongoTemplate.find(query, Battle.class, "battle");
     }
 
     public List<Team> listTeamByPlayerList(List<Player> list) {
@@ -67,7 +66,7 @@ public class BattleService {
             emptyPokemons.add(emptyPokemon);
         }
         for (Player player : list) {
-            String queryString = String.format("{ 'teams.playerName' : \"%s\",'teams.tier' : \"[Gen 8] OU\" }", player.getName());
+            String queryString = String.format("{ 'teams.playerName' : \"%s\",'teams.tier' : \"[Gen 9] OU\" }", player.getName());
             System.out.println(queryString);
             Query query = new BasicQuery(queryString)
                     .with(Sort.by(Sort.Order.desc("date")))
@@ -275,8 +274,7 @@ public class BattleService {
                 }
             }
         });
-        for (int i = 0; i < mapResultList.size(); i++) {
-            MapResult result =  mapResultList.get(i);
+        for (MapResult result : mapResultList) {
             sortAndReduceMap(result.getValue());
         }
         return mapResultList;

@@ -2,7 +2,7 @@ spring:
   data:
     mongodb:
       authentication-database: admin
-      database: deep_pokemon_test
+      database: deep_pokemon_dev_env
       host: localhost
       port: 27017
       username: mimosa

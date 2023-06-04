@@ -25,31 +25,31 @@
 package com.mimosa.deeppokemon.config;
 
 
-import com.mimosa.deeppokemon.crawler.LadderBattleCrawler;
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Player;
+import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.service.BattleService;
-import com.mimosa.deeppokemon.service.PlayerService;
+import com.mimosa.deeppokemon.service.LadderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import java.util.List;
+import java.io.IOException;
 
 @Configuration
 @EnableScheduling
+@Profile({"crawDaily", "startCraw"})
 public class ScheduledConfig {
 
     @Autowired
-    LadderBattleCrawler battleCrawler;
+    LadderCrawler battleCrawler;
 
     @Autowired
     BattleService battleSevice;
 
     @Autowired
-    PlayerService playerService;
+    LadderService ladderService;
 
     private static Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
 
@@ -59,10 +59,7 @@ public class ScheduledConfig {
      * @author huangxiaocong(2070132549@qq.com)
      */
     @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 1 * * ?")
-    private void crawLadder() {
-        List<Player> players = battleCrawler.crawLadeerName();
-        List<Battle> battles = battleCrawler.crawLadderBattle();
-        playerService.saveAll(players);
-        battleSevice.savaAll(battles);
+    private void crawLadder() throws IOException {
+        battleCrawler.crawLadder();
     }
 }

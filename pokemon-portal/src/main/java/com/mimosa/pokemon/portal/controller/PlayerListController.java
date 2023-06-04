@@ -46,14 +46,14 @@ public class PlayerListController {
     private PlayerService playerService;
 
     @RequestMapping("/list")
-    public String list(Model model) {
+    public String list() {
         return "redirect:/rank?page=1";
     }
 
     @RequestMapping("/rank")
-    public String list(Model model,int page) {
+    public String list(Model model, int page) {
         // TODO: 2022/2/4 rank列表去重，根本解决可能需要清楚当天多次爬取造成的重复数据
-        List<Player> playerList = (List<Player>) (playerService.listPlayerRank(page,25).getData());
+        List<Player> playerList = (List<Player>) (playerService.listPlayerRank(page, 25).getData());
         List<Team> teamList = battleService.listTeamByPlayerList(playerList);
         model.addAttribute("playerList", playerList);
         model.addAttribute("teamList", teamList);
@@ -64,7 +64,7 @@ public class PlayerListController {
     @ResponseBody
     @RequestMapping("/json/rank")
     public JsonArrayResponse rankList(int page, int limit) {
-        return playerService.listPlayerDTORank(page,limit);
+        return playerService.listPlayerDTORank(page, limit);
     }
 
 

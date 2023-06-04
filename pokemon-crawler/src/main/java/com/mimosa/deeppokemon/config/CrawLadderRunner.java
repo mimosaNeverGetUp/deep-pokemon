@@ -24,11 +24,9 @@
 
 package com.mimosa.deeppokemon.config;
 
-import com.mimosa.deeppokemon.crawler.LadderBattleCrawler;
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Player;
+import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.service.BattleService;
-import com.mimosa.deeppokemon.service.PlayerService;
+import com.mimosa.deeppokemon.service.LadderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,21 +35,20 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 
 @Component
 @Profile("startCraw")
 public class CrawLadderRunner{
     @Autowired
-    LadderBattleCrawler battleCrawler;
+    LadderCrawler battleCrawler;
 
     @Autowired
     BattleService battleSevice;
 
     @Autowired
-    PlayerService playerService;
+    LadderService ladderService;
 
-    private static Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
+    private static final Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
 
     /**
      * 应用启动后爬取排行榜进行初始化统计
@@ -65,9 +62,6 @@ public class CrawLadderRunner{
                         "start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
                 battleCrawler.getFormat(), battleCrawler.getPageLimit(), battleCrawler.getRankMoreThan(),
                 battleCrawler.getMinElo(), battleCrawler.getMinGxe(), battleCrawler.getDateAfter()));
-        List<Player> players = battleCrawler.crawLadeerName();
-        playerService.saveAll(players);
-        List<Battle> battles = battleCrawler.crawLadderBattle();
-        battleSevice.savaAll(battles);
+        battleCrawler.crawLadder();
     }
 }

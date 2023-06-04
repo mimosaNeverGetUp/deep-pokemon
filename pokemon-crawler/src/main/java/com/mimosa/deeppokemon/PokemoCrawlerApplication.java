@@ -24,11 +24,8 @@
 
 package com.mimosa.deeppokemon;
 
-import com.mimosa.deeppokemon.config.ScheduledConfig;
-import com.mimosa.deeppokemon.crawler.LadderBattleCrawler;
+import com.mimosa.deeppokemon.crawler.LadderCrawler;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,15 +35,13 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 public class PokemoCrawlerApplication {
-    private static Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
     public static void main(String[] args) {
         SpringApplication.run(PokemoCrawlerApplication.class, args);
-
     }
 
     @Bean
-    LadderBattleCrawler crawler(){
-        return new LadderBattleCrawler("gen9ou", 1,
+    LadderCrawler crawler(){
+        return new LadderCrawler("gen9ou", 1,
                 200, 1600, LocalDate.now().minusMonths(1), 60.0f);
     }
 

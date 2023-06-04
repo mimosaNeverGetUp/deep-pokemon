@@ -27,7 +27,6 @@ package com.mimosa.pokemon.portal.service;
 import com.mimosa.deeppokemon.entity.Player;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.entity.JsonArrayResponse;
-import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -35,14 +34,10 @@ import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.util.DateUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -63,14 +58,13 @@ public class PlayerService {
 
     public List<Player> ListPlayerByName(String playerName) {
         Query query = new BasicQuery(String.format("{ name : %s }", playerName));
-        List<Player> playerList = mongoTemplate.find(query, Player.class, "player");
-        return playerList;
+        return mongoTemplate.find(query, Player.class, "player");
     }
 
-    public JsonArrayResponse listPlayerRank(int page,int limit)  {
+    public JsonArrayResponse listPlayerRank(int page, int limit) {
         //查询数据库里储存的最新的日期
-        int start = limit * (page-1);
-        int end = start +limit;
+        int start = limit * (page - 1);
+        int end = start + limit;
         Query query = new BasicQuery("{}")
                 .with(Sort.by(Sort.Order.desc("infoDate")))
                 .limit(1);
@@ -89,12 +83,12 @@ public class PlayerService {
 
         //去除列表里重复和范围外元素
         for (int i = 0; i < playerList.size(); ++i) {
-           for (int j = playerList.size() - 1; j > i; --j) {
-               if (playerList.get(i).equals(playerList.get(j))) {
-                  playerList.remove(j);
-              }
+            for (int j = playerList.size() - 1; j > i; --j) {
+                if (playerList.get(i).equals(playerList.get(j))) {
+                    playerList.remove(j);
+                }
             }
-      }
+        }
         JsonArrayResponse response = new JsonArrayResponse();
         response.setData(playerList);
         response.setCode(0);
@@ -103,10 +97,10 @@ public class PlayerService {
         return response;
     }
 
-    public JsonArrayResponse listPlayerDTORank(int page,int limit)  {
+    public JsonArrayResponse listPlayerDTORank(int page, int limit) {
         // 查询数据库里储存的最新的日期
-        int start = limit * (page-1);
-        int end = start +limit;
+        int start = limit * (page - 1);
+        int end = start + limit;
         Query query = new BasicQuery("{}")
                 .with(Sort.by(Sort.Order.desc("infoDate")))
                 .limit(1);

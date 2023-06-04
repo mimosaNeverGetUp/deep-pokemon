@@ -24,26 +24,20 @@
 
 package com.mimosa.pokemon.portal.controller;
 
-import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.pokemon.portal.entity.MapResult;
 import com.mimosa.pokemon.portal.service.BattleService;
 import com.mimosa.pokemon.portal.util.MapResultUtil;
-import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Method;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 

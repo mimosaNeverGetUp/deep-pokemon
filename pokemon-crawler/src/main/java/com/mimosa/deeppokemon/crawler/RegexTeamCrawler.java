@@ -25,7 +25,6 @@
 package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Team;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -37,7 +36,6 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.util.regex.Matcher;
@@ -48,14 +46,14 @@ public class RegexTeamCrawler implements TeamCrawler {
 
     @Autowired
     private HtmlTeamExtracter htmlTeamExtracter;
-    private static Logger log = LoggerFactory.getLogger(RegexTeamCrawler.class);
+    private static final Logger log = LoggerFactory.getLogger(RegexTeamCrawler.class);
     public RegexTeamCrawler() {
     }
 
     @Override
     public Battle craw(String url) {
         HttpGet httpGet = initGet(url);
-        try (CloseableHttpClient httpClient = initClient();CloseableHttpResponse HttpResponse=httpClient.execute(httpGet);){
+        try (CloseableHttpClient httpClient = initClient();CloseableHttpResponse HttpResponse=httpClient.execute(httpGet)){
             String html = EntityUtils.toString(HttpResponse.getEntity());
             Battle battle = htmlTeamExtracter.extract(html);
             String battleID = extractBattleID(url);
@@ -71,8 +69,7 @@ public class RegexTeamCrawler implements TeamCrawler {
 
     private CloseableHttpClient initClient(){
         CookieStore httpCookieStore = new BasicCookieStore();
-        CloseableHttpClient httpClient= HttpClientBuilder.create().setDefaultCookieStore(httpCookieStore).build();
-        return httpClient;
+        return HttpClientBuilder.create().setDefaultCookieStore(httpCookieStore).build();
     }
 
     private HttpGet initGet(String url){
@@ -91,8 +88,7 @@ public class RegexTeamCrawler implements TeamCrawler {
         Pattern pattern = Pattern.compile("https://replay.pokemonshowdown.com/(.*)");
         Matcher matcher = pattern.matcher(url);
         if (matcher.find()) {
-            String battleID = matcher.group(1).trim();
-            return battleID;
+            return matcher.group(1).trim();
         }
         throw new Exception("match battle id failed");
     }

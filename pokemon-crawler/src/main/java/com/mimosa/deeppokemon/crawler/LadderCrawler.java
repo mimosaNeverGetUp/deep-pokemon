@@ -25,10 +25,10 @@
 package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Player;
+import com.mimosa.deeppokemon.entity.Ladder;
+import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.deeppokemon.service.BattleService;
-import com.mimosa.deeppokemon.service.PlayerService;
-import com.mimosa.deeppokemon.tagger.TeamTagger;
+import com.mimosa.deeppokemon.service.LadderService;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -40,35 +40,36 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.*;
 
 
-public class LadderBattleCrawler {
+public class LadderCrawler {
+    private static final String ladderQueryUrl = "https://play.pokemonshowdown.com/ladder.php?&server=showdown&output=html&prefix=";
+    private static final String playerQueryUrl = "https://replay.pokemonshowdown.com/search/?output=html";
     private String format;
     private int pageLimit;
     private int rankMoreThan;
     private int minElo;
     private float minGxe;
     private LocalDate dateAfter;
-    private String ladderQueryUrl = "https://play.pokemonshowdown.com/ladder.php?&server=showdown&output=html&prefix=";
-    private String playerQueryUrl = "https://replay.pokemonshowdown.com/search/?output=html";
-    private String replayUrlRoot = "https://replay.pokemonshowdown.com/";
 
     @Autowired
     private TeamCrawler teamCrawler;
 
     @Autowired
     private BattleService battleService;
-    private static Logger log = LoggerFactory.getLogger(LadderBattleCrawler.class);
 
-    public LadderBattleCrawler() {
+    @Autowired
+    private LadderService ladderService;
+
+    private static final Logger log = LoggerFactory.getLogger(LadderCrawler.class);
+
+    public LadderCrawler() {
         //magic number to provide qualify
-        this.format = "gen8ou";
+        this.format = "gen9ou";
         this.pageLimit = 1;
         this.rankMoreThan = 150;
         this.minElo = 1800;
@@ -76,7 +77,7 @@ public class LadderBattleCrawler {
         this.dateAfter = LocalDate.now().minusMonths(1);
     }
 
-    public LadderBattleCrawler(String format, int pageLimit, int rankmoreThan, int minElo,LocalDate dateAfter,float minGxe) {
+    public LadderCrawler(String format, int pageLimit, int rankmoreThan, int minElo, LocalDate dateAfter, float minGxe) {
         this.format = format;
         this.pageLimit = pageLimit;
         this.rankMoreThan = rankmoreThan;
@@ -84,51 +85,54 @@ public class LadderBattleCrawler {
         this.minGxe = minGxe;
         this.dateAfter = dateAfter;
     }
+    public List<Battle> crawLadder() throws IOException {
+        Ladder ladder = crawLadderRank();
+        return crawLadderBattle(ladder);
+    }
 
-    public LinkedList<Battle> crawLadderBattle() {
+    public List<Battle> crawLadderBattle(Ladder ladder) {
         LinkedList<Battle> battles = new LinkedList<>();
         log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
                 getFormat(), getPageLimit(), getRankMoreThan(),
                 getMinElo(), getMinGxe(), getDateAfter()));
         log.info("start craw ladder player");
-        ArrayList<Player> players = crawLadeerName();
+
         HashSet<String> preUrls = new HashSet<>();
-        for (Player player : players) {
-            log.info("start craw battle of player : {}", player.getName());
-            String playerName = player.getName();
+        for (LadderRank ladderRank : ladder.getLadderRankList()) {
+            log.info("start craw battle of player : {}", ladderRank.getName());
+            String playerName = ladderRank.getName();
             List<Battle> battleList = crawPlayerBattleIfAbesent(playerName, preUrls);
             if (battleList != null) {
                 battles.addAll(battleList);
             }
         }
+        battleService.savaAll(battles);
         return battles;
     }
 
-    public ArrayList<Player> crawLadeerName() {
+    public Ladder crawLadderRank() throws IOException {
         HttpGet httpGet = initLadeerQueryGet();
-        try (CloseableHttpClient httpClient = initClient(); CloseableHttpResponse HttpResponse=httpClient.execute(httpGet);){
+        try (CloseableHttpClient httpClient = initClient(); CloseableHttpResponse HttpResponse = httpClient.execute(httpGet)) {
             String html = EntityUtils.toString(HttpResponse.getEntity());
-            ArrayList<Player> players = LadderPlayerExtracter.extract(html, rankMoreThan, minElo,minGxe,format);
-            return players;
+            Ladder ladder = LadderExtracter.extract(html, rankMoreThan, minElo, minGxe, format);
+            ladderService.save(ladder);
+            return ladder;
+        } catch (Exception e) {
+            log.error("craw ladder failed", e);
+            throw e;
         }
-        catch (Exception e){
-            e.printStackTrace();
-            log.error(e.getMessage());
-
-        }
-        return null;
     }
 
-    public LinkedList<Battle> crawPlayerBattle(String name){
+    public LinkedList<Battle> crawPlayerBattle(String name) {
         return crawPlayerBattleIfAbesent(name, null);
     }
 
-    private LinkedList<Battle> crawPlayerBattleIfAbesent(String name, HashSet<String>preUrls){
-        try (CloseableHttpClient httpClient = initClient();){
+    private LinkedList<Battle> crawPlayerBattleIfAbesent(String name, HashSet<String> preUrls) {
+        try (CloseableHttpClient httpClient = initClient()) {
             LinkedList<String> replayUrls = new LinkedList<>();
             for (int i = 1; i <= pageLimit; ++i) {
                 HttpGet httpGet = initPlayerQueryGet(name, i);
-                CloseableHttpResponse HttpResponse=httpClient.execute(httpGet);
+                CloseableHttpResponse HttpResponse = httpClient.execute(httpGet);
                 String html = EntityUtils.toString(HttpResponse.getEntity());
                 ArrayList<String> playerReplayUrls = PlayerUrlExtracter.extract(html);
                 if (playerReplayUrls.size() == 0) {
@@ -137,7 +141,7 @@ public class LadderBattleCrawler {
                 replayUrls.addAll(playerReplayUrls);
                 HttpResponse.close();
             }
-            if (preUrls != null ) {
+            if (preUrls != null) {
                 replayUrls.removeIf(preUrls::contains);
                 preUrls.addAll(replayUrls);
             }
@@ -154,7 +158,7 @@ public class LadderBattleCrawler {
                     break;
                 }
                 log.info("extract url:" + url);
-                if(url.contains(format)){
+                if (url.contains(format)) {
                     Battle battle = teamCrawler.craw(url);
                     if (battle != null) {
                         LocalDate date = battle.getDate();
@@ -167,46 +171,44 @@ public class LadderBattleCrawler {
                 }
             }
             return battles;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             log.error(e.getMessage());
         }
         return null;
     }
 
-    private CloseableHttpClient initClient(){
+    private CloseableHttpClient initClient() {
         CookieStore httpCookieStore = new BasicCookieStore();
-        CloseableHttpClient httpClient= HttpClientBuilder.create().setDefaultCookieStore(httpCookieStore).build();
-        return httpClient;
+        return HttpClientBuilder.create().setDefaultCookieStore(httpCookieStore).build();
     }
 
-    private HttpGet initLadeerQueryGet(){
+    private HttpGet initLadeerQueryGet() {
         String url = ladderQueryUrl + String.format("&format=%s", format);
-        log.debug("init ladderQuery: {}",url);
-        HttpGet httpGet=new HttpGet(url);
+        log.debug("init ladderQuery: {}", url);
+        HttpGet httpGet = new HttpGet(url);
         httpGet.addHeader("Accept", "*/*");
         httpGet.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Mobile Safari/537.36");
-        RequestConfig config= RequestConfig.custom().setConnectTimeout(20000).//创建连接的最长时间，单位是毫秒
+        RequestConfig config = RequestConfig.custom().setConnectTimeout(20000).//创建连接的最长时间，单位是毫秒
                 setConnectionRequestTimeout(20000).//设置获取连接的最长时间，单位毫秒
                 setSocketTimeout(20000)//设置数据传输的最长时间，单位毫秒
                 .build();
         httpGet.setConfig(config);
-        return  httpGet;
+        return httpGet;
     }
 
-    private HttpGet initPlayerQueryGet(String playerName,int pageNumber){
-        String url = playerQueryUrl + String.format("&user=%s", playerName.replaceAll(" ","+"))
+    private HttpGet initPlayerQueryGet(String playerName, int pageNumber) {
+        String url = playerQueryUrl + String.format("&user=%s", playerName.replaceAll(" ", "+"))
                 + String.format("&page=%d", pageNumber);
-        HttpGet httpGet=new HttpGet(url);
+        HttpGet httpGet = new HttpGet(url);
         httpGet.addHeader("Accept", "*/*");
         httpGet.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Mobile Safari/537.36");
-        RequestConfig config= RequestConfig.custom().setConnectTimeout(20000).//创建连接的最长时间，单位是毫秒
+        RequestConfig config = RequestConfig.custom().setConnectTimeout(20000).//创建连接的最长时间，单位是毫秒
                 setConnectionRequestTimeout(20000).//设置获取连接的最长时间，单位毫秒
                 setSocketTimeout(20000)//设置数据传输的最长时间，单位毫秒
                 .build();
         httpGet.setConfig(config);
-        return  httpGet;
+        return httpGet;
     }
 
     public String getFormat() {

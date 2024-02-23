@@ -48,7 +48,7 @@ import java.util.*;
 
 public class LadderCrawler {
     private static final String ladderQueryUrl = "https://play.pokemonshowdown.com/ladder.php?&server=showdown&output=html&prefix=";
-    private static final String playerQueryUrl = "https://replay.pokemonshowdown.com/search/?output=html";
+    private static final String playerQueryUrl = "https://replay.pokemonshowdown.com/api/replays/search";
     private String format;
     private int pageLimit;
     private int rankMoreThan;
@@ -85,6 +85,7 @@ public class LadderCrawler {
         this.minGxe = minGxe;
         this.dateAfter = dateAfter;
     }
+
     public List<Battle> crawLadder() throws IOException {
         Ladder ladder = crawLadderRank();
         return crawLadderBattle(ladder);
@@ -101,7 +102,7 @@ public class LadderCrawler {
         for (LadderRank ladderRank : ladder.getLadderRankList()) {
             log.info("start craw battle of player : {}", ladderRank.getName());
             String playerName = ladderRank.getName();
-            List<Battle> battleList = crawPlayerBattleIfAbesent(playerName, preUrls);
+            List<Battle> battleList = crawPlayerBattleIfAbesent(playerName, preUrls, ladder.getFormat());
             if (battleList != null) {
                 battles.addAll(battleList);
             }
@@ -124,17 +125,17 @@ public class LadderCrawler {
     }
 
     public LinkedList<Battle> crawPlayerBattle(String name) {
-        return crawPlayerBattleIfAbesent(name, null);
+        return crawPlayerBattleIfAbesent(name, null, null);
     }
 
-    private LinkedList<Battle> crawPlayerBattleIfAbesent(String name, HashSet<String> preUrls) {
+    private LinkedList<Battle> crawPlayerBattleIfAbesent(String name, HashSet<String> preUrls,String format) {
         try (CloseableHttpClient httpClient = initClient()) {
             LinkedList<String> replayUrls = new LinkedList<>();
             for (int i = 1; i <= pageLimit; ++i) {
-                HttpGet httpGet = initPlayerQueryGet(name, i);
+                HttpGet httpGet = initPlayerQueryGet(name, i, format);
                 CloseableHttpResponse HttpResponse = httpClient.execute(httpGet);
-                String html = EntityUtils.toString(HttpResponse.getEntity());
-                ArrayList<String> playerReplayUrls = PlayerUrlExtracter.extract(html);
+                String response = EntityUtils.toString(HttpResponse.getEntity());
+                ArrayList<String> playerReplayUrls = PlayerUrlExtracter.extract(response);
                 if (playerReplayUrls.size() == 0) {
                     break;
                 }
@@ -196,10 +197,12 @@ public class LadderCrawler {
         httpGet.setConfig(config);
         return httpGet;
     }
-
-    private HttpGet initPlayerQueryGet(String playerName, int pageNumber) {
-        String url = playerQueryUrl + String.format("&user=%s", playerName.replaceAll(" ", "+"))
+    private HttpGet initPlayerQueryGet(String playerName, int pageNumber, String format) {
+        String url = playerQueryUrl + String.format("?username=%s", playerName.replaceAll(" ", "+"))
                 + String.format("&page=%d", pageNumber);
+        if (format != null) {
+            url += "&format=" + format;
+        }
         HttpGet httpGet = new HttpGet(url);
         httpGet.addHeader("Accept", "*/*");
         httpGet.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Mobile Safari/537.36");

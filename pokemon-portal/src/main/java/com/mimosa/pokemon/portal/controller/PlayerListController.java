@@ -24,7 +24,8 @@
 
 package com.mimosa.pokemon.portal.controller;
 
-import com.mimosa.deeppokemon.entity.Player;
+import com.mimosa.deeppokemon.entity.Ladder;
+import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.pokemon.portal.entity.JsonArrayResponse;
 import com.mimosa.pokemon.portal.service.BattleService;
@@ -35,6 +36,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -52,10 +55,16 @@ public class PlayerListController {
 
     @RequestMapping("/rank")
     public String list(Model model, int page) {
+        int start = (page - 1) * 25;
+        int end = start + 25;
         // TODO: 2022/2/4 rank列表去重，根本解决可能需要清楚当天多次爬取造成的重复数据
-        List<Player> playerList = (List<Player>) (playerService.listPlayerRank(page, 25).getData());
-        List<Team> teamList = battleService.listTeamByPlayerList(playerList);
-        model.addAttribute("playerList", playerList);
+        Ladder ladder = playerService.getLatestLadder();
+        List<LadderRank> ladderRank = ladder.getLadderRankList();
+        List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
+        ladderRank.sort(Comparator.comparingInt(LadderRank::getRank).reversed());
+        List<Team> teamList = battleService.listTeamByLadderRank(segmentLadderRank);
+        model.addAttribute("rankList", segmentLadderRank);
+        model.addAttribute("ladderDate", ladder.getDate());
         model.addAttribute("teamList", teamList);
         model.addAttribute("page", page);
         return "playerRank";

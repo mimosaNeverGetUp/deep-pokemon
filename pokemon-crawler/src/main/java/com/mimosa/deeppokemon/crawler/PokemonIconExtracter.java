@@ -26,6 +26,8 @@ package com.mimosa.deeppokemon.crawler;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -34,6 +36,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
@@ -41,38 +44,47 @@ import java.util.Map;
 import java.util.Set;
 
 public class PokemonIconExtracter {
+    private static final Logger logger = LoggerFactory.getLogger(PokemonIconExtracter.class);
+
     final private static int HEIGHT_PER_POKEMON = 30;
 
     final private static int WIDTH_PER_POKEMON = 40;
 
     final private Map<String, Integer> pokemonIconIndexMap;
 
-    final private String imagePath;
+    final private Path imagePath;
 
     List<PokemonInfo> pokemonInfos;
 
-
-
-    PokemonIconExtracter(String imagePath, String pokemonIconIndexPath, List<PokemonInfo> pokemonInfos) throws IOException {
+    PokemonIconExtracter(Path imagePath, Path pokemonIconIndexPath, List<PokemonInfo> pokemonInfos) throws IOException {
         this.imagePath = imagePath;
         this.pokemonInfos = pokemonInfos;
         pokemonIconIndexMap = getPokemonIconIndexMap(pokemonIconIndexPath);
     }
 
     public void extract() throws IOException {
-        ImageIcon pokemonicons = new ImageIcon(imagePath);
+        ImageIcon pokemonicons = new ImageIcon(imagePath.toAbsolutePath().toString());
         BufferedImage pokemonIconsImage = new BufferedImage(pokemonicons.getIconWidth(), pokemonicons.getIconHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         pokemonIconsImage.getGraphics().drawImage(pokemonicons.getImage(), 0, 0, null);
         pokemonicons.getImage().flush();
 
         for (PokemonInfo pokemonInfo : pokemonInfos) {
-            int index = getPokemonIconIndex(pokemonInfo);
-            int h = index / 12 * 30;
-            int w = (index % 12) * 40;
-            BufferedImage pokemonIconImage = pokemonIconsImage.getSubimage(w, h, WIDTH_PER_POKEMON, HEIGHT_PER_POKEMON);
-            ImageIO.write(convertBackgroundToCompatible(pokemonIconImage), "png", new File("C:\\Users\\Miyu\\IdeaProjects\\deep-pokemon" +
-                    "\\pokemon-crawler\\src\\main\\resources\\META-INF\\test\\" + pokemonInfo.getName() + ".png"));
+            try {
+                int index = getPokemonIconIndex(pokemonInfo);
+                if (index < 0) {
+                    continue;
+                }
+                int h = index / 12 * 30;
+                int w = (index % 12) * 40;
+                BufferedImage pokemonIconImage = pokemonIconsImage.getSubimage(w, h, WIDTH_PER_POKEMON, HEIGHT_PER_POKEMON);
+                File output = Paths.get("src", "main", "resources", "META-INF", "test", pokemonInfo.getName()
+                        .replaceAll(" ", "").replaceAll(":", "") + ".png").toAbsolutePath().toFile();
+                ImageIO.write(convertBackgroundToCompatible(pokemonIconImage), "png", output);
+            } catch (Exception e) {
+                logger.error("extract {} fail,index:{}", pokemonInfo, getPokemonIconIndex(pokemonInfo));
+                throw e;
+            }
         }
     }
 
@@ -84,8 +96,8 @@ public class PokemonIconExtracter {
         return pokemonInfo.getNumber();
     }
 
-    private Map<String, Integer> getPokemonIconIndexMap(String pokemonIconIndexPath) throws IOException {
-        String content = new String(Files.readAllBytes(Paths.get(pokemonIconIndexPath)));
+    private Map<String, Integer> getPokemonIconIndexMap(Path pokemonIconIndexPath) throws IOException {
+        String content = new String(Files.readAllBytes(pokemonIconIndexPath));
         return jsonToMap(content);
     }
 
@@ -111,7 +123,7 @@ public class PokemonIconExtracter {
                 BufferedImage.TYPE_INT_RGB
         );
         Graphics2D g = newImage.createGraphics();
-        newImage =g.getDeviceConfiguration().createCompatibleImage(image.getWidth(null), image.getHeight(null),
+        newImage = g.getDeviceConfiguration().createCompatibleImage(image.getWidth(null), image.getHeight(null),
                 Transparency.TRANSLUCENT);
         g = newImage.createGraphics();
         g.drawImage(image, 0, 0, null);

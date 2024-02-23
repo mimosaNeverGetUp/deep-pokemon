@@ -40,7 +40,7 @@ import org.springframework.stereotype.Component;
 @Profile("startCraw")
 public class CrawLadderRunner{
     @Autowired
-    LadderCrawler battleCrawler;
+    LadderCrawler ladderCrawler;
 
     @Autowired
     BattleService battleSevice;
@@ -60,8 +60,8 @@ public class CrawLadderRunner{
         // TODO: 2022/2/4 改造成以线程的形式执行，以避免堵塞servlet初始化与http请求
         log.info(String.format("craw  " +
                         "start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
-                battleCrawler.getFormat(), battleCrawler.getPageLimit(), battleCrawler.getRankMoreThan(),
-                battleCrawler.getMinElo(), battleCrawler.getMinGxe(), battleCrawler.getDateAfter()));
-        battleCrawler.crawLadder();
+                ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
+                ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter()));
+        ladderCrawler.crawLadder();
     }
 }

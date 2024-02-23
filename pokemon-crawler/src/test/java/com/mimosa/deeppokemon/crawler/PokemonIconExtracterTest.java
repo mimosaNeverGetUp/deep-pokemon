@@ -26,16 +26,27 @@ package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.ResourceUtils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 class PokemonIconExtracterTest {
-    public static final String iconPath = "C:\\Users\\Miyu\\IdeaProjects\\deep-pokemon\\pokemon-crawler\\src\\main" +
-            "\\resources\\META-INF\\pokemonicon\\pokemonicons-sheet.png";
+    public static final Path iconPath;
 
-    public static final String pokemonIconIndexPath = "C:\\Users\\Miyu\\IdeaProjects\\deep-pokemon\\pokemon-crawler" +
-            "\\src\\main\\resources\\META-INF\\pokemonicon\\pokemonInconIndex.json";
+    public static final Path pokemonIconIndexPath;
+
+    static {
+        try {
+            pokemonIconIndexPath = ResourceUtils.getFile("classpath:icon/pokemonIconIndex.json").toPath();
+            iconPath = ResourceUtils.getFile("classpath:icon/pokemonicons-sheet_v16.png").toPath();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Test
     void extract() throws IOException {

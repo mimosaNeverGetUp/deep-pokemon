@@ -216,11 +216,13 @@ public class HtmlTeamExtracter {
     }
 
     private static LocalDate extractDate(String html) {
-        Pattern pattern = Pattern.compile("Uploaded:</em>([^\\|<]*)");
+        Pattern pattern = Pattern.compile("Date: ([^\"]*)");
         Matcher matcher = pattern.matcher(html);
         if (matcher.find()) {
             logger.debug("match Date" + matcher.group(1));
-            DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Locale.ENGLISH);
+            // 指定日期格式
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
+            // 解析字符串并转换为LocalDate对象
             LocalDate date=LocalDate.parse(matcher.group(1).trim(), formatter);
             logger.debug("after format:"+formatter.format(date));
             return date;

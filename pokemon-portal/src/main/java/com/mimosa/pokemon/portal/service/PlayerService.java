@@ -24,6 +24,7 @@
 
 package com.mimosa.pokemon.portal.service;
 
+import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.Player;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.entity.JsonArrayResponse;
@@ -59,6 +60,14 @@ public class PlayerService {
     public List<Player> ListPlayerByName(String playerName) {
         Query query = new BasicQuery(String.format("{ name : %s }", playerName));
         return mongoTemplate.find(query, Player.class, "player");
+    }
+
+    public Ladder getLatestLadder() {
+        //查询数据库里储存的最新的日期
+        Query query = new BasicQuery("{}")
+                .with(Sort.by(Sort.Order.desc("date")))
+                .limit(1);
+        return mongoTemplate.findOne(query, Ladder.class, "ladder");
     }
 
     public JsonArrayResponse listPlayerRank(int page, int limit) {

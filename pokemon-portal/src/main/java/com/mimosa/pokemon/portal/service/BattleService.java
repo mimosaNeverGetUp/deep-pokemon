@@ -57,6 +57,40 @@ public class BattleService {
         return mongoTemplate.find(query, Battle.class, "battle");
     }
 
+    public List<Team> listTeamByLadderRank(List<LadderRank> ladderRanks) {
+        ArrayList<Pokemon> emptyPokemons = new ArrayList<>(6);
+        Pokemon emptyPokemon = new Pokemon("null");
+
+        List<Team> teamList = new ArrayList<>();
+        for (int i = 0; i < 6; ++i) {
+            emptyPokemons.add(emptyPokemon);
+        }
+        for (LadderRank ladderRank : ladderRanks) {
+            String queryString = String.format("{ 'teams.playerName' : \"%s\",'teams.tier' : \"[Gen 9] OU\" }", ladderRank.getName());
+            System.out.println(queryString);
+            Query query = new BasicQuery(queryString)
+                    .with(Sort.by(Sort.Order.desc("date")))
+                    .limit(2);
+            List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
+            for (Battle battle : battles) {
+                Team[] teams = battle.getTeams();
+                for (Team team : teams) {
+                    if (ladderRank.getName().equals(team.getPlayerName())) {
+                        teamList.add(team);
+                        break;
+                    }
+                }
+            }
+            Team emptyTeam = new Team();
+            emptyTeam.setPokemons(emptyPokemons);
+            emptyTeam.setPlayerName(ladderRank.getName());
+            for (int j = 0; j < 2 - battles.size(); ++j) {
+                teamList.add(emptyTeam);
+            }
+        }
+        return teamList;
+    }
+
     public List<Team> listTeamByPlayerList(List<Player> list) {
         ArrayList<Pokemon> emptyPokemons = new ArrayList<>(6);
         Pokemon emptyPokemon = new Pokemon("null");
@@ -90,6 +124,7 @@ public class BattleService {
         }
         return teamList;
     }
+
     public Pair<Pair<Float, Float>, List<Team>> statistic(String name, LocalDate dayAfter, LocalDate dayBefore) throws Exception {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date")));
         Criteria criteria = Criteria.where("date").gte(dayAfter).lte(dayBefore);
@@ -125,7 +160,7 @@ public class BattleService {
     }
 
     public List<MapResult> statisticAllDetails(String name, LocalDate dayAfter,
-                                        LocalDate dayBefore) throws Exception {
+                                               LocalDate dayBefore) throws Exception {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date")));
         Criteria criteria = Criteria.where("date").gte(dayAfter).lte(dayBefore);
         query.addCriteria(criteria);
@@ -166,6 +201,7 @@ public class BattleService {
         }
         return iterator.next().getValue();
     }
+
     //统计所有pm的登场率、胜率
     public List<MapResult> mapReduceAll(Query query) throws Exception {
         Long total = 2 * mongoTemplate.count(query, "battle");
@@ -223,13 +259,13 @@ public class BattleService {
                 "       for(var k=0;k<this.teams[i].pokemons[j].moves.length;++k){" +
                 "           moves[this.teams[i].pokemons[j].moves[k]]=1;" +
                 "       }" +
-                "       object['moves']=moves;object['total']=" +total+";object['use']=1;"+
+                "       object['moves']=moves;object['total']=" + total + ";object['use']=1;" +
                 "       if(this.winner==this.teams[i].playerName){" +
                 "           object['win']=1;}" +
                 "       else{" +
                 "           object['win']=0;" +
                 "           }" +
-                "       emit(this.teams[i].pokemons[j].name,object);"+
+                "       emit(this.teams[i].pokemons[j].name,object);" +
                 "   }" +
                 "}" +
                 "}";
@@ -238,22 +274,20 @@ public class BattleService {
                 "for(var i=0;i<values.length;++i){" +
                 "   use = use + values[i].use;" +
                 "   win = win + values[i].win;" +
-                "   for(var key in values[i].moves){"+
-                "   if(moves.hasOwnProperty(key))"+
-                "      {moves[key]= values[i].moves[key] +parseInt(moves[key]);}"+
-                "   else{moves[key]= values[i].moves[key] ;}"+
-                "   }"  +
+                "   for(var key in values[i].moves){" +
+                "   if(moves.hasOwnProperty(key))" +
+                "      {moves[key]= values[i].moves[key] +parseInt(moves[key]);}" +
+                "   else{moves[key]= values[i].moves[key] ;}" +
+                "   }" +
                 "}" +
-                "object['use']=use;object['win']=win;object['total']=values[0].total;"+
-                "object['moves']=moves;"+
+                "object['use']=use;object['win']=win;object['total']=values[0].total;" +
+                "object['moves']=moves;" +
                 "return (values[0]._id,object);" +
                 "}";
 
         MapReduceOptions mapReduceOptions = new MapReduceOptions();
-        mapReduceOptions.outputDatabase("moveTest");
-        mapReduceOptions.outputCollection("move");
         MapReduceResults<MapResult> results =
-                mongoTemplate.mapReduce(query, "battle", mapFunction, reduceFunction,mapReduceOptions, MapResult.class);
+                mongoTemplate.mapReduce(query, "battle", mapFunction, reduceFunction, mapReduceOptions, MapResult.class);
         if (results == null) {
             throw new Exception("mapReduce null!");
         }
@@ -283,11 +317,11 @@ public class BattleService {
     //对统计里的moves（hashmap类型）根据值降序排序,保留使用次数高的并转化为使用率
     private void sortAndReduceMap(Statistic statistic) {
         HashMap<String, Float> map = statistic.getMoves();
-        List<Map.Entry<String,Float>> list = new ArrayList<>(map.entrySet());
-        Collections.sort(list,new Comparator<Map.Entry<String, Float>>() {
+        List<Map.Entry<String, Float>> list = new ArrayList<>(map.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Float>>() {
             @Override
             public int compare(Map.Entry<String, Float> o1, Map.Entry<String, Float> o2) {
-                return (int)(o2.getValue()-o1.getValue()); //重写排序规则，小于0表示升序，大于0表示降序
+                return (int) (o2.getValue() - o1.getValue()); //重写排序规则，小于0表示升序，大于0表示降序
             }
         });
         for (int i = 0; i < list.size(); i++) {
@@ -306,7 +340,7 @@ public class BattleService {
         }
     }
 
-    public List<Pair<Team, String>> Team(int page,String tag,String pokemonName,String dayAfter,String dayBefore) {
+    public List<Pair<Team, String>> Team(int page, String tag, String pokemonName, String dayAfter, String dayBefore) {
         int num_perPage = 20;
         ArrayList<Team> teamList = new ArrayList<>();
         List<Pair<Team, String>> teams = new ArrayList<>();
@@ -314,7 +348,7 @@ public class BattleService {
         List<AggregationOperation> operations = new ArrayList<>();
         //设置页数条件
         operations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
-       //动态设置条件
+        //动态设置条件
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         if (!StringUtils.isEmpty(dayAfter)) {
             LocalDate after = LocalDate.parse(dayAfter, format);
@@ -334,7 +368,7 @@ public class BattleService {
         operations.add(Aggregation.limit(num_perPage));
         Aggregation aggregation = Aggregation.newAggregation(operations);
 
-        List<Battle> battles = mongoTemplate.aggregate(aggregation, "battle",Battle.class).getMappedResults();
+        List<Battle> battles = mongoTemplate.aggregate(aggregation, "battle", Battle.class).getMappedResults();
         for (Battle battle : battles) {
             for (Team team : battle.getTeams()) {
                 if (team == null) {

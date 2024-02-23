@@ -66,7 +66,7 @@
             </li>
         </ul>
         <div>
-            <span class="navi-item" th:text="'最近更新:' + ${playerList.get(0).getInfoDate()}"></span>
+            <span class="navi-item" th:text="'最近更新:' + ${ladderDate}"></span>
         </div>
     </nav>
 </div>
@@ -79,17 +79,17 @@
         <th class="ladder-th">gxe</th>
         <th class="ladder-th">最近使用队伍</th>
     </tr>
-    <tr th:each="player :  ${playerList}" >
-        <td  th:text="${player.getRank()}" class="ladder-td">rank</td>
+    <tr th:each="rank :  ${   rankList}" >
+        <td  th:text="${rank.getRank()}" class="ladder-td">rank</td>
         <td class="ladder-td" >
-            <a th:text="${player.getName()}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'record?page=1&name='+${player.getName()}"></a>
+            <a th:text="${rank.getName()}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'record?page=1&name='+${rank.getName()}"></a>
         </td>
-        <td  class="ladder-td" th:text="${player.getElo()}">elo</td>
-        <td class="ladder-td" th:text="${player.getGxe()}">gxe</td>
+        <td  class="ladder-td" th:text="${rank.getElo()}">elo</td>
+        <td class="ladder-td" th:text="${rank.getGxe()}">gxe</td>
         <td  class="ladder-td" colspan="3">
             <div class="team-list">
                 <ul class="pokemon-list">
-                        <li th:each="pokemon : ${teamList.get(2*playerStat.index).getPokemons()}" >
+                        <li th:each="pokemon : ${teamList.get(2*rankStat.index).getPokemons()}" >
                             <div class="set-tip">
                                 <img th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                                 <div class="set-tip-text" >
@@ -102,7 +102,7 @@
                         </li>
                 </ul>
                 <ul class="pokemon-list">
-                    <li th:each="pokemon : ${teamList.get(2*playerStat.index+1).getPokemons()}" >
+                    <li th:each="pokemon : ${teamList.get(2*rankStat.index+1).getPokemons()}" >
                         <div class="set-tip">
                             <img th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                             <div class="set-tip-text" >

@@ -54,7 +54,7 @@ import java.util.List;
 @Component
 public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
 
-    private static Logger logger = LoggerFactory.getLogger(PokemonInfoCrawlerImp.class);
+    private static final Logger logger = LoggerFactory.getLogger(PokemonInfoCrawlerImp.class);
     private final String dataPath = "META-INF/pokemoninfo.txt";
     private HashMap<String, PokemonInfo> infoHashMap = new HashMap<>(900);
 

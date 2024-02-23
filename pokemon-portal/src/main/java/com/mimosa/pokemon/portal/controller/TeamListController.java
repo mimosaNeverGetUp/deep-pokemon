@@ -41,13 +41,13 @@ public class TeamListController {
     @Autowired
     private BattleService battleService;
 
-    @RequestMapping(value = "/team",method = RequestMethod.GET)
+    @RequestMapping(value = "/team", method = RequestMethod.GET)
     public String TeamListForm(Model model, HttpServletRequest request) {
         return "teamForm";
 
     }
 
-    @RequestMapping(value = "/teamList",method = RequestMethod.GET)
+    @RequestMapping(value = "/teamList", method = RequestMethod.GET)
     public String TeamList(Model model, HttpServletRequest request) {
         //提取参数
         int page = Integer.parseInt(request.getParameter("page"));
@@ -55,13 +55,13 @@ public class TeamListController {
         String dayAfter = request.getParameter("dayAftter");
         String tag = request.getParameter("tag");
         String pokemonName = request.getParameter("pokemonName");
-        List<Pair<Team, String>> list = battleService.Team( page,tag,pokemonName,dayAfter,dayBefore);
+        List<Pair<Team, String>> list = battleService.Team(page, tag, pokemonName, dayAfter, dayBefore);
         //传入上一页和下一页需要的查询参数语句
         String originQuery = "page=" + String.valueOf(page);
-        String nextPageQuery = "page=" + String.valueOf(page+1);
-        String previousPageQuery = "page=" + String.valueOf(page-1);
-        String nextQueryString = "?"+request.getQueryString().replace(originQuery, nextPageQuery);
-        String previousQueryString = "?"+request.getQueryString().replace(originQuery, previousPageQuery);
+        String nextPageQuery = "page=" + String.valueOf(page + 1);
+        String previousPageQuery = "page=" + String.valueOf(page - 1);
+        String nextQueryString = "?" + request.getQueryString().replace(originQuery, nextPageQuery);
+        String previousQueryString = "?" + request.getQueryString().replace(originQuery, previousPageQuery);
         model.addAttribute("nextQueryString", nextQueryString);
         model.addAttribute("previousQueryString", previousQueryString);
         model.addAttribute("pairList", list);

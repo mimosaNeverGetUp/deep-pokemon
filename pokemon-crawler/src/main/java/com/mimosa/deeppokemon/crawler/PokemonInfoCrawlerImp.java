@@ -119,7 +119,11 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
         for (int i = 0; i < tpyeNames.length(); ++i) {
             //提取属性
             String type = tpyeNames.getString(i).toUpperCase();
-            types.add(Type.valueOf(type));
+            try {
+                types.add(Type.valueOf(type));
+            } catch (IllegalArgumentException e) {
+                logger.error("{} is not in type list", type);
+            }
         }
         //提取种族
         JSONObject baseStatsJson = pokemonJson.getJSONObject("baseStats");

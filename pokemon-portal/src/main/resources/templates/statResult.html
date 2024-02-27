@@ -29,10 +29,26 @@
     <title>result</title>
     <style type="text/css">
 
-        a:link{color:black;text-decoration: none}
-        a:visited{color:black;text-decoration: none}
-        a:hover {color:black;text-decoration: none}
-        a:active {color:black;text-decoration: none}
+        a:link {
+            color: black;
+            text-decoration: none
+        }
+
+        a:visited {
+            color: black;
+            text-decoration: none
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: none
+        }
+
+        a:active {
+            color: black;
+            text-decoration: none
+        }
+
         ul {
             list-style-type: none;
             margin: 0;
@@ -56,13 +72,13 @@
         li a:hover {
             background-color: #111;
         }
-        .td{
+
+        .td {
             text-align: center;
             border-left-style: none;
             border-right-style: none;
             height: 180px;
         }
-
 
 
         .tooltip {
@@ -95,39 +111,40 @@
     <li><a class="active" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
      ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" style="color: white">排行榜</a></li>
     <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" style="color: white" >队伍集</a></li>
+     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" style="color: white">队伍集</a></li>
     <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
     + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
 </ul>
 <table width="100%">
-    <input type="button" id="currentIdNumber"  th:value="20"  style="display: none" />
-    <table  th:id="'stat'+${resultStat.index}"border="0" align="center"  cellspacing="50"
-            th:style="'background-color: #333;width: 100%;color: white;'
-            + ${resultStat.index >20? 'display: none':''}"  th:each="result: ${list}">
+    <input type="button" id="currentIdNumber" th:value="20" style="display: none"/>
+    <table th:id="'stat'+${resStat.index}" border="0" align="center" cellspacing="50"
+           th:style="'background-color: #333;width: 100%;color: white;'
+            + ${resStat.index >20? 'display: none':''}" th:each="res: ${stat}">
         <tr>
             <td style="width: 142px">
-                <img th:src="${#request.getContextPath()}+'/pokemonicon/'+${result.get_id().replace('*','')+'.png'}"
+                <img th:src="${#request.getContextPath()}+'/pokemonicon/'+${res.getName().replace('*','')+'.png'}"
                      width="142" height="149">
             </td>
             <td>
-                <p th:text="${resultStat.index+1+'. '+result.get_id()}"></p>
-                <p th:text="'登场率: ' + ${T(java.lang.String).format('%.2f', result.getValue().getUse()/result.getValue().getTotal())}"></p>
-                <p th:text="'登场率变化: ' + ${T(java.lang.String).format('%+.2f', result.getValue().getUseDiff())}"
-                    th:style="${result.getValue().getUseDiff()>0 ?'background-color:green':'background-color:red'}" ></p>
-                <p th:text="'胜率: ' + ${T(java.lang.String).format('%.2f',result.getValue().getWin()/result.getValue().getUse())}"></p>
-                <p th:text="'胜率变化: ' + ${T(java.lang.String).format('%+.2f', result.getValue().getWinDiff())}"
-                   th:style="${result.getValue().getWinDiff()>0 ?'background-color:green':'background-color:red'}"></p>
+                <p th:text="${resStat.index+1+'. '+res.getName()}"></p>
+                <p th:text="'登场率: ' + ${T(java.lang.String).format('%.2f', res.getUsageStat().getUsePercent())}"></p>
+                <p th:text="'登场率变化: ' + ${T(java.lang.String).format('%+.2f', res.getUsageStat().getUsePercent() - compareStat.get(res.getName()).get(0).getUsageStat().getUsePercent())}"
+                   th:style="${res.getUsageStat().getUsePercent() - compareStat.get(res.getName()).get(0).getUsageStat().getUsePercent() > 0 ?'background-color:green':'background-color:red'}"></p>
+                <p th:text="'胜率: ' + ${T(java.lang.String).format('%.2f',res.getUsageStat().getWinPercent())}"></p>
+                <p th:text="'胜率变化: ' + ${T(java.lang.String).format('%+.2f', res.getUsageStat().getWinPercent() - compareStat.get(res.getName()).get(0).getUsageStat().getWinPercent())}"
+                   th:style="${res.getUsageStat().getWinPercent() - compareStat.get(res.getName()).get(0).getUsageStat().getWinPercent() > 0 ?'background-color:green':'background-color:red'}"></p>
             </td>
             <td width="50%" style="text-align: center">
-                <div th:each="key: ${result.getValue().getMoves().keySet()}">
-                    <p th:text="${T(java.lang.String).format('%20s %.2f',key+'',result.getValue().getMoves().get(key))}"></p>
+                <div th:each="moveUsage: ${res.getMoveStat().getMoveUsage()}">
+                    <p th:text="${T(java.lang.String).format('%20s %.2f',moveUsage.getName()+'',moveUsage.getUsePercent())}"></p>
                 </div>
             </td>
         </tr>
     </table>
     <table width="100%" style="background-color: #333">
         <tr>
-            <td align="centre"  style="text-align: center;border-style:none;align-items: center;align-content: center" colspan="2" width="100%" >
+            <td align="centre" style="text-align: center;border-style:none;align-items: center;align-content: center"
+                colspan="2" width="100%">
                 <button type="button" th:onclick="more()">more</button>
             </td>
         </tr>
@@ -136,16 +153,16 @@
 </body>
 </html>
 <script type="text/javascript">
-    function more(){
+    function more() {
         var currentIdTag = document.getElementById('currentIdNumber');
         var id = parseInt(currentIdTag.value);
         var newId = id + 20;
         window.location.hash = '#stat' + id.toString();
         for (var i = id; i < newId; ++i) {
-            var stat = document.getElementById('stat'+i.toString());
+            var stat = document.getElementById('stat' + i.toString());
             stat.style.display = '';
         }
         currentIdTag.value = newId.toString();
-        }
+    }
 
 </script>

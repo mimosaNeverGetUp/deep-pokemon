@@ -25,16 +25,16 @@
 package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.*;
-import com.mimosa.pokemon.portal.entity.MapResult;
-import com.mimosa.pokemon.portal.entity.Statistic;
+import com.mimosa.pokemon.portal.dto.PokemonStatDto;
+import com.mimosa.pokemon.portal.entity.stat.PokemonMoveStat;
+import com.mimosa.pokemon.portal.entity.stat.PokemonUsageStat;
+import com.mongodb.BasicDBObject;
 import javafx.util.Pair;
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.AggregationOperation;
-import org.springframework.data.mongodb.core.mapreduce.MapReduceOptions;
-import org.springframework.data.mongodb.core.mapreduce.MapReduceResults;
+import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -44,6 +44,7 @@ import org.springframework.util.StringUtils;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class BattleService {
@@ -125,219 +126,128 @@ public class BattleService {
         return teamList;
     }
 
-    public Pair<Pair<Float, Float>, List<Team>> statistic(String name, LocalDate dayAfter, LocalDate dayBefore) throws Exception {
+    public List<PokemonStatDto> queryPokemonStat(LocalDate dayAfter,
+                                                 LocalDate dayBefore) throws Exception {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date")));
         Criteria criteria = Criteria.where("date").gte(dayAfter).lte(dayBefore);
         query.addCriteria(criteria);
-        Statistic statistic = mapReduce(query, name);
-        query = query.limit(100);
-        List<Battle> battleList = mongoTemplate.find(query, Battle.class, "battle");
-        Set<Team> teamSet = new HashSet<>(100);
-        for (Battle battle : battleList) {
-            Team[] teams = battle.getTeams();
-            for (Team team : teams) {
-                for (Pokemon pokemon : team.getPokemons()) {
-                    if (name.equals(pokemon.getName())) {
-                        teamSet.add(team);
-                    }
-                }
+        // 统计宝可梦使用率、招式使用率
+        List<PokemonUsageStat> pokemonUsageStats = aggregationPokemonUsageStatistics(dayAfter, dayBefore);
+        List<PokemonMoveStat> pokemonMoveStats = aggregationPokemonMoveStat(dayAfter, dayBefore);
+
+        List<PokemonStatDto> pokemonStatDtos = new ArrayList<>();
+        Map<String, List<PokemonMoveStat>> pokemonMoveStatMap = pokemonMoveStats.stream()
+                .collect(Collectors.groupingBy(PokemonMoveStat::getName));
+
+        // 转换为dto
+        for (PokemonUsageStat pokemonUsageStat : pokemonUsageStats) {
+            if (pokemonMoveStatMap.containsKey(pokemonUsageStat.getName())) {
+                pokemonStatDtos.add(new PokemonStatDto(pokemonUsageStat.getName(), pokemonUsageStat,
+                        pokemonMoveStatMap.get(pokemonUsageStat.getName()).get(0)));
+            } else {
+                PokemonMoveStat emptyMoveStat = new PokemonMoveStat();
+                pokemonStatDtos.add(new PokemonStatDto(pokemonUsageStat.getName(), pokemonUsageStat,
+                        emptyMoveStat));
             }
-        }
-        List<Team> teamList = new ArrayList<>(teamSet);
 
-        Pair<Float, Float> pk = new Pair(statistic.getUse() / statistic.getTotal(), statistic.getWin() / statistic.getUse());
-        Pair<Pair<Float, Float>, List<Team>> pair = new Pair<>(pk, teamList);
-        return pair;
+        }
+        return pokemonStatDtos;
     }
 
-    public List<MapResult> statisticAll(String name, LocalDate dayAfter,
-                                        LocalDate dayBefore) throws Exception {
-        Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date")));
-        Criteria criteria = Criteria.where("date").gte(dayAfter).lte(dayBefore);
-        query.addCriteria(criteria);
-        List<MapResult> mapResultList = mapReduceAll(query);
-        return mapResultList;
+    /**
+     * 聚合统计宝可梦招式使用率
+     */
+    public List<PokemonMoveStat> aggregationPokemonMoveStat(LocalDate dayAfter, LocalDate dayBefore) {
+        Criteria dateCondition = Criteria.where("date").gte(dayAfter).lte(dayBefore);
+        Criteria fullPlayerCondition = Criteria.where("teams.0.playerName").ne("")
+                .and("teams.1.playerName").ne("");
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(dateCondition),
+                // 过率脏数据
+                Aggregation.match(fullPlayerCondition),
+                // moves数组拆为多条记录
+                Aggregation.unwind("teams"),
+                Aggregation.unwind("teams.pokemons"),
+                Aggregation.unwind("teams.pokemons.moves"),
+
+                // 统计宝可梦使用次数
+                Aggregation.group("teams.pokemons.name")
+                        .count().as("use")
+                        .push("teams.pokemons.moves").as("movelist"),
+                Aggregation.unwind("movelist"),
+                // moves拆分聚合为多条记录
+                Aggregation.group("_id", "movelist")
+                        .count().as("moveUse")
+                        .first("use").as("pokemonUse"),
+                // 统计各招式使用率
+                Aggregation.group("_id._id")
+                        .first("pokemonUse").as("use")
+                        .push(new BasicDBObject("name", "$_id.movelist")
+                                .append("usePercent", new BasicDBObject("$multiply",
+                                        new Object[]{
+                                                new BasicDBObject("$divide", new Object[]{"$moveUse", "$pokemonUse"}),
+                                                100
+                                        })
+                                )
+                        ).as("moveUsage"),
+                Aggregation.project("use", "moveUsage")
+                        .and("_id").as("name").andExclude("_id"),
+                Aggregation.sort(Sort.Direction.DESC, "use")
+        );
+        AggregationResults<PokemonMoveStat> aggregationResults =
+                mongoTemplate.aggregate(aggregation, "battle", PokemonMoveStat.class);
+        List<PokemonMoveStat> pokemonMoveStats = aggregationResults.getMappedResults();
+
+        // 使用率排序
+        pokemonMoveStats.forEach(stat -> stat.getMoveUsage()
+                .sort(Comparator.comparingDouble(PokemonMoveStat.PokemonMoveUsageStat::getUsePercent).reversed()));
+        return pokemonMoveStats;
     }
 
-    public List<MapResult> statisticAllDetails(String name, LocalDate dayAfter,
-                                               LocalDate dayBefore) throws Exception {
-        Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date")));
-        Criteria criteria = Criteria.where("date").gte(dayAfter).lte(dayBefore);
-        query.addCriteria(criteria);
-        List<MapResult> mapResultList = mapReduceAllDetails(query);
-        return mapResultList;
-    }
+    /**
+     * 聚合统计宝可梦使用率
+     */
+    public List<PokemonUsageStat> aggregationPokemonUsageStatistics(LocalDate dayAfter, LocalDate dayBefore) {
+        Criteria dateCondition = Criteria.where("date").gte(dayAfter).lte(dayBefore);
+        Criteria fullPlayerCondition = Criteria.where("teams.0.playerName").ne("")
+                .and("teams.1.playerName").ne("");
+        Query countQuery = new BasicQuery("{}");
+        countQuery.addCriteria(dateCondition);
+        countQuery.addCriteria(fullPlayerCondition);
+        long totalGame = mongoTemplate.count(countQuery, "battle");
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(dateCondition),
+                // 过率脏数据
+                Aggregation.match(fullPlayerCondition),
+                // 数组拆为多条记录
+                Aggregation.unwind("teams"),
+                Aggregation.unwind("teams.pokemons"),
+                // 根据winner设置win字段
+                Aggregation.project("teams", "winner")
+                        .and("win").applyCondition(
+                                ConditionalOperators.Cond.newBuilder()
+                                        .when(Document.parse("{ $eq: [ \"$winner\", \"$teams.playerName\" ] }"))
+                                        .then(1)
+                                        .otherwise(0)
+                        ),
+                // 统计使用率胜率
+                Aggregation.group("teams.pokemons.name")
+                        .count().as("use")
+                        .sum("win").as("win"),
 
-    //根据名字统计登场率胜率,待完善更多数据补充
-    public Statistic mapReduce(Query query, String name) throws Exception {
-        String mapFunction = "function(){" +
-                "var use=0;var total=0; var win=0;" +
-                "for(var i=0;i<this.teams.length;++i ){" +
-                "   for(var j=0;j<this.teams[i].pokemons.length;++j){" +
-                "       if(this.teams[i].pokemons[j].name==\"" + name + "\"){" +
-                "           ++use;" +
-                "           if(this.winner==this.teams[i].playerName){" +
-                "               ++win;" +
-                "           }" +
-                "       }" +
-                "   }" +
-                "   ++total;" +
-                "}" +
-                "emit(\"" + name + "\",{\"use\":use,\"win\":win,\"total\":total});" +
-                "}";
-        String reduceFunction = "function(keys,values){" +
-                "var use=0;var total=0; var win=0;" +
-                "for(var i=0;i<values.length;++i){" +
-                "use = use + values[i].use;" +
-                "win = win + values[i].win;" +
-                "total = total + values[i].total ;" +
-                "}" +
-                "return (\"+" + name + "\",{\"use\":use,\"win\":win,\"total\":total});" +
-                "}";
-        MapReduceResults<MapResult> results = mongoTemplate.mapReduce(query, "battle", mapFunction, reduceFunction, MapResult.class);
-        Iterator<MapResult> iterator = results.iterator();
-        if (results == null || !iterator.hasNext()) {
-            throw new Exception("mapReduce null!");
-        }
-        return iterator.next().getValue();
-    }
-
-    //统计所有pm的登场率、胜率
-    public List<MapResult> mapReduceAll(Query query) throws Exception {
-        Long total = 2 * mongoTemplate.count(query, "battle");
-        String mapFunction = "function(){" +
-                "for(var i=0;i<this.teams.length;++i ){" +
-                "   for(var j=0;j<this.teams[i].pokemons.length;++j){" +
-                "       if(this.winner==this.teams[i].playerName){" +
-                "           emit(this.teams[i].pokemons[j].name,{\"use\":1,\"win\":1,\"total\":" + total + "});}" +
-                "       else{" +
-                "           emit(this.teams[i].pokemons[j].name,{\"use\":1,\"win\":0,\"total\":" + total + "});" +
-                "           }" +
-                "   }" +
-                "}" +
-                "}";
-        String reduceFunction = "function(keys,values){" +
-                "var use=0; var win=0;" +
-                "for(var i=0;i<values.length;++i){" +
-                "use = use + values[i].use;" +
-                "win = win + values[i].win;" +
-                "}" +
-                "return (values[0]._id,{\"use\":use,\"win\":win,\"total\":values[0].total});" +
-                "}";
-        MapReduceResults<MapResult> results =
-                mongoTemplate.mapReduce(query, "battle", mapFunction, reduceFunction, MapResult.class);
-        if (results == null) {
-            throw new Exception("mapReduce null!");
-        }
-        Iterator<MapResult> iterator = results.iterator();
-        List<MapResult> mapResultList = new ArrayList<>(400);
-        while (iterator.hasNext()) {
-            mapResultList.add(iterator.next());
-        }
-        Collections.sort(mapResultList, new Comparator<MapResult>() {
-            @Override
-            public int compare(MapResult o1, MapResult o2) {
-                float use1 = o1.getValue().getUse();
-                float use2 = o2.getValue().getUse();
-                if (use1 == use2) {
-                    return 0;
-                } else {
-                    return use1 > use2 ? -1 : 1;//降序排序
-                }
-            }
+                // 字段映射，排序
+                Aggregation.project("use", "win").and("_id").as("name").andExclude("_id"),
+                Aggregation.sort(Sort.Direction.DESC, "use")
+        );
+        AggregationResults<PokemonUsageStat> aggregationResults =
+                mongoTemplate.aggregate(aggregation, "battle", PokemonUsageStat.class);
+        List<PokemonUsageStat> pokemonUsageStats = aggregationResults.getMappedResults();
+        pokemonUsageStats.forEach(stat -> {
+            stat.setTotalGame(totalGame);
+            stat.setUsePercent((double) stat.getUse() / totalGame);
+            stat.setWinPercent((double) stat.getWin() / stat.getUse());
         });
-        return mapResultList;
-    }
-
-    //统计所有pm的胜率、登场率、招式使用率
-    public List<MapResult> mapReduceAllDetails(Query query) throws Exception {
-        Long total = 2 * mongoTemplate.count(query, "battle");
-        String mapFunction = "function(){" +
-                "for(var i=0;i<this.teams.length;++i ){" +
-                "   for(var j=0;j<this.teams[i].pokemons.length;++j){" +
-                "       var moves={};var object={};" +
-                "       for(var k=0;k<this.teams[i].pokemons[j].moves.length;++k){" +
-                "           moves[this.teams[i].pokemons[j].moves[k]]=1;" +
-                "       }" +
-                "       object['moves']=moves;object['total']=" + total + ";object['use']=1;" +
-                "       if(this.winner==this.teams[i].playerName){" +
-                "           object['win']=1;}" +
-                "       else{" +
-                "           object['win']=0;" +
-                "           }" +
-                "       emit(this.teams[i].pokemons[j].name,object);" +
-                "   }" +
-                "}" +
-                "}";
-        String reduceFunction = "function(keys,values){" +
-                "var use=0; var win=0;var object={};var moves={};" +
-                "for(var i=0;i<values.length;++i){" +
-                "   use = use + values[i].use;" +
-                "   win = win + values[i].win;" +
-                "   for(var key in values[i].moves){" +
-                "   if(moves.hasOwnProperty(key))" +
-                "      {moves[key]= values[i].moves[key] +parseInt(moves[key]);}" +
-                "   else{moves[key]= values[i].moves[key] ;}" +
-                "   }" +
-                "}" +
-                "object['use']=use;object['win']=win;object['total']=values[0].total;" +
-                "object['moves']=moves;" +
-                "return (values[0]._id,object);" +
-                "}";
-
-        MapReduceOptions mapReduceOptions = new MapReduceOptions();
-        MapReduceResults<MapResult> results =
-                mongoTemplate.mapReduce(query, "battle", mapFunction, reduceFunction, mapReduceOptions, MapResult.class);
-        if (results == null) {
-            throw new Exception("mapReduce null!");
-        }
-        Iterator<MapResult> iterator = results.iterator();
-        List<MapResult> mapResultList = new ArrayList<>(400);
-        while (iterator.hasNext()) {
-            mapResultList.add(iterator.next());
-        }
-        Collections.sort(mapResultList, new Comparator<MapResult>() {
-            @Override
-            public int compare(MapResult o1, MapResult o2) {
-                float use1 = o1.getValue().getUse();
-                float use2 = o2.getValue().getUse();
-                if (use1 == use2) {
-                    return 0;
-                } else {
-                    return use1 > use2 ? -1 : 1;//降序排序
-                }
-            }
-        });
-        for (MapResult result : mapResultList) {
-            sortAndReduceMap(result.getValue());
-        }
-        return mapResultList;
-    }
-
-    //对统计里的moves（hashmap类型）根据值降序排序,保留使用次数高的并转化为使用率
-    private void sortAndReduceMap(Statistic statistic) {
-        HashMap<String, Float> map = statistic.getMoves();
-        List<Map.Entry<String, Float>> list = new ArrayList<>(map.entrySet());
-        Collections.sort(list, new Comparator<Map.Entry<String, Float>>() {
-            @Override
-            public int compare(Map.Entry<String, Float> o1, Map.Entry<String, Float> o2) {
-                return (int) (o2.getValue() - o1.getValue()); //重写排序规则，小于0表示升序，大于0表示降序
-            }
-        });
-        for (int i = 0; i < list.size(); i++) {
-            Map.Entry<String, Float> stringIntegerEntry = list.get(i);
-            if (i >= 6) {
-                map.remove(stringIntegerEntry.getKey());
-            }
-        }
-        Float use = statistic.getUse();
-        try {
-            for (String key : map.keySet()) {
-                map.put(key, map.get(key) / use);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return pokemonUsageStats;
     }
 
     public List<Pair<Team, String>> Team(int page, String tag, String pokemonName, String dayAfter, String dayBefore) {

@@ -24,9 +24,8 @@
 
 package com.mimosa.pokemon.portal.controller;
 
-import com.mimosa.pokemon.portal.entity.MapResult;
+import com.mimosa.pokemon.portal.dto.PokemonStatDto;
 import com.mimosa.pokemon.portal.service.BattleService;
-import com.mimosa.pokemon.portal.util.MapResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +39,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class PokemonStatisticController {
@@ -50,7 +50,6 @@ public class PokemonStatisticController {
 
     @RequestMapping(value = "/result", method = RequestMethod.POST)
     public String statAll(Model model , HttpServletRequest request) throws Exception {
-        String name = request.getParameter("name");
         String dayAfterString = request.getParameter("dayAfter");
         String dayBeforeString = request.getParameter("dayBefore");
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -72,10 +71,10 @@ public class PokemonStatisticController {
 
         }
 
-        List<MapResult> mapResultList = battleService.statisticAllDetails(name, dayAfter, dayBefore);
-        List<MapResult> mapResultListCompare = battleService.statisticAll(name, dayAfter_compare, dayBefore_compare);
-        MapResultUtil.compareStatistic(mapResultList, mapResultListCompare);//这里向类注入了胜率差、等差率差
-        model.addAttribute("list", mapResultList);
+        List<PokemonStatDto> pokemonStatDtos = battleService.queryPokemonStat(dayAfter, dayBefore);
+        List<PokemonStatDto> pokemonStatDtosCompare = battleService.queryPokemonStat(dayAfter_compare, dayBefore_compare);
+        model.addAttribute("stat", pokemonStatDtos);
+        model.addAttribute("compareStat", pokemonStatDtosCompare.stream().collect(Collectors.groupingBy(PokemonStatDto::getName)));
         return "statResult";
     }
 

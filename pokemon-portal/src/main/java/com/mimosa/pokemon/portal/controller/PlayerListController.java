@@ -62,6 +62,7 @@ public class PlayerListController {
         List<LadderRank> ladderRank = ladder.getLadderRankList();
         List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
         ladderRank.sort(Comparator.comparingInt(LadderRank::getRank).reversed());
+
         List<Team> teamList = battleService.listTeamByLadderRank(segmentLadderRank);
         model.addAttribute("rankList", segmentLadderRank);
         model.addAttribute("ladderDate", ladder.getDate());

@@ -90,12 +90,12 @@
 </head>
 <body>
 <ul>
-    <li><a class="active" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" style="color: white">排行榜</a></li>
-    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" style="color: white" >队伍集</a></li>
-    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
-    + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
+    <li><a class="active" th:href="${requestScheme + '://' + requestServerName +
+     ':' + serverPort  + contextPath + '/list'}" style="color: white">排行榜</a></li>
+    <li><a th:href="${requestScheme + '://' + requestServerName +
+     ':' + serverPort  + contextPath + '/'}+'team'" style="color: white" >队伍集</a></li>
+    <li><a th:href="${requestScheme + '://' + requestServerName + ':'
+    + serverPort  + contextPath + '/stat'}" style="color: white">宝可梦</a></li>
 </ul>
 <table border="1" align="center" cellspacing="50" width="100%" style="background-color: gainsboro">
     <tr>
@@ -103,14 +103,14 @@
         <th style="text-align: center;border-style: none">player</th>
         <th style="text-align: center;border-style: none">battle-example</th>
     </tr>
-    <tr th:each="pair : ${pairList}">
+    <tr th:each="battleTeam : ${battleTeamList}">
         <td style="text-align: center;border-style: none" colspan="2">
             <table border="0" align="center">
                 <tr>
-                    <td th:each="pokemon : ${pair.getKey().getPokemons()}" >
+                    <td th:each="pokemon : ${battleTeam.team().getPokemons()}" >
                         <div class="tooltip">
                             <img
-                                    th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
+                                    th:src="${contextPath}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                             <div class="tooltiptext" >
                                 <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                 <p th:each="move : ${pokemon.getMoves()}">
@@ -123,18 +123,19 @@
             </table>
         </td>
         <td style="text-align: center;border-style: none" >
-            <a th:text="${pair.getKey().getPlayerName()}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'record?page=1&name='+${pair.getKey().getPlayerName()}"></a>
+            <a th:text="${battleTeam.team().getPlayerName()}"
+               th:href="${requestScheme + '://' + requestServerName + ':' + serverPort  + contextPath + '/'}+'record?page=1&name='+${battleTeam.team().getPlayerName()}"></a>
         </td>
         <td style="text-align: center;border-style: none" >
-            <a th:text="${pair.getValue()}" th:href="'https://replay.pokemonshowdown.com/'+${pair.getValue()}"></a>
+            <a th:text="${battleTeam.battleId()}" th:href="'https://replay.pokemonshowdown.com/'+${battleTeam.battleId()}"></a>
         </td>
     </tr>
     <tr>
         <td style="text-align: center;border-style: none" colspan="2">
-            <a th:href="${#httpServletRequest.getRequestURI()}+${previousQueryString}" th:text="上一页"></a>
+            <a th:href="${requestURI}+${previousQueryString}" th:text="上一页"></a>
         </td>
         <td style="text-align: center;border-style: none" colspan="2">
-            <a th:href="${#httpServletRequest.getRequestURI()}+${nextQueryString}" th:text="下一页"></a>
+            <a th:href="${requestURI}+${nextQueryString}" th:text="下一页"></a>
         </td>
     </tr>
 </table>

@@ -27,7 +27,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>showdown-ladder</title>
-    <link rel="stylesheet" th:href="${#request.getContextPath()}+'/css/ladder.css'">
+    <link rel="stylesheet" th:href="${contextPath}+'/css/ladder.css'">
 </head>
 <body>
 <div class="navi">
@@ -35,32 +35,32 @@
         <ul class="navi-list">
             <li>
                 <a class="navi-item"
-                   th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}">
+                   th:href="${requestScheme + '://' + requestServerName +
+     ':' + serverPort  + contextPath + '/list'}">
                     <img class="navi-logo" src="pokemonicon/pokemon.png" alt="deep-pokemon">
                 </a>
             </li>
 
             <li>
                 <a class="navi-href navi-item"
-                   th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}">
+                   th:href="${requestScheme + '://' + requestServerName +
+     ':' + serverPort  + contextPath + '/list'}">
                     排行榜
                 </a>
             </li>
 
             <li>
                 <a class="navi-href navi-item"
-                   th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" >
+                   th:href="${requestScheme + '://' + requestServerName +
+     ':' + serverPort  + contextPath + '/'}+'team'" >
                     队伍集
                 </a>
             </li>
 
             <li>
                 <a class="navi-href navi-item"
-                   th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
-                   + #request.getServerPort()  + #request.getContextPath() + '/stat'}" >
+                   th:href="${requestScheme + '://' + requestServerName + ':'
+                   + serverPort  + contextPath + '/stat'}" >
                     宝可梦
                 </a>
             </li>
@@ -82,7 +82,7 @@
     <tr th:each="rank :  ${   rankList}" >
         <td  th:text="${rank.getRank()}" class="ladder-td">rank</td>
         <td class="ladder-td" >
-            <a th:text="${rank.getName()}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'record?page=1&name='+${rank.getName()}"></a>
+            <a th:text="${rank.getName()}" th:href="${requestScheme + '://' + requestServerName + ':' + serverPort  + contextPath + '/'}+'record?page=1&name='+${rank.getName()}"></a>
         </td>
         <td  class="ladder-td" th:text="${rank.getElo()}">elo</td>
         <td class="ladder-td" th:text="${rank.getGxe()}">gxe</td>
@@ -91,7 +91,7 @@
                 <ul class="pokemon-list">
                         <li th:each="pokemon : ${teamList.get(2*rankStat.index).getPokemons()}" >
                             <div class="set-tip">
-                                <img th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
+                                <img th:src="${contextPath}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                                 <div class="set-tip-text" >
                                     <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                     <p th:each="move : ${pokemon.getMoves()}">
@@ -104,7 +104,7 @@
                 <ul class="pokemon-list">
                     <li th:each="pokemon : ${teamList.get(2*rankStat.index+1).getPokemons()}" >
                         <div class="set-tip">
-                            <img th:src="${#request.getContextPath()}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
+                            <img th:src="${contextPath}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
                             <div class="set-tip-text" >
                                 <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
                                 <p th:each="move : ${pokemon.getMoves()}">
@@ -121,10 +121,10 @@
 <table  border="0" align="center"  cellspacing="50" th:marginheight="10"  >
     <tr>
         <td style="text-align: center;border-style: none" colspan="2">
-            <a th:href="${#httpServletRequest.getRequestURI()}+'?page='+${page-1}+'&name='" th:style="${page==1? 'visibility: hidden':''}" th:text="上一页"></a>
+            <a th:href="${requestURI}+'?page='+${page-1}+'&name='" th:style="${page==1? 'visibility: hidden':''}" th:text="上一页"></a>
         </td>
         <td style="text-align: center;border-style: none" colspan="2">
-            <a th:href="${#httpServletRequest.getRequestURI()}+'?page='+${page+1}+'&name='" th:style="${page==8? 'visibility: hidden':''}" th:text="下一页"></a>
+            <a th:href="${requestURI}+'?page='+${page+1}+'&name='" th:style="${page==8? 'visibility: hidden':''}" th:text="下一页"></a>
         </td>
     </tr>
 </table>

@@ -26,15 +26,13 @@ package com.mimosa.pokemon.portal.controller;
 
 import com.mimosa.pokemon.portal.dto.PokemonStatDto;
 import com.mimosa.pokemon.portal.service.BattleService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-
-import javax.servlet.http.HttpServletRequest;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

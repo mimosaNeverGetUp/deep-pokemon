@@ -14,3 +14,4 @@ server:
         accesslog:
             enabled: true
             directory: /logs/access
+

@@ -43,7 +43,7 @@ public class PlayerRankDTO {
     public PlayerRankDTO() {
     }
 
-    public PlayerRankDTO(LocalDate infoDate, String name, int elo, int rank, float gxe,String format) {
+    public PlayerRankDTO(LocalDate infoDate, String name, int elo, int rank, float gxe, String format) {
         this.infoDate = infoDate;
         this.name = name;
         this.elo = elo;

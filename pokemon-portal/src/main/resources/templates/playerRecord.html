@@ -113,7 +113,8 @@
      ':' + serverPort  + contextPath + '/'}+'team'" style="color: white" >队伍集</a></li>
     <li><a th:href="${requestScheme + '://' + requestServerName + ':'
     + serverPort  + contextPath + '/stat'}" style="color: white">宝可梦</a></li>
-    <li style="float: right;color: white;padding: 14px 16px;"> <span th:text="'最近更新:' + ${player.getInfoDate()}"> </span></li>
+    <li style="float: right;color: white;padding: 14px 16px;"> <span
+            th:text="'最近更新:' + ${playerRank.getInfoDate().toString()}"> </span></li>
 </ul>
     <table  border="0" align="center"  th:marginheight="10" width="100%" style="border-collapse: collapse" >
         <tr style="background-color: gainsboro">
@@ -122,16 +123,16 @@
             </td>
             <td>
                 <!--/*@thymesVar id="player" type="com.mimosa.deeppokemon.entity.Player"*/-->
-                <p th:text="${player.getName()  }" style="font-size:large">
+                <p th:text="${playerRank.getName()  }" style="font-size:large">
                     t
                 </p>
-                <p th:text=" ${player.getElo()} + '分'" style="font-size: large">
+                <p th:text=" ${playerRank.getElo()} + '分'" style="font-size: large">
                     t
                 </p>
-                <p th:text="'排位排行第' + ${player.getRank()} + '位'" style="font-size: small">
+                <p th:text="'排位排行第' + ${playerRank.getRank()} + '位'" style="font-size: small">
                     t
                 </p>
-                <p th:text="'Gxe: ' + ${player.getGxe()  }" style="font-size: small">
+                <p th:text="'Gxe: ' + ${playerRank.getGxe()}" style="font-size: small">
                     t
                 </p>
             </td>
@@ -139,9 +140,9 @@
         <!--/*@thymesVar id="battleList" type="java.util.List"*/-->
         <tr  th:each="battle : ${battleList}" align="center">
             <input type="text" th:value="${battleList.size()}" style="display:none;" id="battleLength">
-            <input type="text" th:value="${player.getName()  }" style="display:none;" id="playerName">
+            <input type="text" th:value="${playerRank.getName()  }" style="display:none;" id="playerName">
             <table border="1" align="center" cellspacing="50" width="100%" style="border-collapse: collapse"
-                   th:style="${battle.getWinner() == player.getName()?'background-color:#a3cfec' : 'background-color:#e2b6b3' }">
+                   th:style="${battle.getWinner() == playerRank.getName()?'background-color:#a3cfec' : 'background-color:#e2b6b3' }">
                 <tr th:height="50">
                     <td align="centre" colspan="2" style="text-align: center;border-style:none" >
                         <a th:text=" ${battle.getBattleID()}" th:href="'https://replay.pokemonshowdown.com/'
@@ -202,10 +203,10 @@
     <table  border="0" align="center"  cellspacing="50" th:marginheight="10" th:style="${battleList.size()<15? 'visibility: hidden':''}" >
         <tr>
             <td style="text-align: center;border-style: none" colspan="2">
-                <a th:href="${requestURI}+'?page='+${page-1}+'&name='+${player.getName()}" th:text="上一页"></a>
+                <a th:href="${requestURI}+'?page='+${page-1}+'&name='+${playerRank.getName()}" th:text="上一页"></a>
             </td>
             <td style="text-align: center;border-style: none" colspan="2">
-                <a th:href="${requestURI}+'?page='+${page+1}+'&name='+${player.getName()}" th:text="下一页"></a>
+                <a th:href="${requestURI}+'?page='+${page+1}+'&name='+${playerRank.getName()}" th:text="下一页"></a>
             </td>
         </tr>
     </table>

@@ -25,6 +25,7 @@
 package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.Ladder;
+import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.deeppokemon.entity.Player;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.entity.JsonArrayResponse;
@@ -34,9 +35,12 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -49,16 +53,13 @@ public class PlayerService {
     @Autowired
     private BattleService battleService;
 
-    public Player findPlayerByName(String playerName) {
-        Query query = new BasicQuery(String.format("{ name : \"%s\" }", playerName))
-                .with(Sort.by(Sort.Order.desc("infoDate")))
-                .limit(1);
-        return mongoTemplate.findOne(query, Player.class, "player");
-    }
-
-    public List<Player> ListPlayerByName(String playerName) {
-        Query query = new BasicQuery(String.format("{ name : %s }", playerName));
-        return mongoTemplate.find(query, Player.class, "player");
+    public PlayerRankDTO queryPlayerLadderRank(@NonNull String playerName) {
+        Ladder ladder = getLatestLadder();
+        LadderRank playerRank =
+                ladder.getLadderRankList().stream().filter(ladderRank -> playerName.equals(ladderRank.getName()))
+                        .findFirst().orElse(new LadderRank(playerName, 0, 0, 0.0F));
+        return new PlayerRankDTO(ladder.getDate(), playerRank.getName(), playerRank.getElo(),
+                playerRank.getRank(), playerRank.getGxe(), null);
     }
 
     public Ladder getLatestLadder() {

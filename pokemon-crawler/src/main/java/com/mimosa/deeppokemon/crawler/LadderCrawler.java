@@ -40,6 +40,7 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -59,10 +60,10 @@ public class LadderCrawler {
     @Autowired
     private TeamCrawler teamCrawler;
 
-    @Autowired
+    @Lazy
     private BattleService battleService;
 
-    @Autowired
+    @Lazy
     private LadderService ladderService;
 
     private static final Logger log = LoggerFactory.getLogger(LadderCrawler.class);

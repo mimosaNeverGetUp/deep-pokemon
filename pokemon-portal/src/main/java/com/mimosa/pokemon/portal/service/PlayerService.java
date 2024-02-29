@@ -53,8 +53,7 @@ public class PlayerService {
         Query query = new BasicQuery(String.format("{ name : \"%s\" }", playerName))
                 .with(Sort.by(Sort.Order.desc("infoDate")))
                 .limit(1);
-        Player player = mongoTemplate.findOne(query, Player.class, "player");
-        return player;
+        return mongoTemplate.findOne(query, Player.class, "player");
     }
 
     public List<Player> ListPlayerByName(String playerName) {
@@ -73,7 +72,6 @@ public class PlayerService {
     public JsonArrayResponse listPlayerRank(int page, int limit) {
         //查询数据库里储存的最新的日期
         int start = limit * (page - 1);
-        int end = start + limit;
         Query query = new BasicQuery("{}")
                 .with(Sort.by(Sort.Order.desc("infoDate")))
                 .limit(1);
@@ -109,7 +107,6 @@ public class PlayerService {
     public JsonArrayResponse listPlayerDTORank(int page, int limit) {
         // 查询数据库里储存的最新的日期
         int start = limit * (page - 1);
-        int end = start + limit;
         Query query = new BasicQuery("{}")
                 .with(Sort.by(Sort.Order.desc("infoDate")))
                 .limit(1);

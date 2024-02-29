@@ -24,16 +24,15 @@
 
 package com.mimosa.pokemon.portal.controller;
 
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.service.BattleService;
-import javafx.util.Pair;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -55,7 +54,7 @@ public class TeamListController {
         String dayAfter = request.getParameter("dayAftter");
         String tag = request.getParameter("tag");
         String pokemonName = request.getParameter("pokemonName");
-        List<Pair<Team, String>> list = battleService.Team(page, tag, pokemonName, dayAfter, dayBefore);
+        List<BattleTeamDto> list = battleService.Team(page, tag, pokemonName, dayAfter, dayBefore);
         //传入上一页和下一页需要的查询参数语句
         String originQuery = "page=" + String.valueOf(page);
         String nextPageQuery = "page=" + String.valueOf(page + 1);
@@ -64,7 +63,7 @@ public class TeamListController {
         String previousQueryString = "?" + request.getQueryString().replace(originQuery, previousPageQuery);
         model.addAttribute("nextQueryString", nextQueryString);
         model.addAttribute("previousQueryString", previousQueryString);
-        model.addAttribute("pairList", list);
+        model.addAttribute("battleTeamList", list);
         model.addAttribute("page", page);
         return "teamList";
 

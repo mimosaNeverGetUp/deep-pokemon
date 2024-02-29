@@ -108,12 +108,12 @@
 </head>
 <body>
 <ul>
-    <li><a class="active" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/list'}" style="color: white">排行榜</a></li>
-    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() +
-     ':' + #request.getServerPort()  + #request.getContextPath() + '/'}+'team'" style="color: white">队伍集</a></li>
-    <li><a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':'
-    + #request.getServerPort()  + #request.getContextPath() + '/stat'}" style="color: white">宝可梦</a></li>
+    <li><a class="active" th:href="${requestScheme + '://' + requestServerName +
+     ':' + serverPort  + contextPath + '/list'}" style="color: white">排行榜</a></li>
+    <li><a th:href="${requestScheme + '://' + requestServerName +
+     ':' + serverPort  + contextPath + '/'}+'team'" style="color: white">队伍集</a></li>
+    <li><a th:href="${requestScheme + '://' + requestServerName + ':'
+    + serverPort  + contextPath + '/stat'}" style="color: white">宝可梦</a></li>
 </ul>
 <table width="100%">
     <input type="button" id="currentIdNumber" th:value="20" style="display: none"/>
@@ -122,7 +122,7 @@
             + ${resStat.index >20? 'display: none':''}" th:each="res: ${stat}">
         <tr>
             <td style="width: 142px">
-                <img th:src="${#request.getContextPath()}+'/pokemonicon/'+${res.getName().replace('*','')+'.png'}"
+                <img th:src="${contextPath}+'/pokemonicon/'+${res.getName().replace('*','')+'.png'}"
                      width="142" height="149">
             </td>
             <td>

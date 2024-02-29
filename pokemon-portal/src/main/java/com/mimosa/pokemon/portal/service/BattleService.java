@@ -24,12 +24,17 @@
 
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.LadderRank;
+import com.mimosa.deeppokemon.entity.Player;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.Tag;
+import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.PokemonStatDto;
 import com.mimosa.pokemon.portal.entity.stat.PokemonMoveStat;
 import com.mimosa.pokemon.portal.entity.stat.PokemonUsageStat;
 import com.mongodb.BasicDBObject;
-import javafx.util.Pair;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -127,7 +132,7 @@ public class BattleService {
     }
 
     public List<PokemonStatDto> queryPokemonStat(LocalDate dayAfter,
-                                                 LocalDate dayBefore) throws Exception {
+                                                 LocalDate dayBefore) {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date")));
         Criteria criteria = Criteria.where("date").gte(dayAfter).lte(dayBefore);
         query.addCriteria(criteria);
@@ -250,10 +255,10 @@ public class BattleService {
         return pokemonUsageStats;
     }
 
-    public List<Pair<Team, String>> Team(int page, String tag, String pokemonName, String dayAfter, String dayBefore) {
+    public List<BattleTeamDto> Team(int page, String tag, String pokemonName, String dayAfter, String dayBefore) {
         int num_perPage = 20;
         ArrayList<Team> teamList = new ArrayList<>();
-        List<Pair<Team, String>> teams = new ArrayList<>();
+        List<BattleTeamDto> teams = new ArrayList<>();
 
         List<AggregationOperation> operations = new ArrayList<>();
         //设置页数条件
@@ -298,6 +303,7 @@ public class BattleService {
                     for (Pokemon pokemon : team.getPokemons()) {
                         if (pokemonName.equals(pokemon.getName())) {
                             hasSpecifyPokemon = true;
+                            break;
                         }
                     }
                     if (!hasSpecifyPokemon) {
@@ -311,8 +317,8 @@ public class BattleService {
                 }
                 if (canAdd) {
                     teamList.add(team);
-                    Pair<Team, String> pair = new Pair<>(team, battle.getBattleID());
-                    teams.add(pair);
+                    BattleTeamDto battleTeamDto = new BattleTeamDto(battle.getBattleID(), team);
+                    teams.add(battleTeamDto);
                 }
             }
         }

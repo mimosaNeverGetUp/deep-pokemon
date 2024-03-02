@@ -15,12 +15,11 @@ package com.mimosa.pokemon.portal.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @ControllerAdvice
-public class WebSiteInfoController
+public class WebSiteInfoAdvice
 {
     @Autowired
     private Environment environment;

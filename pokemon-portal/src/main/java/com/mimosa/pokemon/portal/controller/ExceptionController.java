@@ -26,12 +26,14 @@ package com.mimosa.pokemon.portal.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @program: deep-pokemon
- * @description: gobal exception handler controller
+ * @description: global exception handler controller
  * @author: mimosa
  * @create: 2020//10//09
  */
@@ -42,8 +44,13 @@ public class ExceptionController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionController.class);
 
     @ExceptionHandler({Exception.class})
-    public String exceptionHandle(Exception e) {
-        LOGGER.error("error",e);
-        return "error";
+    public ModelAndView exceptionHandle(ModelAndView modelAndView, Exception e) {
+        modelAndView.setViewName("error");
+        LOGGER.error("error occur", e);
+        modelAndView.addObject("msg", e.getLocalizedMessage());
+        if (e instanceof ErrorResponse errorResponse) {
+            modelAndView.addObject("status", errorResponse.getStatusCode().value());
+        }
+        return modelAndView;
     }
 }

@@ -32,7 +32,6 @@ public class MongodbTestConfig {
     static {
         mongoDBContainer.withCopyFileToContainer(MountableFile.forClasspathResource("./player.json"),
                 "/home/player.json");
-        mongoDBContainer.setPortBindings(List.of("27017:27017"));
         mongoDBContainer.start();
     }
 

@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "647c0c4ea1e6ba4aeeb4dd62"
+  },
+  "name": "Hazardeur",
+  "format": "gen8ou",
+  "elo": 1779,
+  "rank": 1,
+  "gxe": 89.5,
+  "_class": "com.mimosa.deeppokemon.entity.Player"
+}]
+

@@ -37,10 +37,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -88,7 +86,6 @@ public class PlayerService {
         query.limit(limit);
 
         List<Player> playerList = mongoTemplate.find(query, Player.class, "player");
-
         //去除列表里重复和范围外元素
         for (int i = 0; i < playerList.size(); ++i) {
             for (int j = playerList.size() - 1; j > i; --j) {

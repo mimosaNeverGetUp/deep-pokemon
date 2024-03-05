@@ -30,9 +30,11 @@ import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.pokemon.portal.entity.JsonArrayResponse;
 import com.mimosa.pokemon.portal.service.BattleService;
 import com.mimosa.pokemon.portal.service.PlayerService;
+import jakarta.validation.constraints.Min;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -40,6 +42,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+@Validated
 @Controller
 public class PlayerListController {
     @Autowired
@@ -54,7 +57,7 @@ public class PlayerListController {
     }
 
     @RequestMapping("/rank")
-    public String list(Model model, int page) {
+    public String list(Model model, @Min(1) int page) {
         int start = (page - 1) * 25;
         int end = start + 25;
         // TODO: 2022/2/4 rank列表去重，根本解决可能需要清楚当天多次爬取造成的重复数据

@@ -13,14 +13,18 @@
 package com.mimosa.pokemon.portal.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.ModelAndView;
 
 @ControllerAdvice
-public class WebSiteInfoAdvice
-{
+public class WebApplicationGlobalAdvice {
     @Autowired
     private Environment environment;
 
@@ -47,5 +51,28 @@ public class WebSiteInfoAdvice
     @ModelAttribute("requestServerName")
     public String requestServerName(final HttpServletRequest request) {
         return request.getServerName();
+    }
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionController.class);
+
+    @ExceptionHandler({Exception.class})
+    public ModelAndView commonExceptionHandleWithModel(HttpServletRequest httpServletRequest, Exception e) {
+        LOGGER.error("error occur", e);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("error");
+        fillModelGlobalParam(httpServletRequest, modelAndView);
+        modelAndView.addObject("msg", e.getLocalizedMessage());
+        if (e instanceof ErrorResponse errorResponse) {
+            modelAndView.addObject("status", errorResponse.getStatusCode().value());
+        }
+        return modelAndView;
+    }
+
+    private void fillModelGlobalParam(HttpServletRequest request, ModelAndView modelAndView) {
+        modelAndView.addObject("requestURI", requestURI(request));
+        modelAndView.addObject("requestScheme", requestScheme(request));
+        modelAndView.addObject("requestServerName", requestServerName(request));
+        modelAndView.addObject("serverPort", serverPort(request));
+        modelAndView.addObject("contextPath", contextPath(request));
     }
 }

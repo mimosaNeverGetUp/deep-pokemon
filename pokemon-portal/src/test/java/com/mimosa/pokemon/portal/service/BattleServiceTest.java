@@ -24,36 +24,60 @@
 
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.Player;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.Ladder;
+import com.mimosa.deeppokemon.entity.LadderRank;
+import com.mimosa.pokemon.portal.config.MongodbTestConfig;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.time.LocalDate;
 import java.util.List;
 
-@SpringBootTest
-@RunWith(SpringRunner.class)
-class BattleServiceTest {
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@Testcontainers
+@AutoConfigureMockMvc
+@SpringBootTest
+@ContextConfiguration(classes = MongodbTestConfig.class)
+class BattleServiceTest {
     @Autowired
     BattleService battleService;
 
     @Autowired
     PlayerService playerService;
 
+    @Autowired
+    MongoTemplate mongoTemplate;
+
+    @Autowired
+    MockMvc mockMvc;
+
+    @BeforeAll
+    static void initDb(@Autowired MongoTemplate mongoTemplate) {
+        LadderRank mimosa = new LadderRank("mimosa", 1000, 0, 0f);
+        Ladder ladder = new Ladder();
+        ladder.setLadderRankList(List.of(mimosa));
+        ladder.setDate(LocalDate.now());
+        mongoTemplate.save(ladder);
+    }
+
     @Test
-    void listTeamByPlayerList() {
-        List<Player> playerList = (List<Player>) (playerService.listPlayerRank(1,25).getData());
-        List<Team> teamList = battleService.listTeamByPlayerList(playerList);
-        for (Player player : playerList) {
-            System.out.println(player.getName());
-        }
-        for (Team team : teamList) {
-            System.out.println(team);
-        }
+    void listPlayer() throws Exception {
+        mockMvc.perform(get("/record")
+                .queryParam("name", "mimosa")
+                .queryParam("page", "1")).andExpect(status().isOk()).andDo(print());
+        Assertions.assertNotNull(playerService.queryPlayerLadderRank("mimosa"));
     }
 
     @Test
@@ -64,7 +88,7 @@ class BattleServiceTest {
 //        }
     }
 
-//    @Test
+    //    @Test
     void statistic() throws Exception {
 
 

@@ -27,7 +27,8 @@ package com.mimosa.pokemon.portal.controller;
 import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.deeppokemon.entity.Team;
-import com.mimosa.pokemon.portal.entity.JsonArrayResponse;
+import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
+import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.BattleService;
 import com.mimosa.pokemon.portal.service.PlayerService;
 import jakarta.validation.constraints.Min;
@@ -35,6 +36,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -53,18 +56,18 @@ public class PlayerListController {
 
     @RequestMapping("/list")
     public String list() {
-        return "redirect:/rank?page=1";
+        return "redirect:/rank?page=0";
     }
 
     @RequestMapping("/rank")
-    public String list(Model model, @Min(1) int page) {
-        int start = (page - 1) * 25;
+    public String list(Model model, @Min(0) int page) {
+        int start = page * 25;
         int end = start + 25;
         // TODO: 2022/2/4 rank列表去重，根本解决可能需要清楚当天多次爬取造成的重复数据
         Ladder ladder = playerService.getLatestLadder();
         List<LadderRank> ladderRank = ladder.getLadderRankList();
+        ladderRank.sort(Comparator.comparingInt(LadderRank::getRank));
         List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
-        ladderRank.sort(Comparator.comparingInt(LadderRank::getRank).reversed());
 
         List<Team> teamList = battleService.listTeamByLadderRank(segmentLadderRank);
         model.addAttribute("rankList", segmentLadderRank);
@@ -75,9 +78,31 @@ public class PlayerListController {
     }
 
     @ResponseBody
-    @RequestMapping("/json/rank")
-    public JsonArrayResponse rankList(int page, int limit) {
-        return playerService.listPlayerDTORank(page, limit);
+    @CrossOrigin
+    @GetMapping("/api/rank")
+    public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) int row) {
+        int start = page * row;
+        int end = start + row;
+        Ladder ladder = playerService.getLatestLadder();
+        List<LadderRank> ladderRank = ladder.getLadderRankList();
+        ladderRank.sort(Comparator.comparingInt(LadderRank::getRank));
+        List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
+        List<Team> teamList = battleService.listTeamByLadderRank(segmentLadderRank);
+
+        List<PlayerRankDTO> playerRankDTOS = new ArrayList<>();
+
+        int i = 0;
+        for (var rank : segmentLadderRank) {
+            var playerRankDTO = new PlayerRankDTO();
+            playerRankDTO.setRank(rank.getRank());
+            playerRankDTO.setElo(rank.getElo());
+            playerRankDTO.setName(rank.getName());
+            playerRankDTO.setGxe(rank.getGxe());
+            playerRankDTO.setRecentTeam(teamList.subList(2 * i, 2 * i + 2));
+            playerRankDTOS.add(playerRankDTO);
+            ++i;
+        }
+        return new PageResponse<>(ladderRank.size(), page, row, playerRankDTOS);
     }
 
 

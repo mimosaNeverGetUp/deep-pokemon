@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
@@ -26,11 +27,15 @@ public class OAuthClientConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(request -> {
-                    request.anyRequest().authenticated();
+                    request.requestMatchers("/api/**")
+                            .permitAll()
+                            .anyRequest()
+                            .authenticated();
                 })
                 .oauth2Login(endpoint -> {
                     endpoint.successHandler(new SavedRequestAwareAuthenticationSuccessHandler());
-                });
+                })
+                .cors(AbstractHttpConfigurer::disable);
         return httpSecurity.build();
     }
 

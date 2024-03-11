@@ -76,7 +76,7 @@ class BattleServiceTest {
     void listPlayer() throws Exception {
         mockMvc.perform(get("/record")
                 .with(oauth2Login())
-                .queryParam("name", "mimosa")
+                .queryParam("name", "mimosa🥰")
                 .queryParam("page", "1")).andExpect(status().isOk()).andDo(print());
         Assertions.assertNotNull(playerService.queryPlayerLadderRank("mimosa"));
     }

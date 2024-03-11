@@ -39,10 +39,6 @@ class LadderServiceTest {
 
     @Test
     void listPlayerRank() {
-        List<Player> playerList = (List<Player>) (playerService.listPlayerRank(1,25).getData());
-        for (Player player :playerList ) {
-            System.out.println(player);
-        }
 
     }
 }

@@ -32,6 +32,7 @@ import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.Tag;
 import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.PokemonStatDto;
+import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.entity.stat.PokemonMoveStat;
 import com.mimosa.pokemon.portal.entity.stat.PokemonUsageStat;
 import com.mongodb.BasicDBObject;
@@ -56,11 +57,13 @@ public class BattleService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public List<Battle> listBattleByName(String playerName, int page) {
-        int num_perPage = 15;
-        Query query = new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName))
-                .with(Sort.by(Sort.Order.desc("date"))).limit(num_perPage).skip((page - 1) * num_perPage);
-        return mongoTemplate.find(query, Battle.class, "battle");
+    public PageResponse<Battle> listBattleByName(String playerName, int page, int row) {
+        Query query = new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName));
+        long totalRecord = mongoTemplate.count(query, Battle.class);
+        query = query.with(Sort.by(Sort.Order.desc("date"))).limit(row).skip((page) * row);
+
+        List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
+        return new PageResponse<>(totalRecord, page, row, battles);
     }
 
     public List<Team> listTeamByLadderRank(List<LadderRank> ladderRanks) {

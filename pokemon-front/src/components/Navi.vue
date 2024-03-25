@@ -9,15 +9,18 @@ import NaviItem from '@/components/NaviItem.vue'
     </NaviItem>
 
     <NaviItem url="/list">
-      排行榜
+      <img class="navi-label-icon" src="@/assets/pokemonicon/Incineroar.png" alt="deep-pokemon">
+      <p>排行榜</p>
     </NaviItem>
 
     <NaviItem url="/team">
-      队伍
+      <img class="navi-label-icon" src="@/assets/pokemonicon/Maushold-Four.png" alt="deep-pokemon">
+      <p>队伍</p>
     </NaviItem>
 
     <NaviItem url="/stat">
-      宝可梦
+      <img class="navi-label-icon" src="@/assets/pokemonicon/Ninetales-Alola.png" alt="deep-pokemon">
+      <p>环境</p>
     </NaviItem>
   </nav>
 </template>
@@ -33,5 +36,11 @@ nav {
   height: 30px;
   width: 30px;
   object-fit: cover;
+}
+
+.navi-label-icon {
+  height: 30px;
+  width: 40px;
+  margin-right:5px
 }
 </style>

@@ -25,8 +25,6 @@
 package com.mimosa.pokemon.portal.controller;
 
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.LadderRank;
-import com.mimosa.deeppokemon.entity.Player;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.service.BattleService;
 import com.mimosa.pokemon.portal.service.PlayerService;
@@ -34,7 +32,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -48,11 +45,10 @@ public class PlayerController {
 
     @RequestMapping("/record")
     public String player(String name, Model model, int page) {
-        List<Battle> battleList = battleService.listBattleByName(name, page);
+        List<Battle> battleList = battleService.listBattleByName(name, page, 15).data();
         PlayerRankDTO playerRank = playerService.queryPlayerLadderRank(name);
 
         model.addAttribute("playerRank", playerRank);
-        model.addAttribute("battleList", battleList);
         model.addAttribute("battleList", battleList);
         model.addAttribute("page", page);
         return "playerRecord";

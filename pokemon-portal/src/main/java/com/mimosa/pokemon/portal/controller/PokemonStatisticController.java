@@ -72,7 +72,8 @@ public class PokemonStatisticController {
         List<PokemonStatDto> pokemonStatDtos = battleService.queryPokemonStat(dayAfter, dayBefore);
         List<PokemonStatDto> pokemonStatDtosCompare = battleService.queryPokemonStat(dayAfter_compare, dayBefore_compare);
         model.addAttribute("stat", pokemonStatDtos);
-        model.addAttribute("compareStat", pokemonStatDtosCompare.stream().collect(Collectors.groupingBy(PokemonStatDto::getName)));
+        model.addAttribute("compareStat",
+                pokemonStatDtosCompare.stream().collect(Collectors.groupingBy(PokemonStatDto::getName)));
         return "statResult";
     }
 

@@ -145,7 +145,7 @@
                    th:style="${battle.getWinner() == playerRank.getName()?'background-color:#a3cfec' : 'background-color:#e2b6b3' }">
                 <tr th:height="50">
                     <td align="centre" colspan="2" style="text-align: center;border-style:none" >
-                        <a th:text=" ${battle.getBattleID()}" th:href="'https://replay.pokemonshowdown.com/'
+                        <a th:text=" ${battle.getBattleID()}" th:href="'e'
                         + ${battle.getBattleID()}" >
                         </a>
                         <p th:text="${battle.getDate()}"></p>

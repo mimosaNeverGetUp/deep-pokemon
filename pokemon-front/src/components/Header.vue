@@ -1,16 +1,30 @@
 <script setup>
 import Navi from '@/components/Navi.vue'
 import {ref} from "vue";
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
-const updateDate = ref("2024-02-03")
+defineProps({
+  showUpdateDate: String
+})
+const updateDate = ref(null)
 
+async function queryUpdateDate() {
+  const res = await fetch(`${apiUrl}/api/rank/update-time`, {
+        method: "GET"
+      }
+  )
+  const response = await res.json()
+  updateDate.value = response.date
+}
+
+queryUpdateDate()
 </script>
 
 <template>
   <header>
     <Navi class="Navi"></Navi>
 
-    <div class="global-info" v-if="updateDate">
+    <div class="global-info" v-if="showUpdateDate">
       <p>{{ "更新日期: " + updateDate }}</p>
     </div>
   </header>

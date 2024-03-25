@@ -19,9 +19,10 @@ const props = defineProps({
 .navi-item {
   color: white;
   height: 100%;
-  display: block;
+  display: flex;
   padding: 14px 16px;
 }
+
 
 
 

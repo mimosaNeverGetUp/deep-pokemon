@@ -24,7 +24,7 @@ async function fetchData(page, row) {
 }
 
 function onPage(event) {
-  fetchData(event.page,event.rows)
+  fetchData(event.page, event.rows)
 }
 
 fetchData(page.value, row.value)
@@ -36,7 +36,13 @@ fetchData(page.value, row.value)
              tableStyle="min-width: 50rem">
     <Column field="rank" header="排名"
             :style="{ width:'5%' }"></Column>
-    <Column field="name" header="玩家名" :style="{ width:'20%' }"></Column>
+    <Column field="name" header="玩家名" :style="{ width:'20%' }">
+      <template #body="{data}">
+        <a :href="`/player-record?name=${data.name}`">
+          {{data.name}}
+        </a>
+      </template>
+    </Column>
     <Column field="elo" header="elo" :style="{ width:'5%' }"></Column>
     <Column field="gxe" header="gxe" :style="{ width:'5%' }"></Column>
     <Column field="recentTeam" header="最近使用队伍" :style="{ width:'30%' }">

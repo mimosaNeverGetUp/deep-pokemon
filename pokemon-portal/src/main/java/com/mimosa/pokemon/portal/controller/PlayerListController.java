@@ -27,8 +27,6 @@ package com.mimosa.pokemon.portal.controller;
 import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.deeppokemon.entity.Team;
-import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
-import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.BattleService;
 import com.mimosa.pokemon.portal.service.PlayerService;
 import jakarta.validation.constraints.Min;
@@ -36,10 +34,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -75,34 +70,6 @@ public class PlayerListController {
         model.addAttribute("teamList", teamList);
         model.addAttribute("page", page);
         return "playerRank";
-    }
-
-    @ResponseBody
-    @CrossOrigin
-    @GetMapping("/api/rank")
-    public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) int row) {
-        int start = page * row;
-        int end = start + row;
-        Ladder ladder = playerService.getLatestLadder();
-        List<LadderRank> ladderRank = ladder.getLadderRankList();
-        ladderRank.sort(Comparator.comparingInt(LadderRank::getRank));
-        List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
-        List<Team> teamList = battleService.listTeamByLadderRank(segmentLadderRank);
-
-        List<PlayerRankDTO> playerRankDTOS = new ArrayList<>();
-
-        int i = 0;
-        for (var rank : segmentLadderRank) {
-            var playerRankDTO = new PlayerRankDTO();
-            playerRankDTO.setRank(rank.getRank());
-            playerRankDTO.setElo(rank.getElo());
-            playerRankDTO.setName(rank.getName());
-            playerRankDTO.setGxe(rank.getGxe());
-            playerRankDTO.setRecentTeam(teamList.subList(2 * i, 2 * i + 2));
-            playerRankDTOS.add(playerRankDTO);
-            ++i;
-        }
-        return new PageResponse<>(ladderRank.size(), page, row, playerRankDTOS);
     }
 
 

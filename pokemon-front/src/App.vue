@@ -1,15 +1,12 @@
 <script setup>
 import Header from "@/components/Header.vue";
-import Ladder from "@/components/Ladder.vue";
-import {ref} from "vue";
 
-const updateDate =ref("2024-02-03")
 </script>
 
 <template>
-  <Header :updateDate="updateDate">
+  <Header show-update-date="true">
   </Header>
-  <Ladder></Ladder>
+  <router-view></router-view>
 </template>
 
 <style scoped>

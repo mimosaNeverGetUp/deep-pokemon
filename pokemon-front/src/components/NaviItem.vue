@@ -23,14 +23,4 @@ const props = defineProps({
   padding: 14px 16px;
 }
 
-
-
-
-.navi-href {
-  text-decoration: none;
-}
-
-.navi-href:hover {
-  background-color: #111;
-}
 </style>

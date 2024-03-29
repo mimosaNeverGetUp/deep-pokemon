@@ -30,10 +30,26 @@
 
     <style type="text/css">
 
-        a:link{color:black;text-decoration: none}
-        a:visited{color:black;text-decoration: none}
-        a:hover {color:black;text-decoration: none}
-        a:active {color:black;text-decoration: none}
+        a:link {
+            color: black;
+            text-decoration: none
+        }
+
+        a:visited {
+            color: black;
+            text-decoration: none
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: none
+        }
+
+        a:active {
+            color: black;
+            text-decoration: none
+        }
+
         ul {
             list-style-type: none;
             margin: 0;
@@ -57,13 +73,13 @@
         li a:hover {
             background-color: #111;
         }
-        .td{
+
+        .td {
             text-align: center;
             border-left-style: none;
             border-right-style: none;
             height: 180px;
         }
-
 
 
         .tooltip {
@@ -89,10 +105,10 @@
         }
     </style>
     <script>
-        function showStat(id){
+        function showStat(id) {
             var picture = document.getElementById(id);
             picture.style.display = picture.style.display == "none" ? "" : "none";
-            var index= id.match(/\d+/g);
+            var index = id.match(/\d+/g);
             if (id != "diffChart" + index) {
                 picture = document.getElementById("diffChart" + index);
                 picture.style.display = "none";
@@ -110,151 +126,158 @@
     <li><a class="active" th:href="${requestScheme + '://' + requestServerName +
      ':' + serverPort  + contextPath + '/list'}" style="color: white">排行榜</a></li>
     <li><a th:href="${requestScheme + '://' + requestServerName +
-     ':' + serverPort  + contextPath + '/'}+'team'" style="color: white" >队伍集</a></li>
+     ':' + serverPort  + contextPath + '/'}+'team'" style="color: white">队伍集</a></li>
     <li><a th:href="${requestScheme + '://' + requestServerName + ':'
     + serverPort  + contextPath + '/stat'}" style="color: white">宝可梦</a></li>
     <li style="float: right;color: white;padding: 14px 16px;"> <span
             th:text="'最近更新:' + ${playerRank.getInfoDate().toString()}"> </span></li>
 </ul>
-    <table  border="0" align="center"  th:marginheight="10" width="100%" style="border-collapse: collapse" >
-        <tr style="background-color: gainsboro">
-            <td style="width: 120px">
-                <img th:src="${contextPath}+'/icon?name=touxiang'">
-            </td>
-            <td>
-                <!--/*@thymesVar id="player" type="com.mimosa.deeppokemon.entity.Player"*/-->
-                <p th:text="${playerRank.getName()  }" style="font-size:large">
-                    t
-                </p>
-                <p th:text=" ${playerRank.getElo()} + '分'" style="font-size: large">
-                    t
-                </p>
-                <p th:text="'排位排行第' + ${playerRank.getRank()} + '位'" style="font-size: small">
-                    t
-                </p>
-                <p th:text="'Gxe: ' + ${playerRank.getGxe()}" style="font-size: small">
-                    t
-                </p>
-            </td>
-        </tr>
-        <!--/*@thymesVar id="battleList" type="java.util.List"*/-->
-        <tr  th:each="battle : ${battleList}" align="center">
-            <input type="text" th:value="${battleList.size()}" style="display:none;" id="battleLength">
-            <input type="text" th:value="${playerRank.getName()  }" style="display:none;" id="playerName">
-            <table border="1" align="center" cellspacing="50" width="100%" style="border-collapse: collapse"
-                   th:style="${battle.getWinner() == playerRank.getName()?'background-color:#a3cfec' : 'background-color:#e2b6b3' }">
-                <tr th:height="50">
-                    <td align="centre" colspan="2" style="text-align: center;border-style:none" >
-                        <a th:text=" ${battle.getBattleID()}" th:href="'e'
-                        + ${battle.getBattleID()}" >
-                        </a>
-                        <p th:text="${battle.getDate()}"></p>
-                    </td>
-                </tr>
-                <tr align="centre">
-                    <td th:each="team : ${battle.getTeams()}"    align="centre" valign="middle" style="text-align: center;border-style:none">
-                        <table border="0" align="centre" valign="middle" width="500">
-                            <tr>
-                                <td th:text="${team.getPlayerName()}" align="centre" colspan="6" style="text-align: center;border-style:none" th:id="'player'+${battleStat.index}+${teamStat.index}"  >
-                                    1
-                                </td>
-                            </tr>
-                            <tr>
-                                <td th:each="pokemon : ${team.getPokemons()}" style="text-align: center;border-style:none" >
-                                    <div class="tooltip">
-                                        <img
-                                                th:src="${contextPath}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'" align="centre" th:title="${pokemon.getName()}" >
-                                        <div class="tooltiptext" >
-                                            <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
-                                            <p th:each="move : ${pokemon.getMoves()}">
-                                                <span th:text="'-' + ${move}"></span>
-                                            </p>
-                                        </div>
+<table border="0" align="center" th:marginheight="10" width="100%" style="border-collapse: collapse">
+    <tr style="background-color: gainsboro">
+        <td style="width: 120px">
+            <img th:src="${contextPath}+'/icon?name=touxiang'">
+        </td>
+        <td>
+            <!--/*@thymesVar id="player" type="com.mimosa.deeppokemon.entity.Player"*/-->
+            <p th:text="${playerRank.getName()  }" style="font-size:large">
+                t
+            </p>
+            <p th:text=" ${playerRank.getElo()} + '分'" style="font-size: large">
+                t
+            </p>
+            <p th:text="'排位排行第' + ${playerRank.getRank()} + '位'" style="font-size: small">
+                t
+            </p>
+            <p th:text="'Gxe: ' + ${playerRank.getGxe()}" style="font-size: small">
+                t
+            </p>
+        </td>
+    </tr>
+    <!--/*@thymesVar id="battleList" type="java.util.List"*/-->
+    <tr th:each="battle : ${battleList}" align="center">
+        <input type="text" th:value="${battleList.size()}" style="display:none;" id="battleLength">
+        <input type="text" th:value="${playerRank.getName()  }" style="display:none;" id="playerName">
+        <table border="1" align="center" cellspacing="50" width="100%" style="border-collapse: collapse"
+               th:style="${battle.getWinner() == playerRank.getName()?'background-color:#a3cfec' : 'background-color:#e2b6b3' }">
+            <tr th:height="50">
+                <td align="centre" colspan="2" style="text-align: center;border-style:none">
+                    <a th:text=" ${battle.getBattleID()}" th:href="'e'
+                        + ${battle.getBattleID()}">
+                    </a>
+                    <p th:text="${battle.getDate()}"></p>
+                </td>
+            </tr>
+            <tr align="centre">
+                <td th:each="team : ${battle.getTeams()}" align="centre" valign="middle"
+                    style="text-align: center;border-style:none">
+                    <table border="0" align="centre" valign="middle" width="500">
+                        <tr>
+                            <td th:text="${team.getPlayerName()}" align="centre" colspan="6"
+                                style="text-align: center;border-style:none"
+                                th:id="'player'+${battleStat.index}+${teamStat.index}">
+                                1
+                            </td>
+                        </tr>
+                        <tr>
+                            <td th:each="pokemon : ${team.getPokemons()}" style="text-align: center;border-style:none">
+                                <div class="tooltip">
+                                    <img
+                                            th:src="${contextPath}+'/pokemonicon/'+ ${pokemon.getName().replace('*','')}+'.png'"
+                                            align="centre" th:title="${pokemon.getName()}">
+                                    <div class="tooltiptext">
+                                        <p th:text="${pokemon.getName()} + '@' +${pokemon.getItem()==null? '???' : pokemon.getItem()}"></p>
+                                        <p th:each="move : ${pokemon.getMoves()}">
+                                            <span th:text="'-' + ${move}"></span>
+                                        </p>
                                     </div>
-                                </td>
-                            </tr>
-                        </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
 
-                    </td>
-                </tr>
-                <input type="button"  th:value="${battle.getHighLightJsonString()}" th:id="'tt'+${battleStat.index}" style="display: none" />
-                <input type="button"  th:value="${battle.getHealthLinePairJsonString()}" th:id="'t'+${battleStat.index}" style="display: none" />
-                <tr th:height="30">
-                    <td a lign="centre"  style="text-align: center;border-style:none" colspan="2">
-                        <button type="button" th:onclick="'showStat(\'myChart'+${battleStat.index}+'\')'">总览1</button>
-                        <button type="button" th:onclick="'showStat(\'diffChart'+${battleStat.index}+'\')'">总览2</button>
-                        </button>
-                    </td>
-                </tr>
-                <tr  th:height="30" th:style="${battle.getHealthLinePairJsonString() == null? 'display: none':''}" >
-                    <td align="centre"  style="text-align: center;border-style:none" colspan="2">
-                            <canvas th:id="'myChart'+${battleStat.index}"  style="align-content: center;display: none"></canvas>
-                    </td>
-                </tr>
-                <tr  th:height="30" th:style="${battle.getHealthLinePairJsonString() == null? 'display: none':''}" >
-                    <td align="centre"  style="text-align: center;border-style:none" colspan="2">
-                        <canvas th:id="'diffChart'+${battleStat.index}"  style="align-content: center;display: none"></canvas>
-                    </td>
-                </tr>
-            </table>
-        </tr>
+                </td>
+            </tr>
+            <input type="button" th:value="${battle.getHighLightJsonString()}" th:id="'tt'+${battleStat.index}"
+                   style="display: none"/>
+            <input type="button" th:value="${battle.getHealthLinePairJsonString()}" th:id="'t'+${battleStat.index}"
+                   style="display: none"/>
+            <tr th:height="30">
+                <td a lign="centre" style="text-align: center;border-style:none" colspan="2">
+                    <button type="button" th:onclick="'showStat(\'myChart'+${battleStat.index}+'\')'">总览1</button>
+                    <button type="button" th:onclick="'showStat(\'diffChart'+${battleStat.index}+'\')'">总览2</button>
+                    </button>
+                </td>
+            </tr>
+            <tr th:height="30" th:style="${battle.getHealthLinePairJsonString() == null? 'display: none':''}">
+                <td align="centre" style="text-align: center;border-style:none" colspan="2">
+                    <canvas th:id="'myChart'+${battleStat.index}" style="align-content: center;display: none"></canvas>
+                </td>
+            </tr>
+            <tr th:height="30" th:style="${battle.getHealthLinePairJsonString() == null? 'display: none':''}">
+                <td align="centre" style="text-align: center;border-style:none" colspan="2">
+                    <canvas th:id="'diffChart'+${battleStat.index}"
+                            style="align-content: center;display: none"></canvas>
+                </td>
+            </tr>
+        </table>
+    </tr>
 
-    </table>
-    <table  border="0" align="center"  cellspacing="50" th:marginheight="10" th:style="${battleList.size()<15? 'visibility: hidden':''}" >
-        <tr>
-            <td style="text-align: center;border-style: none" colspan="2">
-                <a th:href="${requestURI}+'?page='+${page-1}+'&name='+${playerRank.getName()}" th:text="上一页"></a>
-            </td>
-            <td style="text-align: center;border-style: none" colspan="2">
-                <a th:href="${requestURI}+'?page='+${page+1}+'&name='+${playerRank.getName()}" th:text="下一页"></a>
-            </td>
-        </tr>
-    </table>
+</table>
+<table border="0" align="center" cellspacing="50" th:marginheight="10"
+       th:style="${battleList.size()<15? 'visibility: hidden':''}">
+    <tr>
+        <td style="text-align: center;border-style: none" colspan="2">
+            <a th:href="${requestURI}+'?page='+${page-1}+'&name='+${playerRank.getName()}" th:text="上一页"></a>
+        </td>
+        <td style="text-align: center;border-style: none" colspan="2">
+            <a th:href="${requestURI}+'?page='+${page+1}+'&name='+${playerRank.getName()}" th:text="下一页"></a>
+        </td>
+    </tr>
+</table>
 </body>
 <script src="js/Chart.min.js"></script>
-<script type="text/javascript" >
+<script type="text/javascript">
     var battleLength = document.getElementById('battleLength').value;
-    var playerName =document.getElementById('playerName').value;
-    for (var k = 0; k < battleLength ; ++k) {
-        var ctx = document.getElementById('myChart'+k).getContext('2d');
-        var health=0;
+    var playerName = document.getElementById('playerName').value;
+    for (var k = 0; k < battleLength; ++k) {
+        var ctx = document.getElementById('myChart' + k).getContext('2d');
+        var health = 0;
         var keylength = 0;
         var id = 't' + k;
         var txt = document.getElementById(id).value;
         var data = [];
         var datasets = [];
         var labelElement;
-        var labels=[];
+        var labels = [];
         var lineColor;
         var obj = JSON.parse(txt);
-        for(var i=0,l=obj.length;i<l;i++){
-            labelElement =  document.getElementById('player'+k+i).innerHTML;
+        for (var i = 0, l = obj.length; i < l; i++) {
+            labelElement = document.getElementById('player' + k + i).innerHTML;
             var obj2 = obj[i];
             var turnLength = obj2.length;
-            for(var j = 0, l2 = obj2.length;j<l2;j++){
+            for (var j = 0, l2 = obj2.length; j < l2; j++) {
                 if (j == 0) {
                     data.push({
-                        x:0,
-                        y:600
+                        x: 0,
+                        y: 600
                     });
                 }
                 if (i == 0) {
                     labels.push((j + 1).toString());
                 }
-                for(var key in obj2[j]){
+                for (var key in obj2[j]) {
                     health = health + obj2[j][key];
                     keylength = keylength + 1;
-
                 }
-                health = health + 100*(6-keylength);
+                health = health + 100 * (6 - keylength);
                 data.push({
-                    x:j+1,
-                    y:health
+                    x: j + 1,
+                    y: health
                 });
                 keylength = 0;
                 health = 0;
             }
-            if (labelElement == playerName ) {
+            if (labelElement == playerName) {
                 lineColor = "blue";
             } else {
                 lineColor = "red";
@@ -273,7 +296,7 @@
         var txt1 = document.getElementById(id1).value;
         var obj1 = JSON.parse(txt1);
         for (var i1 = 0; i1 < obj1.length; ++i1) {
-            var labelElement =  document.getElementById('player'+k+i1).innerHTML;
+            var labelElement = document.getElementById('player' + k + i1).innerHTML;
             var obj22 = obj1[i1];
             for (var j1 = 0, l22 = obj22.length; j1 < l22; j1++) {
                 var str = obj22[j1];
@@ -290,17 +313,17 @@
                 }
                 if (str.indexOf("faint") != -1) {
                     pointRadius = 8;
-                }else if (str.indexOf("Stealth Rock") != -1) {
+                } else if (str.indexOf("Stealth Rock") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("(") != -1) {
+                } else if (str.indexOf("(") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("Spikes") != -1) {
+                } else if (str.indexOf("Spikes") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("Toxic Spikes") != -1) {
+                } else if (str.indexOf("Toxic Spikes") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("Defog") != -1) {
+                } else if (str.indexOf("Defog") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("Rapid Spin") != -1) {
+                } else if (str.indexOf("Rapid Spin") != -1) {
                     pointRadius = 4;
                 }
                 datasets.push({
@@ -319,7 +342,7 @@
                 });
             }
         }
-        var dataElment ={
+        var dataElment = {
             datasets: datasets
         };
         var myChart = new Chart(ctx, {
@@ -333,7 +356,7 @@
                 hover: {
                     animationDuration: 0 // 悬停项目时动画的持续时间
                 },
-                responsiveAnimationDuration: 0 ,// 调整大小后的动画持续时间
+                responsiveAnimationDuration: 0,// 调整大小后的动画持续时间
                 legend: {
                     display: false
                 },
@@ -352,14 +375,14 @@
     }
 
 </script>
-<script type="text/javascript" >
+<script type="text/javascript">
     var battleLength = document.getElementById('battleLength').value;
-    var playerName =document.getElementById('playerName').value;
-    for (var k = 0; k < battleLength ; ++k) {
-        var ctx = document.getElementById('diffChart'+k).getContext('2d');
-        var healthDiff=0;
-        var healthA=0;
-        var healthB=0;
+    var playerName = document.getElementById('playerName').value;
+    for (var k = 0; k < battleLength; ++k) {
+        var ctx = document.getElementById('diffChart' + k).getContext('2d');
+        var healthDiff = 0;
+        var healthA = 0;
+        var healthB = 0;
         var keylengthA = 0;
         var keylengthB = 0;
         var id = 't' + k;
@@ -367,29 +390,29 @@
         var data = [];
         var datasets = [];
         var lineColor = [];
-        var labels=[];
+        var labels = [];
         var obj = JSON.parse(txt);
         var playerA = obj[0];
         var playerB = obj[1];
         var playerMaxGap = 0;
         var maxGap = 0;
         var turnLength = playerA.length;
-        var playerAName =  document.getElementById('player'+k+0).innerHTML;
+        var playerAName = document.getElementById('player' + k + 0).innerHTML;
         data.push({
-            x:0,
-            y:0
+            x: 0,
+            y: 0
         });
-        for(var j = 0, l2 = playerA.length;j<l2;j++){
-            for(var key in playerA[j]){
+        for (var j = 0, l2 = playerA.length; j < l2; j++) {
+            for (var key in playerA[j]) {
                 healthA = healthA + playerA[j][key];
                 keylengthA = keylengthA + 1;
             }
-            healthA = healthA + 100*(6-keylengthA);
-            for(var key in playerB[j]){
+            healthA = healthA + 100 * (6 - keylengthA);
+            for (var key in playerB[j]) {
                 healthB = healthB + playerB[j][key];
                 keylengthB = keylengthB + 1;
             }
-            healthB = healthB + 100*(6-keylengthB);
+            healthB = healthB + 100 * (6 - keylengthB);
             if (playerAName == playerName) {
                 healthDiff = healthA - healthB;
             } else {
@@ -402,10 +425,10 @@
                 playerMaxGap = healthDiff;
             }
             data.push({
-                x:j+1,
-                y:healthDiff
+                x: j + 1,
+                y: healthDiff
             });
-            if (healthDiff >= 0 ) {
+            if (healthDiff >= 0) {
                 lineColor.push("blue");
             } else {
                 lineColor.push("red");
@@ -428,7 +451,7 @@
         var txt1 = document.getElementById(id1).value;
         var obj1 = JSON.parse(txt1);
         for (var i1 = 0; i1 < obj1.length; ++i1) {
-            var labelElement =  document.getElementById('player'+k+i1).innerHTML;
+            var labelElement = document.getElementById('player' + k + i1).innerHTML;
             var obj22 = obj1[i1];
             for (var j1 = 0, l22 = obj22.length; j1 < l22; j1++) {
                 var str = obj22[j1];
@@ -445,17 +468,17 @@
                 }
                 if (str.indexOf("faint") != -1) {
                     pointRadius = 8;
-                }else if (str.indexOf("Stealth Rock") != -1) {
+                } else if (str.indexOf("Stealth Rock") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("(") != -1) {
+                } else if (str.indexOf("(") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("Spikes") != -1) {
+                } else if (str.indexOf("Spikes") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("Toxic Spikes") != -1) {
+                } else if (str.indexOf("Toxic Spikes") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("Defog") != -1) {
+                } else if (str.indexOf("Defog") != -1) {
                     pointRadius = 4;
-                }else if (str.indexOf("Rapid Spin") != -1) {
+                } else if (str.indexOf("Rapid Spin") != -1) {
                     pointRadius = 4;
                 }
                 datasets.push({
@@ -474,7 +497,7 @@
                 });
             }
         }
-        var dataElment ={
+        var dataElment = {
             datasets: datasets
         };
         var myChart = new Chart(ctx, {
@@ -488,7 +511,7 @@
                 hover: {
                     animationDuration: 0 // 悬停项目时动画的持续时间
                 },
-                responsiveAnimationDuration: 0 ,// 调整大小后的动画持续时间
+                responsiveAnimationDuration: 0,// 调整大小后的动画持续时间
                 legend: {
                     display: false
                 },

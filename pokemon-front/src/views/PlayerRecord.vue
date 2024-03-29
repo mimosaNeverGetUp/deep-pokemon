@@ -1,4 +1,3 @@
-
 <script setup>
 import Header from "@/components/Header.vue";
 import PlayerBar from "@/components/PlayerBar.vue";

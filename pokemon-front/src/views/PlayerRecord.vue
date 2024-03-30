@@ -8,5 +8,5 @@ import BattleTable from "@/components/BattleTable.vue";
   <Header></Header>
 
   <PlayerBar :name="$route.query.name"></PlayerBar>
-  <BattleTable :name="$route.query.name"></BattleTable>
+  <BattleTable :playerName="$route.query.name"></BattleTable>
 </template>

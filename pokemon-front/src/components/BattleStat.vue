@@ -1,5 +1,6 @@
 <script setup>
 import Chart from "primevue/chart"
+
 const props = defineProps({
   playerName: String,
   data: Object,
@@ -10,8 +11,9 @@ function battleChartData(battle) {
   playerNames.push(battle.teams[0].playerName)
   playerNames.push(battle.teams[1].playerName);
   const battleHealthLineTrends = JSON.parse(battle.healthLinePairJsonString);
+  const battleHighLights = JSON.parse(battle.highLightJsonString);
 
-  return battleStatChartDataSet(playerNames, battleHealthLineTrends)
+  return battleStatChartDataSet(playerNames, battleHealthLineTrends, battleHighLights)
 }
 
 function battleChartOption(battle) {
@@ -36,14 +38,88 @@ function battleChartOption(battle) {
       animationDuration: 0 // 悬停项目时动画的持续时间
     },
     responsiveAnimationDuration: 0,// 调整大小后的动画持续时间
-    legend: {
-      display: false
-    }, scales: scales
+    plugins: {
+      legend: {
+        labels: {
+          filter: function (legendItem, data) {
+            let label = data.datasets[legendItem.datasetIndex].label || '';
+            if (typeof (label) !== 'undefined') {
+              if (legendItem.datasetIndex >= 2) {
+                return false;
+              }
+            }
+            return label;
+          }
+        }
+      }
+    },
+    scales: scales
   }
 }
 
-function battleStatChartDataSet(players, battleHealthLineTrends) {
-  return {datasets: healthLineChartDataSets(players, battleHealthLineTrends)};
+function highLightChartDataSets(players, battleHighLights) {
+  const highLightChartDataSets = [];
+  for (let i = 0; i < battleHighLights.length; ++i) {
+    let battleHighLight = battleHighLights[i];
+    let player = players[i];
+    for (let j = 0; j < battleHighLight.length; ++j) {
+      let event = battleHighLight[j];
+      let pointRadius = 1;
+      let pointBackgroundColor;
+      let y;
+      let x = j + 1;
+      if (props.playerName === player) {
+        pointBackgroundColor = "blue";
+        y = -100;
+      } else {
+        pointBackgroundColor = "red";
+        y = -200;
+      }
+
+      let data = {
+        pointBackgroundColor: pointBackgroundColor,
+        pointHitRadiu: 8,
+        label: event,
+        type: "scatter",
+        data: [
+          {
+            x: x,
+            y: y
+          }
+        ]
+      };
+      if (event.indexOf("faint") !== -1) {
+        pointRadius = 4;
+        const pointIcon = new Image(10,10);
+        pointIcon.src = "src/assets/flag-fill.svg";
+        data["pointStyle"] = pointIcon;
+      } else if (event.indexOf("Stealth Rock") !== -1) {
+        pointRadius = 2;
+      } else if (event.indexOf("(") !== -1) {
+        pointRadius = 2;
+      } else if (event.indexOf("Spikes") !== -1) {
+        pointRadius = 2;
+      } else if (event.indexOf("Toxic Spikes") !== -1) {
+        pointRadius = 2;
+      } else if (event.indexOf("Defog") !== -1) {
+        pointRadius = 2;
+      } else if (event.indexOf("Rapid Spin") !== -1) {
+        pointRadius = 2;
+      }
+      data["pointRadius"] = pointRadius;
+      data["pointHoverRadius"] = pointRadius;
+      highLightChartDataSets.push(data);
+    }
+  }
+  return highLightChartDataSets;
+}
+
+function battleStatChartDataSet(players, battleHealthLineTrends, battleHighLights) {
+  let datasets = [];
+  datasets = datasets.concat(healthLineChartDataSets(players, battleHealthLineTrends))
+
+  datasets = datasets.concat(highLightChartDataSets(players, battleHighLights))
+  return {datasets: datasets};
 }
 
 function healthLineChartData(playerName, healthLineTrend) {
@@ -85,6 +161,7 @@ function healthLineChartDataSets(playerNames, battleHealthLineTrends) {
   }
   return healthLineChartDataSets;
 }
+
 </script>
 <template>
   <div class="flex justify-center items-center">

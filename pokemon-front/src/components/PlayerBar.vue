@@ -28,18 +28,18 @@ queryPlayer();
     <Avatar image="src/assets/pokemonicon/touxiang.png"
             class="player-avatar"/>
     <div class="player-info">
-            <p style="font-size:large">
-              {{ player?.name }}
-            </p>
-            <p style="font-size: large">
-              {{ player?.elo }}
-            </p>
-            <p style="font-size: small">
-              {{ "排行第" + player?.rank + "位" }}
-            </p>
-            <p th:text="'Gxe: ' + ${playerRank.getGxe()}" style="font-size: small">
-              {{ "Gxe: " + player?.gxe }}
-            </p>
+      <p style="font-weight:bold">
+        {{ player?.name }}
+      </p>
+      <p>
+        {{ player?.elo }}
+      </p>
+      <p>
+        {{ "排行第" + player?.rank + "位" }}
+      </p>
+      <p th:text="'Gxe: ' + ${playerRank.getGxe()}">
+        {{ "Gxe: " + player?.gxe }}
+      </p>
     </div>
 
 

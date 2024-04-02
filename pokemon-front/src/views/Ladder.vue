@@ -59,7 +59,7 @@ fetchData(page.value, row.value)
 
 /*排行榜表格样式*/
 .ladder {
-  width: 100%;
+  width: 90%;
   margin: 60px auto 0; /*表格下移以适应绝对定位的导航栏*/
 }
 

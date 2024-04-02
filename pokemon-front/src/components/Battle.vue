@@ -23,13 +23,13 @@ function battleButtonIcon() {
 
 <template>
   <div :class="data.winner===props.playerName ? 'deco-winner': 'deco-loser' "></div>
-  <div class="battle-table">
-    <a style="display:block" :href="`https://replay.pokemonshowdown.com/${data.battleID}`">
+  <div class="battle-table text-lg">
+    <a style="display:block" target="_blank" :href="`https://replay.pokemonshowdown.com/${data.battleID}`">
       {{ data.battleID }}
     </a>
     <span>
           {{ data.date }}
-        </span>
+    </span>
     <div class="team-match">
       <div class="team-info" v-for="team in data.teams">
               <span>

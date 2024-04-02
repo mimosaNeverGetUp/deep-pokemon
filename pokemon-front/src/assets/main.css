@@ -2,7 +2,8 @@
 
 #app {
   width: 100%;
-  font-weight: normal;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   padding: 2rem;
 }
 

@@ -64,7 +64,7 @@ function highLightChartDataSets(players, battleHighLights) {
     let player = players[i];
     for (let j = 0; j < battleHighLight.length; ++j) {
       let event = battleHighLight[j];
-      let pointRadius = 1;
+      let pointRadius = 2;
       let pointBackgroundColor;
       let y;
       let x = j + 1;
@@ -89,22 +89,22 @@ function highLightChartDataSets(players, battleHighLights) {
         ]
       };
       if (event.indexOf("faint") !== -1) {
-        pointRadius = 4;
-        const pointIcon = new Image(10,10);
+        pointRadius = 8;
+        const pointIcon = new Image(20,20);
         pointIcon.src = "src/assets/flag-fill.svg";
         data["pointStyle"] = pointIcon;
       } else if (event.indexOf("Stealth Rock") !== -1) {
-        pointRadius = 2;
+        pointRadius = 4;
       } else if (event.indexOf("(") !== -1) {
-        pointRadius = 2;
+        pointRadius = 4;
       } else if (event.indexOf("Spikes") !== -1) {
-        pointRadius = 2;
+        pointRadius = 4;
       } else if (event.indexOf("Toxic Spikes") !== -1) {
-        pointRadius = 2;
+        pointRadius = 4;
       } else if (event.indexOf("Defog") !== -1) {
-        pointRadius = 2;
+        pointRadius = 4;
       } else if (event.indexOf("Rapid Spin") !== -1) {
-        pointRadius = 2;
+        pointRadius = 4;
       }
       data["pointRadius"] = pointRadius;
       data["pointHoverRadius"] = pointRadius;
@@ -167,6 +167,6 @@ function healthLineChartDataSets(playerNames, battleHealthLineTrends) {
   <div class="flex justify-center items-center">
     <Chart :key="data.battleID" type="line"
            :data="battleChartData(data)" :options="battleChartOption(data)"
-           class="size-1/2"/>
+           class="size-3/4"/>
   </div>
 </template>

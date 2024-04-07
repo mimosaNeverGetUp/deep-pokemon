@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,7 +36,7 @@ import java.util.Map;
  * @author: mimosa
  * @create: 2021//06//11
  */
-public class BattleTrend {
+public class BattleTrend implements Serializable {
 
     /**
      * 记录trend数组每一列索引对应的宝可梦

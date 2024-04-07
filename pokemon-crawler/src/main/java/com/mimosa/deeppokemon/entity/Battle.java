@@ -27,11 +27,12 @@ package com.mimosa.deeppokemon.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Arrays;
 
 @Document(collection = "battle")
-public class Battle {
+public class Battle implements Serializable {
     @Id
     private String battleID;
     // 简介

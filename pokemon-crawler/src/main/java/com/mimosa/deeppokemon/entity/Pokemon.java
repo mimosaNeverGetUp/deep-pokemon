@@ -24,10 +24,11 @@
 
 package com.mimosa.deeppokemon.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Pokemon {
+public class Pokemon implements Serializable {
     private String name;
     private HashSet<String> moves = new HashSet<>();
 

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @ControllerAdvice
 public class WebApplicationGlobalAdvice {
@@ -53,11 +54,16 @@ public class WebApplicationGlobalAdvice {
         return request.getServerName();
     }
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebApplicationGlobalAdvice.class);
 
     @ExceptionHandler({Exception.class})
     public ModelAndView commonExceptionHandleWithModel(HttpServletRequest httpServletRequest, Exception e) {
-        LOGGER.error("error occur", e);
+        if (e instanceof NoResourceFoundException noResourceFoundException) {
+            LOGGER.error("error occur {}", e.getLocalizedMessage());
+        } else {
+            LOGGER.error("error occur", e);
+        }
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("error");
         fillModelGlobalParam(httpServletRequest, modelAndView);

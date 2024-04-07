@@ -35,14 +35,14 @@ import java.util.*;
 @CrossOrigin
 public class PlayerApiController {
 
+    private final BattleService battleService;
+
+    private final PlayerService playerService;
+
     public PlayerApiController(BattleService battleService, PlayerService playerService) {
         this.battleService = battleService;
         this.playerService = playerService;
     }
-
-    private final BattleService battleService;
-
-    private final PlayerService playerService;
 
     @GetMapping("/rank/update-time")
     @ResponseBody

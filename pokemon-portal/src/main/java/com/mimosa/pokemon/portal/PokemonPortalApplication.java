@@ -29,6 +29,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * deeppokemon应用入口
@@ -36,6 +37,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  *
  * @author huangxiaocong(2070132549@qq.com)
  */
+@EnableCaching
 @SpringBootApplication(scanBasePackages = {"com.mimosa.deeppokemon","com.mimosa.pokemon"})
 public class PokemonPortalApplication extends SpringBootServletInitializer {
 

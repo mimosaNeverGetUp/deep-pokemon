@@ -26,11 +26,12 @@ package com.mimosa.deeppokemon.entity;
 
 import org.springframework.data.annotation.Transient;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Team {
+public class Team implements Serializable {
     private  String playerName;
     private  String tier;
     private ArrayList<Pokemon> pokemons;

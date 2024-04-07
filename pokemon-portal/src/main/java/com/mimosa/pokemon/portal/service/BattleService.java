@@ -38,6 +38,7 @@ import com.mimosa.pokemon.portal.entity.stat.PokemonUsageStat;
 import com.mongodb.BasicDBObject;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
@@ -57,6 +58,7 @@ public class BattleService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    @Cacheable("playerBattle")
     public PageResponse<Battle> listBattleByName(String playerName, int page, int row) {
         Query query = new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName));
         long totalRecord = mongoTemplate.count(query, Battle.class);

@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.entity;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,7 @@ import java.util.Map;
  * @author: mimosa
  * @create: 2020//12//07
  */
-public class TeamBattleAnalysis {
+public class TeamBattleAnalysis implements Serializable {
     protected Map<String,PokemonBattleAnalysis> pokemonBattleAnalysisMap;
 
     public TeamBattleAnalysis(Team team) {

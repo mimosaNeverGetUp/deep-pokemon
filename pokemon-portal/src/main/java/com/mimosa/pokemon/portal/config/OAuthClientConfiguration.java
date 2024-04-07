@@ -38,5 +38,4 @@ public class OAuthClientConfiguration {
                 .cors(AbstractHttpConfigurer::disable);
         return httpSecurity.build();
     }
-
 }

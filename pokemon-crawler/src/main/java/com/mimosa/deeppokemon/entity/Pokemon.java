@@ -24,11 +24,12 @@
 
 package com.mimosa.deeppokemon.entity;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Pokemon implements Serializable {
+public class Pokemon implements Serializable,Comparable {
     private String name;
     private HashSet<String> moves = new HashSet<>();
 
@@ -108,5 +109,14 @@ public class Pokemon implements Serializable {
     @Override
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
+    }
+
+    @Override
+    public int compareTo(@NotNull Object o) {
+        Pokemon pokemon = (Pokemon) o;
+        if (name == null && pokemon.name == null) {
+            return 0;
+        }
+        return name.compareTo(pokemon.name);
     }
 }

@@ -5,7 +5,8 @@ spring:
             database: deep_pokemon
         jackson:
         timeZone : GMT+8
-    profiles:
+    web:
+        cors: "
 logging:
     config: classpath:logback.xml
 server:

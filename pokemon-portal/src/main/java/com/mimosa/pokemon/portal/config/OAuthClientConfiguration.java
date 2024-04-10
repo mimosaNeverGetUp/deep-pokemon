@@ -12,6 +12,7 @@
 
 package com.mimosa.pokemon.portal.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,7 +30,8 @@ import java.util.List;
 @EnableWebSecurity
 public class OAuthClientConfiguration {
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity,
+                                                   @Value("${spring.web.cors}") String allowOrigins) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(request -> {
                     request.requestMatchers("/api/**")
@@ -38,14 +40,13 @@ public class OAuthClientConfiguration {
                             .authenticated();
                 })
                 .oauth2Login(endpoint -> endpoint.successHandler(new SavedRequestAwareAuthenticationSuccessHandler()))
-                .cors(httpSecurityCorsConfigurer-> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()));
+                .cors(httpSecurityCorsConfigurer-> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource(allowOrigins)));
         return httpSecurity.build();
     }
 
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
+    CorsConfigurationSource corsConfigurationSource(String allowOrigins) {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("*"));
+        configuration.setAllowedOrigins(List.of(allowOrigins));
         configuration.setAllowedMethods(Arrays.asList("GET","POST"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);

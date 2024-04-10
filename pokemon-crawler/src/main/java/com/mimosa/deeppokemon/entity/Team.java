@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.entity;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.data.annotation.Transient;
 
 import java.io.Serializable;
@@ -95,17 +96,12 @@ public class Team implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
-        for (Pokemon pokemon : pokemons) {
-            if (!team.pokemons.contains(pokemon)) {
-                return false;
-            }
-        }
-        return true;
+        return pokemons == null ? ((Team) o).pokemons == null : CollectionUtils.isEqualCollection(pokemons, team.pokemons);
     }
 
     @Override
     public int hashCode() {
-        return pokemons != null ? pokemons.hashCode() : 0;
+        return pokemons != null ? pokemons.stream().sorted().hashCode() : 0;
     }
 
     @Override

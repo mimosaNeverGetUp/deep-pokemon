@@ -32,7 +32,6 @@ import java.util.*;
 @Validated
 @Controller
 @RequestMapping("/api")
-@CrossOrigin
 public class PlayerApiController {
 
     private final BattleService battleService;
@@ -46,16 +45,15 @@ public class PlayerApiController {
 
     @GetMapping("/rank/update-time")
     @ResponseBody
-    @CrossOrigin
     public Map<String, String> getDataUpdateDate() {
         return Collections.singletonMap("date",
                 DateTimeFormatter.ISO_LOCAL_DATE.format(playerService.getLatestLadder().getDate()));
     }
 
     @ResponseBody
-    @CrossOrigin
     @GetMapping("/rank")
     public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) int row) {
+
         int start = page * row;
         int end = start + row;
         Ladder ladder = playerService.getLatestLadder();

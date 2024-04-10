@@ -33,6 +33,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -45,7 +46,7 @@ public class PlayerController {
 
     @RequestMapping("/record")
     public String player(String name, Model model, int page) {
-        List<Battle> battleList = battleService.listBattleByName(name, page, 15).data();
+        Collection<Battle> battleList = battleService.listBattleByName(name, page, 15).data();
         PlayerRankDTO playerRank = playerService.queryPlayerLadderRank(name);
 
         model.addAttribute("playerRank", playerRank);

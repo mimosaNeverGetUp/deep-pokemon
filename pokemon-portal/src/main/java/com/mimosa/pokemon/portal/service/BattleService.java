@@ -24,19 +24,17 @@
 
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.LadderRank;
-import com.mimosa.deeppokemon.entity.Player;
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Team;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Tag;
+import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.PokemonStatDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.entity.stat.PokemonMoveStat;
 import com.mimosa.pokemon.portal.entity.stat.PokemonUsageStat;
+import com.mimosa.pokemon.portal.util.CollectionUtils;
+import com.mimosa.pokemon.portal.util.MongodbUtils;
 import com.mongodb.BasicDBObject;
 import org.bson.Document;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -60,9 +58,11 @@ public class BattleService {
 
     @Cacheable("playerBattle")
     public PageResponse<Battle> listBattleByName(String playerName, int page, int row) {
-        Query query = new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName));
+        Query query =
+                new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName)).
+                        with(Sort.by(Sort.Order.desc("date")));
         long totalRecord = mongoTemplate.count(query, Battle.class);
-        query = query.with(Sort.by(Sort.Order.desc("date"))).limit(row).skip((page) * row);
+        MongodbUtils.addPageFilter(query, page, row);
 
         List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
         return new PageResponse<>(totalRecord, page, row, battles);
@@ -260,74 +260,52 @@ public class BattleService {
         return pokemonUsageStats;
     }
 
-    public List<BattleTeamDto> Team(int page, String tag, String pokemonName, String dayAfter, String dayBefore) {
-        int num_perPage = 20;
-        ArrayList<Team> teamList = new ArrayList<>();
-        List<BattleTeamDto> teams = new ArrayList<>();
+    @Cacheable("team")
+    public PageResponse<BattleTeamDto> team(int page, int row, List<String> tag, List<String> pokemonNames, String dayAfter,
+                                            String dayBefore) {
+        Aggregation queryAggregation = buildTeamQueryAggregation(tag, pokemonNames, dayAfter, dayBefore);
+        long total = 1;
+        MongodbUtils.addPageFilter(queryAggregation, page, row);
 
-        List<AggregationOperation> operations = new ArrayList<>();
-        //设置页数条件
-        operations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
+        List<BattleTeamDto> battles = mongoTemplate.aggregate(queryAggregation, "battle", BattleTeamDto.class)
+                .getMappedResults();
+        return new PageResponse<>(total, page, row, battles);
+    }
+
+    @NotNull
+    private static Aggregation buildTeamQueryAggregation(List<String> tags, List<String> pokemonNames, String dayAfter,
+                                                         String dayBefore) {
+        List<AggregationOperation> aggregationOperations = new ArrayList<>();
+        aggregationOperations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
+        aggregationOperations.add(Aggregation.unwind("teams"));
+
         //动态设置条件
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        if (!StringUtils.isEmpty(dayAfter)) {
+        if (StringUtils.hasText(dayAfter)) {
             LocalDate after = LocalDate.parse(dayAfter, format);
-            operations.add(Aggregation.match(Criteria.where("date").gte(after)));
+            aggregationOperations.add(Aggregation.match(Criteria.where("date").gte(after)));
         }
-        if (!StringUtils.isEmpty(dayBefore)) {
+        if (StringUtils.hasText(dayBefore)) {
             LocalDate before = LocalDate.parse(dayBefore, format);
-            operations.add(Aggregation.match(Criteria.where("date").lte(before)));
+            aggregationOperations.add(Aggregation.match(Criteria.where("date").gte(before)));
         }
-        if (!StringUtils.isEmpty(tag)) {
-            operations.add(Aggregation.match(Criteria.where("teams.tagSet").is(tag)));
-        }
-        if (!StringUtils.isEmpty(pokemonName)) {
-            operations.add(Aggregation.match(Criteria.where("teams.pokemons.name").is(pokemonName)));
-        }
-        operations.add(Aggregation.skip((long) (page - 1) * num_perPage));
-        operations.add(Aggregation.limit(num_perPage));
-        Aggregation aggregation = Aggregation.newAggregation(operations);
 
-        List<Battle> battles = mongoTemplate.aggregate(aggregation, "battle", Battle.class).getMappedResults();
-        for (Battle battle : battles) {
-            for (Team team : battle.getTeams()) {
-                if (team == null) {
-                    continue;
-                }
-                //需要进一步过滤battle里不符合条件或者重复的队伍
-                boolean canAdd = true;
-                for (int i = 0; i < teamList.size(); ++i) {
-                    //检查重复
-                    if (team.equals(teamList.get(i))) {
-                        canAdd = false;
-                        break;
-                    }
-                }
-                if (!StringUtils.isEmpty(pokemonName)) {
-                    boolean hasSpecifyPokemon = false;
-                    for (Pokemon pokemon : team.getPokemons()) {
-                        if (pokemonName.equals(pokemon.getName())) {
-                            hasSpecifyPokemon = true;
-                            break;
-                        }
-                    }
-                    if (!hasSpecifyPokemon) {
-                        canAdd = false;
-                    }
-                }
-                if (!StringUtils.isEmpty(tag)) {
-                    if (!team.getTagSet().contains(Tag.valueOf(tag))) {
-                        canAdd = false;
-                    }
-                }
-                if (canAdd) {
-                    teamList.add(team);
-                    BattleTeamDto battleTeamDto = new BattleTeamDto(battle.getBattleID(), team);
-                    teams.add(battleTeamDto);
-                }
-            }
+        // 队伍过滤
+        List<Criteria> teamCriterias = new ArrayList<>();
+        if (CollectionUtils.hasNotNullObject(tags)) {
+            teamCriterias.add(Criteria.where("teams.tagSet").in(tags));
         }
-        return teams;
+        if (CollectionUtils.hasNotNullObject(pokemonNames)) {
+            teamCriterias.add(Criteria.where("teams.pokemons").elemMatch(Criteria.where("name").in(pokemonNames)));
+        }
+        if (!teamCriterias.isEmpty()) {
+            aggregationOperations.add(
+                    Aggregation.match(new Criteria().andOperator(teamCriterias)));
+        }
 
+        Field[] projectFields = new Field[]{Fields.field("team","teams")};
+        aggregationOperations.add(Aggregation.project(Fields.from(projectFields))
+                .and("_id").as("battleId").andExclude("_id"));
+        return Aggregation.newAggregation(aggregationOperations);
     }
 }

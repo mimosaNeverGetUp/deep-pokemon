@@ -13,7 +13,8 @@
 package com.mimosa.pokemon.portal.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
-public record PageResponse<T>(long totalRecords, int page, int row, List<T> data) implements Serializable {
+public record PageResponse<T>(long totalRecords, int page, int row, Collection<T> data) implements Serializable {
 }

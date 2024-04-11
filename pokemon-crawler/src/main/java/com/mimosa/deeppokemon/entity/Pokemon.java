@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.Serializable;
 import java.util.HashSet;
 
-public class Pokemon implements Serializable,Comparable {
+public class Pokemon implements Serializable,Comparable<Pokemon> {
     private String name;
     private HashSet<String> moves = new HashSet<>();
 
@@ -81,16 +81,16 @@ public class Pokemon implements Serializable,Comparable {
 
     @Override
     public String toString() {
-        String m = "\n";
+        StringBuilder m = new StringBuilder("\n");
         if (moves != null) {
             for (String move : moves) {
-                m += "-" + move + "\n";
+                m.append("-").append(move).append("\n");
             }
             for (int i = 0; i < 4 - moves.size(); i++) {
-                m += "-???\n";
+                m.append("-???\n");
             }
         }
-        String it = "";
+        String it;
         if (item != null) {
             it = "@"+item;
         } else {
@@ -116,11 +116,10 @@ public class Pokemon implements Serializable,Comparable {
     }
 
     @Override
-    public int compareTo(@NotNull Object o) {
-        Pokemon pokemon = (Pokemon) o;
-        if (name == null && pokemon.name == null) {
-            return 0;
+    public int compareTo(@NotNull Pokemon o) {
+        if (name == null) {
+            return o.name == null ? 0 : 1;
         }
-        return name.compareTo(pokemon.name);
+        return name.compareTo(o.name);
     }
 }

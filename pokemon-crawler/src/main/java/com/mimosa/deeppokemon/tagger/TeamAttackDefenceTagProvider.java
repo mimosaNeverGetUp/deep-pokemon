@@ -34,8 +34,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 
 /**
  * @program: deep-pokemon
@@ -54,7 +53,7 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
     private static Logger logger = LoggerFactory.getLogger(TeamAttackDefenceTagProvider.class);
     @Override
     public void tag(Team team) {
-        HashSet<Tag> tags = team.getTagSet();
+        Set<Tag> tags = team.getTagSet();
         float attackDefenseDif = 0;//攻受差异，大于0表示攻向
         try {
             for (Pokemon pokemon : team.getPokemons()) {

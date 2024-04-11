@@ -6,7 +6,7 @@ import Header from "@/components/Header.vue";
 <template>
   <Header class="text-lg" show-update-date="true">
   </Header>
-  <router-view class="text-lg"></router-view>
+  <router-view></router-view>
 </template>
 
 <style scoped>

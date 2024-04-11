@@ -36,6 +36,10 @@ public class Pokemon implements Serializable,Comparable {
     private String item;
     private String ablity;
 
+    public Pokemon() {
+
+    }
+
     public Pokemon(String name) {
         this.name = name;
     }

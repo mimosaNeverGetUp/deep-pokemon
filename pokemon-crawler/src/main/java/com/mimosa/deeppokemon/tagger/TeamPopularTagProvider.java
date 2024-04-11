@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @program: deep-pokemon
@@ -51,7 +51,7 @@ public class TeamPopularTagProvider implements TeamTagProvider {
     private static Logger logger = LoggerFactory.getLogger(TeamPopularTagProvider.class);
     @Override
     public void tag(Team team) {
-        HashSet<Tag> tags = team.getTagSet();
+        Set<Tag> tags = team.getTagSet();
         float unpopularPokemonUse = 0;//使用冷门精灵的程度
         try {
             //手动神经元，求和大于阈值判断分类

@@ -8,12 +8,12 @@ import NaviItem from '@/components/NaviItem.vue'
       <img class="navi-logo" src="@/assets/pokemonicon/pokemon.png" alt="deep-pokemon">
     </NaviItem>
 
-    <NaviItem url="/list">
+    <NaviItem url="/ladder">
       <img class="navi-label-icon" src="@/assets/pokemonicon/Incineroar.png" alt="deep-pokemon">
       <p>排行榜</p>
     </NaviItem>
 
-    <NaviItem url="/team">
+    <NaviItem url="/teamSearch">
       <img class="navi-label-icon" src="@/assets/pokemonicon/Maushold-Four.png" alt="deep-pokemon">
       <p>队伍</p>
     </NaviItem>

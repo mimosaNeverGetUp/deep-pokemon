@@ -48,7 +48,10 @@ import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -62,7 +65,7 @@ public class BattleService {
                 new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName)).
                         with(Sort.by(Sort.Order.desc("date")));
         long totalRecord = mongoTemplate.count(query, Battle.class);
-        MongodbUtils.addPageFilter(query, page, row);
+        MongodbUtils.buildPageFacetAggregationOperation(query, page, row);
 
         List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
         return new PageResponse<>(totalRecord, page, row, battles);
@@ -261,15 +264,14 @@ public class BattleService {
     }
 
     @Cacheable("team")
-    public PageResponse<BattleTeamDto> team(int page, int row, List<String> tag, List<String> pokemonNames, String dayAfter,
+    public PageResponse<BattleTeamDto> team(int page, int row, List<String> tags, List<String> pokemonNames, String dayAfter,
                                             String dayBefore) {
-        Aggregation queryAggregation = buildTeamQueryAggregation(tag, pokemonNames, dayAfter, dayBefore);
-        long total = 1;
-        MongodbUtils.addPageFilter(queryAggregation, page, row);
+        Aggregation queryAggregation = buildTeamQueryAggregation(tags, pokemonNames, dayAfter, dayBefore);
+        MongodbUtils.addPageFacetOperation(queryAggregation, page, row);
 
-        List<BattleTeamDto> battles = mongoTemplate.aggregate(queryAggregation, "battle", BattleTeamDto.class)
-                .getMappedResults();
-        return new PageResponse<>(total, page, row, battles);
+        AggregationResults<Document> result = mongoTemplate.aggregate(queryAggregation, "battle",
+                Document.class);
+        return MongodbUtils.parsePageAggregationResult(result, page, row, BattleTeamDto.class);
     }
 
     @NotNull
@@ -306,6 +308,7 @@ public class BattleService {
         Field[] projectFields = new Field[]{Fields.field("team","teams")};
         aggregationOperations.add(Aggregation.project(Fields.from(projectFields))
                 .and("_id").as("battleId").andExclude("_id"));
+
         return Aggregation.newAggregation(aggregationOperations);
     }
 }

@@ -1,12 +1,12 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import PlayerBar from "@/components/PlayerBar.vue";
-import BattleTable from "@/components/BattleTable.vue";
+import Battles from "@/components/Battles.vue";
 </script>
 
 <template>
   <Header></Header>
 
   <PlayerBar :name="$route.query.name"></PlayerBar>
-  <BattleTable :playerName="$route.query.name"></BattleTable>
+  <Battles :playerName="$route.query.name"></Battles>
 </template>

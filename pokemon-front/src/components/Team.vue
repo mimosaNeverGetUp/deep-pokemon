@@ -34,7 +34,8 @@ function getPokemonItemText(pokemon) {
 .pokemon-list {
   display: flex;
   list-style-type: none;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 30px;
 }
 
 .set-tip {

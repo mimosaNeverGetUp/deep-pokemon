@@ -56,7 +56,6 @@ fetchData(page.value, row.value)
 </template>
 
 <style scoped>
-
 /*排行榜表格样式*/
 .ladder {
   width: 90%;

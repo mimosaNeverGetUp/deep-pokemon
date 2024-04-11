@@ -28,15 +28,18 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.data.annotation.Transient;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Team implements Serializable {
     private  String playerName;
     private  String tier;
-    private ArrayList<Pokemon> pokemons;
-    private HashSet<Tag> tagSet=new HashSet<>();
+    private List<Pokemon> pokemons;
+    private Set<Tag> tagSet=new HashSet<>();
 
     /**
      * 非持久化变量,pokemons的map形式，方便查询
@@ -54,7 +57,7 @@ public class Team implements Serializable {
         this.tier = tier;
     }
 
-    public Team(ArrayList<Pokemon> pokemons) {
+    public Team (List<Pokemon> pokemons) {
         this.pokemons = pokemons;
         pokemonMap = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity()));
     }
@@ -70,20 +73,20 @@ public class Team implements Serializable {
         this.playerName = playerName;
     }
 
-    public ArrayList<Pokemon> getPokemons() {
+    public List<Pokemon> getPokemons() {
         return pokemons;
     }
 
-    public void setPokemons(ArrayList<Pokemon> pokemons) {
+    public void setPokemons(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
         pokemonMap = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity(), (p1, p2) -> p1));
     }
 
-    public HashSet<Tag> getTagSet() {
+    public Set<Tag> getTagSet() {
         return tagSet;
     }
 
-    public void setTagSet(HashSet<Tag> tagSet) {
+    public void setTagSet(Set<Tag> tagSet) {
         this.tagSet = tagSet;
     }
 

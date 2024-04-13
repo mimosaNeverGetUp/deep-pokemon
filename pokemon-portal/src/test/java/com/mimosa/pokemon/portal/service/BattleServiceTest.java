@@ -24,11 +24,9 @@
 
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.Ladder;
-import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.pokemon.portal.config.MongodbTestConfig;
+import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -38,19 +36,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import java.time.LocalDate;
-import java.util.List;
-
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.oauth2Login;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @Testcontainers
+@ContextConfiguration(classes = MongodbTestConfig.class)
 @AutoConfigureMockMvc
 @SpringBootTest
-@ContextConfiguration(classes = MongodbTestConfig.class)
 class BattleServiceTest {
+    public static final String EXIST_PLAYER_NAME = "fuck-yu chi-yu";
     @Autowired
     BattleService battleService;
 
@@ -63,50 +54,15 @@ class BattleServiceTest {
     @Autowired
     MockMvc mockMvc;
 
-    @BeforeAll
-    static void initDb(@Autowired MongoTemplate mongoTemplate) {
-        LadderRank mimosa = new LadderRank("mimosa", 1000, 0, 0f);
-        Ladder ladder = new Ladder();
-        ladder.setLadderRankList(List.of(mimosa));
-        ladder.setDate(LocalDate.now());
-        mongoTemplate.save(ladder);
-    }
-
     @Test
     void listPlayer() throws Exception {
-        mockMvc.perform(get("/record")
-                .with(oauth2Login())
-                .queryParam("name", "mimosa🥰")
-                .queryParam("page", "1")).andExpect(status().isOk()).andDo(print());
-        Assertions.assertNotNull(playerService.queryPlayerLadderRank("mimosa"));
-    }
-
-    @Test
-    void team() {
-//        List<Pair<Team, String>> list = battleService.Team(1);
-//        for (Pair<Team, String> pair : list) {
-//            System.out.println(pair.getKey()+pair.getValue());
-//        }
-    }
-
-    //    @Test
-    void statistic() throws Exception {
-
-
-    }
-
-    @Test
-    void mapReduce() throws Exception {
-        // todo补充新统计方法单元测试
-    }
-
-    @Test
-    void mapReduceAll() throws Exception {
-
-    }
-
-    @Test
-    void mapReduceAllTest() throws Exception {
-
+        PlayerRankDTO playerRankDTO = playerService.queryPlayerLadderRank(EXIST_PLAYER_NAME);
+        Assertions.assertAll(
+                () -> Assertions.assertNotNull(playerRankDTO),
+                () -> Assertions.assertNotNull(playerRankDTO.getRank()),
+                () -> Assertions.assertNotNull(playerRankDTO.getElo()),
+//                ()->Assertions.assertNotNull(playerRankDTO.getFormat()),
+                () -> Assertions.assertNotNull(playerRankDTO.getInfoDate())
+        );
     }
 }

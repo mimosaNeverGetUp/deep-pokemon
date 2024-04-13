@@ -82,5 +82,7 @@ public enum  Tag {
         this.name = tag;
     }
 
-
+    public String getName() {
+        return name;
+    }
 }

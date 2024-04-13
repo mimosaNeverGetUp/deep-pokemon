@@ -12,37 +12,38 @@
 
 package com.mimosa.pokemon.portal.config;
 
-import jakarta.annotation.PreDestroy;
+import com.github.dockerjava.api.command.InspectContainerResponse;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
 import org.testcontainers.containers.MongoDBContainer;
-import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.MountableFile;
 
-import java.util.List;
+import java.time.Duration;
 
-
-@TestConfiguration
+@TestConfiguration(proxyBeanMethods = false)
 public class MongodbTestConfig {
-    @Container
-    @ServiceConnection
-    public static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:latest").withExposedPorts(27017);
-
-    static {
-        mongoDBContainer.withCopyFileToContainer(MountableFile.forClasspathResource("./player.json"),
-                "/home/player.json");
-        mongoDBContainer.start();
-    }
-
     @Bean
-    public MongoDBContainer mongoDBContainer() {
-
-        return mongoDBContainer;
+    @ServiceConnection
+    public static MongoDBContainer mongoDBContainer() {
+        return new StandAloneMongoDBContainer("mongo:latest").withExposedPorts(27017)
+                .withExposedPorts(27017)
+                .withCopyFileToContainer(MountableFile.forClasspathResource("db/"), "/docker-entrypoint-initdb.d")
+                .waitingFor(Wait.forLogMessage("(?i).*waiting for connections.*", 2))
+                .withStartupTimeout(Duration.ofSeconds(5))
+                .withReuse(false);
     }
 
-    @PreDestroy
-    void stopDb() {
-        mongoDBContainer.stop();
+    public static class StandAloneMongoDBContainer extends MongoDBContainer {
+        public StandAloneMongoDBContainer(String dockerImageName) {
+            super(dockerImageName);
+            this.setCommand("mongod");
+        }
+
+        @Override
+        protected void containerIsStarted(InspectContainerResponse containerInfo, boolean reused) {
+            // not to init replica set
+        }
     }
 }

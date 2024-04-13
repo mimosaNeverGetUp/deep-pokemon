@@ -18,6 +18,10 @@ public class LadderRank {
     private int rank;
     private float gxe;
 
+    public LadderRank() {
+
+    }
+
     public LadderRank(String name, int elo, int rank, float gxe) {
         this.name = name;
         this.elo = elo;

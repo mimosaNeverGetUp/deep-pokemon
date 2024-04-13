@@ -14,6 +14,8 @@ package com.mimosa.pokemon.portal.dto;
 
 import com.mimosa.deeppokemon.entity.Team;
 
-public record BattleTeamDto(String battleId, Team team) {
+import java.io.Serializable;
+
+public record BattleTeamDto(String battleId, Team team) implements Serializable {
 
 }

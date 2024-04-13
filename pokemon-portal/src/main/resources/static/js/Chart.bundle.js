@@ -527,7 +527,7 @@ convert.hsv.rgb = function (hsv) {
 	var hi = Math.floor(h) % 6;
 
 	var f = h - Math.floor(h);
-	var p = 255 * v * (1 - s);
+	var p1 = 255 * v * (1 - s);
 	var q = 255 * v * (1 - (s * f));
 	var t = 255 * v * (1 - (s * (1 - f)));
 	v *= 255;
@@ -1953,7 +1953,7 @@ Color.prototype = {
 	mix: function (mixinColor, weight) {
 		var color1 = this;
 		var color2 = mixinColor;
-		var p = weight === undefined ? 0.5 : weight;
+		var p1 = weight === undefined ? 0.5 : weight;
 
 		var w = 2 * p - 1;
 		var a = color1.alpha() - color2.alpha();
@@ -2613,7 +2613,7 @@ var effects = {
 
 	easeInElastic: function(t) {
 		var s = 1.70158;
-		var p = 0;
+		var p1 = 0;
 		var a = 1;
 		if (t === 0) {
 			return 0;
@@ -2635,7 +2635,7 @@ var effects = {
 
 	easeOutElastic: function(t) {
 		var s = 1.70158;
-		var p = 0;
+		var p1 = 0;
 		var a = 1;
 		if (t === 0) {
 			return 0;
@@ -2657,7 +2657,7 @@ var effects = {
 
 	easeInOutElastic: function(t) {
 		var s = 1.70158;
-		var p = 0;
+		var p1 = 0;
 		var a = 1;
 		if (t === 0) {
 			return 0;
@@ -7966,7 +7966,7 @@ var core_plugins = {
 	 * @param {IPlugin[]|IPlugin} plugins plugin instance(s).
 	 */
 	register: function(plugins) {
-		var p = this._plugins;
+		var p1 = this._plugins;
 		([]).concat(plugins).forEach(function(plugin) {
 			if (p.indexOf(plugin) === -1) {
 				p.push(plugin);
@@ -7981,7 +7981,7 @@ var core_plugins = {
 	 * @param {IPlugin[]|IPlugin} plugins plugin instance(s).
 	 */
 	unregister: function(plugins) {
-		var p = this._plugins;
+		var p1 = this._plugins;
 		([]).concat(plugins).forEach(function(plugin) {
 			var idx = p.indexOf(plugin);
 			if (idx !== -1) {
@@ -10421,7 +10421,7 @@ var core_helpers = function() {
 			return;
 		}
 		var e = 1;
-		var p = 0;
+		var p1 = 0;
 		while (Math.round(x * e) / e !== x) {
 			e *= 10;
 			p++;

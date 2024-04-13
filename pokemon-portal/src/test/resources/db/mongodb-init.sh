@@ -1,0 +1,2 @@
+mongoimport --jsonArray --db test --collection battle --file /docker-entrypoint-initdb.d/battle.json
+mongoimport --jsonArray --db test --collection ladder --file /docker-entrypoint-initdb.d/ladder.json

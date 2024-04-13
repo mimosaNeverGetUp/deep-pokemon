@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
-@ControllerAdvice
+@ControllerAdvice("com.mimosa.pokemon.portal.controller")
 public class WebApplicationGlobalAdvice {
     @Autowired
     private Environment environment;
@@ -58,7 +58,7 @@ public class WebApplicationGlobalAdvice {
 
     @ExceptionHandler({Exception.class})
     public ModelAndView commonExceptionHandleWithModel(HttpServletRequest httpServletRequest, Exception e) {
-        if (e instanceof NoResourceFoundException noResourceFoundException) {
+        if (e instanceof NoResourceFoundException) {
             LOGGER.error("error occur {}", e.getLocalizedMessage());
         } else {
             LOGGER.error("error occur", e);

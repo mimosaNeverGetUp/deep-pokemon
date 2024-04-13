@@ -281,7 +281,6 @@ public class BattleService {
         aggregationOperations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
         aggregationOperations.add(Aggregation.unwind("teams"));
 
-        //动态设置条件
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         if (StringUtils.hasText(dayAfter)) {
             LocalDate after = LocalDate.parse(dayAfter, format);
@@ -295,10 +294,10 @@ public class BattleService {
         // 队伍过滤
         List<Criteria> teamCriterias = new ArrayList<>();
         if (CollectionUtils.hasNotNullObject(tags)) {
-            teamCriterias.add(Criteria.where("teams.tagSet").in(tags));
+            teamCriterias.add(Criteria.where("teams.tagSet").all(tags));
         }
         if (CollectionUtils.hasNotNullObject(pokemonNames)) {
-            teamCriterias.add(Criteria.where("teams.pokemons").elemMatch(Criteria.where("name").in(pokemonNames)));
+            teamCriterias.add(Criteria.where("teams.pokemons").elemMatch(Criteria.where("name").all(pokemonNames)));
         }
         if (!teamCriterias.isEmpty()) {
             aggregationOperations.add(

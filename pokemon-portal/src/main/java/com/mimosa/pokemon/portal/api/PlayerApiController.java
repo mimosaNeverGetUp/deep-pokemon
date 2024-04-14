@@ -14,6 +14,7 @@ import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.BattleService;
 import com.mimosa.pokemon.portal.service.PlayerService;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Controller;
@@ -46,8 +47,7 @@ public class PlayerApiController {
 
     @ResponseBody
     @GetMapping("/rank")
-    public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) int row) {
-
+    public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) @Max(100) int row) {
         int start = page * row;
         int end = start + row;
         Ladder ladder = playerService.getLatestLadder();

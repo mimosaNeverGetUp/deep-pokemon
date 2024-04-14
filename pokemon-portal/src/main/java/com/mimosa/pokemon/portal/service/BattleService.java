@@ -297,7 +297,7 @@ public class BattleService {
             teamCriterias.add(Criteria.where("teams.tagSet").all(tags));
         }
         if (CollectionUtils.hasNotNullObject(pokemonNames)) {
-            teamCriterias.add(Criteria.where("teams.pokemons").elemMatch(Criteria.where("name").all(pokemonNames)));
+            teamCriterias.add(Criteria.where("teams.pokemons.name").all(pokemonNames));
         }
         if (!teamCriterias.isEmpty()) {
             aggregationOperations.add(

@@ -1,12 +1,8 @@
 spring:
   data:
     mongodb:
+      uri: mongodb://mimosa:17471335qwe@localhost:27017/deep_pokemon_dev_env?serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
       authentication-database: admin
-      database: deep_pokemon_dev_env
-      host: localhost
-      port: 27017
-      username: mimosa
-      password: 17471335qwe
   jackson:
     timeZone : GMT+8
   profiles:

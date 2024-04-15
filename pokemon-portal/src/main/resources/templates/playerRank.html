@@ -82,7 +82,7 @@
     <tr th:each="rank :  ${   rankList}" >
         <td  th:text="${rank.getRank()}" class="ladder-td">rank</td>
         <td class="ladder-td" >
-            <a th:text="${rank.getName()}" th:href="${requestScheme + '://' + requestServerName + ':' + serverPort  + contextPath + '/'}+'record?page=1&name='+${rank.getName()}"></a>
+            <a th:text="${rank.getName()}" th:href="${requestScheme + '://' + requestServerName + ':' + serverPort  + contextPath + '/'}+'record?page=0&name='+${rank.getName()}"></a>
         </td>
         <td  class="ladder-td" th:text="${rank.getElo()}">elo</td>
         <td class="ladder-td" th:text="${rank.getGxe()}">gxe</td>

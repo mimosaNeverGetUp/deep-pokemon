@@ -53,28 +53,16 @@ public class BattleService {
     private static final Logger log = LoggerFactory.getLogger(BattleService.class);
 
     public void save(Battle battle) {
-        log.info("save a battle:"+battle.getBattleID());
-        try {
-            mongoTemplate.save(battle);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            log.error(e.getMessage());
-        }
+        log.info("save a battle:" + battle.getBattleID());
+        mongoTemplate.save(battle);
     }
 
     public void savaAll(List<Battle> battles) {
         if (battles.isEmpty()) {
             return;
         }
-        log.info("save battles:"+battles.get(0).getBattleID());
-        try {
-            for (Battle battle : battles) {
-                mongoTemplate.save(battle);
-            }
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-            log.error(e.getMessage());
-        }
+        log.info("save battles:" + battles.get(0).getBattleID());
+        mongoTemplate.insertAll(battles);
     }
 
     public String findPlayerBattleIdEarliest(String playerName) {
@@ -107,7 +95,7 @@ public class BattleService {
         return battles;
     }
 
-    public void crawLadder( ) throws Exception {
+    public void crawLadder() throws Exception {
         log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter()));

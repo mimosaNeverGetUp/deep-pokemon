@@ -34,9 +34,9 @@ import org.springframework.context.annotation.Bean;
 import java.time.LocalDate;
 
 @SpringBootApplication
-public class PokemoCrawlerApplication {
+public class PokemonCrawlerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(PokemoCrawlerApplication.class, args);
+        SpringApplication.run(PokemonCrawlerApplication.class, args);
     }
 
     @Bean

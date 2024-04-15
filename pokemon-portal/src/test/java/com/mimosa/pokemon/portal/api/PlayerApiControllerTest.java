@@ -6,18 +6,15 @@
 
 package com.mimosa.pokemon.portal.api;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.pokemon.portal.config.MongodbTestConfig;
-import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
-import com.mimosa.pokemon.portal.entity.PageResponse;
+import com.mimosa.pokemon.portal.matcher.PlayerMatcher;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -34,9 +31,6 @@ class PlayerApiControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
-
     @Test
     void getDataUpdateDate() throws Exception {
         mockMvc.perform(get("/api/rank/update-time"))
@@ -49,18 +43,28 @@ class PlayerApiControllerTest {
     @Test
     void rankList() throws Exception {
         mockMvc.perform(get("/api/rank")
-                        .queryParam("page","1")
-                        .queryParam("row","15"))
+                        .queryParam("page", "1")
+                        .queryParam("row", "15"))
                 .andExpect(status().isOk())
-                .andDo(print())
-                .andReturn();
+                .andExpect(jsonPath("$.page").value(1))
+                .andExpect(jsonPath("$.row").value(15))
+                .andExpect(jsonPath("$.data", Matchers.everyItem(PlayerMatcher.isValidPlayer())))
+                .andDo(print());
     }
 
     @Test
-    void getPlayerRank() {
+    void getPlayerRank() throws Exception {
+        mockMvc.perform(get(String.format("/api/player/%s", "Stads")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", PlayerMatcher.isValidPlayer()))
+                .andDo(print());
     }
 
     @Test
-    void getPlayerBattleRecord() {
+    void getPlayerBattleRecord() throws Exception {
+        mockMvc.perform(get(String.format("/api/player/%s", "Stads")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", PlayerMatcher.isValidPlayer()))
+                .andDo(print());
     }
 }

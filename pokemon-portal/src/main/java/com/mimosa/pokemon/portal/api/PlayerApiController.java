@@ -65,6 +65,7 @@ public class PlayerApiController {
             playerRankDTO.setElo(rank.getElo());
             playerRankDTO.setName(rank.getName());
             playerRankDTO.setGxe(rank.getGxe());
+            playerRankDTO.setInfoDate(ladder.getDate());
             playerRankDTO.setRecentTeam(teamList.subList(2 * i, 2 * i + 2));
             playerRankDTOS.add(playerRankDTO);
             ++i;

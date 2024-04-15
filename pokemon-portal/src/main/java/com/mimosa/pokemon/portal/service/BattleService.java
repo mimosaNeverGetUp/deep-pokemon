@@ -81,7 +81,6 @@ public class BattleService {
         }
         for (LadderRank ladderRank : ladderRanks) {
             String queryString = String.format("{ 'teams.playerName' : \"%s\",'teams.tier' : \"[Gen 9] OU\" }", ladderRank.getName());
-            System.out.println(queryString);
             Query query = new BasicQuery(queryString)
                     .with(Sort.by(Sort.Order.desc("date")))
                     .limit(2);

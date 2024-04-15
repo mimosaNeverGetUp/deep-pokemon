@@ -24,7 +24,7 @@
 
 package com.mimosa.deeppokemon.crawler;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

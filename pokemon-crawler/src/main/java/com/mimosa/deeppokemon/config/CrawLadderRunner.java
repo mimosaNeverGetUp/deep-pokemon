@@ -30,7 +30,7 @@ import com.mimosa.deeppokemon.service.LadderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -52,12 +52,9 @@ public class CrawLadderRunner{
 
     /**
      * 应用启动后爬取排行榜进行初始化统计
-     *
-     * @author huangxiaocong(2070132549@qq.com)
      */
-    @EventListener(value = ApplicationReadyEvent.class)
+    @EventListener(value = ApplicationStartedEvent.class)
     public void crawLadder() throws Exception {
-        // TODO: 2022/2/4 改造成以线程的形式执行，以避免堵塞servlet初始化与http请求
         log.info(String.format("craw  " +
                         "start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),

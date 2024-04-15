@@ -24,7 +24,7 @@
 
 package com.mimosa.deeppokemon.crawler;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.slf4j.Logger;
@@ -830,4 +830,3 @@ public class HtmlTeamExtracter {
         }
     }
 }
-

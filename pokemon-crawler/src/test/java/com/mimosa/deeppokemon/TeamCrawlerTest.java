@@ -42,7 +42,7 @@ import static org.junit.Assert.assertNotNull;
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
 public class TeamCrawlerTest {
-    final private String URL_GEN8 = "https://replay.pokemonshowdown.com/gen8ou-1332551230";
+    final private String URL_GEN8 = "https://replay.pokemonshowdown.com/smogtours-gen8ou-759319";
     final private String URL_GEN9 = "https://replay.pokemonshowdown.com/smogtours-gen9ou-686609";
 
     @Autowired

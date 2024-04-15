@@ -34,7 +34,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
 class HtmlTeamExtracterTest {
     @Autowired
     private HtmlTeamExtracter htmlTeamExtracter;
@@ -1018,4 +1017,3 @@ class HtmlTeamExtracterTest {
         htmlTeamExtracter.extractHighLight(html);
     }
 }
-

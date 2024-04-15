@@ -9,8 +9,6 @@ package com.mimosa.pokemon.portal.matcher;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
-import java.util.Map;
-
 public class PlayerMatcher {
 
     public static final String NAME = "name";

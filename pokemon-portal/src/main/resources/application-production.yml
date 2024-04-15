@@ -1,7 +1,7 @@
 spring:
     data:
         mongodb:
-            uri: mongodb://mimosa:filter@120.76.238.47:27017/?authSource=admin
+            uri: mongodb://120.76.238.47:27017/?authSource=admin
             database: deep_pokemon
         jackson:
         timeZone : GMT+8

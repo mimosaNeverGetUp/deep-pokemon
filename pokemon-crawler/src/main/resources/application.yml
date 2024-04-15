@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://mimosa:filter@localhost:27017/deep_pokemon_dev_env?serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+      uri: mongodb://localhost:27017/deep_pokemon_dev_env?serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
       authentication-database: admin
   jackson:
     timeZone : GMT+8

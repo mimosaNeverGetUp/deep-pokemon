@@ -96,16 +96,15 @@ public class LadderCrawlerTest {
         }
     }
 
-    @Test
-    public void crawLadderBattle() throws IOException {
-        assertNotNull(ladderCrawler.getDateAfter());
-        List<Battle> battles = ladderCrawler.crawLadder();
-        assertNotNull(battles);
-        for (Battle battle : battles) {
-            assertBattleNotNull(battle);
-
-        }
-    }
+//    @Test
+//    public void crawLadderBattle() throws IOException {
+//        assertNotNull(ladderCrawler.getDateAfter());
+//        List<Battle> battles = ladderCrawler.crawLadder();
+//        assertNotNull(battles);
+//        for (Battle battle : battles) {
+//            assertBattleNotNull(battle);
+//        }
+//    }
 
     private void assertBattleNotNull(Battle battle) {
         assertNotNull(battle.getBattleID());

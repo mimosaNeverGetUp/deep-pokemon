@@ -42,22 +42,11 @@ public class LadderService {
 
     public void save(Ladder ladder) {
         log.info(String.format("save ladder %s %tF", ladder.getFormat(), ladder.getDate()));
-        try {
-            mongoTemplate.save(ladder);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            log.error(e.getMessage());
-        }
+        mongoTemplate.save(ladder);
     }
 
     public void saveAll(List<Player> players) {
         log.info("save players:" + players.get(0).getName());
-        try {
-            mongoTemplate.insertAll(players);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            log.error(e.getMessage());
-        }
-
+        mongoTemplate.insertAll(players);
     }
 }

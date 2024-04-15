@@ -24,23 +24,21 @@
 
 package com.mimosa.deeppokemon.tagger;
 
+import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = MongodbTestConfig.class)
 class TeamPopularTagProviderTest {
 
     @Autowired
@@ -48,6 +46,7 @@ class TeamPopularTagProviderTest {
 
     @Autowired
     private TeamPopularTagProvider teamPopularTagProvider;
+
     @Test
     void tag() {
         List<Battle> battleList = battleService.find100BattleSortByDate();

@@ -31,13 +31,13 @@ import java.util.Map;
 
 /**
  * @program: deep-pokemon
- * @description: 爬取帮助类,主流程与get等set辅助流程、辅助变量分离
+ * @description: 爬取帮助类, 主流程与get等set辅助流程、辅助变量分离
  * @author: mimosa
  * @create: 2021//06//16
  */
 public class BattleTurnExtracterHelper {
     private static final String format_damgeFromkey = "%d_%s_%s";
-    private static final  String SPLIT_CHAR = "_";
+    private static final String SPLIT_CHAR = "_";
     int turnIndex;
     Battle battle;
 
@@ -63,10 +63,10 @@ public class BattleTurnExtracterHelper {
 
     public int setHealthTrendAndReturnDiff(int turnIndex, int playerIndex, String moveName, short health) {
         int arrayIndex = turnIndex - 1;
-        String pokemonName = battleTeamTurnStautsRecoders[playerIndex-1].getPokemonName(moveName);
-        battle.setHealthLineTrend(arrayIndex, playerIndex-1, pokemonName, health);
-        battleTeamTurnStautsRecoders[playerIndex-1].setPresentHealthLine(pokemonName, health);
-        return battleTeamTurnStautsRecoders[playerIndex-1].getPresemtHealthLine(pokemonName) - health;
+        String pokemonName = battleTeamTurnStautsRecoders[playerIndex - 1].getPokemonName(moveName);
+        battle.setHealthLineTrend(arrayIndex, playerIndex - 1, pokemonName, health);
+        battleTeamTurnStautsRecoders[playerIndex - 1].setPresentHealthLine(pokemonName, health);
+        return battleTeamTurnStautsRecoders[playerIndex - 1].getPresemtHealthLine(pokemonName) - health;
     }
 
     public void setSpaceTrend(int turnIndex, int playerIndex, String move, boolean exist) {
@@ -74,19 +74,19 @@ public class BattleTurnExtracterHelper {
         int arrayTurnIndex = turnIndex - 1;
         switch (move) {
             case "Stealth Rock":
-                battle.getBattleTrend().getStealthRockTrend()[arrayPlayerIndex][arrayTurnIndex]=exist;
+                battle.getBattleTrend().getStealthRockTrend()[arrayPlayerIndex][arrayTurnIndex] = exist;
                 break;
             case "Toxic Spikes":
-                battle.getBattleTrend().getToxicSpikeTrend()[arrayPlayerIndex][arrayTurnIndex]=exist;
+                battle.getBattleTrend().getToxicSpikeTrend()[arrayPlayerIndex][arrayTurnIndex] = exist;
                 break;
             case "Spikes":
-                battle.getBattleTrend().getSpikeTrend()[arrayPlayerIndex][arrayTurnIndex]=exist;
+                battle.getBattleTrend().getSpikeTrend()[arrayPlayerIndex][arrayTurnIndex] = exist;
         }
     }
 
     public void addSwitchCount(int playerIndex, String pokemonName) {
         PokemonBattleAnalysis pokemonAnalysis =
-                battle.getTeamBattleAnalysis(playerIndex-1).getPokemonBattleAnalysis(pokemonName);
+                battle.getTeamBattleAnalysis(playerIndex - 1).getPokemonBattleAnalysis(pokemonName);
         pokemonAnalysis.setSwitchCount(pokemonAnalysis.getSwitchCount() + 1);
     }
 
@@ -112,23 +112,23 @@ public class BattleTurnExtracterHelper {
             ofPlayerIndex = Integer.parseInt(damageOf.split(SPLIT_CHAR)[0]);
         } else {
             // 默认属于上下文技能造成，即对面当回合行动pm
-            damageOf = battleTeamTurnStautsRecoders[oppentPlayerIndex-1].getPresentPokemonName();
+            damageOf = battleTeamTurnStautsRecoders[oppentPlayerIndex - 1].getPresentPokemonName();
             ofPlayerIndex = oppentPlayerIndex;
         }
 
         if (ofPlayerIndex != playerIndex) {
             // 非队友造成伤害，进行统计
             PokemonBattleAnalysis damgeResourcePokemonAnalysis =
-                    battle.getTeamBattleAnalysis(playerIndex-1).getPokemonBattleAnalysis(damageOf);
+                    battle.getTeamBattleAnalysis(playerIndex - 1).getPokemonBattleAnalysis(damageOf);
             damgeResourcePokemonAnalysis.setEffectiveDamage(damgeResourcePokemonAnalysis.getEffectiveDamage() + healthDiff);
         }
 
-        String oppentPresentpokemonName = battleTeamTurnStautsRecoders[oppentPlayerIndex-1].getPresentPokemonName();
+        String oppentPresentpokemonName = battleTeamTurnStautsRecoders[oppentPlayerIndex - 1].getPresentPokemonName();
         PokemonBattleAnalysis oppentPresentMovePokemon =
                 battle.getTeamBattleAnalysis(oppentPlayerIndex - 1).getPokemonBattleAnalysis(oppentPresentpokemonName);
         oppentPresentMovePokemon.setHealLineValue(oppentPresentMovePokemon.getHealLineValue() + healthDiff);
 
-        String presentpokemonName = battleTeamTurnStautsRecoders[playerIndex-1].getPresentPokemonName();
+        String presentpokemonName = battleTeamTurnStautsRecoders[playerIndex - 1].getPresentPokemonName();
         PokemonBattleAnalysis presentMovePokemon =
                 battle.getTeamBattleAnalysis(playerIndex - 1).getPokemonBattleAnalysis(presentpokemonName);
         presentMovePokemon.setHealLineValue(presentMovePokemon.getHealLineValue() - healthDiff);
@@ -137,14 +137,14 @@ public class BattleTurnExtracterHelper {
     public void countPokemonHeal(int playerIndex, int health) {
         int oppentPlayerIndex = getOppentIndex(playerIndex);
 
-        String oppentPresentpokemonName = battleTeamTurnStautsRecoders[oppentPlayerIndex-1].getPresentPokemonName();
+        String oppentPresentpokemonName = battleTeamTurnStautsRecoders[oppentPlayerIndex - 1].getPresentPokemonName();
         PokemonBattleAnalysis oppentPresentMovePokemon =
                 battle.getTeamBattleAnalysis(oppentPlayerIndex - 1).getPokemonBattleAnalysis(oppentPresentpokemonName);
         oppentPresentMovePokemon.setHealLineValue(oppentPresentMovePokemon.getHealLineValue() - health);
         oppentPresentMovePokemon.setEffectiveDamage(oppentPresentMovePokemon.getHealLineValue() - health);
 
 
-        String presentpokemonName = battleTeamTurnStautsRecoders[playerIndex-1].getPresentPokemonName();
+        String presentpokemonName = battleTeamTurnStautsRecoders[playerIndex - 1].getPresentPokemonName();
         PokemonBattleAnalysis presentMovePokemon =
                 battle.getTeamBattleAnalysis(playerIndex - 1).getPokemonBattleAnalysis(presentpokemonName);
         presentMovePokemon.setHealLineValue(presentMovePokemon.getHealLineValue() + health);
@@ -153,12 +153,11 @@ public class BattleTurnExtracterHelper {
     /**
      * 根据回放伤害事件里的damage from计算对应的来源宝可梦
      *
-     * @param damageFrom
-     *        回放文件脚本里的damage事件里的from对象
-     *        例子:“|-damage|p1a: Garchomp|82\/100 tox|[from] psn”
-     *        damageFrom为psn
+     * @param damageFrom 回放文件脚本里的damage事件里的from对象
+     *                   例子:“|-damage|p1a: Garchomp|82\/100 tox|[from] psn”
+     *                   damageFrom为psn
      * @return String 伤害的来源宝可梦
-     * @author huangxiaocong(779032284@qq.com)
+     * @author huangxiaocong(779032284 @ qq.com)
      */
     public String getDamgeOfPokemonKey(String damageFrom) {
         // 计算剧毒来源
@@ -171,41 +170,41 @@ public class BattleTurnExtracterHelper {
     }
 
     public void setMovePokemonName(int playerIndex, String moveName, String pokemonName) {
-        battleTeamTurnStautsRecoders[playerIndex-1].setMovePokemonName(moveName,pokemonName);
+        battleTeamTurnStautsRecoders[playerIndex - 1].setMovePokemonName(moveName, pokemonName);
     }
 
     public void setPokemonItem(int playerIndex, String moveName, String item) {
-        String pokemonName = battleTeamTurnStautsRecoders[playerIndex-1].getPokemonName(moveName);
-        battle.setPokemonItem(playerIndex-1, pokemonName, item);
+        String pokemonName = battleTeamTurnStautsRecoders[playerIndex - 1].getPokemonName(moveName);
+        battle.setPokemonItem(playerIndex - 1, pokemonName, item);
     }
 
     public void setPresentPokemon(int playerIndex, String pokemonName) {
-        battleTeamTurnStautsRecoders[playerIndex-1].setPresentPokemon(pokemonName);
-        if (battleTeamTurnStautsRecoders[playerIndex-1].isPresentPokemonTransofm()) {
-            battleTeamTurnStautsRecoders[playerIndex-1].setPresentPokemonTransofm(false);
+        battleTeamTurnStautsRecoders[playerIndex - 1].setPresentPokemon(pokemonName);
+        if (battleTeamTurnStautsRecoders[playerIndex - 1].isPresentPokemonTransofm()) {
+            battleTeamTurnStautsRecoders[playerIndex - 1].setPresentPokemonTransofm(false);
         }
     }
 
     public void addMove(int playerIndex, String pokemonMoveName, String move) {
-        if (battleTeamTurnStautsRecoders[playerIndex-1].isPresentPokemonTransofm()) {
-            String pokemonName = battleTeamTurnStautsRecoders[playerIndex-1].getPresentPokemonName();
-            battle.setPokemonMove(playerIndex-1, pokemonName, move);
+        if (battleTeamTurnStautsRecoders[playerIndex - 1].isPresentPokemonTransofm()) {
+            String pokemonName = battleTeamTurnStautsRecoders[playerIndex - 1].getPresentPokemonName();
+            battle.setPokemonMove(playerIndex - 1, pokemonName, move);
             if ("Transform".equals(move)) {
-                battleTeamTurnStautsRecoders[playerIndex-1].setPresentPokemonTransofm(true);
+                battleTeamTurnStautsRecoders[playerIndex - 1].setPresentPokemonTransofm(true);
             }
         }
     }
 
     public void addMoveCount(int playerIndex, String pokemonMoveName) {
-        String pokemonName = battleTeamTurnStautsRecoders[playerIndex-1].getPokemonName(pokemonMoveName);
+        String pokemonName = battleTeamTurnStautsRecoders[playerIndex - 1].getPokemonName(pokemonMoveName);
         PokemonBattleAnalysis pokemonAnalysis =
-                battle.getTeamBattleAnalysis(playerIndex-1).getPokemonBattleAnalysis(pokemonName);
+                battle.getTeamBattleAnalysis(playerIndex - 1).getPokemonBattleAnalysis(pokemonName);
         pokemonAnalysis.setMoveCount(pokemonAnalysis.getMoveCount() + 1);
     }
 
     public void setStatusTrend(int turnIndex, int playerIndex, String pokemonMoveName, String status) {
         int arrayIndex = turnIndex - 1;
-        String pokemonName = battleTeamTurnStautsRecoders[playerIndex-1].getPokemonName(pokemonMoveName);
+        String pokemonName = battleTeamTurnStautsRecoders[playerIndex - 1].getPokemonName(pokemonMoveName);
         Short statusCode = Status.getcode(status);
         if (statusCode != null) {
             battle.setStatusTrend(arrayIndex, playerIndex - 1, pokemonName, Status.getcode(status));

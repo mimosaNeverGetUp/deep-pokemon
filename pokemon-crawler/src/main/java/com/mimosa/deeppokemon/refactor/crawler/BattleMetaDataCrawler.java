@@ -36,16 +36,16 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class BattleMetaDataCrawler implements MetaDataCralwer{
+public class BattleMetaDataCrawler implements MetaDataCralwer {
 
     /**
      * 提取比赛元数据
      *
      * @param resource 比赛爬取源数据
      * @return Meata 从爬取源中解析得到的比赛元数据
-     * @author huangxiaocong(2070132549@qq.com)
+     * @author huangxiaocong(2070132549 @ qq.com)
      */
-    public BattleMetaData craw(CrawResource resource){
+    public BattleMetaData craw(CrawResource resource) {
         BattleMetaData battleMetaData = new BattleMetaData("smogtours-gen8ou-560155", LocalDate.of(2021, 5, 9),
                 0.0F, "Separation");
         List<Player> playerList = new ArrayList<>();
@@ -64,8 +64,8 @@ public class BattleMetaDataCrawler implements MetaDataCralwer{
                 new Pokemon("Garchomp", null),
                 new Pokemon("Corviknight", null));
 
-        playerList.add(new Player(1,"Separation", new Team(pokemonListA)));
-        playerList.add(new Player(2,"Serene Grace", new Team(pokemonListB)));
+        playerList.add(new Player(1, "Separation", new Team(pokemonListA)));
+        playerList.add(new Player(2, "Serene Grace", new Team(pokemonListB)));
         battleMetaData.setPlayerList(playerList);
         return battleMetaData;
     }

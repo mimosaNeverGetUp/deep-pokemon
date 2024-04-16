@@ -136,7 +136,7 @@
             </executions>
             <configuration>
                 <!-- Rest of your configuration, if any -->
-                <formats>XML</formats>
+                <formats>HTML,XML</formats>
             </configuration>
         </plugin>
     </plugins>

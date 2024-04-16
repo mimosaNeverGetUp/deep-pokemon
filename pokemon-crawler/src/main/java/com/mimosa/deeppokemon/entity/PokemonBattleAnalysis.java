@@ -24,8 +24,6 @@
 
 package com.mimosa.deeppokemon.entity;
 
-import java.util.List;
-
 /**
  * @program: deep-pokemon
  * @description: 宝可梦在一局比赛里的表现及度量分析
@@ -60,6 +58,7 @@ public class PokemonBattleAnalysis {
         effectiveMoveCount = 0;
         score = 0.0F;
     }
+
     public String getPokemonName() {
         return pokemonName;
     }

@@ -65,8 +65,8 @@ public class HtmlTeamExtracter {
     private static final Pattern turnPattern = Pattern.compile(new String("([\\d\\D]*?)(\\|turn\\|([0-9]+)|\\|win)"));
     private static final Pattern statusPattern = Pattern.compile(new String("\\|-(status|curestatus)\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)(.*)"));
 
-    public Battle extract(String html)throws Exception{
-        try{
+    public Battle extract(String html) throws Exception {
+        try {
             logger.debug("extract Team start");
             String[] playName = extractPlayerName(html);
             String tier = extractTier(html);
@@ -83,19 +83,19 @@ public class HtmlTeamExtracter {
                     HashMap<String, Float> hashMap = arrayList.get(i);
                     for (String s : hashMap.keySet()) {
                         Float f = hashMap.get(s);
-                        if (f != null && f < 50.0f &&  f!=0.0f) {
+                        if (f != null && f < 50.0f && f != 0.0f) {
                             HashMap<String, Float> hashMapPrevious = arrayList.get(i - 1);
                             Float f1 = hashMapPrevious.get(s);
                             logger.debug(f + " and" + f1);
                             if (f1 == null || f1 >= 50.0f) {
-                                int  pos;
+                                int pos;
                                 if (j == 0) {
                                     pos = 1;
                                 } else {
                                     pos = 0;
                                 }
                                 String str = list.get(pos).get(i);
-                                list.get(pos).set(i, str + "(opp's " + s + " hp " + f+")");
+                                list.get(pos).set(i, str + "(opp's " + s + " hp " + f + ")");
                                 logger.debug(list.get(pos).get(i));
                             }
                         }
@@ -114,63 +114,63 @@ public class HtmlTeamExtracter {
             Float avageRating = extractAvageRating(html);
             Battle battle = new Battle(teams, date, winner, avageRating, healthLinePairJsonString);
             battle.setHighLightJsonString(highLightJsonString);
-            battle.setInfo(String.format("%s vs %s",playName[0],playName[1]));
-            logger.debug("extract battle: {}",battle);
+            battle.setInfo(String.format("%s vs %s", playName[0], playName[1]));
+            logger.debug("extract battle: {}", battle);
             return battle;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
 
-    private static String[] extractPlayerName(String html) throws Exception{
-        Pattern pattern=Pattern.compile("\\|player\\|p([12])\\|([^//|]*)\\|");
-        Matcher matcher=pattern.matcher(html);
+    private static String[] extractPlayerName(String html) throws Exception {
+        Pattern pattern = Pattern.compile("\\|player\\|p([12])\\|([^//|]*)\\|");
+        Matcher matcher = pattern.matcher(html);
         String[] playerNames = new String[2];
-        while(matcher.find()){
-            if(matcher.group(1).equals("1")){
-                logger.debug("match playerName1:"+matcher.group(2));
+        while (matcher.find()) {
+            if (matcher.group(1).equals("1")) {
+                logger.debug("match playerName1:" + matcher.group(2));
                 playerNames[0] = matcher.group(2).trim();
-            }
-            else{
-                logger.debug("match playerName2:"+matcher.group(2));
+            } else {
+                logger.debug("match playerName2:" + matcher.group(2));
                 playerNames[1] = matcher.group(2).trim();
             }
         }
-        if(playerNames[0] ==null && playerNames[1]==null){
+        if (playerNames[0] == null && playerNames[1] == null) {
             throw new Exception("extract playerName Failed");
         }
-        return  playerNames;
+        return playerNames;
     }
 
-    private static Team[] extractTeam(String html)throws  Exception{
+    private static Team[] extractTeam(String html) throws Exception {
         Pattern pattern = Pattern.compile("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]");
         Matcher matcher = pattern.matcher(html);
         ArrayList<Pokemon> pokemons1 = new ArrayList<Pokemon>(6);
         ArrayList<Pokemon> pokemons2 = new ArrayList<Pokemon>(6);
-        while (matcher.find()){
-            if(matcher.group(1).equals("1")){
+        while (matcher.find()) {
+            if (matcher.group(1).equals("1")) {
                 String pokemonName = matcher.group(2).trim();
-                logger.debug("match p1 Pokemon:"+pokemonName);
-                Pokemon pokemon =extractPokemon(html,pokemonName,1);
+                logger.debug("match p1 Pokemon:" + pokemonName);
+                Pokemon pokemon = extractPokemon(html, pokemonName, 1);
                 pokemons1.add(pokemon);
-            }else{
+            } else {
                 String pokemonName = matcher.group(2).trim();
-                logger.debug("match p2 Pokemon:"+pokemonName);
-                Pokemon pokemon =extractPokemon(html,pokemonName,2);
+                logger.debug("match p2 Pokemon:" + pokemonName);
+                Pokemon pokemon = extractPokemon(html, pokemonName, 2);
                 pokemons2.add(pokemon);
             }
         }
-        if(pokemons1.size() == 0 && pokemons2.size() == 0){throw new Exception("A Team match failed");}
-        Team team1 =new Team(pokemons1);
-        Team team2 =new Team(pokemons2);
-        Team[] teams =new Team[2];
+        if (pokemons1.size() == 0 && pokemons2.size() == 0) {
+            throw new Exception("A Team match failed");
+        }
+        Team team1 = new Team(pokemons1);
+        Team team2 = new Team(pokemons2);
+        Team[] teams = new Team[2];
         teams[0] = team1;
         teams[1] = team2;
-        return  teams;
+        return teams;
     }
 
-    private static Pokemon extractPokemon(String html,String pokemonName,int playerNumber){
+    private static Pokemon extractPokemon(String html, String pokemonName, int playerNumber) {
         Pokemon pokemon = new Pokemon(pokemonName);
         String pokemonMoveName = extractMoveName(html, pokemonName, playerNumber);
         if ("Ditto".equals(pokemonName)) {
@@ -204,7 +204,7 @@ public class HtmlTeamExtracter {
         return "unknown";
     }
 
-    private static String extractWinner (String html) throws Exception{
+    private static String extractWinner(String html) throws Exception {
         Pattern pattern = Pattern.compile("win\\|(.*)");
         Matcher matcher = pattern.matcher(html);
         if (matcher.find()) {
@@ -223,8 +223,8 @@ public class HtmlTeamExtracter {
             // 指定日期格式
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
             // 解析字符串并转换为LocalDate对象
-            LocalDate date=LocalDate.parse(matcher.group(1).trim(), formatter);
-            logger.debug("after format:"+formatter.format(date));
+            LocalDate date = LocalDate.parse(matcher.group(1).trim(), formatter);
+            logger.debug("after format:" + formatter.format(date));
             return date;
         }
         return null;
@@ -240,7 +240,7 @@ public class HtmlTeamExtracter {
         return 0;//zero mean unkown
     }
 
-    private static String extractMoveName(String html,String pokemonName,int playerNumber){
+    private static String extractMoveName(String html, String pokemonName, int playerNumber) {
         String regex = String.format("switch\\|p%da: ([^\\|]*)\\|%s", playerNumber, pokemonName);
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(html);
@@ -252,7 +252,7 @@ public class HtmlTeamExtracter {
         return pokemonName;
     }
 
-    private static String extractPokemonName(String html,String moveName,int playerNumber){
+    private static String extractPokemonName(String html, String moveName, int playerNumber) {
         String regex = String.format("switch\\|p%da: %s\\|([^,\\|]*)", playerNumber, moveName);
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(html);
@@ -263,10 +263,12 @@ public class HtmlTeamExtracter {
         return moveName;
     }
 
-    private  static String extractPokemonItem(String html,String pokemonMoveName,int playerNumber){
+    private static String extractPokemonItem(String html, String pokemonMoveName, int playerNumber) {
         //trick will disturb other check ,so should check first
         String item = extractTrickItem(html, pokemonMoveName, playerNumber);
-        if (item != null){ return item; }
+        if (item != null) {
+            return item;
+        }
 
         String regex = String.format(new String("p%da: %s\\|.*item: (.*)"), playerNumber, pokemonMoveName);
         Pattern itemPattern = Pattern.compile(regex);
@@ -280,25 +282,33 @@ public class HtmlTeamExtracter {
         }
         //check another pattern item dont match pre
         item = extractEndItem(html, pokemonMoveName, playerNumber);
-        if (item != null){ return item; }
+        if (item != null) {
+            return item;
+        }
 
         item = extractRockyHelmetItem(html, pokemonMoveName, playerNumber);
-        if (item != null){ return item; }
+        if (item != null) {
+            return item;
+        }
 
         item = extractMegaItem(html, pokemonMoveName, playerNumber);
-        if (item != null){ return item; }
+        if (item != null) {
+            return item;
+        }
 
         item = extractZMovetItem(html, pokemonMoveName, playerNumber);
-        if (item != null){ return item; }
+        if (item != null) {
+            return item;
+        }
 
-        return  null;
+        return null;
     }
 
-    private static boolean containRockyHelmet(String item){
+    private static boolean containRockyHelmet(String item) {
         return item.contains("Rocky Helmet");
     }
 
-    private static String extractRockyHelmetItem(String html,String pokemonMoveName,int playerNumber){
+    private static String extractRockyHelmetItem(String html, String pokemonMoveName, int playerNumber) {
         String regex = String.format(new String("item: Rocky Helmet\\|\\[of\\] p%da: %s"), playerNumber, pokemonMoveName);
         Pattern itemPattern = Pattern.compile(regex);
         Matcher itemMatcher = itemPattern.matcher(html);
@@ -308,7 +318,7 @@ public class HtmlTeamExtracter {
         return null;
     }
 
-    private static String extractZMovetItem(String html,String pokemonMoveName,int playerNumber){
+    private static String extractZMovetItem(String html, String pokemonMoveName, int playerNumber) {
         String regex = String.format(new String("\\-zpower\\|p%da: %s"), playerNumber, pokemonMoveName);
         Pattern itemPattern = Pattern.compile(regex);
         Matcher itemMatcher = itemPattern.matcher(html);
@@ -349,8 +359,8 @@ public class HtmlTeamExtracter {
         Matcher itemMatcherA = itemPatternA.matcher(html);
         Matcher itemMatcherB = itemPatternB.matcher(html);
         // 正则可能会匹配到不包含目标的字符串，所以要循环检查直到匹配为止
-        if(itemMatcherA.find()) {
-            target= itemMatcherA.group(1).trim();
+        if (itemMatcherA.find()) {
+            target = itemMatcherA.group(1).trim();
             // 匹配到的戏法string为目标
         } else if (itemMatcherB.find()) {
             target = itemMatcherB.group(1).trim();
@@ -367,7 +377,7 @@ public class HtmlTeamExtracter {
         return null;
     }
 
-    public  static ArrayList<ArrayList<HashMap<String, Float>>> extractHealthLineData(String html) {
+    public static ArrayList<ArrayList<HashMap<String, Float>>> extractHealthLineData(String html) {
         String regex = new String("([\\d\\D]*?)(\\|turn\\|([0-9]+)|\\|win)");
         Pattern turnPattern = Pattern.compile(regex);
         regex = new String("(\\|\\-damage|\\|\\-heal)\\|p([12]+)a: (.*?)\\|([0-9]+)");
@@ -382,7 +392,7 @@ public class HtmlTeamExtracter {
                 continue;
             }
             String turnContest = turnMatcher.group(1);
-            logger.debug("match turnContext: {}",turnContest);
+            logger.debug("match turnContext: {}", turnContest);
             Matcher healthMatcher = damagePattern.matcher(turnContest);
             while (healthMatcher.find()) {
                 String moveName = healthMatcher.group(3);
@@ -410,7 +420,7 @@ public class HtmlTeamExtracter {
         String regex = new String("([\\d\\D]*?)(\\|turn\\|([0-9]+)|\\|win)");
         Pattern turnPattern = Pattern.compile(regex);
         Matcher turnMatcher = turnPattern.matcher(html);
-        int i =1;
+        int i = 1;
         ArrayList<ArrayList<String>> highlightLists = new ArrayList<>();
         ArrayList<String> highlightList1 = new ArrayList<>();
         ArrayList<String> highlightList2 = new ArrayList<>();
@@ -427,7 +437,7 @@ public class HtmlTeamExtracter {
         Pattern statPattern = Pattern.compile(regex);
         regex = new String("\\|\\-boost\\|p([12]+)a: (.*?)\\|");
         Pattern boostPattern = Pattern.compile(regex);
-        int turn =1;
+        int turn = 1;
         /*String json = battle.getHealthLinePairJsonString();
         ArrayList<HashMap<String,Float>> arrayList = (ArrayList<HashMap<String,Float>>) JSONArray.parseArray(json, HashMap.class);*/
         while (turnMatcher.find()) {
@@ -443,9 +453,9 @@ public class HtmlTeamExtracter {
                 String moveName = moveMatcher.group(2);
                 String pokeName = extractPokemonName(html, moveName, Integer.valueOf(moveMatcher.group(1)));
                 if ("1".equals(moveMatcher.group(1))) {
-                    base1 += pokeName + " use "  + moveMatcher.group(3)+" ";
+                    base1 += pokeName + " use " + moveMatcher.group(3) + " ";
                 } else {
-                    base2 += pokeName + " use " + moveMatcher.group(3)+" ";
+                    base2 += pokeName + " use " + moveMatcher.group(3) + " ";
                 }
             }
 
@@ -454,9 +464,9 @@ public class HtmlTeamExtracter {
                 String moveName = switchMatcher.group(2);
                 String pokeName = extractPokemonName(html, moveName, Integer.parseInt(switchMatcher.group(1)));
                 if ("1".equals(switchMatcher.group(1))) {
-                    base1 +=  "switch "  + pokeName+" ";
+                    base1 += "switch " + pokeName + " ";
                 } else {
-                    base2 += "switch " + pokeName+"";
+                    base2 += "switch " + pokeName + "";
                 }
             }
 
@@ -465,9 +475,9 @@ public class HtmlTeamExtracter {
                 String moveName = faintMatcher.group(2).trim();
                 String pokeName = extractPokemonName(html, moveName, Integer.valueOf(faintMatcher.group(1)));
                 if ("1".equals(faintMatcher.group(1))) {
-                    base2 +=  "(opp's "  + pokeName + " faint) ";
+                    base2 += "(opp's " + pokeName + " faint) ";
                 } else {
-                    base1 +=  "(opp's "  + pokeName + " faint) ";
+                    base1 += "(opp's " + pokeName + " faint) ";
                 }
             }
 
@@ -476,9 +486,9 @@ public class HtmlTeamExtracter {
                 String moveName = endMatcher.group(2);
                 String pokeName = extractPokemonName(html, moveName, Integer.valueOf(endMatcher.group(1)));
                 if ("1".equals(endMatcher.group(1))) {
-                    base2 +=  "(opp's "  + pokeName + " "+endMatcher.group(3).trim()+ " drop) ";
+                    base2 += "(opp's " + pokeName + " " + endMatcher.group(3).trim() + " drop) ";
                 } else {
-                    base1 +=  "(opp's "  + pokeName + " "+endMatcher.group(3).trim()+ " drop) ";
+                    base1 += "(opp's " + pokeName + " " + endMatcher.group(3).trim() + " drop) ";
                 }
             }
 
@@ -487,9 +497,9 @@ public class HtmlTeamExtracter {
                 String moveName = statMatcher.group(2);
                 String pokeName = extractPokemonName(html, moveName, Integer.valueOf(statMatcher.group(1)));
                 if ("1".equals(statMatcher.group(1))) {
-                    base2 +=  "(opp's "  + pokeName + " "+statMatcher.group(3)+ ") ";
+                    base2 += "(opp's " + pokeName + " " + statMatcher.group(3) + ") ";
                 } else {
-                    base1 +=  "(opp's "  + pokeName + " "+statMatcher.group(3)+ ") ";
+                    base1 += "(opp's " + pokeName + " " + statMatcher.group(3) + ") ";
                 }
             }
 
@@ -500,17 +510,17 @@ public class HtmlTeamExtracter {
                 String pokeName = extractPokemonName(html, moveName, Integer.valueOf(boostMatcher.group(1)));
                 if ("1".equals(boostMatcher.group(1))) {
                     if (!base1.contains("boost")) {
-                        base1 +=  "(boost)";
+                        base1 += "(boost)";
 
                     }
                 } else {
                     if (!base2.contains("boost")) {
-                        base2 +=  "(boost)";
+                        base2 += "(boost)";
                     }
                 }
             }
-            logger.debug("extract highlight: {}",base1);
-            logger.debug("extract highlight: {}",base2);
+            logger.debug("extract highlight: {}", base1);
+            logger.debug("extract highlight: {}", base2);
             highlightList1.add(base1);
             highlightList2.add(base2);
         }
@@ -546,7 +556,7 @@ public class HtmlTeamExtracter {
         extractAvageRating(html, battle);
         initBattleTrendAndAnalysis(html, battle);
         // 读取每回合并解析
-        extarctTurn(html,battle);
+        extarctTurn(html, battle);
 
         return null;
     }
@@ -555,37 +565,36 @@ public class HtmlTeamExtracter {
         Matcher matcher = pokePattern.matcher(html);
         ArrayList<Pokemon> pokemons1 = new ArrayList<Pokemon>(6);
         ArrayList<Pokemon> pokemons2 = new ArrayList<Pokemon>(6);
-        while (matcher.find()){
-            if(matcher.group(1).equals("1")){
+        while (matcher.find()) {
+            if (matcher.group(1).equals("1")) {
                 String pokemonName = matcher.group(2).trim();
-                logger.debug("match p1 Pokemon:"+pokemonName);
+                logger.debug("match p1 Pokemon:" + pokemonName);
                 pokemons1.add(new Pokemon(pokemonName));
-            }else{
+            } else {
                 String pokemonName = matcher.group(2).trim();
-                logger.debug("match p2 Pokemon:"+pokemonName);
+                logger.debug("match p2 Pokemon:" + pokemonName);
                 pokemons2.add(new Pokemon(pokemonName));
             }
         }
-        Team[] teams ={new Team(pokemons1),new Team(pokemons2)};
+        Team[] teams = {new Team(pokemons1), new Team(pokemons2)};
         battle.setTeams(teams);
     }
 
-    public static void extractPlayerName(String html,Battle battle) throws Exception{
+    public static void extractPlayerName(String html, Battle battle) throws Exception {
         Matcher matcher = playerPattern.matcher(html);
         Team[] team = battle.getTeams();
-        while(matcher.find()){
-            if(matcher.group(1).equals("1")){
-                logger.debug("match playerName1:"+matcher.group(2));
+        while (matcher.find()) {
+            if (matcher.group(1).equals("1")) {
+                logger.debug("match playerName1:" + matcher.group(2));
                 team[0].setPlayerName(matcher.group(2));
-            }
-            else{
-                logger.debug("match playerName2:"+matcher.group(2));
+            } else {
+                logger.debug("match playerName2:" + matcher.group(2));
                 team[1].setPlayerName(matcher.group(2));
             }
         }
     }
 
-    public static void extractTier(String html,Battle battle) {
+    public static void extractTier(String html, Battle battle) {
 
         Matcher matcher = tierPattern.matcher(html);
         String tier = "unknown";
@@ -598,7 +607,7 @@ public class HtmlTeamExtracter {
         }
     }
 
-    public static void extractWinner(String html,Battle battle) throws Exception {
+    public static void extractWinner(String html, Battle battle) throws Exception {
 
         Matcher matcher = winPattern.matcher(html);
         if (matcher.find()) {
@@ -609,19 +618,19 @@ public class HtmlTeamExtracter {
         throw new Exception("match battle win relations failed");
     }
 
-    public static void extractDate(String html,Battle battle) {
+    public static void extractDate(String html, Battle battle) {
 
         Matcher matcher = datePattern.matcher(html);
         if (matcher.find()) {
             logger.debug("match Date" + matcher.group(1));
             DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Locale.ENGLISH);
-            LocalDate date=LocalDate.parse(matcher.group(1).trim(), formatter);
-            logger.debug("after format:"+formatter.format(date));
+            LocalDate date = LocalDate.parse(matcher.group(1).trim(), formatter);
+            logger.debug("after format:" + formatter.format(date));
             battle.setDate(date);
         }
     }
 
-    public static void extractAvageRating(String html,Battle battle) {
+    public static void extractAvageRating(String html, Battle battle) {
 
         Matcher matcher = rankPattern.matcher(html);
         Float rating = 0.0F;
@@ -661,7 +670,7 @@ public class HtmlTeamExtracter {
 
                     case "-heal":
                     case "-damage":
-                        extractDamageOrHealth(turnIndex,event, turnExtracterHelper);
+                        extractDamageOrHealth(turnIndex, event, turnExtracterHelper);
                         break;
 
                     case "-sidestart":
@@ -693,7 +702,7 @@ public class HtmlTeamExtracter {
     public static void initBattleTrendAndAnalysis(String html, Battle battle) throws IOException {
         String lastTurn = html.substring(html.lastIndexOf("turn"));
         String turnCount = new BufferedReader(new StringReader(lastTurn)).readLine().split("\\|")[2];
-        battle.setBattleTrend(new BattleTrend(Integer.parseInt(turnCount),battle.getTeams()));
+        battle.setBattleTrend(new BattleTrend(Integer.parseInt(turnCount), battle.getTeams()));
         TeamBattleAnalysis[] teamBattleAnalyses = new TeamBattleAnalysis[2];
         int i = 0;
         for (Team team : battle.getTeams()) {
@@ -709,15 +718,15 @@ public class HtmlTeamExtracter {
             int playerIndex = Integer.parseInt(moveMatcher.group(1));
             String pokemonMoveName = moveMatcher.group(2);
             String move = moveMatcher.group(3);
-            turnExtracterHelper.addMove(playerIndex,pokemonMoveName, move);
+            turnExtracterHelper.addMove(playerIndex, pokemonMoveName, move);
             turnExtracterHelper.addMoveCount(playerIndex, pokemonMoveName);
         }
     }
 
     public static void extractPokemonItem(String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
         extractTrickItem(turnContext, turnExtracterHelper);
-        extractEndItem(turnContext,turnExtracterHelper);
-        extractRockyItem(turnContext,turnExtracterHelper);
+        extractEndItem(turnContext, turnExtracterHelper);
+        extractRockyItem(turnContext, turnExtracterHelper);
     }
 
     public static void extractEndItem(String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
@@ -752,7 +761,7 @@ public class HtmlTeamExtracter {
         }
     }
 
-    public static void extractSpaceTrend(int turnIndex,String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
+    public static void extractSpaceTrend(int turnIndex, String turnContext, BattleTurnExtracterHelper turnExtracterHelper) {
         Matcher spaceMatcher = spacePattern.matcher(turnContext);
         if (spaceMatcher.find()) {
             boolean exist = "start".equals(spaceMatcher.group(1));
@@ -786,7 +795,7 @@ public class HtmlTeamExtracter {
                 }
             }
             if (isDamage) {
-                turnExtracterHelper.countPokemonDamage(playerIndex,  damage, damageFrom, damageOf, ofPlayerIndex);
+                turnExtracterHelper.countPokemonDamage(playerIndex, damage, damageFrom, damageOf, ofPlayerIndex);
             } else {
                 // 统计回复
                 turnExtracterHelper.countPokemonHeal(playerIndex, damage);
@@ -801,8 +810,8 @@ public class HtmlTeamExtracter {
             int playerIndex = Integer.parseInt(switchMatcher.group(1)) - 1;
             String moveName = switchMatcher.group(2);
             String pokemonName = switchMatcher.group(3);
-            turnExtracterHelper.setPresentPokemon(playerIndex,pokemonName);
-            turnExtracterHelper.setMovePokemonName(playerIndex,moveName,pokemonName);
+            turnExtracterHelper.setPresentPokemon(playerIndex, pokemonName);
+            turnExtracterHelper.setMovePokemonName(playerIndex, moveName, pokemonName);
             turnExtracterHelper.addSwitchCount(playerIndex, pokemonName);
         }
     }

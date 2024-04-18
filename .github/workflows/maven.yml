@@ -51,3 +51,10 @@ jobs:
         min-coverage-changed-files: 60
         title: Code Coverage
         update-comment: true
+
+    - name: Fail PR if overall coverage is less than 40%
+      if: ${{ steps.jacoco.outputs.coverage-overall < 40.0 }}
+      uses: actions/github-script@v6
+      with:
+        script: |
+          core.setFailed('Overall coverage is less than 40%!')

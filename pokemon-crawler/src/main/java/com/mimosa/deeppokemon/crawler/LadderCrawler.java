@@ -71,7 +71,6 @@ public class LadderCrawler {
     @Autowired
     private LadderService ladderService;
 
-
     private static final Logger log = LoggerFactory.getLogger(LadderCrawler.class);
 
     public LadderCrawler() {
@@ -135,7 +134,7 @@ public class LadderCrawler {
         return crawPlayerBattleIfAbesent(name, null, null);
     }
 
-    private LinkedList<Battle> crawPlayerBattleIfAbesent(String name, HashSet<String> preUrls,String format) {
+    private LinkedList<Battle> crawPlayerBattleIfAbesent(String name, HashSet<String> preUrls, String format) {
         try (CloseableHttpClient httpClient = initClient()) {
             LinkedList<String> replayUrls = new LinkedList<>();
             for (int i = 1; i <= pageLimit; ++i) {
@@ -204,6 +203,7 @@ public class LadderCrawler {
         httpGet.setConfig(config);
         return httpGet;
     }
+
     private HttpGet initPlayerQueryGet(String playerName, int pageNumber, String format) {
         String url = playerQueryUrl + String.format("?username=%s", playerName.replaceAll(" ", "+"))
                 + String.format("&page=%d", pageNumber);

@@ -30,13 +30,10 @@ import com.mimosa.deeppokemon.refactor.entity.metadata.battle.Pokemon;
 import com.mimosa.deeppokemon.refactor.entity.metadata.battle.Team;
 import org.assertj.core.util.Strings;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,19 +48,17 @@ import java.util.List;
  *
  */
 @SpringBootTest
-@RunWith(SpringRunner.class)
-@ActiveProfiles("test")
 public class BattleMetaDataCralwerTest {
-    private String battleDataString;
-    private BattleMetaData exceptBattleMetaData;
+    private static String battleDataString;
+    private static BattleMetaData exceptBattleMetaData;
 
     /**
      * 预设爬取数据以及预测爬取结果
      *
      * @author huangxiaocong(2070132549@qq.com)
      */
-    @Before
-    public void setup() throws IOException {
+    @BeforeAll
+    public static void setup() throws IOException {
         File battleResource =
                 new ClassPathResource("battlereplay/smogtours-gen8ou-560155(toxic,helmet,stealth)").getFile();
         battleDataString = new String(Files.readAllBytes(battleResource.toPath()));
@@ -76,7 +71,7 @@ public class BattleMetaDataCralwerTest {
         exceptBattleMetaData.setPlayerList(buildExceptPlayerList());
     }
 
-    private List<Player> buildExceptPlayerList(){
+    private static List<Player> buildExceptPlayerList(){
         List<Player> playerList = new ArrayList<>();
         List<Pokemon> pokemonListA = Arrays.asList(
                 new Pokemon("Zeraora", null),

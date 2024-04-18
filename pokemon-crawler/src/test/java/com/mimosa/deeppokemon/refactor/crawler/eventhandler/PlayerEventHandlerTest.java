@@ -27,15 +27,10 @@ package com.mimosa.deeppokemon.refactor.crawler.eventhandler;
 import com.mimosa.deeppokemon.refactor.entity.metadata.battle.BattleMetaData;
 import com.mimosa.deeppokemon.refactor.entity.metadata.battle.Player;
 import com.mimosa.deeppokemon.refactor.exception.EventHandlerNotSupportException;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
@@ -44,15 +39,13 @@ import java.util.List;
  *
  */
 @SpringBootTest
-@RunWith(SpringRunner.class)
-@ActiveProfiles("test")
 public class PlayerEventHandlerTest {
 
-    private PlayerEventStringHandler playerEventStringHandler;
-    private BattleMetaData battleMetaData;
+    private static PlayerEventStringHandler playerEventStringHandler;
+    private static BattleMetaData battleMetaData;
 
-    @Before
-    public void setup() {
+    @BeforeAll
+    public static void setup() {
         playerEventStringHandler = new PlayerEventStringHandler();
         battleMetaData = new BattleMetaData();
     }
@@ -74,10 +67,10 @@ public class PlayerEventHandlerTest {
         String switchEvent = "|switch|p2a: Garchomp|Garchomp, F|100\\/100";
         try {
             playerEventStringHandler.handle(switchEvent, battleMetaData);
-            Assert.fail();
+            Assertions.fail();
         } catch (EventHandlerNotSupportException e) {
             e.printStackTrace();
-            Assert.assertEquals(e.getMessage(),String.format("eventString %s dont match pattern",switchEvent));
+            Assertions.assertEquals(e.getMessage(),String.format("eventString %s dont match pattern",switchEvent));
         }
         assertListSizeEquals(battleMetaData.getPlayerList(), 0);
     }

@@ -16,18 +16,13 @@ import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.Team;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
-@ActiveProfiles("unit-test")
 class RegexTeamCrawlerTest {
 
     @Autowired

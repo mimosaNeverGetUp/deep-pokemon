@@ -30,15 +30,11 @@ import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)

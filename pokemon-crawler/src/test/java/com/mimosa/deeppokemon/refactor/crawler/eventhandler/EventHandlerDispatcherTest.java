@@ -3,11 +3,8 @@ package com.mimosa.deeppokemon.refactor.crawler.eventhandler;
 import com.mimosa.deeppokemon.refactor.entity.metadata.battle.BattleMetaData;
 import com.mimosa.deeppokemon.refactor.exception.EventHandlerNotSupportException;
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.mockito.Mockito.*;
 
@@ -17,8 +14,6 @@ import static org.mockito.Mockito.*;
  * @author huangxiaocong(2070132549@qq.com)
  */
 @SpringBootTest
-@RunWith(SpringRunner.class)
-@ActiveProfiles("test")
 public class EventHandlerDispatcherTest {
 
 

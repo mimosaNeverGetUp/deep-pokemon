@@ -25,9 +25,14 @@
 package com.mimosa.deeppokemon;
 
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
-import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Ladder;
+import com.mimosa.deeppokemon.entity.LadderRank;
+import com.mimosa.deeppokemon.matcher.BattleMatcher;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,7 +46,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest
 @ContextConfiguration(classes = LadderCrawlerTest.TestConfig.class)
@@ -81,39 +87,11 @@ public class LadderCrawlerTest {
         }
     }
 
-
     @Test
     public void crawLadderBattle() throws IOException {
         assertNotNull(ladderCrawler.getDateAfter());
         List<Battle> battles = ladderCrawler.crawLadder();
         assertNotNull(battles);
-        for (Battle battle : battles) {
-            assertBattleNotNull(battle);
-        }
-    }
-
-    private void assertBattleNotNull(Battle battle) {
-        assertNotNull(battle.getBattleID());
-        assertNotNull(battle.getDate());
-        assertNotNull(battle.getWinner());
-        assertNotNull(battle.getTeams());
-        assertTrue(battle.getTeams().length > 0);
-        for (Team team : battle.getTeams()) {
-            assertTeamNotNull(team);
-            for (Pokemon pokemon : team.getPokemons()) {
-                assertPokemonNotNull(pokemon);
-            }
-        }
-    }
-
-    private void assertTeamNotNull(Team team) {
-        assertNotNull(team.getPlayerName());
-        assertNotNull(team.getTier());
-        assertNotNull(team.getPokemons());
-        assertTrue(team.getPokemons().size() > 0);
-    }
-
-    private void assertPokemonNotNull(Pokemon pokemon) {
-        assertNotNull(pokemon.getName());
+        MatcherAssert.assertThat(battles, Matchers.everyItem(BattleMatcher.BATTLE_MATCHER));
     }
 }

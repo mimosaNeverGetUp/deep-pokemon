@@ -24,8 +24,9 @@
 
 package com.mimosa.deeppokemon;
 
-import com.mimosa.deeppokemon.crawler.RegexTeamCrawler;
+import com.mimosa.deeppokemon.crawler.ReplayBattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,19 +43,20 @@ import static org.junit.Assert.assertNotNull;
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
 public class TeamCrawlerTest {
-    final private String URL_GEN8 = "https://replay.pokemonshowdown.com/smogtours-gen8ou-759319";
-    final private String URL_GEN9 = "https://replay.pokemonshowdown.com/smogtours-gen9ou-686609";
+    final private String URL_GEN8 = "smogtours-gen8ou-759319";
+    final private String URL_GEN9 = "smogtours-gen9ou-686609";
 
     @Autowired
-    private RegexTeamCrawler crawler;
+    private ReplayBattleCrawler crawler;
 
     @Autowired
     BattleService battleSevice;
 
     @ParameterizedTest
     @ValueSource(strings = { URL_GEN8, URL_GEN9})
-    public void Crawler(String url){
-        Battle battle = crawler.craw(url);
+    public void Crawler(String id){
+        Replay replay = new Replay(id, 0, null, 0, null, false);
+        Battle battle = crawler.craw(replay);
         Team[] teams = battle.getTeams();
         assertNotNull(teams);
     }

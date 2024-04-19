@@ -24,7 +24,6 @@
 
 package com.mimosa.deeppokemon.crawler;
 
-import com.alibaba.fastjson2.JSONObject;
 import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.slf4j.Logger;
@@ -35,7 +34,9 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.*;
@@ -43,8 +44,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Component
-public class HtmlTeamExtracter {
-    private static final Logger logger = LoggerFactory.getLogger(HtmlTeamExtracter.class);
+public class BattleReplayExtractor {
+    private static final Logger logger = LoggerFactory.getLogger(BattleReplayExtractor.class);
     @Autowired
     private TeamTagger teamTagger;
     private static final Pattern playerPattern = Pattern.compile(new String("\\|player\\|p([12])\\|([^//|]*)\\|"));
@@ -65,83 +66,31 @@ public class HtmlTeamExtracter {
     private static final Pattern turnPattern = Pattern.compile(new String("([\\d\\D]*?)(\\|turn\\|([0-9]+)|\\|win)"));
     private static final Pattern statusPattern = Pattern.compile(new String("\\|-(status|curestatus)\\|p([12]+)a: ([^\\|]+)\\|([^\\|]+)(.*)"));
 
-    public Battle extract(String html) throws Exception {
-        try {
-            logger.debug("extract Team start");
-            String[] playName = extractPlayerName(html);
-            String tier = extractTier(html);
-            Team[] teams = extractTeam(html);
-            //贴标签
-            for (Team team : teams) {
-                teamTagger.tagTeam(team);
-            }
-            ArrayList<ArrayList<HashMap<String, Float>>> lists = extractHealthLineData(html);
-            ArrayList<ArrayList<String>> list = extractHighLight(html);
-            for (int j = 0; j < lists.size(); ++j) {
-                ArrayList<HashMap<String, Float>> arrayList = lists.get(j);
-                for (int i = 1; i < arrayList.size(); ++i) {
-                    HashMap<String, Float> hashMap = arrayList.get(i);
-                    for (String s : hashMap.keySet()) {
-                        Float f = hashMap.get(s);
-                        if (f != null && f < 50.0f && f != 0.0f) {
-                            HashMap<String, Float> hashMapPrevious = arrayList.get(i - 1);
-                            Float f1 = hashMapPrevious.get(s);
-                            logger.debug(f + " and" + f1);
-                            if (f1 == null || f1 >= 50.0f) {
-                                int pos;
-                                if (j == 0) {
-                                    pos = 1;
-                                } else {
-                                    pos = 0;
-                                }
-                                String str = list.get(pos).get(i);
-                                list.get(pos).set(i, str + "(opp's " + s + " hp " + f + ")");
-                                logger.debug(list.get(pos).get(i));
-                            }
-                        }
-                    }
-                }
-            }
-            String healthLinePairJsonString = JSONObject.toJSONString(lists);
-            String highLightJsonString = JSONObject.toJSONString(list);
-            teams[0].setPlayerName(playName[0]);
-            teams[1].setPlayerName(playName[1]);
-            teams[0].setTier(tier);
-            teams[1].setTier(tier);
-            logger.debug("extract end");
-            LocalDate date = extractDate(html);
-            String winner = extractWinner(html);
-            Float avageRating = extractAvageRating(html);
-            Battle battle = new Battle(teams, date, winner, avageRating, healthLinePairJsonString);
-            battle.setHighLightJsonString(highLightJsonString);
-            battle.setInfo(String.format("%s vs %s", playName[0], playName[1]));
-            logger.debug("extract battle: {}", battle);
-            return battle;
-        } catch (Exception e) {
-            throw e;
+    public Battle extract(BattleReplayData battleReplayData) {
+        logger.debug("extract Team start");
+
+        String tier = battleReplayData.formatId();
+        Team[] teams = extractTeam(battleReplayData.log());
+        //贴标签
+        for (Team team : teams) {
+            teamTagger.tagTeam(team);
         }
+
+        teams[0].setPlayerName(battleReplayData.players().get(0));
+        teams[1].setPlayerName(battleReplayData.players().get(0));
+        teams[0].setTier(tier);
+        teams[1].setTier(tier);
+        logger.debug("extract end");
+        LocalDate date = LocalDate.ofInstant(Instant.ofEpochSecond(battleReplayData.uploadTime()), ZoneId.systemDefault()) ;
+        String winner = extractWinner(battleReplayData.log());
+        Integer avageRating = battleReplayData.rating();
+        Battle battle = new Battle(teams, date, winner, avageRating);
+        battle.setBattleID(battleReplayData.id());
+        logger.debug("extract battle: {}", battle);
+        return battle;
     }
 
-    private static String[] extractPlayerName(String html) throws Exception {
-        Pattern pattern = Pattern.compile("\\|player\\|p([12])\\|([^//|]*)\\|");
-        Matcher matcher = pattern.matcher(html);
-        String[] playerNames = new String[2];
-        while (matcher.find()) {
-            if (matcher.group(1).equals("1")) {
-                logger.debug("match playerName1:" + matcher.group(2));
-                playerNames[0] = matcher.group(2).trim();
-            } else {
-                logger.debug("match playerName2:" + matcher.group(2));
-                playerNames[1] = matcher.group(2).trim();
-            }
-        }
-        if (playerNames[0] == null && playerNames[1] == null) {
-            throw new Exception("extract playerName Failed");
-        }
-        return playerNames;
-    }
-
-    private static Team[] extractTeam(String html) throws Exception {
+    private static Team[] extractTeam(String html) {
         Pattern pattern = Pattern.compile("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]");
         Matcher matcher = pattern.matcher(html);
         ArrayList<Pokemon> pokemons1 = new ArrayList<Pokemon>(6);
@@ -160,7 +109,7 @@ public class HtmlTeamExtracter {
             }
         }
         if (pokemons1.size() == 0 && pokemons2.size() == 0) {
-            throw new Exception("A Team match failed");
+            throw new RuntimeException("A Team match failed");
         }
         Team team1 = new Team(pokemons1);
         Team team2 = new Team(pokemons2);
@@ -193,18 +142,7 @@ public class HtmlTeamExtracter {
         return pokemon;
     }
 
-    private static String extractTier(String html) {
-        Pattern pattern = Pattern.compile("\\|tier\\|(.*)");
-        Matcher matcher = pattern.matcher(html);
-        if (matcher.find()) {
-            String tier = matcher.group(1).trim();
-            logger.debug(String.format("match tier:%s", tier));
-            return tier;
-        }
-        return "unknown";
-    }
-
-    private static String extractWinner(String html) throws Exception {
+    private static String extractWinner(String html) {
         Pattern pattern = Pattern.compile("win\\|(.*)");
         Matcher matcher = pattern.matcher(html);
         if (matcher.find()) {
@@ -212,32 +150,7 @@ public class HtmlTeamExtracter {
             logger.debug("match winner:" + winPlayerName);
             return winPlayerName;
         }
-        throw new Exception("match battle win relations failed");
-    }
-
-    private static LocalDate extractDate(String html) {
-        Pattern pattern = Pattern.compile("Date: ([^\"]*)");
-        Matcher matcher = pattern.matcher(html);
-        if (matcher.find()) {
-            logger.debug("match Date" + matcher.group(1));
-            // 指定日期格式
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
-            // 解析字符串并转换为LocalDate对象
-            LocalDate date = LocalDate.parse(matcher.group(1).trim(), formatter);
-            logger.debug("after format:" + formatter.format(date));
-            return date;
-        }
-        return null;
-    }
-
-    private static float extractAvageRating(String html) {
-        Pattern pattern = Pattern.compile("Rating:</em> ([0-9]+)");
-        Matcher matcher = pattern.matcher(html);
-        if (matcher.find()) {
-            logger.debug("match avgRating:" + matcher.group(1));
-            return Float.parseFloat(matcher.group(1));
-        }
-        return 0;//zero mean unkown
+        throw new RuntimeException("match battle win relations failed");
     }
 
     private static String extractMoveName(String html, String pokemonName, int playerNumber) {

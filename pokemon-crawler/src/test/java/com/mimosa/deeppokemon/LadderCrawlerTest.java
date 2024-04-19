@@ -39,7 +39,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -81,25 +81,16 @@ public class LadderCrawlerTest {
         }
     }
 
+
     @Test
-    public void crawPlayerBattle() {
-        String playerName = "fuck-yu chi-yu";
-        LinkedList<Battle> battles = ladderCrawler.crawPlayerBattle(playerName);
+    public void crawLadderBattle() throws IOException {
+        assertNotNull(ladderCrawler.getDateAfter());
+        List<Battle> battles = ladderCrawler.crawLadder();
         assertNotNull(battles);
         for (Battle battle : battles) {
             assertBattleNotNull(battle);
         }
     }
-
-//    @Test
-//    public void crawLadderBattle() throws IOException {
-//        assertNotNull(ladderCrawler.getDateAfter());
-//        List<Battle> battles = ladderCrawler.crawLadder();
-//        assertNotNull(battles);
-//        for (Battle battle : battles) {
-//            assertBattleNotNull(battle);
-//        }
-//    }
 
     private void assertBattleNotNull(Battle battle) {
         assertNotNull(battle.getBattleID());

@@ -26,21 +26,34 @@ package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mongodb.bulk.BulkWriteInsert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.BulkOperationException;
+import org.springframework.data.mongodb.core.BulkOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.Fields;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service("crawBattleService")
 public class BattleService {
+    public static final String ID = "_id";
+    public static final String BATTLE = "battle";
+
     @Autowired
     private MongoTemplate mongoTemplate;
 
@@ -52,17 +65,33 @@ public class BattleService {
 
     private static final Logger log = LoggerFactory.getLogger(BattleService.class);
 
+    @CacheEvict("battleIds")
     public void save(Battle battle) {
         log.info("save a battle:" + battle.getBattleID());
         mongoTemplate.save(battle);
     }
 
-    public void savaAll(List<Battle> battles) {
+    @CacheEvict("battleIds")
+    public List<Battle> savaAll(List<Battle> battles) {
         if (battles.isEmpty()) {
-            return;
+            return battles;
         }
-        log.info("save battles:" + battles.get(0).getBattleID());
-        mongoTemplate.insertAll(battles);
+
+        BulkOperations bulkOperations = null;
+        try {
+            bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, BATTLE);
+        } catch (BulkOperationException e) {
+            if (!isDuplicateKeyException(e)) {
+                throw e;
+            }
+        }
+
+        return bulkOperations.insert(battles).execute().getInserts().stream().map(BulkWriteInsert::getIndex).map(battles::get)
+                .collect(Collectors.toList());
+    }
+
+    private boolean isDuplicateKeyException(BulkOperationException exception) {
+        return exception.getErrors().stream().allMatch(error -> error.getCode() == 11000);
     }
 
     public String findPlayerBattleIdEarliest(String playerName) {
@@ -70,7 +99,7 @@ public class BattleService {
         query.addCriteria(Criteria.where("teams.playerName").is(playerName));
         query.with(Sort.by(Sort.Order.asc("date")));
         query.limit(1);
-        Battle battle = mongoTemplate.findOne(query, Battle.class, "battle");
+        Battle battle = mongoTemplate.findOne(query, Battle.class, BATTLE);
         if (battle == null) {
             return null;
         }
@@ -82,7 +111,7 @@ public class BattleService {
         query.addCriteria(Criteria.where("teams.playerName").is(playerName));
         query.with(Sort.by(Sort.Order.desc("date")));
         query.limit(1);
-        Battle battle = mongoTemplate.findOne(query, Battle.class, "battle");
+        Battle battle = mongoTemplate.findOne(query, Battle.class, BATTLE);
         if (battle == null) {
             return null;
         }
@@ -91,7 +120,7 @@ public class BattleService {
 
     public List<Battle> find100BattleSortByDate() {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date"))).limit(100);
-        List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
+        List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
         return battles;
     }
 
@@ -100,5 +129,14 @@ public class BattleService {
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter()));
         ladderCrawler.crawLadder();
+    }
+
+    @Cacheable(cacheNames = "battleIds")
+    public Set<String> getAllBattleIds() {
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.project(Fields.fields(ID))
+        );
+
+        return new HashSet<>(mongoTemplate.aggregate(aggregation, BATTLE, String.class).getMappedResults());
     }
 }

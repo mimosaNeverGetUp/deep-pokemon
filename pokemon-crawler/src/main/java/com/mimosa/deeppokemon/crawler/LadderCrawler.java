@@ -27,8 +27,10 @@ package com.mimosa.deeppokemon.crawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
+import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
+import com.mimosa.deeppokemon.task.CrawBattleTask;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -44,15 +46,20 @@ import org.springframework.context.annotation.Lazy;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 
 public class LadderCrawler {
     private static final String ladderQueryUrl = "https://play.pokemonshowdown.com/ladder.php?&server=showdown&output=html&prefix=";
     private static final String playerQueryUrl = "https://replay.pokemonshowdown.com/api/replays/search";
+    public static final ThreadPoolExecutor CRAW_BATTLE_EXECUTOR = new ThreadPoolExecutor(12, 12, 0,
+            TimeUnit.SECONDS, new LinkedBlockingQueue<>());
     private String format;
     private int pageLimit;
     private int rankMoreThan;
@@ -61,7 +68,7 @@ public class LadderCrawler {
     private LocalDate dateAfter;
 
     @Autowired
-    private TeamCrawler teamCrawler;
+    private BattleCrawler battleCrawler;
 
     @Lazy
     @Autowired
@@ -98,23 +105,28 @@ public class LadderCrawler {
     }
 
     public List<Battle> crawLadderBattle(Ladder ladder) {
-        LinkedList<Battle> battles = new LinkedList<>();
         log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
                 getFormat(), getPageLimit(), getRankMoreThan(),
                 getMinElo(), getMinGxe(), getDateAfter()));
-        log.info("start craw ladder player");
 
-        HashSet<String> preUrls = new HashSet<>();
+        List<Future<List<Battle>>> futures = new ArrayList<>();
         for (LadderRank ladderRank : ladder.getLadderRankList()) {
-            log.info("start craw battle of player : {}", ladderRank.getName());
             String playerName = ladderRank.getName();
-            List<Battle> battleList = crawPlayerBattleIfAbesent(playerName, preUrls, ladder.getFormat());
-            if (battleList != null) {
-                battles.addAll(battleList);
-            }
+            CrawBattleTask crawBattleTask = new CrawBattleTask(new PlayerReplayProvider(playerName, format,
+                    getDateAfter().atStartOfDay(ZoneId.systemDefault()).toEpochSecond()),
+                    battleCrawler, battleService);
+            var crawPlayerBattleFuture = CompletableFuture.supplyAsync(crawBattleTask::call, CRAW_BATTLE_EXECUTOR);
+            futures.add(crawPlayerBattleFuture);
         }
-        battleService.savaAll(battles);
-        return battles;
+
+        return futures.stream().map(future -> {
+            try {
+                return future.get();
+            } catch (Exception e) {
+                log.error("craw ladder battle occur exception", e);
+                throw new RuntimeException("craw ladder battle occur exception", e);
+            }
+        }).flatMap(List::stream).collect(Collectors.toList());
     }
 
     public Ladder crawLadderRank() throws IOException {
@@ -128,61 +140,6 @@ public class LadderCrawler {
             log.error("craw ladder failed", e);
             throw e;
         }
-    }
-
-    public LinkedList<Battle> crawPlayerBattle(String name) {
-        return crawPlayerBattleIfAbesent(name, null, null);
-    }
-
-    private LinkedList<Battle> crawPlayerBattleIfAbesent(String name, HashSet<String> preUrls, String format) {
-        try (CloseableHttpClient httpClient = initClient()) {
-            LinkedList<String> replayUrls = new LinkedList<>();
-            for (int i = 1; i <= pageLimit; ++i) {
-                HttpGet httpGet = initPlayerQueryGet(name, i, format);
-                CloseableHttpResponse HttpResponse = httpClient.execute(httpGet);
-                String response = EntityUtils.toString(HttpResponse.getEntity());
-                ArrayList<String> playerReplayUrls = PlayerUrlExtracter.extract(response);
-                if (playerReplayUrls.size() == 0) {
-                    break;
-                }
-                replayUrls.addAll(playerReplayUrls);
-                HttpResponse.close();
-            }
-            if (preUrls != null) {
-                replayUrls.removeIf(preUrls::contains);
-                preUrls.addAll(replayUrls);
-            }
-            String latestBattleId = null;
-            if (battleService != null) {
-                latestBattleId = battleService.findPlayerBattleIdLatest(name);
-                log.debug(String.format("find %s  latestBattleId:%s", name, latestBattleId));
-            }
-            LinkedList<Battle> battles = new LinkedList<>();
-            for (String url : replayUrls) {
-                String battleId = url.substring(url.indexOf("//"));
-                if (latestBattleId != null && latestBattleId.equals(battleId)) {
-                    // 爬取到已有的数据，结束
-                    break;
-                }
-                log.info("extract url:" + url);
-                if (url.contains(format)) {
-                    Battle battle = teamCrawler.craw(url);
-                    if (battle != null) {
-                        LocalDate date = battle.getDate();
-                        if (dateAfter != null && date.isBefore(dateAfter)) {
-                            // 爬取日期不符合要求，结束
-                            break;
-                        }
-                        battles.add(battle);
-                    }
-                }
-            }
-            return battles;
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error(e.getMessage());
-        }
-        return null;
     }
 
     private CloseableHttpClient initClient() {

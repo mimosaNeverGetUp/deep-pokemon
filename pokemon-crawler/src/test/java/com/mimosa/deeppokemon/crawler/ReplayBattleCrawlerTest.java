@@ -13,50 +13,22 @@
 package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.Replay;
+import com.mimosa.deeppokemon.matcher.BattleMatcher;
+import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 @SpringBootTest
-class RegexTeamCrawlerTest {
+class ReplayBattleCrawlerTest {
 
     @Autowired
-    RegexTeamCrawler regexTeamCrawler;
+    ReplayBattleCrawler replayBattleCrawler;
 
     @Test
     void craw() {
-        String url = "https://replay.pokemonshowdown.com/ou-248041959";
-        Battle battle = regexTeamCrawler.craw(url);
-        assertBattleNotNull(battle);
-    }
-
-    private void assertBattleNotNull(Battle battle) {
-        assertNotNull(battle.getBattleID());
-        assertNotNull(battle.getDate());
-        assertNotNull(battle.getWinner());
-        assertNotNull(battle.getTeams());
-        assertTrue(battle.getTeams().length > 0);
-        for (Team team : battle.getTeams()) {
-            assertTeamNotNull(team);
-            for (Pokemon pokemon : team.getPokemons()) {
-                assertPokemonNotNull(pokemon);
-            }
-        }
-    }
-
-    private void assertTeamNotNull(Team team) {
-        assertNotNull(team.getPlayerName());
-        assertNotNull(team.getTier());
-        assertNotNull(team.getPokemons());
-        assertTrue(team.getPokemons().size() > 0);
-    }
-
-    private void assertPokemonNotNull(Pokemon pokemon) {
-        assertNotNull(pokemon.getName());
+        Battle battle = replayBattleCrawler.craw(new Replay("ou-248041959", 0, null, 0, null, false));
+        MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
     }
 }

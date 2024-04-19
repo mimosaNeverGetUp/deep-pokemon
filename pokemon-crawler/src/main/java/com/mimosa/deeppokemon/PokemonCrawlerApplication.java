@@ -29,12 +29,14 @@ import com.mimosa.deeppokemon.crawler.LadderCrawler;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 
 import java.time.LocalDate;
 
 @SpringBootApplication
+@EnableCaching
 public class PokemonCrawlerApplication {
     public static void main(String[] args) {
         SpringApplication.run(PokemonCrawlerApplication.class, args);
@@ -42,7 +44,7 @@ public class PokemonCrawlerApplication {
 
     @Bean
     @Primary
-    LadderCrawler crawler(){
+    LadderCrawler crawler() {
         return new LadderCrawler("gen9ou", 1,
                 200, 1600, LocalDate.now().minusMonths(1), 60.0f);
     }

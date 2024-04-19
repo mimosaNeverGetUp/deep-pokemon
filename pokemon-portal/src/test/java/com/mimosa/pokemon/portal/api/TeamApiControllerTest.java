@@ -37,13 +37,6 @@ class TeamApiControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    public static Stream<Arguments> queryTeamParam() {
-        return Stream.of(
-                Arguments.of(Collections.singletonList("Blissey"), Collections.emptyList(), 0, 15),
-                Arguments.of(Collections.emptyList(), Collections.singletonList("ATTACK"), 0, 15)
-        );
-    }
-
     @ParameterizedTest
     @CsvSource(value = {
             "Blissey::0:15",

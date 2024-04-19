@@ -67,12 +67,11 @@ public class Battle implements Serializable {
         this.teams = teams;
     }
 
-    public Battle(Team[] teams, LocalDate date, String winner, float avageRating, String healthLinePairJsonString) {
+    public Battle(Team[] teams, LocalDate date, String winner, float avageRating) {
         this.teams = teams;
         this.date = date;
         this.winner = winner;
         this.avageRating = avageRating;
-        this.healthLinePairJsonString = healthLinePairJsonString;
     }
 
     public Battle() {

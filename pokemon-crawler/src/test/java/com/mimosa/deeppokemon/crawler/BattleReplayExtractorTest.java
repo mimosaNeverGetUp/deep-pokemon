@@ -22,44 +22,42 @@
  * SOFTWARE.
  */
 
-package com.mimosa.deeppokemon.controller;
+package com.mimosa.deeppokemon.crawler;
 
-import com.mimosa.deeppokemon.crawler.LadderCrawler;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.service.BattleService;
-import com.mimosa.deeppokemon.service.LadderService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.mimosa.deeppokemon.entity.BattleReplayData;
+import com.mimosa.deeppokemon.matcher.BattleMatcher;
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.Resource;
 
-import java.util.List;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
-@Controller
-public class CrawPlayerController {
+@SpringBootTest
+class BattleReplayExtractorTest {
+    @Autowired
+    private BattleReplayExtractor battleReplayExtractor;
+
+    @Value("classpath:api/battleReplay.json")
+    Resource battleReplay;
 
     @Autowired
-    LadderCrawler ladderCrawler;
+    private static final ObjectMapper OBJECT_MAPPER =
+            new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-    @Autowired
-    BattleService battleService;
+    @Test
+    void extraBattle() throws IOException {
+        BattleReplayData battleReplayData =
+                OBJECT_MAPPER.readValue(battleReplay.getContentAsString(StandardCharsets.UTF_8), BattleReplayData.class);
+        Battle battle = battleReplayExtractor.extract(battleReplayData);
 
-    @Autowired
-    LadderService ladderService;
-
-    private static final Logger logger = LoggerFactory.getLogger(CrawPlayerController.class);
-
-    @RequestMapping("crawLadder")
-    @ResponseBody
-    public String crawLadder()  {
-        try {
-            battleService.crawLadder();
-            return "success";
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-            return "fail";
-        }
+        MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
     }
 }

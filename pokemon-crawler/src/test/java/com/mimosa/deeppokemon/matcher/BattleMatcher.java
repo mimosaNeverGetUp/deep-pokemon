@@ -30,6 +30,10 @@ public class BattleMatcher extends TypeSafeMatcher<Battle> {
             return false;
         }
 
+        if (battle.getLog() == null) {
+            return false;
+        }
+
         if (battle.getTeams() == null || battle.getTeams().length == 0) {
             return false;
         }

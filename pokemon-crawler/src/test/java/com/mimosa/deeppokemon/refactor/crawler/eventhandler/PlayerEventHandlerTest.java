@@ -39,7 +39,8 @@ import java.util.List;
  *
  */
 @SpringBootTest
-public class PlayerEventHandlerTest {
+public class
+PlayerEventHandlerTest {
 
     private static PlayerEventStringHandler playerEventStringHandler;
     private static BattleMetaData battleMetaData;

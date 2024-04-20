@@ -28,8 +28,8 @@ import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleReplayData;
 import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.utils.HttpUtil;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.HttpGet;
+import org.apache.hc.core5.http.ClassicHttpRequest;
+import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -45,7 +45,7 @@ public class ReplayBattleCrawler implements BattleCrawler {
 
     @Override
     public Battle craw(Replay replay) {
-        HttpGet httpGet = initGet(replay.id());
+        ClassicHttpRequest httpGet = initGet(replay.id());
         BattleReplayData battleReplay = HttpUtil.request(httpGet, BattleReplayData.class);
         Battle battle = battleReplayExtractor.extract(battleReplay);
         String battleID = replay.id();
@@ -53,13 +53,8 @@ public class ReplayBattleCrawler implements BattleCrawler {
         return battle;
     }
 
-    private HttpGet initGet(String url) {
-        HttpGet httpGet = new HttpGet(String.format(REPLAY_URL_PATTERN, url));
-        RequestConfig config = RequestConfig.custom().setConnectTimeout(20000)//创建连接的最长时间，单位是毫秒.
-                .setConnectionRequestTimeout(20000)//设置获取连接的最长时间，单位毫秒
-                .setSocketTimeout(20000)//设置数据传输的最长时间，单位毫秒
-                .build();
-        httpGet.setConfig(config);
+    private ClassicHttpRequest initGet(String battleId) {
+        ClassicHttpRequest httpGet = ClassicRequestBuilder.get(String.format(REPLAY_URL_PATTERN, battleId)).build();
         return httpGet;
     }
 }

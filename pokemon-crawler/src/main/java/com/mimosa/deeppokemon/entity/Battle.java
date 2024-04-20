@@ -53,6 +53,8 @@ public class Battle implements Serializable {
     private TeamBattleAnalysis[] teamBattleAnalysis;
     // 对局趋势变化
     private BattleTrend battleTrend;
+    // 对局记录
+    private String log;
 
     public Battle(Team[] teams) {
         this.teams = teams;
@@ -124,6 +126,14 @@ public class Battle implements Serializable {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public String getLog() {
+        return log;
+    }
+
+    public void setLog(String log) {
+        this.log = log;
     }
 
     @Override

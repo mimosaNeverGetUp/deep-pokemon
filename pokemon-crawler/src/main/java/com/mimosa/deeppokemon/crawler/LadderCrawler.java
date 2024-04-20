@@ -31,14 +31,9 @@ import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
 import com.mimosa.deeppokemon.task.CrawBattleTask;
-import org.apache.http.client.CookieStore;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicCookieStore;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
+import com.mimosa.deeppokemon.utils.HttpUtil;
+import org.apache.hc.core5.http.ClassicHttpRequest;
+import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +43,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
@@ -130,9 +123,9 @@ public class LadderCrawler {
     }
 
     public Ladder crawLadderRank() throws IOException {
-        HttpGet httpGet = initLadeerQueryGet();
-        try (CloseableHttpClient httpClient = initClient(); CloseableHttpResponse HttpResponse = httpClient.execute(httpGet)) {
-            String html = EntityUtils.toString(HttpResponse.getEntity());
+        ClassicHttpRequest httpGet = initLadeerQueryGet();
+        try {
+            String html = HttpUtil.request(httpGet);
             Ladder ladder = LadderExtracter.extract(html, rankMoreThan, minElo, minGxe, format);
             ladderService.save(ladder);
             return ladder;
@@ -142,40 +135,21 @@ public class LadderCrawler {
         }
     }
 
-    private CloseableHttpClient initClient() {
-        CookieStore httpCookieStore = new BasicCookieStore();
-        return HttpClientBuilder.create().setDefaultCookieStore(httpCookieStore).build();
-    }
-
-    private HttpGet initLadeerQueryGet() {
+    private ClassicHttpRequest initLadeerQueryGet() {
         String url = ladderQueryUrl + String.format("&format=%s", format);
         log.debug("init ladderQuery: {}", url);
-        HttpGet httpGet = new HttpGet(url);
-        httpGet.addHeader("Accept", "*/*");
-        httpGet.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Mobile Safari/537.36");
-        RequestConfig config = RequestConfig.custom().setConnectTimeout(20000).//创建连接的最长时间，单位是毫秒
-                setConnectionRequestTimeout(20000).//设置获取连接的最长时间，单位毫秒
-                setSocketTimeout(20000)//设置数据传输的最长时间，单位毫秒
-                .build();
-        httpGet.setConfig(config);
-        return httpGet;
+
+        return ClassicRequestBuilder.get(url).build();
     }
 
-    private HttpGet initPlayerQueryGet(String playerName, int pageNumber, String format) {
+    private ClassicHttpRequest initPlayerQueryGet(String playerName, int pageNumber, String format) {
         String url = playerQueryUrl + String.format("?username=%s", playerName.replaceAll(" ", "+"))
                 + String.format("&page=%d", pageNumber);
         if (format != null) {
             url += "&format=" + format;
         }
-        HttpGet httpGet = new HttpGet(url);
-        httpGet.addHeader("Accept", "*/*");
-        httpGet.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Mobile Safari/537.36");
-        RequestConfig config = RequestConfig.custom().setConnectTimeout(20000).//创建连接的最长时间，单位是毫秒
-                setConnectionRequestTimeout(20000).//设置获取连接的最长时间，单位毫秒
-                setSocketTimeout(20000)//设置数据传输的最长时间，单位毫秒
-                .build();
-        httpGet.setConfig(config);
-        return httpGet;
+
+        return ClassicRequestBuilder.get(url).build();
     }
 
     public String getFormat() {

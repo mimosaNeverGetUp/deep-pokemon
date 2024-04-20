@@ -13,9 +13,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.ReplaySource;
 import com.mimosa.deeppokemon.utils.HttpUtil;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.utils.URIBuilder;
+import org.apache.hc.core5.http.ClassicHttpRequest;
+import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
+import org.apache.hc.core5.net.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,11 +36,6 @@ public class PlayerReplayProvider implements ReplayProvider {
     private static final String PLAYER_REPLAY_QUERY_URL = "https://replay.pokemonshowdown.com/api/replays/search";
 
     public static final String LADDER = "ladder";
-
-    private static final RequestConfig CONFIG = RequestConfig.custom().setConnectTimeout(3 * 1000).//创建连接的最长时间，单位是毫秒
-            setConnectionRequestTimeout(3 * 1000).//设置获取连接的最长时间，单位毫秒
-            setSocketTimeout(3 * 1000)//设置数据传输的最长时间，单位毫秒
-            .build();
 
     private final String name;
 
@@ -86,8 +81,7 @@ public class PlayerReplayProvider implements ReplayProvider {
                     .addParameter("username", name)
                     .addParameter("format", format)
                     .build();
-            HttpGet httpGet = new HttpGet(uri);
-            httpGet.setConfig(CONFIG);
+            ClassicHttpRequest httpGet = ClassicRequestBuilder.get(uri).build();
             logger.info("query player {} replay: {}", name, uri.toString());
 
             String replayJsonStr = convertResponseToJson(HttpUtil.request(httpGet));

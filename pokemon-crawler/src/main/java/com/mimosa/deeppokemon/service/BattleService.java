@@ -24,9 +24,14 @@
 
 package com.mimosa.deeppokemon.service;
 
-import com.mimosa.deeppokemon.crawler.LadderCrawler;
+import com.mimosa.deeppokemon.analyzer.BattleAnalyzer;
+import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
+import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
+import com.mimosa.deeppokemon.task.CrawBattleTask;
 import com.mongodb.bulk.BulkWriteInsert;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,35 +44,41 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.Fields;
 import org.springframework.data.mongodb.core.query.BasicQuery;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @Service("crawBattleService")
 public class BattleService {
-    public static final String ID = "_id";
-    public static final String BATTLE = "battle";
-
-    @Autowired
-    private MongoTemplate mongoTemplate;
-
-    @Autowired
-    LadderCrawler ladderCrawler;
-
-    @Autowired
-    LadderService ladderService;
-
     private static final Logger log = LoggerFactory.getLogger(BattleService.class);
+    private static final String ID = "_id";
+    private static final String BATTLE = "battle";
+    private static final ThreadPoolExecutor CRAW_BATTLE_EXECUTOR = new ThreadPoolExecutor(12, 12, 0,
+            TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+
+    private final MongoTemplate mongoTemplate;
+
+    private final BattleCrawler battleCrawler;
+
+    private final BattleAnalyzer battleAnalyzer;
+
+    public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler, BattleAnalyzer battleAnalyzer) {
+        this.mongoTemplate = mongoTemplate;
+        this.battleCrawler = battleCrawler;
+        this.battleAnalyzer = battleAnalyzer;
+    }
 
     @CacheEvict("battleIds")
     public void save(Battle battle) {
-        log.info("save a battle:" + battle.getBattleID());
         mongoTemplate.save(battle);
     }
 
@@ -94,41 +105,10 @@ public class BattleService {
         return exception.getErrors().stream().allMatch(error -> error.getCode() == 11000);
     }
 
-    public String findPlayerBattleIdEarliest(String playerName) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("teams.playerName").is(playerName));
-        query.with(Sort.by(Sort.Order.asc("date")));
-        query.limit(1);
-        Battle battle = mongoTemplate.findOne(query, Battle.class, BATTLE);
-        if (battle == null) {
-            return null;
-        }
-        return battle.getBattleID();
-    }
-
-    public String findPlayerBattleIdLatest(String playerName) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("teams.playerName").is(playerName));
-        query.with(Sort.by(Sort.Order.desc("date")));
-        query.limit(1);
-        Battle battle = mongoTemplate.findOne(query, Battle.class, BATTLE);
-        if (battle == null) {
-            return null;
-        }
-        return battle.getBattleID();
-    }
-
     public List<Battle> find100BattleSortByDate() {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date"))).limit(100);
         List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
         return battles;
-    }
-
-    public void crawLadder() throws Exception {
-        log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
-                ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
-                ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter()));
-        ladderCrawler.crawLadder();
     }
 
     @Cacheable(cacheNames = "battleIds")
@@ -138,5 +118,17 @@ public class BattleService {
         );
 
         return new HashSet<>(mongoTemplate.aggregate(aggregation, BATTLE, String.class).getMappedResults());
+    }
+
+    @NotNull
+    public CompletableFuture<List<Battle>> crawBattle(PlayerReplayProvider replayProvider) {
+        CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, battleCrawler, this);
+        CompletableFuture<List<Battle>> future = CompletableFuture.supplyAsync(crawBattleTask::call, CRAW_BATTLE_EXECUTOR);
+        future.thenAcceptAsync(battles -> battleAnalyzer.analyze(battles), CRAW_BATTLE_EXECUTOR);
+        return future;
+    }
+
+    public Collection<BattleStat> savaAll(Collection<BattleStat> battleStats) {
+        return mongoTemplate.insertAll(battleStats);
     }
 }

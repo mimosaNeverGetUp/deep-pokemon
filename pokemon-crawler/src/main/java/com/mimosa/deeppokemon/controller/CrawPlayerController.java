@@ -25,9 +25,6 @@
 package com.mimosa.deeppokemon.controller;
 
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.service.BattleService;
-import com.mimosa.deeppokemon.service.LadderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,27 +32,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-
 @Controller
 public class CrawPlayerController {
 
     @Autowired
     LadderCrawler ladderCrawler;
 
-    @Autowired
-    BattleService battleService;
-
-    @Autowired
-    LadderService ladderService;
-
     private static final Logger logger = LoggerFactory.getLogger(CrawPlayerController.class);
 
     @RequestMapping("crawLadder")
     @ResponseBody
-    public String crawLadder()  {
+    public String crawLadder() {
         try {
-            battleService.crawLadder();
+            ladderCrawler.crawLadder();
             return "success";
         } catch (Exception e) {
             logger.error(e.getMessage(), e);

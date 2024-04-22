@@ -30,7 +30,6 @@ import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
-import com.mimosa.deeppokemon.task.CrawBattleTask;
 import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
@@ -44,24 +43,19 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
 
 public class LadderCrawler {
     private static final String ladderQueryUrl = "https://play.pokemonshowdown.com/ladder.php?&server=showdown&output=html&prefix=";
-    private static final String playerQueryUrl = "https://replay.pokemonshowdown.com/api/replays/search";
-    public static final ThreadPoolExecutor CRAW_BATTLE_EXECUTOR = new ThreadPoolExecutor(12, 12, 0,
-            TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+
     private String format;
     private int pageLimit;
     private int rankMoreThan;
     private int minElo;
     private float minGxe;
     private LocalDate dateAfter;
-
-    @Autowired
-    private BattleCrawler battleCrawler;
 
     @Lazy
     @Autowired
@@ -83,10 +77,10 @@ public class LadderCrawler {
         this.dateAfter = LocalDate.now().minusMonths(1);
     }
 
-    public LadderCrawler(String format, int pageLimit, int rankmoreThan, int minElo, LocalDate dateAfter, float minGxe) {
+    public LadderCrawler(String format, int pageLimit, int rankMoreThan, int minElo, LocalDate dateAfter, float minGxe) {
         this.format = format;
         this.pageLimit = pageLimit;
-        this.rankMoreThan = rankmoreThan;
+        this.rankMoreThan = rankMoreThan;
         this.minElo = minElo;
         this.minGxe = minGxe;
         this.dateAfter = dateAfter;
@@ -102,17 +96,16 @@ public class LadderCrawler {
                 getFormat(), getPageLimit(), getRankMoreThan(),
                 getMinElo(), getMinGxe(), getDateAfter()));
 
-        List<Future<List<Battle>>> futures = new ArrayList<>();
+        List<Future<List<Battle>>> crawFutures = new ArrayList<>();
         for (LadderRank ladderRank : ladder.getLadderRankList()) {
             String playerName = ladderRank.getName();
-            CrawBattleTask crawBattleTask = new CrawBattleTask(new PlayerReplayProvider(playerName, format,
-                    getDateAfter().atStartOfDay(ZoneId.systemDefault()).toEpochSecond()),
-                    battleCrawler, battleService);
-            var crawPlayerBattleFuture = CompletableFuture.supplyAsync(crawBattleTask::call, CRAW_BATTLE_EXECUTOR);
-            futures.add(crawPlayerBattleFuture);
+            PlayerReplayProvider replayProvider = new PlayerReplayProvider(playerName, format,
+                    getDateAfter().atStartOfDay(ZoneId.systemDefault()).toEpochSecond());
+            var crawPlayerBattleFuture = battleService.crawBattle(replayProvider);
+            crawFutures.add(crawPlayerBattleFuture);
         }
 
-        return futures.stream().map(future -> {
+        return crawFutures.stream().map(future -> {
             try {
                 return future.get();
             } catch (Exception e) {
@@ -123,7 +116,7 @@ public class LadderCrawler {
     }
 
     public Ladder crawLadderRank() throws IOException {
-        ClassicHttpRequest httpGet = initLadeerQueryGet();
+        ClassicHttpRequest httpGet = initLadderQueryGet();
         try {
             String html = HttpUtil.request(httpGet);
             Ladder ladder = LadderExtracter.extract(html, rankMoreThan, minElo, minGxe, format);
@@ -135,19 +128,9 @@ public class LadderCrawler {
         }
     }
 
-    private ClassicHttpRequest initLadeerQueryGet() {
+    private ClassicHttpRequest initLadderQueryGet() {
         String url = ladderQueryUrl + String.format("&format=%s", format);
         log.debug("init ladderQuery: {}", url);
-
-        return ClassicRequestBuilder.get(url).build();
-    }
-
-    private ClassicHttpRequest initPlayerQueryGet(String playerName, int pageNumber, String format) {
-        String url = playerQueryUrl + String.format("?username=%s", playerName.replaceAll(" ", "+"))
-                + String.format("&page=%d", pageNumber);
-        if (format != null) {
-            url += "&format=" + format;
-        }
 
         return ClassicRequestBuilder.get(url).build();
     }

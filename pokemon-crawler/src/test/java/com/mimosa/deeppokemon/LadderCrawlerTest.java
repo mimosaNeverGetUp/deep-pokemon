@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon;
 
+import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Ladder;
@@ -38,7 +39,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -50,7 +50,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest
-@ContextConfiguration(classes = LadderCrawlerTest.TestConfig.class)
+@ContextConfiguration(classes = {LadderCrawlerTest.TestConfig.class, MongodbTestConfig.class})
 public class LadderCrawlerTest {
 
     @TestConfiguration
@@ -67,10 +67,10 @@ public class LadderCrawlerTest {
     @Qualifier("testLadderCrawler")
     LadderCrawler ladderCrawler;
 
-    @MockBean
+    @Autowired
     BattleService battleSevice;
 
-    @MockBean
+    @Autowired
     LadderService ladderService;
 
     @Test

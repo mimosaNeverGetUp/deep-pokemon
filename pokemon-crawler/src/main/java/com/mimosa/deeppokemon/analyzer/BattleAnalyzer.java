@@ -6,8 +6,8 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
+import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.analyzer.entity.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.service.BattleService;
@@ -39,15 +39,19 @@ public class BattleAnalyzer {
     }
 
     public void analyze(Collection<Battle> battles) {
-        List<BattleStat> battleStats = new ArrayList<BattleStat>();
+        List<BattleStat> battleStats = new ArrayList<>();
         for (Battle battle : battles) {
             try {
-                BattleStat battleStat = new BattleStat();
-                BattleStatus battleStatus = new BattleStatus();
+                BattleStat battleStat = new BattleStat(new ArrayList<>());
+                BattleStatus battleStatus = new BattleStatus(new ArrayList<>());
                 List<BattleEvent> battleEvents = battleEventParser.parse(battle.getLog());
                 battleEvents.forEach(battleEvent ->
                         battleEventAnalyzers.forEach(
-                                analyzer -> analyzer.analyze(battleEvent, battleStat, battleStatus)));
+                                analyzer -> {
+                                    if (analyzer.supportAnalyze(battleEvent)) {
+                                        analyzer.analyze(battleEvent, battleStat, battleStatus);
+                                    }
+                                }));
                 battleStats.add(battleStat);
             } catch (Exception e) {
                 log.error("analyze battle {} error", battle.getBattleID(), e);
@@ -56,5 +60,4 @@ public class BattleAnalyzer {
         }
         battleService.savaAll(battleStats);
     }
-
 }

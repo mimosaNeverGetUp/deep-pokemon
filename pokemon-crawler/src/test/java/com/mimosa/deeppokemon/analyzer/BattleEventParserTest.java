@@ -53,8 +53,8 @@ class BattleEventParserTest {
         Assertions.assertEquals(EXCEPT_ALL_EVENT - EXCEPT_CHILDREN_EVENT, battleEvents.size());
         battleEvents.forEach(battleEvent -> {
             Assertions.assertFalse(battleEvent.type() == null || battleEvent.type().isEmpty());
-            Assertions.assertFalse(battleEvent.content() == null || (battleEvent.content().isEmpty()
-                    && !noContentEvent.contains(battleEvent.type())));
+            Assertions.assertFalse(battleEvent.contents() == null
+                    && !noContentEvent.contains(battleEvent.type()));
             Assertions.assertTrue(battleEvent.parentEvent());
         });
         Assertions.assertTrue(battleEvents.stream()

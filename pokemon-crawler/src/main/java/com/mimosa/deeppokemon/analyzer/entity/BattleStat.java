@@ -6,5 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
-public class BattleStat {
+import java.util.List;
+
+public record BattleStat (List<PlayerStat> playerStatList) {
 }

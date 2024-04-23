@@ -29,6 +29,7 @@ import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.service.BattleService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -37,12 +38,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.junit.Assert.assertNotNull;
-
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
-public class TeamCrawlerTest {
+public class ReplayBattleCrawlerTest {
     final private String URL_GEN8 = "smogtours-gen8ou-759319";
     final private String URL_GEN9 = "smogtours-gen9ou-686609";
 
@@ -54,10 +53,10 @@ public class TeamCrawlerTest {
 
     @ParameterizedTest
     @ValueSource(strings = { URL_GEN8, URL_GEN9})
-    public void Crawler(String id){
+    public void crawler(String id){
         Replay replay = new Replay(id, 0, null, 0, null, false);
         Battle battle = crawler.craw(replay);
         Team[] teams = battle.getTeams();
-        assertNotNull(teams);
+        Assertions.assertNotNull(teams);
     }
 }

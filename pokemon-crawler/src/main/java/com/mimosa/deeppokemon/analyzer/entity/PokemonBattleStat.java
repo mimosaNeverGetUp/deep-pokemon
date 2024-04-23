@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.analyzer.entity;
 
 public class PokemonBattleStat {
-    private String name;
+    private final String name;
     private int switchCount;
 
     public PokemonBattleStat(String name) {

@@ -8,23 +8,15 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Component
 public class BattleEventParser {
-
-    /**
-     * common patternEvent: |eventType|eventString
-     * common childrenEvent: |-eventType|eventString
-     */
-    private static final Pattern eventPattern = Pattern.compile(String.format("%s([^%s]*)%s*(.*)", Pattern.quote("|"),
-            Pattern.quote("|"), Pattern.quote("|")));
-
     public static final String CHILDREN_EVENT_FLAG = "-";
 
     List<BattleEvent> parse(String battleLog) {
@@ -53,22 +45,20 @@ public class BattleEventParser {
     }
 
     private BattleEvent parseBattleEvent(String eventStr) {
-        String eventType = null;
-        String content = null;
+        String[] elements = eventStr.replaceFirst("\\|", "").split("\\|");
+        if (elements.length == 0) {
+            return null;
+        }
         boolean parentEvent = true;
+        String eventType = elements[0];
+        if (!StringUtils.hasText(eventType)) {
+            return null;
+        }
 
-        Matcher matcher = eventPattern.matcher(eventStr);
-        if (matcher.find()) {
-            eventType = matcher.group(1);
-            if (eventType == null || eventType.isEmpty()) {
-                return null;
-            }
-
-            content = matcher.group(2);
-            if (eventType.contains(CHILDREN_EVENT_FLAG)) {
-                eventType = eventType.replaceAll(CHILDREN_EVENT_FLAG, "");
-                parentEvent = false;
-            }
+        List<String> content = elements.length < 2 ? null : List.of(Arrays.copyOfRange(elements, 1, elements.length));
+        if (eventType.contains(CHILDREN_EVENT_FLAG)) {
+            eventType = eventType.replaceAll(CHILDREN_EVENT_FLAG, "");
+            parentEvent = false;
         }
 
         return new BattleEvent(eventType, content, parentEvent, null);

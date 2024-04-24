@@ -27,29 +27,30 @@ public class BattleEventParser {
         AtomicReference<BattleEvent> currentParentEvent = new AtomicReference<>();
 
         battleLog.lines().forEach(eventStr -> {
-            BattleEvent battleEvent = parseBattleEvent(eventStr);
+            BattleEvent battleEvent = parseBattleEvent(eventStr, currentParentEvent.get());
             if (battleEvent == null) {
+                currentParentEvent.set(null);
                 return;
             }
 
-            if (battleEvent.parentEvent()) {
-                battleEvent = battleEvent.withChildrenEvents(new ArrayList<>());
+            if (battleEvent.getParentEvent() == null) {
+                battleEvent.setChildrenEvents(new ArrayList<>());
                 battleEvents.add(battleEvent);
                 currentParentEvent.set(battleEvent);
             } else {
-                currentParentEvent.get().childrenEvents().add(battleEvent);
+                currentParentEvent.get().getChildrenEvents().add(battleEvent);
             }
         });
 
         return battleEvents;
     }
 
-    private BattleEvent parseBattleEvent(String eventStr) {
+    private BattleEvent parseBattleEvent(String eventStr, BattleEvent currentParentEvent) {
         String[] elements = eventStr.replaceFirst("\\|", "").split("\\|");
         if (elements.length == 0) {
             return null;
         }
-        boolean parentEvent = true;
+        BattleEvent parentEvent = null;
         String eventType = elements[0];
         if (!StringUtils.hasText(eventType)) {
             return null;
@@ -57,8 +58,8 @@ public class BattleEventParser {
 
         List<String> content = elements.length < 2 ? null : List.of(Arrays.copyOfRange(elements, 1, elements.length));
         if (eventType.contains(CHILDREN_EVENT_FLAG)) {
-            eventType = eventType.replaceAll(CHILDREN_EVENT_FLAG, "");
-            parentEvent = false;
+            parentEvent = currentParentEvent;
+            eventType =eventType.replaceAll(CHILDREN_EVENT_FLAG, "");
         }
 
         return new BattleEvent(eventType, content, parentEvent, null);

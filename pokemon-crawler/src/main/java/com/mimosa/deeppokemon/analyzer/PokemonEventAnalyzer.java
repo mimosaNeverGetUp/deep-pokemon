@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.utils.MatcherUtil;
@@ -33,13 +33,13 @@ public class PokemonEventAnalyzer implements BattleEventAnalyzer {
 
     @Override
     public void analyze(BattleEvent event, BattleStat battleStat, BattleStatus battleStatus) {
-        if (event.contents().size() < 2) {
+        if (event.getContents().size() < 2) {
             log.warn("can not analyze pokemon event content: {}", event);
             return;
         }
 
-        String playerNumberStr = MatcherUtil.groupMatch(PLAYER_NUMBER_PATTERN, event.contents().get(0), 1);
-        String pokemonName = MatcherUtil.groupMatch(POKE_PATTERN, event.contents().get(1), 0);
+        String playerNumberStr = MatcherUtil.groupMatch(PLAYER_NUMBER_PATTERN, event.getContents().get(0), 1);
+        String pokemonName = MatcherUtil.groupMatch(POKE_PATTERN, event.getContents().get(1), 0);
         if (!StringUtils.hasText(playerNumberStr) || !StringUtils.hasText(pokemonName)) {
             log.warn("can not match player number or pokemon name content: {}", event);
             return;
@@ -51,6 +51,6 @@ public class PokemonEventAnalyzer implements BattleEventAnalyzer {
 
     @Override
     public boolean supportAnalyze(BattleEvent battleEvent) {
-        return SUPPORT_EVENT_TYPE.contains(battleEvent.type());
+        return SUPPORT_EVENT_TYPE.contains(battleEvent.getType());
     }
 }

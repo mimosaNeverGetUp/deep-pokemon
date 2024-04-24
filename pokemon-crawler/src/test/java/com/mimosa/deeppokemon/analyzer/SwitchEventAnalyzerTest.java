@@ -8,6 +8,8 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,7 @@ class SwitchEventAnalyzerTest {
 
     @Test
     void analyze() {
-        BattleEvent battleEvent = new BattleEvent("switch", List.of("p1a: YOUCANTBREAKME", "Gliscor, M", "100/100"), true
+        BattleEvent battleEvent = new BattleEvent("switch", List.of("p1a: YOUCANTBREAKME", "Gliscor, M", "71/100"), null
                 , null);
         PlayerStat p1 = new PlayerStat(1, "");
         p1.addPokemonBattleStat(new PokemonBattleStat("Gliscor"));
@@ -33,7 +35,9 @@ class SwitchEventAnalyzerTest {
         Assertions.assertTrue(analyzer.supportAnalyze(battleEvent));
         analyzer.analyze(battleEvent, battleStat, battleStatus);
         Assertions.assertEquals("Gliscor", p1Stauts.getPokemonName("YOUCANTBREAKME"));
+        Assertions.assertEquals("Gliscor", p1Stauts.getActivePokemonName());
         Assertions.assertEquals(1, p1.getSwitchCount());
         Assertions.assertEquals(1, p1.getPokemonBattleStat("Gliscor").getSwitchCount());
+        Assertions.assertEquals(71, p1Stauts.getPokemonStatus("Gliscor").getHealth());
     }
 }

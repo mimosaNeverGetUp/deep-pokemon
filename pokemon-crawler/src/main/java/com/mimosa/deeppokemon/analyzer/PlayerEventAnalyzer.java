@@ -7,9 +7,9 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
-import com.mimosa.deeppokemon.analyzer.entity.PlayerStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.utils.MatcherUtil;
 import org.slf4j.Logger;
@@ -30,13 +30,13 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
-        if (battleEvent.contents().size() < 2) {
+        if (battleEvent.getContents().size() < 2) {
             log.error("can not match player content: {}", battleEvent);
-            throw new IllegalArgumentException("can not match player content");
+            return;
         }
 
-        String playerNumberStr = MatcherUtil.groupMatch(PLAYER_NUMBER_PATTERN, battleEvent.contents().get(0), 1);
-        String playerName = battleEvent.contents().get(1);
+        String playerNumberStr = MatcherUtil.groupMatch(PLAYER_NUMBER_PATTERN, battleEvent.getContents().get(0), 1);
+        String playerName = battleEvent.getContents().get(1);
         if (!StringUtils.hasText(playerNumberStr) || !StringUtils.hasText(playerName)) {
             log.error("can not match player name or number: {}", battleEvent);
             throw new IllegalArgumentException("can not match player name or number");
@@ -48,6 +48,6 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
 
     @Override
     public boolean supportAnalyze(BattleEvent battleEvent) {
-        return SUPPORT_EVENT_TYPE.contains(battleEvent.type());
+        return SUPPORT_EVENT_TYPE.contains(battleEvent.getType());
     }
 }

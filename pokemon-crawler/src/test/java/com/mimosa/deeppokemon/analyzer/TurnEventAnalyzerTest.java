@@ -6,8 +6,9 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
+import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,14 @@ class TurnEventAnalyzerTest {
 
     @Test
     void analyze() {
-        BattleEvent battleEvent = new BattleEvent("turn", List.of("1"), true, null);
-        BattleStatus battleStatus = new BattleStatus(null);
+        BattleEvent battleEvent = new BattleEvent("turn", List.of("1"), null, null);
+        PlayerStatus p1 = new PlayerStatus();
+        p1.setActivePokemonName("pikachu");
+        BattleStatus battleStatus = new BattleStatus(List.of(p1));
         Assertions.assertTrue(turnEventAnalyzer.supportAnalyze(battleEvent));
 
         turnEventAnalyzer.analyze(battleEvent, null, battleStatus);
         Assertions.assertEquals(1, battleStatus.getTurn());
+        Assertions.assertEquals("pikachu", p1.getTurnStartPokemonName());
     }
 }

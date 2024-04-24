@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import org.junit.jupiter.api.Assertions;
@@ -26,7 +26,7 @@ class PlayerEventAnalyzerTest {
 
     @Test
     void analyze() {
-        BattleEvent battleEvent = new BattleEvent("player", List.of("p1", "RUBYBLOOD", "#splxvtyrants2"), true
+        BattleEvent battleEvent = new BattleEvent("player", List.of("p1", "RUBYBLOOD", "#splxvtyrants2"), null
                 , null);
         BattleStat battleStat = new BattleStat(new ArrayList<>());
         BattleStatus battleStatus = new BattleStatus(new ArrayList<>());

@@ -15,11 +15,15 @@ public class PlayerStat {
     private String playerName;
 
     private int switchCount;
+    private int switchDamage;
+    private int moveCount;
     private Map<String, PokemonBattleStat> pokemonBattleStats;
 
     public PlayerStat() {
         this.pokemonBattleStats = new HashMap<>();
         this.switchCount = 0;
+        this.switchDamage = 0;
+        this.moveCount = 0;
     }
 
     public PlayerStat(int playerNumber, String playerName) {
@@ -66,5 +70,21 @@ public class PlayerStat {
 
     public void setPokemonBattleStats(Map<String, PokemonBattleStat> pokemonBattleStats) {
         this.pokemonBattleStats = pokemonBattleStats;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
+    }
+
+    public int getSwitchDamage() {
+        return switchDamage;
+    }
+
+    public void setSwitchDamage(int switchDamage) {
+        this.switchDamage = switchDamage;
     }
 }

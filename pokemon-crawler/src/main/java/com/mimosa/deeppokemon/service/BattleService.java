@@ -123,7 +123,7 @@ public class BattleService {
     public CompletableFuture<List<Battle>> crawBattle(PlayerReplayProvider replayProvider) {
         CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, battleCrawler, this);
         CompletableFuture<List<Battle>> future = CompletableFuture.supplyAsync(crawBattleTask::call, CRAW_BATTLE_EXECUTOR);
-        future.thenAcceptAsync(battles -> battleAnalyzer.analyze(battles), CRAW_BATTLE_EXECUTOR);
+//        future.thenAcceptAsync(battles -> battleAnalyzer.analyze(battles), CRAW_BATTLE_EXECUTOR);
         return future;
     }
 

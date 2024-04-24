@@ -28,9 +28,9 @@ class PokemonEventAnalyzerTest {
 
     public static Stream<Arguments> provideBattleEvent() {
         return Stream.of(
-                Arguments.of(new BattleEvent("poke", List.of("p1", "Roaring Moon"), true,
+                Arguments.of(new BattleEvent("poke", List.of("p1", "Roaring Moon"), null,
                         null), 1, "Roaring Moon"),
-                Arguments.of(new BattleEvent("poke", List.of("p2", "Dragonite, F"), true,
+                Arguments.of(new BattleEvent("poke", List.of("p2", "Dragonite, F"), null,
                         null), 2, "Dragonite"));
     }
 

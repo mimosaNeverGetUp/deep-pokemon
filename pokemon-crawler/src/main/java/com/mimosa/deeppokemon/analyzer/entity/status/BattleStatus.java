@@ -4,7 +4,7 @@
  *  Copyright (c) 2024-2024 mimosa
  */
 
-package com.mimosa.deeppokemon.analyzer.entity;
+package com.mimosa.deeppokemon.analyzer.entity.status;
 
 import java.util.List;
 

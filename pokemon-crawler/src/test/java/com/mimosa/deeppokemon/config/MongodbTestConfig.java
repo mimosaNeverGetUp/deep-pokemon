@@ -31,7 +31,7 @@ public class MongodbTestConfig {
                 .withExposedPorts(27017)
                 .withCopyFileToContainer(MountableFile.forClasspathResource("db/"), "/docker-entrypoint-initdb.d")
                 .waitingFor(Wait.forLogMessage("(?i).*waiting for connections.*", 2))
-                .withStartupTimeout(Duration.ofSeconds(5))
+                .withStartupTimeout(Duration.ofSeconds(10))
                 .withReuse(false);
     }
 

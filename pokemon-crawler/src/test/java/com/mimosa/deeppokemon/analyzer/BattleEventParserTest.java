@@ -24,7 +24,7 @@ import java.util.stream.Stream;
 
 @SpringBootTest
 class BattleEventParserTest {
-    public static final int EXCEPT_CHILDREN_EVENT = 111;
+    public static final int EXCEPT_CHILDREN_EVENT = 107;
     public static final int EXCEPT_ALL_EVENT = 368;
     @Autowired
     private BattleEventParser battleEventParser;
@@ -52,20 +52,20 @@ class BattleEventParserTest {
         Assertions.assertNotNull(battleEvents);
         Assertions.assertEquals(EXCEPT_ALL_EVENT - EXCEPT_CHILDREN_EVENT, battleEvents.size());
         battleEvents.forEach(battleEvent -> {
-            Assertions.assertFalse(battleEvent.type() == null || battleEvent.type().isEmpty());
-            Assertions.assertFalse(battleEvent.contents() == null
-                    && !noContentEvent.contains(battleEvent.type()));
-            Assertions.assertTrue(battleEvent.parentEvent());
+            Assertions.assertFalse(battleEvent.getType() == null || battleEvent.getType().isEmpty());
+            Assertions.assertFalse(battleEvent.getContents() == null
+                    && !noContentEvent.contains(battleEvent.getType()));
+            Assertions.assertNull(battleEvent.getParentEvent());
         });
         Assertions.assertTrue(battleEvents.stream()
-                .flatMap(battleEvent -> Stream.concat(Stream.of(battleEvent), battleEvent.childrenEvents().stream()))
-                .map(BattleEvent::type)
+                .flatMap(battleEvent -> Stream.concat(Stream.of(battleEvent), battleEvent.getChildrenEvents().stream()))
+                .map(BattleEvent::getType)
                 .collect(Collectors.toSet()).containsAll(
                         List.of("turn", "move", "damage", "start", "end", "sidestart", "boost")
                 ));
         Assertions.assertEquals(EXCEPT_CHILDREN_EVENT, battleEvents.stream()
-                .filter(battleEvent -> !battleEvent.childrenEvents().isEmpty())
-                .mapToLong(battleEvent -> battleEvent.childrenEvents().size())
+                .filter(battleEvent -> !battleEvent.getChildrenEvents().isEmpty())
+                .mapToLong(battleEvent -> battleEvent.getChildrenEvents().size())
                 .sum());
 
     }

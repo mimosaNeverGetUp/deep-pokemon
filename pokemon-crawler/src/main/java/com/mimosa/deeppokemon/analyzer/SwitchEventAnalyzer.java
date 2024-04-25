@@ -53,7 +53,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
                                         int pokemonHealth) {
         // set pokemon nickname
         PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.plyayerNumber() - 1);
-        playerStatus.setPokemonNickNameMap(eventTarget.nickPokemonName(), pokemonName);
+        playerStatus.setPokemonNickNameMap(eventTarget.nickName(), pokemonName);
         playerStatus.setActivePokemonName(pokemonName);
         if (playerStatus.getPokemonStatus(pokemonName) == null) {
             // first switch, init pokemon status

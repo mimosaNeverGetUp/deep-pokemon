@@ -36,7 +36,7 @@ public class MoveEventAnalyzer implements BattleEventAnalyzer {
             String move = battleEvent.getContents().get(1);
             PlayerStat playerStat = battleStat.playerStatList().get(eventTarget.plyayerNumber() - 1);
             PokemonBattleStat pokemonBattleStat = playerStat.getPokemonBattleStat(
-                    eventTarget.pokemonName());
+                    eventTarget.targetName());
             pokemonBattleStat.setMoveCount(pokemonBattleStat.getMoveCount() + 1);
             playerStat.setMoveCount(playerStat.getMoveCount() + 1);
             battleEvent.setBattleEventStat(new MoveEventStat(eventTarget, move));

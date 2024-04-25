@@ -6,8 +6,8 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
-public record EventTarget(int plyayerNumber, String pokemonName, String nickPokemonName) {
-    public EventTarget withPokemonName(String pokemonName) {
-        return new EventTarget(plyayerNumber, pokemonName, nickPokemonName);
+public record EventTarget(int plyayerNumber, String targetName, String nickName) {
+    public EventTarget withTargetName(String targetName) {
+        return new EventTarget(plyayerNumber, targetName, nickName);
     }
 }

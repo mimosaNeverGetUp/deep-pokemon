@@ -45,7 +45,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                     Integer.parseInt(battleEvent.getContents().get(HEALTH_INDEX).split(EventConstants.HEALTH_SPLIT)[0]);
             // set health status
             PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.plyayerNumber() - 1);
-            PokemonStatus pokemonStatus = playerStatus.getPokemonStatus(eventTarget.pokemonName());
+            PokemonStatus pokemonStatus = playerStatus.getPokemonStatus(eventTarget.targetName());
             int healthDiff = pokemonStatus.getHealth() - pokemonHealth;
             pokemonStatus.setHealth(pokemonHealth);
 
@@ -77,19 +77,18 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                     battleStatus);
             if (damageOfTarget != null) {
                 damageOfPokemonStat = battleStat.playerStatList().get(damageOfTarget.plyayerNumber() - 1)
-                        .getPokemonBattleStat(damageOfTarget.pokemonName());
+                        .getPokemonBattleStat(damageOfTarget.targetName());
             }
         } else if (FROM_INDEX == battleEvent.getContents().size() - 1) {
             // get stat by damage from xxx
             String damageFrom = BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX));
-            int opponentPlayerNumber = 3 - eventTarget.plyayerNumber();
-            battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1).getSideSetter(damageFrom);
+
         } else if (battleEvent.getParentEvent() != null && battleEvent.getParentEvent().getBattleEventStat()
                 instanceof MoveEventStat moveEventStat) {
             // get stat by parent move event
             EventTarget damageOfTarget = moveEventStat.eventTarget();
             damageOfPokemonStat = battleStat.playerStatList().get(damageOfTarget.plyayerNumber() - 1)
-                    .getPokemonBattleStat(damageOfTarget.pokemonName());
+                    .getPokemonBattleStat(damageOfTarget.targetName());
         } else {
             // may be is opponent player turn start pokemon
             int opponentPlayerNumber = 3 - eventTarget.plyayerNumber();

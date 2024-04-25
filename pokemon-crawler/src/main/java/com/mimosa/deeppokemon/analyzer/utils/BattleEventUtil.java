@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 public class BattleEventUtil {
     private static final Logger log = LoggerFactory.getLogger(BattleEventUtil.class);
-    private static final Pattern TARGET_PATTERN = Pattern.compile(".*p(\\d)[a-z]: (.+)");
+    private static final Pattern TARGET_PATTERN = Pattern.compile(".*p(\\d)[a-z]*: (.+)");
     private static final Pattern FROM_PATTERN = Pattern.compile(Pattern.quote("[from] ") + "(.+)");
 
     public static EventTarget getEventTarget(String eventContent) {
@@ -37,8 +37,8 @@ public class BattleEventUtil {
             return null;
         }
         String pokemonName = battleStatus.getPlayerStatusList()
-                .get(target.plyayerNumber() - 1).getPokemonName(target.nickPokemonName());
-        return target.withPokemonName(pokemonName);
+                .get(target.plyayerNumber() - 1).getPokemonName(target.nickName());
+        return target.withTargetName(pokemonName);
     }
 
     public static String getEventFrom(String eventContent) {

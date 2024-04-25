@@ -44,8 +44,8 @@ class MoveEventAnalyzerTest {
         assertInstanceOf(MoveEventStat.class, battleEvent.getBattleEventStat());
         MoveEventStat stat = (MoveEventStat) battleEvent.getBattleEventStat();
         Assertions.assertEquals(1, stat.eventTarget().plyayerNumber());
-        Assertions.assertEquals("Gliscor", stat.eventTarget().pokemonName());
-        Assertions.assertEquals("YOUCANTBREAKME", stat.eventTarget().nickPokemonName());
+        Assertions.assertEquals("Gliscor", stat.eventTarget().targetName());
+        Assertions.assertEquals("YOUCANTBREAKME", stat.eventTarget().nickName());
         Assertions.assertEquals("Protect", stat.moveName());
     }
 }

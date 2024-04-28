@@ -126,7 +126,7 @@ public class BattleReplayExtractor {
         if ("Ditto".equals(pokemonName)) {
             pokemon.setMoves(new HashSet<>(Collections.singletonList("Transform")));
         } else {
-            String regex = String.format(new String("move\\|p%da: %s\\|([^\\|]*)\\|"), playerNumber, pokemonMoveName);
+            String regex = String.format("move\\|p%da: %s\\|([^\\|]*)\\|", playerNumber, Pattern.quote(pokemonMoveName));
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(html);
             HashSet<String> moves = new HashSet<>(4);
@@ -184,7 +184,7 @@ public class BattleReplayExtractor {
             return item;
         }
 
-        String regex = String.format(new String("p%da: %s\\|.*item: (.*)"), playerNumber, pokemonMoveName);
+        String regex = String.format("p%da: %s\\|.*item: (.*)", playerNumber, Pattern.quote(pokemonMoveName));
         Pattern itemPattern = Pattern.compile(regex);
         Matcher itemMatcher = itemPattern.matcher(html);
         while (itemMatcher.find()) {
@@ -223,7 +223,7 @@ public class BattleReplayExtractor {
     }
 
     private static String extractRockyHelmetItem(String html, String pokemonMoveName, int playerNumber) {
-        String regex = String.format(new String("item: Rocky Helmet\\|\\[of\\] p%da: %s"), playerNumber, pokemonMoveName);
+        String regex = String.format("item: Rocky Helmet\\|\\[of\\] p%da: %s", playerNumber, Pattern.quote(pokemonMoveName));
         Pattern itemPattern = Pattern.compile(regex);
         Matcher itemMatcher = itemPattern.matcher(html);
         if (itemMatcher.find()) {
@@ -233,7 +233,7 @@ public class BattleReplayExtractor {
     }
 
     private static String extractZMovetItem(String html, String pokemonMoveName, int playerNumber) {
-        String regex = String.format(new String("\\-zpower\\|p%da: %s"), playerNumber, pokemonMoveName);
+        String regex = String.format("\\-zpower\\|p%da: %s", playerNumber, Pattern.quote(pokemonMoveName));
         Pattern itemPattern = Pattern.compile(regex);
         Matcher itemMatcher = itemPattern.matcher(html);
         if (itemMatcher.find()) {
@@ -243,7 +243,7 @@ public class BattleReplayExtractor {
     }
 
     private static String extractMegaItem(String html, String pokemonMoveName, int playerNumber) {
-        String regex = String.format(new String("\\-mega\\|p%da: %s\\|[^\\|]*\\|([^\\|]*)"), playerNumber, pokemonMoveName);
+        String regex = String.format(new String("\\-mega\\|p%da: %s\\|[^\\|]*\\|([^\\|]*)"), playerNumber, Pattern.quote(pokemonMoveName));
         Pattern itemPattern = Pattern.compile(regex);
         Matcher itemMatcher = itemPattern.matcher(html);
         if (itemMatcher.find()) {
@@ -253,7 +253,7 @@ public class BattleReplayExtractor {
     }
 
     private static String extractEndItem(String html, String pokemonMoveName, int playerNumber) {
-        String regex = String.format(new String("\\-enditem\\|p%da: %s\\|([^\\|]*)\\|"), playerNumber, pokemonMoveName);
+        String regex = String.format(new String("\\-enditem\\|p%da: %s\\|([^\\|]*)\\|"), playerNumber, Pattern.quote(pokemonMoveName));
         Pattern itemPattern = Pattern.compile(regex);
         Matcher itemMatcher = itemPattern.matcher(html);
         if (itemMatcher.find()) {
@@ -263,9 +263,9 @@ public class BattleReplayExtractor {
     }
 
     private static String extractTrickItem(String html, String pokemonMoveName, int playerNumber) {
-        String target = String.format("p%da: %s", playerNumber, pokemonMoveName);
-        String regexA = String.format(new String("\\-activate\\|([^\\|]*)\\|move: Trick\\|\\[of\\] %s"), target);
-        String regexB = String.format(new String("\\-activate\\|%s\\|move: Trick\\|\\[of\\] (.*)"), target);
+        String target = String.format("p%da: %s", playerNumber, Pattern.quote(pokemonMoveName));
+        String regexA = String.format("\\-activate\\|([^\\|]*)\\|move: Trick\\|\\[of\\] %s", target);
+        String regexB = String.format("\\-activate\\|%s\\|move: Trick\\|\\[of\\] (.*)", target);
 
         Pattern itemPatternA = Pattern.compile(regexA);
         Pattern itemPatternB = Pattern.compile(regexB);

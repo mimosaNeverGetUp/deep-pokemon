@@ -58,7 +58,7 @@ public class TeamPopularTagProvider implements TeamTagProvider {
             for (Pokemon pokemon : team.getPokemons()) {
                 PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon);
                 if (pokemonInfo == null) {
-                    throw new NullPointerException("pokemon info "+pokemon.getName()+" get fail");
+                    throw new RuntimeException("pokemon info "+pokemon.getName()+" get fail");
                 }
                 if (!pokemonInfo.getTier().equals("Illegal") && !pokemonInfo.getTier().equals("OU")) {
                     if (pokemonInfo.getTier().contains("UU")) {

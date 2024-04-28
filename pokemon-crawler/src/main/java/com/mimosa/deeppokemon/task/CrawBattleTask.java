@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
-import java.util.concurrent.locks.Lock;
+import java.util.stream.Collectors;
 
 public class CrawBattleTask implements Callable<List<Battle>> {
     private static final Logger log = LoggerFactory.getLogger(CrawBattleTask.class);
@@ -28,7 +28,7 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     private final BattleCrawler battleCrawler;
 
     private final BattleService battleService;
-    private final List<Lock> holdBattleLocks;
+    private final List<String> holdBattleLocks;
 
     public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler, BattleService battleService) {
         this.replayProvider = replayProvider;
@@ -46,14 +46,13 @@ public class CrawBattleTask implements Callable<List<Battle>> {
                 try {
                     battles.addAll(crawBattleFromReplay(replays));
                 } catch (Exception e) {
-                    log.error("craw battle from replay fail", e);
+                    log.error("craw battle from replay fail, battles id: {}",
+                            replays.stream().map(Replay::id).collect(Collectors.toSet()), e);
                 }
             }
             battleService.savaAll(battles);
         } finally {
-            for (Lock lock : holdBattleLocks) {
-                lock.unlock();
-            }
+            CrawLock.unlock(holdBattleLocks);
         }
         return battles;
     }
@@ -66,12 +65,12 @@ public class CrawBattleTask implements Callable<List<Battle>> {
             if (replay.id() == null) {
                 continue;
             }
-            Lock battleLock = CrawLock.getBattleLock(replay.id());
-            if (!battleLock.tryLock()) {
+
+            if (!CrawLock.tryLock(replay.id())) {
                 // another thread is craw ,skip
                 continue;
             }
-            holdBattleLocks.add(battleLock);
+            holdBattleLocks.add(replay.id());
             if (battleService.getAllBattleIds().contains(replay.id())) {
                 continue;
             }

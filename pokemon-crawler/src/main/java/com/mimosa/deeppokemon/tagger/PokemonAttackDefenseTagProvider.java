@@ -104,15 +104,15 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         pokemonInfo.setTags(highLevelTagSet);
     }
 
-    private int getLevelOfStat(PokemonInfo pokemonInfo,String pattern) throws Exception {
+    private int getLevelOfStat(PokemonInfo pokemonInfo, String pattern) {
         for (Tag tag : pokemonInfo.getTags()) {
             String name = tag.name();
             if (name.contains(pattern)) {
                 if (name.contains("BAD")) {
                     return 1;
-                }else  if (name.contains("NORMAL")) {
+                } else if (name.contains("NORMAL")) {
                     return 2;
-                }else  if (name.contains("GOOD")) {
+                } else if (name.contains("GOOD")) {
                     return 3;
                 } else if (name.contains("EXCELLENT")) {
                     return 4;
@@ -122,7 +122,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             }
         }
         //没有贴种族标签
-        throw new Exception("pokemoninfo.tag does not hava full base stat tag!");
+        throw new RuntimeException("pokemoninfo.tag does not hava full base stat tag!");
     }
 
     private float getValueOfType(PokemonInfo pokemonInfo) {
@@ -130,16 +130,16 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             String name = tag.name();
             if (name.contains(typePattern)) {
                 if (name.contains("BAD")) {
-                    if(pokemonInfo.getTags().contains(Tag.TYPE_MANYWEAK)){
+                    if (pokemonInfo.getTags().contains(Tag.TYPE_MANYWEAK)) {
                         return -0.6f;
                     } else if (pokemonInfo.getTags().contains(Tag.TYPE_NORMALWEAK)) {
                         return -0.3f;
                     } else {
                         return 0.0f;
                     }
-                }else  if (name.contains("NORMAL")) {
+                } else if (name.contains("NORMAL")) {
                     return 0.25f;
-                }else  if (name.contains("GOOD")) {
+                } else if (name.contains("GOOD")) {
                     return 0.5f;
                 } else if (name.contains("EXCELLENT")) {
                     return 0.75f;
@@ -151,7 +151,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return 0.0f;
     }
 
-    private float getValueOfAbility(PokemonInfo pokemonInfo,String aiblityPattern) {
+    private float getValueOfAbility(PokemonInfo pokemonInfo, String aiblityPattern) {
         for (Tag tag : pokemonInfo.getTags()) {
             String name = tag.name();
             if (name.contains(aiblityPattern)) {

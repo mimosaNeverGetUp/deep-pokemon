@@ -6,15 +6,30 @@
 
 package com.mimosa.deeppokemon.crawler.lock;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Semaphore;
 
 public class CrawLock {
-    private static Map<String, Lock> crawBattleLockMap =new HashMap<>();
+    private static final Map<String, Semaphore> crawBattleLockMap = new ConcurrentHashMap<>();
 
-    public static Lock getBattleLock(String id) {
-        return crawBattleLockMap.computeIfAbsent(id, k -> new ReentrantLock());
+    public static Semaphore getBattleLock(String id) {
+        return crawBattleLockMap.computeIfAbsent(id, k -> new Semaphore(1));
+    }
+
+    public static boolean tryLock(String id) {
+        return getBattleLock(id).tryAcquire();
+    }
+
+    public static void unlock(String id) {
+        getBattleLock(id).release();
+    }
+
+    public static void unlock(Collection<String> ids) {
+        for (String id : ids) {
+            getBattleLock(id).release();
+        }
     }
 }

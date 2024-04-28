@@ -55,6 +55,7 @@ import java.util.List;
 public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
 
     private static final Logger logger = LoggerFactory.getLogger(PokemonInfoCrawlerImp.class);
+    public static final String FORMES_PATTERN = "-";
     private final String dataPath = "META-INF/pokemoninfo.txt";
     private HashMap<String, PokemonInfo> infoHashMap = new HashMap<>(900);
 
@@ -80,6 +81,9 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
             name = name.replace("-*", "");
         }
         PokemonInfo info = infoHashMap.get(name);
+        if (info == null && name.contains(FORMES_PATTERN)) {
+            info = infoHashMap.get(name.substring(0, name.indexOf(FORMES_PATTERN)));
+        }
         if (info != null) {
             info.getTags().clear();//清理之前贴上的标签
         }

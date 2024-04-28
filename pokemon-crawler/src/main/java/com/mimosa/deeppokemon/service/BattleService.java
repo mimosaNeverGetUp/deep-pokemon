@@ -30,7 +30,9 @@ import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
 import com.mimosa.deeppokemon.task.CrawBattleTask;
+import com.mongodb.bulk.BulkWriteError;
 import com.mongodb.bulk.BulkWriteInsert;
+import com.mongodb.bulk.BulkWriteResult;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,6 +57,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service("crawBattleService")
 public class BattleService {
@@ -87,17 +90,22 @@ public class BattleService {
             return battles;
         }
 
-        BulkOperations bulkOperations = null;
         try {
-            bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, BATTLE);
+            BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, BATTLE);
+            BulkWriteResult result = bulkOperations.insert(battles).execute();
+            return result.getInserts().stream().map(BulkWriteInsert::getIndex).map(battles::get)
+                    .collect(Collectors.toList());
         } catch (BulkOperationException e) {
+            log.error("save battle fail",e);
             if (!isDuplicateKeyException(e)) {
                 throw e;
             }
+            Set<Integer> errorIndexs = e.getErrors().stream().map(BulkWriteError::getIndex).collect(Collectors.toSet());
+            return IntStream.range(0, battles.size())
+                    .filter(i -> !errorIndexs.contains(i))
+                    .mapToObj(battles::get)
+                    .collect(Collectors.toList());
         }
-
-        return bulkOperations.insert(battles).execute().getInserts().stream().map(BulkWriteInsert::getIndex).map(battles::get)
-                .collect(Collectors.toList());
     }
 
     private boolean isDuplicateKeyException(BulkOperationException exception) {

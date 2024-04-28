@@ -48,7 +48,7 @@ public class TeamPopularTagProvider implements TeamTagProvider {
     @Autowired
     private PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
 
-    private static Logger logger = LoggerFactory.getLogger(TeamPopularTagProvider.class);
+    private static final Logger logger = LoggerFactory.getLogger(TeamPopularTagProvider.class);
     @Override
     public void tag(Team team) {
         Set<Tag> tags = team.getTagSet();

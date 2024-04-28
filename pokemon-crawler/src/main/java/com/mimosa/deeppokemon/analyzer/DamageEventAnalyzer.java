@@ -53,7 +53,6 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             setHealthValueStat(battleEvent, battleStat, battleStatus, eventTarget, playerStatus, healthDiff);
 
             setPlayerSwitchDamageStat(battleEvent, battleStat, eventTarget, healthDiff);
-
         }
     }
 

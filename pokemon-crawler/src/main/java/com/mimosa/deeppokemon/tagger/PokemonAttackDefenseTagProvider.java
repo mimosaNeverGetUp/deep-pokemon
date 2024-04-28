@@ -27,11 +27,9 @@ package com.mimosa.deeppokemon.tagger;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
-import java.util.List;
 
 /**
  * @program: deep-pokemon

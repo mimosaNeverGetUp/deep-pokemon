@@ -8,7 +8,6 @@ package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.entity.Battle;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

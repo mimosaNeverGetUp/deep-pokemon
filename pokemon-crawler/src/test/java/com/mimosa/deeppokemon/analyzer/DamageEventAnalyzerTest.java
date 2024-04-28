@@ -6,16 +6,16 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
-import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
-import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
+import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
+import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -62,6 +62,30 @@ class DamageEventAnalyzerTest {
         Assertions.assertEquals(exceptSwitchDamage, playerStat.getSwitchDamage());
     }
 
+    @Test
+    void analyzeSideDamage() {
+        BattleEvent switchEvent = new BattleEvent("switch", null, null, null);
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Gholdengo", "94/100", "[from] Stealth Rock"), switchEvent, null);
+        int sideFromPlayerNumber = 2;
+        String skarmory = "Skarmory";
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(sideFromPlayerNumber, skarmory, skarmory)
+                .addPokemon(1, "Gholdengo", "Gholdengo")
+                .addSide(1, new Side("Stealth Rock", new EventTarget(sideFromPlayerNumber, skarmory, skarmory)))
+                .setTurnStartPokemon(1, "Gholdengo")
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, "Gholdengo")
+                .addPokemonStat(sideFromPlayerNumber, skarmory)
+                .build();
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        PokemonBattleStat skarmoryStat = battleStat.playerStatList().get(sideFromPlayerNumber - 1)
+                .getPokemonBattleStat(skarmory);
+        Assertions.assertEquals(6, skarmoryStat.getAttackValue());
+        Assertions.assertEquals(6, skarmoryStat.getHealthValue());
+    }
+
     private static Arguments buildSwitchDamageEvent() {
         BattleEvent switchEvent = new BattleEvent("switch", null, null, null);
         switchEvent.setBattleEventStat(new MoveEventStat(new EventTarget(2, "Gliscor", "Gliscor")
@@ -94,79 +118,84 @@ class DamageEventAnalyzerTest {
 
     private static Arguments buildMoveDamageEvent() {
         BattleEvent moveEvent = new BattleEvent("move", null, null, null);
-        moveEvent.setBattleEventStat(new MoveEventStat(new EventTarget(2, "Gliscor", "Gliscor")
+        int damageTargetPlayerNumber = 1;
+        int movePlayerNumber = 2;
+        String skarmory = "Skarmory";
+        String gliscor = "Gliscor";
+        moveEvent.setBattleEventStat(new MoveEventStat(new EventTarget(movePlayerNumber, gliscor, gliscor)
                 , "Knock Off"));
         BattleEvent damageEvent = new BattleEvent("damage", List.of("p1a: OLD DOG DIFFERENCE", "73/100"),
                 moveEvent, null);
-        PlayerStat p1 = new PlayerStat(1, "");
-        PlayerStatus p1Status = new PlayerStatus();
-        p1Status.setPokemonNickNameMap("OLD DOG DIFFERENCE", "Skarmory");
-        p1Status.setTurnStartPokemonName("Skarmory");
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(damageTargetPlayerNumber, skarmory)
+                .addPokemonStat(movePlayerNumber, gliscor)
+                .build();
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(1, skarmory, "OLD DOG DIFFERENCE")
+                .addPokemon(2, gliscor, gliscor)
+                .setTurnStartPokemon(1, skarmory)
+                .build();
 
-        PokemonBattleStat skarmory = new PokemonBattleStat("Skarmory");
-        p1.addPokemonBattleStat(skarmory);
-        PokemonBattleStat exceptSkarmory = new PokemonBattleStat("Skarmory");
+
+        PokemonBattleStat exceptSkarmory = new PokemonBattleStat(skarmory);
         exceptSkarmory.setHealthValue(-27);
         exceptSkarmory.setAttackValue(0);
-
-        PokemonStatus skarmoryStatus = new PokemonStatus("Skarmory");
-        PokemonStatus exceptSkarmoryStatus = new PokemonStatus("Skarmory");
+        PokemonStatus exceptSkarmoryStatus = new PokemonStatus(skarmory);
         exceptSkarmoryStatus.setHealth(73);
-        p1Status.setPokemonStatus("Skarmory", skarmoryStatus);
-
-
-        PlayerStat p2 = new PlayerStat(2, "");
-        PlayerStatus p2Status = new PlayerStatus();
-        p2Status.setPokemonNickNameMap("Gliscor", "Gliscor");
-
-        PokemonBattleStat gliscor = new PokemonBattleStat("Gliscor");
-        PokemonBattleStat exceptGliscor = new PokemonBattleStat("Gliscor");
-        p2.addPokemonBattleStat(gliscor);
+        PokemonBattleStat exceptGliscor = new PokemonBattleStat(gliscor);
         exceptGliscor.setAttackValue(27);
         exceptGliscor.setHealthValue(27);
 
-        BattleStatus battleStatus = new BattleStatus(List.of(p1Status, p2Status));
-        BattleStat battleStat = new BattleStat(List.of(p1, p2));
 
-        return Arguments.of(damageEvent, battleStat, battleStatus, skarmory, exceptSkarmory, gliscor, exceptGliscor,
-                skarmoryStatus, exceptSkarmoryStatus);
+        PokemonBattleStat skyStat = battleStat.playerStatList().get(damageTargetPlayerNumber - 1).getPokemonBattleStat(
+                skarmory);
+        PokemonBattleStat gliscorStat = battleStat.playerStatList().get(movePlayerNumber - 1).getPokemonBattleStat(
+                gliscor);
+        PokemonStatus skyStatus = battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber-1).getPokemonStatus(skarmory);
+
+        return Arguments.of(damageEvent, battleStat, battleStatus, skyStat,
+                exceptSkarmory, gliscorStat, exceptGliscor, skyStatus, exceptSkarmoryStatus);
     }
 
     private static Arguments buildHelmetDamageEvent() {
+        int damageTargetPlayerNumber = 2;
+        int helmetPlayerNumber = 1;
+        String skarmory = "Skarmory";
+        String gliscor = "Gliscor";
+
         BattleEvent moveEvent = new BattleEvent("move", null, null, null);
         moveEvent.setBattleEventStat(new MoveEventStat(new EventTarget(2, "Gliscor", "Gliscor")
                 , "Knock Off"));
         BattleEvent damageEvent = new BattleEvent("damage", List.of("p2a: Gliscor", "84/100"
                 , "[from] item: Rocky Helmet", "[of] p1a: OLD DOG DIFFERENCE"), moveEvent, null);
-        PlayerStat p1 = new PlayerStat(1, "");
-        PlayerStatus p1Status = new PlayerStatus();
-        p1Status.setPokemonNickNameMap("OLD DOG DIFFERENCE", "Skarmory");
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(helmetPlayerNumber, skarmory)
+                .addPokemonStat(damageTargetPlayerNumber, gliscor)
+                .build();
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(helmetPlayerNumber, skarmory, "OLD DOG DIFFERENCE")
+                .addPokemon(damageTargetPlayerNumber, gliscor, gliscor)
+                .setTurnStartPokemon(damageTargetPlayerNumber, gliscor)
+                .build();
 
-        PokemonBattleStat skarmory = new PokemonBattleStat("Skarmory");
-        p1.addPokemonBattleStat(skarmory);
         PokemonBattleStat exceptSkarmory = new PokemonBattleStat("Skarmory");
         exceptSkarmory.setHealthValue(16);
         exceptSkarmory.setAttackValue(16);
 
-        PlayerStat p2 = new PlayerStat(2, "");
-        PlayerStatus p2Status = new PlayerStatus();
-        p2Status.setTurnStartPokemonName("Gliscor");
-        p2Status.setPokemonNickNameMap("Gliscor", "Gliscor");
-
-        PokemonBattleStat gliscor = new PokemonBattleStat("Gliscor");
         PokemonBattleStat exceptGliscor = new PokemonBattleStat("Gliscor");
-        p2.addPokemonBattleStat(gliscor);
         exceptGliscor.setAttackValue(0);
         exceptGliscor.setHealthValue(-16);
-        PokemonStatus gliscorStatus = new PokemonStatus("Gliscor");
         PokemonStatus exceptGliscorStatus = new PokemonStatus("Gliscor");
         exceptGliscorStatus.setHealth(84);
-        p2Status.setPokemonStatus("Gliscor", gliscorStatus);
 
-        BattleStatus battleStatus = new BattleStatus(List.of(p1Status, p2Status));
-        BattleStat battleStat = new BattleStat(List.of(p1, p2));
+        PokemonBattleStat gliscorStat =
+                battleStat.playerStatList().get(damageTargetPlayerNumber - 1).getPokemonBattleStat(gliscor);
+        PokemonBattleStat skarmoryStat =
+                battleStat.playerStatList().get(helmetPlayerNumber - 1).getPokemonBattleStat(skarmory);
+        PokemonStatus gliscorStatus =
+                battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(gliscor);
 
-        return Arguments.of(damageEvent, battleStat, battleStatus, gliscor, exceptGliscor, skarmory, exceptSkarmory,
-                gliscorStatus, exceptGliscorStatus);
+        return Arguments.of(damageEvent, battleStat, battleStatus, gliscorStat, exceptGliscor, skarmoryStat,
+                exceptSkarmory, gliscorStatus, exceptGliscorStatus);
     }
 }

@@ -6,12 +6,9 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
-import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
+import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
-import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
@@ -32,6 +29,8 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final int HEALTH_INDEX = 1;
     private static final int OF_INDEX = 3;
     private static final int FROM_INDEX = 2;
+    public static final String STEALTH_ROCK = "Stealth Rock";
+    public static final String SPIKES = "Spikes";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -80,8 +79,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             }
         } else if (FROM_INDEX == battleEvent.getContents().size() - 1) {
             // get stat by damage from xxx
-            String damageFrom = BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX));
-
+            setHealthValueStatByFrom(battleEvent, battleStat, targetPlayerStatus, healthDiff);
         } else if (battleEvent.getParentEvent() != null && battleEvent.getParentEvent().getBattleEventStat()
                 instanceof MoveEventStat moveEventStat) {
             // get stat by parent move event
@@ -99,6 +97,29 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             damageOfPokemonStat.setHealthValue(damageOfPokemonStat.getHealthValue() + healthDiff);
             damageOfPokemonStat.setAttackValue(damageOfPokemonStat.getAttackValue() + healthDiff);
         }
+    }
+
+    private static void setHealthValueStatByFrom(BattleEvent battleEvent, BattleStat battleStat,
+                                                 PlayerStatus targetPlayerStatus, int healthDiff) {
+        String damageFrom = BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX));
+        if (damageFrom == null) {
+            log.warn("can not match damage from");
+            return;
+        }
+
+        if (isSideDamage(damageFrom)) {
+            for (Side side : targetPlayerStatus.getSideListByName(damageFrom)) {
+                EventTarget fromTarget = side.fromTarget();
+                PokemonBattleStat stat =
+                        battleStat.playerStatList().get(fromTarget.plyayerNumber() - 1).getPokemonBattleStat(fromTarget.targetName());
+                stat.setHealthValue(stat.getHealthValue() + healthDiff);
+                stat.setAttackValue(stat.getAttackValue() + healthDiff);
+            }
+        }
+    }
+
+    private static boolean isSideDamage(String damageFrom) {
+        return damageFrom.equals(STEALTH_ROCK) || damageFrom.equals(SPIKES);
     }
 
     @Override

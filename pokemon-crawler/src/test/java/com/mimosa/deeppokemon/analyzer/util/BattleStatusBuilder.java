@@ -39,4 +39,13 @@ public class BattleStatusBuilder {
         return this;
     }
 
+    public BattleStatusBuilder setActivePokemonName(int playerNumber, String pokemonName) {
+        playerStatuses.get(playerNumber - 1).setActivePokemonName(pokemonName);
+        return this;
+    }
+
+    public BattleStatusBuilder setHealth(int playerNumber, String pokemonName, int health) {
+        playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemonName).setHealth(health);
+        return this;
+    }
 }

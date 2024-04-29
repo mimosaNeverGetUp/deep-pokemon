@@ -7,8 +7,13 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
+import com.mimosa.deeppokemon.analyzer.entity.TurnPlayerStat;
+import com.mimosa.deeppokemon.analyzer.entity.TurnPokemonStat;
+import com.mimosa.deeppokemon.analyzer.entity.TurnStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
+import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -34,6 +39,22 @@ public class TurnEventAnalyzer implements BattleEventAnalyzer{
         battleStatus.setTurn(Integer.parseInt(battleEvent.getContents().get(0)));
         battleStatus.getPlayerStatusList().forEach(playerStatus ->
                 playerStatus.setTurnStartPokemonName(playerStatus.getActivePokemonName()));
+
+        setTurnPokemonStat(battleStat, battleStatus);
+    }
+
+    private void setTurnPokemonStat(BattleStat battleStat, BattleStatus battleStatus) {
+        TurnStat turnStat = new TurnStat(battleStatus.getTurn());
+        for (PlayerStatus playerStatus : battleStatus.getPlayerStatusList()) {
+            TurnPlayerStat turnPlayerStat = new TurnPlayerStat();
+            for (PokemonStatus pokemonStatus : playerStatus.getPokemonStatusMap().values()) {
+                TurnPokemonStat turnPokemonStat = new TurnPokemonStat(pokemonStatus.getPokemonName());
+                turnPokemonStat.setHealth(pokemonStatus.getHealth());
+                turnPlayerStat.addTurnPokemonStat(turnPokemonStat);
+            }
+            turnStat.getTurnPlayerStatList().add(turnPlayerStat);
+        }
+        battleStat.turnStats().add(turnStat);
     }
 
     @Override

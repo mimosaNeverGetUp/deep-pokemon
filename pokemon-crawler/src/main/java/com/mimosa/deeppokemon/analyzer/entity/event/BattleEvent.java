@@ -13,6 +13,7 @@ public final class BattleEvent {
     private final List<String> contents;
     private final BattleEvent parentEvent;
     private List<BattleEvent> childrenEvents;
+    private BattleEvent previousEvent;
     private Object battleEventStat;
 
     public BattleEvent(String type, List<String> contents, BattleEvent parentEvent, List<BattleEvent> childrenEvents) {
@@ -21,6 +22,14 @@ public final class BattleEvent {
         this.parentEvent = parentEvent;
         this.childrenEvents = childrenEvents;
         this.battleEventStat = null;
+    }
+
+    public BattleEvent(String type, List<String> contents, BattleEvent parentEvent, List<BattleEvent> childrenEvents, BattleEvent previousEvent) {
+        this.type = type;
+        this.contents = contents;
+        this.parentEvent = parentEvent;
+        this.childrenEvents = childrenEvents;
+        this.previousEvent = previousEvent;
     }
 
     public void setChildrenEvents(List<BattleEvent> childrenEvents) {
@@ -41,6 +50,14 @@ public final class BattleEvent {
 
     public List<BattleEvent> getChildrenEvents() {
         return childrenEvents;
+    }
+
+    public BattleEvent getPreviousEvent() {
+        return previousEvent;
+    }
+
+    public void setPreviousEvent(BattleEvent previousEvent) {
+        this.previousEvent = previousEvent;
     }
 
     public Object getBattleEventStat() {

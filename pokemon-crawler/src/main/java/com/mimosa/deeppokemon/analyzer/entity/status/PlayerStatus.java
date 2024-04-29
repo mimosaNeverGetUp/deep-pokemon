@@ -45,6 +45,10 @@ public class PlayerStatus {
         this.activePokemonName = activePokemonName;
     }
 
+    public Map<String, PokemonStatus> getPokemonStatusMap() {
+        return pokemonStatusMap;
+    }
+
     public PokemonStatus getPokemonStatus(String pokemonName) {
         return pokemonStatusMap.get(pokemonName);
     }

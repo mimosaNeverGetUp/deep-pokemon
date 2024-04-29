@@ -14,7 +14,7 @@ import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import java.util.List;
 
 public class BattleStatusBuilder {
-    private List<PlayerStatus> playerStatuses;
+    private final List<PlayerStatus> playerStatuses;
 
     public BattleStatusBuilder() {
         playerStatuses = List.of(new PlayerStatus(), new PlayerStatus());

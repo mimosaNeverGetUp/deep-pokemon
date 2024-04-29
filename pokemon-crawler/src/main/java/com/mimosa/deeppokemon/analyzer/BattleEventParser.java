@@ -62,6 +62,6 @@ public class BattleEventParser {
             eventType =eventType.replaceAll(CHILDREN_EVENT_FLAG, "");
         }
 
-        return new BattleEvent(eventType, content, parentEvent, null);
+        return new BattleEvent(eventType, content, parentEvent, null, currentParentEvent);
     }
 }

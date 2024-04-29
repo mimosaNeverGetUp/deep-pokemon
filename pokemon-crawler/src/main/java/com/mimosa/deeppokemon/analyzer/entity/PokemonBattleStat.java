@@ -10,6 +10,7 @@ public class PokemonBattleStat {
     private final String name;
     private int switchCount;
     private int moveCount;
+    private int killCount;
     private int healthValue;
     private int attackValue;
 
@@ -51,5 +52,13 @@ public class PokemonBattleStat {
 
     public void setAttackValue(int attackValue) {
         this.attackValue = attackValue;
+    }
+
+    public int getKillCount() {
+        return killCount;
+    }
+
+    public void setKillCount(int killCount) {
+        this.killCount = killCount;
     }
 }

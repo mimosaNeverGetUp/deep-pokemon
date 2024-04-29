@@ -8,6 +8,7 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
+import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
@@ -51,6 +52,11 @@ class DamageEventAnalyzerTest {
         Assertions.assertEquals(exceptOpponentTargetStat.getHealthValue(), opponentTargetStat.getHealthValue());
         Assertions.assertEquals(exceptOpponentTargetStat.getAttackValue(), opponentTargetStat.getAttackValue());
         Assertions.assertEquals(targetStatus.getHealth(), exceptTargetStatus.getHealth());
+        Assertions.assertInstanceOf(DamageEventStat.class, event.getBattleEventStat());
+        DamageEventStat damageEventStat = (DamageEventStat) event.getBattleEventStat();
+        Assertions.assertNotNull(damageEventStat.damageFrom());
+        Assertions.assertNotNull(damageEventStat.eventTarget());
+        Assertions.assertNotEquals(0, damageEventStat.healthDiff());
     }
 
 

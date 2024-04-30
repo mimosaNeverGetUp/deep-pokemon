@@ -16,7 +16,7 @@ public class PlayerStat {
     private int switchDamage;
     private int moveCount;
     private Map<String, PokemonBattleStat> pokemonBattleStats;
-    private List<BattleHighLight> highLights;
+    private final List<BattleHighLight> highLights;
 
     public PlayerStat(int playerNumber, String playerName) {
         this.playerNumber = playerNumber;

@@ -39,5 +39,8 @@ class PlayerEventAnalyzerTest {
         Assertions.assertEquals("RUBYBLOOD", playerStat.getPlayerName());
         Assertions.assertNotNull(playerStat.getPokemonBattleStats());
         Assertions.assertEquals(1, battleStatus.getPlayerStatusList().size());
+
+        playerEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        Assertions.assertEquals(1, battleStat.playerStatList().size());
     }
 }

@@ -41,8 +41,9 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
             log.error("can not match player name or number: {}", battleEvent);
             throw new IllegalArgumentException("can not match player name or number");
         }
-
-        battleStat.playerStatList().add(new PlayerStat(Integer.parseInt(playerNumberStr), playerName));
+        if (battleStat.playerStatList().stream().noneMatch(playerStat -> playerStat.getPlayerName().equals(playerName))) {
+            battleStat.playerStatList().add(new PlayerStat(Integer.parseInt(playerNumberStr), playerName));
+        }
         battleStatus.getPlayerStatusList().add(new PlayerStatus());
     }
 

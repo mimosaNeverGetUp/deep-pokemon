@@ -12,6 +12,7 @@ import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +50,34 @@ class SideStartEventAnalyzerTest {
         BattleHighLight battleHighLight = p1PlayerStat.getHighLights().get(0);
         Assertions.assertEquals(BattleHighLight.HighLightType.SIDE, battleHighLight.type());
         Assertions.assertEquals(10, battleHighLight.turn());
+    }
+
+    @Test
+    void analyzeScreenEvent() {
+        String reflect = "Reflect";
+        String serperior = "Serperior";
+        BattleEvent moveEvent = new BattleEvent("move", null, null, null);
+        moveEvent.setBattleEventStat(new MoveEventStat(new EventTarget(1, serperior,
+                serperior), reflect));
+        BattleEvent sideEvent = new BattleEvent("sidestart", List.of("p1: RUBYBLOOD", "Reflect"),
+                moveEvent, null);
+        BattleStat battleStat = new BattleStatBuilder().build();
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .setTurn(7)
+                .build();
+        sideStartEventAnalyzer.analyze(sideEvent, battleStat, battleStatus);
+
+        PlayerStatus p1Status = battleStatus.getPlayerStatusList().get(0);
+        Assertions.assertEquals(1, p1Status.getSideList().size());
+        Side side = p1Status.getSideListByName(reflect).stream().findFirst().orElseThrow();
+        Assertions.assertEquals(reflect, side.name());
+        Assertions.assertEquals(serperior, side.ofTarget().targetName());
+        Assertions.assertEquals(1, side.ofTarget().playerNumber());
+
+        PlayerStat p1PlayerStat = battleStat.playerStatList().get(0);
+        Assertions.assertEquals(1, p1PlayerStat.getHighLights().size());
+        BattleHighLight battleHighLight = p1PlayerStat.getHighLights().get(0);
+        Assertions.assertEquals(BattleHighLight.HighLightType.SIDE, battleHighLight.type());
+        Assertions.assertEquals(7, battleHighLight.turn());
     }
 }

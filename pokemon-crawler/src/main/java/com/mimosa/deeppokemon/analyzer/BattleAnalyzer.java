@@ -38,7 +38,7 @@ public class BattleAnalyzer {
         this.battleService = battleService;
     }
 
-    public void analyze(Collection<Battle> battles) {
+    public List<BattleStat> analyze(Collection<Battle> battles) {
         List<BattleStat> battleStats = new ArrayList<>();
         for (Battle battle : battles) {
             try {
@@ -53,6 +53,7 @@ public class BattleAnalyzer {
             }
         }
         battleService.savaAll(battleStats);
+        return battleStats;
     }
 
     public void analyzeEvent(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -60,9 +61,9 @@ public class BattleAnalyzer {
             if (battleEventAnalyzer.supportAnalyze(battleEvent)) {
                 battleEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
             }
-            if (battleEvent.getChildrenEvents() != null) {
-                battleEvent.getChildrenEvents().forEach(childEvent -> analyzeEvent(childEvent, battleStat, battleStatus));
-            }
         });
+        if (battleEvent.getChildrenEvents() != null) {
+            battleEvent.getChildrenEvents().forEach(childEvent -> analyzeEvent(childEvent, battleStat, battleStatus));
+        }
     }
 }

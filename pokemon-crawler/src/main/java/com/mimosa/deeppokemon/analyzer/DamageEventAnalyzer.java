@@ -20,6 +20,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Component
 public class DamageEventAnalyzer implements BattleEventAnalyzer {
@@ -32,6 +34,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final int FROM_INDEX = 2;
     public static final String STEALTH_ROCK = "Stealth Rock";
     public static final String SPIKES = "Spikes";
+    public static final Pattern FAINT_PATTERN = Pattern.compile("(\\d+) fnt");
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -42,7 +45,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleStatus);
         if (eventTarget != null) {
             int pokemonHealth =
-                    Integer.parseInt(battleEvent.getContents().get(HEALTH_INDEX).split(EventConstants.HEALTH_SPLIT)[0]);
+                    Integer.parseInt(getHealth(battleEvent));
             // set health status
             PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
             PokemonStatus pokemonStatus = playerStatus.getPokemonStatus(eventTarget.targetName());
@@ -55,6 +58,16 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             battleEvent.setBattleEventStat(damageEventStat);
 
             setPlayerSwitchDamageStat(battleEvent, battleStat, eventTarget, healthDiff);
+        }
+    }
+
+    private static String getHealth(BattleEvent battleEvent) {
+        String healthContext = battleEvent.getContents().get(HEALTH_INDEX);
+        Matcher matcher = FAINT_PATTERN.matcher(healthContext);
+        if (matcher.find()) {
+            return matcher.group(1);
+        } else {
+            return healthContext.split(EventConstants.HEALTH_SPLIT)[0];
         }
     }
 
@@ -89,6 +102,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                 instanceof MoveEventStat moveEventStat) {
             // get stat by parent move event
             damageOf = moveEventStat.eventTarget();
+            damageFrom = moveEventStat.moveName();
         } else {
             // may be is opponent player turn start pokemon
             int opponentPlayerNumber = 3 - eventTarget.playerNumber();

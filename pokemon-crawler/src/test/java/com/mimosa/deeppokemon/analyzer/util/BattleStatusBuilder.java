@@ -8,6 +8,7 @@ package com.mimosa.deeppokemon.analyzer.util;
 
 import com.mimosa.deeppokemon.analyzer.entity.Side;
 import com.mimosa.deeppokemon.analyzer.entity.Status;
+import com.mimosa.deeppokemon.analyzer.entity.Weather;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 public class BattleStatusBuilder {
     private final List<PlayerStatus> playerStatuses;
     private int turn = 0;
+    private Weather weather;
 
     public BattleStatusBuilder() {
         playerStatuses = List.of(new PlayerStatus(), new PlayerStatus());
@@ -32,6 +34,7 @@ public class BattleStatusBuilder {
     public BattleStatus build() {
         BattleStatus battleStatus = new BattleStatus(playerStatuses);
         battleStatus.setTurn(turn);
+        battleStatus.setWeather(weather);
         return battleStatus;}
 
     public BattleStatusBuilder addSide(int playerNumber, Side side) {
@@ -61,6 +64,11 @@ public class BattleStatusBuilder {
 
     public BattleStatusBuilder setStatus(int playerNumber, String pokemonName, Status status) {
         playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemonName).setStatus(status);
+        return this;
+    }
+
+    public BattleStatusBuilder setWeather(Weather weather) {
+        this.weather = weather;
         return this;
     }
 }

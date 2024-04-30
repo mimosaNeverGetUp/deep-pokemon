@@ -72,9 +72,7 @@ public final class BattleEvent {
     public String toString() {
         return "BattleEvent{" +
                 "type='" + type + '\'' +
-                ", contents='" + contents + '\'' +
-                ", parentEvent=" + parentEvent +
-                ", childrenEvents=" + childrenEvents +
+                ", contents=" + contents +
                 '}';
     }
 }

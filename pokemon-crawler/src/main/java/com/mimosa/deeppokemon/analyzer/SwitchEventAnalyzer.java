@@ -25,7 +25,8 @@ import java.util.Set;
 public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger log = LoggerFactory.getLogger(SwitchEventAnalyzer.class);
     private static final String SWITCH = "switch";
-    private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(SWITCH);
+    private static final String DRAG = "drag";
+    private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(SWITCH, DRAG);
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -39,20 +40,23 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         if (eventTarget != null) {
             int pokemonHealth = Integer.parseInt(battleEvent.getContents().get(2).split(EventConstants.HEALTH_SPLIT)[0]);
             setBattleStatus(battleStatus, eventTarget, pokemonName, pokemonHealth);
-            setBattleStat(battleStat, eventTarget, pokemonName);
+            setBattleStat(battleEvent, battleStat, eventTarget, pokemonName);
         }
     }
 
-    private static void setBattleStat(BattleStat battleStat, EventTarget eventTarget, String pokemonName) {
+    private static void setBattleStat(BattleEvent event, BattleStat battleStat, EventTarget eventTarget,
+                                      String pokemonName) {
         PlayerStat playerStat = battleStat.playerStatList().get(eventTarget.playerNumber() - 1);
-        playerStat.setSwitchCount(playerStat.getSwitchCount() + 1);
+        if (SWITCH.equals(event.getType())) {
+            playerStat.setSwitchCount(playerStat.getSwitchCount() + 1);
+        }
         PokemonBattleStat pokemonBattleStat =
                 playerStat.getPokemonBattleStat(pokemonName);
         pokemonBattleStat.setSwitchCount(pokemonBattleStat.getSwitchCount() + 1);
     }
 
-    private static void setBattleStatus(BattleStatus battleStatus, EventTarget eventTarget, String pokemonName,
-                                        int pokemonHealth) {
+    private void setBattleStatus(BattleStatus battleStatus, EventTarget eventTarget, String pokemonName,
+                                 int pokemonHealth) {
         // set pokemon nickname
         PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
         playerStatus.setPokemonNickNameMap(eventTarget.nickName(), pokemonName);

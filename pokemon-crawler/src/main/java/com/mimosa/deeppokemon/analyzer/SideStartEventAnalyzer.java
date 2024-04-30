@@ -37,7 +37,7 @@ public class SideStartEventAnalyzer implements BattleEventAnalyzer{
         }
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX));
         if (eventTarget != null) {
-            String sideName = battleEvent.getContents().get(MOVE_INDEX).split(MOVE_SPLIT)[1].strip();
+            String sideName = getSideName(battleEvent);
             EventTarget fromTarget = null;
             if (battleEvent.getParentEvent() != null && battleEvent.getParentEvent().getBattleEventStat()
                     instanceof MoveEventStat moveEventStat) {
@@ -49,6 +49,14 @@ public class SideStartEventAnalyzer implements BattleEventAnalyzer{
                     BattleHighLight.HighLightType.SIDE, String.format("side %s start", sideName));
             battleStat.playerStatList().get(eventTarget.playerNumber()-1).addHighLight(highLight);
         }
+    }
+
+    private String getSideName(BattleEvent battleEvent) {
+        String sideName = battleEvent.getContents().get(MOVE_INDEX);
+        if (sideName.contains(MOVE_SPLIT)) {
+            sideName = sideName.split(MOVE_SPLIT)[1].strip();
+        }
+        return sideName;
     }
 
     @Override

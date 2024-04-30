@@ -18,6 +18,7 @@ public class BattleEventUtil {
     private static final Logger log = LoggerFactory.getLogger(BattleEventUtil.class);
     private static final Pattern TARGET_PATTERN = Pattern.compile(".*p(\\d)[a-z]*: (.+)");
     private static final Pattern FROM_PATTERN = Pattern.compile(Pattern.quote("[from] ") + "(.+)");
+    private static final String MOVE_PATTERN = "move:";
 
     public static EventTarget getEventTarget(String eventContent) {
         Matcher matcher = TARGET_PATTERN.matcher(eventContent);
@@ -37,16 +38,20 @@ public class BattleEventUtil {
             return null;
         }
         String pokemonName = battleStatus.getPlayerStatusList()
-                .get(target.plyayerNumber() - 1).getPokemonName(target.nickName());
+                .get(target.playerNumber() - 1).getPokemonName(target.nickName());
         return target.withTargetName(pokemonName);
     }
 
     public static String getEventFrom(String eventContent) {
+        String from = null;
         Matcher matcher = FROM_PATTERN.matcher(eventContent);
         if (matcher.find()) {
-            return matcher.group(1);
+             from = matcher.group(1);
         }
-        log.warn("can't find event target");
-        return null;
+        if (from.contains(MOVE_PATTERN)) {
+            from = from.replace(MOVE_PATTERN, "").strip();
+        }
+
+        return from;
     }
 }

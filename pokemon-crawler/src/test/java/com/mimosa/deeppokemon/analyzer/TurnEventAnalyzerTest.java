@@ -62,5 +62,7 @@ class TurnEventAnalyzerTest {
         Assertions.assertEquals(50, turnStat.getTurnPlayerStatList().get(0).getTurnPokemonStat(PIKACHU).getHealth());
         Assertions.assertEquals(25,
                 turnStat.getTurnPlayerStatList().get(1).getTurnPokemonStat(IRON_VALIANT).getHealth());
+        Assertions.assertEquals(150, turnStat.getTurnPlayerStatList().get(0).getTotalHealth());
+        Assertions.assertEquals(125, turnStat.getTurnPlayerStatList().get(1).getTotalHealth());
     }
 }

@@ -49,5 +49,4 @@ public class PokemonPortalApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(PokemonPortalApplication.class, args);
     }
-
 }

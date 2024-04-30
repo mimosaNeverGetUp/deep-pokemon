@@ -43,7 +43,7 @@ class MoveEventAnalyzerTest {
         Assertions.assertEquals(1, p1.getMoveCount());
         assertInstanceOf(MoveEventStat.class, battleEvent.getBattleEventStat());
         MoveEventStat stat = (MoveEventStat) battleEvent.getBattleEventStat();
-        Assertions.assertEquals(1, stat.eventTarget().plyayerNumber());
+        Assertions.assertEquals(1, stat.eventTarget().playerNumber());
         Assertions.assertEquals("Gliscor", stat.eventTarget().targetName());
         Assertions.assertEquals("YOUCANTBREAKME", stat.eventTarget().nickName());
         Assertions.assertEquals("Protect", stat.moveName());

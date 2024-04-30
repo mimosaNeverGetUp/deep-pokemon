@@ -6,6 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
+import com.mimosa.deeppokemon.analyzer.entity.BattleHighLight;
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Side;
@@ -42,8 +43,11 @@ public class SideStartEventAnalyzer implements BattleEventAnalyzer{
                     instanceof MoveEventStat moveEventStat) {
                 fromTarget = moveEventStat.eventTarget();
             }
-            battleStatus.getPlayerStatusList().get(eventTarget.plyayerNumber() - 1)
+            battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1)
                     .addSide(new Side(sideName, fromTarget));
+            BattleHighLight highLight = new BattleHighLight(battleStatus.getTurn(),
+                    BattleHighLight.HighLightType.SIDE, String.format("side %s start", sideName));
+            battleStat.playerStatList().get(eventTarget.playerNumber()-1).addHighLight(highLight);
         }
     }
 

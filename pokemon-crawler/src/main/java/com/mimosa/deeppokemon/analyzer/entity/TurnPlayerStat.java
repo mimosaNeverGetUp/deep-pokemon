@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TurnPlayerStat {
+    private int totalHealth;
     private final Map<String, TurnPokemonStat> turnPokemonStatMap;
 
     public TurnPlayerStat() {
@@ -26,5 +27,13 @@ public class TurnPlayerStat {
 
     public Map<String, TurnPokemonStat> getTurnPokemonStatMap() {
         return turnPokemonStatMap;
+    }
+
+    public int getTotalHealth() {
+        return totalHealth;
+    }
+
+    public void setTotalHealth(int totalHealth) {
+        this.totalHealth = totalHealth;
     }
 }

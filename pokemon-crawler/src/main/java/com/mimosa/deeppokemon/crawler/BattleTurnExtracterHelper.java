@@ -26,9 +26,6 @@ package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @program: deep-pokemon
  * @description: 爬取帮助类, 主流程与get等set辅助流程、辅助变量分离
@@ -36,7 +33,6 @@ import java.util.Map;
  * @create: 2021//06//16
  */
 public class BattleTurnExtracterHelper {
-    private static final String format_damgeFromkey = "%d_%s_%s";
     private static final String SPLIT_CHAR = "_";
     int turnIndex;
     Battle battle;
@@ -45,7 +41,6 @@ public class BattleTurnExtracterHelper {
      * 双方对局每回合实时状态记录
      */
     BattleTeamTurnStautsRecoder[] battleTeamTurnStautsRecoders = new BattleTeamTurnStautsRecoder[2];
-
 
     public BattleTurnExtracterHelper(Battle battle) {
         turnIndex = 0;

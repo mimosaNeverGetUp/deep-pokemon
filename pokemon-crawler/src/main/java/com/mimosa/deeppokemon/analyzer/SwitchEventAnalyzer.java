@@ -15,11 +15,13 @@ import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
 @Component
+@Order(2)
 public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger log = LoggerFactory.getLogger(SwitchEventAnalyzer.class);
     private static final String SWITCH = "switch";
@@ -42,7 +44,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     }
 
     private static void setBattleStat(BattleStat battleStat, EventTarget eventTarget, String pokemonName) {
-        PlayerStat playerStat = battleStat.playerStatList().get(eventTarget.plyayerNumber() - 1);
+        PlayerStat playerStat = battleStat.playerStatList().get(eventTarget.playerNumber() - 1);
         playerStat.setSwitchCount(playerStat.getSwitchCount() + 1);
         PokemonBattleStat pokemonBattleStat =
                 playerStat.getPokemonBattleStat(pokemonName);
@@ -52,7 +54,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     private static void setBattleStatus(BattleStatus battleStatus, EventTarget eventTarget, String pokemonName,
                                         int pokemonHealth) {
         // set pokemon nickname
-        PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.plyayerNumber() - 1);
+        PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
         playerStatus.setPokemonNickNameMap(eventTarget.nickName(), pokemonName);
         playerStatus.setActivePokemonName(pokemonName);
         if (playerStatus.getPokemonStatus(pokemonName) == null) {

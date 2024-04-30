@@ -6,9 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
-import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
+import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
@@ -37,10 +35,16 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer{
         if (eventTarget != null) {
             if (battleEvent.getPreviousEvent() != null && battleEvent.getPreviousEvent().getBattleEventStat()
                     instanceof DamageEventStat damageEventStat) {
-                EventTarget damageFrom = damageEventStat.damageFrom();
+                EventTarget damageOf = damageEventStat.damageOf();
+                PlayerStat killPlayerStat = battleStat.playerStatList().get(damageOf.playerNumber() - 1);
                 PokemonBattleStat pokemonBattleStat =
-                        battleStat.playerStatList().get(damageFrom.plyayerNumber() - 1).getPokemonBattleStat(damageFrom.targetName());
-               pokemonBattleStat.setKillCount(pokemonBattleStat.getKillCount() + 1);
+                        killPlayerStat.getPokemonBattleStat(damageOf.targetName());
+                pokemonBattleStat.setKillCount(pokemonBattleStat.getKillCount() + 1);
+
+                BattleHighLight battleHighLight = new BattleHighLight(battleStatus.getTurn(),
+                        BattleHighLight.HighLightType.KILL, String.format("%s kill opponent %s by %s",
+                        damageOf.targetName(), eventTarget.targetName(), damageEventStat.damageFrom()));
+                killPlayerStat.addHighLight(battleHighLight);
             }
         }
     }

@@ -6,9 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
-import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
+import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
@@ -35,12 +33,13 @@ class FaintEventAnalyzerTest {
 
         BattleEvent damageEvent = new BattleEvent("damage", null, null, null);
         EventTarget damageTarget = new EventTarget(1, ogerpon, ogerpon);
-        EventTarget damageFrom = new EventTarget(killPlyayerNumber, gliscor, gliscor);
-        damageEvent.setBattleEventStat(new DamageEventStat(damageTarget, damageFrom, 27));
+        EventTarget damageOf = new EventTarget(killPlyayerNumber, gliscor, gliscor);
+        damageEvent.setBattleEventStat(new DamageEventStat(damageTarget, damageOf, "Knock off", 27));
         BattleEvent faintEvent = new BattleEvent("faint", List.of("p1a: Ogerpon"), null, null, damageEvent);
         BattleStatus battleStatus = new BattleStatusBuilder()
                 .addPokemon(killPlyayerNumber, gliscor, gliscor)
                 .addPokemon(1, ogerpon, ogerpon)
+                .setTurn(5)
                 .build();
 
         BattleStat battleStat = new BattleStatBuilder()
@@ -49,8 +48,14 @@ class FaintEventAnalyzerTest {
                 .build();
         Assertions.assertTrue(faintEventAnalyzer.supportAnalyze(faintEvent));
         faintEventAnalyzer.analyze(faintEvent, battleStat, battleStatus);
+        PlayerStat killPlayerStat = battleStat.playerStatList().get(killPlyayerNumber - 1);
         PokemonBattleStat killPokemonBattleStat =
-                battleStat.playerStatList().get(killPlyayerNumber - 1).getPokemonBattleStat(gliscor);
+                killPlayerStat.getPokemonBattleStat(gliscor);
         Assertions.assertEquals(1, killPokemonBattleStat.getKillCount());
+        Assertions.assertEquals(1, killPlayerStat.getHighLights().size());
+        BattleHighLight battleHighLight = killPlayerStat.getHighLights().get(0);
+        Assertions.assertEquals(BattleHighLight.HighLightType.KILL, battleHighLight.type());
+        Assertions.assertEquals(5, battleHighLight.turn());
+        Assertions.assertNotNull(battleHighLight.description());
     }
 }

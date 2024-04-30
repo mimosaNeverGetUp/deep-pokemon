@@ -8,5 +8,5 @@ package com.mimosa.deeppokemon.analyzer.entity.event;
 
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 
-public record DamageEventStat(EventTarget eventTarget, EventTarget damageFrom, int healthDiff) {
+public record DamageEventStat(EventTarget eventTarget, EventTarget damageOf, String damageFrom, int healthDiff) {
 }

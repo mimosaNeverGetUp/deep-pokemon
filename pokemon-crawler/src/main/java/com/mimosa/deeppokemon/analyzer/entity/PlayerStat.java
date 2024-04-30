@@ -6,9 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class PlayerStat {
     private int playerNumber;
@@ -18,18 +16,16 @@ public class PlayerStat {
     private int switchDamage;
     private int moveCount;
     private Map<String, PokemonBattleStat> pokemonBattleStats;
-
-    public PlayerStat() {
-        this.pokemonBattleStats = new HashMap<>();
-        this.switchCount = 0;
-        this.switchDamage = 0;
-        this.moveCount = 0;
-    }
+    private List<BattleHighLight> highLights;
 
     public PlayerStat(int playerNumber, String playerName) {
         this.playerNumber = playerNumber;
         this.playerName = playerName;
+        this.switchCount = 0;
+        this.switchDamage = 0;
+        this.moveCount = 0;
         this.pokemonBattleStats = new HashMap<>();
+        this.highLights = new ArrayList<>();
     }
 
     public int getPlayerNumber() {
@@ -86,5 +82,13 @@ public class PlayerStat {
 
     public void setSwitchDamage(int switchDamage) {
         this.switchDamage = switchDamage;
+    }
+
+    public List<BattleHighLight> getHighLights() {
+        return highLights;
+    }
+
+    public void addHighLight(BattleHighLight highLight) {
+        highLights.add(highLight);
     }
 }

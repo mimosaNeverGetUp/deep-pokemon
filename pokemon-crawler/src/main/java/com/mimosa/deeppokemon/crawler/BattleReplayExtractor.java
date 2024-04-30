@@ -443,22 +443,6 @@ public class BattleReplayExtractor {
         return highlightLists;
     }
 
-    private List<TeamBattleAnalysis> extractTeamBattleAnalysis(Team[] teams) {
-//        //初始化
-//        List<PokemonBattleAnalysis> firstPokemonBattleAnalysisList;
-//        List<PokemonBattleAnalysis> secondBattleAnalysisList;
-//        List<Map<String, PokemonBattleAnalysis>> mapList = new ArrayList<>(2);
-//        for (Team team : teams) {
-//            Map<String, PokemonBattleAnalysis> analysisMap = new HashMap<>(6);
-//            for (Pokemon pokemon : team.getPokemons()) {
-//                PokemonBattleAnalysis pokemonBattleAnalysis = new PokemonBattleAnalysis();
-//                pokemonBattleAnalysis.setPokemonName(pokemon.getName());
-//                analysisMap.put(pokemon.getName(), pokemonBattleAnalysis);
-//            }
-//            mapList.add(analysisMap);
-//        }
-        return null;
-    }
 
     public static Battle extract1(String html) throws Exception {
         Battle battle = new Battle();

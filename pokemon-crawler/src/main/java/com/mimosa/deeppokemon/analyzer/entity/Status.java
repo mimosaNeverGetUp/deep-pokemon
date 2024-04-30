@@ -6,6 +6,6 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
-public record Side(String name, EventTarget ofTarget) {
+public record Status(String name, EventTarget ofTarget) {
 
 }

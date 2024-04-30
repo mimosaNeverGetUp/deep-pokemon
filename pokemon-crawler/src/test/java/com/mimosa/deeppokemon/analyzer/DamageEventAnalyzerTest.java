@@ -54,8 +54,11 @@ class DamageEventAnalyzerTest {
         Assertions.assertEquals(targetStatus.getHealth(), exceptTargetStatus.getHealth());
         Assertions.assertInstanceOf(DamageEventStat.class, event.getBattleEventStat());
         DamageEventStat damageEventStat = (DamageEventStat) event.getBattleEventStat();
-        Assertions.assertNotNull(damageEventStat.damageFrom());
+        Assertions.assertNotNull(damageEventStat.damageOf());
         Assertions.assertNotNull(damageEventStat.eventTarget());
+        if (event.getParentEvent() == null || !"move".equals(event.getParentEvent().getType())) {
+            Assertions.assertNotNull(damageEventStat.damageFrom());
+        }
         Assertions.assertNotEquals(0, damageEventStat.healthDiff());
     }
 

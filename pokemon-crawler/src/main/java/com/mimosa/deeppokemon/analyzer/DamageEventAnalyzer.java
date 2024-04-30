@@ -73,7 +73,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
 
         EventTarget damageOf = null;
         String damageFrom = null;
-        PokemonBattleStat damageOfPokemonStat = null;
+        PokemonBattleStat damageOfPokemonStat;
         if (FROM_INDEX <= battleEvent.getContents().size() - 1) {
             damageFrom = BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX));
         }

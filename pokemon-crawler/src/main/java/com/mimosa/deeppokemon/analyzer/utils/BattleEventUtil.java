@@ -46,9 +46,9 @@ public class BattleEventUtil {
         String from = null;
         Matcher matcher = FROM_PATTERN.matcher(eventContent);
         if (matcher.find()) {
-             from = matcher.group(1);
+            from = matcher.group(1);
         }
-        if (from.contains(MOVE_PATTERN)) {
+        if (from != null && from.contains(MOVE_PATTERN)) {
             from = from.replace(MOVE_PATTERN, "").strip();
         }
 

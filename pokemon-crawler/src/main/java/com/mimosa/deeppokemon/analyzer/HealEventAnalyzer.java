@@ -57,7 +57,7 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
 
     private void setHealthStat(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus, String healthFrom, EventTarget eventTarget, int healthDiff) {
         // set health value
-        EventTarget healthOfTarget = null;
+        EventTarget healthOfTarget;
         if (battleEvent.getParentEvent() != null &&
                 battleEvent.getParentEvent().getBattleEventStat() instanceof MoveEventStat moveEventStat) {
             healthOfTarget = moveEventStat.eventTarget();

@@ -20,8 +20,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Component
 public class DamageEventAnalyzer implements BattleEventAnalyzer {
@@ -34,7 +32,6 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final int FROM_INDEX = 2;
     public static final String STEALTH_ROCK = "Stealth Rock";
     public static final String SPIKES = "Spikes";
-    public static final Pattern FAINT_PATTERN = Pattern.compile("(\\d+) fnt");
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -44,8 +41,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         }
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleStatus);
         if (eventTarget != null) {
-            int pokemonHealth =
-                    Integer.parseInt(getHealth(battleEvent));
+            int pokemonHealth = BattleEventUtil.getHealth(battleEvent.getContents().get(HEALTH_INDEX));
             // set health status
             PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
             PokemonStatus pokemonStatus = playerStatus.getPokemonStatus(eventTarget.targetName());
@@ -58,16 +54,6 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             battleEvent.setBattleEventStat(damageEventStat);
 
             setPlayerSwitchDamageStat(battleEvent, battleStat, eventTarget, healthDiff);
-        }
-    }
-
-    private static String getHealth(BattleEvent battleEvent) {
-        String healthContext = battleEvent.getContents().get(HEALTH_INDEX);
-        Matcher matcher = FAINT_PATTERN.matcher(healthContext);
-        if (matcher.find()) {
-            return matcher.group(1);
-        } else {
-            return healthContext.split(EventConstants.HEALTH_SPLIT)[0];
         }
     }
 
@@ -125,16 +111,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             return;
         }
 
-        EventTarget ofTarget = null;
-        if (isSideDamage(damageFrom)) {
-            for (Side side : targetPlayerStatus.getSideListByName(damageFrom)) {
-                ofTarget = side.ofTarget();
-            }
-        } else if (isWeatherDamage(damageFrom, battleStatus.getWeather())) {
-            ofTarget = battleStatus.getWeather().ofTarget();
-        } else if (isStatusDamage(damageFrom, eventTarget, battleStatus)) {
-            ofTarget = targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getStatus().ofTarget();
-        }
+        EventTarget ofTarget = getOfTarget(eventTarget, damageFrom, battleStatus, targetPlayerStatus);
 
         if (ofTarget != null) {
             PokemonBattleStat stat =
@@ -146,6 +123,20 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                 stat.setHealthValue(stat.getHealthValue() - healthDiff);
             }
         }
+    }
+
+    private EventTarget getOfTarget(EventTarget eventTarget, String damageFrom, BattleStatus battleStatus, PlayerStatus targetPlayerStatus) {
+        EventTarget ofTarget = null;
+        if (isSideDamage(damageFrom)) {
+            for (Side side : targetPlayerStatus.getSideListByName(damageFrom)) {
+                ofTarget = side.ofTarget();
+            }
+        } else if (isWeatherDamage(damageFrom, battleStatus.getWeather())) {
+            ofTarget = battleStatus.getWeather().ofTarget();
+        } else if (isStatusDamage(damageFrom, eventTarget, battleStatus)) {
+            ofTarget = targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getStatus().ofTarget();
+        }
+        return ofTarget;
     }
 
     private boolean isStatusDamage(String damageFrom, EventTarget eventTarget, BattleStatus battleStatus) {

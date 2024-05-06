@@ -6,7 +6,10 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.*;
+import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
+import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
+import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
+import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
@@ -39,13 +42,13 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(0));
         if (eventTarget != null) {
             int pokemonHealth = Integer.parseInt(battleEvent.getContents().get(2).split(EventConstants.HEALTH_SPLIT)[0]);
-            setBattleStatus(battleStatus, eventTarget, pokemonName, pokemonHealth);
-            setBattleStat(battleEvent, battleStat, eventTarget, pokemonName);
+            int healthDiff = setBattleHealthStatus(battleStatus, eventTarget, pokemonName, pokemonHealth);
+            setBattleStat(battleEvent, battleStat, battleStatus, eventTarget, pokemonName, healthDiff);
         }
     }
 
-    private static void setBattleStat(BattleEvent event, BattleStat battleStat, EventTarget eventTarget,
-                                      String pokemonName) {
+    private static void setBattleStat(BattleEvent event, BattleStat battleStat, BattleStatus battleStatus,
+                                      EventTarget eventTarget, String pokemonName, int healthDiff) {
         PlayerStat playerStat = battleStat.playerStatList().get(eventTarget.playerNumber() - 1);
         if (SWITCH.equals(event.getType())) {
             playerStat.setSwitchCount(playerStat.getSwitchCount() + 1);
@@ -53,10 +56,26 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         PokemonBattleStat pokemonBattleStat =
                 playerStat.getPokemonBattleStat(pokemonName);
         pokemonBattleStat.setSwitchCount(pokemonBattleStat.getSwitchCount() + 1);
+        // pokemon maybe is Regenerator ability, set health value
+        if (healthDiff != 0) {
+            pokemonBattleStat.setHealthValue(pokemonBattleStat.getHealthValue() + healthDiff);
+
+            // pokemon which stand with switch pokemon in opponent also should set health value
+            int opponentPlayerNumber = 3 - eventTarget.playerNumber();
+            PokemonStatus healthPokemonStatus = BattleEventUtil.getPokemonStatus(battleStatus,
+                    eventTarget.playerNumber(), pokemonName);
+            PlayerStatus opponentPlayerStatus = battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
+            String opponentLastStandPokemon = opponentPlayerStatus.getTurnStartPokemonName(
+                    healthPokemonStatus.getLastMoveTurn());
+            PokemonBattleStat opponentPokemonBattleStat =
+                    BattleEventUtil.getPokemonStat(battleStat, opponentPlayerNumber, opponentLastStandPokemon);
+            opponentPokemonBattleStat.setHealthValue(opponentPokemonBattleStat.getHealthValue() - healthDiff);
+            opponentPokemonBattleStat.setAttackValue(opponentPokemonBattleStat.getAttackValue() - healthDiff);
+        }
     }
 
-    private void setBattleStatus(BattleStatus battleStatus, EventTarget eventTarget, String pokemonName,
-                                 int pokemonHealth) {
+    private int setBattleHealthStatus(BattleStatus battleStatus, EventTarget eventTarget, String pokemonName,
+                                      int pokemonHealth) {
         // set pokemon nickname
         PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
         playerStatus.setPokemonNickNameMap(eventTarget.nickName(), pokemonName);
@@ -66,7 +85,9 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
             playerStatus.setPokemonStatus(pokemonName, new PokemonStatus(pokemonName));
         }
         // set pokemon health
+        int healthBefore = playerStatus.getPokemonStatus(pokemonName).getHealth();
         playerStatus.getPokemonStatus(pokemonName).setHealth(pokemonHealth);
+        return pokemonHealth - healthBefore;
     }
 
     @Override

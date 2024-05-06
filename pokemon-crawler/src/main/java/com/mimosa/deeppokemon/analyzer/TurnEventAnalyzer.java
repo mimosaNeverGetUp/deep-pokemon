@@ -23,7 +23,7 @@ import java.util.Set;
 
 @Component
 @Order(1)
-public class TurnEventAnalyzer implements BattleEventAnalyzer{
+public class TurnEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger logger = LoggerFactory.getLogger(TurnEventAnalyzer.class);
     private static final String TURN = "turn";
     private static final String START = "start";
@@ -39,8 +39,11 @@ public class TurnEventAnalyzer implements BattleEventAnalyzer{
             logger.warn("can not match battle turn by content {}", battleEvent);
         }
         battleStatus.setTurn(Integer.parseInt(battleEvent.getContents().get(0)));
-        battleStatus.getPlayerStatusList().forEach(playerStatus ->
-                playerStatus.setTurnStartPokemonName(playerStatus.getActivePokemonName()));
+        battleStatus.getPlayerStatusList().forEach(playerStatus -> {
+            playerStatus.setTurnStartPokemonName(battleStatus.getTurn(), playerStatus.getActivePokemonName());
+                    playerStatus.getPokemonStatus(playerStatus.getActivePokemonName())
+                            .setLastMoveTurn(battleStatus.getTurn());
+                });
 
         setTurnStat(battleStat, battleStatus);
     }

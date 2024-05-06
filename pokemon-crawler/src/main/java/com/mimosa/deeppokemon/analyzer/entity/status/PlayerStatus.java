@@ -18,6 +18,7 @@ public class PlayerStatus {
     private final Map<String, String> pokemonNickNameMap;
     private final Map<String, PokemonStatus> pokemonStatusMap;
     private final List<Side> sideList;
+    private final Map<Integer,String> turnStartPokemonNames;
     private String turnStartPokemonName;
     private String activePokemonName;
 
@@ -27,6 +28,7 @@ public class PlayerStatus {
         this.sideList = new ArrayList<>();
         this.activePokemonName = null;
         this.turnStartPokemonName = null;
+        this.turnStartPokemonNames = new HashMap<>();
     }
 
     public String getPokemonName(String nickName) {
@@ -54,15 +56,21 @@ public class PlayerStatus {
     }
 
     public void setPokemonStatus(String pokemonName, PokemonStatus pokemonStatus) {
-        pokemonStatusMap.put(pokemonName,pokemonStatus);
+        pokemonStatusMap.put(pokemonName, pokemonStatus);
     }
 
     public String getTurnStartPokemonName() {
         return turnStartPokemonName;
     }
 
-    public void setTurnStartPokemonName(String turnStartPokemonName) {
+
+    public String getTurnStartPokemonName(int turn) {
+        return turnStartPokemonNames.get(turn);
+    }
+
+    public void setTurnStartPokemonName(int turn, String turnStartPokemonName) {
         this.turnStartPokemonName = turnStartPokemonName;
+        turnStartPokemonNames.put(turn, turnStartPokemonName);
     }
 
     public void addSide(Side side) {

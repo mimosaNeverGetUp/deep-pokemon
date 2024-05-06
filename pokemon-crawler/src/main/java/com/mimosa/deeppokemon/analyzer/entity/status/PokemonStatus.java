@@ -12,11 +12,13 @@ public class PokemonStatus {
     private String pokemonName;
     private int health;
     private Status status;
+    private int lastMoveTurn;
 
     public PokemonStatus(String pokemonName) {
         this.pokemonName = pokemonName;
-        this.status = null;
         this.health = 100;
+        this.lastMoveTurn = 0;
+        this.status = null;
     }
 
     public String getPokemonName() {
@@ -41,5 +43,13 @@ public class PokemonStatus {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public int getLastMoveTurn() {
+        return lastMoveTurn;
+    }
+
+    public void setLastMoveTurn(int lastMoveTurn) {
+        this.lastMoveTurn = lastMoveTurn;
     }
 }

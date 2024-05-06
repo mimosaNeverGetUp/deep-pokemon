@@ -10,5 +10,5 @@ public class EventConstants {
     public static final String HEALTH_SPLIT = "/";
     public static final String NAME_SPLIT = ",";
     public static final String SWITCH_TYPE = "switch";
-
+    public static final String MOVE_SPLIT = ":";
 }

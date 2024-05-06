@@ -6,6 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer.util;
 
+import com.mimosa.deeppokemon.analyzer.entity.Field;
 import com.mimosa.deeppokemon.analyzer.entity.Side;
 import com.mimosa.deeppokemon.analyzer.entity.Status;
 import com.mimosa.deeppokemon.analyzer.entity.Weather;
@@ -19,6 +20,7 @@ public class BattleStatusBuilder {
     private final List<PlayerStatus> playerStatuses;
     private int turn = 0;
     private Weather weather;
+    private Field field;
 
     public BattleStatusBuilder() {
         playerStatuses = List.of(new PlayerStatus(), new PlayerStatus());
@@ -35,6 +37,7 @@ public class BattleStatusBuilder {
         BattleStatus battleStatus = new BattleStatus(playerStatuses);
         battleStatus.setTurn(turn);
         battleStatus.setWeather(weather);
+        battleStatus.setField(field);
         return battleStatus;}
 
     public BattleStatusBuilder addSide(int playerNumber, Side side) {
@@ -43,7 +46,13 @@ public class BattleStatusBuilder {
     }
 
     public BattleStatusBuilder setTurnStartPokemon(int playerNumber, String pokemonName) {
-        playerStatuses.get(playerNumber - 1).setTurnStartPokemonName(pokemonName);
+        setTurnStartPokemon(1, playerNumber, pokemonName);
+        return this;
+    }
+
+
+    public BattleStatusBuilder setTurnStartPokemon(int turn, int playerNumber, String pokemonName) {
+        playerStatuses.get(playerNumber - 1).setTurnStartPokemonName(turn, pokemonName);
         return this;
     }
 
@@ -69,6 +78,16 @@ public class BattleStatusBuilder {
 
     public BattleStatusBuilder setWeather(Weather weather) {
         this.weather = weather;
+        return this;
+    }
+
+    public BattleStatusBuilder setFiled(Field field) {
+        this.field = field;
+        return this;
+    }
+
+    public BattleStatusBuilder setLastMoveTurn(int playerNumber, String pokemon, int lastMoveTurn) {
+        playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemon).setLastMoveTurn(lastMoveTurn);
         return this;
     }
 }

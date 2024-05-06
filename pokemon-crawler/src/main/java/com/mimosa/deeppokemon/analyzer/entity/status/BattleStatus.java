@@ -6,6 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer.entity.status;
 
+import com.mimosa.deeppokemon.analyzer.entity.Field;
 import com.mimosa.deeppokemon.analyzer.entity.Weather;
 
 import java.util.List;
@@ -14,11 +15,13 @@ public class BattleStatus {
     private List<PlayerStatus> playerStatusList;
     private int turn;
     private Weather weather;
+    private Field field;
 
     public BattleStatus(List<PlayerStatus> playerStatusList) {
         this.playerStatusList = playerStatusList;
         this.turn = 0;
         this.weather = null;
+        this.field = null;
     }
 
     public List<PlayerStatus> getPlayerStatusList() {
@@ -43,5 +46,13 @@ public class BattleStatus {
 
     public void setWeather(Weather weather) {
         this.weather = weather;
+    }
+
+    public Field getField() {
+        return field;
+    }
+
+    public void setField(Field field) {
+        this.field = field;
     }
 }

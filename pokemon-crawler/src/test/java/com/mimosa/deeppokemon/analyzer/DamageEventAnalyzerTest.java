@@ -32,6 +32,7 @@ class DamageEventAnalyzerTest {
     public static final String ZAPDOS = "Zapdos";
     public static final String RAGING_BOLT = "Raging Bolt";
     public static final String SKELEDIRGE = "Skeledirge";
+
     @Autowired
     private DamageEventAnalyzer damageEventAnalyzer;
 
@@ -163,7 +164,7 @@ class DamageEventAnalyzerTest {
         PlayerStat p1 = new PlayerStat(1, "");
         PlayerStatus p1Status = new PlayerStatus();
         p1Status.setPokemonNickNameMap("OLD DOG DIFFERENCE", "Skarmory");
-        p1Status.setTurnStartPokemonName("Skarmory");
+        p1Status.setTurnStartPokemonName(1, "Skarmory");
 
         PokemonBattleStat skarmory = new PokemonBattleStat("Skarmory");
         p1.addPokemonBattleStat(skarmory);

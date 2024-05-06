@@ -14,6 +14,7 @@ import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
+import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -25,9 +26,8 @@ public class SideStartEventAnalyzer implements BattleEventAnalyzer{
     private static final Logger log = LoggerFactory.getLogger(SideStartEventAnalyzer.class);
     private static final String SIDESTART = "sidestart";
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(SIDESTART);
-    public static final int TARGET_INDEX = 0;
-    public static final int MOVE_INDEX = 1;
-    public static final String MOVE_SPLIT = ":";
+    private static final int TARGET_INDEX = 0;
+    private static final int MOVE_INDEX = 1;
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -53,8 +53,8 @@ public class SideStartEventAnalyzer implements BattleEventAnalyzer{
 
     private String getSideName(BattleEvent battleEvent) {
         String sideName = battleEvent.getContents().get(MOVE_INDEX);
-        if (sideName.contains(MOVE_SPLIT)) {
-            sideName = sideName.split(MOVE_SPLIT)[1].strip();
+        if (sideName.contains(EventConstants.MOVE_SPLIT)) {
+            sideName = sideName.split(EventConstants.MOVE_SPLIT)[1].strip();
         }
         return sideName;
     }

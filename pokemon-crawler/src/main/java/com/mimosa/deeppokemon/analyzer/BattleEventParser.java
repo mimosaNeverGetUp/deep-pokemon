@@ -25,11 +25,9 @@ public class BattleEventParser {
         }
         List<BattleEvent> battleEvents = new ArrayList<>();
         AtomicReference<BattleEvent> currentParentEvent = new AtomicReference<>();
-        AtomicReference<BattleEvent> previousEvent = new AtomicReference<>();
 
         battleLog.lines().forEach(eventStr -> {
-            BattleEvent battleEvent = parseBattleEvent(eventStr, currentParentEvent.get(), previousEvent.get());
-            previousEvent.set(battleEvent);
+            BattleEvent battleEvent = parseBattleEvent(eventStr, currentParentEvent.get());
             if (battleEvent == null) {
                 currentParentEvent.set(null);
                 return;
@@ -47,7 +45,7 @@ public class BattleEventParser {
         return battleEvents;
     }
 
-    private BattleEvent parseBattleEvent(String eventStr, BattleEvent currentParentEvent, BattleEvent previousEvent) {
+    private BattleEvent parseBattleEvent(String eventStr, BattleEvent currentParentEvent) {
         String[] elements = eventStr.replaceFirst("\\|", "").split("\\|");
         if (elements.length == 0) {
             return null;
@@ -64,6 +62,6 @@ public class BattleEventParser {
             eventType = eventType.replaceAll(CHILDREN_EVENT_FLAG, "");
         }
 
-        return new BattleEvent(eventType, content, parentEvent, null, previousEvent);
+        return new BattleEvent(eventType, content, parentEvent, null, currentParentEvent);
     }
 }

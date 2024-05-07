@@ -9,6 +9,7 @@ package com.mimosa.deeppokemon.analyzer.utils;
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
+import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import org.slf4j.Logger;
@@ -80,8 +81,15 @@ public class BattleEventUtil {
         return getPokemonStat(battleStat, eventTarget.playerNumber(), eventTarget.targetName());
     }
 
-
     public static PokemonBattleStat getPokemonStat(BattleStat battleStat, int playerNumber, String pokemonName) {
         return battleStat.playerStatList().get(playerNumber - 1).getPokemonBattleStat(pokemonName);
+    }
+
+    public static BattleEvent getPreviousChildrenEvent(BattleEvent battleEvent) {
+        if (battleEvent.getPreviousEvent() == null || battleEvent.getPreviousEvent().getChildrenEvents() == null) {
+            return null;
+        }
+        int index = battleEvent.getParentEvent().getChildrenEvents().indexOf(battleEvent);
+        return index == 0 ? null : battleEvent.getParentEvent().getChildrenEvents().get(index - 1);
     }
 }

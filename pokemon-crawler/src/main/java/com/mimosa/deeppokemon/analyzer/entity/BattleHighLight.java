@@ -7,5 +7,5 @@
 package com.mimosa.deeppokemon.analyzer.entity;
 
 public record BattleHighLight(int turn, HighLightType type, String description) {
-    public enum HighLightType {KILL, SIDE, END_SIDE}
+    public enum HighLightType {KILL, SIDE, END_SIDE,}
 }

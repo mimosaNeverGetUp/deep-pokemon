@@ -10,6 +10,8 @@ import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
 import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -38,11 +40,13 @@ class PokemonEventAnalyzerTest {
     @MethodSource("provideBattleEvent")
     void analyze(BattleEvent battleEvent, int playerNumber, String exceptPokemonName) {
         BattleStat battleStat = new BattleStat(List.of(new PlayerStat(1, ""), new PlayerStat(2, "")));
+        BattleStatus battleStatus = new BattleStatusBuilder().build();
         Assertions.assertTrue(pokemonEventAnalyzer.supportAnalyze(battleEvent));
-        pokemonEventAnalyzer.analyze(battleEvent, battleStat, null);
+        pokemonEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
         Collection<PokemonBattleStat> pokemonBattleStats =
                 battleStat.playerStatList().get(playerNumber - 1).getPokemonBattleStats();
         Assertions.assertEquals(1, pokemonBattleStats.size());
         Assertions.assertTrue(pokemonBattleStats.stream().map(PokemonBattleStat::getName).anyMatch(exceptPokemonName::equals));
+        Assertions.assertNotNull(battleStatus.getPlayerStatusList().get(playerNumber-1).getPokemonStatus(exceptPokemonName));
     }
 }

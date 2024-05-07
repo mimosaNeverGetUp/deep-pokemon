@@ -6,8 +6,12 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TurnStat {
     private int turn;
@@ -21,7 +25,8 @@ public class TurnStat {
         this(0, turnPlayerStatList);
     }
 
-    public TurnStat(int turn, List<TurnPlayerStat> turnPlayerStatList) {
+    @JsonCreator
+    public TurnStat(@JsonProperty("turn") int turn, @JsonProperty("turnPlayerStatList") List<TurnPlayerStat> turnPlayerStatList) {
         this.turn = turn;
         this.turnPlayerStatList = turnPlayerStatList;
     }
@@ -40,5 +45,18 @@ public class TurnStat {
 
     public void setTurnPlayerStatList(List<TurnPlayerStat> turnPlayerStatList) {
         this.turnPlayerStatList = turnPlayerStatList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TurnStat turnStat = (TurnStat) o;
+        return turn == turnStat.turn && Objects.equals(turnPlayerStatList, turnStat.turnPlayerStatList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(turn, turnPlayerStatList);
     }
 }

@@ -6,9 +6,11 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.entity.Battle;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,13 +30,21 @@ class BattleAnalyzerTest {
     BattleAnalyzer battleAnalyzer;
 
     @Value("classpath:battlereplay/smogtours-gen9ou-746547")
-    private Resource battereplayResource;
+    private Resource battereReplayResource;
+
+    @Value("classpath:battlereplay/stat/smogtours-gen9ou-746547.stat")
+    private Resource batterStat;
+
 
     @Test
     void analyze() throws IOException {
         Battle battle = new Battle();
-        battle.setLog(battereplayResource.getContentAsString(StandardCharsets.UTF_8));
+        battle.setLog(battereReplayResource.getContentAsString(StandardCharsets.UTF_8));
+        BattleStat exceptBattleStat =
+                new ObjectMapper().readValue(batterStat.getContentAsString(StandardCharsets.UTF_8), BattleStat.class);
         List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
         System.out.println(battleStats);
+        Assertions.assertEquals(1, battleStats.size());
+        Assertions.assertEquals(exceptBattleStat,battleStats.get(0));
     }
 }

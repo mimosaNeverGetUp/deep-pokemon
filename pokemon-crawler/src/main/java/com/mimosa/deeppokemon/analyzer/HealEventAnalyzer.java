@@ -96,7 +96,6 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
 
     private boolean isFieldHealth(String from, BattleStatus battleStatus) {
         if (from == null || battleStatus.getField() == null) {
-
             return false;
         }
         return battleStatus.getField().name().equals(from);

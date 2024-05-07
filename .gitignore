@@ -36,3 +36,4 @@ build/
 **/out/
 
 /article/
+flyway/

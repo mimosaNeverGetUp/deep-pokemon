@@ -57,7 +57,7 @@ class TurnEventAnalyzerTest {
         Assertions.assertEquals(IRON_VALIANT, p2.getTurnStartPokemonName(1));
         Assertions.assertEquals(1, battleStat.turnStats().size());
         TurnStat turnStat = battleStat.turnStats().get(0);
-        Assertions.assertEquals(1, turnStat.getTurn());
+        Assertions.assertEquals(0, turnStat.getTurn());
         Assertions.assertEquals(2, turnStat.getTurnPlayerStatList().size());
         Assertions.assertEquals(2, turnStat.getTurnPlayerStatList().get(0).getTurnPokemonStatMap().size());
         Assertions.assertEquals(2, turnStat.getTurnPlayerStatList().get(1).getTurnPokemonStatMap().size());

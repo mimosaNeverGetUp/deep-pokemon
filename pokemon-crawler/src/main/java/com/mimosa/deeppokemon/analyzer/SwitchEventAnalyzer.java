@@ -24,7 +24,6 @@ import org.springframework.stereotype.Component;
 import java.util.Set;
 
 @Component
-@Order(2)
 public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger log = LoggerFactory.getLogger(SwitchEventAnalyzer.class);
     private static final String SWITCH = "switch";
@@ -80,10 +79,6 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
         playerStatus.setPokemonNickNameMap(eventTarget.nickName(), pokemonName);
         playerStatus.setActivePokemonName(pokemonName);
-        if (playerStatus.getPokemonStatus(pokemonName) == null) {
-            // first switch, init pokemon status
-            playerStatus.setPokemonStatus(pokemonName, new PokemonStatus(pokemonName));
-        }
         // set pokemon health
         int healthBefore = playerStatus.getPokemonStatus(pokemonName).getHealth();
         playerStatus.getPokemonStatus(pokemonName).setHealth(pokemonHealth);

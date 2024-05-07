@@ -6,6 +6,8 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.*;
 
 public class PlayerStat {
@@ -16,7 +18,10 @@ public class PlayerStat {
     private int switchDamage;
     private int moveCount;
     private Map<String, PokemonBattleStat> pokemonBattleStats;
-    private final List<BattleHighLight> highLights;
+    private List<BattleHighLight> highLights;
+
+    public PlayerStat() {
+    }
 
     public PlayerStat(int playerNumber, String playerName) {
         this.playerNumber = playerNumber;
@@ -50,6 +55,16 @@ public class PlayerStat {
 
     public Collection<PokemonBattleStat> getPokemonBattleStats() {
         return pokemonBattleStats.values();
+    }
+
+    @JsonProperty("pokemonBattleStats")
+    public Map<String, PokemonBattleStat> getPokemonBattleStatsMap() {
+        return pokemonBattleStats;
+    }
+
+    @JsonProperty("pokemonBattleStats")
+    public void setPokemonBattleStatsMap(Map<String, PokemonBattleStat> pokemonBattleStats) {
+        this.pokemonBattleStats = pokemonBattleStats;
     }
 
     public void addPokemonBattleStat(PokemonBattleStat pokemonBattleStat) {
@@ -88,7 +103,27 @@ public class PlayerStat {
         return highLights;
     }
 
+    public void setHighLights(List<BattleHighLight> highLights) {
+        this.highLights = highLights;
+    }
+
     public void addHighLight(BattleHighLight highLight) {
         highLights.add(highLight);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerStat that = (PlayerStat) o;
+        return playerNumber == that.playerNumber && switchCount == that.switchCount
+                && switchDamage == that.switchDamage && moveCount == that.moveCount
+                && Objects.equals(playerName, that.playerName)
+                && Objects.equals(pokemonBattleStats, that.pokemonBattleStats);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(playerNumber, playerName, switchCount, switchDamage, moveCount, pokemonBattleStats);
     }
 }

@@ -10,6 +10,7 @@ import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
+import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.utils.MatcherUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,6 +48,8 @@ public class PokemonEventAnalyzer implements BattleEventAnalyzer {
 
         int playerNumber = Integer.parseInt(playerNumberStr);
         battleStat.playerStatList().get(playerNumber - 1).addPokemonBattleStat(new PokemonBattleStat(pokemonName));
+        battleStatus.getPlayerStatusList().get(playerNumber - 1)
+                .setPokemonStatus(pokemonName, new PokemonStatus(pokemonName));
     }
 
     @Override

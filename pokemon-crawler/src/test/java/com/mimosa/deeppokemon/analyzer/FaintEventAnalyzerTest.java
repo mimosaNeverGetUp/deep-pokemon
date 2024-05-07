@@ -35,7 +35,8 @@ class FaintEventAnalyzerTest {
         EventTarget damageTarget = new EventTarget(1, ogerpon, ogerpon);
         EventTarget damageOf = new EventTarget(killPlyayerNumber, gliscor, gliscor);
         damageEvent.setBattleEventStat(new DamageEventStat(damageTarget, damageOf, "Knock off", 27));
-        BattleEvent faintEvent = new BattleEvent("faint", List.of("p1a: Ogerpon"), null, null, damageEvent);
+        BattleEvent moveEvent = new BattleEvent("move", null, null, List.of(damageEvent));
+        BattleEvent faintEvent = new BattleEvent("faint", List.of("p1a: Ogerpon"), null, null, moveEvent);
         BattleStatus battleStatus = new BattleStatusBuilder()
                 .addPokemon(killPlyayerNumber, gliscor, gliscor)
                 .addPokemon(1, ogerpon, ogerpon)

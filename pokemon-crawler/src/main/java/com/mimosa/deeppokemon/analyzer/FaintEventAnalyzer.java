@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import java.util.Set;
 
 @Component
-public class FaintEventAnalyzer implements BattleEventAnalyzer{
+public class FaintEventAnalyzer implements BattleEventAnalyzer {
     private final static Logger log = LoggerFactory.getLogger(FaintEventAnalyzer.class);
     private static final String FAINT = "faint";
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(FAINT);
@@ -33,8 +33,8 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer{
 
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleStatus);
         if (eventTarget != null) {
-            if (battleEvent.getPreviousEvent() != null && battleEvent.getPreviousEvent().getBattleEventStat()
-                    instanceof DamageEventStat damageEventStat) {
+            DamageEventStat damageEventStat = getPreviousDamageEventStat(battleEvent);
+            if (damageEventStat != null) {
                 EventTarget damageOf = damageEventStat.damageOf();
                 PlayerStat killPlayerStat = battleStat.playerStatList().get(damageOf.playerNumber() - 1);
                 PokemonBattleStat pokemonBattleStat =
@@ -47,6 +47,17 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer{
                 killPlayerStat.addHighLight(battleHighLight);
             }
         }
+    }
+
+    private DamageEventStat getPreviousDamageEventStat(BattleEvent battleEvent) {
+        if (battleEvent.getPreviousEvent() != null && battleEvent.getPreviousEvent().getChildrenEvents() != null) {
+            return battleEvent.getPreviousEvent().getChildrenEvents()
+                    .stream()
+                    .filter(e -> e.getBattleEventStat() instanceof DamageEventStat)
+                    .map(e -> (DamageEventStat) e.getBattleEventStat())
+                    .findFirst().orElse(null);
+        }
+        return null;
     }
 
     @Override

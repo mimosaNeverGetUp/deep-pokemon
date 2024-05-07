@@ -35,18 +35,19 @@ class SwitchEventAnalyzerTest {
         p1.addPokemonBattleStat(new PokemonBattleStat("Gliscor"));
         BattleStat battleStat = new BattleStat(List.of(p1));
 
-        PlayerStatus p1Stauts = new PlayerStatus();
-        BattleStatus battleStatus = new BattleStatus(List.of(p1Stauts));
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(1, "Gliscor", "YOUCANTBREAKME")
+                .build();
 
         Assertions.assertTrue(analyzer.supportAnalyze(battleEvent));
         analyzer.analyze(battleEvent, battleStat, battleStatus);
-        Assertions.assertEquals("Gliscor", p1Stauts.getPokemonName("YOUCANTBREAKME"));
-        Assertions.assertEquals("Gliscor", p1Stauts.getActivePokemonName());
+        PlayerStatus p1Status = battleStatus.getPlayerStatusList().get(0);
+        Assertions.assertEquals("Gliscor", p1Status.getActivePokemonName());
         Assertions.assertEquals(1, p1.getSwitchCount());
         Assertions.assertEquals(1, p1.getPokemonBattleStat("Gliscor").getSwitchCount());
         Assertions.assertEquals(0, p1.getPokemonBattleStat("Gliscor").getHealthValue());
         Assertions.assertEquals(0, p1.getPokemonBattleStat("Gliscor").getAttackValue());
-        Assertions.assertEquals(100, p1Stauts.getPokemonStatus("Gliscor").getHealth());
+        Assertions.assertEquals(100, p1Status.getPokemonStatus("Gliscor").getHealth());
     }
 
     @Test
@@ -57,15 +58,18 @@ class SwitchEventAnalyzerTest {
         p1.addPokemonBattleStat(new PokemonBattleStat("Gliscor"));
         BattleStat battleStat = new BattleStat(List.of(p1));
 
-        PlayerStatus p1Stauts = new PlayerStatus();
-        BattleStatus battleStatus = new BattleStatus(List.of(p1Stauts));
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(1, "Gliscor", "YOUCANTBREAKME")
+                .build();
+
         Assertions.assertTrue(analyzer.supportAnalyze(battleEvent));
         analyzer.analyze(battleEvent, battleStat, battleStatus);
-        Assertions.assertEquals("Gliscor", p1Stauts.getPokemonName("YOUCANTBREAKME"));
-        Assertions.assertEquals("Gliscor", p1Stauts.getActivePokemonName());
+        PlayerStatus p1Status = battleStatus.getPlayerStatusList().get(0);
+        Assertions.assertEquals("Gliscor", p1Status.getPokemonName("YOUCANTBREAKME"));
+        Assertions.assertEquals("Gliscor", p1Status.getActivePokemonName());
         Assertions.assertEquals(0, p1.getSwitchCount());
         Assertions.assertEquals(1, p1.getPokemonBattleStat("Gliscor").getSwitchCount());
-        Assertions.assertEquals(100, p1Stauts.getPokemonStatus("Gliscor").getHealth());
+        Assertions.assertEquals(100, p1Status.getPokemonStatus("Gliscor").getHealth());
     }
 
     @Test

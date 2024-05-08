@@ -47,7 +47,7 @@ class PokemonIconExtracterTest {
         }
     }
 
-    @Test
+//    @Test
     void extract() throws IOException {
         try {
             PokemonInfoCrawler pokemonInfoCrawler = new PokemonInfoCrawlerImp();

@@ -55,8 +55,6 @@ class PlayerReplayProviderTest {
         long uploadTimeAfter = 1713289463;
         PlayerReplayProvider provider = new PlayerReplayProvider(name, format, uploadTimeAfter);
         try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
-
-
             mockHttpUtil.when(() -> HttpUtil.request(Mockito.any())).thenReturn(apiResponseResource
                     .getContentAsString(StandardCharsets.UTF_8));
             List<ReplaySource> replaySources = provider.queryReplayPage(1);

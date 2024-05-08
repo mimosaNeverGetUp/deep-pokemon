@@ -6,7 +6,6 @@
 
 package com.mimosa.deeppokemon.task;
 
-import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
@@ -20,8 +19,6 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;

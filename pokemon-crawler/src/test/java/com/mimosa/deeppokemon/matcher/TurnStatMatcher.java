@@ -6,12 +6,9 @@
 
 package com.mimosa.deeppokemon.matcher;
 
-import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.TurnPlayerStat;
 import com.mimosa.deeppokemon.analyzer.entity.TurnStat;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
-import org.springframework.util.StringUtils;
 
 public class TurnStatMatcher extends TypeSafeMatcher<TurnStat> {
     public static TurnStatMatcher TURN_STAT_MATCHER = new TurnStatMatcher();

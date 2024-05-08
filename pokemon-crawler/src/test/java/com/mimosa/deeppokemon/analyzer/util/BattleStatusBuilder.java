@@ -87,8 +87,8 @@ public class BattleStatusBuilder {
         return this;
     }
 
-    public BattleStatusBuilder setLastMoveTurn(int playerNumber, String pokemon, int lastMoveTurn) {
-        playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemon).setLastMoveTurn(lastMoveTurn);
+    public BattleStatusBuilder setLastActivateTurn(int playerNumber, String pokemon, int lastMoveTurn) {
+        playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemon).setLastActivateTurn(lastMoveTurn);
         return this;
     }
 }

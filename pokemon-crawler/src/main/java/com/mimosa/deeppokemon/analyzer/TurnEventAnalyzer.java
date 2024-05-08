@@ -41,7 +41,7 @@ public class TurnEventAnalyzer implements BattleEventAnalyzer {
         battleStatus.getPlayerStatusList().forEach(playerStatus -> {
             playerStatus.setTurnStartPokemonName(battleStatus.getTurn(), playerStatus.getActivePokemonName());
             playerStatus.getPokemonStatus(playerStatus.getActivePokemonName())
-                    .setLastMoveTurn(battleStatus.getTurn());
+                    .setLastActivateTurn(battleStatus.getTurn());
         });
 
         setLastTurnStat(battleStat, battleStatus);

@@ -9,26 +9,38 @@ package com.mimosa.deeppokemon.analyzer.entity;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 @Document(collection = "battle_stat")
 public final class BattleStat {
+    @MongoId
+    private final String battleId;
     private final List<PlayerStat> playerStatList;
     private final List<TurnStat> turnStats;
 
     @JsonCreator
-    public BattleStat(@JsonProperty("playerStatList") List<PlayerStat> playerStatList,
+    public BattleStat(@JsonProperty("battleId") String battleId,
+                      @JsonProperty("playerStatList") List<PlayerStat> playerStatList,
                       @JsonProperty("turnStats") List<TurnStat> turnStats) {
+        this.battleId = battleId;
         this.playerStatList = playerStatList;
         this.turnStats = turnStats;
     }
 
-    public BattleStat(List<PlayerStat> playerStatList) {
-        this(playerStatList, new ArrayList<>());
+    public String battleId() {
+        return battleId;
+    }
+
+    public List<PlayerStat> playerStatList() {
+        return playerStatList;
+    }
+
+    public List<TurnStat> turnStats() {
+        return turnStats;
     }
 
     public void changePokemonName(int playerNumber, String blurPokemonName, String switchPokemonName) {
@@ -46,20 +58,14 @@ public final class BattleStat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BattleStat that = (BattleStat) o;
-        return Objects.equals(turnStats, that.turnStats) && Objects.equals(playerStatList, that.playerStatList);
+        return  Objects.equals(battleId, that.battleId)
+                && Objects.equals(turnStats, that.turnStats)
+                && Objects.equals(playerStatList, that.playerStatList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(playerStatList, turnStats);
-    }
-
-    public List<PlayerStat> playerStatList() {
-        return playerStatList;
-    }
-
-    public List<TurnStat> turnStats() {
-        return turnStats;
+        return Objects.hash(battleId, playerStatList, turnStats);
     }
 
     @Override

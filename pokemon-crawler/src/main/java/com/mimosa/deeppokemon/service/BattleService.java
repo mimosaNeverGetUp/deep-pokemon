@@ -64,7 +64,7 @@ public class BattleService {
     private static final Logger log = LoggerFactory.getLogger(BattleService.class);
     private static final String ID = "_id";
     private static final String BATTLE = "battle";
-    private static final ThreadPoolExecutor CRAW_BATTLE_EXECUTOR = new ThreadPoolExecutor(12, 12, 0,
+    private static final ThreadPoolExecutor CRAW_BATTLE_EXECUTOR = new ThreadPoolExecutor(16, 16, 0,
             TimeUnit.SECONDS, new LinkedBlockingQueue<>());
     private static final ThreadPoolExecutor ANALYZE_BATTLE_EXECUTOR = new ThreadPoolExecutor(6, 6, 0,
             TimeUnit.SECONDS, new LinkedBlockingQueue<>());

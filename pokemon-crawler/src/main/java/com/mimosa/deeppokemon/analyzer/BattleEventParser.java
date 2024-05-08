@@ -12,6 +12,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -56,7 +57,8 @@ public class BattleEventParser {
             return null;
         }
 
-        List<String> content = elements.length < 2 ? null : List.of(Arrays.copyOfRange(elements, 1, elements.length));
+        List<String> content = elements.length < 2 ? Collections.emptyList()
+                : List.of(Arrays.copyOfRange(elements, 1, elements.length));
         if (eventType.contains(CHILDREN_EVENT_FLAG)) {
             parentEvent = currentParentEvent;
             eventType = eventType.replaceAll(CHILDREN_EVENT_FLAG, "");

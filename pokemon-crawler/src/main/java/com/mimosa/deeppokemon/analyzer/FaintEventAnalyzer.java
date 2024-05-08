@@ -36,16 +36,35 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer {
             DamageEventStat damageEventStat = getPreviousDamageEventStat(battleEvent);
             if (damageEventStat != null) {
                 EventTarget damageOf = damageEventStat.damageOf();
-                PlayerStat killPlayerStat = battleStat.playerStatList().get(damageOf.playerNumber() - 1);
-                PokemonBattleStat pokemonBattleStat =
-                        killPlayerStat.getPokemonBattleStat(damageOf.targetName());
-                pokemonBattleStat.setKillCount(pokemonBattleStat.getKillCount() + 1);
+                if (damageOf == null) {
+                    log.error("can't analyze damage with empty damageOf: {}", damageEventStat);
+                    throw new RuntimeException("can't analyze damage with empty damageOf: " + damageEventStat);
+                }
 
-                BattleHighLight battleHighLight = new BattleHighLight(battleStatus.getTurn(),
-                        BattleHighLight.HighLightType.KILL, String.format("%s kill opponent %s by %s",
-                        damageOf.targetName(), eventTarget.targetName(), damageEventStat.damageFrom()));
-                killPlayerStat.addHighLight(battleHighLight);
+                setKillCountAndHighLight(battleStat, battleStatus, damageOf, eventTarget, damageEventStat);
             }
+        }
+    }
+
+    private void setKillCountAndHighLight(BattleStat battleStat, BattleStatus battleStatus, EventTarget damageOf, EventTarget eventTarget, DamageEventStat damageEventStat) {
+        if (damageOf.playerNumber() != eventTarget.playerNumber()) {
+            PlayerStat killPlayerStat = battleStat.playerStatList().get(damageOf.playerNumber() - 1);
+            PokemonBattleStat pokemonBattleStat =
+                    killPlayerStat.getPokemonBattleStat(damageOf.targetName());
+            pokemonBattleStat.setKillCount(pokemonBattleStat.getKillCount() + 1);
+
+            BattleHighLight battleHighLight = new BattleHighLight(battleStatus.getTurn(),
+                    BattleHighLight.HighLightType.KILL, String.format("%s kill opponent %s by %s",
+                    damageOf.targetName(), eventTarget.targetName(), damageEventStat.damageFrom()));
+            killPlayerStat.addHighLight(battleHighLight);
+        } else {
+            int opponentNumber = 3 - eventTarget.playerNumber();
+            PlayerStat opponentStat = battleStat.playerStatList().get(opponentNumber - 1);
+
+            BattleHighLight battleHighLight = new BattleHighLight(battleStatus.getTurn(),
+                    BattleHighLight.HighLightType.KILL, String.format("opponent %s faint by %s",
+                    eventTarget.targetName(), damageEventStat.damageFrom()));
+            opponentStat.addHighLight(battleHighLight);
         }
     }
 

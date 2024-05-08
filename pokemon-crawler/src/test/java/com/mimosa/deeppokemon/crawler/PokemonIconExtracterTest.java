@@ -25,7 +25,6 @@
 package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.PokemonInfo;
-import org.junit.jupiter.api.Test;
 import org.springframework.util.ResourceUtils;
 
 import java.io.FileNotFoundException;

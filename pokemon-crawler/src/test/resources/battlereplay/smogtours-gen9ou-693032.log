@@ -1,0 +1,501 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
+|t:|1684551685
+|gametype|singles
+|player|p1|Separation|#wcorichina|
+|player|p2|ElectricityCat|#oraspliiwaifuwashers|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Dragapult, M|
+|poke|p1|Iron Moth|
+|poke|p1|Hydreigon, F|
+|poke|p1|Garganacl, M|
+|poke|p1|Amoonguss, F|
+|poke|p1|Great Tusk|
+|poke|p2|Meowscarada, M|
+|poke|p2|Kingambit, M|
+|poke|p2|Dragonite, M|
+|poke|p2|Slowking, M|
+|poke|p2|Cinderace, M|
+|poke|p2|Great Tusk|
+|teampreview
+|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!</strong><br />Only users of rank ☆ and higher can talk.</div>
+|c|☆Separation|hf
+|c|☆ElectricityCat|hf
+|inactive|Separation has 270 seconds left.
+|inactive|ElectricityCat has 270 seconds left.
+|
+|t:|1684551740
+|start
+|switch|p1a: Dragapult|Dragapult, M|317/317
+|switch|p2a: Raichy|Slowking, M|394/394
+|turn|1
+|inactive|ElectricityCat has 270 seconds left.
+|
+|t:|1684551785
+|move|p1a: Dragapult|U-turn|p2a: Raichy
+|-supereffective|p2a: Raichy
+|-crit|p2a: Raichy
+|-damage|p2a: Raichy|96/394
+|
+|t:|1684551795
+|switch|p1a: Garganacl|Garganacl, M|404/404|[from] U-turn
+|move|p2a: Raichy|Chilly Reception|p2a: Raichy
+|-weather|Snow
+|inactive|ElectricityCat has 240 seconds left.
+|
+|t:|1684551830
+|switch|p2a: Gama|Meowscarada, M|293/293|[from] Chilly Reception
+|
+|-weather|Snow|[upkeep]
+|upkeep
+|turn|2
+|inactive|ElectricityCat has 240 seconds left.
+|
+|t:|1684551846
+|-terastallize|p1a: Garganacl|Fairy
+|move|p2a: Gama|Knock Off|p1a: Garganacl
+|-resisted|p1a: Garganacl
+|-damage|p1a: Garganacl|349/404
+|-enditem|p1a: Garganacl|Leftovers|[from] move: Knock Off|[of] p2a: Gama
+|move|p1a: Garganacl|Salt Cure|p2a: Gama
+|-damage|p2a: Gama|227/293
+|-start|p2a: Gama|Salt Cure
+|
+|-weather|Snow|[upkeep]
+|-damage|p2a: Gama|191/293|[from] Salt Cure
+|upkeep
+|turn|3
+|inactive|ElectricityCat has 240 seconds left.
+|
+|t:|1684551865
+|switch|p2a: Enz1|Kingambit, M|369/369
+|move|p1a: Garganacl|Protect||[still]
+|-fail|p1a: Garganacl
+|
+|-weather|Snow|[upkeep]
+|upkeep
+|turn|4
+|inactive|ElectricityCat has 240 seconds left.
+|
+|t:|1684551879
+|switch|p1a: Great Tusk|Great Tusk|371/371
+|move|p2a: Enz1|Iron Head|p1a: Great Tusk
+|-damage|p1a: Great Tusk|239/371
+|
+|-weather|Snow|[upkeep]
+|upkeep
+|turn|5
+|inactive|ElectricityCat has 240 seconds left.
+|
+|t:|1684551894
+|-end|p2a: Enz1|fallenundefined|[silent]
+|switch|p2a: GasyFlor'sMyth|Great Tusk|422/422
+|move|p1a: Great Tusk|Close Combat|p2a: GasyFlor'sMyth
+|-damage|p2a: GasyFlor'sMyth|296/422
+|-unboost|p1a: Great Tusk|def|1
+|-unboost|p1a: Great Tusk|spd|1
+|-enditem|p1a: Great Tusk|Eject Pack
+|-damage|p1a: Great Tusk|178/371|[from] item: Rocky Helmet|[of] p2a: GasyFlor'sMyth
+|
+|t:|1684551915
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Dragapult|Dragapult, M|317/317
+|
+|-weather|none
+|upkeep
+|turn|6
+|inactive|ElectricityCat has 240 seconds left.
+|
+|t:|1684551947
+|move|p1a: Dragapult|Will-O-Wisp|p2a: GasyFlor'sMyth
+|-status|p2a: GasyFlor'sMyth|brn
+|move|p2a: GasyFlor'sMyth|Knock Off|p1a: Dragapult
+|-supereffective|p1a: Dragapult
+|-damage|p1a: Dragapult|173/317
+|-enditem|p1a: Dragapult|Heavy-Duty Boots|[from] move: Knock Off|[of] p2a: GasyFlor'sMyth
+|
+|-damage|p2a: GasyFlor'sMyth|270/422 brn|[from] brn
+|upkeep
+|turn|7
+|inactive|ElectricityCat has 210 seconds left.
+|
+|t:|1684552000
+|move|p1a: Dragapult|Will-O-Wisp|p2a: GasyFlor'sMyth
+|-fail|p2a: GasyFlor'sMyth|brn
+|move|p2a: GasyFlor'sMyth|Knock Off|p1a: Dragapult
+|-supereffective|p1a: Dragapult
+|-damage|p1a: Dragapult|73/317
+|
+|-damage|p2a: GasyFlor'sMyth|244/422 brn|[from] brn
+|upkeep
+|turn|8
+|inactive|ElectricityCat has 180 seconds left.
+|
+|t:|1684552025
+|-end|p2a: GasyFlor'sMyth|Protosynthesis|[silent]
+|switch|p2a: Alenpa Furry|Cinderace, M|357/357
+|move|p1a: Dragapult|Hex|p2a: Alenpa Furry
+|-damage|p2a: Alenpa Furry|249/357
+|
+|upkeep
+|turn|9
+|inactive|ElectricityCat has 180 seconds left.
+|
+|t:|1684552049
+|move|p1a: Dragapult|U-turn|p2a: Alenpa Furry
+|-resisted|p2a: Alenpa Furry
+|-damage|p2a: Alenpa Furry|199/357
+|
+|t:|1684552052
+|switch|p1a: Garganacl|Garganacl, M, tera:Fairy|349/404|[from] U-turn
+|move|p2a: Alenpa Furry|Pyro Ball|p1a: Garganacl|[miss]
+|-miss|p2a: Alenpa Furry|p1a: Garganacl
+|
+|upkeep
+|turn|10
+|inactive|ElectricityCat has 180 seconds left.
+|
+|t:|1684552067
+|move|p2a: Alenpa Furry|U-turn|p1a: Garganacl
+|-resisted|p1a: Garganacl
+|-damage|p1a: Garganacl|329/404
+|
+|t:|1684552070
+|switch|p2a: Raichy|Slowking, M|227/394|[from] U-turn
+|move|p1a: Garganacl|Stealth Rock|p2a: Raichy
+|-sidestart|p2: ElectricityCat|move: Stealth Rock
+|
+|upkeep
+|turn|11
+|
+|t:|1684552078
+|switch|p1a: Hydreigon|Hydreigon, F|346/346
+|move|p2a: Raichy|Chilly Reception|p2a: Raichy
+|-weather|Snow
+|inactive|ElectricityCat has 180 seconds left.
+|
+|t:|1684552115
+|switch|p2a: Alenpa Furry|Cinderace, M|199/357|[from] Chilly Reception
+|
+|-weather|Snow|[upkeep]
+|upkeep
+|turn|12
+|inactive|ElectricityCat has 150 seconds left.
+|
+|t:|1684552143
+|move|p1a: Hydreigon|Draco Meteor|p2a: Alenpa Furry
+|-damage|p2a: Alenpa Furry|0 fnt
+|-unboost|p1a: Hydreigon|spa|2
+|faint|p2a: Alenpa Furry
+|
+|-weather|Snow|[upkeep]
+|upkeep
+|inactive|ElectricityCat has 120 seconds left.
+|
+|t:|1684552181
+|switch|p2a: Enz1|Kingambit, M|369/369
+|-damage|p2a: Enz1|346/369|[from] Stealth Rock
+|-activate|p2a: Enz1|ability: Supreme Overlord
+|-start|p2a: Enz1|fallen1|[silent]
+|turn|13
+|inactive|ElectricityCat has 120 seconds left.
+|
+|t:|1684552195
+|switch|p1a: Amoonguss|Amoonguss, F, shiny|431/431
+|move|p2a: Enz1|Iron Head|p1a: Amoonguss
+|-damage|p1a: Amoonguss|265/431
+|-enditem|p1a: Amoonguss|Eject Button
+|
+|t:|1684552200
+|switch|p1a: Great Tusk|Great Tusk|178/371
+|
+|-weather|Snow|[upkeep]
+|-heal|p2a: Enz1|369/369|[from] item: Leftovers
+|upkeep
+|turn|14
+|
+|t:|1684552214
+|-end|p2a: Enz1|fallen1|[silent]
+|switch|p2a: GasyFlor'sMyth|Great Tusk|244/422 brn
+|-damage|p2a: GasyFlor'sMyth|231/422 brn|[from] Stealth Rock
+|move|p1a: Great Tusk|Earthquake|p2a: GasyFlor'sMyth
+|-damage|p2a: GasyFlor'sMyth|120/422 brn
+|
+|-weather|Snow|[upkeep]
+|-damage|p2a: GasyFlor'sMyth|94/422 brn|[from] brn
+|upkeep
+|turn|15
+|
+|t:|1684552223
+|-end|p2a: GasyFlor'sMyth|Protosynthesis|[silent]
+|switch|p2a: Gama|Meowscarada, M|191/293
+|-damage|p2a: Gama|155/293|[from] Stealth Rock
+|move|p1a: Great Tusk|Earthquake|p2a: Gama
+|-resisted|p2a: Gama
+|-damage|p2a: Gama|28/293
+|
+|-weather|none
+|upkeep
+|turn|16
+|
+|t:|1684552236
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Amoonguss|Amoonguss, F, shiny|408/431
+|move|p2a: Gama|Flower Trick|p1a: Amoonguss
+|-resisted|p1a: Amoonguss
+|-crit|p1a: Amoonguss
+|-damage|p1a: Amoonguss|346/431
+|
+|upkeep
+|turn|17
+|
+|t:|1684552245
+|move|p2a: Gama|Knock Off|p1a: Amoonguss
+|-crit|p1a: Amoonguss
+|-damage|p1a: Amoonguss|151/431
+|move|p1a: Amoonguss|Giga Drain|p2a: Gama
+|-resisted|p2a: Gama
+|-damage|p2a: Gama|0 fnt
+|-heal|p1a: Amoonguss|165/431|[from] drain|[of] p2a: Gama
+|faint|p2a: Gama
+|
+|upkeep
+|
+|t:|1684552248
+|switch|p2a: Enz1|Kingambit, M|369/369
+|-damage|p2a: Enz1|346/369|[from] Stealth Rock
+|-activate|p2a: Enz1|ability: Supreme Overlord
+|-start|p2a: Enz1|fallen2|[silent]
+|turn|18
+|
+|t:|1684552272
+|switch|p1a: Hydreigon|Hydreigon, F|346/346
+|move|p2a: Enz1|Kowtow Cleave|p1a: Hydreigon
+|-resisted|p1a: Hydreigon
+|-damage|p1a: Hydreigon|238/346
+|
+|-heal|p2a: Enz1|369/369|[from] item: Leftovers
+|upkeep
+|turn|19
+|inactive|ElectricityCat has 120 seconds left.
+|inactive|ElectricityCat has 90 seconds left.
+|
+|t:|1684552351
+|-end|p2a: Enz1|fallen2|[silent]
+|switch|p2a: Zilo|Dragonite, M|323/323
+|move|p1a: Hydreigon|U-turn|p2a: Zilo
+|-resisted|p2a: Zilo
+|-damage|p2a: Zilo|309/323
+|inactive|Separation has 270 seconds left.
+|inactive|Separation has 240 seconds left.
+|
+|t:|1684552421
+|switch|p1a: Amoonguss|Amoonguss, F, shiny|308/431|[from] U-turn
+|
+|upkeep
+|turn|20
+|inactive|Separation has 240 seconds left.
+|inactive|ElectricityCat has 60 seconds left.
+|
+|t:|1684552471
+|switch|p2a: Raichy|Slowking, M|358/394
+|move|p1a: Amoonguss|Giga Drain|p2a: Raichy
+|-supereffective|p2a: Raichy
+|-damage|p2a: Raichy|244/394
+|-heal|p1a: Amoonguss|365/431|[from] drain|[of] p2a: Raichy
+|
+|upkeep
+|turn|21
+|inactive|ElectricityCat has 60 seconds left.
+|inactive|Separation has 210 seconds left.
+|
+|t:|1684552504
+|move|p1a: Amoonguss|Spore|p2a: Raichy
+|-status|p2a: Raichy|slp|[from] move: Spore
+|cant|p2a: Raichy|slp
+|
+|upkeep
+|turn|22
+|
+|t:|1684552519
+|switch|p1a: Great Tusk|Great Tusk|178/371
+|switch|p2a: Zilo|Dragonite, M|309/323
+|
+|upkeep
+|turn|23
+|inactive|Separation has 210 seconds left.
+|
+|t:|1684552540
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Dragapult|Dragapult, M|73/317
+|switch|p2a: GasyFlor'sMyth|Great Tusk|94/422 brn
+|-damage|p2a: GasyFlor'sMyth|81/422 brn|[from] Stealth Rock
+|
+|-damage|p2a: GasyFlor'sMyth|55/422 brn|[from] brn
+|upkeep
+|turn|24
+|
+|t:|1684552547
+|move|p1a: Dragapult|Dragon Darts|p2a: GasyFlor'sMyth
+|-damage|p2a: GasyFlor'sMyth|7/422 brn
+|-anim|p1a: Dragapult|Dragon Darts|p2a: GasyFlor'sMyth
+|-damage|p2a: GasyFlor'sMyth|0 fnt
+|faint|p2a: GasyFlor'sMyth
+|-end|p2a: GasyFlor'sMyth|Protosynthesis|[silent]
+|
+|upkeep
+|inactive|ElectricityCat has 30 seconds left.
+|inactive|ElectricityCat has 20 seconds left.
+|inactive|ElectricityCat has 15 seconds left.
+|
+|t:|1684552589
+|switch|p2a: Enz1|Kingambit, M|369/369
+|-damage|p2a: Enz1|346/369|[from] Stealth Rock
+|-activate|p2a: Enz1|ability: Supreme Overlord
+|-start|p2a: Enz1|fallen3|[silent]
+|turn|25
+|inactive|ElectricityCat has 25 seconds left this turn.
+|inactive|ElectricityCat has 20 seconds left.
+|inactive|Separation has 210 seconds left.
+|inactive|ElectricityCat has 15 seconds left.
+|
+|t:|1684552611
+|-terastallize|p2a: Enz1|Fire
+|move|p1a: Dragapult|U-turn|p2a: Enz1
+|-resisted|p2a: Enz1
+|-damage|p2a: Enz1|312/369
+|inactive|ElectricityCat has 20 seconds left this turn.
+|
+|t:|1684552619
+|switch|p1a: Hydreigon|Hydreigon, F|238/346|[from] U-turn
+|move|p2a: Enz1|Swords Dance|p2a: Enz1
+|-boost|p2a: Enz1|atk|2
+|
+|-heal|p2a: Enz1|335/369|[from] item: Leftovers
+|upkeep
+|turn|26
+|inactive|ElectricityCat has 30 seconds left this turn.
+|inactive|ElectricityCat has 20 seconds left.
+|inactive|ElectricityCat has 15 seconds left.
+|
+|t:|1684552644
+|move|p1a: Hydreigon|Draco Meteor|p2a: Enz1|[miss]
+|-miss|p1a: Hydreigon|p2a: Enz1
+|move|p2a: Enz1|Swords Dance|p2a: Enz1
+|-boost|p2a: Enz1|atk|2
+|
+|-heal|p2a: Enz1|358/369|[from] item: Leftovers
+|upkeep
+|turn|27
+|inactive|ElectricityCat has 25 seconds left this turn.
+|inactive|ElectricityCat has 20 seconds left.
+|inactive|ElectricityCat has 15 seconds left.
+|inactive|ElectricityCat has 10 seconds left.
+|
+|t:|1684552659
+|move|p1a: Hydreigon|Draco Meteor|p2a: Enz1
+|-damage|p2a: Enz1|93/369
+|-unboost|p1a: Hydreigon|spa|2
+|move|p2a: Enz1|Iron Head|p1a: Hydreigon
+|-damage|p1a: Hydreigon|0 fnt
+|faint|p1a: Hydreigon
+|
+|-heal|p2a: Enz1|116/369|[from] item: Leftovers
+|upkeep
+|inactive|ElectricityCat has 15 seconds left this turn.
+|
+|t:|1684552673
+|switch|p1a: Great Tusk|Great Tusk|178/371
+|turn|28
+|inactive|ElectricityCat has 25 seconds left this turn.
+|
+|t:|1684552687
+|move|p2a: Enz1|Sucker Punch|p1a: Great Tusk
+|-resisted|p1a: Great Tusk
+|-damage|p1a: Great Tusk|0 fnt
+|faint|p1a: Great Tusk
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|
+|-heal|p2a: Enz1|139/369|[from] item: Leftovers
+|upkeep
+|inactive|ElectricityCat has 30 seconds left this turn.
+|inactive|Separation has 180 seconds left.
+|inactive|Separation has 150 seconds left.
+|
+|t:|1684552738
+|switch|p1a: Iron Moth|Iron Moth|301/301
+|turn|29
+|inactive|Separation has 150 seconds left.
+|
+|t:|1684552760
+|-end|p1a: Iron Moth|Quark Drive|[silent]
+|switch|p1a: Dragapult|Dragapult, M|73/317
+|move|p2a: Enz1|Sucker Punch||[still]
+|-fail|p2a: Enz1
+|
+|-heal|p2a: Enz1|162/369|[from] item: Leftovers
+|upkeep
+|turn|30
+|
+|t:|1684552769
+|switch|p1a: Iron Moth|Iron Moth|301/301
+|move|p2a: Enz1|Iron Head|p1a: Iron Moth
+|-resisted|p1a: Iron Moth
+|-damage|p1a: Iron Moth|0 fnt
+|faint|p1a: Iron Moth
+|-end|p1a: Iron Moth|Quark Drive|[silent]
+|
+|-heal|p2a: Enz1|185/369|[from] item: Leftovers
+|upkeep
+|
+|t:|1684552778
+|switch|p1a: Dragapult|Dragapult, M|73/317
+|turn|31
+|
+|t:|1684552787
+|move|p1a: Dragapult|Dragon Darts|p2a: Enz1
+|-damage|p2a: Enz1|109/369
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Enz1
+|-damage|p2a: Enz1|36/369
+|move|p2a: Enz1|Iron Head|p1a: Dragapult
+|-damage|p1a: Dragapult|0 fnt
+|faint|p1a: Dragapult
+|
+|-heal|p2a: Enz1|59/369|[from] item: Leftovers
+|upkeep
+|inactive|Separation has 150 seconds left.
+|
+|t:|1684552794
+|switch|p1a: Amoonguss|Amoonguss, F, shiny|431/431
+|turn|32
+|inactive|ElectricityCat has 60 seconds left.
+|
+|t:|1684552806
+|move|p2a: Enz1|Kowtow Cleave|p1a: Amoonguss
+|-damage|p1a: Amoonguss|0 fnt
+|faint|p1a: Amoonguss
+|
+|-heal|p2a: Enz1|82/369|[from] item: Leftovers
+|upkeep
+|
+|t:|1684552809
+|switch|p1a: Garganacl|Garganacl, M, tera:Fairy|329/404
+|turn|33
+|
+|t:|1684552812
+|move|p2a: Enz1|Iron Head|p1a: Garganacl
+|-supereffective|p1a: Garganacl
+|-damage|p1a: Garganacl|0 fnt
+|faint|p1a: Garganacl
+|
+|win|ElectricityCat

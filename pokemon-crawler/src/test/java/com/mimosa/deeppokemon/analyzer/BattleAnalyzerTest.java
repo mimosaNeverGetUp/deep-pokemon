@@ -39,11 +39,11 @@ class BattleAnalyzerTest {
     @Test
     void analyze() throws IOException {
         Battle battle = new Battle();
-        battle.setLog(battereReplayResource.getContentAsString(StandardCharsets.UTF_8));
         BattleStat exceptBattleStat =
                 new ObjectMapper().readValue(batterStat.getContentAsString(StandardCharsets.UTF_8), BattleStat.class);
+        battle.setBattleID(exceptBattleStat.battleId());
+        battle.setLog(battereReplayResource.getContentAsString(StandardCharsets.UTF_8));
         List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
-        System.out.println(battleStats);
         Assertions.assertEquals(1, battleStats.size());
         Assertions.assertEquals(exceptBattleStat,battleStats.get(0));
     }

@@ -52,7 +52,7 @@ class BattleServiceTest {
     @Test
     void crawBattleAndAnalyze() throws ExecutionException, InterruptedException {
         ReplayProvider replayProvider = new PlayerReplayProvider("Separation", "gen9ou",
-                LocalDateTime.now().minusMonths(1).atZone(ZoneId.systemDefault()).toEpochSecond());
+                LocalDateTime.now().minusYears(1).atZone(ZoneId.systemDefault()).toEpochSecond());
         CrawAnalyzeBattleFuture crawAnalyzeBattleFuture = battleService.crawBattleAndAnalyze(replayProvider);
         List<BattleStat> battleStats = crawAnalyzeBattleFuture.analyzeFuture().get();
         Assertions.assertFalse(battleStats.isEmpty());

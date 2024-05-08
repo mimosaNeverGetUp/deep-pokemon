@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,7 +33,7 @@ class MoveEventAnalyzerTest {
         PlayerStat p1 = new PlayerStat(1, "");
         PokemonBattleStat gliscor = new PokemonBattleStat("Gliscor");
         p1.addPokemonBattleStat(gliscor);
-        BattleStat battleStat = new BattleStat(List.of(p1));
+        BattleStat battleStat = new BattleStat(null, List.of(p1), new ArrayList<>());
 
         PlayerStatus p1Stauts = new PlayerStatus();
         p1Stauts.setPokemonNickNameMap("YOUCANTBREAKME", "Gliscor");

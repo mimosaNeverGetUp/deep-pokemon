@@ -55,6 +55,8 @@ public class Battle implements Serializable {
     private BattleTrend battleTrend;
     // 对局记录
     private String log;
+    //对局回合
+    private int turnCount;
 
     public Battle(Team[] teams) {
         this.teams = teams;
@@ -136,16 +138,12 @@ public class Battle implements Serializable {
         this.log = log;
     }
 
-    @Override
-    public String toString() {
-        return ("Battle:\n" +
-                "   info:" + String.format("%s  vs %s", teams[0].getPlayerName(), teams[1].getPlayerName()) + "\n" +
-                "   battle id:" + battleID + "\n" +
-                "   date:" + date + "\n" +
-                "   winner:" + winner + "\n" +
-                "   avageRating:" + avageRating + "\n\n" +
-                Arrays.toString(teams) +
-                "\n\n").replaceAll(",", " ");
+    public int getTurnCount() {
+        return turnCount;
+    }
+
+    public void setTurnCount(int turnCount) {
+        this.turnCount = turnCount;
     }
 
     public String getHealthLinePairJsonString() {
@@ -217,4 +215,16 @@ public class Battle implements Serializable {
         return battleID != null ? battleID.hashCode() : 0;
     }
 
+    @Override
+    public String toString() {
+        return ("Battle:\n" +
+                "   info:" + String.format("%s  vs %s", teams[0].getPlayerName(), teams[1].getPlayerName()) + "\n" +
+                "   battle id:" + battleID + "\n" +
+                "   date:" + date + "\n" +
+                "   winner:" + winner + "\n" +
+                "   turn:" + turnCount + "\n" +
+                "   avageRating:" + avageRating + "\n\n" +
+                Arrays.toString(teams) +
+                "\n\n").replaceAll(",", " ");
+    }
 }

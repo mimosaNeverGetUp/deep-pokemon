@@ -24,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -129,6 +130,33 @@ class DamageEventAnalyzerTest {
     }
 
     @Test
+    void analyzeSelfWeatherDamage() {
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Zapdos", "94/100", "[from] Sandstorm"), null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(2, HIPPOWDONW, HIPPOWDONW)
+                .addPokemon(1, ZAPDOS, ZAPDOS)
+                .setWeather(new Weather("Sandstorm", new EventTarget(1, ZAPDOS, ZAPDOS)))
+                .setTurnStartPokemon(1, "Zapdos")
+                .setTurnStartPokemon(2, HIPPOWDONW)
+                .build();
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, ZAPDOS)
+                .addPokemonStat(2, HIPPOWDONW)
+                .build();
+
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        PokemonBattleStat hippowdonwStat = battleStat.playerStatList().get(1)
+                .getPokemonBattleStat(HIPPOWDONW);
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), hippowdonwStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), hippowdonwStat.getHealthValue());
+
+        PokemonBattleStat zapdosStat = battleStat.playerStatList().get(0)
+                .getPokemonBattleStat(ZAPDOS);
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), zapdosStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-6.0), zapdosStat.getHealthValue());
+    }
+
+    @Test
     void analyzeStatusDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p2a: Raging Bolt", "80/100 brn", "[from] " +
                 "brn"), null, null);
@@ -181,7 +209,7 @@ class DamageEventAnalyzerTest {
         p2.addPokemonBattleStat(gliscor);
 
         BattleStatus battleStatus = new BattleStatus(List.of(p1Status, p2Status));
-        BattleStat battleStat = new BattleStat(List.of(p1, p2));
+        BattleStat battleStat = new BattleStat(null, List.of(p1, p2), new ArrayList<>());
 
         return Arguments.of(damageEvent, battleStat, battleStatus, p1, BigDecimal.valueOf(27.0));
     }

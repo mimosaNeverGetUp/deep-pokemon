@@ -38,6 +38,10 @@ public class BattleMatcher extends TypeSafeMatcher<Battle> {
             return false;
         }
 
+        if (battle.getTurnCount() == 0) {
+            return false;
+        }
+
         return Arrays.stream(battle.getTeams()).allMatch(TeamMatcher.TEAM_MATCHER::matches);
     }
 

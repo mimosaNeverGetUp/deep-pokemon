@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -34,11 +35,12 @@ class SwitchEventAnalyzerTest {
                 , null);
         PlayerStat p1 = new PlayerStat(1, "");
         p1.addPokemonBattleStat(new PokemonBattleStat("Gliscor"));
-        BattleStat battleStat = new BattleStat(List.of(p1));
+        BattleStat battleStat = new BattleStat(null, List.of(p1), new ArrayList<>());
 
         BattleStatus battleStatus = new BattleStatusBuilder()
                 .addPokemon(1, "Gliscor", "YOUCANTBREAKME")
                 .build();
+        battleStatus.setTurn(10);
 
         Assertions.assertTrue(analyzer.supportAnalyze(battleEvent));
         analyzer.analyze(battleEvent, battleStat, battleStatus);
@@ -49,6 +51,7 @@ class SwitchEventAnalyzerTest {
         Assertions.assertEquals(BigDecimal.valueOf(0.0), p1.getPokemonBattleStat("Gliscor").getHealthValue());
         Assertions.assertEquals(BigDecimal.valueOf(0.0), p1.getPokemonBattleStat("Gliscor").getAttackValue());
         Assertions.assertEquals(BigDecimal.valueOf(100.0), p1Status.getPokemonStatus("Gliscor").getHealth());
+        Assertions.assertEquals(10, p1Status.getPokemonStatus("Gliscor").getLastActivateTurn());
     }
 
     @Test
@@ -57,7 +60,7 @@ class SwitchEventAnalyzerTest {
                 , null);
         PlayerStat p1 = new PlayerStat(1, "");
         p1.addPokemonBattleStat(new PokemonBattleStat("Gliscor"));
-        BattleStat battleStat = new BattleStat(List.of(p1));
+        BattleStat battleStat = new BattleStat(null, List.of(p1), new ArrayList<>());
 
         BattleStatus battleStatus = new BattleStatusBuilder()
                 .addPokemon(1, "Gliscor", "YOUCANTBREAKME")
@@ -82,7 +85,7 @@ class SwitchEventAnalyzerTest {
                 .addPokemon(2, DRAGAPULT, DRAGAPULT)
                 .setHealth(1, SLOWKING_GALAR, BigDecimal.valueOf(80.0))
                 .setTurnStartPokemon(1, 2, DRAGAPULT)
-                .setLastMoveTurn(1, SLOWKING_GALAR, 1)
+                .setLastActivateTurn(1, SLOWKING_GALAR, 1)
                 .build();
 
         BattleStat battleStat = new BattleStatBuilder()

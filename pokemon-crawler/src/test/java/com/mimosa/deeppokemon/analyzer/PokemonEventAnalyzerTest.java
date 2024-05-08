@@ -19,6 +19,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
@@ -39,7 +40,9 @@ class PokemonEventAnalyzerTest {
     @ParameterizedTest
     @MethodSource("provideBattleEvent")
     void analyze(BattleEvent battleEvent, int playerNumber, String exceptPokemonName) {
-        BattleStat battleStat = new BattleStat(List.of(new PlayerStat(1, ""), new PlayerStat(2, "")));
+        BattleStat battleStat = new BattleStat(null,
+                List.of(new PlayerStat(1, ""), new PlayerStat(2, "")),
+                new ArrayList<>());
         BattleStatus battleStatus = new BattleStatusBuilder().build();
         Assertions.assertTrue(pokemonEventAnalyzer.supportAnalyze(battleEvent));
         pokemonEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);

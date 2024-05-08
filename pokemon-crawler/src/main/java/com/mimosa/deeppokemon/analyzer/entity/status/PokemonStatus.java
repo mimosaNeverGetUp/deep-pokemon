@@ -14,12 +14,12 @@ public class PokemonStatus {
     private String pokemonName;
     private BigDecimal health;
     private Status status;
-    private int lastMoveTurn;
+    private int lastActivateTurn;
 
     public PokemonStatus(String pokemonName) {
         this.pokemonName = pokemonName;
         this.health = BigDecimal.valueOf(100.0);
-        this.lastMoveTurn = 0;
+        this.lastActivateTurn = 0;
         this.status = null;
     }
 
@@ -47,11 +47,11 @@ public class PokemonStatus {
         this.status = status;
     }
 
-    public int getLastMoveTurn() {
-        return lastMoveTurn;
+    public int getLastActivateTurn() {
+        return lastActivateTurn;
     }
 
-    public void setLastMoveTurn(int lastMoveTurn) {
-        this.lastMoveTurn = lastMoveTurn;
+    public void setLastActivateTurn(int lastActivateTurn) {
+        this.lastActivateTurn = lastActivateTurn;
     }
 }

@@ -47,6 +47,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
             BigDecimal pokemonHealth = BattleEventUtil.getHealthPercentage(battleEvent.getContents().get(2));
             BigDecimal healthDiff = setBattleHealthStatus(battleStatus, eventTarget, pokemonName, pokemonHealth);
             setBattleStat(battleEvent, battleStat, battleStatus, eventTarget, pokemonName, healthDiff);
+            playerStatus.getPokemonStatus(pokemonName).setLastActivateTurn(battleStatus.getTurn());
         }
     }
 
@@ -95,7 +96,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
                     eventTarget.playerNumber(), pokemonName);
             PlayerStatus opponentPlayerStatus = battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
             String opponentLastStandPokemon = opponentPlayerStatus.getTurnStartPokemonName(
-                    healthPokemonStatus.getLastMoveTurn());
+                    healthPokemonStatus.getLastActivateTurn());
             PokemonBattleStat opponentPokemonBattleStat =
                     BattleEventUtil.getPokemonStat(battleStat, opponentPlayerNumber, opponentLastStandPokemon);
             opponentPokemonBattleStat.setHealthValue(opponentPokemonBattleStat.getHealthValue().subtract(healthDiff));

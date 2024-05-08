@@ -10,6 +10,7 @@ import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
 import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BattleStatBuilder {
@@ -24,5 +25,6 @@ public class BattleStatBuilder {
         return this;
     }
 
-    public BattleStat build() {return new BattleStat(playerStats);}
+    public BattleStat build() {
+        return new BattleStat(null, playerStats, new ArrayList<>());}
 }

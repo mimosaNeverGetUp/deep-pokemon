@@ -43,8 +43,8 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
         }
         if (battleStat.playerStatList().stream().noneMatch(playerStat -> playerStat.getPlayerName().equals(playerName))) {
             battleStat.playerStatList().add(new PlayerStat(Integer.parseInt(playerNumberStr), playerName));
+            battleStatus.getPlayerStatusList().add(new PlayerStatus());
         }
-        battleStatus.getPlayerStatusList().add(new PlayerStatus());
     }
 
     @Override

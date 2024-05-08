@@ -8,15 +8,17 @@ package com.mimosa.deeppokemon.analyzer.entity.status;
 
 import com.mimosa.deeppokemon.analyzer.entity.Status;
 
+import java.math.BigDecimal;
+
 public class PokemonStatus {
     private String pokemonName;
-    private int health;
+    private BigDecimal health;
     private Status status;
     private int lastMoveTurn;
 
     public PokemonStatus(String pokemonName) {
         this.pokemonName = pokemonName;
-        this.health = 100;
+        this.health = BigDecimal.valueOf(100.0);
         this.lastMoveTurn = 0;
         this.status = null;
     }
@@ -25,11 +27,11 @@ public class PokemonStatus {
         return pokemonName;
     }
 
-    public int getHealth() {
+    public BigDecimal getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(BigDecimal health) {
         this.health = health;
     }
 

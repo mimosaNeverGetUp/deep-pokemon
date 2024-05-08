@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @SpringBootTest
@@ -45,9 +46,9 @@ class SwitchEventAnalyzerTest {
         Assertions.assertEquals("Gliscor", p1Status.getActivePokemonName());
         Assertions.assertEquals(1, p1.getSwitchCount());
         Assertions.assertEquals(1, p1.getPokemonBattleStat("Gliscor").getSwitchCount());
-        Assertions.assertEquals(0, p1.getPokemonBattleStat("Gliscor").getHealthValue());
-        Assertions.assertEquals(0, p1.getPokemonBattleStat("Gliscor").getAttackValue());
-        Assertions.assertEquals(100, p1Status.getPokemonStatus("Gliscor").getHealth());
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), p1.getPokemonBattleStat("Gliscor").getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), p1.getPokemonBattleStat("Gliscor").getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(100.0), p1Status.getPokemonStatus("Gliscor").getHealth());
     }
 
     @Test
@@ -69,7 +70,7 @@ class SwitchEventAnalyzerTest {
         Assertions.assertEquals("Gliscor", p1Status.getActivePokemonName());
         Assertions.assertEquals(0, p1.getSwitchCount());
         Assertions.assertEquals(1, p1.getPokemonBattleStat("Gliscor").getSwitchCount());
-        Assertions.assertEquals(100, p1Status.getPokemonStatus("Gliscor").getHealth());
+        Assertions.assertEquals(BigDecimal.valueOf(100.0), p1Status.getPokemonStatus("Gliscor").getHealth());
     }
 
     @Test
@@ -79,7 +80,7 @@ class SwitchEventAnalyzerTest {
         BattleStatus battleStatus = new BattleStatusBuilder()
                 .addPokemon(1, SLOWKING_GALAR, "Slowking")
                 .addPokemon(2, DRAGAPULT, DRAGAPULT)
-                .setHealth(1, SLOWKING_GALAR, 80)
+                .setHealth(1, SLOWKING_GALAR, BigDecimal.valueOf(80.0))
                 .setTurnStartPokemon(1, 2, DRAGAPULT)
                 .setLastMoveTurn(1, SLOWKING_GALAR, 1)
                 .build();
@@ -92,9 +93,9 @@ class SwitchEventAnalyzerTest {
 
         PokemonBattleStat slowkingStat = battleStat.playerStatList().get(0).getPokemonBattleStat(SLOWKING_GALAR);
         PokemonBattleStat dragapultStat = battleStat.playerStatList().get(1).getPokemonBattleStat(DRAGAPULT);
-        Assertions.assertEquals(20, slowkingStat.getHealthValue());
-        Assertions.assertEquals(0, slowkingStat.getAttackValue());
-        Assertions.assertEquals(-20, dragapultStat.getHealthValue());
-        Assertions.assertEquals(-20, dragapultStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(20.0), slowkingStat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), slowkingStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-20.0), dragapultStat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-20.0), dragapultStat.getAttackValue());
     }
 }

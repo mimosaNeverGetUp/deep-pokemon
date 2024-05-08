@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @SpringBootTest
@@ -34,7 +35,8 @@ class FaintEventAnalyzerTest {
         BattleEvent damageEvent = new BattleEvent("damage", null, null, null);
         EventTarget damageTarget = new EventTarget(1, ogerpon, ogerpon);
         EventTarget damageOf = new EventTarget(killPlyayerNumber, gliscor, gliscor);
-        damageEvent.setBattleEventStat(new DamageEventStat(damageTarget, damageOf, "Knock off", 27));
+        damageEvent.setBattleEventStat(new DamageEventStat(damageTarget, damageOf, "Knock off",
+                BigDecimal.valueOf(27)));
         BattleEvent moveEvent = new BattleEvent("move", null, null, List.of(damageEvent));
         BattleEvent faintEvent = new BattleEvent("faint", List.of("p1a: Ogerpon"), null, null, moveEvent);
         BattleStatus battleStatus = new BattleStatusBuilder()

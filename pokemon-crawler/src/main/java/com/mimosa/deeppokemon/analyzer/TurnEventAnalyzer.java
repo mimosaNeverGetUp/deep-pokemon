@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Component
@@ -50,12 +51,12 @@ public class TurnEventAnalyzer implements BattleEventAnalyzer {
         TurnStat turnStat = new TurnStat(battleStatus.getTurn() - 1);
         for (PlayerStatus playerStatus : battleStatus.getPlayerStatusList()) {
             TurnPlayerStat turnPlayerStat = new TurnPlayerStat();
-            int totalHealth = 0;
+            BigDecimal totalHealth = BigDecimal.ZERO;
             for (PokemonStatus pokemonStatus : playerStatus.getPokemonStatusMap().values()) {
                 TurnPokemonStat turnPokemonStat = new TurnPokemonStat(pokemonStatus.getPokemonName());
                 turnPokemonStat.setHealth(pokemonStatus.getHealth());
                 turnPlayerStat.addTurnPokemonStat(turnPokemonStat);
-                totalHealth += pokemonStatus.getHealth();
+                totalHealth = totalHealth.add(pokemonStatus.getHealth());
             }
             turnPlayerStat.setTotalHealth(totalHealth);
             turnStat.getTurnPlayerStatList().add(turnPlayerStat);

@@ -49,7 +49,6 @@ public class BattleAnalyzer {
                 battleStats.add(battleStat);
             } catch (Exception e) {
                 log.error("analyze battle {} error", battle.getBattleID(), e);
-                throw new RuntimeException(e);
             }
         }
         battleService.savaAll(battleStats);

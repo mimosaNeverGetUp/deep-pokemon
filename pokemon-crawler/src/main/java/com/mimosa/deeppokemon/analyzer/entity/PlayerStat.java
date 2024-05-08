@@ -8,6 +8,8 @@ package com.mimosa.deeppokemon.analyzer.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 public class PlayerStat {
@@ -15,7 +17,7 @@ public class PlayerStat {
     private String playerName;
 
     private int switchCount;
-    private int switchDamage;
+    private BigDecimal switchDamage;
     private int moveCount;
     private Map<String, PokemonBattleStat> pokemonBattleStats;
     private List<BattleHighLight> highLights;
@@ -27,7 +29,7 @@ public class PlayerStat {
         this.playerNumber = playerNumber;
         this.playerName = playerName;
         this.switchCount = 0;
-        this.switchDamage = 0;
+        this.switchDamage = BigDecimal.valueOf(0.0);
         this.moveCount = 0;
         this.pokemonBattleStats = new HashMap<>();
         this.highLights = new ArrayList<>();
@@ -91,11 +93,11 @@ public class PlayerStat {
         this.moveCount = moveCount;
     }
 
-    public int getSwitchDamage() {
+    public BigDecimal getSwitchDamage() {
         return switchDamage;
     }
 
-    public void setSwitchDamage(int switchDamage) {
+    public void setSwitchDamage(BigDecimal switchDamage) {
         this.switchDamage = switchDamage;
     }
 
@@ -111,13 +113,20 @@ public class PlayerStat {
         highLights.add(highLight);
     }
 
+
+    public void changePokemonName(String nameBefore, String changeName) {
+        PokemonBattleStat pokemonBattleStat = pokemonBattleStats.remove(nameBefore);
+        pokemonBattleStat.setName(changeName);
+        pokemonBattleStats.put(changeName, pokemonBattleStat);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PlayerStat that = (PlayerStat) o;
         return playerNumber == that.playerNumber && switchCount == that.switchCount
-                && switchDamage == that.switchDamage && moveCount == that.moveCount
+                && switchDamage.compareTo(that.switchDamage) == 0 && moveCount == that.moveCount
                 && Objects.equals(playerName, that.playerName)
                 && Objects.equals(pokemonBattleStats, that.pokemonBattleStats);
     }

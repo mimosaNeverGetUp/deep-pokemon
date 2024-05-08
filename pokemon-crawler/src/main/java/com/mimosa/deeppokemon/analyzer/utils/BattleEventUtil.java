@@ -15,6 +15,8 @@ import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,6 +26,8 @@ public class BattleEventUtil {
     private static final Pattern FROM_PATTERN = Pattern.compile(Pattern.quote("[from] ") + "(.+)");
     private static final String MOVE_PATTERN = "move:";
     private static final Pattern FAINT_PATTERN = Pattern.compile("(\\d+) fnt");
+    private static final Pattern HEALTH_PATTERN = Pattern.compile("(\\d+)/(\\d+)");
+    private static final int PERCENTAGE = 100;
 
     public static EventTarget getEventTarget(String eventContent) {
         Matcher matcher = TARGET_PATTERN.matcher(eventContent);
@@ -60,13 +64,20 @@ public class BattleEventUtil {
         return from;
     }
 
-    public static int getHealth(String healthContext) {
+    public static BigDecimal getHealthPercentage(String healthContext) {
         Matcher matcher = FAINT_PATTERN.matcher(healthContext);
         if (matcher.find()) {
-            return Integer.parseInt(matcher.group(1));
+            return new BigDecimal(matcher.group(1)).setScale(1, RoundingMode.HALF_DOWN);
         } else {
-            return Integer.parseInt(healthContext.split(EventConstants.HEALTH_SPLIT)[0]);
+            Matcher healthMatcher = HEALTH_PATTERN.matcher(healthContext);
+            if (healthMatcher.find()) {
+                BigDecimal currentHealth = new BigDecimal(healthMatcher.group(1));
+                BigDecimal totalHealth = new BigDecimal(healthMatcher.group(2));
+                BigDecimal healthPercentage = currentHealth.divide(totalHealth, 3, RoundingMode.HALF_DOWN);
+                return healthPercentage.multiply(BigDecimal.valueOf(PERCENTAGE)).setScale(1, RoundingMode.HALF_DOWN);
+            }
         }
+        throw new RuntimeException("can not match health context " + healthContext);
     }
 
     public static PokemonStatus getPokemonStatus(BattleStatus battleStatus, EventTarget eventTarget) {

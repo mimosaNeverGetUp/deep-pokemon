@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @SpringBootTest
@@ -38,8 +39,8 @@ class TurnEventAnalyzerTest {
                 .addPokemon(2, IRON_VALIANT, IRON_VALIANT)
                 .setActivePokemonName(1, PIKACHU)
                 .setActivePokemonName(2, IRON_VALIANT)
-                .setHealth(1, PIKACHU, 50)
-                .setHealth(2, IRON_VALIANT, 25)
+                .setHealth(1, PIKACHU, BigDecimal.valueOf(50.0))
+                .setHealth(2, IRON_VALIANT, BigDecimal.valueOf(25.0))
                 .build();
         BattleStat battleStat = new BattleStatBuilder()
                 .build();
@@ -61,10 +62,11 @@ class TurnEventAnalyzerTest {
         Assertions.assertEquals(2, turnStat.getTurnPlayerStatList().size());
         Assertions.assertEquals(2, turnStat.getTurnPlayerStatList().get(0).getTurnPokemonStatMap().size());
         Assertions.assertEquals(2, turnStat.getTurnPlayerStatList().get(1).getTurnPokemonStatMap().size());
-        Assertions.assertEquals(50, turnStat.getTurnPlayerStatList().get(0).getTurnPokemonStat(PIKACHU).getHealth());
-        Assertions.assertEquals(25,
+        Assertions.assertEquals(BigDecimal.valueOf(50.0),
+            turnStat.getTurnPlayerStatList().get(0).getTurnPokemonStat(PIKACHU).getHealth());
+        Assertions.assertEquals(BigDecimal.valueOf(25.0),
                 turnStat.getTurnPlayerStatList().get(1).getTurnPokemonStat(IRON_VALIANT).getHealth());
-        Assertions.assertEquals(150, turnStat.getTurnPlayerStatList().get(0).getTotalHealth());
-        Assertions.assertEquals(125, turnStat.getTurnPlayerStatList().get(1).getTotalHealth());
+        Assertions.assertEquals(BigDecimal.valueOf(150.0), turnStat.getTurnPlayerStatList().get(0).getTotalHealth());
+        Assertions.assertEquals(BigDecimal.valueOf(125.0), turnStat.getTurnPlayerStatList().get(1).getTotalHealth());
     }
 }

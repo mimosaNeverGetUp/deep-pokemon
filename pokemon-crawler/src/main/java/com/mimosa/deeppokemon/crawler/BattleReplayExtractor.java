@@ -24,7 +24,10 @@
 
 package com.mimosa.deeppokemon.crawler;
 
-import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.BattleReplayData;
+import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,9 +40,9 @@ import java.io.StringReader;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

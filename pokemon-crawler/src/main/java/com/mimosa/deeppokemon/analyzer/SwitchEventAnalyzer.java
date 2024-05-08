@@ -6,10 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
-import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
-import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
+import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
@@ -20,6 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.Set;
 
 @Component
@@ -28,6 +27,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     private static final String SWITCH = "switch";
     private static final String DRAG = "drag";
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(SWITCH, DRAG);
+    private static final String FORM_SPLIT = "-";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -39,14 +39,45 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         String pokemonName = battleEvent.getContents().get(1).split(EventConstants.NAME_SPLIT)[0];
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(0));
         if (eventTarget != null) {
-            int pokemonHealth = Integer.parseInt(battleEvent.getContents().get(2).split(EventConstants.HEALTH_SPLIT)[0]);
-            int healthDiff = setBattleHealthStatus(battleStatus, eventTarget, pokemonName, pokemonHealth);
+            PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
+            playerStatus.setPokemonNickNameMap(eventTarget.nickName(), pokemonName);
+            playerStatus.setActivePokemonName(pokemonName);
+            changeFormChangingPokemonName(battleStatus, battleStat, eventTarget.playerNumber(), pokemonName);
+
+            BigDecimal pokemonHealth = BattleEventUtil.getHealthPercentage(battleEvent.getContents().get(2));
+            BigDecimal healthDiff = setBattleHealthStatus(battleStatus, eventTarget, pokemonName, pokemonHealth);
             setBattleStat(battleEvent, battleStat, battleStatus, eventTarget, pokemonName, healthDiff);
         }
     }
 
-    private static void setBattleStat(BattleEvent event, BattleStat battleStat, BattleStatus battleStatus,
-                                      EventTarget eventTarget, String pokemonName, int healthDiff) {
+    /**
+     * if switch pokemon is changing form, check and modify blur name in battle stat and battle status
+     */
+    private void changeFormChangingPokemonName(BattleStatus battleStatus, BattleStat battleStat,
+                                               int playerNumber, String switchPokemonName) {
+        PlayerStatus switchPlayerStatus = battleStatus.getPlayerStatusList().get(playerNumber - 1);
+        if (switchPlayerStatus.getPokemonStatus(switchPokemonName) == null) {
+            Optional<String> blurPokemonNameOptional = switchPlayerStatus.getPokemonStatusMap().keySet().stream()
+                    .filter(pokemonName -> getOriginFormPokemonName(pokemonName)
+                            .contains(getOriginFormPokemonName(switchPokemonName)))
+                    .findFirst();
+            if (blurPokemonNameOptional.isEmpty()) {
+                log.warn("can not match origin blur pokemon name by {}", switchPokemonName);
+                return;
+            }
+
+            String blurPokemonName = blurPokemonNameOptional.get();
+            battleStatus.changePokemonName(playerNumber, blurPokemonName, switchPokemonName);
+            battleStat.changePokemonName(playerNumber, blurPokemonName, switchPokemonName);
+        }
+    }
+
+    private String getOriginFormPokemonName(String pokemonName) {
+        return pokemonName.split(FORM_SPLIT)[0];
+    }
+
+    private void setBattleStat(BattleEvent event, BattleStat battleStat, BattleStatus battleStatus,
+                               EventTarget eventTarget, String pokemonName, BigDecimal healthDiff) {
         PlayerStat playerStat = battleStat.playerStatList().get(eventTarget.playerNumber() - 1);
         if (SWITCH.equals(event.getType())) {
             playerStat.setSwitchCount(playerStat.getSwitchCount() + 1);
@@ -55,8 +86,8 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
                 playerStat.getPokemonBattleStat(pokemonName);
         pokemonBattleStat.setSwitchCount(pokemonBattleStat.getSwitchCount() + 1);
         // pokemon maybe is Regenerator ability, set health value
-        if (healthDiff != 0) {
-            pokemonBattleStat.setHealthValue(pokemonBattleStat.getHealthValue() + healthDiff);
+        if (healthDiff.compareTo(BigDecimal.ZERO) != 0) {
+            pokemonBattleStat.setHealthValue(pokemonBattleStat.getHealthValue().add(healthDiff));
 
             // pokemon which stand with switch pokemon in opponent also should set health value
             int opponentPlayerNumber = 3 - eventTarget.playerNumber();
@@ -67,21 +98,17 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
                     healthPokemonStatus.getLastMoveTurn());
             PokemonBattleStat opponentPokemonBattleStat =
                     BattleEventUtil.getPokemonStat(battleStat, opponentPlayerNumber, opponentLastStandPokemon);
-            opponentPokemonBattleStat.setHealthValue(opponentPokemonBattleStat.getHealthValue() - healthDiff);
-            opponentPokemonBattleStat.setAttackValue(opponentPokemonBattleStat.getAttackValue() - healthDiff);
+            opponentPokemonBattleStat.setHealthValue(opponentPokemonBattleStat.getHealthValue().subtract(healthDiff));
+            opponentPokemonBattleStat.setAttackValue(opponentPokemonBattleStat.getAttackValue().subtract(healthDiff));
         }
     }
 
-    private int setBattleHealthStatus(BattleStatus battleStatus, EventTarget eventTarget, String pokemonName,
-                                      int pokemonHealth) {
-        // set pokemon nickname
+    private BigDecimal setBattleHealthStatus(BattleStatus battleStatus, EventTarget eventTarget, String pokemonName,
+                                             BigDecimal pokemonHealth) {
         PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
-        playerStatus.setPokemonNickNameMap(eventTarget.nickName(), pokemonName);
-        playerStatus.setActivePokemonName(pokemonName);
-        // set pokemon health
-        int healthBefore = playerStatus.getPokemonStatus(pokemonName).getHealth();
+        BigDecimal healthBefore = playerStatus.getPokemonStatus(pokemonName).getHealth();
         playerStatus.getPokemonStatus(pokemonName).setHealth(pokemonHealth);
-        return pokemonHealth - healthBefore;
+        return pokemonHealth.subtract(healthBefore);
     }
 
     @Override

@@ -23,6 +23,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -71,7 +72,7 @@ class DamageEventAnalyzerTest {
     @ParameterizedTest
     @MethodSource("provideSwitchDamageEvent")
     void analyzeSwitchDamageEvent(BattleEvent event, BattleStat stat, BattleStatus status, PlayerStat playerStat,
-                                  int exceptSwitchDamage) {
+                                  BigDecimal exceptSwitchDamage) {
         damageEventAnalyzer.analyze(event, stat, status);
         Assertions.assertEquals(exceptSwitchDamage, playerStat.getSwitchDamage());
     }
@@ -97,8 +98,8 @@ class DamageEventAnalyzerTest {
         damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
         PokemonBattleStat skarmoryStat = battleStat.playerStatList().get(sideFromPlayerNumber - 1)
                 .getPokemonBattleStat(skarmory);
-        Assertions.assertEquals(6, skarmoryStat.getAttackValue());
-        Assertions.assertEquals(6, skarmoryStat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), skarmoryStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), skarmoryStat.getHealthValue());
     }
 
     @Test
@@ -118,13 +119,13 @@ class DamageEventAnalyzerTest {
         damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
         PokemonBattleStat hippowdonwStat = battleStat.playerStatList().get(1)
                 .getPokemonBattleStat(HIPPOWDONW);
-        Assertions.assertEquals(6, hippowdonwStat.getAttackValue());
-        Assertions.assertEquals(6, hippowdonwStat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), hippowdonwStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), hippowdonwStat.getHealthValue());
 
         PokemonBattleStat zapdosStat = battleStat.playerStatList().get(0)
                 .getPokemonBattleStat(ZAPDOS);
-        Assertions.assertEquals(0, zapdosStat.getAttackValue());
-        Assertions.assertEquals(-6, zapdosStat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), zapdosStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-6.0), zapdosStat.getHealthValue());
     }
 
     @Test
@@ -136,23 +137,23 @@ class DamageEventAnalyzerTest {
                 .addPokemon(1, SKELEDIRGE, SKELEDIRGE)
                 .setStatus(2, RAGING_BOLT, new Status("brn", new EventTarget(1, SKELEDIRGE, SKELEDIRGE)))
                 .setTurnStartPokemon(2, RAGING_BOLT)
-                .setHealth(2, RAGING_BOLT, 86)
+                .setHealth(2, RAGING_BOLT, BigDecimal.valueOf(86))
                 .build();
         BattleStat battleStat = new BattleStatBuilder()
                 .addPokemonStat(1, SKELEDIRGE)
                 .addPokemonStat(2, RAGING_BOLT)
                 .build();
-        
+
         damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
         PokemonBattleStat ragingboltStat = battleStat.playerStatList().get(1)
                 .getPokemonBattleStat(RAGING_BOLT);
-        Assertions.assertEquals(0, ragingboltStat.getAttackValue());
-        Assertions.assertEquals(-6, ragingboltStat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), ragingboltStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-6.0), ragingboltStat.getHealthValue());
 
         PokemonBattleStat skeledirgeStat = battleStat.playerStatList().get(0)
                 .getPokemonBattleStat(SKELEDIRGE);
-        Assertions.assertEquals(6, skeledirgeStat.getAttackValue());
-        Assertions.assertEquals(6, skeledirgeStat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), skeledirgeStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), skeledirgeStat.getHealthValue());
     }
 
     private static Arguments buildSwitchDamageEvent() {
@@ -182,7 +183,7 @@ class DamageEventAnalyzerTest {
         BattleStatus battleStatus = new BattleStatus(List.of(p1Status, p2Status));
         BattleStat battleStat = new BattleStat(List.of(p1, p2));
 
-        return Arguments.of(damageEvent, battleStat, battleStatus, p1, 27);
+        return Arguments.of(damageEvent, battleStat, battleStatus, p1, BigDecimal.valueOf(27.0));
     }
 
     private static Arguments buildMoveDamageEvent() {
@@ -207,20 +208,20 @@ class DamageEventAnalyzerTest {
 
 
         PokemonBattleStat exceptSkarmory = new PokemonBattleStat(skarmory);
-        exceptSkarmory.setHealthValue(-27);
-        exceptSkarmory.setAttackValue(0);
+        exceptSkarmory.setHealthValue(BigDecimal.valueOf(-27.0));
+        exceptSkarmory.setAttackValue(BigDecimal.valueOf(0.0));
         PokemonStatus exceptSkarmoryStatus = new PokemonStatus(skarmory);
-        exceptSkarmoryStatus.setHealth(73);
+        exceptSkarmoryStatus.setHealth(BigDecimal.valueOf(73.0));
         PokemonBattleStat exceptGliscor = new PokemonBattleStat(gliscor);
-        exceptGliscor.setAttackValue(27);
-        exceptGliscor.setHealthValue(27);
+        exceptGliscor.setAttackValue(BigDecimal.valueOf(27.0));
+        exceptGliscor.setHealthValue(BigDecimal.valueOf(27.0));
 
 
         PokemonBattleStat skyStat = battleStat.playerStatList().get(damageTargetPlayerNumber - 1).getPokemonBattleStat(
                 skarmory);
         PokemonBattleStat gliscorStat = battleStat.playerStatList().get(movePlayerNumber - 1).getPokemonBattleStat(
                 gliscor);
-        PokemonStatus skyStatus = battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber-1).getPokemonStatus(skarmory);
+        PokemonStatus skyStatus = battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(skarmory);
 
         return Arguments.of(damageEvent, battleStat, battleStatus, skyStat,
                 exceptSkarmory, gliscorStat, exceptGliscor, skyStatus, exceptSkarmoryStatus);
@@ -248,20 +249,20 @@ class DamageEventAnalyzerTest {
 
 
         PokemonBattleStat exceptSkarmory = new PokemonBattleStat(skarmory);
-        exceptSkarmory.setHealthValue(-100);
-        exceptSkarmory.setAttackValue(0);
+        exceptSkarmory.setHealthValue(BigDecimal.valueOf(-100.0));
+        exceptSkarmory.setAttackValue(BigDecimal.valueOf(0.0));
         PokemonStatus exceptSkarmoryStatus = new PokemonStatus(skarmory);
-        exceptSkarmoryStatus.setHealth(0);
+        exceptSkarmoryStatus.setHealth(BigDecimal.valueOf(0.0));
         PokemonBattleStat exceptGliscor = new PokemonBattleStat(gliscor);
-        exceptGliscor.setAttackValue(100);
-        exceptGliscor.setHealthValue(100);
+        exceptGliscor.setAttackValue(BigDecimal.valueOf(100.0));
+        exceptGliscor.setHealthValue(BigDecimal.valueOf(100.0));
 
 
         PokemonBattleStat skyStat = battleStat.playerStatList().get(damageTargetPlayerNumber - 1).getPokemonBattleStat(
                 skarmory);
         PokemonBattleStat gliscorStat = battleStat.playerStatList().get(movePlayerNumber - 1).getPokemonBattleStat(
                 gliscor);
-        PokemonStatus skyStatus = battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber-1).getPokemonStatus(skarmory);
+        PokemonStatus skyStatus = battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(skarmory);
 
         return Arguments.of(damageEvent, battleStat, battleStatus, skyStat,
                 exceptSkarmory, gliscorStat, exceptGliscor, skyStatus, exceptSkarmoryStatus);
@@ -289,14 +290,14 @@ class DamageEventAnalyzerTest {
                 .build();
 
         PokemonBattleStat exceptSkarmory = new PokemonBattleStat("Skarmory");
-        exceptSkarmory.setHealthValue(16);
-        exceptSkarmory.setAttackValue(16);
+        exceptSkarmory.setHealthValue(BigDecimal.valueOf(16.0));
+        exceptSkarmory.setAttackValue(BigDecimal.valueOf(16.0));
 
         PokemonBattleStat exceptGliscor = new PokemonBattleStat("Gliscor");
-        exceptGliscor.setAttackValue(0);
-        exceptGliscor.setHealthValue(-16);
+        exceptGliscor.setAttackValue(BigDecimal.valueOf(0.0));
+        exceptGliscor.setHealthValue(BigDecimal.valueOf(-16.0));
         PokemonStatus exceptGliscorStatus = new PokemonStatus("Gliscor");
-        exceptGliscorStatus.setHealth(84);
+        exceptGliscorStatus.setHealth(BigDecimal.valueOf(84.0));
 
         PokemonBattleStat gliscorStat =
                 battleStat.playerStatList().get(damageTargetPlayerNumber - 1).getPokemonBattleStat(gliscor);

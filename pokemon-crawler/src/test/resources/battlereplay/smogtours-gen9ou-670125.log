@@ -1,0 +1,704 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
+|t:|1674405087
+|gametype|singles
+|player|p1|Welli0u|#splxivscooters2|
+|player|p2|Booty|#sabella|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Chien-Pao|
+|poke|p1|Amoonguss, M|
+|poke|p1|Great Tusk|
+|poke|p1|Skeledirge, M|
+|poke|p1|Garganacl, M|
+|poke|p1|Toxapex, M|
+|poke|p2|Garchomp, F|
+|poke|p2|Iron Valiant|
+|poke|p2|Kingambit, F|
+|poke|p2|Dragonite, F|
+|poke|p2|Roaring Moon|
+|poke|p2|Gholdengo|
+|teampreview
+|inactive|Welli0u also wants the timer to be on.
+|c|☆Welli0u|gl
+|c|+Excal|tribal chief
+|inactive|Welli0u has 270 seconds left.
+|inactive|Booty has 270 seconds left.
+|c|☆Booty|hf
+|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!</strong><br />Only users of rank ☆ and higher can talk.</div>
+|inactive|Welli0u has 240 seconds left.
+|inactive|Booty has 240 seconds left.
+|
+|t:|1674405175
+|start
+|switch|p1a: Avec un chien la|Chien-Pao|301/301
+|switch|p2a: Iron Valiant|Iron Valiant|289/289
+|-ability|p1a: Avec un chien la|Sword of Ruin
+|turn|1
+|inactive|Welli0u has 270 seconds left.
+|inactive|Booty has 270 seconds left.
+|inactive|Welli0u has 240 seconds left.
+|
+|t:|1674405234
+|switch|p1a: Ah mon gars|Amoonguss, M|432/432
+|move|p2a: Iron Valiant|Thunderbolt|p1a: Ah mon gars
+|-resisted|p1a: Ah mon gars
+|-damage|p1a: Ah mon gars|347/432
+|
+|upkeep
+|turn|2
+|inactive|Welli0u has 240 seconds left.
+|
+|t:|1674405255
+|-end|p2a: Iron Valiant|Quark Drive|[silent]
+|switch|p2a: Gholdengo|Gholdengo|315/315
+|move|p1a: Ah mon gars|Foul Play|p2a: Gholdengo
+|-supereffective|p2a: Gholdengo
+|-damage|p2a: Gholdengo|239/315
+|
+|upkeep
+|turn|3
+|inactive|Booty has 240 seconds left.
+|inactive|Welli0u has 210 seconds left.
+|inactive|Welli0u has 180 seconds left.
+|inactive|Booty has 210 seconds left.
+|
+|t:|1674405336
+|switch|p2a: Garchomp|Garchomp, F|420/420
+|switch|p1a: Salam|Garganacl, M|404/404
+|
+|upkeep
+|turn|4
+|
+|t:|1674405358
+|switch|p1a: Avec un chien la|Chien-Pao|301/301
+|-ability|p1a: Avec un chien la|Sword of Ruin
+|move|p2a: Garchomp|Stealth Rock|p1a: Avec un chien la
+|-sidestart|p1: Welli0u|move: Stealth Rock
+|
+|upkeep
+|turn|5
+|inactive|Booty has 210 seconds left.
+|inactive|Booty has 180 seconds left.
+|inactive|Booty has 150 seconds left.
+|inactive|Booty has 120 seconds left.
+|
+|t:|1674405465
+|switch|p2a: Kingambit|Kingambit, F|353/353
+|move|p1a: Avec un chien la|Ice Spinner|p2a: Kingambit
+|-resisted|p2a: Kingambit
+|-damage|p2a: Kingambit|271/353
+|
+|-heal|p2a: Kingambit|293/353|[from] item: Leftovers
+|upkeep
+|turn|6
+|inactive|Welli0u has 150 seconds left.
+|inactive|Booty has 90 seconds left.
+|inactive|Welli0u has 120 seconds left.
+|
+|t:|1674405515
+|-end|p2a: Kingambit|fallenundefined|[silent]
+|switch|p2a: Iron Valiant|Iron Valiant|289/289
+|move|p1a: Avec un chien la|Sacred Sword|p2a: Iron Valiant
+|-resisted|p2a: Iron Valiant
+|-damage|p2a: Iron Valiant|210/289
+|
+|upkeep
+|turn|7
+|inactive|Welli0u has 120 seconds left.
+|inactive|Booty has 60 seconds left.
+|inactive|Welli0u has 90 seconds left.
+|
+|t:|1674405571
+|switch|p1a: Ace|Skeledirge, M|411/411
+|move|p2a: Iron Valiant|Moonblast|p1a: Ace
+|-resisted|p1a: Ace
+|-damage|p1a: Ace|307/411
+|-unboost|p1a: Ace|spa|1
+|
+|upkeep
+|turn|8
+|inactive|Booty has 60 seconds left.
+|inactive|Welli0u has 60 seconds left.
+|
+|t:|1674405597
+|-end|p2a: Iron Valiant|Quark Drive|[silent]
+|switch|p2a: Garchomp|Garchomp, F|420/420
+|switch|p1a: Mdrrrrr|Toxapex, M|304/304
+|-damage|p1a: Mdrrrrr|266/304|[from] Stealth Rock
+|
+|-heal|p1a: Mdrrrrr|285/304|[from] item: Leftovers
+|upkeep
+|turn|9
+|inactive|Welli0u has 60 seconds left.
+|inactive|Booty has 60 seconds left.
+|
+|t:|1674405621
+|move|p2a: Garchomp|Spikes|p1a: Mdrrrrr
+|-sidestart|p1: Welli0u|Spikes
+|move|p1a: Mdrrrrr|Toxic Spikes|p2a: Garchomp
+|-sidestart|p2: Booty|move: Toxic Spikes
+|
+|-heal|p1a: Mdrrrrr|304/304|[from] item: Leftovers
+|upkeep
+|turn|10
+|inactive|Booty has 60 seconds left.
+|
+|t:|1674405639
+|switch|p1a: Araujo|Great Tusk|434/434
+|-damage|p1a: Araujo|421/434|[from] Stealth Rock
+|-damage|p1a: Araujo|367/434|[from] Spikes
+|move|p2a: Garchomp|Spikes|p1a: Araujo
+|-sidestart|p1: Welli0u|Spikes
+|
+|-heal|p1a: Araujo|394/434|[from] item: Leftovers
+|upkeep
+|turn|11
+|inactive|Booty has 60 seconds left.
+|
+|t:|1674405652
+|move|p2a: Garchomp|Earth Power|p1a: Araujo
+|-damage|p1a: Araujo|244/434
+|move|p1a: Araujo|Rapid Spin|p2a: Garchomp
+|-damage|p2a: Garchomp|373/420
+|-boost|p1a: Araujo|spe|1
+|-damage|p1a: Araujo|190/434|[from] ability: Rough Skin|[of] p2a: Garchomp
+|-damage|p1a: Araujo|118/434|[from] item: Rocky Helmet|[of] p2a: Garchomp
+|-sideend|p1: Welli0u|Spikes|[from] move: Rapid Spin|[of] p1a: Araujo
+|-sideend|p1: Welli0u|Stealth Rock|[from] move: Rapid Spin|[of] p1a: Araujo
+|
+|-heal|p1a: Araujo|145/434|[from] item: Leftovers
+|upkeep
+|turn|12
+|inactive|Booty has 60 seconds left.
+|
+|t:|1674405668
+|move|p1a: Araujo|Stealth Rock|p2a: Garchomp
+|-sidestart|p2: Booty|move: Stealth Rock
+|move|p2a: Garchomp|Dragon Tail|p1a: Araujo
+|-damage|p1a: Araujo|99/434
+|-end|p1a: Araujo|Protosynthesis|[silent]
+|drag|p1a: Salam|Garganacl, M|404/404
+|
+|upkeep
+|turn|13
+|inactive|Booty has 60 seconds left.
+|
+|t:|1674405683
+|switch|p1a: Avec un chien la|Chien-Pao|301/301
+|-ability|p1a: Avec un chien la|Sword of Ruin
+|move|p2a: Garchomp|Stealth Rock|p1a: Avec un chien la
+|-sidestart|p1: Welli0u|move: Stealth Rock
+|
+|upkeep
+|turn|14
+|inactive|Booty has 60 seconds left.
+|inactive|Booty has 30 seconds left.
+|inactive|Booty has 20 seconds left.
+|
+|t:|1674405733
+|-terastallize|p2a: Garchomp|Water
+|move|p1a: Avec un chien la|Ice Spinner|p2a: Garchomp
+|-resisted|p2a: Garchomp
+|-damage|p2a: Garchomp|294/420
+|-damage|p1a: Avec un chien la|264/301|[from] ability: Rough Skin|[of] p2a: Garchomp
+|-damage|p1a: Avec un chien la|214/301|[from] item: Rocky Helmet|[of] p2a: Garchomp
+|move|p2a: Garchomp|Dragon Tail|p1a: Avec un chien la
+|-crit|p1a: Avec un chien la
+|-damage|p1a: Avec un chien la|78/301
+|drag|p1a: Mdrrrrr|Toxapex, M|304/304
+|-damage|p1a: Mdrrrrr|266/304|[from] Stealth Rock
+|
+|-heal|p1a: Mdrrrrr|285/304|[from] item: Leftovers
+|upkeep
+|turn|15
+|inactive|Booty has 30 seconds left this turn.
+|inactive|Booty has 20 seconds left.
+|inactive|Booty has 15 seconds left.
+|inactive|Welli0u has 30 seconds left.
+|
+|t:|1674405770
+|switch|p1a: Ah mon gars|Amoonguss, M|432/432
+|-damage|p1a: Ah mon gars|378/432|[from] Stealth Rock
+|move|p2a: Garchomp|Spikes|p1a: Ah mon gars
+|-sidestart|p1: Welli0u|Spikes
+|
+|upkeep
+|turn|16
+|inactive|Booty has 25 seconds left this turn.
+|inactive|Welli0u has 30 seconds left.
+|inactive|Booty has 20 seconds left.
+|
+|t:|1674405779
+|switch|p2a: Gholdengo|Gholdengo|239/315
+|-damage|p2a: Gholdengo|220/315|[from] Stealth Rock
+|move|p1a: Ah mon gars|Spore|p2a: Gholdengo
+|-immune|p2a: Gholdengo|[from] ability: Good as Gold
+|
+|upkeep
+|turn|17
+|inactive|Booty has 30 seconds left this turn.
+|inactive|Welli0u has 30 seconds left.
+|inactive|Booty has 20 seconds left.
+|
+|t:|1674405794
+|move|p2a: Gholdengo|Trick|p1a: Ah mon gars
+|-activate|p2a: Gholdengo|move: Trick|[of] p1a: Ah mon gars
+|-item|p1a: Ah mon gars|Choice Scarf|[from] move: Trick
+|-item|p2a: Gholdengo|Rocky Helmet|[from] move: Trick
+|move|p1a: Ah mon gars|Foul Play|p2a: Gholdengo
+|-supereffective|p2a: Gholdengo
+|-damage|p2a: Gholdengo|150/315
+|-damage|p1a: Ah mon gars|306/432|[from] item: Rocky Helmet|[of] p2a: Gholdengo
+|
+|upkeep
+|turn|18
+|inactive|Booty has 30 seconds left this turn.
+|inactive|Welli0u has 30 seconds left.
+|inactive|Booty has 20 seconds left.
+|inactive|Booty has 15 seconds left.
+|
+|t:|1674405814
+|move|p2a: Gholdengo|Shadow Ball|p1a: Ah mon gars
+|-damage|p1a: Ah mon gars|138/432
+|move|p1a: Ah mon gars|Foul Play|p2a: Gholdengo
+|-supereffective|p2a: Gholdengo
+|-damage|p2a: Gholdengo|74/315
+|-damage|p1a: Ah mon gars|66/432|[from] item: Rocky Helmet|[of] p2a: Gholdengo
+|
+|upkeep
+|turn|19
+|inactive|Booty has 25 seconds left this turn.
+|inactive|Welli0u has 30 seconds left.
+|inactive|Booty has 20 seconds left.
+|inactive|Welli0u has 20 seconds left.
+|
+|t:|1674405830
+|move|p2a: Gholdengo|Shadow Ball|p1a: Ah mon gars
+|-damage|p1a: Ah mon gars|0 fnt
+|faint|p1a: Ah mon gars
+|
+|upkeep
+|inactive|Welli0u has 25 seconds left this turn.
+|inactive|Booty has 25 seconds left this turn.
+|inactive|Welli0u has 20 seconds left.
+|inactive|Welli0u has 15 seconds left.
+|
+|t:|1674405845
+|switch|p1a: Avec un chien la|Chien-Pao|78/301
+|-ability|p1a: Avec un chien la|Sword of Ruin
+|turn|20
+|inactive|Welli0u has 25 seconds left this turn.
+|inactive|Booty has 30 seconds left.
+|
+|t:|1674405851
+|switch|p2a: Garchomp|Garchomp, F, tera:Water|294/420
+|-status|p2a: Garchomp|psn
+|-damage|p2a: Garchomp|242/420 psn|[from] Stealth Rock
+|move|p1a: Avec un chien la|Crunch|p2a: Garchomp
+|-damage|p2a: Garchomp|80/420 psn
+|-damage|p1a: Avec un chien la|41/301|[from] ability: Rough Skin|[of] p2a: Garchomp
+|-damage|p1a: Avec un chien la|0 fnt|[from] item: Rocky Helmet|[of] p2a: Garchomp
+|faint|p1a: Avec un chien la
+|
+|-damage|p2a: Garchomp|28/420 psn|[from] psn
+|upkeep
+|inactive|Welli0u has 30 seconds left this turn.
+|inactive|Welli0u has 20 seconds left.
+|inactive|Welli0u has 15 seconds left.
+|
+|t:|1674405867
+|switch|p1a: Mdrrrrr|Toxapex, M|304/304
+|-damage|p1a: Mdrrrrr|266/304|[from] Stealth Rock
+|-damage|p1a: Mdrrrrr|228/304|[from] Spikes
+|turn|21
+|inactive|Welli0u has 25 seconds left this turn.
+|inactive|Welli0u has 20 seconds left.
+|
+|t:|1674405876
+|move|p1a: Mdrrrrr|Baneful Bunker|p1a: Mdrrrrr
+|-singleturn|p1a: Mdrrrrr|move: Protect
+|move|p2a: Garchomp|Spikes|p1a: Mdrrrrr
+|-sidestart|p1: Welli0u|Spikes
+|
+|-heal|p1a: Mdrrrrr|247/304|[from] item: Leftovers
+|-damage|p2a: Garchomp|0 fnt|[from] psn
+|faint|p2a: Garchomp
+|upkeep
+|inactive|Welli0u has 25 seconds left this turn.
+|inactive|Booty has 30 seconds left.
+|
+|t:|1674405896
+|switch|p2a: Dragonite|Dragonite, F|323/323
+|turn|22
+|inactive|Welli0u has 30 seconds left.
+|inactive|Booty has 30 seconds left.
+|
+|t:|1674405909
+|move|p2a: Dragonite|Substitute|p2a: Dragonite
+|-start|p2a: Dragonite|Substitute
+|-damage|p2a: Dragonite|243/323
+|move|p1a: Mdrrrrr|Infestation|p2a: Dragonite
+|-resisted|p2a: Dragonite
+|-activate|p2a: Dragonite|move: Substitute|[damage]
+|
+|-heal|p1a: Mdrrrrr|266/304|[from] item: Leftovers
+|upkeep
+|turn|23
+|inactive|Welli0u has 30 seconds left.
+|inactive|Welli0u has 20 seconds left.
+|inactive|Welli0u has 15 seconds left.
+|
+|t:|1674405930
+|switch|p1a: Salam|Garganacl, M|404/404
+|-damage|p1a: Salam|354/404|[from] Stealth Rock
+|-damage|p1a: Salam|287/404|[from] Spikes
+|move|p2a: Dragonite|Earthquake|p1a: Salam
+|-supereffective|p1a: Salam
+|-damage|p1a: Salam|99/404
+|
+|-heal|p1a: Salam|124/404|[from] item: Leftovers
+|upkeep
+|turn|24
+|inactive|Welli0u has 25 seconds left this turn.
+|
+|t:|1674405939
+|-terastallize|p1a: Salam|Water
+|move|p2a: Dragonite|Dragon Dance|p2a: Dragonite
+|-boost|p2a: Dragonite|atk|1
+|-boost|p2a: Dragonite|spe|1
+|move|p1a: Salam|Recover|p1a: Salam
+|-heal|p1a: Salam|326/404
+|
+|-heal|p1a: Salam|351/404|[from] item: Leftovers
+|upkeep
+|turn|25
+|inactive|Welli0u has 30 seconds left.
+|
+|t:|1674405952
+|move|p2a: Dragonite|Earthquake|p1a: Salam
+|-damage|p1a: Salam|204/404
+|move|p1a: Salam|Curse|p1a: Salam
+|-unboost|p1a: Salam|spe|1
+|-boost|p1a: Salam|atk|1
+|-boost|p1a: Salam|def|1
+|
+|-heal|p1a: Salam|229/404|[from] item: Leftovers
+|upkeep
+|turn|26
+|inactive|Welli0u has 30 seconds left.
+|inactive|Booty has 30 seconds left.
+|
+|t:|1674405980
+|switch|p2a: Iron Valiant|Iron Valiant|210/289
+|-status|p2a: Iron Valiant|psn
+|-damage|p2a: Iron Valiant|192/289 psn|[from] Stealth Rock
+|move|p1a: Salam|Recover|p1a: Salam
+|-heal|p1a: Salam|404/404
+|
+|-damage|p2a: Iron Valiant|156/289 psn|[from] psn
+|upkeep
+|turn|27
+|inactive|Booty has 30 seconds left.
+|inactive|Welli0u has 30 seconds left.
+|
+|t:|1674405992
+|switch|p1a: Mdrrrrr|Toxapex, M|304/304
+|-damage|p1a: Mdrrrrr|266/304|[from] Stealth Rock
+|-damage|p1a: Mdrrrrr|216/304|[from] Spikes
+|move|p2a: Iron Valiant|Thunderbolt|p1a: Mdrrrrr
+|-supereffective|p1a: Mdrrrrr
+|-damage|p1a: Mdrrrrr|8/304
+|
+|-heal|p1a: Mdrrrrr|27/304|[from] item: Leftovers
+|-damage|p2a: Iron Valiant|120/289 psn|[from] psn
+|upkeep
+|turn|28
+|inactive|Welli0u has 30 seconds left.
+|inactive|Booty has 30 seconds left.
+|inactive|Welli0u has 20 seconds left.
+|inactive|Welli0u has 15 seconds left.
+|
+|t:|1674406019
+|-end|p2a: Iron Valiant|Quark Drive|[silent]
+|switch|p2a: Roaring Moon|Roaring Moon|351/351
+|-enditem|p2a: Roaring Moon|Booster Energy
+|-activate|p2a: Roaring Moon|ability: Protosynthesis|[fromitem]
+|-start|p2a: Roaring Moon|protosynthesisatk
+|-status|p2a: Roaring Moon|psn
+|-damage|p2a: Roaring Moon|308/351 psn|[from] Stealth Rock
+|switch|p1a: Ace|Skeledirge, M|307/411
+|
+|-damage|p2a: Roaring Moon|265/351 psn|[from] psn
+|upkeep
+|turn|29
+|inactive|Welli0u has 25 seconds left this turn.
+|inactive|Welli0u has 20 seconds left.
+|inactive|Booty has 30 seconds left.
+|inactive|Welli0u has 15 seconds left.
+|
+|t:|1674406033
+|switch|p1a: Araujo|Great Tusk|99/434
+|-damage|p1a: Araujo|86/434|[from] Stealth Rock
+|-damage|p1a: Araujo|14/434|[from] Spikes
+|move|p2a: Roaring Moon|Crunch|p1a: Araujo
+|-resisted|p1a: Araujo
+|-damage|p1a: Araujo|0 fnt
+|faint|p1a: Araujo
+|-end|p1a: Araujo|Protosynthesis|[silent]
+|
+|-damage|p2a: Roaring Moon|222/351 psn|[from] psn
+|upkeep
+|inactive|Welli0u has 20 seconds left this turn.
+|inactive|Booty has 30 seconds left this turn.
+|inactive|Welli0u has 15 seconds left.
+|inactive|Welli0u has 10 seconds left.
+|
+|t:|1674406044
+|switch|p1a: Mdrrrrr|Toxapex, M|128/304
+|-damage|p1a: Mdrrrrr|90/304|[from] Stealth Rock
+|-damage|p1a: Mdrrrrr|40/304|[from] Spikes
+|turn|30
+|inactive|Welli0u has 20 seconds left this turn.
+|
+|t:|1674406054
+|move|p1a: Mdrrrrr|Baneful Bunker|p1a: Mdrrrrr
+|-singleturn|p1a: Mdrrrrr|move: Protect
+|move|p2a: Roaring Moon|Taunt|p1a: Mdrrrrr
+|-activate|p1a: Mdrrrrr|move: Protect
+|
+|-heal|p1a: Mdrrrrr|59/304|[from] item: Leftovers
+|-damage|p2a: Roaring Moon|179/351 psn|[from] psn
+|upkeep
+|turn|31
+|inactive|Welli0u has 30 seconds left this turn.
+|inactive|Welli0u has 20 seconds left.
+|inactive|Welli0u has 15 seconds left.
+|inactive|Welli0u has 10 seconds left.
+|
+|t:|1674406074
+|move|p1a: Mdrrrrr|Baneful Bunker|p1a: Mdrrrrr
+|-singleturn|p1a: Mdrrrrr|move: Protect
+|move|p2a: Roaring Moon|Crunch|p1a: Mdrrrrr
+|-activate|p1a: Mdrrrrr|move: Protect
+|
+|-heal|p1a: Mdrrrrr|78/304|[from] item: Leftovers
+|-damage|p2a: Roaring Moon|136/351 psn|[from] psn
+|upkeep
+|turn|32
+|inactive|Welli0u has 20 seconds left this turn.
+|inactive|Welli0u has 15 seconds left.
+|
+|t:|1674406082
+|move|p1a: Mdrrrrr|Baneful Bunker||[still]
+|-fail|p1a: Mdrrrrr
+|move|p2a: Roaring Moon|Crunch|p1a: Mdrrrrr
+|-damage|p1a: Mdrrrrr|0 fnt
+|faint|p1a: Mdrrrrr
+|
+|-damage|p2a: Roaring Moon|93/351 psn|[from] psn
+|upkeep
+|inactive|Welli0u has 20 seconds left this turn.
+|
+|t:|1674406085
+|switch|p1a: Salam|Garganacl, M, tera:Water|404/404
+|-damage|p1a: Salam|354/404|[from] Stealth Rock
+|-damage|p1a: Salam|287/404|[from] Spikes
+|turn|33
+|inactive|Welli0u has 30 seconds left this turn.
+|inactive|Booty has 60 seconds left.
+|
+|t:|1674406101
+|move|p2a: Roaring Moon|Taunt|p1a: Salam
+|-start|p1a: Salam|move: Taunt
+|move|p1a: Salam|Salt Cure|p2a: Roaring Moon
+|-damage|p2a: Roaring Moon|26/351 psn
+|-start|p2a: Roaring Moon|Salt Cure
+|
+|-heal|p1a: Salam|312/404|[from] item: Leftovers
+|-damage|p2a: Roaring Moon|0 fnt|[from] psn
+|faint|p2a: Roaring Moon
+|-end|p2a: Roaring Moon|Protosynthesis|[silent]
+|upkeep
+|inactive|Welli0u has 30 seconds left this turn.
+|
+|t:|1674406127
+|switch|p2a: Iron Valiant|Iron Valiant|120/289 psn
+|-damage|p2a: Iron Valiant|102/289 psn|[from] Stealth Rock
+|turn|34
+|
+|t:|1674406130
+|switch|p1a: Ace|Skeledirge, M|307/411
+|move|p2a: Iron Valiant|Thunderbolt|p1a: Ace
+|-damage|p1a: Ace|184/411
+|
+|-damage|p2a: Iron Valiant|66/289 psn|[from] psn
+|upkeep
+|turn|35
+|
+|t:|1674406144
+|-end|p2a: Iron Valiant|Quark Drive|[silent]
+|switch|p2a: Dragonite|Dragonite, F|243/323
+|move|p1a: Ace|Slack Off|p1a: Ace
+|-heal|p1a: Ace|390/411
+|
+|upkeep
+|turn|36
+|
+|t:|1674406158
+|move|p2a: Dragonite|Earthquake|p1a: Ace
+|-supereffective|p1a: Ace
+|-damage|p1a: Ace|134/411
+|move|p1a: Ace|Torch Song|p2a: Dragonite
+|-resisted|p2a: Dragonite
+|-damage|p2a: Dragonite|196/323
+|-boost|p1a: Ace|spa|1
+|
+|upkeep
+|turn|37
+|inactive|Booty has 30 seconds left.
+|
+|t:|1674406192
+|move|p2a: Dragonite|Earthquake|p1a: Ace
+|-supereffective|p1a: Ace
+|-damage|p1a: Ace|0 fnt
+|faint|p1a: Ace
+|
+|upkeep
+|inactive|Booty has 30 seconds left this turn.
+|
+|t:|1674406197
+|switch|p1a: Salam|Garganacl, M, tera:Water|312/404
+|-damage|p1a: Salam|262/404|[from] Stealth Rock
+|-damage|p1a: Salam|195/404|[from] Spikes
+|turn|38
+|
+|t:|1674406206
+|switch|p2a: Iron Valiant|Iron Valiant|66/289 psn
+|-damage|p2a: Iron Valiant|48/289 psn|[from] Stealth Rock
+|move|p1a: Salam|Recover|p1a: Salam
+|-heal|p1a: Salam|397/404
+|
+|-heal|p1a: Salam|404/404|[from] item: Leftovers
+|-damage|p2a: Iron Valiant|12/289 psn|[from] psn
+|upkeep
+|turn|39
+|
+|t:|1674406216
+|move|p2a: Iron Valiant|Thunderbolt|p1a: Salam
+|-supereffective|p1a: Salam
+|-damage|p1a: Salam|176/404
+|move|p1a: Salam|Recover|p1a: Salam
+|-heal|p1a: Salam|378/404
+|
+|-heal|p1a: Salam|403/404|[from] item: Leftovers
+|-damage|p2a: Iron Valiant|0 fnt|[from] psn
+|faint|p2a: Iron Valiant
+|-end|p2a: Iron Valiant|Quark Drive|[silent]
+|upkeep
+|
+|t:|1674406220
+|switch|p2a: Gholdengo|Gholdengo|74/315
+|-damage|p2a: Gholdengo|55/315|[from] Stealth Rock
+|turn|40
+|inactive|Booty has 30 seconds left.
+|
+|t:|1674406250
+|move|p2a: Gholdengo|Shadow Ball|p1a: Salam
+|-damage|p1a: Salam|348/404
+|move|p1a: Salam|Curse|p1a: Salam
+|-unboost|p1a: Salam|spe|1
+|-boost|p1a: Salam|atk|1
+|-boost|p1a: Salam|def|1
+|
+|-heal|p1a: Salam|373/404|[from] item: Leftovers
+|upkeep
+|turn|41
+|
+|t:|1674406256
+|move|p2a: Gholdengo|Nasty Plot|p2a: Gholdengo
+|-boost|p2a: Gholdengo|spa|2
+|move|p1a: Salam|Curse|p1a: Salam
+|-unboost|p1a: Salam|spe|1
+|-boost|p1a: Salam|atk|1
+|-boost|p1a: Salam|def|1
+|
+|-heal|p1a: Salam|398/404|[from] item: Leftovers
+|upkeep
+|turn|42
+|
+|t:|1674406268
+|move|p2a: Gholdengo|Trick|p1a: Salam
+|-activate|p2a: Gholdengo|move: Trick|[of] p1a: Salam
+|-item|p1a: Salam|Rocky Helmet|[from] move: Trick
+|-item|p2a: Gholdengo|Leftovers|[from] move: Trick
+|move|p1a: Salam|Earthquake|p2a: Gholdengo
+|-supereffective|p2a: Gholdengo
+|-damage|p2a: Gholdengo|0 fnt
+|faint|p2a: Gholdengo
+|
+|upkeep
+|inactive|Booty has 30 seconds left.
+|inactive|Booty has 20 seconds left.
+|inactive|Booty has 15 seconds left.
+|
+|t:|1674406294
+|switch|p2a: Kingambit|Kingambit, F|293/353
+|-damage|p2a: Kingambit|271/353|[from] Stealth Rock
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen4|[silent]
+|turn|43
+|inactive|Booty has 25 seconds left this turn.
+|
+|t:|1674406298
+|move|p2a: Kingambit|Swords Dance|p2a: Kingambit
+|-boost|p2a: Kingambit|atk|2
+|move|p1a: Salam|Earthquake|p2a: Kingambit
+|-supereffective|p2a: Kingambit
+|-damage|p2a: Kingambit|9/353
+|
+|-heal|p2a: Kingambit|31/353|[from] item: Leftovers
+|upkeep
+|turn|44
+|inactive|Booty has 30 seconds left.
+|inactive|Welli0u has 90 seconds left.
+|
+|t:|1674406331
+|move|p2a: Kingambit|Kowtow Cleave|p1a: Salam
+|-damage|p1a: Salam|218/404
+|-damage|p2a: Kingambit|0 fnt|[from] item: Rocky Helmet|[of] p1a: Salam
+|faint|p2a: Kingambit
+|-end|p2a: Kingambit|fallen4|[silent]
+|move|p1a: Salam|Earthquake|p2: Kingambit|[notarget]
+|-fail|p1a: Salam
+|
+|upkeep
+|inactive|Booty has 30 seconds left.
+|
+|t:|1674406341
+|switch|p2a: Dragonite|Dragonite, F|196/323
+|turn|45
+|
+|t:|1674406347
+|move|p2a: Dragonite|Dragon Dance|p2a: Dragonite
+|-boost|p2a: Dragonite|atk|1
+|-boost|p2a: Dragonite|spe|1
+|move|p1a: Salam|Salt Cure|p2a: Dragonite
+|-supereffective|p2a: Dragonite
+|-damage|p2a: Dragonite|8/323
+|-start|p2a: Dragonite|Salt Cure
+|
+|-damage|p2a: Dragonite|0 fnt|[from] Salt Cure
+|faint|p2a: Dragonite
+|
+|win|Welli0u
+|upkeep

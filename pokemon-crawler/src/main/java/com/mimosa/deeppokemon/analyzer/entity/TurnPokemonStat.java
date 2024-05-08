@@ -6,11 +6,12 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class TurnPokemonStat {
     private String pokemonName;
-    private int health;
+    private BigDecimal health;
 
     public TurnPokemonStat() {
 
@@ -28,11 +29,11 @@ public class TurnPokemonStat {
         this.pokemonName = pokemonName;
     }
 
-    public int getHealth() {
+    public BigDecimal getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(BigDecimal health) {
         this.health = health;
     }
 
@@ -41,7 +42,7 @@ public class TurnPokemonStat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TurnPokemonStat that = (TurnPokemonStat) o;
-        return health == that.health && Objects.equals(pokemonName, that.pokemonName);
+        return health.compareTo(that.health) == 0 && Objects.equals(pokemonName, that.pokemonName);
     }
 
     @Override

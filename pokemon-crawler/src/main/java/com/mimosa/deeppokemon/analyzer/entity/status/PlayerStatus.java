@@ -18,7 +18,7 @@ public class PlayerStatus {
     private final Map<String, String> pokemonNickNameMap;
     private final Map<String, PokemonStatus> pokemonStatusMap;
     private final List<Side> sideList;
-    private final Map<Integer,String> turnStartPokemonNames;
+    private final Map<Integer, String> turnStartPokemonNames;
     private String turnStartPokemonName;
     private String activePokemonName;
 
@@ -83,5 +83,11 @@ public class PlayerStatus {
 
     public List<Side> getSideListByName(String name) {
         return sideList.stream().filter(side -> side.name().equals(name)).collect(Collectors.toList());
+    }
+
+    public void changePokemonName(String nameBefore, String changeName) {
+        PokemonStatus pokemonStatus = pokemonStatusMap.remove(nameBefore);
+        pokemonStatus.setPokemonName(changeName);
+        pokemonStatusMap.put(changeName, pokemonStatus);
     }
 }

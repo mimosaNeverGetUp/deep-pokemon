@@ -20,6 +20,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,7 +47,7 @@ class HealEventAnalyzerTest {
                 .addPokemon(2, RILLABOOM, RILLABOOM)
                 .addPokemon(1, CORVIKNIGHT, "in a groove")
                 .setTurnStartPokemon(2, RILLABOOM)
-                .setHealth(1,CORVIKNIGHT,49)
+                .setHealth(1, CORVIKNIGHT, BigDecimal.valueOf(49))
                 .build();
 
         assertTrue(healEventAnalyzer.supportAnalyze(healthEvent));
@@ -54,13 +55,13 @@ class HealEventAnalyzerTest {
 
         PokemonBattleStat corviknightStat = battleStat.playerStatList().get(0).getPokemonBattleStat(CORVIKNIGHT);
         PokemonBattleStat rillaboomStat = battleStat.playerStatList().get(1).getPokemonBattleStat(RILLABOOM);
-        assertEquals(50, corviknightStat.getHealthValue());
-        assertEquals(0, corviknightStat.getAttackValue());
-        assertEquals(-50, rillaboomStat.getHealthValue());
-        assertEquals(-50, rillaboomStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(50.0), corviknightStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(0.0), corviknightStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(-50.0), rillaboomStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(-50.0), rillaboomStat.getAttackValue());
 
         PokemonStatus corviknightStatus = battleStatus.getPlayerStatusList().get(0).getPokemonStatus(CORVIKNIGHT);
-        assertEquals(99, corviknightStatus.getHealth());
+        assertEquals(BigDecimal.valueOf(99.0), corviknightStatus.getHealth());
     }
 
     @Test
@@ -75,20 +76,20 @@ class HealEventAnalyzerTest {
                 .addPokemon(2, TING_LU, TING_LU)
                 .addPokemon(1, CORVIKNIGHT, "in a groove")
                 .setTurnStartPokemon(1, CORVIKNIGHT)
-                .setHealth(2, TING_LU, 89)
+                .setHealth(2, TING_LU, BigDecimal.valueOf(89))
                 .build();
         assertTrue(healEventAnalyzer.supportAnalyze(healthEvent));
         healEventAnalyzer.analyze(healthEvent, battleStat, battleStatus);
 
         PokemonBattleStat corviknightStat = battleStat.playerStatList().get(0).getPokemonBattleStat(CORVIKNIGHT);
         PokemonBattleStat tiluStat = battleStat.playerStatList().get(1).getPokemonBattleStat(TING_LU);
-        assertEquals(-6, corviknightStat.getHealthValue());
-        assertEquals(-6, corviknightStat.getAttackValue());
-        assertEquals(6, tiluStat.getHealthValue());
-        assertEquals(0, tiluStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(-6.0), corviknightStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(-6.0), corviknightStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(6.0), tiluStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(0.0), tiluStat.getAttackValue());
 
         PokemonStatus tiluStatus = battleStatus.getPlayerStatusList().get(1).getPokemonStatus(TING_LU);
-        assertEquals(95, tiluStatus.getHealth());
+        assertEquals(BigDecimal.valueOf(95.0), tiluStatus.getHealth());
     }
 
     @Test
@@ -103,20 +104,20 @@ class HealEventAnalyzerTest {
                 .addPokemon(2, TING_LU, TING_LU)
                 .addPokemon(1, GLISCOR, GLISCOR)
                 .setTurnStartPokemon(2, TING_LU)
-                .setHealth(1, GLISCOR, 84)
+                .setHealth(1, GLISCOR, BigDecimal.valueOf(84))
                 .build();
         assertTrue(healEventAnalyzer.supportAnalyze(healthEvent));
         healEventAnalyzer.analyze(healthEvent, battleStat, battleStatus);
 
         PokemonBattleStat gliscorStat = battleStat.playerStatList().get(0).getPokemonBattleStat(GLISCOR);
         PokemonBattleStat tingluStat = battleStat.playerStatList().get(1).getPokemonBattleStat(TING_LU);
-        assertEquals(13, gliscorStat.getHealthValue());
-        assertEquals(0, gliscorStat.getAttackValue());
-        assertEquals(-13, tingluStat.getHealthValue());
-        assertEquals(-13, tingluStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(13.0), gliscorStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(0.0), gliscorStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(-13.0), tingluStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(-13.0), tingluStat.getAttackValue());
 
         PokemonStatus gliscorStatus = battleStatus.getPlayerStatusList().get(0).getPokemonStatus(GLISCOR);
-        assertEquals(97, gliscorStatus.getHealth());
+        assertEquals(BigDecimal.valueOf(97.0), gliscorStatus.getHealth());
     }
 
     @Test
@@ -132,7 +133,7 @@ class HealEventAnalyzerTest {
                 .addPokemon(1, CORVIKNIGHT, "in a groove")
                 .setTurnStartPokemon(2, RILLABOOM)
                 .setTurnStartPokemon(1, CORVIKNIGHT)
-                .setHealth(1, CORVIKNIGHT, 99)
+                .setHealth(1, CORVIKNIGHT, BigDecimal.valueOf(99))
                 .setFiled(new Field("Grassy Terrain", new EventTarget(2, RILLABOOM, RILLABOOM)))
                 .build();
         assertTrue(healEventAnalyzer.supportAnalyze(healthEvent));
@@ -140,12 +141,12 @@ class HealEventAnalyzerTest {
 
         PokemonBattleStat corviknightStat = battleStat.playerStatList().get(0).getPokemonBattleStat(CORVIKNIGHT);
         PokemonBattleStat rillaboomStat = battleStat.playerStatList().get(1).getPokemonBattleStat(RILLABOOM);
-        assertEquals(1, corviknightStat.getHealthValue());
-        assertEquals(0, corviknightStat.getAttackValue());
-        assertEquals(-1, rillaboomStat.getHealthValue());
-        assertEquals(-1, rillaboomStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(1.0), corviknightStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(0.0), corviknightStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(-1.0), rillaboomStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(-1.0), rillaboomStat.getAttackValue());
 
         PokemonStatus corviknightStatus = battleStatus.getPlayerStatusList().get(0).getPokemonStatus(CORVIKNIGHT);
-        assertEquals(100, corviknightStatus.getHealth());
+        assertEquals(BigDecimal.valueOf(100.0), corviknightStatus.getHealth());
     }
 }

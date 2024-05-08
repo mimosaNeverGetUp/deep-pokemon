@@ -28,12 +28,12 @@ import com.mimosa.deeppokemon.analyzer.BattleAnalyzer;
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
+import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.task.CrawBattleTask;
+import com.mimosa.deeppokemon.task.entity.CrawAnalyzeBattleFuture;
 import com.mongodb.bulk.BulkWriteError;
 import com.mongodb.bulk.BulkWriteInsert;
 import com.mongodb.bulk.BulkWriteResult;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
@@ -66,6 +66,8 @@ public class BattleService {
     private static final String BATTLE = "battle";
     private static final ThreadPoolExecutor CRAW_BATTLE_EXECUTOR = new ThreadPoolExecutor(12, 12, 0,
             TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+    private static final ThreadPoolExecutor ANALYZE_BATTLE_EXECUTOR = new ThreadPoolExecutor(6, 6, 0,
+            TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 
     private final MongoTemplate mongoTemplate;
 
@@ -96,7 +98,7 @@ public class BattleService {
             return result.getInserts().stream().map(BulkWriteInsert::getIndex).map(battles::get)
                     .collect(Collectors.toList());
         } catch (BulkOperationException e) {
-            log.error("save battle fail",e);
+            log.error("save battle fail", e);
             if (!isDuplicateKeyException(e)) {
                 throw e;
             }
@@ -127,12 +129,19 @@ public class BattleService {
         return new HashSet<>(mongoTemplate.aggregate(aggregation, BATTLE, String.class).getMappedResults());
     }
 
-    @NotNull
-    public CompletableFuture<List<Battle>> crawBattle(PlayerReplayProvider replayProvider) {
+    public CrawAnalyzeBattleFuture crawBattleAndAnalyze(ReplayProvider replayProvider) {
+        CompletableFuture<List<Battle>> crawFuture = crawBattle(replayProvider);
+        CompletableFuture<List<BattleStat>> analyzeFuture = analyzeBattleAfterCraw(crawFuture);
+        return new CrawAnalyzeBattleFuture(crawFuture, analyzeFuture);
+    }
+
+    private CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider) {
         CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, battleCrawler, this);
-        CompletableFuture<List<Battle>> future = CompletableFuture.supplyAsync(crawBattleTask::call, CRAW_BATTLE_EXECUTOR);
-//        future.thenAcceptAsync(battles -> battleAnalyzer.analyze(battles), CRAW_BATTLE_EXECUTOR);
-        return future;
+        return CompletableFuture.supplyAsync(crawBattleTask::call, CRAW_BATTLE_EXECUTOR);
+    }
+
+    public CompletableFuture<List<BattleStat>> analyzeBattleAfterCraw(CompletableFuture<List<Battle>> crawBattleFuture) {
+        return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, ANALYZE_BATTLE_EXECUTOR);
     }
 
     public Collection<BattleStat> savaAll(Collection<BattleStat> battleStats) {

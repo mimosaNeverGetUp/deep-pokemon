@@ -14,6 +14,7 @@ import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class BattleStatusBuilder {
@@ -61,7 +62,7 @@ public class BattleStatusBuilder {
         return this;
     }
 
-    public BattleStatusBuilder setHealth(int playerNumber, String pokemonName, int health) {
+    public BattleStatusBuilder setHealth(int playerNumber, String pokemonName, BigDecimal health) {
         playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemonName).setHealth(health);
         return this;
     }

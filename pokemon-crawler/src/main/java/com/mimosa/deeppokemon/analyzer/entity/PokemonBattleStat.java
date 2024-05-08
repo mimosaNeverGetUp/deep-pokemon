@@ -6,6 +6,8 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 public class PokemonBattleStat {
@@ -13,8 +15,8 @@ public class PokemonBattleStat {
     private int switchCount;
     private int moveCount;
     private int killCount;
-    private int healthValue;
-    private int attackValue;
+    private BigDecimal healthValue;
+    private BigDecimal attackValue;
 
     public PokemonBattleStat() {
 
@@ -22,6 +24,8 @@ public class PokemonBattleStat {
 
     public PokemonBattleStat(String name) {
         this.name = name;
+        healthValue = BigDecimal.valueOf(0.0);
+        attackValue = BigDecimal.valueOf(0.0);
     }
 
     public String getName() {
@@ -48,19 +52,19 @@ public class PokemonBattleStat {
         this.moveCount = moveCount;
     }
 
-    public int getHealthValue() {
+    public BigDecimal getHealthValue() {
         return healthValue;
     }
 
-    public void setHealthValue(int healthValue) {
+    public void setHealthValue(BigDecimal healthValue) {
         this.healthValue = healthValue;
     }
 
-    public int getAttackValue() {
+    public BigDecimal getAttackValue() {
         return attackValue;
     }
 
-    public void setAttackValue(int attackValue) {
+    public void setAttackValue(BigDecimal attackValue) {
         this.attackValue = attackValue;
     }
 
@@ -77,7 +81,9 @@ public class PokemonBattleStat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PokemonBattleStat that = (PokemonBattleStat) o;
-        return switchCount == that.switchCount && moveCount == that.moveCount && killCount == that.killCount && healthValue == that.healthValue && attackValue == that.attackValue && Objects.equals(name, that.name);
+        return switchCount == that.switchCount && moveCount == that.moveCount && killCount == that.killCount
+                && healthValue.compareTo(that.healthValue) == 0 && attackValue.compareTo(that.attackValue) == 0 && Objects.equals(name,
+                that.name);
     }
 
     @Override

@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Component
@@ -40,11 +41,11 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
 
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleStatus);
         if (eventTarget != null) {
-            int health = BattleEventUtil.getHealth(battleEvent.getContents().get(HEALTH_INDEX));
+            BigDecimal health = BattleEventUtil.getHealthPercentage(battleEvent.getContents().get(HEALTH_INDEX));
             PlayerStatus targetPlayerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
             PokemonStatus pokemonStatus =
                     targetPlayerStatus.getPokemonStatus(eventTarget.targetName());
-            int healthDiff = health - pokemonStatus.getHealth();
+            BigDecimal healthDiff = health.subtract(pokemonStatus.getHealth());
             String healthFrom = null;
             if (battleEvent.getContents().size() > FROM_INDEX) {
                 healthFrom = BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX));
@@ -55,7 +56,8 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
         }
     }
 
-    private void setHealthStat(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus, String healthFrom, EventTarget eventTarget, int healthDiff) {
+    private void setHealthStat(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus,
+                               String healthFrom, EventTarget eventTarget, BigDecimal healthDiff) {
         // set health value
         EventTarget healthOfTarget;
         if (battleEvent.getParentEvent() != null &&
@@ -71,25 +73,25 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
             PokemonBattleStat healthPokemonStat =
                     battleStat.playerStatList().get(healthOfTarget.playerNumber() - 1).getPokemonBattleStat(healthOfTarget.targetName());
             if (eventTarget.playerNumber() != healthOfTarget.playerNumber()) {
-                healthPokemonStat.setHealthValue(healthPokemonStat.getHealthValue() - healthDiff);
-                healthPokemonStat.setAttackValue(healthPokemonStat.getAttackValue() - healthDiff);
+                healthPokemonStat.setHealthValue(healthPokemonStat.getHealthValue().subtract(healthDiff));
+                healthPokemonStat.setAttackValue(healthPokemonStat.getAttackValue().subtract(healthDiff));
                 int opponentPlayerNumber = 3 - healthOfTarget.playerNumber();
                 PlayerStat opponentPlayerStat = battleStat.playerStatList().get(opponentPlayerNumber - 1);
                 PlayerStatus opponentPlayerStatus =
                         battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
                 PokemonBattleStat opponentPokemonStat =
                         opponentPlayerStat.getPokemonBattleStat(opponentPlayerStatus.getTurnStartPokemonName());
-                opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue() + healthDiff);
+                opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue().add(healthDiff));
             } else {
-                healthPokemonStat.setHealthValue(healthPokemonStat.getHealthValue() + healthDiff);
+                healthPokemonStat.setHealthValue(healthPokemonStat.getHealthValue().add(healthDiff));
                 int opponentPlayerNumber = 3 - eventTarget.playerNumber();
                 PlayerStat opponentPlayerStat = battleStat.playerStatList().get(opponentPlayerNumber - 1);
                 PlayerStatus opponentPlayerStatus =
                         battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
                 PokemonBattleStat opponentPokemonStat =
                         opponentPlayerStat.getPokemonBattleStat(opponentPlayerStatus.getTurnStartPokemonName());
-                opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue() - healthDiff);
-                opponentPokemonStat.setAttackValue(opponentPokemonStat.getAttackValue() - healthDiff);
+                opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue().subtract(healthDiff));
+                opponentPokemonStat.setAttackValue(opponentPokemonStat.getAttackValue().subtract(healthDiff));
             }
         }
     }

@@ -8,5 +8,7 @@ package com.mimosa.deeppokemon.analyzer.entity.event;
 
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 
-public record DamageEventStat(EventTarget eventTarget, EventTarget damageOf, String damageFrom, int healthDiff) {
+import java.math.BigDecimal;
+
+public record DamageEventStat(EventTarget eventTarget, EventTarget damageOf, String damageFrom, BigDecimal healthDiff) {
 }

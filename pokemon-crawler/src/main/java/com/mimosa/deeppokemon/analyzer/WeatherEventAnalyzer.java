@@ -25,8 +25,8 @@ public class WeatherEventAnalyzer implements BattleEventAnalyzer {
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(WEATHER);
     private static final String NONE = "none";
     private static final String UPKEEP = "upkeep";
-    private static final int OF_INDEX = 2;
     private static final int WEATHER_INDEX = 0;
+    private static final int OF_INDEX = 2;
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -41,7 +41,7 @@ public class WeatherEventAnalyzer implements BattleEventAnalyzer {
             return;
         }
 
-        if (battleEvent.getContents().size() <OF_INDEX || UPKEEP.equals(battleEvent.getContents().get(1))) {
+        if (battleEvent.getContents().size() < OF_INDEX || battleEvent.getContents().get(1).contains(UPKEEP)) {
             log.debug("weather is upkeep");
             return;
         }

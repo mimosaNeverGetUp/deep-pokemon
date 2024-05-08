@@ -101,8 +101,8 @@ public class LadderCrawler {
             String playerName = ladderRank.getName();
             PlayerReplayProvider replayProvider = new PlayerReplayProvider(playerName, format,
                     getDateAfter().atStartOfDay(ZoneId.systemDefault()).toEpochSecond());
-            var crawPlayerBattleFuture = battleService.crawBattle(replayProvider);
-            crawFutures.add(crawPlayerBattleFuture);
+            var crawPlayerBattleFuture = battleService.crawBattleAndAnalyze(replayProvider);
+            crawFutures.add(crawPlayerBattleFuture.crawFuture());
         }
 
         return crawFutures.stream().map(future -> {

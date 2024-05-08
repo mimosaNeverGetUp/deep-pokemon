@@ -55,4 +55,8 @@ public class BattleStatus {
     public void setField(Field field) {
         this.field = field;
     }
+
+    public void changePokemonName(int playerNumber, String nameBefore, String changeName) {
+        playerStatusList.get(playerNumber - 1).changePokemonName(nameBefore, changeName);
+    }
 }

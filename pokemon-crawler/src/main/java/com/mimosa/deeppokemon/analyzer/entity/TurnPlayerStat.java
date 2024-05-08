@@ -6,16 +6,18 @@
 
 package com.mimosa.deeppokemon.analyzer.entity;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class TurnPlayerStat {
-    private int totalHealth;
+    private BigDecimal totalHealth;
     private Map<String, TurnPokemonStat> turnPokemonStatMap;
 
     public TurnPlayerStat() {
         turnPokemonStatMap = new HashMap<>();
+        totalHealth = BigDecimal.valueOf(0.0);
     }
 
     public void addTurnPokemonStat(TurnPokemonStat turnPokemonStat) {
@@ -34,11 +36,11 @@ public class TurnPlayerStat {
         this.turnPokemonStatMap = turnPokemonStatMap;
     }
 
-    public int getTotalHealth() {
+    public BigDecimal getTotalHealth() {
         return totalHealth;
     }
 
-    public void setTotalHealth(int totalHealth) {
+    public void setTotalHealth(BigDecimal totalHealth) {
         this.totalHealth = totalHealth;
     }
 
@@ -47,7 +49,8 @@ public class TurnPlayerStat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TurnPlayerStat that = (TurnPlayerStat) o;
-        return totalHealth == that.totalHealth && Objects.equals(turnPokemonStatMap, that.turnPokemonStatMap);
+        return totalHealth.compareTo(that.totalHealth) == 0 && Objects.equals(turnPokemonStatMap,
+                that.turnPokemonStatMap);
     }
 
     @Override

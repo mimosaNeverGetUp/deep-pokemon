@@ -29,7 +29,7 @@ class BattleEventParserTest {
     @Autowired
     private BattleEventParser battleEventParser;
 
-    @Value("classpath:battlereplay/smogtours-gen9ou-746547")
+    @Value("classpath:battlereplay/gen9ou/smogtours-gen9ou-746547.log")
     private Resource battereplayResource;
 
     private final Set<String> noContentEvent = Set.of("clearpoke",

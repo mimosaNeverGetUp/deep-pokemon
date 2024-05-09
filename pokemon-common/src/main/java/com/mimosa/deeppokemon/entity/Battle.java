@@ -49,10 +49,6 @@ public class Battle implements Serializable {
     private String healthLinePairJsonString;
     // 比赛highlight表，json字符串
     private String highLightJsonString;
-    // 队伍对局分析;
-    private TeamBattleAnalysis[] teamBattleAnalysis;
-    // 对局趋势变化
-    private BattleTrend battleTrend;
     // 对局记录
     private String log;
     //对局回合
@@ -113,7 +109,6 @@ public class Battle implements Serializable {
         this.date = date;
     }
 
-
     public float getAvageRating() {
         return avageRating;
     }
@@ -162,38 +157,8 @@ public class Battle implements Serializable {
         this.highLightJsonString = highLightJsonString;
     }
 
-    public BattleTrend getBattleTrend() {
-        return battleTrend;
-    }
-
-    public void setBattleTrend(BattleTrend battleTrend) {
-        this.battleTrend = battleTrend;
-    }
-
-    public TeamBattleAnalysis[] getTeamBattleAnalysis() {
-        return teamBattleAnalysis;
-    }
-
-    public TeamBattleAnalysis getTeamBattleAnalysis(int index) {
-        return teamBattleAnalysis[index];
-    }
-
-    public void setTeamBattleAnalysis(TeamBattleAnalysis[] teamBattleAnalysis) {
-        this.teamBattleAnalysis = teamBattleAnalysis;
-    }
-
     public void setPokemonItem(int playIndex, String pokemonName, String item) {
         teams[playIndex].getPokemon(pokemonName).setItem(item);
-    }
-
-    public void setHealthLineTrend(int turnIndex, int playIndex, String pokemonName, short healthLine) {
-        int pokemonIndex = battleTrend.getPokemonIndex(playIndex, pokemonName);
-        battleTrend.getHealthLineTrend()[pokemonIndex][turnIndex] = healthLine;
-    }
-
-    public void setStatusTrend(int turnIndex, int playIndex, String pokemonName, short status) {
-        int pokemonIndex = battleTrend.getPokemonIndex(playIndex, pokemonName);
-        battleTrend.getStatusLineTrend()[pokemonIndex][turnIndex] = status;
     }
 
     public void setPokemonMove(int playerIndex, String pokemonName, String move) {

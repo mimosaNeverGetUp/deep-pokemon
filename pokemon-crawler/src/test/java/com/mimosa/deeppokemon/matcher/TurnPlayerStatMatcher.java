@@ -19,7 +19,8 @@ public class TurnPlayerStatMatcher extends TypeSafeMatcher<TurnPlayerStat> {
             return false;
         }
 
-        return true;
+        return turnPlayerStat.getTurnPokemonStatMap().values().stream()
+                .allMatch(TurnPokemonStatMatcher.TURN_STAT_MATCHER::matches);
     }
 
     @Override

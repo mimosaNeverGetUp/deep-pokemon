@@ -6,10 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer.util;
 
-import com.mimosa.deeppokemon.analyzer.entity.Field;
-import com.mimosa.deeppokemon.analyzer.entity.Side;
-import com.mimosa.deeppokemon.analyzer.entity.Status;
-import com.mimosa.deeppokemon.analyzer.entity.Weather;
+import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
@@ -89,6 +86,11 @@ public class BattleStatusBuilder {
 
     public BattleStatusBuilder setLastActivateTurn(int playerNumber, String pokemon, int lastMoveTurn) {
         playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemon).setLastActivateTurn(lastMoveTurn);
+        return this;
+    }
+
+    public BattleStatusBuilder setBuffOf(int playerNumber, String pokemonName, String buff, EventTarget buffOf) {
+        playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemonName).setBuffOf(buff, buffOf);
         return this;
     }
 }

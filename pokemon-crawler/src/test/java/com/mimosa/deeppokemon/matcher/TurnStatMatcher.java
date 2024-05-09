@@ -15,9 +15,10 @@ public class TurnStatMatcher extends TypeSafeMatcher<TurnStat> {
 
     @Override
     protected boolean matchesSafely(TurnStat turnStat) {
-        if (turnStat.getTurn() == 0) {
+        if (turnStat.getTurnPlayerStatList().isEmpty()) {
             return false;
         }
+
         if (turnStat.getTurnPlayerStatList().stream().noneMatch(
                 turnPlayerStat -> turnPlayerStat.getTotalHealth().intValue() != 0)) {
             return false;

@@ -7,9 +7,9 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

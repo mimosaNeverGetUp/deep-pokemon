@@ -24,11 +24,9 @@
 
 package com.mimosa.deeppokemon.entity;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 @Document(collection = "player")
 public class Player {
@@ -43,7 +41,7 @@ public class Player {
     public Player() {
     }
 
-    public Player(LocalDate infoDate, String name, int elo, int rank, float gxe,String format) {
+    public Player(LocalDate infoDate, String name, int elo, int rank, float gxe, String format) {
         this.infoDate = infoDate;
         this.name = name;
         this.elo = elo;

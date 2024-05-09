@@ -30,7 +30,7 @@ package com.mimosa.deeppokemon.entity;
  * @author: mimosa
  * @create: 2020//10//18
  */
-public enum  Tag {
+public enum Tag {
     //攻受标签
     STAFF("STAFF"),BALANCE("BALANCE"),BALANCE_ATTACK("BALANCE_ATTACK"),BALANCE_STAFF("BALANCE_STAFF"),
     ATTACK("ATTACK"), WEAK("WEAK"),

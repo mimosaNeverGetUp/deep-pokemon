@@ -34,6 +34,9 @@ class DamageEventAnalyzerTest {
     public static final String ZAPDOS = "Zapdos";
     public static final String RAGING_BOLT = "Raging Bolt";
     public static final String SKELEDIRGE = "Skeledirge";
+    private static final String SALT_CURE = "Salt Cure";
+    private static final String IRON_VALIANT = "Iron Valiant";
+    private static final String GARGANACL = "Garganacl";
 
     @Autowired
     private DamageEventAnalyzer damageEventAnalyzer;
@@ -184,6 +187,29 @@ class DamageEventAnalyzerTest {
         Assertions.assertEquals(BigDecimal.valueOf(6.0), skeledirgeStat.getHealthValue());
     }
 
+    @Test
+    void analyzeBuffDamage() {
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p2a: Iron Valiant", "88/100", "[from] Salt Cure"), null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(2, IRON_VALIANT, IRON_VALIANT)
+                .addPokemon(1, GARGANACL, GARGANACL)
+                .setTurnStartPokemon(2, IRON_VALIANT)
+                .setBuffOf(2, IRON_VALIANT, SALT_CURE, new EventTarget(1, GARGANACL, GARGANACL))
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, IRON_VALIANT)
+                .addPokemonStat(1, GARGANACL)
+                .build();
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        PokemonBattleStat ironStat = battleStat.playerStatList().get(1).getPokemonBattleStat(IRON_VALIANT);
+        Assertions.assertEquals(0, ironStat.getAttackValue().intValue());
+        Assertions.assertEquals(-12, ironStat.getHealthValue().intValue());
+        PokemonBattleStat garStat = battleStat.playerStatList().get(0).getPokemonBattleStat(GARGANACL);
+        Assertions.assertEquals(12, garStat.getAttackValue().intValue());
+        Assertions.assertEquals(12, garStat.getHealthValue().intValue());
+    }
+
     private static Arguments buildSwitchDamageEvent() {
         BattleEvent switchEvent = new BattleEvent("switch", null, null, null);
         switchEvent.setBattleEventStat(new MoveEventStat(new EventTarget(2, "Gliscor", "Gliscor")
@@ -243,7 +269,6 @@ class DamageEventAnalyzerTest {
         PokemonBattleStat exceptGliscor = new PokemonBattleStat(gliscor);
         exceptGliscor.setAttackValue(BigDecimal.valueOf(27.0));
         exceptGliscor.setHealthValue(BigDecimal.valueOf(27.0));
-
 
         PokemonBattleStat skyStat = battleStat.playerStatList().get(damageTargetPlayerNumber - 1).getPokemonBattleStat(
                 skarmory);

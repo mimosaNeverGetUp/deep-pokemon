@@ -109,6 +109,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             }
         } else {
             // default damage of opponent turn start pokemon
+            log.warn("can not get damage source from {}", battleEvent);
             minusTurnStartPokemonHealthStat(battleStat, battleStatus, eventTarget.playerNumber(), healthDiff);
             addTurnStartPokemonHealthStat(battleStat, battleStatus, 3 - eventTarget.playerNumber(),
                     healthDiff);
@@ -163,8 +164,14 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         } else if (isItemDamage(damageFrom)) {
             // maybe damage from life orb
             ofTarget = eventTarget;
+        } else if (isBuffDamage(damageFrom, targetPlayerStatus.getPokemonStatus(eventTarget.targetName()))) {
+            ofTarget = targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getBuffOf(damageFrom);
         }
         return ofTarget;
+    }
+
+    private boolean isBuffDamage(String damageFrom, PokemonStatus pokemonStatus) {
+        return pokemonStatus.getBuffOf(damageFrom) != null;
     }
 
     private boolean isItemDamage(String damageFrom) {

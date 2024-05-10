@@ -40,14 +40,14 @@ public class OAuthClientConfiguration {
                             .authenticated();
                 })
                 .oauth2Login(endpoint -> endpoint.successHandler(new SavedRequestAwareAuthenticationSuccessHandler()))
-                .cors(httpSecurityCorsConfigurer-> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource(allowOrigins)));
+                .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource(allowOrigins)));
         return httpSecurity.build();
     }
 
     CorsConfigurationSource corsConfigurationSource(String allowOrigins) {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(allowOrigins));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

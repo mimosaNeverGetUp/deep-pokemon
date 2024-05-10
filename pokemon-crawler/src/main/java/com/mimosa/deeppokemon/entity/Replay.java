@@ -8,7 +8,9 @@ package com.mimosa.deeppokemon.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record Replay(String id, @JsonProperty("uploadtime") long uploadTime, String format, int rating, String[] players,
-        boolean isPrivate) {
-
+public record Replay(String id, @JsonProperty("uploadtime") long uploadTime, String format, int rating,
+                     String[] players, boolean isPrivate) {
+    public Replay(String id) {
+        this(id, 0, null, 0, null, false);
+    }
 }

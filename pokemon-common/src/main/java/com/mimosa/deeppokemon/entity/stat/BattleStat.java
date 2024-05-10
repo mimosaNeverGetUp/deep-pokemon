@@ -31,14 +31,17 @@ public final class BattleStat {
         this.turnStats = turnStats;
     }
 
+    @JsonProperty("battleId")
     public String battleId() {
         return battleId;
     }
 
+    @JsonProperty("playerStatList")
     public List<PlayerStat> playerStatList() {
         return playerStatList;
     }
 
+    @JsonProperty("turnStats")
     public List<TurnStat> turnStats() {
         return turnStats;
     }

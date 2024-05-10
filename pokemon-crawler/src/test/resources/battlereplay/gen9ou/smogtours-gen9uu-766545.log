@@ -1,0 +1,400 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
+|t:|1715129025
+|gametype|singles
+|player|p1|NHelioX7|#puplixmaadcitymagmortars|
+|player|p2|xujing691691|psychicf-gen4|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] UU
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Kommo-o, M|
+|poke|p1|Tinkaton, F|
+|poke|p1|Ogerpon-Cornerstone, F|
+|poke|p1|Zapdos|
+|poke|p1|Excadrill, F|
+|poke|p1|Greninja-*, M|
+|poke|p2|Excadrill, M|
+|poke|p2|Rotom-Wash|
+|poke|p2|Tornadus-Therian, M|
+|poke|p2|Lokix, M|
+|poke|p2|Hydrapple, F|
+|poke|p2|Rhyperior, M|
+|teampreview
+|c|☆xujing691691|hf
+|c|☆NHelioX7|hf
+|inactive|NHelioX7 has 270 seconds left.
+|inactive|xujing691691 has 270 seconds left.
+|c|§Sificon~|3am gaming
+|c|§Sificon~|LET'S GO HELIO
+|inactive|NHelioX7 has 240 seconds left.
+|inactive|xujing691691 has 240 seconds left.
+|inactive|NHelioX7 has 210 seconds left.
+|
+|t:|1715129127
+|start
+|switch|p1a: Adieu Ma Concubine|Ogerpon-Cornerstone, F|100/100
+|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
+|turn|1
+|
+|t:|1715129152
+|switch|p1a: Riddle Of Fire|Zapdos|100/100
+|move|p2a: Tornadus|U-turn|p1a: Riddle Of Fire
+|-resisted|p1a: Riddle Of Fire
+|-damage|p1a: Riddle Of Fire|92/100
+|-status|p2a: Tornadus|par|[from] ability: Static|[of] p1a: Riddle Of Fire
+|
+|t:|1715129156
+|switch|p2a: Rhyperior|Rhyperior, M|100/100|[from] U-turn
+|
+|upkeep
+|turn|2
+|
+|t:|1715129169
+|switch|p1a: Adieu Ma Concubine|Ogerpon-Cornerstone, F|100/100
+|move|p2a: Rhyperior|Stealth Rock|p1a: Adieu Ma Concubine
+|-sidestart|p1: NHelioX7|move: Stealth Rock
+|
+|upkeep
+|turn|3
+|inactive|NHelioX7 has 240 seconds left.
+|inactive|xujing691691 has 270 seconds left.
+|
+|t:|1715129228
+|switch|p2a: Hydrapple|Hydrapple, F|100/100
+|move|p1a: Adieu Ma Concubine|Swords Dance|p1a: Adieu Ma Concubine
+|-boost|p1a: Adieu Ma Concubine|atk|2
+|
+|upkeep
+|turn|4
+|inactive|NHelioX7 has 210 seconds left.
+|inactive|xujing691691 has 240 seconds left.
+|inactive|NHelioX7 has 180 seconds left.
+|inactive|NHelioX7 has 150 seconds left.
+|
+|t:|1715129328
+|switch|p1a: Belladonna|Tinkaton, F|100/100
+|-damage|p1a: Belladonna|94/100|[from] Stealth Rock
+|-terastallize|p2a: Hydrapple|Steel
+|move|p2a: Hydrapple|Draco Meteor|p1a: Belladonna
+|-immune|p1a: Belladonna
+|
+|-heal|p1a: Belladonna|100/100|[from] item: Leftovers
+|upkeep
+|turn|5
+|inactive|NHelioX7 has 150 seconds left.
+|inactive|xujing691691 has 210 seconds left.
+|
+|t:|1715129355
+|switch|p1a: Adieu Ma Concubine|Ogerpon-Cornerstone, F|100/100
+|-damage|p1a: Adieu Ma Concubine|88/100|[from] Stealth Rock
+|switch|p2a: Excadrill|Excadrill, M|100/100
+|-ability|p2a: Excadrill|Mold Breaker
+|-item|p2a: Excadrill|Air Balloon
+|
+|upkeep
+|turn|6
+|inactive|xujing691691 has 210 seconds left.
+|
+|t:|1715129370
+|switch|p1a: Riddle Of Fire|Zapdos|92/100
+|switch|p2a: Hydrapple|Hydrapple, F, tera:Steel|100/100
+|
+|upkeep
+|turn|7
+|inactive|NHelioX7 has 120 seconds left.
+|
+|t:|1715129394
+|switch|p1a: Belladonna|Tinkaton, F|100/100
+|-damage|p1a: Belladonna|94/100|[from] Stealth Rock
+|move|p2a: Hydrapple|Draco Meteor|p1a: Belladonna
+|-immune|p1a: Belladonna
+|
+|-heal|p1a: Belladonna|100/100|[from] item: Leftovers
+|upkeep
+|turn|8
+|
+|t:|1715129399
+|switch|p2a: Excadrill|Excadrill, M|100/100
+|-ability|p2a: Excadrill|Mold Breaker
+|-item|p2a: Excadrill|Air Balloon
+|move|p1a: Belladonna|Knock Off|p2a: Excadrill
+|-damage|p2a: Excadrill|74/100
+|-enditem|p2a: Excadrill|Air Balloon
+|
+|upkeep
+|turn|9
+|inactive|xujing691691 has 210 seconds left.
+|
+|t:|1715129426
+|switch|p1a: Riddle Of Fire|Zapdos|92/100
+|move|p2a: Excadrill|Earthquake|p1a: Riddle Of Fire
+|-immune|p1a: Riddle Of Fire
+|
+|upkeep
+|turn|10
+|inactive|NHelioX7 has 120 seconds left.
+|inactive|xujing691691 has 180 seconds left.
+|inactive|NHelioX7 has 90 seconds left.
+|
+|t:|1715129479
+|switch|p2a: Hydrapple|Hydrapple, F, tera:Steel|100/100
+|move|p1a: Riddle Of Fire|Heat Wave|p2a: Hydrapple
+|-supereffective|p2a: Hydrapple
+|-damage|p2a: Hydrapple|23/100
+|
+|upkeep
+|turn|11
+|inactive|NHelioX7 has 90 seconds left.
+|inactive|xujing691691 has 150 seconds left.
+|inactive|xujing691691 has 120 seconds left.
+|inactive|NHelioX7 has 60 seconds left.
+|inactive|xujing691691 has 90 seconds left.
+|inactive|NHelioX7 has 30 seconds left.
+|
+|t:|1715129577
+|switch|p1a: Suspiria|Excadrill, F|100/100
+|-damage|p1a: Suspiria|97/100|[from] Stealth Rock
+|-ability|p1a: Suspiria|Mold Breaker
+|switch|p2a: Rhyperior|Rhyperior, M|100/100
+|
+|-heal|p1a: Suspiria|100/100|[from] item: Leftovers
+|upkeep
+|turn|12
+|inactive|NHelioX7 has 30 seconds left.
+|inactive|NHelioX7 has 20 seconds left.
+|
+|t:|1715129602
+|move|p1a: Suspiria|Iron Head|p2a: Rhyperior
+|-supereffective|p2a: Rhyperior
+|-damage|p2a: Rhyperior|47/100
+|move|p2a: Rhyperior|Earthquake|p1a: Suspiria
+|-supereffective|p1a: Suspiria
+|-damage|p1a: Suspiria|0 fnt
+|faint|p1a: Suspiria
+|
+|-heal|p2a: Rhyperior|53/100|[from] item: Leftovers
+|upkeep
+|inactive|NHelioX7 has 25 seconds left this turn.
+|inactive|NHelioX7 has 20 seconds left.
+|
+|t:|1715129609
+|switch|p1a: Adieu Ma Concubine|Ogerpon-Cornerstone, F|88/100
+|-damage|p1a: Adieu Ma Concubine|76/100|[from] Stealth Rock
+|turn|13
+|inactive|NHelioX7 has 30 seconds left this turn.
+|inactive|xujing691691 has 90 seconds left.
+|inactive|NHelioX7 has 20 seconds left.
+|
+|t:|1715129630
+|switch|p2a: Hydrapple|Hydrapple, F, tera:Steel|57/100
+|move|p1a: Adieu Ma Concubine|Swords Dance|p1a: Adieu Ma Concubine
+|-boost|p1a: Adieu Ma Concubine|atk|2
+|
+|upkeep
+|turn|14
+|inactive|NHelioX7 has 30 seconds left this turn.
+|inactive|NHelioX7 has 20 seconds left.
+|inactive|xujing691691 has 60 seconds left.
+|
+|t:|1715129673
+|move|p1a: Adieu Ma Concubine|Horn Leech|p2a: Hydrapple
+|-resisted|p2a: Hydrapple
+|-damage|p2a: Hydrapple|19/100
+|-heal|p1a: Adieu Ma Concubine|98/100|[from] drain|[of] p2a: Hydrapple
+|move|p2a: Hydrapple|Leaf Storm|p1a: Adieu Ma Concubine
+|-damage|p1a: Adieu Ma Concubine|0 fnt
+|-unboost|p2a: Hydrapple|spa|2
+|faint|p1a: Adieu Ma Concubine
+|
+|upkeep
+|inactive|NHelioX7 has 25 seconds left this turn.
+|inactive|NHelioX7 has 20 seconds left.
+|inactive|NHelioX7 has 15 seconds left.
+|
+|t:|1715129684
+|switch|p1a: Le Samouraï|Kommo-o, M|100/100
+|-damage|p1a: Le Samouraï|94/100|[from] Stealth Rock
+|turn|15
+|inactive|NHelioX7 has 25 seconds left this turn.
+|inactive|NHelioX7 has 20 seconds left.
+|inactive|NHelioX7 has 15 seconds left.
+|inactive|xujing691691 has 30 seconds left.
+|inactive|xujing691691 has 20 seconds left.
+|
+|t:|1715129725
+|switch|p2a: Rotom|Rotom-Wash|100/100
+|move|p1a: Le Samouraï|Substitute|p1a: Le Samouraï
+|-start|p1a: Le Samouraï|Substitute
+|-damage|p1a: Le Samouraï|69/100
+|
+|-heal|p1a: Le Samouraï|76/100|[from] item: Leftovers
+|upkeep
+|turn|16
+|inactive|NHelioX7 has 25 seconds left this turn.
+|inactive|xujing691691 has 30 seconds left this turn.
+|inactive|NHelioX7 has 20 seconds left.
+|inactive|xujing691691 has 20 seconds left.
+|
+|t:|1715129740
+|move|p1a: Le Samouraï|Clangorous Soul|p1a: Le Samouraï
+|-boost|p1a: Le Samouraï|atk|1
+|-boost|p1a: Le Samouraï|def|1
+|-boost|p1a: Le Samouraï|spa|1
+|-boost|p1a: Le Samouraï|spd|1
+|-boost|p1a: Le Samouraï|spe|1
+|-damage|p1a: Le Samouraï|43/100
+|move|p2a: Rotom|Volt Switch|p1a: Le Samouraï
+|-resisted|p1a: Le Samouraï
+|-activate|p1a: Le Samouraï|move: Substitute|[damage]
+|inactive|NHelioX7 has 25 seconds left this turn.
+|inactive|xujing691691 has 25 seconds left this turn.
+|inactive|xujing691691 has 20 seconds left.
+|inactive|xujing691691 has 15 seconds left.
+|
+|t:|1715129753
+|switch|p2a: Lokix|Lokix, M|100/100|[from] Volt Switch
+|
+|-heal|p1a: Le Samouraï|49/100|[from] item: Leftovers
+|upkeep
+|turn|17
+|inactive|xujing691691 has 25 seconds left this turn.
+|inactive|NHelioX7 has 30 seconds left.
+|inactive|xujing691691 has 20 seconds left.
+|
+|t:|1715129763
+|move|p1a: Le Samouraï|Drain Punch|p2a: Lokix
+|-damage|p2a: Lokix|36/100
+|-heal|p1a: Le Samouraï|75/100|[from] drain|[of] p2a: Lokix
+|move|p2a: Lokix|U-turn|p1a: Le Samouraï
+|-resisted|p1a: Le Samouraï
+|-end|p1a: Le Samouraï|Substitute
+|inactive|NHelioX7 has 30 seconds left this turn.
+|inactive|xujing691691 has 25 seconds left this turn.
+|
+|t:|1715129767
+|switch|p2a: Tornadus|Tornadus-Therian, M|100/100 par|[from] U-turn
+|
+|-heal|p1a: Le Samouraï|81/100|[from] item: Leftovers
+|upkeep
+|turn|18
+|inactive|xujing691691 has 30 seconds left.
+|
+|t:|1715129780
+|-terastallize|p1a: Le Samouraï|Electric
+|move|p1a: Le Samouraï|Substitute|p1a: Le Samouraï
+|-start|p1a: Le Samouraï|Substitute
+|-damage|p1a: Le Samouraï|56/100
+|move|p2a: Tornadus|Bleakwind Storm|p1a: Le Samouraï
+|-resisted|p1a: Le Samouraï
+|-activate|p1a: Le Samouraï|move: Substitute|[damage]
+|
+|-heal|p1a: Le Samouraï|63/100|[from] item: Leftovers
+|upkeep
+|turn|19
+|inactive|xujing691691 has 30 seconds left.
+|
+|t:|1715129795
+|move|p1a: Le Samouraï|Thunder Punch|p2a: Tornadus
+|-supereffective|p2a: Tornadus
+|-crit|p2a: Tornadus
+|-damage|p2a: Tornadus|0 fnt
+|faint|p2a: Tornadus
+|
+|-heal|p1a: Le Samouraï|69/100|[from] item: Leftovers
+|upkeep
+|inactive|xujing691691 has 30 seconds left this turn.
+|inactive|xujing691691 has 20 seconds left.
+|
+|t:|1715129805
+|switch|p2a: Rotom|Rotom-Wash|100/100
+|turn|20
+|inactive|xujing691691 has 30 seconds left this turn.
+|
+|t:|1715129817
+|move|p1a: Le Samouraï|Drain Punch|p2a: Rotom
+|-damage|p2a: Rotom|67/100
+|-heal|p1a: Le Samouraï|83/100|[from] drain|[of] p2a: Rotom
+|move|p2a: Rotom|Hydro Pump|p1a: Le Samouraï
+|-end|p1a: Le Samouraï|Substitute
+|
+|-heal|p1a: Le Samouraï|89/100|[from] item: Leftovers
+|-heal|p2a: Rotom|73/100|[from] item: Leftovers
+|upkeep
+|turn|21
+|
+|t:|1715129823
+|move|p1a: Le Samouraï|Substitute|p1a: Le Samouraï
+|-start|p1a: Le Samouraï|Substitute
+|-damage|p1a: Le Samouraï|65/100
+|move|p2a: Rotom|Hydro Pump|p1a: Le Samouraï|[miss]
+|-miss|p2a: Rotom|p1a: Le Samouraï
+|
+|-heal|p1a: Le Samouraï|71/100|[from] item: Leftovers
+|-heal|p2a: Rotom|79/100|[from] item: Leftovers
+|upkeep
+|turn|22
+|inactive|NHelioX7 has 60 seconds left.
+|
+|t:|1715129830
+|move|p1a: Le Samouraï|Clangorous Soul|p1a: Le Samouraï
+|-boost|p1a: Le Samouraï|atk|1
+|-boost|p1a: Le Samouraï|def|1
+|-boost|p1a: Le Samouraï|spa|1
+|-boost|p1a: Le Samouraï|spd|1
+|-boost|p1a: Le Samouraï|spe|1
+|-damage|p1a: Le Samouraï|38/100
+|move|p2a: Rotom|Hydro Pump|p1a: Le Samouraï
+|-activate|p1a: Le Samouraï|move: Substitute|[damage]
+|
+|-heal|p1a: Le Samouraï|44/100|[from] item: Leftovers
+|-heal|p2a: Rotom|85/100|[from] item: Leftovers
+|upkeep
+|turn|23
+|
+|t:|1715129846
+|move|p1a: Le Samouraï|Drain Punch|p2a: Rotom
+|-damage|p2a: Rotom|40/100
+|-heal|p1a: Le Samouraï|63/100|[from] drain|[of] p2a: Rotom
+|move|p2a: Rotom|Volt Switch|p1a: Le Samouraï
+|-resisted|p1a: Le Samouraï
+|-activate|p1a: Le Samouraï|move: Substitute|[damage]
+|inactive|xujing691691 has 30 seconds left.
+|inactive|xujing691691 has 20 seconds left.
+|inactive|xujing691691 has 15 seconds left.
+|inactive|xujing691691 has 10 seconds left.
+|
+|t:|1715129877
+|switch|p2a: Lokix|Lokix, M|36/100|[from] Volt Switch
+|
+|-heal|p1a: Le Samouraï|70/100|[from] item: Leftovers
+|upkeep
+|turn|24
+|inactive|xujing691691 has 20 seconds left this turn.
+|inactive|xujing691691 has 15 seconds left.
+|
+|t:|1715129884
+|move|p2a: Lokix|First Impression|p1a: Le Samouraï
+|-end|p1a: Le Samouraï|Substitute
+|move|p1a: Le Samouraï|Drain Punch|p2a: Lokix
+|-damage|p2a: Lokix|0 fnt
+|-heal|p1a: Le Samouraï|84/100|[from] drain|[of] p2a: Lokix
+|faint|p2a: Lokix
+|
+|-heal|p1a: Le Samouraï|90/100|[from] item: Leftovers
+|upkeep
+|inactive|xujing691691 has 20 seconds left this turn.
+|c|☆xujing691691|gg
+|inactive|xujing691691 has 15 seconds left.
+|-message|xujing691691 forfeited.
+|
+|win|NHelioX7
+|inactive|xujing691691 has 20 seconds left this turn.
+|c|☆NHelioX7|gg

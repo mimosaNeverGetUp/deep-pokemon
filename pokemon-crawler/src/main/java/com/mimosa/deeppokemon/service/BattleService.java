@@ -25,9 +25,9 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.analyzer.BattleAnalyzer;
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.task.CrawBattleTask;
 import com.mimosa.deeppokemon.task.entity.CrawAnalyzeBattleFuture;

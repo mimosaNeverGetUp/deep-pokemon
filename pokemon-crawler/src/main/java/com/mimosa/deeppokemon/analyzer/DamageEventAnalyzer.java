@@ -6,7 +6,10 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.*;
+import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
+import com.mimosa.deeppokemon.analyzer.entity.Side;
+import com.mimosa.deeppokemon.analyzer.entity.Status;
+import com.mimosa.deeppokemon.analyzer.entity.Weather;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
@@ -15,6 +18,9 @@ import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.PlayerStat;
+import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

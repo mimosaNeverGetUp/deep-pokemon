@@ -2,17 +2,14 @@ server:
     port: 8080
 
 spring:
+    application:
+        name: pokemon-portal
     profiles:
         active: develop
 #        active: production,startCraw
-    freemarker:
-        template-loader-path: classpath:/templates/
-        prefer-file-system-access: false
 
 eureka:
-    instance:
-        hostname: localhost
     client:
         registerWithEureka: false
         serviceUrl:
-            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+            defaultZone: http://localhost:8761/eureka/

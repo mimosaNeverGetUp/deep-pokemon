@@ -6,10 +6,10 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.TurnPlayerStat;
-import com.mimosa.deeppokemon.analyzer.entity.TurnPokemonStat;
-import com.mimosa.deeppokemon.analyzer.entity.TurnStat;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnPlayerStat;
+import com.mimosa.deeppokemon.entity.stat.TurnPokemonStat;
+import com.mimosa.deeppokemon.entity.stat.TurnStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;

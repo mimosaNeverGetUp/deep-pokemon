@@ -6,9 +6,9 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
-import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
+import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.utils.MatcherUtil;

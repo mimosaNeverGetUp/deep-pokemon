@@ -6,8 +6,8 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleHighLight;
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.BattleHighLight;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Side;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;

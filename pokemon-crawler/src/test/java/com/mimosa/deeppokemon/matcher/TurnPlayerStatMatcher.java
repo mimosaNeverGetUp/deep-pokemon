@@ -6,7 +6,7 @@
 
 package com.mimosa.deeppokemon.matcher;
 
-import com.mimosa.deeppokemon.analyzer.entity.TurnPlayerStat;
+import com.mimosa.deeppokemon.entity.stat.TurnPlayerStat;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 

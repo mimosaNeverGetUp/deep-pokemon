@@ -4,7 +4,7 @@
  *  Copyright (c) 2024-2024 mimosa
  */
 
-package com.mimosa.deeppokemon.analyzer.entity;
+package com.mimosa.deeppokemon.entity.stat;
 
 import java.math.BigDecimal;
 import java.util.Objects;

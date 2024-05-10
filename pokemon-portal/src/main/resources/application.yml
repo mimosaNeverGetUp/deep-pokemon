@@ -1,4 +1,18 @@
+server:
+    port: 8080
+
 spring:
     profiles:
         active: develop
 #        active: production,startCraw
+    freemarker:
+        template-loader-path: classpath:/templates/
+        prefer-file-system-access: false
+
+eureka:
+    instance:
+        hostname: localhost
+    client:
+        registerWithEureka: false
+        serviceUrl:
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

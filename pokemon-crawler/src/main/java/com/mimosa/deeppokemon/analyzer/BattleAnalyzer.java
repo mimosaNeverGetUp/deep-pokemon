@@ -51,7 +51,11 @@ public class BattleAnalyzer {
                 log.error("analyze battle {} error", battle.getBattleID(), e);
             }
         }
-        battleService.savaAll(battleStats);
+        try {
+            battleService.savaAll(battleStats);
+        } catch (Exception e) {
+            log.error("save battle stat error", e);
+        }
         return battleStats;
     }
 

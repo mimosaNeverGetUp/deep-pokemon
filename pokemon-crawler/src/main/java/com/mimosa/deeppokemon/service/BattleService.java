@@ -28,6 +28,7 @@ import com.mimosa.deeppokemon.analyzer.BattleAnalyzer;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.provider.FixedReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.task.CrawBattleTask;
 import com.mimosa.deeppokemon.task.entity.CrawAnalyzeBattleFuture;
@@ -48,10 +49,7 @@ import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -79,6 +77,10 @@ public class BattleService {
         this.mongoTemplate = mongoTemplate;
         this.battleCrawler = battleCrawler;
         this.battleAnalyzer = battleAnalyzer;
+    }
+
+    public Battle findBattle(String battleId) {
+        return mongoTemplate.findById(battleId, Battle.class);
     }
 
     @CacheEvict("battleIds")
@@ -146,5 +148,15 @@ public class BattleService {
 
     public Collection<BattleStat> savaAll(Collection<BattleStat> battleStats) {
         return mongoTemplate.insertAll(battleStats);
+    }
+
+    public BattleStat getBattleStat(String battleId) {
+        Battle battle = findBattle(battleId);
+        if (battle == null) {
+            CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(Collections.singletonList(battleId)),
+                    battleCrawler, this);
+            battle = crawBattleTask.call().get(0);
+        }
+        return battleAnalyzer.analyze(Collections.singletonList(battle)).get(0);
     }
 }

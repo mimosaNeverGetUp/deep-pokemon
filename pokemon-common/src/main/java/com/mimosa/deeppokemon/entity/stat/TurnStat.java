@@ -8,6 +8,7 @@ package com.mimosa.deeppokemon.entity.stat;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class TurnStat {
     }
 
     @JsonCreator
+    @PersistenceConstructor
     public TurnStat(@JsonProperty("turn") int turn, @JsonProperty("turnPlayerStatList") List<TurnPlayerStat> turnPlayerStatList) {
         this.turn = turn;
         this.turnPlayerStatList = turnPlayerStatList;

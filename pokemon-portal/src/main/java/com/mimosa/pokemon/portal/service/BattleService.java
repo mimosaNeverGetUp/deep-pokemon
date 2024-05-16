@@ -279,11 +279,15 @@ public class BattleService {
 
     @Cacheable("battlestat")
     public BattleStat battleStat(String battleId) {
-        return crawlerApi.battleStat(battleId);
+        BattleStat battleStat = mongoTemplate.findById(battleId, BattleStat.class);
+        if (battleStat == null) {
+            battleStat = crawlerApi.battleStat(battleId);
+        }
+        return battleStat;
     }
 
     private Aggregation buildTeamQueryAggregation(List<String> tags, List<String> pokemonNames, String dayAfter,
-                                                         String dayBefore) {
+                                                  String dayBefore) {
         List<AggregationOperation> aggregationOperations = new ArrayList<>();
         aggregationOperations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
         aggregationOperations.add(Aggregation.unwind("teams"));
@@ -311,7 +315,7 @@ public class BattleService {
                     Aggregation.match(new Criteria().andOperator(teamCriterias)));
         }
 
-        Field[] projectFields = new Field[]{Fields.field("team","teams")};
+        Field[] projectFields = new Field[]{Fields.field("team", "teams")};
         aggregationOperations.add(Aggregation.project(Fields.from(projectFields))
                 .and("_id").as("battleId").andExclude("_id"));
 

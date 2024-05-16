@@ -62,4 +62,10 @@ class BattleServiceTest {
             }
         }
     }
+
+    @Test
+    void testGetBattleStat() {
+        BattleStat battleStat = battleService.getBattleStat("smogtours-gen6ou-767611");
+        MatcherAssert.assertThat(battleStat, BattleStatMatcher.BATTLE_STAT_MATCHER);
+    }
 }

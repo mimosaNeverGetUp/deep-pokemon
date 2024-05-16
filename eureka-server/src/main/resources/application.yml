@@ -1,6 +1,12 @@
 server:
   port: 8761
 
+spring:
+  security:
+    user:
+      name: mimosa
+      password: 0405@L1999
+
 eureka:
   instance:
     hostname: localhost

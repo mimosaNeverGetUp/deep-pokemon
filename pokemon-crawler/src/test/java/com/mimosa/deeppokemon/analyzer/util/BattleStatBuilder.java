@@ -6,9 +6,9 @@
 
 package com.mimosa.deeppokemon.analyzer.util;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.PlayerStat;
-import com.mimosa.deeppokemon.analyzer.entity.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.PlayerStat;
+import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
 
 import java.util.ArrayList;
 import java.util.List;

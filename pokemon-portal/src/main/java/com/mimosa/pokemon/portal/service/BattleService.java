@@ -25,16 +25,17 @@
 package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.PokemonStatDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.entity.stat.PokemonMoveStat;
 import com.mimosa.pokemon.portal.entity.stat.PokemonUsageStat;
+import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
 import com.mimosa.pokemon.portal.util.MongodbUtils;
 import com.mongodb.BasicDBObject;
 import org.bson.Document;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -58,6 +59,9 @@ import java.util.stream.Collectors;
 public class BattleService {
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private CrawlerApi crawlerApi;
 
     @Cacheable("playerBattle")
     public PageResponse<Battle> listBattleByName(String playerName, int page, int row) {
@@ -273,9 +277,17 @@ public class BattleService {
         return MongodbUtils.parsePageAggregationResult(result, page, row, BattleTeamDto.class);
     }
 
-    @NotNull
-    private static Aggregation buildTeamQueryAggregation(List<String> tags, List<String> pokemonNames, String dayAfter,
-                                                         String dayBefore) {
+    @Cacheable("battlestat")
+    public BattleStat battleStat(String battleId) {
+        BattleStat battleStat = mongoTemplate.findById(battleId, BattleStat.class);
+        if (battleStat == null) {
+            battleStat = crawlerApi.battleStat(battleId);
+        }
+        return battleStat;
+    }
+
+    private Aggregation buildTeamQueryAggregation(List<String> tags, List<String> pokemonNames, String dayAfter,
+                                                  String dayBefore) {
         List<AggregationOperation> aggregationOperations = new ArrayList<>();
         aggregationOperations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
         aggregationOperations.add(Aggregation.unwind("teams"));
@@ -303,10 +315,11 @@ public class BattleService {
                     Aggregation.match(new Criteria().andOperator(teamCriterias)));
         }
 
-        Field[] projectFields = new Field[]{Fields.field("team","teams")};
+        Field[] projectFields = new Field[]{Fields.field("team", "teams")};
         aggregationOperations.add(Aggregation.project(Fields.from(projectFields))
                 .and("_id").as("battleId").andExclude("_id"));
 
         return Aggregation.newAggregation(aggregationOperations);
     }
+
 }

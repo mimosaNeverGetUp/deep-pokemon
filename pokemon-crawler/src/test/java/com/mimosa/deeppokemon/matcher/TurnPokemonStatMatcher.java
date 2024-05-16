@@ -6,7 +6,7 @@
 
 package com.mimosa.deeppokemon.matcher;
 
-import com.mimosa.deeppokemon.analyzer.entity.TurnPokemonStat;
+import com.mimosa.deeppokemon.entity.stat.TurnPokemonStat;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 import org.springframework.util.StringUtils;

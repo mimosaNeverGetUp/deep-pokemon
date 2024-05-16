@@ -1,14 +1,23 @@
 spring:
+  application:
+    name: pokemon-crawler
   data:
     mongodb:
       uri: mongodb://localhost:27017/deep_pokemon_dev_env?serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
       authentication-database: admin
   jackson:
     timeZone : GMT+8
-  profiles:
-    active: startCraw
+#  profiles:
+#    active: startCraw
+
 server:
   port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://mimosa:0405%40L1999@localhost:8761/eureka/
+
 #logging:
 #  level:
 #   com:

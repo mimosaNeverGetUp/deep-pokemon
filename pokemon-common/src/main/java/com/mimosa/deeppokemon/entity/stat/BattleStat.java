@@ -4,7 +4,7 @@
  *  Copyright (c) 2024-2024 mimosa
  */
 
-package com.mimosa.deeppokemon.analyzer.entity;
+package com.mimosa.deeppokemon.entity.stat;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -31,14 +31,17 @@ public final class BattleStat {
         this.turnStats = turnStats;
     }
 
+    @JsonProperty("battleId")
     public String battleId() {
         return battleId;
     }
 
+    @JsonProperty("playerStatList")
     public List<PlayerStat> playerStatList() {
         return playerStatList;
     }
 
+    @JsonProperty("turnStats")
     public List<TurnStat> turnStats() {
         return turnStats;
     }

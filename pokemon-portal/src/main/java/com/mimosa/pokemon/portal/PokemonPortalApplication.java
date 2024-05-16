@@ -30,15 +30,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * deeppokemon应用入口
  * 使用scanBasePackages导入其他模块
  *
- * @author huangxiaocong(2070132549@qq.com)
+ * @author huangxiaocong(2070132549 @ qq.com)
  */
 @EnableCaching
-@SpringBootApplication(scanBasePackages = {"com.mimosa.deeppokemon","com.mimosa.pokemon"})
+@EnableFeignClients
+@SpringBootApplication
 public class PokemonPortalApplication extends SpringBootServletInitializer {
 
     @Override

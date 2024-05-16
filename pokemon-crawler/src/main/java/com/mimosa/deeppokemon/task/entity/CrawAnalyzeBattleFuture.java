@@ -6,8 +6,8 @@
 
 package com.mimosa.deeppokemon.task.entity;
 
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

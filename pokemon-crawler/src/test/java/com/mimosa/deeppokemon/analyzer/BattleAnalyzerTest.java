@@ -7,9 +7,9 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mimosa.deeppokemon.analyzer.entity.BattleStat;
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.matcher.BattleStatMatcher;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.hamcrest.MatcherAssert;

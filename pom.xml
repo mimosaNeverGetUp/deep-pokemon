@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.3</version>
+        <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.mimosa</groupId>
@@ -21,6 +21,7 @@
         <module>eureka-server</module>
     </modules>
     <properties>
+        <rootProject.basedir>${basedir}</rootProject.basedir>
         <java.version>17</java.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
     </properties>
@@ -138,13 +139,18 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <pullPolicy>IF_NOT_PRESENT</pullPolicy>
+                        <bindings>
+                            <binding>${rootProject.basedir}/graalvm/bindings:/platform/bindings</binding>
+                        </bindings>
+                    </image>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <!--            <configuration>-->
-                <!--                <skipTests>true</skipTests>-->
-                <!--            </configuration>-->
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -169,6 +175,10 @@
                     <!-- Rest of your configuration, if any -->
                     <formats>HTML,XML</formats>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

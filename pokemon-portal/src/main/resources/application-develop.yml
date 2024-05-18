@@ -20,6 +20,9 @@ spring:
             clientSecret: 444f832070893a506a3479b66ef3e9a3ca2c90ee
   web:
     cors: "*"
+  cloud:
+    refresh:
+      enabled: false
 logging:
   config: classpath:logback.xml
 server:
@@ -28,4 +31,8 @@ server:
       enabled: true
       directory: /logs/access
 
-# ...
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://mimosa:0405%40L1999@localhost:8761/eureka/

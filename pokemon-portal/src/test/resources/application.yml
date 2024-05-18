@@ -8,3 +8,6 @@ spring:
             clientSecret: 444f832070893a506a3479b66ef3e9a3ca2c90ee
   web:
     cors: "*"
+eureka:
+  client:
+    enabled: false

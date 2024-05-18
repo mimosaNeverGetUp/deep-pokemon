@@ -7,6 +7,9 @@ spring:
       authentication-database: admin
   jackson:
     timeZone : GMT+8
+  cloud:
+    refresh:
+      enabled: false
 #  profiles:
 #    active: startCraw
 
@@ -17,7 +20,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://mimosa:0405%40L1999@localhost:8761/eureka/
-
 #logging:
 #  level:
 #   com:

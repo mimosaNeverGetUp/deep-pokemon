@@ -68,24 +68,24 @@ public class PokemonIconExtracter {
                 BufferedImage.TYPE_INT_ARGB);
         pokemonIconsImage.getGraphics().drawImage(pokemonicons.getImage(), 0, 0, null);
         pokemonicons.getImage().flush();
-
-        for (PokemonInfo pokemonInfo : pokemonInfos) {
-            try {
-                int index = getPokemonIconIndex(pokemonInfo);
-                if (index < 0) {
-                    continue;
-                }
-                int h = index / 12 * 30;
-                int w = (index % 12) * 40;
-                BufferedImage pokemonIconImage = pokemonIconsImage.getSubimage(w, h, WIDTH_PER_POKEMON, HEIGHT_PER_POKEMON);
-                File output = Paths.get("src", "main", "resources", "META-INF", "test", pokemonInfo.getName()
-                        .replaceAll(" ", "").replaceAll(":", "") + ".png").toAbsolutePath().toFile();
-                ImageIO.write(convertBackgroundToCompatible(pokemonIconImage), "png", output);
-            } catch (Exception e) {
-                logger.error("extract {} fail,index:{}", pokemonInfo, getPokemonIconIndex(pokemonInfo));
-                throw e;
-            }
-        }
+//
+//        for (PokemonInfo pokemonInfo : pokemonInfos) {
+//            try {
+//                int index = getPokemonIconIndex(pokemonInfo);
+//                if (index < 0) {
+//                    continue;
+//                }
+//                int h = index / 12 * 30;
+//                int w = (index % 12) * 40;
+//                BufferedImage pokemonIconImage = pokemonIconsImage.getSubimage(w, h, WIDTH_PER_POKEMON, HEIGHT_PER_POKEMON);
+//                File output = Paths.get("src", "main", "resources", "META-INF", "test", pokemonInfo.getName()
+//                        .replaceAll(" ", "").replaceAll(":", "") + ".png").toAbsolutePath().toFile();
+//                ImageIO.write(convertBackgroundToCompatible(pokemonIconImage), "png", output);
+//            } catch (Exception e) {
+//                logger.error("extract {} fail,index:{}", pokemonInfo, getPokemonIconIndex(pokemonInfo));
+//                throw e;
+//            }
+//        }
     }
 
     private int getPokemonIconIndex(PokemonInfo pokemonInfo) {

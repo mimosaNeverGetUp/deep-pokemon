@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
+        <version>3.2.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.mimosa</groupId>
@@ -23,7 +23,7 @@
     <properties>
         <rootProject.basedir>${basedir}</rootProject.basedir>
         <java.version>17</java.version>
-        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud.version>2023.0.1</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -145,7 +145,12 @@
                         <bindings>
                             <binding>${rootProject.basedir}/graalvm/bindings:/platform/bindings</binding>
                         </bindings>
+                        <verboseLogging>true</verboseLogging>
+                        <env>
+                            <BP_NATIVE_IMAGE_BUILD_ARGUMENTS>--verbose -g -H:+ReportExceptionStackTraces</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+                        </env>
                     </image>
+                    <profiles>develop,native</profiles>
                 </configuration>
             </plugin>
             <plugin>
@@ -179,6 +184,10 @@
             <plugin>
                 <groupId>org.graalvm.buildtools</groupId>
                 <artifactId>native-maven-plugin</artifactId>
+                <configuration>
+                    <skipNativeTests>true</skipNativeTests>
+                    <verbose>true</verbose>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -23,8 +23,6 @@ spring:
   cloud:
     refresh:
       enabled: false
-logging:
-  config: classpath:logback.xml
 server:
   tomcat:
     accesslog:

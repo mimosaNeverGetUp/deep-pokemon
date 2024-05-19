@@ -10,3 +10,8 @@ spring:
     active: develop
 server:
   port: 8081
+
+logging:
+  level:
+    com:
+        netflix: ERROR

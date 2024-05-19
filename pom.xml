@@ -185,7 +185,6 @@
                 <groupId>org.graalvm.buildtools</groupId>
                 <artifactId>native-maven-plugin</artifactId>
                 <configuration>
-                    <skipNativeTests>true</skipNativeTests>
                     <verbose>true</verbose>
                 </configuration>
             </plugin>

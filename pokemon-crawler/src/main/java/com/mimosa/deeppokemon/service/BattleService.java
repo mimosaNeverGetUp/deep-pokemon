@@ -27,6 +27,8 @@ package com.mimosa.deeppokemon.service;
 import com.mimosa.deeppokemon.analyzer.BattleAnalyzer;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.provider.FixedReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
@@ -37,6 +39,7 @@ import com.mongodb.bulk.BulkWriteInsert;
 import com.mongodb.bulk.BulkWriteResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -80,8 +83,9 @@ public class BattleService {
         this.battleAnalyzer = battleAnalyzer;
     }
 
+    @RegisterReflectionForBinding({Battle.class, Team.class, Pokemon.class})
     public Battle findBattle(String battleId) {
-        return mongoTemplate.findById(battleId, Battle.class);
+        return mongoTemplate.findById(battleId, Battle.class, "battle");
     }
 
     @CacheEvict("battleIds")
@@ -160,7 +164,11 @@ public class BattleService {
             battle = crawBattleTask.call().get(0);
         }
         List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
-        savaAll(battleStats);
+        try {
+            savaAll(battleStats);
+        } catch (Exception e){
+            log.warn("save battle stat fail", e);
+        }
         return battleStats.get(0);
     }
 }

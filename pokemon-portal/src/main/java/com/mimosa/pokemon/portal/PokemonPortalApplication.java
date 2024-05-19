@@ -41,13 +41,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableCaching
 @EnableFeignClients
 @SpringBootApplication
-public class PokemonPortalApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(PokemonPortalApplication.class);
-    }
-
+public class PokemonPortalApplication {
     public static void main(String[] args) {
         SpringApplication.run(PokemonPortalApplication.class, args);
     }

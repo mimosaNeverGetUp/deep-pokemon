@@ -20,7 +20,6 @@ import java.util.List;
 public class Ladder {
     private String format;
     private LocalDate date;
-
     private List<LadderRank> ladderRankList;
 
     public String getFormat() {

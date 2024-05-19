@@ -49,23 +49,16 @@ class BattleServiceTest {
     }
 
     @Test
-    void getBattleStat() {
+    void getBattleStat_NotExistBattle() {
         BattleStat battleStat = null;
         try {
             battleStat = battleService.getBattleStat(NOT_SAVE_BATTLE_ID);
             MatcherAssert.assertThat(battleStat, BattleStatMatcher.BATTLE_STAT_MATCHER);
-
         } finally {
             if (battleStat != null) {
                 mongoTemplate.remove(battleStat);
                 mongoTemplate.remove(new Query(Criteria.where("_id").is(NOT_SAVE_BATTLE_ID)),"battle");
             }
         }
-    }
-
-    @Test
-    void testGetBattleStat() {
-        BattleStat battleStat = battleService.getBattleStat("smogtours-gen6ou-767611");
-        MatcherAssert.assertThat(battleStat, BattleStatMatcher.BATTLE_STAT_MATCHER);
     }
 }

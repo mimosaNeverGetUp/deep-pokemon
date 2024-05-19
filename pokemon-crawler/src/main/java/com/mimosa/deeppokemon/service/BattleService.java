@@ -73,7 +73,8 @@ public class BattleService {
 
     private final BattleAnalyzer battleAnalyzer;
 
-    public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler, BattleAnalyzer battleAnalyzer) {
+    public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler,
+                         BattleAnalyzer battleAnalyzer) {
         this.mongoTemplate = mongoTemplate;
         this.battleCrawler = battleCrawler;
         this.battleAnalyzer = battleAnalyzer;
@@ -143,11 +144,12 @@ public class BattleService {
     }
 
     public CompletableFuture<List<BattleStat>> analyzeBattleAfterCraw(CompletableFuture<List<Battle>> crawBattleFuture) {
-        return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, ANALYZE_BATTLE_EXECUTOR);
+        return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, ANALYZE_BATTLE_EXECUTOR)
+                .thenApplyAsync(battleStats -> savaAll(battleStats));
     }
 
-    public Collection<BattleStat> savaAll(Collection<BattleStat> battleStats) {
-        return mongoTemplate.insertAll(battleStats);
+    public List<BattleStat> savaAll(Collection<BattleStat> battleStats) {
+        return new ArrayList<>(mongoTemplate.insertAll(battleStats));
     }
 
     public BattleStat getBattleStat(String battleId) {
@@ -157,6 +159,8 @@ public class BattleService {
                     battleCrawler, this);
             battle = crawBattleTask.call().get(0);
         }
-        return battleAnalyzer.analyze(Collections.singletonList(battle)).get(0);
+        List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
+        savaAll(battleStats);
+        return battleStats.get(0);
     }
 }

@@ -36,7 +36,6 @@ import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -57,11 +56,9 @@ public class LadderCrawler {
     private float minGxe;
     private LocalDate dateAfter;
 
-    @Lazy
     @Autowired
     private BattleService battleService;
 
-    @Lazy
     @Autowired
     private LadderService ladderService;
 

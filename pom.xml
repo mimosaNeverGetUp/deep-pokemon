@@ -24,6 +24,7 @@
         <rootProject.basedir>${basedir}</rootProject.basedir>
         <java.version>17</java.version>
         <spring-cloud.version>2023.0.1</spring-cloud.version>
+        <app.profiles>develop,native</app.profiles>
     </properties>
 
     <dependencies>
@@ -150,7 +151,7 @@
                             <BP_NATIVE_IMAGE_BUILD_ARGUMENTS>--verbose -g -H:+ReportExceptionStackTraces</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
                         </env>
                     </image>
-                    <profiles>develop,native</profiles>
+                    <profiles>${app.profiles}</profiles>
                 </configuration>
             </plugin>
             <plugin>

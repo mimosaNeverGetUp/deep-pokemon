@@ -23,5 +23,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
         <spring-boot.aot.skip>true</spring-boot.aot.skip>
+        <spring-boot.build-image.skip>true</spring-boot.build-image.skip>
     </properties>
 </project>

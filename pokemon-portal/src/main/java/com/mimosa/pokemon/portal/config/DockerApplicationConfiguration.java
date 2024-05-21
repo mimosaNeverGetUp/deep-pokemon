@@ -10,14 +10,12 @@ import com.mongodb.client.MongoClients;
 import io.lettuce.core.ClientOptions;
 import io.lettuce.core.SocketOptions;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
-import org.springframework.cloud.netflix.eureka.EurekaClientConfigBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.support.EncodedResource;
-import org.springframework.core.io.support.PropertySourceFactory;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -25,7 +23,6 @@ import org.springframework.data.redis.connection.lettuce.LettuceClientConfigurat
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 
 import java.time.Duration;
-import java.util.Collections;
 import java.util.Properties;
 
 @Profile("docker")
@@ -35,27 +32,27 @@ public class DockerApplicationConfiguration {
     private static final String SPRING_DATA_MONGODB_DATABASE = "spring.data.mongodb.database";
     private static final String SPRING_DATA_REDIS_HOST = "spring.data.redis.host";
     private static final String SPRING_DATA_REDIS_PORT = "spring.data.redis.port";
-    private static final String EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE = "eureka.client.serviceUrl.defaultZone";
     private Properties applicationProperties;
 
-    private void initPropertiesIfNeed() {
+    private void initPropertiesIfNeed(ConfigurableEnvironment environment) {
         if (applicationProperties == null) {
             YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
             factory.setResources(new ClassPathResource("application-docker.yml"));
             applicationProperties = factory.getObject();
+            environment.getPropertySources().addFirst(new PropertiesPropertySource("docker", applicationProperties));
         }
     }
 
     @Bean
-    public MongoDatabaseFactory mongoDatabaseFactory() {
-        initPropertiesIfNeed();
+    public MongoDatabaseFactory mongoDatabaseFactory(ConfigurableEnvironment environment) {
+        initPropertiesIfNeed(environment);
         return new SimpleMongoClientDatabaseFactory(MongoClients.create(applicationProperties.getProperty(SPRING_DATA_MONGODB_URI)),
                 applicationProperties.getProperty(SPRING_DATA_MONGODB_DATABASE));
     }
 
     @Bean
-    public LettuceConnectionFactory redisConnectionFactory() {
-        initPropertiesIfNeed();
+    public LettuceConnectionFactory redisConnectionFactory(ConfigurableEnvironment environment) {
+        initPropertiesIfNeed(environment);
         final SocketOptions socketOptions = SocketOptions.builder().connectTimeout(Duration.ofSeconds(3)).build();
         final ClientOptions clientOptions =
                 ClientOptions.builder().socketOptions(socketOptions).build();
@@ -66,27 +63,5 @@ public class DockerApplicationConfiguration {
         int port = Integer.parseInt(applicationProperties.getProperty(SPRING_DATA_REDIS_PORT));
         return new LettuceConnectionFactory(new RedisStandaloneConfiguration(host, port),
                 lettuceClientConfiguration);
-    }
-
-    @Bean
-    public EurekaClientConfigBean eurekaClientConfigBean() {
-        EurekaClientConfigBean eurekaClientConfigBean = new EurekaClientConfigBean();
-        eurekaClientConfigBean.setRegisterWithEureka(true);
-        eurekaClientConfigBean.setServiceUrl(Collections.singletonMap(EurekaClientConfigBean.DEFAULT_ZONE,
-                applicationProperties.getProperty(EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE)));
-        return eurekaClientConfigBean;
-    }
-
-    public static class YamlPropertySourceFactory implements PropertySourceFactory {
-
-        @Override
-        public org.springframework.core.env.PropertySource<?> createPropertySource(String name, EncodedResource encodedResource) {
-            YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
-            factory.setResources(encodedResource.getResource());
-
-            Properties properties = factory.getObject();
-
-            return new PropertiesPropertySource(encodedResource.getResource().getFilename(), properties);
-        }
     }
 }

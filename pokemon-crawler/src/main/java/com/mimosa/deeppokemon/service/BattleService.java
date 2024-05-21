@@ -29,7 +29,7 @@ import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.Team;
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.deeppokemon.provider.FixedReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.task.CrawBattleTask;
@@ -156,6 +156,8 @@ public class BattleService {
         return new ArrayList<>(mongoTemplate.insertAll(battleStats));
     }
 
+    @RegisterReflectionForBinding({BattleStat.class, PlayerStat.class, PokemonBattleStat.class, TurnStat.class,
+            TurnPlayerStat.class, TurnPokemonStat.class})
     public BattleStat getBattleStat(String battleId) {
         Battle battle = findBattle(battleId);
         if (battle == null) {
@@ -166,7 +168,7 @@ public class BattleService {
         List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
         try {
             savaAll(battleStats);
-        } catch (Exception e){
+        } catch (Exception e) {
             log.warn("save battle stat fail", e);
         }
         return battleStats.get(0);

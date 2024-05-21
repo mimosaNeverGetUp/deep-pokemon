@@ -12,13 +12,12 @@
 
 package com.mimosa.pokemon.portal.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -28,19 +27,19 @@ import java.util.List;
 
 @Configuration
 @EnableWebSecurity
-public class OAuthClientConfiguration {
+public class WebSecurityConfiguration {
+    private static final String SPRING_WEB_CORS = "spring.web.cors";
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity,
-                                                   @Value("${spring.web.cors}") String allowOrigins) throws Exception {
+                                                   Environment env) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(request -> {
-                    request.requestMatchers("/api/**")
-                            .permitAll()
-                            .anyRequest()
-                            .authenticated();
+                    request.anyRequest()
+                            .permitAll();
                 })
-                .oauth2Login(endpoint -> endpoint.successHandler(new SavedRequestAwareAuthenticationSuccessHandler()))
-                .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource(allowOrigins)));
+                .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(
+                        corsConfigurationSource(env.getProperty(SPRING_WEB_CORS, "*"))));
         return httpSecurity.build();
     }
 

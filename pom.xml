@@ -24,7 +24,7 @@
         <rootProject.basedir>${basedir}</rootProject.basedir>
         <java.version>17</java.version>
         <spring-cloud.version>2023.0.1</spring-cloud.version>
-        <app.profiles>develop,native</app.profiles>
+        <image.profiles>native</image.profiles>
     </properties>
 
     <dependencies>
@@ -148,11 +148,21 @@
                         </bindings>
                         <verboseLogging>true</verboseLogging>
                         <env>
-                            <BP_NATIVE_IMAGE_BUILD_ARGUMENTS>--verbose -g -H:+ReportExceptionStackTraces</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+                            <BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+                                --verbose -g -H:+ReportExceptionStackTraces
+                            </BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
                         </env>
                     </image>
-                    <profiles>${app.profiles}</profiles>
+                    <profiles>${image.profiles}</profiles>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>process-aot</id>
+                        <configuration>
+                            <profiles>develop,docker</profiles>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

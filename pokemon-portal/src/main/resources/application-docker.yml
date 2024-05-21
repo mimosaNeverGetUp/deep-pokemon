@@ -1,10 +1,10 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+      uri: mongodb://host.docker.internal:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
       database: deep_pokemon_dev_env
     redis:
-      host: localhost
+      host: host.docker.internal
       port: 6379
       timeout: 100
   #禁用templates缓存，方便hotswap
@@ -12,6 +12,9 @@ spring:
     cache: false
   web:
     cors: "*"
+  cloud:
+    refresh:
+      enabled: false
 server:
   tomcat:
     accesslog:
@@ -22,4 +25,4 @@ eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://mimosa:0405%40L1999@localhost:8761/eureka/
+      defaultZone: http://mimosa:0405%40L1999@host.docker.internal}:8761/eureka/

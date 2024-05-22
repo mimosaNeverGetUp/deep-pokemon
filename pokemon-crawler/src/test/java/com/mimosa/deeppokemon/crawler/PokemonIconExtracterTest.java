@@ -33,30 +33,30 @@ import java.nio.file.Path;
 import java.util.List;
 
 class PokemonIconExtracterTest {
-//    public static final Path iconPath;
-//
-//    public static final Path pokemonIconIndexPath;
+    public static final Path iconPath;
 
-//    static {
-//        try {
-//            pokemonIconIndexPath = ResourceUtils.getFile("classpath:icon/pokemonIconIndex.json").toPath();
-//            iconPath = ResourceUtils.getFile("classpath:icon/pokemonicons-sheet_v16.png").toPath();
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    public static final Path pokemonIconIndexPath;
+
+    static {
+        try {
+            pokemonIconIndexPath = ResourceUtils.getFile("classpath:icon/pokemonIconIndex.json").toPath();
+            iconPath = ResourceUtils.getFile("classpath:icon/pokemonicons-sheet_v16.png").toPath();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 //    @Test
-//    void extract() throws IOException {
-//        try {
-//            PokemonInfoCrawler pokemonInfoCrawler = new PokemonInfoCrawlerImp();
-//            List<PokemonInfo> pokemonInfos = pokemonInfoCrawler.craw();
-//            PokemonIconExtracter pokemonIconExtracter = new PokemonIconExtracter(iconPath, pokemonIconIndexPath,
-//                    pokemonInfos);
-//            pokemonIconExtracter.extract();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            throw e;
-//        }
-//    }
+    void extract() throws IOException {
+        try {
+            PokemonInfoCrawler pokemonInfoCrawler = new PokemonInfoCrawlerImp();
+            List<PokemonInfo> pokemonInfos = pokemonInfoCrawler.craw();
+            PokemonIconExtracter pokemonIconExtracter = new PokemonIconExtracter(iconPath, pokemonIconIndexPath,
+                    pokemonInfos);
+            pokemonIconExtracter.extract();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

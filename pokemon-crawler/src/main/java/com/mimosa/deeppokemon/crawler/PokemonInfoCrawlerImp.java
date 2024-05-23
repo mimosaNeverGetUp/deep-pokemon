@@ -32,6 +32,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aot.hint.RuntimeHints;
+import org.springframework.aot.hint.RuntimeHintsRegistrar;
+import org.springframework.context.annotation.ImportRuntimeHints;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayOutputStream;
@@ -52,11 +56,12 @@ import java.util.List;
 
 
 @Component
+@ImportRuntimeHints(PokemonInfoCrawlerImp.InfoCrawlerRuntimeHints.class)
 public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
 
     private static final Logger logger = LoggerFactory.getLogger(PokemonInfoCrawlerImp.class);
     public static final String FORMES_PATTERN = "-";
-    private final String dataPath = "META-INF/pokemoninfo.txt";
+    private final String dataPath = "pokemon/pokemoninfo.txt";
     private HashMap<String, PokemonInfo> infoHashMap = new HashMap<>(900);
 
     public PokemonInfoCrawlerImp() {
@@ -69,7 +74,6 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
             logger.info("宝可梦信息爬取创建失败", e);
         }
     }
-
 
     public PokemonInfo getPokemonInfo(Pokemon pokemon) {
         if (infoHashMap == null) {
@@ -93,7 +97,7 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
     @Override
     public List<PokemonInfo> craw() throws IOException {
         logger.info("start read pokemonInfo resource,path:[{}]", dataPath);
-        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(dataPath);
+        InputStream inputStream = new ClassPathResource(dataPath).getInputStream();
         byte[] dataByte = toByteArray(inputStream);
         String dataString = new String(dataByte);
         JSONObject jsonObject = new JSONObject(dataString);
@@ -155,5 +159,16 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
             output.write(buffer, 0, n);
         }
         return output.toByteArray();
+    }
+
+    /**
+     * native image runtime hints
+     */
+    public static class InfoCrawlerRuntimeHints implements RuntimeHintsRegistrar {
+
+        @Override
+        public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
+            hints.resources().registerPattern("pokemon/*");
+        }
     }
 }

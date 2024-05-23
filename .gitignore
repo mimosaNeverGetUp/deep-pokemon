@@ -37,3 +37,4 @@ build/
 
 /article/
 flyway/
+graalvm/bindings/dependency-mapping/binaries

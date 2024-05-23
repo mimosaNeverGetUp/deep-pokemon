@@ -25,12 +25,21 @@
 package com.mimosa.pokemon.portal;
 
 
+import org.springframework.aot.hint.RuntimeHints;
+import org.springframework.aot.hint.RuntimeHintsRegistrar;
+import org.springframework.aot.hint.TypeHint;
+import org.springframework.aot.hint.TypeReference;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ImportRuntimeHints;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static org.springframework.aot.hint.MemberCategory.INVOKE_PUBLIC_CONSTRUCTORS;
+import static org.springframework.aot.hint.MemberCategory.INVOKE_PUBLIC_METHODS;
 
 /**
  * deeppokemon应用入口
@@ -40,15 +49,30 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @EnableCaching
 @EnableFeignClients
+@ImportRuntimeHints(PokemonPortalApplication.ApplicationRuntimeHints.class)
 @SpringBootApplication
-public class PokemonPortalApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(PokemonPortalApplication.class);
-    }
-
+public class PokemonPortalApplication {
     public static void main(String[] args) {
         SpringApplication.run(PokemonPortalApplication.class, args);
+    }
+
+    /**
+     * graalvm runtime hint
+     */
+    static class ApplicationRuntimeHints implements RuntimeHintsRegistrar {
+
+        @Override
+        public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
+            hints.reflection()
+                    .registerTypes(TypeReference.listOf(
+                                    ArrayList.class,
+                                    LinkedList.class,
+                                    HashSet.class,
+                                    TreeSet.class,
+                                    ConcurrentHashMap.class,
+                                    LinkedHashMap.class,
+                                    TreeMap.class),
+                            TypeHint.builtWith(INVOKE_PUBLIC_CONSTRUCTORS, INVOKE_PUBLIC_METHODS));
+        }
     }
 }

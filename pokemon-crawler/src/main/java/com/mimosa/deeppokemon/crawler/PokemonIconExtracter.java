@@ -78,7 +78,7 @@ public class PokemonIconExtracter {
                 int h = index / 12 * 30;
                 int w = (index % 12) * 40;
                 BufferedImage pokemonIconImage = pokemonIconsImage.getSubimage(w, h, WIDTH_PER_POKEMON, HEIGHT_PER_POKEMON);
-                File output = Paths.get("src", "main", "resources", "META-INF", "test", pokemonInfo.getName()
+                File output = Paths.get("src", "main", "resources", "pokemon", "test", pokemonInfo.getName()
                         .replaceAll(" ", "").replaceAll(":", "") + ".png").toAbsolutePath().toFile();
                 ImageIO.write(convertBackgroundToCompatible(pokemonIconImage), "png", output);
             } catch (Exception e) {

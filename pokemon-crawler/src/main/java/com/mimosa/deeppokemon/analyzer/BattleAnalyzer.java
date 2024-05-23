@@ -10,10 +10,8 @@ import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
-import com.mimosa.deeppokemon.service.BattleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -28,14 +26,9 @@ public class BattleAnalyzer {
 
     BattleEventParser battleEventParser;
 
-    BattleService battleService;
-
-    @Lazy
-    public BattleAnalyzer(BattleEventParser battleEventParser, List<BattleEventAnalyzer> battleEventAnalyzers,
-                          BattleService battleService) {
+    public BattleAnalyzer(BattleEventParser battleEventParser, List<BattleEventAnalyzer> battleEventAnalyzers) {
         this.battleEventParser = battleEventParser;
         this.battleEventAnalyzers = battleEventAnalyzers;
-        this.battleService = battleService;
     }
 
     public List<BattleStat> analyze(Collection<Battle> battles) {
@@ -50,11 +43,6 @@ public class BattleAnalyzer {
             } catch (Exception e) {
                 log.error("analyze battle {} error", battle.getBattleID(), e);
             }
-        }
-        try {
-            battleService.savaAll(battleStats);
-        } catch (Exception e) {
-            log.error("save battle stat error", e);
         }
         return battleStats;
     }

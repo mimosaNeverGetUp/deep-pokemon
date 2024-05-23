@@ -27,7 +27,9 @@ package com.mimosa.deeppokemon.service;
 import com.mimosa.deeppokemon.analyzer.BattleAnalyzer;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.deeppokemon.provider.FixedReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.task.CrawBattleTask;
@@ -37,6 +39,7 @@ import com.mongodb.bulk.BulkWriteInsert;
 import com.mongodb.bulk.BulkWriteResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -73,14 +76,16 @@ public class BattleService {
 
     private final BattleAnalyzer battleAnalyzer;
 
-    public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler, BattleAnalyzer battleAnalyzer) {
+    public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler,
+                         BattleAnalyzer battleAnalyzer) {
         this.mongoTemplate = mongoTemplate;
         this.battleCrawler = battleCrawler;
         this.battleAnalyzer = battleAnalyzer;
     }
 
+    @RegisterReflectionForBinding({Battle.class, Team.class, Pokemon.class})
     public Battle findBattle(String battleId) {
-        return mongoTemplate.findById(battleId, Battle.class);
+        return mongoTemplate.findById(battleId, Battle.class, "battle");
     }
 
     @CacheEvict("battleIds")
@@ -143,13 +148,16 @@ public class BattleService {
     }
 
     public CompletableFuture<List<BattleStat>> analyzeBattleAfterCraw(CompletableFuture<List<Battle>> crawBattleFuture) {
-        return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, ANALYZE_BATTLE_EXECUTOR);
+        return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, ANALYZE_BATTLE_EXECUTOR)
+                .thenApplyAsync(battleStats -> savaAll(battleStats));
     }
 
-    public Collection<BattleStat> savaAll(Collection<BattleStat> battleStats) {
-        return mongoTemplate.insertAll(battleStats);
+    public List<BattleStat> savaAll(Collection<BattleStat> battleStats) {
+        return new ArrayList<>(mongoTemplate.insertAll(battleStats));
     }
 
+    @RegisterReflectionForBinding({BattleStat.class, PlayerStat.class, PokemonBattleStat.class, TurnStat.class,
+            TurnPlayerStat.class, TurnPokemonStat.class})
     public BattleStat getBattleStat(String battleId) {
         Battle battle = findBattle(battleId);
         if (battle == null) {
@@ -157,6 +165,12 @@ public class BattleService {
                     battleCrawler, this);
             battle = crawBattleTask.call().get(0);
         }
-        return battleAnalyzer.analyze(Collections.singletonList(battle)).get(0);
+        List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
+        try {
+            savaAll(battleStats);
+        } catch (Exception e) {
+            log.warn("save battle stat fail", e);
+        }
+        return battleStats.get(0);
     }
 }

@@ -1,0 +1,33 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://host.docker.internal:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+      database: deep_pokemon_dev_env
+    redis:
+      host: host.docker.internal
+      port: 6379
+      timeout: 100
+  #禁用templates缓存，方便hotswap
+  thymeleaf:
+    cache: false
+  web:
+    cors: "*"
+  cloud:
+    refresh:
+      enabled: false
+    loadbalancer:
+      eager-load:
+        clients:
+          - pokemon-crawler
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /logs/access
+
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://mimosa:0405%40L1999@host.docker.internal:8761/eureka/

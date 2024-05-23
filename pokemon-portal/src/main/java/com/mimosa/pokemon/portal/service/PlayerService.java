@@ -24,11 +24,10 @@
 
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.Ladder;
-import com.mimosa.deeppokemon.entity.LadderRank;
-import com.mimosa.deeppokemon.entity.Player;
+import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.entity.JsonArrayResponse;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -60,6 +59,7 @@ public class PlayerService {
                 playerRank.getRank(), playerRank.getGxe(), null);
     }
 
+    @RegisterReflectionForBinding({Ladder.class})
     public Ladder getLatestLadder() {
         //查询数据库里储存的最新的日期
         Query query = new BasicQuery("{}")

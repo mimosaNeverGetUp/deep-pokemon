@@ -25,7 +25,7 @@
 package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.*;
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.PokemonStatDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
@@ -36,6 +36,7 @@ import com.mimosa.pokemon.portal.util.CollectionUtils;
 import com.mimosa.pokemon.portal.util.MongodbUtils;
 import com.mongodb.BasicDBObject;
 import org.bson.Document;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -278,6 +279,8 @@ public class BattleService {
     }
 
     @Cacheable("battlestat")
+    @RegisterReflectionForBinding({BattleStat.class, PlayerStat.class, PokemonBattleStat.class, TurnStat.class,
+            TurnPlayerStat.class, TurnPokemonStat.class})
     public BattleStat battleStat(String battleId) {
         BattleStat battleStat = mongoTemplate.findById(battleId, BattleStat.class);
         if (battleStat == null) {

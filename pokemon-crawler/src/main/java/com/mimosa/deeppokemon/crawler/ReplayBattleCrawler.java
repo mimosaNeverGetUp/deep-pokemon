@@ -30,6 +30,7 @@ import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -44,6 +45,7 @@ public class ReplayBattleCrawler implements BattleCrawler {
     }
 
     @Override
+    @RegisterReflectionForBinding(BattleReplayData.class)
     public Battle craw(Replay replay) {
         ClassicHttpRequest httpGet = initGet(replay.id());
         BattleReplayData battleReplay = HttpUtil.request(httpGet, BattleReplayData.class);

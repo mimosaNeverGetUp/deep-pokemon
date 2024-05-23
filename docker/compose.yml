@@ -1,0 +1,26 @@
+version: "3"
+services:
+  eureka-server:
+    image: "eureka-server:0.0.1-SNAPSHOT"
+    ports:
+      - "8761:8761"
+    healthcheck:
+      test: [ "CMD", "ls", "."]
+      interval: 30m
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+      start_interval: 8s
+  pokemon-crawler:
+    image: "pokemon-crawler:0.0.1-SNAPSHOT"
+    ports:
+      - "8081:8081"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+  pokemon-portal:
+    image: "pokemon-portal:0.0.1-SNAPSHOT"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pokemon-crawler

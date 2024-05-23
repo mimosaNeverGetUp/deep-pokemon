@@ -21,8 +21,9 @@
         <module>eureka-server</module>
     </modules>
     <properties>
+        <rootProject.basedir>${basedir}</rootProject.basedir>
         <java.version>17</java.version>
-        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud.version>2023.0.1</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -60,6 +61,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-testcontainers</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -138,13 +140,32 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <pullPolicy>IF_NOT_PRESENT</pullPolicy>
+                        <bindings>
+                            <binding>${rootProject.basedir}/graalvm/bindings:/platform/bindings</binding>
+                        </bindings>
+                        <verboseLogging>true</verboseLogging>
+                        <env>
+                            <BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+                                --verbose -g -H:+ReportExceptionStackTraces
+                            </BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+                        </env>
+                    </image>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>process-aot</id>
+                        <configuration>
+                            <profiles>develop,docker</profiles>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <!--            <configuration>-->
-                <!--                <skipTests>true</skipTests>-->
-                <!--            </configuration>-->
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -168,6 +189,13 @@
                 <configuration>
                     <!-- Rest of your configuration, if any -->
                     <formats>HTML,XML</formats>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <configuration>
+                    <verbose>true</verbose>
                 </configuration>
             </plugin>
         </plugins>

@@ -3,7 +3,6 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
       database: deep_pokemon_dev_env
-      timeZone: GMT+8
     redis:
       host: localhost
       port: 6379
@@ -11,21 +10,16 @@ spring:
   #禁用templates缓存，方便hotswap
   thymeleaf:
     cache: false
-  security:
-    oauth2:
-      client:
-        registration:
-          github:
-            clientId: 8695141a127c27b88038
-            clientSecret: 444f832070893a506a3479b66ef3e9a3ca2c90ee
   web:
     cors: "*"
-logging:
-  config: classpath:logback.xml
 server:
   tomcat:
     accesslog:
       enabled: true
       directory: /logs/access
 
-# ...
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://mimosa:0405%40L1999@localhost:8761/eureka/

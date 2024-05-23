@@ -36,10 +36,10 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Team implements Serializable {
-    private  String playerName;
-    private  String tier;
+    private String playerName;
+    private String tier;
     private List<Pokemon> pokemons;
-    private Set<Tag> tagSet=new HashSet<>();
+    private Set<Tag> tagSet = new HashSet<>();
 
     /**
      * 非持久化变量,pokemons的map形式，方便查询
@@ -57,7 +57,7 @@ public class Team implements Serializable {
         this.tier = tier;
     }
 
-    public Team (List<Pokemon> pokemons) {
+    public Team(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
         pokemonMap = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity()));
     }

@@ -28,10 +28,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Set;
 
-public class Pokemon implements Serializable,Comparable<Pokemon> {
+public class Pokemon implements Serializable, Comparable<Pokemon> {
     private String name;
-    private HashSet<String> moves = new HashSet<>();
+    private Set<String> moves = new HashSet<>();
 
     private String item;
     private String ablity;
@@ -44,11 +45,11 @@ public class Pokemon implements Serializable,Comparable<Pokemon> {
         this.name = name;
     }
 
-    public HashSet<String> getMoves() {
+    public Set<String> getMoves() {
         return moves;
     }
 
-    public void setMoves(HashSet<String> moves) {
+    public void setMoves(Set<String> moves) {
         this.moves = moves;
     }
 
@@ -92,7 +93,7 @@ public class Pokemon implements Serializable,Comparable<Pokemon> {
         }
         String it;
         if (item != null) {
-            it = "@"+item;
+            it = "@" + item;
         } else {
             it = "@???";
         }

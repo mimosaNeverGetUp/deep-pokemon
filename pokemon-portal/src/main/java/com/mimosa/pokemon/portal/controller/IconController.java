@@ -44,7 +44,8 @@ public class IconController {
         if (name.contains("Gourgeist")) {
             name = "Gourgeist";
         }
-        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("templates/pokemonicon/"+name + ".png");
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("static/pokemonicon/"+name +
+                ".png");
 //        File file = new File(path);
 //        if(!file.exists()) {
 //            return;

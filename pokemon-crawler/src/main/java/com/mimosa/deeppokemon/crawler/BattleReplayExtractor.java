@@ -63,7 +63,7 @@ public class BattleReplayExtractor {
         }
 
         teams[0].setPlayerName(battleReplayData.players().get(0));
-        teams[1].setPlayerName(battleReplayData.players().get(0));
+        teams[1].setPlayerName(battleReplayData.players().get(1));
         teams[0].setTier(tier);
         teams[1].setTier(tier);
         logger.debug("extract end");

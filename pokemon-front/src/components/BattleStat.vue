@@ -91,7 +91,7 @@ function highLightChartDataSets(players, battleHighLights) {
       if (event.indexOf("faint") !== -1) {
         pointRadius = 8;
         const pointIcon = new Image(20,20);
-        pointIcon.src = "src/assets/flag-fill.svg";
+        pointIcon.src = "/flag-fill.svg";
         data["pointStyle"] = pointIcon;
       } else if (event.indexOf("Stealth Rock") !== -1) {
         pointRadius = 4;

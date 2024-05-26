@@ -5,7 +5,7 @@ defineProps({
 
 function getIconUrl(pokemon) {
   const iconName = pokemon.name.replace(" ","").replace("-*","")
-  return "src/assets/pokemonicon/" + iconName + ".png"
+  return "/pokemonicon/" + iconName + ".png"
 }
 
 function getPokemonItemText(pokemon) {

@@ -25,7 +25,7 @@ queryPlayer();
 
 <template>
   <div class="player-bar">
-    <Avatar image="src/assets/pokemonicon/touxiang.png"
+    <Avatar image="/pokemonicon/touxiang.png"
             class="player-avatar"/>
     <div class="player-info">
       <p style="font-weight:bold">

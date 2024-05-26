@@ -17,10 +17,10 @@ import java.util.stream.Collectors;
 public class PlayerStatus {
     private final Map<String, String> pokemonNickNameMap;
     private final Map<String, PokemonStatus> pokemonStatusMap;
-    private final List<Side> sideList;
     private final Map<Integer, String> turnStartPokemonNames;
     private String turnStartPokemonName;
     private String activePokemonName;
+    private List<Side> sideList;
 
     public PlayerStatus() {
         this.pokemonNickNameMap = new HashMap<>();
@@ -79,6 +79,10 @@ public class PlayerStatus {
 
     public List<Side> getSideList() {
         return sideList;
+    }
+
+    public void setSideList(List<Side> sideList) {
+        this.sideList = sideList;
     }
 
     public List<Side> getSideListByName(String name) {

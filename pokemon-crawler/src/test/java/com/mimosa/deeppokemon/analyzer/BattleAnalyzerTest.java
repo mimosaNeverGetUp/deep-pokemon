@@ -16,10 +16,14 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -30,6 +34,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
@@ -46,8 +51,27 @@ class BattleAnalyzerTest {
     @Value("classpath:battlereplay/gen9ou/stat/smogtours-gen9ou-746547.stat")
     private Resource battleStat;
 
-    @Value("classpath:battlereplay/gen9ou")
-    private Resource battleReplayResource;
+    public static Stream<Arguments> provideBattleLog() throws IOException {
+        ClassPathResource replayDirectory = new ClassPathResource("battlereplay/gen9ou");
+        List<Arguments> arguments = new ArrayList<>();
+        try (Stream<Path> battleLogPaths = Files.list(replayDirectory.getFile().toPath())) {
+            battleLogPaths.forEach(battleReplay -> {
+                try {
+                    if (Files.isDirectory(battleReplay)) {
+                        return;
+                    }
+                    Battle battle = new Battle();
+                    battle.setBattleID(battleReplay.getFileName().toString().split("\\.")[0]);
+                    battle.setLog(Files.readString(battleReplay));
+                    arguments.add(Arguments.of(battle));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+
+        return arguments.stream();
+    }
 
     @Test
     void analyze_matchExceptStat() throws IOException {
@@ -61,25 +85,11 @@ class BattleAnalyzerTest {
         Assertions.assertEquals(exceptBattleStat, battleStats.get(0));
     }
 
-    @Test
-    void analyze_noException() throws IOException {
-        Path replayDirectory = battleReplayResource.getFile().toPath();
-        List<Battle> battles = new ArrayList<>();
-        Files.list(replayDirectory).forEach(battleReplay -> {
-            try {
-                if (Files.isDirectory(battleReplay)) {
-                    return;
-                }
-                Battle battle = new Battle();
-                battle.setBattleID(battleReplay.getFileName().toString().split("\\.")[0]);
-                battle.setLog(Files.readString(battleReplay));
-                battles.add(battle);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        List<BattleStat> battleStats = battleAnalyzer.analyze(battles);
+    @ParameterizedTest
+    @MethodSource("provideBattleLog")
+    void analyze_noException(Battle battle) {
+        List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
         MatcherAssert.assertThat(battleStats, Matchers.everyItem(BattleStatMatcher.BATTLE_STAT_MATCHER));
-        Assertions.assertEquals(battles.size(), battleStats.size());
+        Assertions.assertEquals(1, battleStats.size());
     }
 }

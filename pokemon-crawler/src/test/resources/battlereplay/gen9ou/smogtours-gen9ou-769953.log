@@ -1,0 +1,508 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
+|badge|p2|silver|gen9randombattle|30-1
+|uhtml|medal-msg|<div class="broadcast-blue">Curious what those medals under the avatar are? PS now has Ladder Seasons! For more information, check out the <a href="https://www.smogon.com/forums/threads/3740067/">thread on Smogon.</a></div>
+|t:|1716490923
+|gametype|singles
+|player|p1|stareal|#stareal|
+|player|p2|MichaelderBeste2|#wcop2023germany|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Landorus-Therian, M|
+|poke|p1|Cinderace, F|
+|poke|p1|Rillaboom, F|
+|poke|p1|Garganacl, F|
+|poke|p1|Darkrai|
+|poke|p1|Gholdengo|
+|poke|p2|Darkrai|
+|poke|p2|Landorus-Therian, M|
+|poke|p2|Iron Moth|
+|poke|p2|Dragonite, F|
+|poke|p2|Kingambit, F|
+|poke|p2|Iron Valiant|
+|teampreview
+|c|☆MichaelderBeste2|hf
+|c|☆stareal|hf
+|inactive|stareal has 270 seconds left.
+|inactive|MichaelderBeste2 has 270 seconds left.
+|inactive|stareal has 240 seconds left.
+|inactive|MichaelderBeste2 has 240 seconds left.
+|inactive|stareal has 210 seconds left.
+|inactive|MichaelderBeste2 has 210 seconds left.
+|inactive|MichaelderBeste2 has 180 seconds left.
+|inactive|stareal has 180 seconds left.
+|inactive|stareal has 150 seconds left.
+|inactive|MichaelderBeste2 has 150 seconds left.
+|inactive|stareal has 120 seconds left.
+|
+|t:|1716491109
+|start
+|switch|p1a: Cinderace|Cinderace, F|100/100
+|switch|p2a: Darkrai|Darkrai|100/100
+|turn|1
+|inactive|stareal has 180 seconds left.
+|
+|t:|1716491122
+|move|p2a: Darkrai|Dark Pulse|p1a: Cinderace
+|-damage|p1a: Cinderace|41/100
+|move|p1a: Cinderace|U-turn|p2a: Darkrai
+|-start|p1a: Cinderace|typechange|Bug|[from] ability: Libero
+|-supereffective|p2a: Darkrai
+|-damage|p2a: Darkrai|2/100
+|inactive|stareal has 180 seconds left.
+|
+|t:|1716491134
+|switch|p1a: Darkrai|Darkrai|100/100|[from] U-turn
+|
+|upkeep
+|turn|2
+|inactive|stareal has 180 seconds left.
+|
+|t:|1716491144
+|move|p1a: Darkrai|Dark Pulse|p2a: Darkrai
+|-resisted|p2a: Darkrai
+|-damage|p2a: Darkrai|0 fnt
+|faint|p2a: Darkrai
+|
+|upkeep
+|
+|t:|1716491154
+|switch|p2a: Iron Valiant|Iron Valiant|100/100
+|-enditem|p2a: Iron Valiant|Booster Energy
+|-activate|p2a: Iron Valiant|ability: Quark Drive|[fromitem]
+|-start|p2a: Iron Valiant|quarkdrivespe
+|turn|3
+|inactive|stareal has 180 seconds left.
+|inactive|MichaelderBeste2 has 180 seconds left.
+|inactive|stareal has 150 seconds left.
+|inactive|MichaelderBeste2 has 150 seconds left.
+|
+|t:|1716491214
+|switch|p1a: Gholdengo|Gholdengo|100/100
+|move|p2a: Iron Valiant|Calm Mind|p2a: Iron Valiant
+|-boost|p2a: Iron Valiant|spa|1
+|-boost|p2a: Iron Valiant|spd|1
+|
+|upkeep
+|turn|4
+|inactive|MichaelderBeste2 has 150 seconds left.
+|
+|t:|1716491241
+|move|p2a: Iron Valiant|Moonblast|p1a: Gholdengo
+|-resisted|p1a: Gholdengo
+|-damage|p1a: Gholdengo|68/100
+|move|p1a: Gholdengo|Make It Rain|p2a: Iron Valiant
+|-supereffective|p2a: Iron Valiant
+|-damage|p2a: Iron Valiant|0 fnt
+|-unboost|p1a: Gholdengo|spa|1
+|faint|p2a: Iron Valiant
+|-end|p2a: Iron Valiant|Quark Drive|[silent]
+|
+|upkeep
+|inactive|MichaelderBeste2 has 120 seconds left.
+|
+|t:|1716491276
+|switch|p2a: Landorus|Landorus-Therian, M|100/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Gholdengo|atk|1
+|turn|5
+|inactive|stareal has 120 seconds left.
+|
+|t:|1716491311
+|switch|p1a: Landorus|Landorus-Therian, M|100/100
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|Stealth Rock|p1a: Landorus
+|-sidestart|p1: stareal|move: Stealth Rock
+|
+|upkeep
+|turn|6
+|
+|t:|1716491316
+|move|p2a: Landorus|Taunt|p1a: Landorus
+|-start|p1a: Landorus|move: Taunt
+|cant|p1a: Landorus|move: Taunt|Stealth Rock
+|
+|upkeep
+|turn|7
+|
+|t:|1716491323
+|move|p1a: Landorus|Earth Power|p2a: Landorus
+|-immune|p2a: Landorus
+|move|p2a: Landorus|Earth Power|p1a: Landorus
+|-immune|p1a: Landorus
+|
+|upkeep
+|turn|8
+|
+|t:|1716491333
+|move|p1a: Landorus|Earth Power|p2a: Landorus
+|-immune|p2a: Landorus
+|move|p2a: Landorus|U-turn|p1a: Landorus
+|-resisted|p1a: Landorus
+|-damage|p1a: Landorus|94/100
+|-damage|p2a: Landorus|84/100|[from] item: Rocky Helmet|[of] p1a: Landorus
+|
+|t:|1716491335
+|switch|p2a: Dragonite|Dragonite, F|100/100|[from] U-turn
+|
+|-end|p1a: Landorus|move: Taunt
+|upkeep
+|turn|9
+|inactive|stareal has 120 seconds left.
+|inactive|MichaelderBeste2 has 150 seconds left.
+|inactive|stareal has 90 seconds left.
+|inactive|MichaelderBeste2 has 120 seconds left.
+|
+|t:|1716491407
+|move|p1a: Landorus|U-turn|p2a: Dragonite
+|-resisted|p2a: Dragonite
+|-damage|p2a: Dragonite|95/100
+|
+|t:|1716491422
+|switch|p1a: Darkrai|Darkrai|100/100|[from] U-turn
+|-damage|p1a: Darkrai|88/100|[from] Stealth Rock
+|move|p2a: Dragonite|Dragon Dance|p2a: Dragonite
+|-boost|p2a: Dragonite|atk|1
+|-boost|p2a: Dragonite|spe|1
+|
+|upkeep
+|turn|10
+|inactive|stareal has 60 seconds left.
+|inactive|MichaelderBeste2 has 120 seconds left.
+|
+|t:|1716491463
+|-terastallize|p1a: Darkrai|Ghost
+|move|p1a: Darkrai|Will-O-Wisp|p2a: Dragonite
+|-status|p2a: Dragonite|brn
+|move|p2a: Dragonite|Earthquake|p1a: Darkrai
+|-damage|p1a: Darkrai|54/100
+|
+|-damage|p2a: Dragonite|88/100 brn|[from] brn
+|upkeep
+|turn|11
+|inactive|MichaelderBeste2 has 120 seconds left.
+|
+|t:|1716491479
+|switch|p1a: Garganacl|Garganacl, F|100/100
+|-damage|p1a: Garganacl|88/100|[from] Stealth Rock
+|move|p2a: Dragonite|Ice Spinner|p1a: Garganacl
+|-damage|p1a: Garganacl|76/100
+|
+|-heal|p1a: Garganacl|82/100|[from] item: Leftovers
+|-damage|p2a: Dragonite|82/100 brn|[from] brn
+|upkeep
+|turn|12
+|inactive|MichaelderBeste2 has 120 seconds left.
+|
+|t:|1716491492
+|switch|p2a: Landorus|Landorus-Therian, M|84/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Garganacl|atk|1
+|move|p1a: Garganacl|Recover|p1a: Garganacl
+|-heal|p1a: Garganacl|100/100
+|
+|upkeep
+|turn|13
+|inactive|MichaelderBeste2 has 120 seconds left.
+|
+|t:|1716491504
+|switch|p1a: Landorus|Landorus-Therian, M|94/100
+|-damage|p1a: Landorus|82/100|[from] Stealth Rock
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|Taunt|p1a: Landorus
+|-start|p1a: Landorus|move: Taunt
+|
+|upkeep
+|turn|14
+|
+|t:|1716491507
+|switch|p2a: Dragonite|Dragonite, F|82/100 brn
+|move|p1a: Landorus|Earth Power|p2a: Dragonite
+|-immune|p2a: Dragonite
+|
+|-damage|p2a: Dragonite|76/100 brn|[from] brn
+|upkeep
+|turn|15
+|
+|t:|1716491512
+|switch|p2a: Landorus|Landorus-Therian, M|84/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Landorus|atk|1
+|move|p1a: Landorus|U-turn|p2a: Landorus
+|-resisted|p2a: Landorus
+|-damage|p2a: Landorus|77/100
+|-damage|p1a: Landorus|66/100|[from] item: Rocky Helmet|[of] p2a: Landorus
+|
+|t:|1716491533
+|switch|p1a: Cinderace|Cinderace, F|41/100|[from] U-turn
+|
+|upkeep
+|turn|16
+|inactive|MichaelderBeste2 has 150 seconds left.
+|
+|t:|1716491538
+|move|p1a: Cinderace|Court Change|p1a: Cinderace
+|-start|p1a: Cinderace|typechange|Normal|[from] ability: Libero
+|-swapsideconditions
+|-activate|p1a: Cinderace|move: Court Change
+|move|p2a: Landorus|Earth Power|p1a: Cinderace
+|-damage|p1a: Cinderace|0 fnt
+|faint|p1a: Cinderace
+|
+|upkeep
+|
+|t:|1716491543
+|switch|p1a: Darkrai|Darkrai, tera:Ghost|54/100
+|turn|17
+|inactive|MichaelderBeste2 has 150 seconds left.
+|inactive|stareal has 30 seconds left.
+|
+|t:|1716491582
+|switch|p2a: Dragonite|Dragonite, F|76/100 brn
+|move|p1a: Darkrai|Dark Pulse|p2a: Dragonite
+|-damage|p2a: Dragonite|27/100 brn
+|
+|-damage|p2a: Dragonite|21/100 brn|[from] brn
+|upkeep
+|turn|18
+|inactive|stareal has 30 seconds left.
+|
+|t:|1716491590
+|switch|p1a: Garganacl|Garganacl, F|100/100
+|move|p2a: Dragonite|Earthquake|p1a: Garganacl
+|-supereffective|p1a: Garganacl
+|-damage|p1a: Garganacl|80/100
+|
+|-heal|p1a: Garganacl|86/100|[from] item: Leftovers
+|-damage|p2a: Dragonite|14/100 brn|[from] brn
+|upkeep
+|turn|19
+|
+|t:|1716491599
+|switch|p2a: Landorus|Landorus-Therian, M|77/100
+|-damage|p2a: Landorus|65/100|[from] Stealth Rock
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Garganacl|atk|1
+|move|p1a: Garganacl|Salt Cure|p2a: Landorus
+|-damage|p2a: Landorus|56/100
+|-start|p2a: Landorus|Salt Cure
+|
+|-heal|p1a: Garganacl|92/100|[from] item: Leftovers
+|-damage|p2a: Landorus|43/100|[from] Salt Cure
+|upkeep
+|turn|20
+|
+|t:|1716491608
+|move|p2a: Landorus|Stealth Rock|p1a: Garganacl
+|-sidestart|p1: stareal|move: Stealth Rock
+|move|p1a: Garganacl|Recover|p1a: Garganacl
+|-heal|p1a: Garganacl|100/100
+|
+|-damage|p2a: Landorus|31/100|[from] Salt Cure
+|upkeep
+|turn|21
+|
+|t:|1716491615
+|move|p2a: Landorus|Taunt|p1a: Garganacl
+|-start|p1a: Garganacl|move: Taunt
+|move|p1a: Garganacl|Salt Cure|p2a: Landorus
+|-damage|p2a: Landorus|22/100
+|
+|-damage|p2a: Landorus|10/100|[from] Salt Cure
+|upkeep
+|turn|22
+|inactive|stareal has 30 seconds left.
+|
+|t:|1716491647
+|switch|p1a: Landorus|Landorus-Therian, M|66/100
+|-damage|p1a: Landorus|53/100|[from] Stealth Rock
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|U-turn|p1a: Landorus
+|-resisted|p1a: Landorus
+|-damage|p1a: Landorus|46/100
+|-damage|p2a: Landorus|0 fnt|[from] item: Rocky Helmet|[of] p1a: Landorus
+|faint|p2a: Landorus
+|
+|upkeep
+|inactive|stareal has 30 seconds left this turn.
+|inactive|MichaelderBeste2 has 150 seconds left.
+|
+|t:|1716491676
+|switch|p2a: Kingambit|Kingambit, F|100/100
+|-damage|p2a: Kingambit|95/100|[from] Stealth Rock
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen3|[silent]
+|turn|23
+|
+|t:|1716491686
+|move|p1a: Landorus|Taunt|p2a: Kingambit
+|-start|p2a: Kingambit|move: Taunt
+|move|p2a: Kingambit|Kowtow Cleave|p1a: Landorus
+|-damage|p1a: Landorus|0 fnt
+|-damage|p2a: Kingambit|78/100|[from] item: Rocky Helmet|[of] p1a: Landorus
+|faint|p1a: Landorus
+|
+|upkeep
+|inactive|stareal has 30 seconds left.
+|inactive|stareal has 20 seconds left.
+|inactive|stareal has 15 seconds left.
+|inactive|stareal has 10 seconds left.
+|
+|t:|1716491720
+|switch|p1a: Darkrai|Darkrai, tera:Ghost|54/100
+|-damage|p1a: Darkrai|41/100|[from] Stealth Rock
+|turn|24
+|inactive|stareal has 20 seconds left this turn.
+|inactive|stareal has 15 seconds left.
+|
+|t:|1716491729
+|-end|p2a: Kingambit|fallen3|[silent]
+|switch|p2a: Dragonite|Dragonite, F|14/100 brn
+|move|p1a: Darkrai|Trick|p2a: Dragonite
+|-activate|p1a: Darkrai|move: Trick|[of] p2a: Dragonite
+|-item|p2a: Dragonite|Choice Scarf|[from] move: Trick
+|-item|p1a: Darkrai|Heavy-Duty Boots|[from] move: Trick
+|
+|-damage|p2a: Dragonite|8/100 brn|[from] brn
+|upkeep
+|turn|25
+|inactive|stareal has 25 seconds left this turn.
+|inactive|stareal has 20 seconds left.
+|inactive|stareal has 15 seconds left.
+|
+|t:|1716491741
+|switch|p2a: Kingambit|Kingambit, F|78/100
+|-damage|p2a: Kingambit|72/100|[from] Stealth Rock
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen3|[silent]
+|move|p1a: Darkrai|Dark Pulse|p2a: Kingambit
+|-resisted|p2a: Kingambit
+|-damage|p2a: Kingambit|49/100
+|
+|upkeep
+|turn|26
+|inactive|stareal has 25 seconds left this turn.
+|inactive|stareal has 20 seconds left.
+|inactive|stareal has 15 seconds left.
+|
+|t:|1716491756
+|move|p1a: Darkrai|Will-O-Wisp|p2a: Kingambit|[miss]
+|-miss|p1a: Darkrai|p2a: Kingambit
+|move|p2a: Kingambit|Kowtow Cleave|p1a: Darkrai
+|-supereffective|p1a: Darkrai
+|-crit|p1a: Darkrai
+|-damage|p1a: Darkrai|0 fnt
+|faint|p1a: Darkrai
+|
+|upkeep
+|inactive|stareal has 20 seconds left this turn.
+|inactive|stareal has 15 seconds left.
+|
+|t:|1716491763
+|switch|p1a: Rillaboom|Rillaboom, F|100/100
+|-damage|p1a: Rillaboom|88/100|[from] Stealth Rock
+|-fieldstart|move: Grassy Terrain|[from] ability: Grassy Surge|[of] p1a: Rillaboom
+|turn|27
+|inactive|stareal has 25 seconds left this turn.
+|inactive|stareal has 20 seconds left.
+|
+|t:|1716491770
+|-end|p2a: Kingambit|fallen3|[silent]
+|switch|p2a: Dragonite|Dragonite, F|8/100 brn
+|-damage|p2a: Dragonite|0 fnt|[from] Stealth Rock
+|faint|p2a: Dragonite
+|move|p1a: Rillaboom|U-turn|p2: Dragonite|[notarget]
+|-fail|p1a: Rillaboom
+|
+|-heal|p1a: Rillaboom|94/100|[from] Grassy Terrain
+|upkeep
+|inactive|stareal has 25 seconds left this turn.
+|inactive|MichaelderBeste2 has 150 seconds left.
+|
+|t:|1716491806
+|switch|p2a: Kingambit|Kingambit, F|49/100
+|-damage|p2a: Kingambit|43/100|[from] Stealth Rock
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen4|[silent]
+|turn|28
+|inactive|stareal has 30 seconds left.
+|inactive|MichaelderBeste2 has 150 seconds left.
+|inactive|stareal has 20 seconds left.
+|inactive|stareal has 15 seconds left.
+|inactive|stareal has 10 seconds left.
+|inactive|stareal has 5 seconds left.
+|inactive|MichaelderBeste2 has 120 seconds left.
+|inactive|MichaelderBeste2 has 90 seconds left.
+|
+|t:|1716491900
+|-terastallize|p2a: Kingambit|Dark
+|move|p2a: Kingambit|Sucker Punch|p1a: Rillaboom
+|-damage|p1a: Rillaboom|0 fnt
+|faint|p1a: Rillaboom
+|
+|-heal|p2a: Kingambit|49/100|[from] Grassy Terrain
+|upkeep
+|inactive|stareal has 10 seconds left this turn.
+|inactive|stareal has 5 seconds left.
+|
+|t:|1716491908
+|switch|p1a: Gholdengo|Gholdengo|68/100
+|-damage|p1a: Gholdengo|62/100|[from] Stealth Rock
+|-enditem|p1a: Gholdengo|Grassy Seed
+|-boost|p1a: Gholdengo|def|1|[from] item: Grassy Seed
+|turn|29
+|inactive|stareal has 15 seconds left this turn.
+|inactive|stareal has 10 seconds left.
+|
+|t:|1716491927
+|move|p2a: Kingambit|Sucker Punch|p1a: Gholdengo
+|-supereffective|p1a: Gholdengo
+|-damage|p1a: Gholdengo|0 fnt
+|faint|p1a: Gholdengo
+|
+|-heal|p2a: Kingambit|55/100|[from] Grassy Terrain
+|upkeep
+|inactive|stareal has 15 seconds left this turn.
+|
+|t:|1716491931
+|switch|p1a: Garganacl|Garganacl, F|100/100
+|-damage|p1a: Garganacl|88/100|[from] Stealth Rock
+|turn|30
+|inactive|stareal has 25 seconds left this turn.
+|
+|t:|1716491940
+|move|p2a: Kingambit|Iron Head|p1a: Garganacl
+|-supereffective|p1a: Garganacl
+|-damage|p1a: Garganacl|8/100
+|move|p1a: Garganacl|Salt Cure|p2a: Kingambit
+|-damage|p2a: Kingambit|44/100
+|-start|p2a: Kingambit|Salt Cure
+|
+|-heal|p2a: Kingambit|50/100|[from] Grassy Terrain
+|-heal|p1a: Garganacl|14/100|[from] Grassy Terrain
+|-heal|p1a: Garganacl|20/100|[from] item: Leftovers
+|-damage|p2a: Kingambit|38/100|[from] Salt Cure
+|upkeep
+|turn|31
+|c|☆stareal|r u lum
+|inactive|stareal has 30 seconds left.
+|
+|t:|1716491946
+|move|p2a: Kingambit|Iron Head|p1a: Garganacl
+|-supereffective|p1a: Garganacl
+|-damage|p1a: Garganacl|0 fnt
+|faint|p1a: Garganacl
+|
+|win|MichaelderBeste2

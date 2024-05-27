@@ -36,9 +36,9 @@ function getTeamSearchUrl(pokemons, tags) {
     <InputText class="size-auto text-sm font-normal min-w-80 min-h-9" type="text" v-model="tags" variant="filled"
                placeholder="select team tag"/>
   </div>
-  <a :href="getTeamSearchUrl(pokemons, tags)">
+  <router-link :to="getTeamSearchUrl(pokemons, tags)">
     <Button class="mt-3" icon="pi pi-search" label="Submit"/>
-  </a>
+  </router-link>
 </template>
 
 <style scoped>

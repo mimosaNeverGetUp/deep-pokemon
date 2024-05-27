@@ -38,9 +38,9 @@ fetchData(page.value, row.value)
             :style="{ width:'5%' }"></Column>
     <Column field="name" header="玩家名" :style="{ width:'20%' }">
       <template #body="{data}">
-        <a :href="`/player-record?name=${data.name}`">
+        <router-link :to="`/player-record?name=${data.name}`">
           {{data.name}}
-        </a>
+        </router-link>
       </template>
     </Column>
     <Column field="elo" header="elo" :style="{ width:'5%' }"></Column>

@@ -60,9 +60,9 @@ queryTeams(page.value, row.value);
     </Column>
     <Column field="playerName" header="玩家名" :style="{ width:'20%' }">
       <template #body="{data}">
-        <a :href="`/player-record?name=${data.team.playerName}`">
+        <router-link :to="`/player-record?name=${data.team.playerName}`">
           {{ data.team.playerName }}
-        </a>
+        </router-link>
       </template>
     </Column>
     <Column field="battle-example" header="replay" :style="{ width:'20%' }">

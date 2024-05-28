@@ -12,8 +12,26 @@ spring:
     cache: false
   web:
     cors: "*"
+  security:
+    user:
+      name: mimosa
+      password: 04051999
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-components: always
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+
 server:
-  tomcat:
+  tomca:
     accesslog:
       enabled: true
       directory: /logs/access

@@ -67,7 +67,7 @@ queryTeams(page.value, row.value);
     </Column>
     <Column field="battle-example" header="replay" :style="{ width:'20%' }">
       <template #body="{data}">
-        <a :href="`https://replay.pokemonshowdown.com/${data.battleID}`">
+        <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`">
           {{ data.battleId }}
         </a>
       </template>

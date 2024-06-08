@@ -27,6 +27,7 @@ import java.util.List;
 class BattleServiceTest {
     public static final String NOT_EXIST_BATTLE_ID = "test-12345";
     private static final String NOT_SAVE_BATTLE_ID = "smogtours-gen9ou-746547";
+    private static final String NOT_LOG_BATTLE_ID = "gen9ou-2053586253";
     @Autowired
     private BattleService battleService;
 
@@ -53,6 +54,20 @@ class BattleServiceTest {
         BattleStat battleStat = null;
         try {
             battleStat = battleService.getBattleStat(NOT_SAVE_BATTLE_ID);
+            MatcherAssert.assertThat(battleStat, BattleStatMatcher.BATTLE_STAT_MATCHER);
+        } finally {
+            if (battleStat != null) {
+                mongoTemplate.remove(battleStat);
+                mongoTemplate.remove(new Query(Criteria.where("_id").is(NOT_SAVE_BATTLE_ID)),"battle");
+            }
+        }
+    }
+
+    @Test
+    void getBattleStat_ExistBattle_NoBattleLog() {
+        BattleStat battleStat = null;
+        try {
+            battleStat = battleService.getBattleStat(NOT_LOG_BATTLE_ID);
             MatcherAssert.assertThat(battleStat, BattleStatMatcher.BATTLE_STAT_MATCHER);
         } finally {
             if (battleStat != null) {

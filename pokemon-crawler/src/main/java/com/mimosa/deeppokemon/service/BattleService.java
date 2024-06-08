@@ -98,7 +98,6 @@ public class BattleService {
         if (battles.isEmpty()) {
             return battles;
         }
-
         try {
             BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, BATTLE);
             BulkWriteResult result = bulkOperations.insert(battles).execute();
@@ -160,7 +159,7 @@ public class BattleService {
             TurnPlayerStat.class, TurnPokemonStat.class})
     public BattleStat getBattleStat(String battleId) {
         Battle battle = findBattle(battleId);
-        if (battle == null) {
+        if (battle == null || battle.getLog() == null) {
             CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(Collections.singletonList(battleId)),
                     battleCrawler, this);
             battle = crawBattleTask.call().get(0);

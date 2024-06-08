@@ -1,19 +1,30 @@
 <script setup>
-import Chart from "primevue/chart"
+import Chart from "primevue/chart";
+import ProgressSpinner from 'primevue/progressspinner';
+import {ref} from "vue";
 
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
+
+const battleStat = ref()
 const props = defineProps({
   playerName: String,
   data: Object,
 })
 
+async function queryBattleStat(battleId) {
+  const res = await fetch(`${apiUrl}/api/battle/${battleId}/stat`, {
+        method: "GET"
+      }
+  )
+  battleStat.value = await res.json();
+}
+
 function battleChartData(battle) {
   const playerNames = [];
   playerNames.push(battle.teams[0].playerName)
   playerNames.push(battle.teams[1].playerName);
-  const battleHealthLineTrends = JSON.parse(battle.healthLinePairJsonString);
-  const battleHighLights = JSON.parse(battle.highLightJsonString);
 
-  return battleStatChartDataSet(playerNames, battleHealthLineTrends, battleHighLights)
+  return battleStatChartDataSet(playerNames, battleStat.value)
 }
 
 function battleChartOption(battle) {
@@ -57,17 +68,17 @@ function battleChartOption(battle) {
   }
 }
 
-function highLightChartDataSets(players, battleHighLights) {
+function highLightChartDataSets(players, playerHighLights) {
   const highLightChartDataSets = [];
-  for (let i = 0; i < battleHighLights.length; ++i) {
-    let battleHighLight = battleHighLights[i];
+  for (let i = 0; i < playerHighLights.length; ++i) {
+    let playerHighLight = playerHighLights[i];
     let player = players[i];
-    for (let j = 0; j < battleHighLight.length; ++j) {
-      let event = battleHighLight[j];
+    for (const turnHighLight of playerHighLight) {
+      let event = turnHighLight.description;
       let pointRadius = 2;
       let pointBackgroundColor;
       let y;
-      let x = j + 1;
+      let x = turnHighLight.turn;
       if (props.playerName === player) {
         pointBackgroundColor = "blue";
         y = -100;
@@ -78,7 +89,7 @@ function highLightChartDataSets(players, battleHighLights) {
 
       let data = {
         pointBackgroundColor: pointBackgroundColor,
-        pointHitRadiu: 8,
+        pointHitRadius: 8,
         label: event,
         type: "scatter",
         data: [
@@ -88,23 +99,21 @@ function highLightChartDataSets(players, battleHighLights) {
           }
         ]
       };
-      if (event.indexOf("faint") !== -1) {
+      if (turnHighLight.type === "KILL") {
         pointRadius = 8;
-        const pointIcon = new Image(20,20);
+        const pointIcon = new Image(20, 20);
         pointIcon.src = "/flag-fill.svg";
         data["pointStyle"] = pointIcon;
-      } else if (event.indexOf("Stealth Rock") !== -1) {
+      } else if (turnHighLight.type === "SIDE") {
         pointRadius = 4;
-      } else if (event.indexOf("(") !== -1) {
+        const pointIcon = new Image(20, 20);
+        pointIcon.src = "/chevron-down.svg";
+        data["pointStyle"] = pointIcon;
+      } else if (turnHighLight.type === "END_SIDE") {
         pointRadius = 4;
-      } else if (event.indexOf("Spikes") !== -1) {
-        pointRadius = 4;
-      } else if (event.indexOf("Toxic Spikes") !== -1) {
-        pointRadius = 4;
-      } else if (event.indexOf("Defog") !== -1) {
-        pointRadius = 4;
-      } else if (event.indexOf("Rapid Spin") !== -1) {
-        pointRadius = 4;
+        const pointIcon = new Image(20, 20);
+        pointIcon.src = "/chevron-up.svg";
+        data["pointStyle"] = pointIcon;
       }
       data["pointRadius"] = pointRadius;
       data["pointHoverRadius"] = pointRadius;
@@ -114,59 +123,50 @@ function highLightChartDataSets(players, battleHighLights) {
   return highLightChartDataSets;
 }
 
-function battleStatChartDataSet(players, battleHealthLineTrends, battleHighLights) {
-  let datasets = [];
-  datasets = datasets.concat(healthLineChartDataSets(players, battleHealthLineTrends))
+function battleStatChartDataSet(players, battleStat) {
+  const turnStats = battleStat.turnStats;
+  const playerStatList = battleStat.playerStatList;
+  let playerHighLights = [];
+  for (let i = 0; i < players.length; ++i) {
+    playerHighLights.push(playerStatList[i].highLights);
+  }
 
-  datasets = datasets.concat(highLightChartDataSets(players, battleHighLights))
+  let datasets = [];
+  datasets = datasets.concat(healthLineChartDataSets(players, turnStats))
+
+  datasets = datasets.concat(highLightChartDataSets(players, playerHighLights))
   return {datasets: datasets};
 }
 
-function healthLineChartData(playerName, healthLineTrend) {
-  let battleTrendChartData = []
-  for (let turn = 0; turn < healthLineTrend.length; turn++) {
-    if (turn === 0) {
+function healthLineChartDataSets(playerNames, turnStats) {
+  const healthLineChartDataSets = [];
+  for (let i = 0; i < playerNames.length; ++i) {
+    const playerName = playerNames[i];
+    let battleTrendChartData = [];
+    for (const turnStat of turnStats) {
       battleTrendChartData.push({
-        x: 0,
-        y: 600
+        x: turnStat.turn,
+        y: turnStat.turnPlayerStatList[i].totalHealth
       });
     }
-    let health = 0;
-    let pokemonNumber = 0;
-    for (const pokemon in healthLineTrend[turn]) {
-      health = health + healthLineTrend[turn][pokemon];
-      pokemonNumber++;
-    }
-    health = health + 100 * (6 - pokemonNumber);
-    battleTrendChartData.push({
-      x: turn + 1,
-      y: health
+    healthLineChartDataSets.push({
+      label: playerName === "" ? "null" : playerName,
+      data: battleTrendChartData,
+      borderColor: playerName === props.playerName ? "blue" : "red",
+      borderWidth: 1,
+      pointRadius: 2
     });
-  }
-
-  return {
-    label: playerName === "" ? "null" : playerName,
-    data: battleTrendChartData,
-    borderColor: playerName === props.playerName ? "blue" : "red",
-    borderWidth: 1,
-    pointRadius: 2
-  };
-}
-
-function healthLineChartDataSets(playerNames, battleHealthLineTrends) {
-  const healthLineChartDataSets = [];
-  for (let playerNumber = 0; playerNumber < battleHealthLineTrends.length; playerNumber++) {
-    const healthLineTrend = battleHealthLineTrends[playerNumber];
-    healthLineChartDataSets.push(healthLineChartData(playerNames[playerNumber], healthLineTrend));
   }
   return healthLineChartDataSets;
 }
 
+queryBattleStat(props.data.battleID)
 </script>
 <template>
   <div class="flex justify-center items-center">
-    <Chart :key="data.battleID" type="line"
+    <Chart v-if="battleStat" :key="data.battleID" type="line"
            :data="battleChartData(data)" :options="battleChartOption(data)"
            class="size-3/4"/>
+    <ProgressSpinner v-else/>
   </div>
 </template>

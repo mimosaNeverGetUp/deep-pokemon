@@ -18,7 +18,6 @@ function battleButtonIcon() {
   return battleChartVisibility.value ? "pi pi-angle-up" : "pi pi-angle-down"
 }
 
-
 </script>
 
 <template>

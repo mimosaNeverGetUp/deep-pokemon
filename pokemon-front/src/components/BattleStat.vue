@@ -1,11 +1,17 @@
 <script setup>
+import {ref} from "vue";
 import Chart from "primevue/chart";
 import ProgressSpinner from 'primevue/progressspinner';
-import {ref} from "vue";
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
+import Column from "primevue/column";
+import DataTable from "primevue/datatable";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 const battleStat = ref()
+const playerPokemonBattleStat = ref()
+const load = ref()
 const props = defineProps({
   playerName: String,
   data: Object,
@@ -16,7 +22,27 @@ async function queryBattleStat(battleId) {
         method: "GET"
       }
   )
-  battleStat.value = await res.json();
+  if (!res.ok) {
+    load.value = false;
+    return;
+  }
+
+  let stat = await res.json();
+  battleStat.value = stat;
+  let pokemonStat = [];
+  for (const playerStat of stat.playerStatList) {
+    for (const pokemonName in playerStat.pokemonBattleStats) {
+      playerStat.pokemonBattleStats[pokemonName].playerName = playerStat.playerName
+      pokemonStat.push(playerStat.pokemonBattleStats[pokemonName])
+    }
+  }
+  playerPokemonBattleStat.value = pokemonStat;
+  load.value = true
+}
+
+function getIconUrl(pokemonName) {
+  const iconName = pokemonName.replace(" ", "").replace("-*", "")
+  return "/pokemonicon/" + iconName + ".png"
 }
 
 function battleChartData(battle) {
@@ -160,13 +186,49 @@ function healthLineChartDataSets(playerNames, turnStats) {
   return healthLineChartDataSets;
 }
 
+function rowStyle(row) {
+  const backgroundColor = props.data.winner === row.playerName ? '#a3cfec' : '#e2b6b3';
+  return {backgroundColor: backgroundColor, margin: 0};
+}
+
 queryBattleStat(props.data.battleID)
 </script>
 <template>
-  <div class="flex justify-center items-center">
-    <Chart v-if="battleStat" :key="data.battleID" type="line"
-           :data="battleChartData(data)" :options="battleChartOption(data)"
-           class="size-3/4"/>
-    <ProgressSpinner v-else/>
+  <div>
+    <TabView v-if="load === true">
+      <TabPanel header="trend" headerClass="text-lg w-1/2 text-black">
+        <div class="flex justify-center items-center">
+          <Chart :key="data.battleID" type="line"
+                 :data="battleChartData(data)" :options="battleChartOption(data)"
+                 class="size-3/4"/>
+        </div>
+      </TabPanel>
+      <TabPanel header="stat" headerClass="text-lg w-1/2 text-black">
+        <DataTable :value="playerPokemonBattleStat" class="ladder" :scrollable="false"
+                   tableStyle="min-width: 50rem" :row-style="rowStyle">
+          <Column field="name" header="pokemon" :style="{ width:'10%'}">
+            <template #body="{data}">
+              <img :src="getIconUrl(data.name)"/>
+              <span>{{ data.name }}</span>
+            </template>
+          </Column>
+          <Column field="playerName" header="player" :style="{ width:'5%' }"></Column>
+          <Column field="switchCount" header="switch" :sortable="true" :style="{ width:'5%' }"></Column>
+          <Column field="moveCount" header="move" :sortable="true" :style="{ width:'5%' }"></Column>
+          <Column field="killCount" header="kill" :sortable="true" :style="{ width:'5%' }"></Column>
+          <Column field="healthValue" header="正负值" :sortable="true" :style="{ width:'5%' }"></Column>
+          <Column field="attackValue" header="进攻贡献值" :sortable="true" :style="{ width:'5%' }"></Column>
+
+        </DataTable>
+      </TabPanel>
+    </TabView>
+    <ProgressSpinner v-else-if="load === null || load === undefined"/>
+    <span v-else-if="load === false">load stat fail😢</span>
   </div>
 </template>
+
+<style>
+.p-tabview-panels {
+  padding: 0;
+}
+</style>

@@ -3,6 +3,7 @@ import {ref} from "vue";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Battle from "@/components/Battle.vue";
+import Divider from 'primevue/divider';
 
 const props = defineProps({
   playerName: {

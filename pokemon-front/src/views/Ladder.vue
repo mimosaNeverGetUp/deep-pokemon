@@ -36,9 +36,9 @@ fetchData(page.value, row.value)
              tableStyle="min-width: 50rem">
     <Column field="rank" header="排名"
             :style="{ width:'5%' }"></Column>
-    <Column field="name" header="玩家名" :style="{ width:'20%' }">
+    <Column field="name" header="玩家名" :style="{ width:'20%' }" >
       <template #body="{data}">
-        <router-link :to="`/player-record?name=${data.name}`">
+        <router-link :to="`/player-record?name=${data.name}`" class="text-black">
           {{data.name}}
         </router-link>
       </template>

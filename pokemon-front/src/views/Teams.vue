@@ -20,7 +20,6 @@ const row = ref(15);
 
 
 async function queryTeams(page, row) {
-
   let url = new URL(`${apiUrl}/api/teams?page=${page}&row=${row}`);
   if (route.query.pokemons) {
     url.searchParams.set('pokemons', route.query.pokemons);
@@ -60,14 +59,14 @@ queryTeams(page.value, row.value);
     </Column>
     <Column field="playerName" header="玩家名" :style="{ width:'20%' }">
       <template #body="{data}">
-        <router-link :to="`/player-record?name=${data.team.playerName}`">
+        <router-link :to="`/player-record?name=${data.team.playerName}`" class="text-black">
           {{ data.team.playerName }}
         </router-link>
       </template>
     </Column>
     <Column field="battle-example" header="replay" :style="{ width:'20%' }">
       <template #body="{data}">
-        <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`">
+        <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="text-black">
           {{ data.battleId }}
         </a>
       </template>

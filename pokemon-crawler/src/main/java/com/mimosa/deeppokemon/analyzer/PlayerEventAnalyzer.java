@@ -31,7 +31,7 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
         if (battleEvent.getContents().size() < 2) {
-            log.error("can not match player content: {}", battleEvent);
+            log.warn("can not match player content: {}", battleEvent);
             return;
         }
 

@@ -53,9 +53,8 @@ function battleChartData(battle) {
   return battleStatChartDataSet(playerNames, battleStat.value)
 }
 
-function battleChartOption(battle) {
-  const battleHealthLineTrends = JSON.parse(battle.healthLinePairJsonString);
-  const turnLength = battleHealthLineTrends[0].length;
+function battleChartOption(battleStat) {
+  const turnLength = battleStat.turnStats.length;
   const scales = {
     x: {
       type: "linear",
@@ -199,7 +198,7 @@ queryBattleStat(props.data.battleID)
       <TabPanel header="trend" headerClass="text-lg w-1/2 text-black">
         <div class="flex justify-center items-center">
           <Chart :key="data.battleID" type="line"
-                 :data="battleChartData(data)" :options="battleChartOption(data)"
+                 :data="battleChartData(data)" :options="battleChartOption(battleStat)"
                  class="size-3/4"/>
         </div>
       </TabPanel>

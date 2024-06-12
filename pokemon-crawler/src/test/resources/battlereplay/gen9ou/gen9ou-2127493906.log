@@ -1,0 +1,352 @@
+|j|☆elpets
+|j|☆Theo27
+|t:|1716302480
+|gametype|singles
+|player|p1|elpets|infielder|1709
+|player|p2|Theo27|sage|1767
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Hatterene, F|
+|poke|p1|Dragonite, M|
+|poke|p1|Breloom, F|
+|poke|p1|Azumarill, F|
+|poke|p1|Great Tusk|
+|poke|p1|Skeledirge, F|
+|poke|p2|Glimmora, F|
+|poke|p2|Moltres|
+|poke|p2|Iron Hands|
+|poke|p2|Pecharunt|
+|poke|p2|Breloom, M|
+|poke|p2|Hoopa-Unbound|
+|teampreview
+|
+|t:|1716302493
+|start
+|switch|p1a: Azumarill|Azumarill, F|100/100
+|switch|p2a: Breloom|Breloom, M|100/100
+|turn|1
+|
+|t:|1716302498
+|move|p2a: Breloom|Bullet Seed|p1a: Azumarill
+|-supereffective|p1a: Azumarill
+|-damage|p1a: Azumarill|56/100
+|-supereffective|p1a: Azumarill
+|-damage|p1a: Azumarill|15/100
+|-supereffective|p1a: Azumarill
+|-damage|p1a: Azumarill|0 fnt
+|faint|p1a: Azumarill
+|-hitcount|p1: Azumarill|3
+|
+|upkeep
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by elpets)
+|
+|t:|1716302505
+|switch|p1a: Hatterene|Hatterene, F|100/100
+|turn|2
+|
+|t:|1716302508
+|switch|p2a: Hoopa|Hoopa-Unbound|100/100
+|move|p1a: Hatterene|Trick Room|p1a: Hatterene
+|-fieldstart|move: Trick Room|[of] p1a: Hatterene
+|
+|upkeep
+|turn|3
+|
+|t:|1716302511
+|move|p1a: Hatterene|Draining Kiss|p2a: Hoopa
+|-supereffective|p2a: Hoopa
+|-crit|p2a: Hoopa
+|-damage|p2a: Hoopa|50/100
+|move|p2a: Hoopa|Gunk Shot|p1a: Hatterene|[miss]
+|-miss|p2a: Hoopa|p1a: Hatterene
+|
+|upkeep
+|turn|4
+|
+|t:|1716302517
+|move|p1a: Hatterene|Draining Kiss|p2a: Hoopa
+|-supereffective|p2a: Hoopa
+|-damage|p2a: Hoopa|16/100
+|move|p2a: Hoopa|Gunk Shot|p1a: Hatterene
+|-supereffective|p1a: Hatterene
+|-damage|p1a: Hatterene|0 fnt
+|faint|p1a: Hatterene
+|
+|upkeep
+|
+|t:|1716302520
+|switch|p1a: Skeledirge|Skeledirge, F|100/100
+|turn|5
+|
+|t:|1716302524
+|switch|p2a: Moltres|Moltres|100/100
+|move|p1a: Skeledirge|Torch Song|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|85/100
+|-boost|p1a: Skeledirge|spa|1
+|
+|upkeep
+|turn|6
+|
+|t:|1716302527
+|move|p1a: Skeledirge|Shadow Ball|p2a: Moltres
+|-damage|p2a: Moltres|38/100
+|move|p2a: Moltres|Scorching Sands|p1a: Skeledirge
+|-supereffective|p1a: Skeledirge
+|-damage|p1a: Skeledirge|49/100
+|
+|-fieldend|move: Trick Room
+|upkeep
+|turn|7
+|j| Piplup621
+|
+|t:|1716302535
+|move|p2a: Moltres|Roost|p2a: Moltres
+|-heal|p2a: Moltres|88/100
+|-singleturn|p2a: Moltres|move: Roost
+|move|p1a: Skeledirge|Shadow Ball|p2a: Moltres
+|-damage|p2a: Moltres|47/100
+|
+|upkeep
+|turn|8
+|
+|t:|1716302538
+|switch|p1a: Dragonite|Dragonite, M|100/100
+|move|p2a: Moltres|Scorching Sands|p1a: Dragonite
+|-immune|p1a: Dragonite
+|
+|upkeep
+|turn|9
+|
+|t:|1716302542
+|move|p1a: Dragonite|Dragon Dance|p1a: Dragonite
+|-boost|p1a: Dragonite|atk|1
+|-boost|p1a: Dragonite|spe|1
+|move|p2a: Moltres|U-turn|p1a: Dragonite
+|-resisted|p1a: Dragonite
+|-damage|p1a: Dragonite|97/100
+|
+|t:|1716302545
+|switch|p2a: Pecharunt|Pecharunt|100/100|[from] U-turn
+|
+|upkeep
+|turn|10
+|
+|t:|1716302551
+|move|p1a: Dragonite|Dragon Dance|p1a: Dragonite
+|-boost|p1a: Dragonite|atk|1
+|-boost|p1a: Dragonite|spe|1
+|move|p2a: Pecharunt|Malignant Chain|p1a: Dragonite
+|-damage|p1a: Dragonite|55/100
+|
+|upkeep
+|turn|11
+|
+|t:|1716302557
+|move|p1a: Dragonite|Outrage|p2a: Pecharunt
+|-damage|p2a: Pecharunt|28/100
+|move|p2a: Pecharunt|Malignant Chain|p1a: Dragonite
+|-damage|p1a: Dragonite|14/100
+|-status|p1a: Dragonite|tox
+|-start|p1a: Dragonite|confusion|[from] ability: Poison Puppeteer|[of] p2a: Pecharunt
+|-enditem|p1a: Dragonite|Lum Berry|[eat]
+|-curestatus|p1a: Dragonite|tox|[msg]
+|-end|p1a: Dragonite|confusion
+|
+|-heal|p2a: Pecharunt|34/100|[from] item: Leftovers
+|upkeep
+|turn|12
+|
+|t:|1716302563
+|move|p1a: Dragonite|Outrage|p2a: Pecharunt|[from]lockedmove
+|-damage|p2a: Pecharunt|0 fnt
+|faint|p2a: Pecharunt
+|-start|p1a: Dragonite|confusion|[fatigue]
+|
+|upkeep
+|
+|t:|1716302568
+|switch|p2a: Breloom|Breloom, M|100/100
+|turn|13
+|
+|t:|1716302590
+|-activate|p1a: Dragonite|confusion
+|-damage|p1a: Dragonite|0 fnt|[from] confusion
+|faint|p1a: Dragonite
+|move|p2a: Breloom|Rock Tomb|p1: Dragonite|[notarget]
+|-fail|p2a: Breloom
+|
+|upkeep
+|inactive|elpets has 120 seconds left.
+|
+|t:|1716302609
+|switch|p1a: Ippo|Breloom, F|100/100
+|turn|14
+|
+|t:|1716302624
+|move|p1a: Ippo|Rock Tomb|p2a: Breloom
+|-resisted|p2a: Breloom
+|-damage|p2a: Breloom|73/100
+|-unboost|p2a: Breloom|spe|1
+|move|p2a: Breloom|Bullet Seed|p1a: Ippo
+|-resisted|p1a: Ippo
+|-damage|p1a: Ippo|85/100
+|-resisted|p1a: Ippo
+|-damage|p1a: Ippo|69/100
+|-resisted|p1a: Ippo
+|-damage|p1a: Ippo|52/100
+|-hitcount|p1a: Ippo|3
+|
+|upkeep
+|turn|15
+|
+|t:|1716302627
+|move|p2a: Breloom|Mach Punch|p1a: Ippo
+|-damage|p1a: Ippo|1/100
+|move|p1a: Ippo|Bullet Seed|p2a: Breloom
+|-resisted|p2a: Breloom
+|-damage|p2a: Breloom|55/100
+|-resisted|p2a: Breloom
+|-damage|p2a: Breloom|38/100
+|-resisted|p2a: Breloom
+|-damage|p2a: Breloom|22/100
+|-hitcount|p2a: Breloom|3
+|
+|upkeep
+|turn|16
+|j| malibou
+|
+|t:|1716302633
+|move|p1a: Ippo|Mach Punch|p2a: Breloom
+|-damage|p2a: Breloom|0 fnt
+|faint|p2a: Breloom
+|
+|upkeep
+|
+|t:|1716302639
+|switch|p2a: Iron Hands|Iron Hands|100/100
+|turn|17
+|
+|t:|1716302642
+|move|p1a: Ippo|Bullet Seed|p2a: Iron Hands
+|-damage|p2a: Iron Hands|86/100
+|-damage|p2a: Iron Hands|73/100
+|-damage|p2a: Iron Hands|59/100
+|-damage|p2a: Iron Hands|46/100
+|-damage|p2a: Iron Hands|33/100
+|-hitcount|p2a: Iron Hands|5
+|move|p2a: Iron Hands|Ice Punch|p1a: Ippo
+|-supereffective|p1a: Ippo
+|-damage|p1a: Ippo|0 fnt
+|faint|p1a: Ippo
+|
+|-heal|p2a: Iron Hands|39/100|[from] item: Leftovers
+|upkeep
+|
+|t:|1716302654
+|switch|p1a: Skeledirge|Skeledirge, F|49/100
+|turn|18
+|
+|t:|1716302657
+|move|p1a: Skeledirge|Torch Song|p2a: Iron Hands
+|-damage|p2a: Iron Hands|12/100
+|-boost|p1a: Skeledirge|spa|1
+|move|p2a: Iron Hands|Supercell Slam|p1a: Skeledirge
+|-damage|p1a: Skeledirge|10/100
+|
+|-heal|p2a: Iron Hands|18/100|[from] item: Leftovers
+|upkeep
+|turn|19
+|
+|t:|1716302661
+|move|p1a: Skeledirge|Torch Song|p2a: Iron Hands
+|-damage|p2a: Iron Hands|0 fnt
+|-boost|p1a: Skeledirge|spa|1
+|faint|p2a: Iron Hands
+|-end|p2a: Iron Hands|Quark Drive|[silent]
+|
+|upkeep
+|
+|t:|1716302664
+|switch|p2a: Moltres|Moltres|47/100
+|turn|20
+|
+|t:|1716302666
+|move|p2a: Moltres|Scorching Sands|p1a: Skeledirge
+|-supereffective|p1a: Skeledirge
+|-damage|p1a: Skeledirge|0 fnt
+|faint|p1a: Skeledirge
+|
+|upkeep
+|
+|t:|1716302668
+|switch|p1a: Great Tusk|Great Tusk|100/100
+|-enditem|p1a: Great Tusk|Booster Energy
+|-activate|p1a: Great Tusk|ability: Protosynthesis|[fromitem]
+|-start|p1a: Great Tusk|protosynthesisatk
+|turn|21
+|
+|t:|1716302673
+|move|p1a: Great Tusk|Supercell Slam|p2a: Moltres
+|-supereffective|p2a: Moltres
+|-crit|p2a: Moltres
+|-damage|p2a: Moltres|0 fnt
+|faint|p2a: Moltres
+|
+|upkeep
+|
+|t:|1716302678
+|switch|p2a: Glimmora|Glimmora, F|100/100
+|turn|22
+|
+|t:|1716302683
+|-terastallize|p2a: Glimmora|Water
+|move|p1a: Great Tusk|Rapid Spin|p2a: Glimmora
+|-damage|p2a: Glimmora|77/100
+|-boost|p1a: Great Tusk|spe|1
+|move|p2a: Glimmora|Sludge Wave|p1a: Great Tusk
+|-resisted|p1a: Great Tusk
+|-damage|p1a: Great Tusk|60/100
+|
+|upkeep
+|turn|23
+|
+|t:|1716302692
+|move|p1a: Great Tusk|Headlong Rush|p2a: Glimmora
+|-damage|p2a: Glimmora|0 fnt
+|-unboost|p1a: Great Tusk|def|1
+|-unboost|p1a: Great Tusk|spd|1
+|faint|p2a: Glimmora
+|
+|upkeep
+|
+|t:|1716302694
+|switch|p2a: Hoopa|Hoopa-Unbound|16/100
+|turn|24
+|
+|t:|1716302697
+|-terastallize|p1a: Great Tusk|Ground
+|move|p1a: Great Tusk|Ice Spinner|p2a: Hoopa
+|-damage|p2a: Hoopa|0 fnt
+|faint|p2a: Hoopa
+|
+|win|elpets
+|raw|elpets's rating: 1709 &rarr; <strong>1732</strong><br />(+23 for winning)
+|raw|Theo27's rating: 1767 &rarr; <strong>1744</strong><br />(-23 for losing)
+|l|☆elpets
+|player|p1|
+|l|☆Theo27
+|player|p2|
+|l| malibou
+|l| Piplup621

@@ -186,6 +186,8 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                     targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getActivateStatusList();
             ofTarget = activateStatuses.stream().filter(activateStatus -> StringUtils.equals(activateStatus.content()
                     , damageFrom) || StringUtils.equals(activateStatus.status(), damageFrom)).findFirst().orElseThrow().ofTarget();
+        } else {
+            log.error("can not get damage from {},turn: {}", damageFrom, battleStatus.getTurn());
         }
         return ofTarget;
     }

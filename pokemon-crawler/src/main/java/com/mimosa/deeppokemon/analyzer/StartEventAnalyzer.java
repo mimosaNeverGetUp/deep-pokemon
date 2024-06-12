@@ -6,12 +6,12 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -64,6 +64,9 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
         } else if (battleEvent.getParentEvent() != null &&
                 battleEvent.getParentEvent().getBattleEventStat() instanceof MoveEventStat moveEventStat) {
             confusionOf = moveEventStat.eventTarget();
+        } else {
+            log.error("can not get confusion of,may be is confusion by itself");
+            confusionOf = eventTarget;
         }
         BattleEventUtil.getPokemonStatus(battleStatus, eventTarget).setBuffOf(buff, confusionOf);
     }

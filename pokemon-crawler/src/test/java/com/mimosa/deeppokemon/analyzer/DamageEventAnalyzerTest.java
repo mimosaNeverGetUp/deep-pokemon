@@ -44,6 +44,8 @@ class DamageEventAnalyzerTest {
     private static final String OGERPON = "Ogerpon";
     private static final String ROARING_MOON = "Roaring Moon";
     private static final String TOXAPEX = "Toxapex";
+    private static final String DRAGONITE = "Dragonite";
+    private static final String PECHARUNT = "Pecharunt";
 
     @Autowired
     private DamageEventAnalyzer damageEventAnalyzer;
@@ -78,7 +80,6 @@ class DamageEventAnalyzerTest {
         }
         Assertions.assertNotEquals(0, damageEventStat.healthDiff());
     }
-
 
     @ParameterizedTest
     @MethodSource("provideSwitchDamageEvent")
@@ -297,6 +298,30 @@ class DamageEventAnalyzerTest {
                 .getPokemonBattleStat(IRON_VALIANT);
         Assertions.assertEquals(BigDecimal.valueOf(0.0), p1Stat.getAttackValue());
         Assertions.assertEquals(BigDecimal.valueOf(-12.0), p1Stat.getHealthValue());
+    }
+
+    @Test
+    void analyzeConfusionDamage() {
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Dragonite", "0 fnt", "[from] confusion"), null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(2, PECHARUNT, PECHARUNT)
+                .addPokemon(1, DRAGONITE, DRAGONITE)
+                .setTurnStartPokemon(1, DRAGONITE)
+                .setHealth(1, DRAGONITE, BigDecimal.valueOf(14))
+                .setBuffOf(1, DRAGONITE, "confusion", new EventTarget(2, PECHARUNT, PECHARUNT))
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, PECHARUNT)
+                .addPokemonStat(1, DRAGONITE)
+                .build();
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        PokemonBattleStat p2Stat = battleStat.playerStatList().get(1).getPokemonBattleStat(PECHARUNT);
+        Assertions.assertEquals(14, p2Stat.getAttackValue().intValue());
+        Assertions.assertEquals(14, p2Stat.getHealthValue().intValue());
+        PokemonBattleStat p1Stat = battleStat.playerStatList().get(0).getPokemonBattleStat(DRAGONITE);
+        Assertions.assertEquals(0, p1Stat.getAttackValue().intValue());
+        Assertions.assertEquals(-14, p1Stat.getHealthValue().intValue());
     }
 
     private static Arguments buildSwitchDamageEvent() {

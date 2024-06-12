@@ -29,12 +29,14 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger log = LoggerFactory.getLogger(SwitchEventAnalyzer.class);
     private static final String SWITCH = "switch";
     private static final String DRAG = "drag";
-    private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(SWITCH, DRAG);
+    private static final String REPLACE = "replace";
+    private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(SWITCH, DRAG, REPLACE);
     private static final String FORM_SPLIT = "-";
+    private static final int HEALTH_INDEX = 2;
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
-        if (battleEvent.getContents().size() < 3) {
+        if (battleEvent.getContents().size() < HEALTH_INDEX) {
             log.warn("can not match battle event contents: {}", battleEvent);
             return;
         }
@@ -47,10 +49,12 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
             playerStatus.setActivePokemonName(pokemonName);
             changeFormChangingPokemonName(battleStatus, battleStat, eventTarget.playerNumber(), pokemonName);
 
-            BigDecimal pokemonHealth = BattleEventUtil.getHealthPercentage(battleEvent.getContents().get(2));
-            BigDecimal healthDiff = setBattleHealthStatus(battleStatus, eventTarget, pokemonName, pokemonHealth);
-            setBattleStat(battleEvent, battleStat, battleStatus, eventTarget, pokemonName, healthDiff);
-            playerStatus.getPokemonStatus(pokemonName).setLastActivateTurn(battleStatus.getTurn());
+            if (battleEvent.getContents().size() > HEALTH_INDEX) {
+                BigDecimal pokemonHealth = BattleEventUtil.getHealthPercentage(battleEvent.getContents().get(HEALTH_INDEX));
+                BigDecimal healthDiff = setBattleHealthStatus(battleStatus, eventTarget, pokemonName, pokemonHealth);
+                setBattleStat(battleEvent, battleStat, battleStatus, eventTarget, pokemonName, healthDiff);
+                playerStatus.getPokemonStatus(pokemonName).setLastActivateTurn(battleStatus.getTurn());
+            }
         }
     }
 

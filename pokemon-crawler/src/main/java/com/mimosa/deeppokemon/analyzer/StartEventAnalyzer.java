@@ -25,6 +25,8 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(START);
     private static final int TARGET_INDEX = 0;
     private static final int BUFF_INDEX = 1;
+    private static final int OF_INDEX = 3;
+    private static final String OF = "of";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -40,9 +42,8 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
 
         String buff = battleEvent.getContents().get(BUFF_INDEX);
         switch (buff) {
-            case "Salt Cure" :
-                setSaltBuffOf(battleEvent, battleStatus, eventTarget, buff);
-                break;
+            case "Salt Cure" -> setSaltBuffOf(battleEvent, battleStatus, eventTarget, buff);
+            case "confusion" -> setConfusionBuffOf(battleEvent, battleStatus, eventTarget, buff);
         }
     }
 
@@ -53,6 +54,18 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
             saltOf = moveEventStat.eventTarget();
         }
         BattleEventUtil.getPokemonStatus(battleStatus, eventTarget).setBuffOf(buff, saltOf);
+    }
+
+    private static void setConfusionBuffOf(BattleEvent battleEvent, BattleStatus battleStatus, EventTarget eventTarget,
+                                   String buff) {
+        EventTarget confusionOf = null;
+        if (battleEvent.getContents().size() > OF_INDEX && battleEvent.getContents().get(OF_INDEX).contains(OF)) {
+            confusionOf = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX),battleStatus);
+        } else if (battleEvent.getParentEvent() != null &&
+                battleEvent.getParentEvent().getBattleEventStat() instanceof MoveEventStat moveEventStat) {
+            confusionOf = moveEventStat.eventTarget();
+        }
+        BattleEventUtil.getPokemonStatus(battleStatus, eventTarget).setBuffOf(buff, confusionOf);
     }
 
     @Override

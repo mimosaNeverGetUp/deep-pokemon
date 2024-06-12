@@ -41,7 +41,8 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer {
             if (damageEventStat != null) {
                 EventTarget damageOf = damageEventStat.damageOf();
                 if (damageOf == null) {
-                    log.error("can't analyze damage with empty damageOf: {}", damageEventStat);
+                    log.error("can't analyze damage with empty damageOf: {}, turn: ", damageEventStat,
+                            battleStatus.getTurn());
                     throw new RuntimeException("can't analyze damage with empty damageOf: " + damageEventStat);
                 }
 

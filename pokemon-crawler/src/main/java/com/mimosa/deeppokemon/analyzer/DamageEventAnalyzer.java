@@ -43,6 +43,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final String ITEM = "item";
     private static final String RECOIL = "Recoil";
     private static final Map<String, String> statusFromMap = new HashMap<>();
+    private static final String OF = "of";
 
     static {
         statusFromMap.put("tox", "psn");
@@ -90,7 +91,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             damageFrom = BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX));
         }
 
-        if (OF_INDEX < battleEvent.getContents().size()) {
+        if (OF_INDEX < battleEvent.getContents().size() && battleEvent.getContents().get(OF_INDEX).contains(OF)) {
             // get stat by damage from xxx of xxx
             damageOf = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX),
                     battleStatus);

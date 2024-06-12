@@ -27,6 +27,9 @@ class StartEventAnalyzerTest {
     private static final String GARGANACL = "Garganacl";
     private static final String SALT_CURE = "Salt Cure";
     private static final String IRON_VALIANT = "Iron Valiant";
+    private static final String PECHARUNT = "Pecharunt";
+    private static final String DRAGONITE = "Dragonite";
+    private static final String CONFUSION = "confusion";
     @Autowired
     private StartEventAnalyzer startEventAnalyzer;
 
@@ -50,5 +53,25 @@ class StartEventAnalyzerTest {
         assertNotNull(buffOf);
         assertEquals(1, buffOf.playerNumber());
         assertEquals(GARGANACL, buffOf.targetName());
+    }
+
+    @Test
+    void analyzeConfusion() {
+        BattleEvent startEvent = new BattleEvent("start", List.of("p1a: Dragonite", CONFUSION, "[from] ability: " +
+                "Poison Puppeteer", "[of] p2a: Pecharunt"), null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(2, PECHARUNT, PECHARUNT)
+                .addPokemon(1, DRAGONITE, DRAGONITE)
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, PECHARUNT)
+                .addPokemonStat(1, DRAGONITE)
+                .build();
+        startEventAnalyzer.analyze(startEvent, battleStat, battleStatus);
+        EventTarget buffOf = battleStatus.getPlayerStatusList().get(0).getPokemonStatus(DRAGONITE).getBuffOf(CONFUSION);
+        assertNotNull(buffOf);
+        assertEquals(2, buffOf.playerNumber());
+        assertEquals(PECHARUNT, buffOf.targetName());
     }
 }

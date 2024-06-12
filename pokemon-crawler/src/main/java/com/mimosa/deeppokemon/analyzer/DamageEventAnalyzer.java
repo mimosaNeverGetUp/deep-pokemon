@@ -40,6 +40,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     public static final String STEALTH_ROCK = "Stealth Rock";
     public static final String SPIKES = "Spikes";
     private static final String ITEM = "item";
+    private static final String RECOIL = "Recoil";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -97,9 +98,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             damageFrom = moveEventStat.moveName();
         } else {
             // may be is opponent player turn start pokemon
-            int opponentPlayerNumber = 3 - eventTarget.playerNumber();
-            PlayerStatus oppentPlayerStatus = battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
-            damageOf = new EventTarget(opponentPlayerNumber, oppentPlayerStatus.getTurnStartPokemonName(), null);
+            damageOf = BattleEventUtil.getOpponentTurnStartPokemonTarget(battleStatus, eventTarget);
         }
         if (damageOf != null) {
             damageOfPokemonStat = battleStat.playerStatList().get(damageOf.playerNumber() - 1)
@@ -172,8 +171,15 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             ofTarget = eventTarget;
         } else if (isBuffDamage(damageFrom, targetPlayerStatus.getPokemonStatus(eventTarget.targetName()))) {
             ofTarget = targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getBuffOf(damageFrom);
+        } else if (isRecoilDamage(damageFrom)) {
+            // recoil is damage by opponent active pokemon
+            ofTarget = BattleEventUtil.getOpponentActivePokemonTarget(battleStatus, eventTarget);
         }
         return ofTarget;
+    }
+
+    private boolean isRecoilDamage(String damageFrom) {
+        return damageFrom.contains(RECOIL);
     }
 
     private boolean isBuffDamage(String damageFrom, PokemonStatus pokemonStatus) {

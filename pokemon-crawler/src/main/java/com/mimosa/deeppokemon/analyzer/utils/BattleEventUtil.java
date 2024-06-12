@@ -6,6 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer.utils;
 
+import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -102,5 +103,23 @@ public class BattleEventUtil {
         }
         int index = battleEvent.getParentEvent().getChildrenEvents().indexOf(battleEvent);
         return index == 0 ? null : battleEvent.getParentEvent().getChildrenEvents().get(index - 1);
+    }
+
+    public static PlayerStatus getOpponentPlayerStatus(BattleStatus battleStatus, EventTarget eventTarget) {
+        int opponentPlayerNumber = 3 - eventTarget.playerNumber();
+        return battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
+    }
+
+    public static EventTarget getOpponentTurnStartPokemonTarget(BattleStatus battleStatus, EventTarget eventTarget) {
+        int opponentPlayerNumber = 3 - eventTarget.playerNumber();
+        PlayerStatus oppentPlayerStatus = battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
+        return new EventTarget(opponentPlayerNumber, oppentPlayerStatus.getTurnStartPokemonName(), null);
+    }
+
+
+    public static EventTarget getOpponentActivePokemonTarget(BattleStatus battleStatus, EventTarget eventTarget) {
+        int opponentPlayerNumber = 3 - eventTarget.playerNumber();
+        PlayerStatus oppentPlayerStatus = battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
+        return new EventTarget(opponentPlayerNumber, oppentPlayerStatus.getActivePokemonName(), null);
     }
 }

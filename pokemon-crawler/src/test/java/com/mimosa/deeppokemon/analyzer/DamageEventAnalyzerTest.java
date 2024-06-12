@@ -40,6 +40,8 @@ class DamageEventAnalyzerTest {
     private static final String SALT_CURE = "Salt Cure";
     private static final String IRON_VALIANT = "Iron Valiant";
     private static final String GARGANACL = "Garganacl";
+    private static final String CORVIKNIGHT = "Corviknight";
+    private static final String OGERPON = "Ogerpon";
 
     @Autowired
     private DamageEventAnalyzer damageEventAnalyzer;
@@ -211,6 +213,30 @@ class DamageEventAnalyzerTest {
         PokemonBattleStat garStat = battleStat.playerStatList().get(0).getPokemonBattleStat(GARGANACL);
         Assertions.assertEquals(12, garStat.getAttackValue().intValue());
         Assertions.assertEquals(12, garStat.getHealthValue().intValue());
+    }
+
+    @Test
+    void analyzeRecoilDamage() {
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Corviknight", "0 fnt", "[from] Recoil"), null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(2, OGERPON, OGERPON)
+                .addPokemon(1, CORVIKNIGHT, CORVIKNIGHT)
+                .setActivePokemonName(2, OGERPON)
+                .setTurnStartPokemon(1, CORVIKNIGHT)
+                .setHealth(1, CORVIKNIGHT, BigDecimal.valueOf(22))
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, OGERPON)
+                .addPokemonStat(1, CORVIKNIGHT)
+                .build();
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        PokemonBattleStat ogerponStat = battleStat.playerStatList().get(1).getPokemonBattleStat(OGERPON);
+        Assertions.assertEquals(22, ogerponStat.getAttackValue().intValue());
+        Assertions.assertEquals(22, ogerponStat.getHealthValue().intValue());
+        PokemonBattleStat corviknightStat = battleStat.playerStatList().get(0).getPokemonBattleStat(CORVIKNIGHT);
+        Assertions.assertEquals(0, corviknightStat.getAttackValue().intValue());
+        Assertions.assertEquals(-22, corviknightStat.getHealthValue().intValue());
     }
 
     private static Arguments buildSwitchDamageEvent() {

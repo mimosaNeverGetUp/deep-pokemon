@@ -62,4 +62,4 @@ jobs:
     - name: Log coverage percentage
       run: |
         echo "coverage-all = ${{ steps.jacoco.outputs.coverage-overall }}"
-        echo "coverage-changed-f     iles = ${{ steps.jacoco.outputs.coverage-changed-files }}"
+        echo "coverage-changed-files = ${{ steps.jacoco.outputs.coverage-changed-files }}"

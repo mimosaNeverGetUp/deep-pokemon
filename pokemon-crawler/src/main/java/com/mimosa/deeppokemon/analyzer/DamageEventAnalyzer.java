@@ -21,11 +21,14 @@ import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 @Component
@@ -41,6 +44,11 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     public static final String SPIKES = "Spikes";
     private static final String ITEM = "item";
     private static final String RECOIL = "Recoil";
+    private static final Map<String, String> statusFromMap = new HashMap<>();
+
+    static {
+        statusFromMap.put("tox", "psn");
+    }
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -193,8 +201,11 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private boolean isStatusDamage(String damageFrom, EventTarget eventTarget, BattleStatus battleStatus) {
         Status status =
                 battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName()).getStatus();
+        if (status == null) {
+            return false;
+        }
 
-        return status != null && status.name().equals(damageFrom);
+        return status.name().equals(damageFrom) || StringUtils.equals(statusFromMap.get(status.name()), damageFrom);
     }
 
     private boolean isWeatherDamage(String damageFrom, Weather weather) {

@@ -1,0 +1,939 @@
+|badge|p1|bronze|gen9ou|100-1
+|html|<div class="broadcast-red"><strong>This battle is required to be public due to one or more player having a season medal.</strong><br />During the public phase, you can discuss the state of the ladder <a href="/seasondiscussion">in a special chatroom.</a></div>
+|uhtml|medal-msg|<div class="broadcast-blue">Curious what those medals under the avatar are? PS now has Ladder Seasons! For more information, check out the <a href="https://www.smogon.com/forums/threads/3740067/">thread on Smogon.</a></div>
+|badge|p2|silver|gen9ou|30-1
+|uhtml|medal-msg|<div class="broadcast-blue">Curious what those medals under the avatar are? PS now has Ladder Seasons! For more information, check out the <a href="https://www.smogon.com/forums/threads/3740067/">thread on Smogon.</a></div>
+|raw|<div class="broadcast-blue"><strong>This battle is required to be public due to a player having a name starting with 'medal'.</div>
+|j|☆Stads
+|j|☆stierball
+|t:|1716992172
+|gametype|singles
+|player|p1|Stads|101|1920
+|player|p2|stierball|firebreather|1933
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Gliscor, F|
+|poke|p1|Gholdengo|
+|poke|p1|Toxapex, F|
+|poke|p1|Garganacl, M|
+|poke|p1|Great Tusk|
+|poke|p1|Iron Valiant|
+|poke|p2|Ninetales, F|
+|poke|p2|Walking Wake|
+|poke|p2|Roaring Moon|
+|poke|p2|Hatterene, F|
+|poke|p2|Landorus-Therian, M|
+|poke|p2|Raging Bolt|
+|teampreview
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by stierball)
+|j| nick van dyke
+|j| ceru-edge
+|j| gamebooadvanced
+|inactive|Stads has 120 seconds left.
+|j| rains inside
+|j| Mirak_Zero
+|inactive|Stads has 90 seconds left.
+|
+|t:|1716992233
+|start
+|switch|p1a: Gliscor|Gliscor, F|100/100
+|switch|p2a: Landorus|Landorus-Therian, M|100/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Gliscor|atk|1
+|turn|1
+|
+|t:|1716992247
+|move|p2a: Landorus|Taunt|p1a: Gliscor
+|-start|p1a: Gliscor|move: Taunt
+|move|p1a: Gliscor|Knock Off|p2a: Landorus
+|-damage|p2a: Landorus|87/100
+|-damage|p1a: Gliscor|84/100|[from] item: Rocky Helmet|[of] p2a: Landorus
+|-enditem|p2a: Landorus|Rocky Helmet|[from] move: Knock Off|[of] p1a: Gliscor
+|
+|-status|p1a: Gliscor|tox|[from] item: Toxic Orb
+|upkeep
+|turn|2
+|
+|t:|1716992260
+|move|p2a: Landorus|Stealth Rock|p1a: Gliscor
+|-sidestart|p1: Stads|move: Stealth Rock
+|move|p1a: Gliscor|Knock Off|p2a: Landorus
+|-damage|p2a: Landorus|78/100
+|
+|-heal|p1a: Gliscor|97/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|3
+|
+|t:|1716992262
+|move|p2a: Landorus|U-turn|p1a: Gliscor
+|-resisted|p1a: Gliscor
+|-damage|p1a: Gliscor|88/100 tox
+|
+|t:|1716992264
+|switch|p2a: Hatterene|Hatterene, F|100/100|[from] U-turn
+|move|p1a: Gliscor|Knock Off|p2a: Hatterene
+|-damage|p2a: Hatterene|89/100
+|-enditem|p2a: Hatterene|Eject Button|[from] move: Knock Off|[of] p1a: Gliscor
+|
+|-heal|p1a: Gliscor|100/100 tox|[from] ability: Poison Heal
+|-end|p1a: Gliscor|move: Taunt
+|upkeep
+|turn|4
+|
+|t:|1716992267
+|move|p1a: Gliscor|Earthquake|p2a: Hatterene
+|-damage|p2a: Hatterene|72/100
+|move|p2a: Hatterene|Psychic Noise|p1a: Gliscor
+|-damage|p1a: Gliscor|73/100 tox
+|-start|p1a: Gliscor|move: Heal Block
+|
+|upkeep
+|turn|5
+|l| gamebooadvanced
+|
+|t:|1716992283
+|switch|p2a: Ninetales|Ninetales, F|100/100
+|-weather|SunnyDay|[from] ability: Drought|[of] p2a: Ninetales
+|move|p1a: Gliscor|Protect||[still]
+|-fail|p1a: Gliscor
+|
+|-weather|SunnyDay|[upkeep]
+|-end|p1a: Gliscor|move: Heal Block
+|upkeep
+|turn|6
+|
+|t:|1716992291
+|switch|p2a: Hatterene|Hatterene, F|72/100
+|move|p1a: Gliscor|Knock Off|p2a: Hatterene
+|-damage|p2a: Hatterene|64/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|86/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|7
+|
+|t:|1716992293
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-singleturn|p1a: Gliscor|Protect
+|move|p2a: Hatterene|Psychic Noise|p1a: Gliscor
+|-activate|p1a: Gliscor|move: Protect
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|98/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|8
+|
+|t:|1716992298
+|move|p1a: Gliscor|Earthquake|p2a: Hatterene
+|-damage|p2a: Hatterene|45/100
+|move|p2a: Hatterene|Psychic Noise|p1a: Gliscor
+|-damage|p1a: Gliscor|72/100 tox
+|-start|p1a: Gliscor|move: Heal Block
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|9
+|j| nitro611
+|
+|t:|1716992306
+|move|p1a: Gliscor|Knock Off|p2a: Hatterene
+|-damage|p2a: Hatterene|38/100
+|move|p2a: Hatterene|Dazzling Gleam|p1a: Gliscor
+|-damage|p1a: Gliscor|43/100 tox
+|
+|-weather|SunnyDay|[upkeep]
+|-end|p1a: Gliscor|move: Heal Block
+|upkeep
+|turn|10
+|inactive|stierball has 120 seconds left.
+|
+|t:|1716992343
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-singleturn|p1a: Gliscor|Protect
+|move|p2a: Hatterene|Psychic Noise|p1a: Gliscor
+|-activate|p1a: Gliscor|move: Protect
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|55/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|11
+|inactive|stierball has 120 seconds left.
+|j| gamebooadvanced
+|j| lightx4
+|
+|t:|1716992381
+|switch|p1a: Gholdengo|Gholdengo|100/100
+|-damage|p1a: Gholdengo|94/100|[from] Stealth Rock
+|move|p2a: Hatterene|Psychic Noise|p1a: Gholdengo
+|-resisted|p1a: Gholdengo
+|-damage|p1a: Gholdengo|76/100
+|-start|p1a: Gholdengo|move: Heal Block
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|12
+|j| raudauw
+|inactive|Stads has 120 seconds left.
+|inactive|stierball has 90 seconds left.
+|j| poison potion
+|
+|t:|1716992403
+|switch|p2a: Landorus|Landorus-Therian, M|78/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Gholdengo|atk|1
+|move|p1a: Gholdengo|Make It Rain|p2a: Landorus
+|-damage|p2a: Landorus|8/100
+|-unboost|p1a: Gholdengo|spa|1
+|
+|-weather|none
+|-end|p1a: Gholdengo|move: Heal Block
+|upkeep
+|turn|13
+|inactive|stierball has 90 seconds left.
+|
+|t:|1716992411
+|switch|p1a: Gliscor|Gliscor, F|55/100 tox
+|-damage|p1a: Gliscor|43/100 tox|[from] Stealth Rock
+|move|p2a: Landorus|U-turn|p1a: Gliscor
+|-resisted|p1a: Gliscor
+|-damage|p1a: Gliscor|34/100 tox
+|inactive|stierball has 90 seconds left.
+|
+|t:|1716992435
+|switch|p2a: Ninetales|Ninetales, F|100/100|[from] U-turn
+|-weather|SunnyDay|[from] ability: Drought|[of] p2a: Ninetales
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|47/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|14
+|
+|t:|1716992440
+|switch|p2a: Landorus|Landorus-Therian, M|8/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Gliscor|atk|1
+|move|p1a: Gliscor|Protect||[still]
+|-fail|p1a: Gliscor
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|59/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|15
+|j| climax HUNTER
+|inactive|stierball has 90 seconds left.
+|c| lightx4|Is ninetales better than torkoal as sun setter?
+|c| poison potion|no
+|
+|t:|1716992451
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-singleturn|p1a: Gliscor|Protect
+|move|p2a: Landorus|U-turn|p1a: Gliscor
+|-activate|p1a: Gliscor|move: Protect
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|72/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|16
+|
+|t:|1716992456
+|move|p2a: Landorus|U-turn|p1a: Gliscor
+|-resisted|p1a: Gliscor
+|-damage|p1a: Gliscor|63/100 tox
+|l| nitro611
+|
+|t:|1716992460
+|switch|p2a: Hatterene|Hatterene, F|38/100|[from] U-turn
+|move|p1a: Gliscor|Knock Off|p2a: Hatterene
+|-damage|p2a: Hatterene|30/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|75/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|17
+|c| lightx4|aight
+|
+|t:|1716992466
+|switch|p2a: Walking Wake|Walking Wake|100/100
+|-activate|p2a: Walking Wake|ability: Protosynthesis
+|-start|p2a: Walking Wake|protosynthesisspa
+|move|p1a: Gliscor|Protect||[still]
+|-fail|p1a: Gliscor
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|88/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|18
+|
+|t:|1716992471
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-singleturn|p1a: Gliscor|Protect
+|move|p2a: Walking Wake|Hydro Steam|p1a: Gliscor
+|-activate|p1a: Gliscor|move: Protect
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|100/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|19
+|
+|t:|1716992474
+|switch|p1a: Toxapex|Toxapex, F|100/100
+|-damage|p1a: Toxapex|88/100|[from] Stealth Rock
+|-terastallize|p2a: Walking Wake|Water
+|move|p2a: Walking Wake|Hydro Steam|p1a: Toxapex
+|-resisted|p1a: Toxapex
+|-damage|p1a: Toxapex|40/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Toxapex|46/100|[from] item: Black Sludge
+|upkeep
+|turn|20
+|
+|t:|1716992481
+|switch|p1a: Gholdengo|Gholdengo|76/100
+|-damage|p1a: Gholdengo|70/100|[from] Stealth Rock
+|move|p2a: Walking Wake|Hydro Steam|p1a: Gholdengo
+|-damage|p1a: Gholdengo|0 fnt
+|faint|p1a: Gholdengo
+|
+|-weather|none
+|-end|p2a: Walking Wake|Protosynthesis
+|upkeep
+|j| nitro611
+|
+|t:|1716992482
+|switch|p1a: Toxapex|Toxapex, F|79/100
+|-damage|p1a: Toxapex|67/100|[from] Stealth Rock
+|turn|21
+|c| poison potion|damn son
+|
+|t:|1716992490
+|-end|p2a: Walking Wake|Protosynthesis|[silent]
+|switch|p2a: Hatterene|Hatterene, F|30/100
+|switch|p1a: Great Tusk|Great Tusk|100/100
+|-damage|p1a: Great Tusk|98/100|[from] Stealth Rock
+|
+|-heal|p1a: Great Tusk|100/100|[from] item: Leftovers
+|upkeep
+|turn|22
+|
+|t:|1716992497
+|switch|p2a: Landorus|Landorus-Therian, M|8/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Great Tusk|atk|1
+|move|p1a: Great Tusk|Earthquake|p2a: Landorus
+|-immune|p2a: Landorus
+|
+|upkeep
+|turn|23
+|
+|t:|1716992501
+|switch|p2a: Ninetales|Ninetales, F|100/100
+|-weather|SunnyDay|[from] ability: Drought|[of] p2a: Ninetales
+|-activate|p1a: Great Tusk|ability: Protosynthesis
+|-start|p1a: Great Tusk|protosynthesisdef
+|move|p1a: Great Tusk|Rapid Spin|p2a: Ninetales
+|-damage|p2a: Ninetales|89/100
+|-boost|p1a: Great Tusk|spe|1
+|-sideend|p1: Stads|Stealth Rock|[from] move: Rapid Spin|[of] p1a: Great Tusk
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|24
+|c| poison potion|Pex getting pushed back
+|
+|t:|1716992509
+|switch|p2a: Hatterene|Hatterene, F|30/100
+|move|p1a: Great Tusk|Knock Off|p2a: Hatterene
+|-damage|p2a: Hatterene|21/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|25
+|
+|t:|1716992517
+|move|p1a: Great Tusk|Earthquake|p2a: Hatterene
+|-damage|p2a: Hatterene|0 fnt
+|faint|p2a: Hatterene
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|t:|1716992520
+|switch|p2a: Walking Wake|Walking Wake, tera:Water|100/100
+|-activate|p2a: Walking Wake|ability: Protosynthesis
+|-start|p2a: Walking Wake|protosynthesisspa
+|turn|26
+|j| vip10086
+|
+|t:|1716992522
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Toxapex|Toxapex, F|99/100
+|move|p2a: Walking Wake|Hydro Steam|p1a: Toxapex
+|-resisted|p1a: Toxapex
+|-damage|p1a: Toxapex|46/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Toxapex|52/100|[from] item: Black Sludge
+|upkeep
+|turn|27
+|c| lightx4|walking wake wall breaker ftw
+|
+|t:|1716992532
+|switch|p1a: Great Tusk|Great Tusk|100/100
+|-activate|p1a: Great Tusk|ability: Protosynthesis
+|-start|p1a: Great Tusk|protosynthesisdef
+|move|p2a: Walking Wake|Hydro Steam|p1a: Great Tusk
+|-supereffective|p1a: Great Tusk
+|-damage|p1a: Great Tusk|0 fnt
+|faint|p1a: Great Tusk
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|t:|1716992534
+|switch|p1a: Iron Valiant|Iron Valiant|100/100
+|turn|28
+|
+|t:|1716992547
+|-end|p2a: Walking Wake|Protosynthesis|[silent]
+|switch|p2a: Landorus|Landorus-Therian, M|8/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Iron Valiant|atk|1
+|-terastallize|p1a: Iron Valiant|Fairy
+|move|p1a: Iron Valiant|Moonblast|p2a: Landorus
+|-damage|p2a: Landorus|0 fnt
+|faint|p2a: Landorus
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|t:|1716992555
+|switch|p2a: Roaring Moon|Roaring Moon|100/100
+|-activate|p2a: Roaring Moon|ability: Protosynthesis
+|-start|p2a: Roaring Moon|protosynthesisspe
+|turn|29
+|
+|t:|1716992573
+|-end|p1a: Iron Valiant|Quark Drive|[silent]
+|switch|p1a: Gliscor|Gliscor, F|100/100 tox
+|move|p2a: Roaring Moon|Iron Head|p1a: Gliscor
+|-damage|p1a: Gliscor|67/100 tox
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|79/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|30
+|
+|t:|1716992584
+|move|p2a: Roaring Moon|Iron Head|p1a: Gliscor
+|-damage|p1a: Gliscor|45/100 tox
+|cant|p1a: Gliscor|flinch
+|
+|-weather|none
+|-end|p2a: Roaring Moon|Protosynthesis
+|-heal|p1a: Gliscor|57/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|31
+|
+|t:|1716992588
+|-end|p2a: Roaring Moon|Protosynthesis|[silent]
+|switch|p2a: Ninetales|Ninetales, F|89/100
+|-weather|SunnyDay|[from] ability: Drought|[of] p2a: Ninetales
+|move|p1a: Gliscor|Spikes|p2a: Ninetales
+|-sidestart|p2: stierball|Spikes
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|70/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|32
+|
+|t:|1716992594
+|switch|p1a: Toxapex|Toxapex, F|85/100
+|move|p2a: Ninetales|Encore||[still]
+|-fail|p2a: Ninetales
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Toxapex|91/100|[from] item: Black Sludge
+|upkeep
+|turn|33
+|
+|t:|1716992603
+|switch|p2a: Raging Bolt|Raging Bolt|100/100
+|-damage|p2a: Raging Bolt|88/100|[from] Spikes
+|-activate|p2a: Raging Bolt|ability: Protosynthesis
+|-start|p2a: Raging Bolt|protosynthesisspa
+|move|p1a: Toxapex|Toxic|p2a: Raging Bolt
+|-status|p2a: Raging Bolt|tox
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Toxapex|98/100|[from] item: Black Sludge
+|-damage|p2a: Raging Bolt|82/100 tox|[from] psn
+|upkeep
+|turn|34
+|
+|t:|1716992616
+|switch|p1a: Garganacl|Garganacl, M|100/100
+|move|p2a: Raging Bolt|Thunderbolt|p1a: Garganacl
+|-damage|p1a: Garganacl|42/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Garganacl|48/100|[from] item: Leftovers
+|-damage|p2a: Raging Bolt|70/100 tox|[from] psn
+|upkeep
+|turn|35
+|
+|t:|1716992632
+|move|p1a: Garganacl|Protect|p1a: Garganacl
+|-singleturn|p1a: Garganacl|Protect
+|move|p2a: Raging Bolt|Thunderbolt|p1a: Garganacl
+|-activate|p1a: Garganacl|move: Protect
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Garganacl|54/100|[from] item: Leftovers
+|-damage|p2a: Raging Bolt|52/100 tox|[from] psn
+|upkeep
+|turn|36
+|inactive|stierball has 120 seconds left.
+|
+|t:|1716992668
+|-end|p2a: Raging Bolt|Protosynthesis|[silent]
+|switch|p2a: Walking Wake|Walking Wake, tera:Water|100/100
+|-damage|p2a: Walking Wake|88/100|[from] Spikes
+|-activate|p2a: Walking Wake|ability: Protosynthesis
+|-start|p2a: Walking Wake|protosynthesisspa
+|switch|p1a: Gliscor|Gliscor, F|70/100 tox
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|82/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|37
+|
+|t:|1716992671
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-singleturn|p1a: Gliscor|Protect
+|move|p2a: Walking Wake|Hydro Steam|p1a: Gliscor
+|-activate|p1a: Gliscor|move: Protect
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|95/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|38
+|j| SuperMarioPegi18
+|inactive|stierball has 120 seconds left.
+|
+|t:|1716992689
+|-end|p2a: Walking Wake|Protosynthesis|[silent]
+|switch|p2a: Roaring Moon|Roaring Moon|100/100
+|-damage|p2a: Roaring Moon|88/100|[from] Spikes
+|-activate|p2a: Roaring Moon|ability: Protosynthesis
+|-start|p2a: Roaring Moon|protosynthesisspe
+|switch|p1a: Toxapex|Toxapex, F|100/100
+|
+|-weather|none
+|-end|p2a: Roaring Moon|Protosynthesis
+|upkeep
+|turn|39
+|inactive|stierball has 120 seconds left.
+|
+|t:|1716992711
+|switch|p1a: Gliscor|Gliscor, F|95/100 tox
+|move|p2a: Roaring Moon|U-turn|p1a: Gliscor
+|-resisted|p1a: Gliscor
+|-damage|p1a: Gliscor|80/100 tox
+|
+|t:|1716992718
+|-end|p2a: Roaring Moon|Protosynthesis|[silent]
+|switch|p2a: Ninetales|Ninetales, F|89/100|[from] U-turn
+|-damage|p2a: Ninetales|77/100|[from] Spikes
+|-weather|SunnyDay|[from] ability: Drought|[of] p2a: Ninetales
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|93/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|40
+|j| Ratael-901
+|
+|t:|1716992733
+|switch|p2a: Roaring Moon|Roaring Moon|88/100
+|-damage|p2a: Roaring Moon|76/100|[from] Spikes
+|-activate|p2a: Roaring Moon|ability: Protosynthesis
+|-start|p2a: Roaring Moon|protosynthesisspe
+|move|p1a: Gliscor|Knock Off|p2a: Roaring Moon
+|-resisted|p2a: Roaring Moon
+|-damage|p2a: Roaring Moon|63/100
+|-enditem|p2a: Roaring Moon|Choice Band|[from] move: Knock Off|[of] p1a: Gliscor
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|100/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|41
+|
+|t:|1716992752
+|move|p2a: Roaring Moon|Outrage|p1a: Gliscor
+|-damage|p1a: Gliscor|47/100 tox
+|move|p1a: Gliscor|Knock Off|p2a: Roaring Moon
+|-resisted|p2a: Roaring Moon
+|-damage|p2a: Roaring Moon|54/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|59/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|42
+|
+|t:|1716992756
+|switch|p1a: Iron Valiant|Iron Valiant, tera:Fairy|100/100
+|move|p2a: Roaring Moon|Outrage|p1a: Iron Valiant|[from]lockedmove
+|-immune|p1a: Iron Valiant
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|43
+|
+|t:|1716992769
+|-end|p1a: Iron Valiant|Quark Drive|[silent]
+|switch|p1a: Toxapex|Toxapex, F|100/100
+|move|p2a: Roaring Moon|Iron Head|p1a: Toxapex
+|-resisted|p1a: Toxapex
+|-damage|p1a: Toxapex|89/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Toxapex|96/100|[from] item: Black Sludge
+|upkeep
+|turn|44
+|
+|t:|1716992789
+|move|p2a: Roaring Moon|Outrage|p1a: Toxapex
+|-damage|p1a: Toxapex|47/100
+|move|p1a: Toxapex|Toxic|p2a: Roaring Moon
+|-status|p2a: Roaring Moon|tox
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Toxapex|53/100|[from] item: Black Sludge
+|-damage|p2a: Roaring Moon|48/100 tox|[from] psn
+|upkeep
+|turn|45
+|
+|t:|1716992793
+|switch|p1a: Iron Valiant|Iron Valiant, tera:Fairy|100/100
+|move|p2a: Roaring Moon|Outrage|p1a: Iron Valiant|[from]lockedmove
+|-immune|p1a: Iron Valiant
+|
+|-weather|SunnyDay|[upkeep]
+|-damage|p2a: Roaring Moon|36/100 tox|[from] psn
+|upkeep
+|turn|46
+|
+|t:|1716992805
+|-end|p1a: Iron Valiant|Quark Drive|[silent]
+|switch|p1a: Toxapex|Toxapex, F|86/100
+|move|p2a: Roaring Moon|Knock Off|p1a: Toxapex
+|-damage|p1a: Toxapex|48/100
+|-enditem|p1a: Toxapex|Black Sludge|[from] move: Knock Off|[of] p2a: Roaring Moon
+|
+|-weather|none
+|-end|p2a: Roaring Moon|Protosynthesis
+|-damage|p2a: Roaring Moon|18/100 tox|[from] psn
+|upkeep
+|turn|47
+|
+|t:|1716992814
+|switch|p1a: Gliscor|Gliscor, F|59/100 tox
+|move|p2a: Roaring Moon|U-turn|p1a: Gliscor
+|-resisted|p1a: Gliscor
+|-damage|p1a: Gliscor|48/100 tox
+|
+|t:|1716992820
+|-end|p2a: Roaring Moon|Protosynthesis|[silent]
+|switch|p2a: Ninetales|Ninetales, F|77/100|[from] U-turn
+|-damage|p2a: Ninetales|65/100|[from] Spikes
+|-weather|SunnyDay|[from] ability: Drought|[of] p2a: Ninetales
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|61/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|48
+|inactive|stierball has 120 seconds left.
+|
+|t:|1716992834
+|switch|p2a: Roaring Moon|Roaring Moon|18/100 tox
+|-damage|p2a: Roaring Moon|6/100 tox|[from] Spikes
+|-activate|p2a: Roaring Moon|ability: Protosynthesis
+|-start|p2a: Roaring Moon|protosynthesisspe
+|switch|p1a: Garganacl|Garganacl, M|54/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Garganacl|60/100|[from] item: Leftovers
+|-damage|p2a: Roaring Moon|0 fnt|[from] psn
+|faint|p2a: Roaring Moon
+|-end|p2a: Roaring Moon|Protosynthesis|[silent]
+|upkeep
+|
+|t:|1716992836
+|switch|p2a: Walking Wake|Walking Wake, tera:Water|88/100
+|-damage|p2a: Walking Wake|76/100|[from] Spikes
+|-activate|p2a: Walking Wake|ability: Protosynthesis
+|-start|p2a: Walking Wake|protosynthesisspa
+|turn|49
+|
+|t:|1716992839
+|move|p1a: Garganacl|Protect|p1a: Garganacl
+|-singleturn|p1a: Garganacl|Protect
+|move|p2a: Walking Wake|Hydro Steam|p1a: Garganacl
+|-activate|p1a: Garganacl|move: Protect
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Garganacl|67/100|[from] item: Leftovers
+|upkeep
+|turn|50
+|
+|t:|1716992842
+|move|p2a: Walking Wake|Hydro Steam|p1a: Garganacl
+|-supereffective|p1a: Garganacl
+|-damage|p1a: Garganacl|0 fnt
+|faint|p1a: Garganacl
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|t:|1716992843
+|switch|p1a: Toxapex|Toxapex, F|81/100
+|turn|51
+|
+|t:|1716992850
+|-end|p2a: Walking Wake|Protosynthesis|[silent]
+|switch|p2a: Raging Bolt|Raging Bolt|52/100 tox
+|-damage|p2a: Raging Bolt|39/100 tox|[from] Spikes
+|-activate|p2a: Raging Bolt|ability: Protosynthesis
+|-start|p2a: Raging Bolt|protosynthesisspa
+|move|p1a: Toxapex|Recover|p1a: Toxapex
+|-heal|p1a: Toxapex|100/100
+|
+|-weather|SunnyDay|[upkeep]
+|-damage|p2a: Raging Bolt|33/100 tox|[from] psn
+|upkeep
+|turn|52
+|
+|t:|1716992857
+|switch|p1a: Iron Valiant|Iron Valiant, tera:Fairy|100/100
+|move|p2a: Raging Bolt|Weather Ball|p1a: Iron Valiant
+|-damage|p1a: Iron Valiant|0 fnt
+|faint|p1a: Iron Valiant
+|-end|p1a: Iron Valiant|Quark Drive|[silent]
+|
+|-weather|SunnyDay|[upkeep]
+|-damage|p2a: Raging Bolt|21/100 tox|[from] psn
+|upkeep
+|
+|t:|1716992860
+|switch|p1a: Toxapex|Toxapex, F|100/100
+|turn|53
+|c| nitro611|ouch
+|
+|t:|1716992879
+|-end|p2a: Raging Bolt|Protosynthesis|[silent]
+|switch|p2a: Ninetales|Ninetales, F|65/100
+|-damage|p2a: Ninetales|52/100|[from] Spikes
+|move|p1a: Toxapex|Surf|p2a: Ninetales
+|-supereffective|p2a: Ninetales
+|-damage|p2a: Ninetales|35/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|54
+|
+|t:|1716992884
+|switch|p2a: Walking Wake|Walking Wake, tera:Water|76/100
+|-damage|p2a: Walking Wake|63/100|[from] Spikes
+|-activate|p2a: Walking Wake|ability: Protosynthesis
+|-start|p2a: Walking Wake|protosynthesisspa
+|move|p1a: Toxapex|Toxic|p2a: Walking Wake
+|-status|p2a: Walking Wake|tox
+|
+|-weather|none
+|-end|p2a: Walking Wake|Protosynthesis
+|-damage|p2a: Walking Wake|57/100 tox|[from] psn
+|upkeep
+|turn|55
+|
+|t:|1716992889
+|-end|p2a: Walking Wake|Protosynthesis|[silent]
+|switch|p2a: Ninetales|Ninetales, F|35/100
+|-damage|p2a: Ninetales|23/100|[from] Spikes
+|-weather|SunnyDay|[from] ability: Drought|[of] p2a: Ninetales
+|move|p1a: Toxapex|Surf|p2a: Ninetales
+|-supereffective|p2a: Ninetales
+|-damage|p2a: Ninetales|7/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|56
+|
+|t:|1716992898
+|switch|p1a: Gliscor|Gliscor, F|61/100 tox
+|move|p2a: Ninetales|Healing Wish|p2a: Ninetales
+|faint|p2a: Ninetales
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|73/100 tox|[from] ability: Poison Heal
+|upkeep
+|
+|t:|1716992906
+|switch|p2a: Walking Wake|Walking Wake, tera:Water|57/100 tox
+|-heal|p2a: Walking Wake|100/100|[from] move: Healing Wish
+|-damage|p2a: Walking Wake|88/100|[from] Spikes
+|-activate|p2a: Walking Wake|ability: Protosynthesis
+|-start|p2a: Walking Wake|protosynthesisspa
+|turn|57
+|
+|t:|1716992912
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-singleturn|p1a: Gliscor|Protect
+|move|p2a: Walking Wake|Hydro Steam|p1a: Gliscor
+|-activate|p1a: Gliscor|move: Protect
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|86/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|58
+|
+|t:|1716992915
+|switch|p1a: Toxapex|Toxapex, F|100/100
+|move|p2a: Walking Wake|Hydro Steam|p1a: Toxapex
+|-resisted|p1a: Toxapex
+|-crit|p1a: Toxapex
+|-damage|p1a: Toxapex|27/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|59
+|
+|t:|1716992917
+|switch|p1a: Gliscor|Gliscor, F|86/100 tox
+|move|p2a: Walking Wake|Hydro Steam|p1a: Gliscor
+|-supereffective|p1a: Gliscor
+|-damage|p1a: Gliscor|0 fnt
+|faint|p1a: Gliscor
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|t:|1716992921
+|switch|p1a: Toxapex|Toxapex, F|60/100
+|turn|60
+|
+|t:|1716992925
+|move|p2a: Walking Wake|Hydro Steam|p1a: Toxapex
+|-resisted|p1a: Toxapex
+|-damage|p1a: Toxapex|5/100
+|move|p1a: Toxapex|Recover|p1a: Toxapex
+|-heal|p1a: Toxapex|55/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|61
+|c|☆stierball|gg
+|inactive|Stads has 120 seconds left.
+|
+|t:|1716992961
+|move|p2a: Walking Wake|Hydro Steam|p1a: Toxapex
+|-resisted|p1a: Toxapex
+|-damage|p1a: Toxapex|3/100
+|move|p1a: Toxapex|Recover|p1a: Toxapex
+|-heal|p1a: Toxapex|53/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|62
+|
+|t:|1716992971
+|move|p2a: Walking Wake|Hydro Steam|p1a: Toxapex
+|-resisted|p1a: Toxapex
+|-damage|p1a: Toxapex|4/100
+|move|p1a: Toxapex|Recover|p1a: Toxapex
+|-heal|p1a: Toxapex|54/100
+|
+|-weather|none
+|-end|p2a: Walking Wake|Protosynthesis
+|upkeep
+|turn|63
+|c| nitro611|oh shit
+|
+|t:|1716992976
+|-end|p2a: Walking Wake|Protosynthesis|[silent]
+|switch|p2a: Raging Bolt|Raging Bolt|21/100 tox
+|-damage|p2a: Raging Bolt|9/100 tox|[from] Spikes
+|move|p1a: Toxapex|Recover|p1a: Toxapex
+|-heal|p1a: Toxapex|100/100
+|
+|-damage|p2a: Raging Bolt|3/100 tox|[from] psn
+|upkeep
+|turn|64
+|
+|t:|1716992987
+|move|p2a: Raging Bolt|Thunderbolt|p1a: Toxapex
+|-supereffective|p1a: Toxapex
+|-damage|p1a: Toxapex|29/100
+|move|p1a: Toxapex|Recover|p1a: Toxapex
+|-heal|p1a: Toxapex|79/100
+|
+|-damage|p2a: Raging Bolt|0 fnt|[from] psn
+|faint|p2a: Raging Bolt
+|-end|p2a: Raging Bolt|Protosynthesis|[silent]
+|upkeep
+|
+|t:|1716992990
+|switch|p2a: Walking Wake|Walking Wake, tera:Water|88/100
+|-damage|p2a: Walking Wake|76/100|[from] Spikes
+|turn|65
+|
+|t:|1716992992
+|move|p2a: Walking Wake|Draco Meteor|p1a: Toxapex
+|-damage|p1a: Toxapex|15/100
+|-unboost|p2a: Walking Wake|spa|2
+|move|p1a: Toxapex|Recover|p1a: Toxapex
+|-heal|p1a: Toxapex|65/100
+|
+|upkeep
+|turn|66
+|
+|t:|1716992995
+|move|p2a: Walking Wake|Draco Meteor|p1a: Toxapex|[miss]
+|-miss|p2a: Walking Wake|p1a: Toxapex
+|move|p1a: Toxapex|Recover|p1a: Toxapex
+|-heal|p1a: Toxapex|100/100
+|
+|upkeep
+|turn|67
+|-message|stierball forfeited.
+|
+|win|Stads
+|raw|Stads's rating: 1920 &rarr; <strong>1941</strong><br />(+21 for winning)
+|raw|stierball's rating: 1933 &rarr; <strong>1912</strong><br />(-21 for losing)
+|l|☆stierball
+|player|p2|
+|c|☆Stads|gg
+|c| poison potion|damn son
+|c| nitro611|PEX CLUTCHED HOLY SHIT
+|c| poison potion|its Joever
+|c|☆Stads|Pex is clutch
+|l| ceru-edge
+|c| poison potion|nasty work
+|l|☆Stads
+|player|p1|
+|l| gamebooadvanced
+|l| poison potion
+|l| lightx4
+|l| nitro611
+|l| raudauw

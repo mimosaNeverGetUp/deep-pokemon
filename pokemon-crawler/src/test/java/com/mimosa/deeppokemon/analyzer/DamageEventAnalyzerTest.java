@@ -42,6 +42,8 @@ class DamageEventAnalyzerTest {
     private static final String GARGANACL = "Garganacl";
     private static final String CORVIKNIGHT = "Corviknight";
     private static final String OGERPON = "Ogerpon";
+    private static final String ROARING_MOON = "Roaring Moon";
+    private static final String TOXAPEX = "Toxapex";
 
     @Autowired
     private DamageEventAnalyzer damageEventAnalyzer;
@@ -190,6 +192,34 @@ class DamageEventAnalyzerTest {
                 .getPokemonBattleStat(SKELEDIRGE);
         Assertions.assertEquals(BigDecimal.valueOf(6.0), skeledirgeStat.getAttackValue());
         Assertions.assertEquals(BigDecimal.valueOf(6.0), skeledirgeStat.getHealthValue());
+    }
+
+    @Test
+    void analyzeToxicStatusDamage() {
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p2a: Roaring Moon", "0 fnt", "[from] " +
+                "psn"), null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(2, ROARING_MOON, ROARING_MOON)
+                .addPokemon(1, TOXAPEX, TOXAPEX)
+                .setStatus(2, ROARING_MOON, new Status("tox", new EventTarget(1, TOXAPEX, TOXAPEX)))
+                .setTurnStartPokemon(2, ROARING_MOON)
+                .setHealth(2, ROARING_MOON, BigDecimal.valueOf(6))
+                .build();
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, TOXAPEX)
+                .addPokemonStat(2, ROARING_MOON)
+                .build();
+
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        PokemonBattleStat p2Stat = battleStat.playerStatList().get(1)
+                .getPokemonBattleStat(ROARING_MOON);
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), p2Stat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-6.0), p2Stat.getHealthValue());
+
+        PokemonBattleStat p1Stat = battleStat.playerStatList().get(0)
+                .getPokemonBattleStat(TOXAPEX);
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), p1Stat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), p1Stat.getHealthValue());
     }
 
     @Test

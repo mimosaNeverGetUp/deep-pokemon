@@ -34,6 +34,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.io.IOException;
 
@@ -58,7 +59,7 @@ public class ScheduledConfig {
      *
      * @author huangxiaocong(2070132549@qq.com)
      */
-    @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 1 * * ?")
+    @Scheduled(cron = "0 0 * * * ?")
     private void crawLadder() throws IOException {
         battleCrawler.crawLadder();
     }

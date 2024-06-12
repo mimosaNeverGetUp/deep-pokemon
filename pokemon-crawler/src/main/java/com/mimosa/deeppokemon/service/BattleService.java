@@ -88,12 +88,12 @@ public class BattleService {
         return mongoTemplate.findById(battleId, Battle.class, "battle");
     }
 
-    @CacheEvict("battleIds")
+    @CacheEvict(cacheNames = "battleIds", allEntries = true)
     public void save(Battle battle) {
         mongoTemplate.save(battle);
     }
 
-    @CacheEvict("battleIds")
+    @CacheEvict(cacheNames = "battleIds", allEntries = true)
     public List<Battle> savaAll(List<Battle> battles) {
         if (battles.isEmpty()) {
             return battles;
@@ -132,7 +132,9 @@ public class BattleService {
                 Aggregation.project(Fields.fields(ID))
         );
 
-        return new HashSet<>(mongoTemplate.aggregate(aggregation, BATTLE, String.class).getMappedResults());
+        List<Battle> battles = mongoTemplate.aggregate(aggregation, BATTLE, Battle.class).getMappedResults();
+
+        return battles.stream().map(Battle::getBattleID).collect(Collectors.toSet());
     }
 
     public CrawAnalyzeBattleFuture crawBattleAndAnalyze(ReplayProvider replayProvider) {

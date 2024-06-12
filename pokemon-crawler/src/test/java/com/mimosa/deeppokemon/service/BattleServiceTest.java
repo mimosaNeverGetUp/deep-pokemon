@@ -25,6 +25,7 @@ import java.util.List;
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
 class BattleServiceTest {
+    public static final String EXIST_BATTLE_ID = "gen9ou-1874088419";
     public static final String NOT_EXIST_BATTLE_ID = "test-12345";
     private static final String NOT_SAVE_BATTLE_ID = "smogtours-gen9ou-746547";
     private static final String NOT_LOG_BATTLE_ID = "gen9ou-2053586253";
@@ -74,6 +75,20 @@ class BattleServiceTest {
                 mongoTemplate.remove(battleStat);
                 mongoTemplate.remove(new Query(Criteria.where("_id").is(NOT_SAVE_BATTLE_ID)),"battle");
             }
+        }
+    }
+
+    @Test
+    void getAllBattleIds() {
+        Assertions.assertTrue(battleService.getAllBattleIds().contains(EXIST_BATTLE_ID));
+
+        Battle notExistBattle = new Battle();
+        notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
+        try {
+            battleService.savaAll(List.of(notExistBattle));
+            Assertions.assertTrue(battleService.getAllBattleIds().contains(NOT_EXIST_BATTLE_ID));
+        } finally {
+            mongoTemplate.remove(notExistBattle);
         }
     }
 }

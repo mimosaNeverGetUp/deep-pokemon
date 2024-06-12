@@ -34,6 +34,10 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger log = LoggerFactory.getLogger(DamageEventAnalyzer.class);
     private static final String DAMAGE = "damage";
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(DAMAGE);
+    private static final String STEELBEAM = "steelbeam";
+    private static final String SUPERCELLSLAM = "supercellslam";
+    private static final String HIGHJUMPKICK = "highjumpkick";
+    private static final Set<String> SPECIAL_RECOIL_DAMAGE = Set.of(STEELBEAM, SUPERCELLSLAM, HIGHJUMPKICK);
     private static final int TARGET_INDEX = 0;
     private static final int HEALTH_INDEX = 1;
     private static final int OF_INDEX = 3;
@@ -178,7 +182,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             ofTarget = eventTarget;
         } else if (isBuffDamage(damageFrom, targetPlayerStatus.getPokemonStatus(eventTarget.targetName()))) {
             ofTarget = targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getBuffOf(damageFrom);
-        } else if (isRecoilDamage(damageFrom)) {
+        } else if (isRecoilDamage(damageFrom) || isSpecialRecoilDamage(damageFrom)) {
             // recoil is damage by opponent active pokemon
             ofTarget = BattleEventUtil.getOpponentActivePokemonTarget(battleStatus, eventTarget);
         } else if (isActivateDamage(damageFrom, targetPlayerStatus.getPokemonStatus(eventTarget.targetName()))) {
@@ -226,6 +230,10 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         return pokemonStatus.getActivateStatusList().stream().anyMatch(activateStatus ->
                 StringUtils.equals(activateStatus.content(), damageFrom)
                         || StringUtils.equals(activateStatus.status(), damageFrom));
+    }
+
+    private boolean isSpecialRecoilDamage(String damageFrom) {
+        return SPECIAL_RECOIL_DAMAGE.contains(damageFrom);
     }
 
     @Override

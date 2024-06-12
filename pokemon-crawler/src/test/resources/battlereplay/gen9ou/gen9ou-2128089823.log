@@ -1,0 +1,190 @@
+|j|☆Sviqma
+|j|☆DCT1 Iaoth
+|t:|1716374961
+|gametype|singles
+|player|p1|Sviqma|byron|1621
+|player|p2|DCT1 Iaoth|bede|1856
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Gliscor, M|
+|poke|p1|Salazzle, F|
+|poke|p1|Glimmora, F|
+|poke|p1|Clodsire, M|
+|poke|p1|Slowking-Galar, M|
+|poke|p1|Alomomola, F|
+|poke|p2|Zamazenta-*|
+|poke|p2|Primarina, M|
+|poke|p2|Raging Bolt|
+|poke|p2|Roaring Moon|
+|poke|p2|Iron Treads|
+|poke|p2|Iron Valiant|
+|teampreview
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by DCT1 Iaoth)
+|
+|t:|1716374981
+|start
+|switch|p1a: Alomomola|Alomomola, F|100/100
+|switch|p2a: Iron Treads|Iron Treads|100/100
+|-enditem|p2a: Iron Treads|Booster Energy
+|-activate|p2a: Iron Treads|ability: Quark Drive|[fromitem]
+|-start|p2a: Iron Treads|quarkdrivespe
+|turn|1
+|
+|t:|1716374986
+|move|p2a: Iron Treads|Stealth Rock|p1a: Alomomola
+|-sidestart|p1: Sviqma|move: Stealth Rock
+|move|p1a: Alomomola|Flip Turn|p2a: Iron Treads
+|-supereffective|p2a: Iron Treads
+|-damage|p2a: Iron Treads|71/100
+|
+|t:|1716374992
+|switch|p1a: Gliscor|Gliscor, M|100/100|[from] Flip Turn
+|-damage|p1a: Gliscor|88/100|[from] Stealth Rock
+|
+|-status|p1a: Gliscor|tox|[from] item: Toxic Orb
+|upkeep
+|turn|2
+|
+|t:|1716374999
+|move|p2a: Iron Treads|Steel Beam|p1a: Gliscor
+|-damage|p1a: Gliscor|26/100 tox
+|-damage|p2a: Iron Treads|20/100|[from] steelbeam
+|move|p1a: Gliscor|Substitute|p1a: Gliscor
+|-start|p1a: Gliscor|Substitute
+|-damage|p1a: Gliscor|1/100 tox
+|
+|-heal|p1a: Gliscor|13/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|3
+|
+|t:|1716375007
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-singleturn|p1a: Gliscor|Protect
+|move|p2a: Iron Treads|Rapid Spin|p1a: Gliscor
+|-activate|p1a: Gliscor|move: Protect
+|
+|-heal|p1a: Gliscor|26/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|4
+|
+|t:|1716375012
+|move|p2a: Iron Treads|Steel Beam|p1a: Gliscor|[miss]
+|-miss|p2a: Iron Treads|p1a: Gliscor
+|-damage|p2a: Iron Treads|0 fnt|[from] steelbeam
+|faint|p2a: Iron Treads
+|-end|p2a: Iron Treads|Quark Drive|[silent]
+|move|p1a: Gliscor|Knock Off|p2: Iron Treads|[notarget]
+|-fail|p1a: Gliscor
+|
+|-heal|p1a: Gliscor|38/100 tox|[from] ability: Poison Heal
+|upkeep
+|
+|t:|1716375035
+|switch|p2a: Primarina|Primarina, M|100/100
+|turn|5
+|
+|t:|1716375045
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-singleturn|p1a: Gliscor|Protect
+|move|p2a: Primarina|Psychic Noise|p1a: Gliscor
+|-activate|p1a: Gliscor|move: Protect
+|
+|-heal|p1a: Gliscor|51/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|6
+|
+|t:|1716375063
+|switch|p1a: Alomomola|Alomomola, F|100/100
+|move|p2a: Primarina|Psychic Noise|p1a: Alomomola
+|-damage|p1a: Alomomola|67/100
+|-start|p1a: Alomomola|move: Heal Block
+|
+|upkeep
+|turn|7
+|
+|t:|1716375072
+|move|p2a: Primarina|Moonblast|p1a: Alomomola
+|-damage|p1a: Alomomola|0 fnt
+|faint|p1a: Alomomola
+|
+|upkeep
+|
+|t:|1716375080
+|switch|p1a: Slowking|Slowking-Galar, M|100/100
+|turn|8
+|
+|t:|1716375083
+|move|p2a: Primarina|Flip Turn|p1a: Slowking
+|-damage|p1a: Slowking|86/100
+|
+|t:|1716375085
+|switch|p2a: Roaring Moon|Roaring Moon|100/100|[from] Flip Turn
+|-enditem|p2a: Roaring Moon|Booster Energy
+|-activate|p2a: Roaring Moon|ability: Protosynthesis|[fromitem]
+|-start|p2a: Roaring Moon|protosynthesisatk
+|move|p1a: Slowking|Toxic|p2a: Roaring Moon
+|-status|p2a: Roaring Moon|tox
+|
+|-damage|p2a: Roaring Moon|95/100 tox|[from] psn
+|upkeep
+|turn|9
+|
+|t:|1716375090
+|switch|p1a: Gliscor|Gliscor, M|51/100 tox
+|-damage|p1a: Gliscor|38/100 tox|[from] Stealth Rock
+|move|p2a: Roaring Moon|Knock Off|p1a: Gliscor
+|-damage|p1a: Gliscor|0 fnt
+|-enditem|p1a: Gliscor|Toxic Orb|[from] move: Knock Off|[of] p2a: Roaring Moon
+|faint|p1a: Gliscor
+|
+|-damage|p2a: Roaring Moon|83/100 tox|[from] psn
+|upkeep
+|
+|t:|1716375100
+|switch|p1a: Glimmora|Glimmora, F|100/100
+|-damage|p1a: Glimmora|88/100|[from] Stealth Rock
+|turn|10
+|
+|t:|1716375106
+|move|p2a: Roaring Moon|Earthquake|p1a: Glimmora
+|-supereffective|p1a: Glimmora
+|-damage|p1a: Glimmora|0 fnt
+|faint|p1a: Glimmora
+|
+|-damage|p2a: Roaring Moon|65/100 tox|[from] psn
+|upkeep
+|
+|t:|1716375112
+|switch|p1a: Salazzle|Salazzle, F|100/100
+|-damage|p1a: Salazzle|76/100|[from] Stealth Rock
+|turn|11
+|
+|t:|1716375115
+|-terastallize|p1a: Salazzle|Flying
+|move|p2a: Roaring Moon|Knock Off|p1a: Salazzle
+|-damage|p1a: Salazzle|0 fnt
+|-enditem|p1a: Salazzle|Leftovers|[from] move: Knock Off|[of] p2a: Roaring Moon
+|faint|p1a: Salazzle
+|
+|-damage|p2a: Roaring Moon|41/100 tox|[from] psn
+|upkeep
+|-message|Sviqma forfeited.
+|
+|win|DCT1 Iaoth
+|raw|Sviqma's rating: 1621 &rarr; <strong>1613</strong><br />(-8 for losing)
+|raw|DCT1 Iaoth's rating: 1856 &rarr; <strong>1864</strong><br />(+8 for winning)
+|l|☆Sviqma
+|player|p1|
+|l|☆DCT1 Iaoth
+|player|p2|

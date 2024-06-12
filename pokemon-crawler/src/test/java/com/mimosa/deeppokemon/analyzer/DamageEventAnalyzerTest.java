@@ -46,6 +46,7 @@ class DamageEventAnalyzerTest {
     private static final String TOXAPEX = "Toxapex";
     private static final String DRAGONITE = "Dragonite";
     private static final String PECHARUNT = "Pecharunt";
+    private static final String IRON_TREADS = "Iron Treads";
 
     @Autowired
     private DamageEventAnalyzer damageEventAnalyzer;
@@ -268,6 +269,30 @@ class DamageEventAnalyzerTest {
         PokemonBattleStat corviknightStat = battleStat.playerStatList().get(0).getPokemonBattleStat(CORVIKNIGHT);
         Assertions.assertEquals(0, corviknightStat.getAttackValue().intValue());
         Assertions.assertEquals(-22, corviknightStat.getHealthValue().intValue());
+    }
+
+    @Test
+    void analyzeSpecialRecoilDamage() {
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Iron Treads", "20/100", "[from] steelbeam"), null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(2, OGERPON, OGERPON)
+                .addPokemon(1, IRON_TREADS, IRON_TREADS)
+                .setActivePokemonName(2, OGERPON)
+                .setTurnStartPokemon(1, IRON_TREADS)
+                .setHealth(1, IRON_TREADS, BigDecimal.valueOf(71))
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, OGERPON)
+                .addPokemonStat(1, IRON_TREADS)
+                .build();
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        PokemonBattleStat ogerponStat = battleStat.playerStatList().get(1).getPokemonBattleStat(OGERPON);
+        Assertions.assertEquals(51, ogerponStat.getAttackValue().intValue());
+        Assertions.assertEquals(51, ogerponStat.getHealthValue().intValue());
+        PokemonBattleStat corviknightStat = battleStat.playerStatList().get(0).getPokemonBattleStat(IRON_TREADS);
+        Assertions.assertEquals(0, corviknightStat.getAttackValue().intValue());
+        Assertions.assertEquals(-51, corviknightStat.getHealthValue().intValue());
     }
 
     @Test

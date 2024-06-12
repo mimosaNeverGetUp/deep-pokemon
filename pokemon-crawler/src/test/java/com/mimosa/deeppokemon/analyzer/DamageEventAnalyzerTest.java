@@ -269,6 +269,36 @@ class DamageEventAnalyzerTest {
         Assertions.assertEquals(-22, corviknightStat.getHealthValue().intValue());
     }
 
+    @Test
+    void analyzeInfestDamage() {
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: oops??", "18/100", "[from] move: Infestation"),
+                null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(2, TOXAPEX, TOXAPEX)
+                .addPokemon(1, IRON_VALIANT, "oops??")
+                .addActivateStatus(1, IRON_VALIANT, new ActivateStatus("move: Infestation", "move", "Infestation",
+                        new EventTarget(2, TOXAPEX, TOXAPEX)))
+                .setTurnStartPokemon(2, TOXAPEX)
+                .setTurnStartPokemon(1, IRON_VALIANT)
+                .setHealth(1, IRON_VALIANT, BigDecimal.valueOf(30))
+                .build();
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, IRON_VALIANT)
+                .addPokemonStat(2, TOXAPEX)
+                .build();
+
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        PokemonBattleStat p2Stat = battleStat.playerStatList().get(1)
+                .getPokemonBattleStat(TOXAPEX);
+        Assertions.assertEquals(BigDecimal.valueOf(12.0), p2Stat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(12.0), p2Stat.getHealthValue());
+
+        PokemonBattleStat p1Stat = battleStat.playerStatList().get(0)
+                .getPokemonBattleStat(IRON_VALIANT);
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), p1Stat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-12.0), p1Stat.getHealthValue());
+    }
+
     private static Arguments buildSwitchDamageEvent() {
         BattleEvent switchEvent = new BattleEvent("switch", null, null, null);
         switchEvent.setBattleEventStat(new MoveEventStat(new EventTarget(2, "Gliscor", "Gliscor")

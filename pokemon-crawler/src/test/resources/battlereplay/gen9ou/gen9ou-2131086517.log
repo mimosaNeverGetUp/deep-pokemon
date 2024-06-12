@@ -1,0 +1,549 @@
+|j|☆HELLO DOOD
+|j|☆mikeim520
+|t:|1716760233
+|gametype|singles
+|player|p1|HELLO DOOD|169|1838
+|player|p2|mikeim520|red|1759
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Glimmora, M|
+|poke|p1|Gholdengo|
+|poke|p1|Iron Moth|
+|poke|p1|Iron Valiant|
+|poke|p1|Enamorus, F|
+|poke|p1|Ribombee, F|
+|poke|p2|Latios, M|
+|poke|p2|Toxapex, F|
+|poke|p2|Darkrai|
+|poke|p2|Corviknight, F|
+|poke|p2|Iron Treads|
+|poke|p2|Gliscor, M|
+|teampreview
+|j| snowplay
+|j| climax HUNTER
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by mikeim520)
+|j| looperspice
+|
+|t:|1716760260
+|start
+|switch|p1a: oops??|Iron Moth|100/100
+|switch|p2a: Darkrai|Darkrai|100/100
+|-enditem|p1a: oops??|Booster Energy
+|-activate|p1a: oops??|ability: Quark Drive|[fromitem]
+|-start|p1a: oops??|quarkdrivespe
+|turn|1
+|
+|t:|1716760274
+|move|p1a: oops??|Fiery Dance|p2a: Darkrai
+|-damage|p2a: Darkrai|46/100
+|move|p2a: Darkrai|Dark Pulse|p1a: oops??
+|-damage|p1a: oops??|33/100
+|
+|upkeep
+|turn|2
+|
+|t:|1716760280
+|switch|p2a: Toxapex|Toxapex, F|100/100
+|move|p1a: oops??|Fiery Dance|p2a: Toxapex
+|-resisted|p2a: Toxapex
+|-damage|p2a: Toxapex|87/100
+|-boost|p1a: oops??|spa|1
+|
+|-heal|p2a: Toxapex|93/100|[from] item: Leftovers
+|upkeep
+|turn|3
+|
+|t:|1716760282
+|-terastallize|p1a: oops??|Ground
+|move|p1a: oops??|Tera Blast|p2a: Toxapex|[anim] Tera Blast Ground
+|-supereffective|p2a: Toxapex
+|-damage|p2a: Toxapex|14/100
+|move|p2a: Toxapex|Infestation|p1a: oops??
+|-damage|p1a: oops??|30/100
+|-activate|p1a: oops??|move: Infestation|[of] p2a: Toxapex
+|
+|-heal|p2a: Toxapex|20/100|[from] item: Leftovers
+|-damage|p1a: oops??|18/100|[from] move: Infestation|[partiallytrapped]
+|upkeep
+|turn|4
+|
+|t:|1716760289
+|switch|p2a: Latios|Latios, M|100/100
+|move|p1a: oops??|Fiery Dance|p2a: Latios
+|-resisted|p2a: Latios
+|-damage|p2a: Latios|70/100
+|
+|-heal|p2a: Latios|76/100|[from] item: Leftovers
+|-end|p1a: oops??|Infestation|[partiallytrapped]|[silent]
+|upkeep
+|turn|5
+|
+|t:|1716760293
+|move|p1a: oops??|Dazzling Gleam|p2a: Latios
+|-supereffective|p2a: Latios
+|-damage|p2a: Latios|0 fnt
+|faint|p2a: Latios
+|
+|upkeep
+|
+|t:|1716760298
+|switch|p2a: Gliscor|Gliscor, M|100/100
+|turn|6
+|
+|t:|1716760301
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: oops??|Fiery Dance|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-status|p2a: Gliscor|tox|[from] item: Toxic Orb
+|upkeep
+|turn|7
+|
+|t:|1716760305
+|move|p1a: oops??|Fiery Dance|p2a: Gliscor
+|-damage|p2a: Gliscor|27/100 tox
+|-boost|p1a: oops??|spa|1
+|move|p2a: Gliscor|Earthquake|p1a: oops??
+|-damage|p1a: oops??|0 fnt
+|faint|p1a: oops??
+|-end|p1a: oops??|Quark Drive|[silent]
+|
+|-heal|p2a: Gliscor|40/100 tox|[from] ability: Poison Heal
+|upkeep
+|
+|t:|1716760310
+|switch|p1a: embarassing bro|Ribombee, F|100/100
+|turn|8
+|
+|t:|1716760313
+|move|p1a: embarassing bro|Sticky Web|p2a: Gliscor
+|-sidestart|p2: mikeim520|move: Sticky Web
+|move|p2a: Gliscor|Spikes|p1a: embarassing bro
+|-sidestart|p1: HELLO DOOD|Spikes
+|
+|-heal|p2a: Gliscor|52/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|9
+|
+|t:|1716760316
+|switch|p2a: Iron Treads|Iron Treads|100/100
+|-activate|p2a: Iron Treads|move: Sticky Web
+|-unboost|p2a: Iron Treads|spe|1
+|move|p1a: embarassing bro|Psychic Noise|p2a: Iron Treads
+|-resisted|p2a: Iron Treads
+|-damage|p2a: Iron Treads|91/100
+|-start|p2a: Iron Treads|move: Heal Block
+|
+|upkeep
+|turn|10
+|
+|t:|1716760321
+|switch|p1a: NO SPIN FOR YOU|Gholdengo|100/100
+|-damage|p1a: NO SPIN FOR YOU|88/100|[from] Spikes
+|move|p2a: Iron Treads|Knock Off|p1a: NO SPIN FOR YOU
+|-supereffective|p1a: NO SPIN FOR YOU
+|-damage|p1a: NO SPIN FOR YOU|34/100
+|-enditem|p1a: NO SPIN FOR YOU|Life Orb|[from] move: Knock Off|[of] p2a: Iron Treads
+|
+|-end|p2a: Iron Treads|move: Heal Block
+|upkeep
+|turn|11
+|
+|t:|1716760330
+|move|p1a: NO SPIN FOR YOU|Hex|p2a: Iron Treads
+|-damage|p2a: Iron Treads|47/100
+|move|p2a: Iron Treads|Earthquake|p1a: NO SPIN FOR YOU
+|-supereffective|p1a: NO SPIN FOR YOU
+|-damage|p1a: NO SPIN FOR YOU|0 fnt
+|faint|p1a: NO SPIN FOR YOU
+|
+|-heal|p2a: Iron Treads|53/100|[from] item: Leftovers
+|upkeep
+|
+|t:|1716760338
+|switch|p1a: boi|Iron Valiant|100/100
+|-damage|p1a: boi|88/100|[from] Spikes
+|-enditem|p1a: boi|Booster Energy
+|-activate|p1a: boi|ability: Quark Drive|[fromitem]
+|-start|p1a: boi|quarkdriveatk
+|turn|12
+|
+|t:|1716760341
+|move|p1a: boi|Close Combat|p2a: Iron Treads
+|-supereffective|p2a: Iron Treads
+|-damage|p2a: Iron Treads|0 fnt
+|-unboost|p1a: boi|def|1
+|-unboost|p1a: boi|spd|1
+|faint|p2a: Iron Treads
+|-end|p2a: Iron Treads|Quark Drive|[silent]
+|
+|upkeep
+|
+|t:|1716760348
+|switch|p2a: Corviknight|Corviknight, F|100/100
+|-ability|p2a: Corviknight|Pressure
+|turn|13
+|
+|t:|1716760351
+|-end|p1a: boi|Quark Drive|[silent]
+|switch|p1a: HEHEHE|Glimmora, M|100/100
+|-damage|p1a: HEHEHE|88/100|[from] Spikes
+|move|p2a: Corviknight|Iron Defense|p2a: Corviknight
+|-boost|p2a: Corviknight|def|2
+|
+|upkeep
+|turn|14
+|
+|t:|1716760356
+|move|p1a: HEHEHE|Stealth Rock|p2a: Corviknight
+|-sidestart|p2: mikeim520|move: Stealth Rock
+|move|p2a: Corviknight|Body Press|p1a: HEHEHE
+|-damage|p1a: HEHEHE|34/100
+|-activate|p1a: HEHEHE|ability: Toxic Debris
+|-sidestart|p2: mikeim520|move: Toxic Spikes
+|-enditem|p1a: HEHEHE|Red Card|[of] p2a: Corviknight
+|drag|p2a: Darkrai|Darkrai|46/100
+|-activate|p2a: Darkrai|move: Sticky Web
+|-unboost|p2a: Darkrai|spe|1
+|-damage|p2a: Darkrai|34/100|[from] Stealth Rock
+|-status|p2a: Darkrai|psn
+|
+|-damage|p2a: Darkrai|21/100 psn|[from] psn
+|upkeep
+|turn|15
+|
+|t:|1716760363
+|move|p1a: HEHEHE|Spikes|p2a: Darkrai
+|-sidestart|p2: mikeim520|Spikes
+|move|p2a: Darkrai|Dark Pulse|p1a: HEHEHE
+|-damage|p1a: HEHEHE|0 fnt
+|faint|p1a: HEHEHE
+|
+|-damage|p2a: Darkrai|9/100 psn|[from] psn
+|upkeep
+|
+|t:|1716760375
+|switch|p1a: embarassing bro|Ribombee, F|100/100
+|-damage|p1a: embarassing bro|88/100|[from] Spikes
+|turn|16
+|
+|t:|1716760378
+|move|p1a: embarassing bro|Moonblast|p2a: Darkrai
+|-supereffective|p2a: Darkrai
+|-damage|p2a: Darkrai|0 fnt
+|faint|p2a: Darkrai
+|
+|upkeep
+|
+|t:|1716760380
+|switch|p2a: Toxapex|Toxapex, F|53/100
+|-activate|p2a: Toxapex|move: Sticky Web
+|-unboost|p2a: Toxapex|spe|1
+|-damage|p2a: Toxapex|41/100|[from] Stealth Rock
+|-sideend|p2: mikeim520|move: Toxic Spikes|[of] p2a: Toxapex
+|-damage|p2a: Toxapex|28/100|[from] Spikes
+|turn|17
+|
+|t:|1716760385
+|switch|p2a: Corviknight|Corviknight, F|100/100
+|-damage|p2a: Corviknight|88/100|[from] Stealth Rock
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: embarassing bro|Psychic Noise|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|80/100
+|-start|p2a: Corviknight|move: Heal Block
+|
+|upkeep
+|turn|18
+|
+|t:|1716760388
+|move|p1a: embarassing bro|Stun Spore|p2a: Corviknight
+|-status|p2a: Corviknight|par
+|move|p2a: Corviknight|U-turn|p1a: embarassing bro
+|-resisted|p1a: embarassing bro
+|-damage|p1a: embarassing bro|79/100
+|
+|t:|1716760391
+|switch|p2a: Gliscor|Gliscor, M|52/100 tox|[from] U-turn
+|-damage|p2a: Gliscor|40/100 tox|[from] Stealth Rock
+|
+|-heal|p2a: Gliscor|52/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|19
+|
+|t:|1716760393
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: embarassing bro|Psychic Noise|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|65/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|20
+|
+|t:|1716760398
+|move|p1a: embarassing bro|Psychic Noise|p2a: Gliscor
+|-damage|p2a: Gliscor|45/100 tox
+|-start|p2a: Gliscor|move: Heal Block
+|move|p2a: Gliscor|Earthquake|p1a: embarassing bro
+|-resisted|p1a: embarassing bro
+|-damage|p1a: embarassing bro|56/100
+|
+|upkeep
+|turn|21
+|
+|t:|1716760403
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: embarassing bro|Moonblast|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-end|p2a: Gliscor|move: Heal Block
+|upkeep
+|turn|22
+|
+|t:|1716760406
+|move|p1a: embarassing bro|Psychic Noise|p2a: Gliscor
+|-damage|p2a: Gliscor|26/100 tox
+|-start|p2a: Gliscor|move: Heal Block
+|move|p2a: Gliscor|Spikes|p1a: embarassing bro
+|-sidestart|p1: HELLO DOOD|Spikes
+|
+|upkeep
+|turn|23
+|
+|t:|1716760409
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: embarassing bro|Moonblast|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-end|p2a: Gliscor|move: Heal Block
+|upkeep
+|turn|24
+|
+|t:|1716760413
+|switch|p2a: Corviknight|Corviknight, F|80/100 par
+|-damage|p2a: Corviknight|68/100 par|[from] Stealth Rock
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: embarassing bro|Psychic Noise|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|60/100 par
+|-start|p2a: Corviknight|move: Heal Block
+|
+|upkeep
+|turn|25
+|
+|t:|1716760417
+|move|p1a: embarassing bro|Moonblast|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|46/100 par
+|cant|p2a: Corviknight|par
+|
+|-end|p2a: Corviknight|move: Heal Block
+|upkeep
+|turn|26
+|
+|t:|1716760420
+|move|p1a: embarassing bro|Psychic Noise|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|37/100 par
+|-start|p2a: Corviknight|move: Heal Block
+|move|p2a: Corviknight|U-turn|p1a: embarassing bro
+|-resisted|p1a: embarassing bro
+|-damage|p1a: embarassing bro|47/100
+|
+|t:|1716760422
+|switch|p2a: Gliscor|Gliscor, M|26/100 tox|[from] U-turn
+|-damage|p2a: Gliscor|13/100 tox|[from] Stealth Rock
+|
+|-heal|p2a: Gliscor|26/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|27
+|
+|t:|1716760424
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: embarassing bro|Psychic Noise|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|38/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|28
+|
+|t:|1716760427
+|switch|p2a: Corviknight|Corviknight, F|37/100 par
+|-damage|p2a: Corviknight|24/100 par|[from] Stealth Rock
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: embarassing bro|Psychic Noise|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|16/100 par
+|-start|p2a: Corviknight|move: Heal Block
+|
+|upkeep
+|turn|29
+|
+|t:|1716760430
+|move|p1a: embarassing bro|Moonblast|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|1/100 par
+|move|p2a: Corviknight|U-turn|p1a: embarassing bro
+|-resisted|p1a: embarassing bro
+|-damage|p1a: embarassing bro|37/100
+|
+|t:|1716760432
+|switch|p2a: Toxapex|Toxapex, F|61/100|[from] U-turn
+|-activate|p2a: Toxapex|move: Sticky Web
+|-unboost|p2a: Toxapex|spe|1
+|-damage|p2a: Toxapex|49/100|[from] Stealth Rock
+|-damage|p2a: Toxapex|36/100|[from] Spikes
+|
+|-heal|p2a: Toxapex|43/100|[from] item: Leftovers
+|upkeep
+|turn|30
+|
+|t:|1716760438
+|switch|p2a: Corviknight|Corviknight, F|1/100 par
+|-damage|p2a: Corviknight|0 fnt|[from] Stealth Rock
+|faint|p2a: Corviknight
+|move|p1a: embarassing bro|Moonblast|p2: Corviknight|[notarget]
+|-fail|p1a: embarassing bro
+|
+|upkeep
+|
+|t:|1716760440
+|switch|p2a: Gliscor|Gliscor, M|38/100 tox
+|-damage|p2a: Gliscor|26/100 tox|[from] Stealth Rock
+|turn|31
+|
+|t:|1716760442
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: embarassing bro|Moonblast|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|38/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|32
+|
+|t:|1716760446
+|move|p1a: embarassing bro|Psychic Noise|p2a: Gliscor
+|-crit|p2a: Gliscor
+|-damage|p2a: Gliscor|7/100 tox
+|-start|p2a: Gliscor|move: Heal Block
+|move|p2a: Gliscor|Earthquake|p1a: embarassing bro
+|-resisted|p1a: embarassing bro
+|-damage|p1a: embarassing bro|14/100
+|
+|upkeep
+|turn|33
+|
+|t:|1716760449
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: embarassing bro|Moonblast|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-end|p2a: Gliscor|move: Heal Block
+|upkeep
+|turn|34
+|j| dskarma
+|l| dskarma
+|
+|t:|1716760452
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: embarassing bro|Psychic Noise|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|20/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|35
+|
+|t:|1716760457
+|move|p1a: embarassing bro|Psychic Noise|p2a: Gliscor
+|-damage|p2a: Gliscor|0 fnt
+|faint|p2a: Gliscor
+|
+|upkeep
+|c|☆mikeim520|gg wp
+|
+|t:|1716760461
+|switch|p2a: Toxapex|Toxapex, F|76/100
+|-activate|p2a: Toxapex|move: Sticky Web
+|-unboost|p2a: Toxapex|spe|1
+|-damage|p2a: Toxapex|63/100|[from] Stealth Rock
+|-damage|p2a: Toxapex|51/100|[from] Spikes
+|turn|36
+|c|☆HELLO DOOD|gg wp
+|c|☆HELLO DOOD|tough mathcup
+|
+|t:|1716760470
+|-terastallize|p2a: Toxapex|Fairy
+|move|p1a: embarassing bro|Stun Spore|p2a: Toxapex
+|-status|p2a: Toxapex|par
+|move|p2a: Toxapex|Infestation|p1a: embarassing bro
+|-resisted|p1a: embarassing bro
+|-damage|p1a: embarassing bro|11/100
+|-activate|p1a: embarassing bro|move: Infestation|[of] p2a: Toxapex
+|
+|-heal|p2a: Toxapex|57/100 par|[from] item: Leftovers
+|-damage|p1a: embarassing bro|0 fnt|[from] move: Infestation|[partiallytrapped]
+|faint|p1a: embarassing bro
+|upkeep
+|
+|t:|1716760476
+|switch|p1a: boi|Iron Valiant|88/100
+|-damage|p1a: boi|71/100|[from] Spikes
+|turn|37
+|
+|t:|1716760478
+|move|p1a: boi|Swords Dance|p1a: boi
+|-boost|p1a: boi|atk|2
+|move|p2a: Toxapex|Toxic|p1a: boi
+|-status|p1a: boi|tox
+|
+|-heal|p2a: Toxapex|63/100 par|[from] item: Leftovers
+|-damage|p1a: boi|65/100 tox|[from] psn
+|upkeep
+|turn|38
+|
+|t:|1716760480
+|move|p1a: boi|Close Combat|p2a: Toxapex
+|-resisted|p2a: Toxapex
+|-damage|p2a: Toxapex|7/100 par
+|-unboost|p1a: boi|def|1
+|-unboost|p1a: boi|spd|1
+|cant|p2a: Toxapex|par
+|
+|-heal|p2a: Toxapex|13/100 par|[from] item: Leftovers
+|-damage|p1a: boi|53/100 tox|[from] psn
+|upkeep
+|turn|39
+|
+|t:|1716760483
+|move|p1a: boi|Close Combat|p2a: Toxapex
+|-resisted|p2a: Toxapex
+|-damage|p2a: Toxapex|0 fnt
+|-unboost|p1a: boi|def|1
+|-unboost|p1a: boi|spd|1
+|faint|p2a: Toxapex
+|
+|win|HELLO DOOD
+|raw|HELLO DOOD's rating: 1838 &rarr; <strong>1854</strong><br />(+16 for winning)
+|raw|mikeim520's rating: 1759 &rarr; <strong>1743</strong><br />(-16 for losing)
+|l|☆mikeim520
+|player|p2|
+|l| snowplay

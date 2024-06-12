@@ -93,4 +93,9 @@ public class BattleStatusBuilder {
         playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemonName).setBuffOf(buff, buffOf);
         return this;
     }
+
+    public BattleStatusBuilder addActivateStatus(int playerNumber, String pokemon, ActivateStatus activateStatus) {
+        playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemon).addActivateStatus(activateStatus);
+        return this;
+    }
 }

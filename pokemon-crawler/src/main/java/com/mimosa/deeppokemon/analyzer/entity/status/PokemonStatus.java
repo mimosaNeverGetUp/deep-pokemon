@@ -6,11 +6,14 @@
 
 package com.mimosa.deeppokemon.analyzer.entity.status;
 
+import com.mimosa.deeppokemon.analyzer.entity.ActivateStatus;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Status;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PokemonStatus {
@@ -19,6 +22,7 @@ public class PokemonStatus {
     private Status status;
     private int lastActivateTurn;
     private Map<String, EventTarget> buffOf;
+    private List<ActivateStatus> activateStatusList;
 
     public PokemonStatus(String pokemonName) {
         this.pokemonName = pokemonName;
@@ -26,6 +30,7 @@ public class PokemonStatus {
         this.lastActivateTurn = 0;
         this.status = null;
         this.buffOf = new HashMap<>();
+        activateStatusList = new ArrayList<>();
     }
 
     public String getPokemonName() {
@@ -62,6 +67,14 @@ public class PokemonStatus {
 
     public void setBuffOf(String buff, EventTarget buffOf) {
         this.buffOf.put(buff, buffOf);
+    }
+
+    public void addActivateStatus(ActivateStatus activateStatus) {
+        activateStatusList.add(activateStatus);
+    }
+
+    public List<ActivateStatus> getActivateStatusList() {
+        return activateStatusList;
     }
 
     public void setLastActivateTurn(int lastActivateTurn) {

@@ -6,10 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
-import com.mimosa.deeppokemon.analyzer.entity.Side;
-import com.mimosa.deeppokemon.analyzer.entity.Status;
-import com.mimosa.deeppokemon.analyzer.entity.Weather;
+import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
@@ -28,6 +25,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -182,6 +180,11 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         } else if (isRecoilDamage(damageFrom)) {
             // recoil is damage by opponent active pokemon
             ofTarget = BattleEventUtil.getOpponentActivePokemonTarget(battleStatus, eventTarget);
+        } else if (isActivateDamage(damageFrom, targetPlayerStatus.getPokemonStatus(eventTarget.targetName()))) {
+            List<ActivateStatus> activateStatuses =
+                    targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getActivateStatusList();
+            ofTarget = activateStatuses.stream().filter(activateStatus -> StringUtils.equals(activateStatus.content()
+                    , damageFrom) || StringUtils.equals(activateStatus.status(), damageFrom)).findFirst().orElseThrow().ofTarget();
         }
         return ofTarget;
     }
@@ -214,6 +217,12 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
 
     private static boolean isSideDamage(String damageFrom) {
         return damageFrom.equals(STEALTH_ROCK) || damageFrom.equals(SPIKES);
+    }
+
+    private boolean isActivateDamage(String damageFrom, PokemonStatus pokemonStatus) {
+        return pokemonStatus.getActivateStatusList().stream().anyMatch(activateStatus ->
+                StringUtils.equals(activateStatus.content(), damageFrom)
+                        || StringUtils.equals(activateStatus.status(), damageFrom));
     }
 
     @Override

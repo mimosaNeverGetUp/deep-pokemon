@@ -28,13 +28,22 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     private final BattleCrawler battleCrawler;
 
     private final BattleService battleService;
+
     private final List<String> holdBattleLocks;
 
-    public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler, BattleService battleService) {
+    private final boolean update;
+
+    public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler, BattleService battleService,
+                          boolean update) {
         this.replayProvider = replayProvider;
         this.battleCrawler = battleCrawler;
         this.battleService = battleService;
+        this.update = update;
         holdBattleLocks = new ArrayList<>();
+    }
+
+    public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler, BattleService battleService) {
+        this(replayProvider, battleCrawler, battleService, false);
     }
 
     @Override
@@ -50,7 +59,12 @@ public class CrawBattleTask implements Callable<List<Battle>> {
                             replays.stream().map(Replay::id).collect(Collectors.toSet()), e);
                 }
             }
-            battleService.savaAll(battles);
+
+            if (update) {
+                battleService.update(battles);
+            } else {
+                battleService.insert(battles);
+            }
         } finally {
             CrawLock.unlock(holdBattleLocks);
         }
@@ -71,7 +85,7 @@ public class CrawBattleTask implements Callable<List<Battle>> {
                 continue;
             }
             holdBattleLocks.add(replay.id());
-            if (battleService.getAllBattleIds().contains(replay.id())) {
+            if (!update && battleService.getAllBattleIds().contains(replay.id())) {
                 continue;
             }
 

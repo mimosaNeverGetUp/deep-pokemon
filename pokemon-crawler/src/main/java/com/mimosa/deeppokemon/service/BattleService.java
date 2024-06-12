@@ -94,7 +94,7 @@ public class BattleService {
     }
 
     @CacheEvict(cacheNames = "battleIds", allEntries = true)
-    public List<Battle> savaAll(List<Battle> battles) {
+    public List<Battle> insert(List<Battle> battles) {
         if (battles.isEmpty()) {
             return battles;
         }
@@ -113,6 +113,17 @@ public class BattleService {
                     .filter(i -> !errorIndexs.contains(i))
                     .mapToObj(battles::get)
                     .collect(Collectors.toList());
+        }
+    }
+
+    /**
+     * update battles
+     * since can not update at once, performance is not good when battle size is big
+     */
+    @CacheEvict(cacheNames = "battleIds", allEntries = true)
+    public void update(List<Battle> battles) {
+        for (Battle battle : battles) {
+            mongoTemplate.save(battle, BATTLE);
         }
     }
 
@@ -150,10 +161,10 @@ public class BattleService {
 
     public CompletableFuture<List<BattleStat>> analyzeBattleAfterCraw(CompletableFuture<List<Battle>> crawBattleFuture) {
         return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, ANALYZE_BATTLE_EXECUTOR)
-                .thenApplyAsync(battleStats -> savaAll(battleStats));
+                .thenApplyAsync(battleStats -> insert(battleStats));
     }
 
-    public List<BattleStat> savaAll(Collection<BattleStat> battleStats) {
+    public List<BattleStat> insert(Collection<BattleStat> battleStats) {
         return new ArrayList<>(mongoTemplate.insertAll(battleStats));
     }
 
@@ -161,14 +172,21 @@ public class BattleService {
             TurnPlayerStat.class, TurnPokemonStat.class})
     public BattleStat getBattleStat(String battleId) {
         Battle battle = findBattle(battleId);
-        if (battle == null || battle.getLog() == null) {
+        if (battle == null) {
+            // craw and save
             CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(Collections.singletonList(battleId)),
                     battleCrawler, this);
             battle = crawBattleTask.call().get(0);
+        } else if (battle.getLog() == null) {
+            // craw and update
+            CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(Collections.singletonList(battleId)),
+                    battleCrawler, this, true);
+            battle = crawBattleTask.call().get(0);
         }
+
         List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
         try {
-            savaAll(battleStats);
+            insert(battleStats);
         } catch (Exception e) {
             log.warn("save battle stat fail", e);
         }

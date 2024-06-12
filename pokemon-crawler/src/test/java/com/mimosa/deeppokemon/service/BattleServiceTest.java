@@ -36,13 +36,13 @@ class BattleServiceTest {
     private MongoTemplate mongoTemplate;
 
     @Test
-    void savaAll() {
+    void insert() {
         Battle existBattle = battleService.find100BattleSortByDate().get(0);
 
         Battle notExistBattle = new Battle();
         notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
         try {
-            List<Battle> insertBattle = battleService.savaAll(List.of(existBattle, notExistBattle));
+            List<Battle> insertBattle = battleService.insert(List.of(existBattle, notExistBattle));
             Assertions.assertEquals(1, insertBattle.size());
             Assertions.assertEquals(NOT_EXIST_BATTLE_ID, insertBattle.get(0).getBattleID());
         } finally {
@@ -70,10 +70,10 @@ class BattleServiceTest {
         try {
             battleStat = battleService.getBattleStat(NOT_LOG_BATTLE_ID);
             MatcherAssert.assertThat(battleStat, BattleStatMatcher.BATTLE_STAT_MATCHER);
+            Assertions.assertNotNull(mongoTemplate.findById(NOT_LOG_BATTLE_ID,Battle.class).getLog());
         } finally {
             if (battleStat != null) {
                 mongoTemplate.remove(battleStat);
-                mongoTemplate.remove(new Query(Criteria.where("_id").is(NOT_SAVE_BATTLE_ID)),"battle");
             }
         }
     }
@@ -85,7 +85,7 @@ class BattleServiceTest {
         Battle notExistBattle = new Battle();
         notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
         try {
-            battleService.savaAll(List.of(notExistBattle));
+            battleService.insert(List.of(notExistBattle));
             Assertions.assertTrue(battleService.getAllBattleIds().contains(NOT_EXIST_BATTLE_ID));
         } finally {
             mongoTemplate.remove(notExistBattle);

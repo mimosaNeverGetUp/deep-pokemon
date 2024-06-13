@@ -1,0 +1,227 @@
+|j|☆sousnake
+|j|☆oi oi majikayo
+|t:|1717582216
+|gametype|singles
+|player|p1|sousnake|1|1615
+|player|p2|oi oi majikayo|266|1625
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Blaziken, F|
+|poke|p1|Great Tusk|
+|poke|p1|Darkrai|
+|poke|p1|Kingambit, F|
+|poke|p1|Roaring Moon|
+|poke|p1|Primarina, F|
+|poke|p2|Hydreigon, F|
+|poke|p2|Slowking-Galar, M|
+|poke|p2|Ogerpon, F|
+|poke|p2|Hawlucha, M|
+|poke|p2|Roaring Moon|
+|poke|p2|Landorus-Therian, M|
+|teampreview
+|
+|t:|1717582233
+|start
+|switch|p1a: Darkrai|Darkrai|100/100
+|switch|p2a: Ogerpon|Ogerpon, F|100/100
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by sousnake)
+|
+|t:|1717582239
+|-terastallize|p2a: Ogerpon|Grass
+|detailschange|p2a: Ogerpon|Ogerpon-Teal-Tera, F, tera:Grass
+|-ability|p2a: Ogerpon|Embody Aspect (Teal)|boost
+|-boost|p2a: Ogerpon|spe|1
+|move|p2a: Ogerpon|Spikes|p1a: Darkrai
+|-sidestart|p1: sousnake|Spikes
+|move|p1a: Darkrai|Ice Beam|p2a: Ogerpon
+|-supereffective|p2a: Ogerpon
+|-damage|p2a: Ogerpon|5/100
+|
+|upkeep
+|turn|2
+|
+|t:|1717582248
+|move|p2a: Ogerpon|U-turn|p1a: Darkrai
+|-supereffective|p1a: Darkrai
+|-damage|p1a: Darkrai|36/100
+|
+|t:|1717582255
+|switch|p2a: Hydreigon|Hydreigon, F|100/100|[from] U-turn
+|move|p1a: Darkrai|Ice Beam|p2a: Hydreigon
+|-supereffective|p2a: Hydreigon
+|-damage|p2a: Hydreigon|46/100
+|
+|upkeep
+|turn|3
+|
+|t:|1717582263
+|switch|p2a: Slowking|Slowking-Galar, M|100/100
+|move|p1a: Darkrai|Ice Beam|p2a: Slowking
+|-damage|p2a: Slowking|82/100
+|
+|upkeep
+|turn|4
+|
+|t:|1717582268
+|move|p1a: Darkrai|Dark Pulse|p2a: Slowking
+|-supereffective|p2a: Slowking
+|-damage|p2a: Slowking|22/100
+|move|p2a: Slowking|Chilly Reception|p2a: Slowking
+|-weather|Snow
+|
+|t:|1717582271
+|switch|p2a: Ogerpon|Ogerpon-Teal-Tera, F, tera:Grass|5/100|[from] Chilly Reception
+|-ability|p2a: Ogerpon|Embody Aspect (Teal)|boost
+|-boost|p2a: Ogerpon|spe|1
+|
+|-weather|Snow|[upkeep]
+|upkeep
+|turn|5
+|
+|t:|1717582289
+|switch|p1a: Great Tusk|Great Tusk|100/100
+|-damage|p1a: Great Tusk|88/100|[from] Spikes
+|-enditem|p1a: Great Tusk|Booster Energy
+|-activate|p1a: Great Tusk|ability: Protosynthesis|[fromitem]
+|-start|p1a: Great Tusk|protosynthesisatk
+|move|p2a: Ogerpon|Ivy Cudgel|p1a: Great Tusk
+|-supereffective|p1a: Great Tusk
+|-damage|p1a: Great Tusk|0 fnt
+|faint|p1a: Great Tusk
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|
+|-weather|Snow|[upkeep]
+|upkeep
+|
+|t:|1717582299
+|switch|p1a: Blaziken|Blaziken, F|100/100
+|-damage|p1a: Blaziken|88/100|[from] Spikes
+|turn|6
+|
+|t:|1717582306
+|switch|p2a: Landorus|Landorus-Therian, M|100/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Blaziken|atk|1
+|move|p1a: Blaziken|Focus Energy|p1a: Blaziken
+|-start|p1a: Blaziken|move: Focus Energy
+|
+|-weather|Snow|[upkeep]
+|-ability|p1a: Blaziken|Speed Boost|boost
+|-boost|p1a: Blaziken|spe|1
+|upkeep
+|turn|7
+|
+|t:|1717582332
+|-terastallize|p1a: Blaziken|Water
+|move|p1a: Blaziken|Tera Blast|p2a: Landorus|[anim] Tera Blast Water
+|-supereffective|p2a: Landorus
+|-crit|p2a: Landorus
+|-damage|p2a: Landorus|0 fnt
+|faint|p2a: Landorus
+|
+|-weather|Snow|[upkeep]
+|-ability|p1a: Blaziken|Speed Boost|boost
+|-boost|p1a: Blaziken|spe|1
+|upkeep
+|inactive|oi oi majikayo has 120 seconds left.
+|
+|t:|1717582350
+|switch|p2a: Slowking|Slowking-Galar, M|55/100
+|turn|8
+|
+|t:|1717582358
+|switch|p2a: Hydreigon|Hydreigon, F|46/100
+|move|p1a: Blaziken|Overheat|p2a: Hydreigon
+|-resisted|p2a: Hydreigon
+|-crit|p2a: Hydreigon
+|-damage|p2a: Hydreigon|14/100
+|-unboost|p1a: Blaziken|spa|2
+|
+|-weather|none
+|-ability|p1a: Blaziken|Speed Boost|boost
+|-boost|p1a: Blaziken|spe|1
+|upkeep
+|turn|9
+|
+|t:|1717582367
+|switch|p2a: Slowking|Slowking-Galar, M|89/100
+|move|p1a: Blaziken|Tera Blast|p2a: Slowking|[anim] Tera Blast Water
+|-crit|p2a: Slowking
+|-damage|p2a: Slowking|56/100
+|
+|-ability|p1a: Blaziken|Speed Boost|boost
+|-boost|p1a: Blaziken|spe|1
+|upkeep
+|turn|10
+|
+|t:|1717582376
+|move|p1a: Blaziken|Overheat|p2a: Slowking
+|-crit|p2a: Slowking
+|-damage|p2a: Slowking|2/100
+|-unboost|p1a: Blaziken|spa|2
+|move|p2a: Slowking|Sludge Bomb|p1a: Blaziken
+|-damage|p1a: Blaziken|41/100
+|
+|-ability|p1a: Blaziken|Speed Boost|boost
+|-boost|p1a: Blaziken|spe|1
+|upkeep
+|turn|11
+|
+|t:|1717582385
+|switch|p2a: Hydreigon|Hydreigon, F|14/100
+|move|p1a: Blaziken|Tera Blast|p2a: Hydreigon|[anim] Tera Blast Water
+|-resisted|p2a: Hydreigon
+|-crit|p2a: Hydreigon
+|-damage|p2a: Hydreigon|0 fnt
+|faint|p2a: Hydreigon
+|
+|-ability|p1a: Blaziken|Speed Boost|boost
+|-boost|p1a: Blaziken|spe|1
+|upkeep
+|
+|t:|1717582387
+|switch|p2a: Roaring Moon|Roaring Moon|100/100
+|turn|12
+|
+|t:|1717582396
+|move|p1a: Blaziken|Aura Sphere|p2a: Roaring Moon
+|-supereffective|p2a: Roaring Moon
+|-crit|p2a: Roaring Moon
+|-damage|p2a: Roaring Moon|0 fnt
+|faint|p2a: Roaring Moon
+|-end|p2a: Roaring Moon|Protosynthesis|[silent]
+|
+|upkeep
+|
+|t:|1717582398
+|switch|p2a: Slowking|Slowking-Galar, M|36/100
+|turn|13
+|
+|t:|1717582402
+|move|p1a: Blaziken|Overheat|p2a: Slowking
+|-crit|p2a: Slowking
+|-damage|p2a: Slowking|0 fnt
+|-unboost|p1a: Blaziken|spa|2
+|faint|p2a: Slowking
+|
+|upkeep
+|-message|oi oi majikayo forfeited.
+|
+|win|sousnake
+|raw|sousnake's rating: 1615 &rarr; <strong>1636</strong><br />(+21 for winning)
+|raw|oi oi majikayo's rating: 1625 &rarr; <strong>1604</strong><br />(-21 for losing)
+|l|☆oi oi majikayo
+|player|p2|
+|j| Down$hift

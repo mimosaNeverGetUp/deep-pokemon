@@ -34,7 +34,7 @@ class StatusEventAnalyzerTest {
         moveEvent.setBattleEventStat(new MoveEventStat(eventTarget, "Sludge Bomb"));
         BattleEvent statusEvent = new BattleEvent("status", List.of("p1a: AK (oppmouto mode)", "psn"), moveEvent, null);
         BattleStatus battleStatus = new BattleStatusBuilder()
-                .addPokemon(1, alomomola,"AK (oppmouto mode)")
+                .addPokemon(1, alomomola, "AK (oppmouto mode)")
                 .addPokemon(2, slowking, slowking)
                 .build();
         Assertions.assertTrue(statusEventAnalyzer.supportAnalyze(statusEvent));
@@ -43,5 +43,23 @@ class StatusEventAnalyzerTest {
         Assertions.assertNotNull(status);
         Assertions.assertEquals("psn", status.name());
         Assertions.assertEquals(eventTarget, status.ofTarget());
+    }
+
+    @Test
+    void analyzeFlameOrb() {
+        String ursaluna = "Ursaluna";
+        EventTarget exceptTarget = new EventTarget(1, ursaluna, ursaluna);
+
+        BattleEvent statusEvent = new BattleEvent("status", List.of("p1a: Ursaluna", "brn", "[from] item: Flame Orb"), null, null);
+        BattleStatus battleStatus = new BattleStatusBuilder()
+                .addPokemon(1, ursaluna, ursaluna)
+                .build();
+        Assertions.assertTrue(statusEventAnalyzer.supportAnalyze(statusEvent));
+        statusEventAnalyzer.analyze(statusEvent, null, battleStatus);
+        Status status = battleStatus.getPlayerStatusList().get(0).getPokemonStatus(ursaluna).getStatus();
+        Assertions.assertNotNull(status);
+        Assertions.assertEquals("brn", status.name());
+        Assertions.assertEquals(exceptTarget
+                , status.ofTarget());
     }
 }

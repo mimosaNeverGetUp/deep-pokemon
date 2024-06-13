@@ -31,6 +31,7 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
     private static final int STATUS_INDEX = 1;
     private static final int FROM_INDEX = 2;
     private static final String TOXIC_SPIKES = "Toxic Spikes";
+    private static final String ITEM = "item";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
@@ -47,6 +48,9 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
             if (battleEvent.getParentEvent() != null && battleEvent.getParentEvent().getBattleEventStat()
                     instanceof MoveEventStat moveEventStat) {
                 ofTarget = moveEventStat.eventTarget();
+            } else if (battleEvent.getContents().size() > FROM_INDEX
+                    && isItemStatus(battleEvent.getContents().get(FROM_INDEX))) {
+                ofTarget = eventTarget;
             } else if (battleEvent.getContents().size() - 1 > FROM_INDEX) {
                 ofTarget = eventTarget;
             } else if (!getToxicSide(battleStatus, eventTarget.playerNumber()).isEmpty()) {
@@ -56,6 +60,10 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
             battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
                     .setStatus(new Status(status, ofTarget));
         }
+    }
+
+    private boolean isItemStatus(String statusFrom) {
+        return statusFrom.contains(ITEM);
     }
 
     private List<Side> getToxicSide(BattleStatus battleStatus, int playerNumber) {

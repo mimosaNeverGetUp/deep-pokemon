@@ -27,7 +27,7 @@ public class BattleStatusBuilder {
     public BattleStatusBuilder addPokemon(int playerNumber, String pokemonName, String nickName) {
         PlayerStatus playerStatus = playerStatuses.get(playerNumber - 1);
         playerStatus.setPokemonStatus(pokemonName, new PokemonStatus(pokemonName));
-        playerStatus.setPokemonNickNameMap(nickName, pokemonName);
+        playerStatus.setPokemonNickName(nickName, pokemonName);
         return this;
     }
 

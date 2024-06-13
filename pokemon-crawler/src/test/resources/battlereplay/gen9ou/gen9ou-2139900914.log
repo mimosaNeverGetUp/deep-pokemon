@@ -1,0 +1,271 @@
+|j|☆PPPAAABBBUUU
+|j|☆illuzionist funny
+|t:|1717935401
+|gametype|singles
+|player|p1|PPPAAABBBUUU|2|1524
+|player|p2|illuzionist funny|170|1619
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Iron Treads|
+|poke|p1|Ogerpon-Wellspring, F|
+|poke|p1|Dragonite, F|
+|poke|p1|Darkrai|
+|poke|p1|Iron Valiant|
+|poke|p1|Gholdengo|
+|poke|p2|Pelipper, F|
+|poke|p2|Basculegion, M|
+|poke|p2|Ogerpon-Wellspring, F|
+|poke|p2|Iron Treads|
+|poke|p2|Goodra-Hisui, F|
+|poke|p2|Iron Jugulis|
+|teampreview
+|
+|t:|1717935418
+|start
+|switch|p1a: Darkrai|Darkrai|100/100
+|switch|p2a: Pelipper|Pelipper, F|100/100
+|-weather|RainDance|[from] ability: Drizzle|[of] p2a: Pelipper
+|turn|1
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by PPPAAABBBUUU)
+|
+|t:|1717935423
+|move|p1a: Darkrai|Dark Pulse|p2a: Pelipper
+|-damage|p2a: Pelipper|53/100
+|cant|p2a: Pelipper|flinch
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|turn|2
+|
+|t:|1717935432
+|switch|p2a: Iron Treads|Iron Treads|100/100
+|-enditem|p2a: Iron Treads|Booster Energy
+|-activate|p2a: Iron Treads|ability: Quark Drive|[fromitem]
+|-start|p2a: Iron Treads|quarkdrivespe
+|move|p1a: Darkrai|Dark Pulse|p2a: Iron Treads
+|-damage|p2a: Iron Treads|46/100
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|turn|3
+|
+|t:|1717935440
+|move|p2a: Iron Treads|Stealth Rock|p1a: Darkrai
+|-sidestart|p1: PPPAAABBBUUU|move: Stealth Rock
+|move|p1a: Darkrai|Dark Pulse|p2a: Iron Treads
+|-damage|p2a: Iron Treads|0 fnt
+|faint|p2a: Iron Treads
+|-end|p2a: Iron Treads|Quark Drive|[silent]
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|
+|t:|1717935445
+|switch|p2a: Basculegion|Basculegion, M|100/100
+|turn|4
+|
+|t:|1717935451
+|switch|p1a: Ogerpon|Ogerpon-Wellspring, F|100/100
+|-damage|p1a: Ogerpon|88/100|[from] Stealth Rock
+|move|p2a: Basculegion|Flip Turn|p1a: Ogerpon
+|-heal|p1a: Ogerpon|100/100|[from] ability: Water Absorb|[of] p2a: Basculegion
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|turn|5
+|
+|t:|1717935467
+|switch|p2a: Goodra|Goodra-Hisui, F|100/100
+|move|p1a: Ogerpon|Ivy Cudgel|p2a: Goodra|[anim] Ivy Cudgel Water
+|-resisted|p2a: Goodra
+|-damage|p2a: Goodra|51/100
+|
+|-weather|RainDance|[upkeep]
+|-heal|p2a: Goodra|57/100|[from] item: Leftovers
+|upkeep
+|turn|6
+|
+|t:|1717935477
+|move|p1a: Ogerpon|Power Whip|p2a: Goodra
+|-ability|p2a: Goodra|Sap Sipper|boost
+|-boost|p2a: Goodra|atk|1
+|move|p2a: Goodra|Dragon Pulse|p1a: Ogerpon
+|-damage|p1a: Ogerpon|50/100
+|
+|-weather|RainDance|[upkeep]
+|-heal|p2a: Goodra|63/100|[from] item: Leftovers
+|upkeep
+|turn|7
+|
+|t:|1717935487
+|-terastallize|p1a: Ogerpon|Water
+|detailschange|p1a: Ogerpon|Ogerpon-Wellspring-Tera, F, tera:Water
+|-ability|p1a: Ogerpon|Embody Aspect (Wellspring)|boost
+|-boost|p1a: Ogerpon|spd|1
+|move|p1a: Ogerpon|Ivy Cudgel|p2a: Goodra|[anim] Ivy Cudgel Water
+|-resisted|p2a: Goodra
+|-damage|p2a: Goodra|0 fnt
+|faint|p2a: Goodra
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|
+|t:|1717935493
+|switch|p2a: Basculegion|Basculegion, M|100/100
+|turn|8
+|
+|t:|1717935499
+|switch|p1a: Darkrai|Darkrai|100/100
+|-damage|p1a: Darkrai|88/100|[from] Stealth Rock
+|move|p2a: Basculegion|Wave Crash|p1a: Darkrai
+|-damage|p1a: Darkrai|0 fnt
+|faint|p1a: Darkrai
+|-damage|p2a: Basculegion|79/100|[from] Recoil
+|
+|-weather|none
+|upkeep
+|
+|t:|1717935512
+|switch|p1a: Ogerpon|Ogerpon-Wellspring-Tera, F, tera:Water|50/100
+|-damage|p1a: Ogerpon|37/100|[from] Stealth Rock
+|-ability|p1a: Ogerpon|Embody Aspect (Wellspring)|boost
+|-boost|p1a: Ogerpon|spd|1
+|turn|9
+|
+|t:|1717935519
+|switch|p2a: Pelipper|Pelipper, F|53/100
+|-weather|RainDance|[from] ability: Drizzle|[of] p2a: Pelipper
+|move|p1a: Ogerpon|Ivy Cudgel|p2a: Pelipper|[anim] Ivy Cudgel Water
+|-resisted|p2a: Pelipper
+|-damage|p2a: Pelipper|1/100
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|turn|10
+|
+|t:|1717935530
+|move|p1a: Ogerpon|Play Rough|p2a: Pelipper
+|-damage|p2a: Pelipper|0 fnt
+|faint|p2a: Pelipper
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|
+|t:|1717935533
+|switch|p2a: Basculegion|Basculegion, M|79/100
+|turn|11
+|
+|t:|1717935539
+|switch|p1a: Iron Treads|Iron Treads, shiny|100/100
+|-damage|p1a: Iron Treads|97/100|[from] Stealth Rock
+|-enditem|p1a: Iron Treads|Booster Energy
+|-activate|p1a: Iron Treads|ability: Quark Drive|[fromitem]
+|-start|p1a: Iron Treads|quarkdrivespe
+|move|p2a: Basculegion|Wave Crash|p1a: Iron Treads
+|-supereffective|p1a: Iron Treads
+|-damage|p1a: Iron Treads|0 fnt
+|faint|p1a: Iron Treads
+|-end|p1a: Iron Treads|Quark Drive|[silent]
+|-damage|p2a: Basculegion|52/100|[from] Recoil
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|
+|t:|1717935546
+|switch|p1a: Ogerpon|Ogerpon-Wellspring-Tera, F, tera:Water|37/100
+|-damage|p1a: Ogerpon|25/100|[from] Stealth Rock
+|-ability|p1a: Ogerpon|Embody Aspect (Wellspring)|boost
+|-boost|p1a: Ogerpon|spd|1
+|turn|12
+|
+|t:|1717935553
+|move|p2a: Basculegion|Wave Crash|p1a: Ogerpon
+|-resisted|p1a: Ogerpon
+|-damage|p1a: Ogerpon|0 fnt
+|faint|p1a: Ogerpon
+|-damage|p2a: Basculegion|46/100|[from] Recoil
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|
+|t:|1717935562
+|switch|p1a: Gholdengo|Gholdengo|100/100
+|-damage|p1a: Gholdengo|94/100|[from] Stealth Rock
+|turn|13
+|
+|t:|1717935582
+|move|p2a: Basculegion|Wave Crash|p1a: Gholdengo
+|-damage|p1a: Gholdengo|0 fnt
+|faint|p1a: Gholdengo
+|-damage|p2a: Basculegion|20/100|[from] Recoil
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|
+|t:|1717935595
+|switch|p1a: Iron Valiant|Iron Valiant|100/100
+|-damage|p1a: Iron Valiant|94/100|[from] Stealth Rock
+|-enditem|p1a: Iron Valiant|Booster Energy
+|-activate|p1a: Iron Valiant|ability: Quark Drive|[fromitem]
+|-start|p1a: Iron Valiant|quarkdrivespe
+|turn|14
+|inactive|illuzionist funny has 120 seconds left.
+|inactive|illuzionist funny has 90 seconds left.
+|inactive|illuzionist funny has 60 seconds left.
+|inactive|illuzionist funny has 30 seconds left.
+|
+|t:|1717935723
+|move|p2a: Basculegion|Wave Crash|p1a: Iron Valiant
+|-damage|p1a: Iron Valiant|0 fnt
+|faint|p1a: Iron Valiant
+|-end|p1a: Iron Valiant|Quark Drive|[silent]
+|-damage|p2a: Basculegion|0 fnt|[from] Recoil
+|faint|p2a: Basculegion
+|
+|-weather|RainDance|[upkeep]
+|upkeep
+|inactive|illuzionist funny has 30 seconds left.
+|
+|t:|1717935728
+|switch|p1a: Dragonite|Dragonite, F|100/100
+|switch|p2a: Iron Jugulis|Iron Jugulis|100/100
+|-damage|p1a: Dragonite|76/100|[from] Stealth Rock
+|-enditem|p2a: Iron Jugulis|Booster Energy
+|-activate|p2a: Iron Jugulis|ability: Quark Drive|[fromitem]
+|-start|p2a: Iron Jugulis|quarkdrivespe
+|turn|15
+|
+|t:|1717935735
+|move|p2a: Iron Jugulis|Hurricane|p1a: Dragonite
+|-damage|p1a: Dragonite|20/100
+|move|p1a: Dragonite|Substitute|p1a: Dragonite
+|-fail|p1a: Dragonite|move: Substitute|[weak]
+|
+|-weather|RainDance|[upkeep]
+|-heal|p1a: Dragonite|26/100|[from] item: Leftovers
+|upkeep
+|turn|16
+|
+|t:|1717935739
+|move|p2a: Iron Jugulis|Hurricane|p1a: Dragonite
+|-damage|p1a: Dragonite|0 fnt
+|faint|p1a: Dragonite
+|
+|win|illuzionist funny
+|raw|PPPAAABBBUUU's rating: 1524 &rarr; <strong>1509</strong><br />(-15 for losing)
+|raw|illuzionist funny's rating: 1619 &rarr; <strong>1634</strong><br />(+15 for winning)
+|l|☆PPPAAABBBUUU
+|player|p1|
+|l|☆illuzionist funny
+|player|p2|

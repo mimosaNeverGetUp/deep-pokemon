@@ -41,11 +41,15 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
             return;
         }
 
-        String pokemonName = battleEvent.getContents().get(1).split(EventConstants.NAME_SPLIT)[0];
+        String switchName = battleEvent.getContents().get(1).split(EventConstants.NAME_SPLIT)[0];
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(0));
         if (eventTarget != null) {
             PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
-            playerStatus.setPokemonNickNameMap(eventTarget.nickName(), pokemonName);
+            if (playerStatus.getPokemonName(eventTarget.nickName()) == null) {
+                // only set first switch name, because switch name can change for tera
+                playerStatus.setPokemonNickName(eventTarget.nickName(), switchName);
+            }
+            String pokemonName = playerStatus.getPokemonName(eventTarget.nickName());
             playerStatus.setActivePokemonName(pokemonName);
             changeFormChangingPokemonName(battleStatus, battleStat, eventTarget.playerNumber(), pokemonName);
 
@@ -60,23 +64,24 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
 
     /**
      * if switch pokemon is changing form, check and modify blur name in battle stat and battle status
+     * details change pokemon is not need to change name ,such as Ogerpon tera
      */
     private void changeFormChangingPokemonName(BattleStatus battleStatus, BattleStat battleStat,
-                                               int playerNumber, String switchPokemonName) {
+                                               int playerNumber, String pokemonName) {
         PlayerStatus switchPlayerStatus = battleStatus.getPlayerStatusList().get(playerNumber - 1);
-        if (switchPlayerStatus.getPokemonStatus(switchPokemonName) == null) {
+        if (switchPlayerStatus.getPokemonStatus(pokemonName) == null) {
             Optional<String> blurPokemonNameOptional = switchPlayerStatus.getPokemonStatusMap().keySet().stream()
-                    .filter(pokemonName -> getOriginFormPokemonName(pokemonName)
-                            .contains(getOriginFormPokemonName(switchPokemonName)))
+                    .filter(originName -> getOriginFormPokemonName(originName)
+                            .contains(getOriginFormPokemonName(pokemonName)))
                     .findFirst();
             if (blurPokemonNameOptional.isEmpty()) {
-                log.warn("can not match origin blur pokemon name by {}", switchPokemonName);
+                log.warn("can not match origin blur pokemon name by {}", pokemonName);
                 return;
             }
 
             String blurPokemonName = blurPokemonNameOptional.get();
-            battleStatus.changePokemonName(playerNumber, blurPokemonName, switchPokemonName);
-            battleStat.changePokemonName(playerNumber, blurPokemonName, switchPokemonName);
+            battleStatus.changePokemonName(playerNumber, blurPokemonName, pokemonName);
+            battleStat.changePokemonName(playerNumber, blurPokemonName, pokemonName);
         }
     }
 

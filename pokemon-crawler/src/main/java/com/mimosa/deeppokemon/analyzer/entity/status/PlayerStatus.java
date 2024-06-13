@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 public class PlayerStatus {
     private final Map<String, String> pokemonNickNameMap;
+    private final Map<String, String> pokemonDetailChangeNameMap;
     private final Map<String, PokemonStatus> pokemonStatusMap;
     private final Map<Integer, String> turnStartPokemonNames;
     private String turnStartPokemonName;
@@ -24,6 +25,7 @@ public class PlayerStatus {
 
     public PlayerStatus() {
         this.pokemonNickNameMap = new HashMap<>();
+        this.pokemonDetailChangeNameMap = new HashMap<>();
         this.pokemonStatusMap = new HashMap<>();
         this.sideList = new ArrayList<>();
         this.activePokemonName = null;
@@ -35,8 +37,16 @@ public class PlayerStatus {
         return pokemonNickNameMap.get(nickName);
     }
 
-    public void setPokemonNickNameMap(String nickName, String pokemonName) {
+    public void setPokemonNickName(String nickName, String pokemonName) {
         pokemonNickNameMap.put(nickName, pokemonName);
+    }
+
+    public String getDetailChangeName(String nickName) {
+        return pokemonDetailChangeNameMap.get(nickName);
+    }
+
+    public void setDetailChangeName(String nickName, String detailChangeName) {
+        pokemonDetailChangeNameMap.put(nickName, detailChangeName);
     }
 
     public String getActivePokemonName() {

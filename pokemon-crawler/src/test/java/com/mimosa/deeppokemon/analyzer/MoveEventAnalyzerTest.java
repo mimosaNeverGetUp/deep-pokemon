@@ -6,7 +6,6 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
@@ -39,7 +38,7 @@ class MoveEventAnalyzerTest {
         BattleStat battleStat = new BattleStat(null, List.of(p1), new ArrayList<>());
 
         PlayerStatus p1Stauts = new PlayerStatus();
-        p1Stauts.setPokemonNickNameMap("YOUCANTBREAKME", "Gliscor");
+        p1Stauts.setPokemonNickName("YOUCANTBREAKME", "Gliscor");
         BattleStatus battleStatus = new BattleStatus(List.of(p1Stauts));
         Assertions.assertTrue(moveEventAnalyzer.supportAnalyze(battleEvent));
         moveEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);

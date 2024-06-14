@@ -5,7 +5,7 @@ spring:
   security:
     user:
       name: mimosa
-      password: 0405@L1999
+      password: mimosa
 
 eureka:
   instance:

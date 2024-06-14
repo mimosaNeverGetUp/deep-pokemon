@@ -30,4 +30,4 @@ eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://mimosa:0405%40L1999@host.docker.internal:8761/eureka/
+      defaultZone: http://mimosa:mimosa@host.docker.internal:8761/eureka/

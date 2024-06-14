@@ -15,7 +15,7 @@ spring:
   security:
     user:
       name: mimosa
-      password: 04051999
+      password: mimosa
 management:
   endpoints:
     web:
@@ -40,4 +40,4 @@ eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://mimosa:0405%40L1999@localhost:8761/eureka/
+      defaultZone: http://mimosa:mimosa@localhost:8761/eureka/

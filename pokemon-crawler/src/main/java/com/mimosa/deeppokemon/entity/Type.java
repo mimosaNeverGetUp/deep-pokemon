@@ -91,6 +91,7 @@ public enum Type {
 
     //一般、火、水、草、电、   冰、虫、飞行、地面、岩石、   格斗、超能力、幽灵、毒、恶、   钢、龙、妖精
     public static final List<String> TYPEORDER;
+
     static {
         TYPEORDER = new ArrayList<>(18);
         TYPEORDER.add("NORMAL");
@@ -112,6 +113,7 @@ public enum Type {
         TYPEORDER.add("DRAGON");
         TYPEORDER.add("FAIRY");
     }
+
     private String name;
     //属性进攻克制bit字符串，位数组对应应位置为克制修正*（1:1倍 2:2倍  0：无效果 U:0.5倍 ）
     private String effectiveType_attack_bitString;
@@ -119,13 +121,13 @@ public enum Type {
     private String effectiveType_defense_bitString;
 
 
-    private Type(String name,String effectiveType_attack_bitString,String effectiveType_defense_bitString) {
+    private Type(String name, String effectiveType_attack_bitString, String effectiveType_defense_bitString) {
         this.name = name;
         this.effectiveType_attack_bitString = effectiveType_attack_bitString;
         this.effectiveType_defense_bitString = effectiveType_defense_bitString;
     }
 
-    public static List<Float> getResistanceRate(PokemonInfo pokemonInfo){
+    public static List<Float> getResistanceRate(PokemonInfo pokemonInfo) {
         List<Type> types = pokemonInfo.getTypes();
         List<Float> resistanceRates = new ArrayList<>(18);
         //单属性，直接转换

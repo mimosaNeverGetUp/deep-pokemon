@@ -29,7 +29,6 @@ import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
@@ -38,27 +37,29 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile("startCraw")
-public class CrawLadderRunner{
-    @Autowired
+public class CrawLadderRunner {
     LadderCrawler ladderCrawler;
 
-    @Autowired
     BattleService battleSevice;
 
-    @Autowired
     LadderService ladderService;
 
-    private static final Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
+    private static final Logger log = LoggerFactory.getLogger(CrawLadderRunner.class);
+
+    public CrawLadderRunner(LadderCrawler ladderCrawler, BattleService battleSevice, LadderService ladderService) {
+        this.ladderCrawler = ladderCrawler;
+        this.battleSevice = battleSevice;
+        this.ladderService = ladderService;
+    }
 
     /**
      * 应用启动后爬取排行榜进行初始化统计
      */
     @EventListener(value = ApplicationStartedEvent.class)
-    public void crawLadder() throws Exception {
-        log.info(String.format("craw  " +
-                        "start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
+    public void crawLadder() {
+        log.info("craw start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
-                ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter()));
-        ladderCrawler.crawLadder();
+                ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());
+        ladderCrawler.crawLadder(true);
     }
 }

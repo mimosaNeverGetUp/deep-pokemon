@@ -85,7 +85,7 @@ public class BattleService {
 
     @RegisterReflectionForBinding({Battle.class, Team.class, Pokemon.class})
     public Battle findBattle(String battleId) {
-        return mongoTemplate.findById(battleId, Battle.class, "battle");
+        return mongoTemplate.findById(battleId, Battle.class, BATTLE);
     }
 
     @CacheEvict(cacheNames = "battleIds", allEntries = true)
@@ -93,8 +93,7 @@ public class BattleService {
         mongoTemplate.save(battle);
     }
 
-    @CacheEvict(cacheNames = "battleIds", allEntries = true)
-    public List<Battle> insert(List<Battle> battles) {
+    private List<Battle> insert(List<Battle> battles) {
         if (battles.isEmpty()) {
             return battles;
         }
@@ -102,7 +101,7 @@ public class BattleService {
             BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, BATTLE);
             BulkWriteResult result = bulkOperations.insert(battles).execute();
             return result.getInserts().stream().map(BulkWriteInsert::getIndex).map(battles::get)
-                    .collect(Collectors.toList());
+                    .toList();
         } catch (BulkOperationException e) {
             log.error("save battle fail", e);
             if (!isDuplicateKeyException(e)) {
@@ -112,7 +111,7 @@ public class BattleService {
             return IntStream.range(0, battles.size())
                     .filter(i -> !errorIndexs.contains(i))
                     .mapToObj(battles::get)
-                    .collect(Collectors.toList());
+                    .toList();
         }
     }
 
@@ -120,11 +119,22 @@ public class BattleService {
      * update battles
      * since can not update at once, performance is not good when battle size is big
      */
-    @CacheEvict(cacheNames = "battleIds", allEntries = true)
-    public void update(List<Battle> battles) {
+    private List<Battle> update(List<Battle> battles) {
         for (Battle battle : battles) {
             mongoTemplate.save(battle, BATTLE);
         }
+        return battles;
+    }
+
+    @CacheEvict(cacheNames = "battleIds", allEntries = true)
+    public List<Battle> save(List<Battle> battles, boolean overwrite) {
+        List<Battle> saveResult;
+        if (overwrite) {
+            saveResult = update(battles);
+        } else {
+            saveResult = insert(battles);
+        }
+        return saveResult;
     }
 
     private boolean isDuplicateKeyException(BulkOperationException exception) {
@@ -133,8 +143,7 @@ public class BattleService {
 
     public List<Battle> find100BattleSortByDate() {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date"))).limit(100);
-        List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
-        return battles;
+        return mongoTemplate.find(query, Battle.class, BATTLE);
     }
 
     @Cacheable(cacheNames = "battleIds")
@@ -161,7 +170,7 @@ public class BattleService {
 
     public CompletableFuture<List<BattleStat>> analyzeBattleAfterCraw(CompletableFuture<List<Battle>> crawBattleFuture) {
         return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, ANALYZE_BATTLE_EXECUTOR)
-                .thenApplyAsync(battleStats -> insert(battleStats));
+                .thenApplyAsync(this::insert);
     }
 
     public List<BattleStat> insert(Collection<BattleStat> battleStats) {

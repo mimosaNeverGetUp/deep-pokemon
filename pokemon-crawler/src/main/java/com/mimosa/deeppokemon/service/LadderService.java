@@ -25,28 +25,22 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.entity.Ladder;
-import com.mimosa.deeppokemon.entity.Player;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service("crawPlayerService")
 public class LadderService {
-    @Autowired
-    private MongoTemplate mongoTemplate;
-    private static final Logger log = LoggerFactory.getLogger(LadderService.class);
+    private final MongoTemplate mongoTemplate;
 
-    public void save(Ladder ladder) {
-        log.info(String.format("save ladder %s %tF", ladder.getFormat(), ladder.getDate()));
-        mongoTemplate.save(ladder);
+    public LadderService(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
     }
 
-    public void saveAll(List<Player> players) {
-        log.info("save players:" + players.get(0).getName());
-        mongoTemplate.insertAll(players);
+    public void save(Ladder ladder, boolean overwrite) {
+        if (overwrite) {
+            mongoTemplate.save(ladder);
+        } else {
+            mongoTemplate.insert(ladder);
+        }
     }
 }

@@ -35,8 +35,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
-import java.io.IOException;
-
 @Configuration
 @EnableScheduling
 @Profile({"crawDaily", "startCraw"})
@@ -45,7 +43,7 @@ public class ScheduledConfig {
     BattleService battleSevice;
     LadderService ladderService;
 
-    private final static Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
+    private static final Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
 
     public ScheduledConfig(LadderCrawler battleCrawler, BattleService battleSevice, LadderService ladderService) {
         this.battleCrawler = battleCrawler;
@@ -61,11 +59,7 @@ public class ScheduledConfig {
     @Scheduled(cron = "0 0 * * * ?")
     private void crawLadder() {
         log.info("start craw ladder");
-        try {
-            battleCrawler.crawLadder(false);
-        } catch (Exception e) {
-            throw new RuntimeException("craw ladder error", e);
-        }
+        battleCrawler.crawLadder(false);
         log.info("craw ladder success");
     }
 }

@@ -56,7 +56,7 @@ public class CrawLadderRunner {
      * 应用启动后爬取排行榜进行初始化统计
      */
     @EventListener(value = ApplicationStartedEvent.class)
-    public void crawLadder() throws Exception {
+    public void crawLadder() {
         log.info("craw start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());

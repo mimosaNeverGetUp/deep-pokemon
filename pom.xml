@@ -159,7 +159,7 @@
                     <execution>
                         <id>process-aot</id>
                         <configuration>
-                            <profiles>develop,docker</profiles>
+                            <profiles>develop,swarm</profiles>
                         </configuration>
                     </execution>
                 </executions>

@@ -1,0 +1,25 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://host.docker.internal:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+      database: deep_pokemon_dev_env
+    redis:
+      host: host.docker.internal
+      port: 6379
+      timeout: 100
+  cloud:
+    refresh:
+      enabled: false
+    loadbalancer:
+      eager-load:
+        clients:
+          - pokemon-crawler
+    openfeign:
+      client:
+        config:
+          pokemon-crawler:
+            url: http://pokemon-crawler:8081
+
+eureka:
+  client:
+    enabled: false

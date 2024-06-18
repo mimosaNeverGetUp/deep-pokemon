@@ -1,0 +1,10 @@
+version: "3"
+services:
+  pokemon-crawler:
+    image: "pokemon-crawler:0.0.1-SNAPSHOT"
+  pokemon-portal:
+    image: "pokemon-portal:0.0.1-SNAPSHOT"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pokemon-crawler

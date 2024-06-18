@@ -19,10 +19,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -35,9 +33,8 @@ class LadderCrawlerTest {
     static class TestConfig {
         @Bean(name = "testLadderCrawler")
         public LadderCrawler ladderCrawler() {
-            LadderCrawler crawler = new LadderCrawler("gen9ou", 1,
+            return new LadderCrawler("gen9ou", 1,
                     3, 1600, LocalDate.now().minusMonths(1), 60.0f);
-            return crawler;
         }
     }
 

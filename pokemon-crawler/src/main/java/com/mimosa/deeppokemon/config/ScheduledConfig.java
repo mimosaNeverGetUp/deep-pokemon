@@ -45,7 +45,7 @@ public class ScheduledConfig {
     BattleService battleSevice;
     LadderService ladderService;
 
-    private static Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
+    private final static Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
 
     public ScheduledConfig(LadderCrawler battleCrawler, BattleService battleSevice, LadderService ladderService) {
         this.battleCrawler = battleCrawler;
@@ -59,7 +59,7 @@ public class ScheduledConfig {
      * @author huangxiaocong(2070132549 @ qq.com)
      */
     @Scheduled(cron = "0 0 * * * ?")
-    private void crawLadder() throws IOException {
+    private void crawLadder() {
         log.info("start craw ladder");
         try {
             battleCrawler.crawLadder(false);

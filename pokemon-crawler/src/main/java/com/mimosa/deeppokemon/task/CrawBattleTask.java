@@ -60,11 +60,7 @@ public class CrawBattleTask implements Callable<List<Battle>> {
                 }
             }
 
-            if (update) {
-                battleService.update(battles);
-            } else {
-                battleService.insert(battles);
-            }
+            battleService.save(battles, update);
         } finally {
             CrawLock.unlock(holdBattleLocks);
         }
@@ -74,23 +70,27 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     private List<Battle> crawBattleFromReplay(List<Replay> replays) {
         List<Battle> battles = new ArrayList<>();
         for (Replay replay : replays) {
-
-            // check replay is need to craw
-            if (replay.id() == null) {
-                continue;
-            }
-
-            if (!CrawLock.tryLock(replay.id())) {
-                // another thread is craw ,skip
-                continue;
-            }
-            holdBattleLocks.add(replay.id());
-            if (!update && battleService.getAllBattleIds().contains(replay.id())) {
+            if (!isNeedCraw(replay)) {
                 continue;
             }
 
             battles.add(battleCrawler.craw(replay));
         }
         return battles;
+    }
+
+    private boolean isNeedCraw(Replay replay) {
+        // check replay is need to craw
+        if (replay.id() == null) {
+            return false;
+        }
+
+        if (!CrawLock.tryLock(replay.id())) {
+            // another thread is craw ,skip
+            return false;
+        } else {
+            holdBattleLocks.add(replay.id());
+        }
+        return update || !battleService.getAllBattleIds().contains(replay.id());
     }
 }

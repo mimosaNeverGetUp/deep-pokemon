@@ -42,7 +42,7 @@ class BattleServiceTest {
         Battle notExistBattle = new Battle();
         notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
         try {
-            List<Battle> insertBattle = battleService.insert(List.of(existBattle, notExistBattle));
+            List<Battle> insertBattle = battleService.save(List.of(existBattle, notExistBattle), false);
             Assertions.assertEquals(1, insertBattle.size());
             Assertions.assertEquals(NOT_EXIST_BATTLE_ID, insertBattle.get(0).getBattleID());
         } finally {
@@ -85,7 +85,7 @@ class BattleServiceTest {
         Battle notExistBattle = new Battle();
         notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
         try {
-            battleService.insert(List.of(notExistBattle));
+            battleService.save(List.of(notExistBattle), false);
             Assertions.assertTrue(battleService.getAllBattleIds().contains(NOT_EXIST_BATTLE_ID));
         } finally {
             mongoTemplate.remove(notExistBattle);

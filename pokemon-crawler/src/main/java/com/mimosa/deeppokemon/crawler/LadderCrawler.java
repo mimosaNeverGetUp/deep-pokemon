@@ -43,11 +43,10 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
-import java.util.stream.Collectors;
 
 
 public class LadderCrawler {
-    private static final String ladderQueryUrl = "https://play.pokemonshowdown.com/ladder.php?&server=showdown&output=html&prefix=";
+    private static final String LADDER_QUERY_URL = "https://play.pokemonshowdown.com/ladder.php?&server=showdown&output=html&prefix=";
 
     private String format;
     private int pageLimit;
@@ -83,15 +82,15 @@ public class LadderCrawler {
         this.dateAfter = dateAfter;
     }
 
-    public List<Battle> crawLadder() throws IOException {
-        Ladder ladder = crawLadderRank();
+    public List<Battle> crawLadder(boolean overwrite) {
+        Ladder ladder = crawLadderRank(overwrite);
         return crawLadderBattle(ladder);
     }
 
     public List<Battle> crawLadderBattle(Ladder ladder) {
-        log.info(String.format("craw start: format:%s pageLimit:%d rankLimit:%d eloLimit:%d gxeLimit:%f dateLimit:%tF",
+        log.info("craw start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
                 getFormat(), getPageLimit(), getRankMoreThan(),
-                getMinElo(), getMinGxe(), getDateAfter()));
+                getMinElo(), getMinGxe(), getDateAfter());
 
         List<Future<List<Battle>>> crawFutures = new ArrayList<>();
         for (LadderRank ladderRank : ladder.getLadderRankList()) {
@@ -106,27 +105,21 @@ public class LadderCrawler {
             try {
                 return future.get();
             } catch (Exception e) {
-                log.error("craw ladder battle occur exception", e);
                 throw new RuntimeException("craw ladder battle occur exception", e);
             }
-        }).flatMap(List::stream).collect(Collectors.toList());
+        }).flatMap(List::stream).toList();
     }
 
-    public Ladder crawLadderRank() throws IOException {
+    public Ladder crawLadderRank(boolean overwrite) {
         ClassicHttpRequest httpGet = initLadderQueryGet();
-        try {
-            String html = HttpUtil.request(httpGet);
-            Ladder ladder = LadderExtracter.extract(html, rankMoreThan, minElo, minGxe, format);
-            ladderService.save(ladder);
-            return ladder;
-        } catch (Exception e) {
-            log.error("craw ladder failed", e);
-            throw e;
-        }
+        String html = HttpUtil.request(httpGet);
+        Ladder ladder = LadderExtracter.extract(html, rankMoreThan, minElo, minGxe, format);
+        ladderService.save(ladder, overwrite);
+        return ladder;
     }
 
     private ClassicHttpRequest initLadderQueryGet() {
-        String url = ladderQueryUrl + String.format("&format=%s", format);
+        String url = LADDER_QUERY_URL + String.format("&format=%s", format);
         log.debug("init ladderQuery: {}", url);
 
         return ClassicRequestBuilder.get(url).build();

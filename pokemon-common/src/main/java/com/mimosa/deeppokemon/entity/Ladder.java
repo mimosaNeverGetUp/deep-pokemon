@@ -12,15 +12,26 @@
 package com.mimosa.deeppokemon.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Document(collection = "ladder")
 public class Ladder {
+    @MongoId
+    private String id;
     private String format;
     private LocalDate date;
     private List<LadderRank> ladderRankList;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFormat() {
         return format;

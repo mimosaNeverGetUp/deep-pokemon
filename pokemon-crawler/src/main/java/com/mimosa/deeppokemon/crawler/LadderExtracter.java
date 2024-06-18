@@ -30,6 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -38,12 +39,17 @@ import java.util.regex.Pattern;
 public class LadderExtracter {
     private static final Logger logger = LoggerFactory.getLogger(LadderExtracter.class);
 
-    public static final Pattern pattern = Pattern.compile("<td>([0-9]{1,3})</td>[^<]*<td>([^<]*)</td>[^<]*<td><strong>([0-9]{4})</strong></td>[^<]*<td>([^<]*)<small>");
+    public static final Pattern pattern =
+            Pattern.compile("<td>(\\d{1,3})</td>[^<]*<td>([^<]*)</td>[^<]*<td><strong>(\\d{4})" +
+                    "</strong></td>[^<]*<td>([^<]*)<small>");
 
-    public static Ladder extract(String html, int RankMoreThan, int minElo, float minGxe, String format) {
+    private LadderExtracter() {}
+
+    public static Ladder extract(String html, int rankMoreThan, int minElo, float minGxe, String format) {
         LocalDate date = LocalDate.now();
         Matcher matcher = pattern.matcher(html);
         Ladder ladder = new Ladder();
+        ladder.setId(DateTimeFormatter.BASIC_ISO_DATE.format(date));
         ladder.setDate(date);
         ladder.setFormat(format);
         List<LadderRank> ladderRankList = new ArrayList<>();
@@ -52,9 +58,10 @@ public class LadderExtracter {
             String playerName = matcher.group(2);
             int elo = Integer.parseInt(matcher.group(3));
             float gxe = Float.parseFloat(matcher.group(4));
-            logger.debug(String.format("match ladder %s , rank :%d , elo:%d gex:%f", playerName, rank, elo, gxe));
-            if (elo < minElo || rank > RankMoreThan || gxe < minGxe) {
-                logger.debug(String.format("player %s is not match ladder quality, rank :%d , elo:%d gex:%f", playerName, rank, elo, gxe));
+            logger.debug("match ladder {}, rank:{}, elo:{}, gex:{}", playerName, rank, elo, gxe);
+            if (elo < minElo || rank > rankMoreThan || gxe < minGxe) {
+                logger.debug("player {} is not match ladder quality, rank:{}, elo: {}, gex:{}", playerName, rank, elo,
+                        gxe);
             } else {
                 ladderRankList.add(new LadderRank(playerName, elo, rank, gxe));
             }

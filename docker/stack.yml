@@ -10,6 +10,7 @@ services:
       start_period: 10s
     environment:
       THC_PORT: 8081
+      THC_PATH: /actuator/health
   pokemon-portal:
     image: "pokemon-portal:0.0.1-SNAPSHOT"
     ports:

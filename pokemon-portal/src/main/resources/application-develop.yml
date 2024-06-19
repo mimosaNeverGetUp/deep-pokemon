@@ -24,12 +24,6 @@ management:
   endpoint:
     health:
       show-components: always
-  info:
-    java:
-      enabled: true
-    os:
-      enabled: true
-
 server:
   tomca:
     accesslog:

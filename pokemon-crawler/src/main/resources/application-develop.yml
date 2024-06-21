@@ -11,6 +11,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://mimosa:mimosa@localhost:8761/eureka/
+management:
+  endpoint:
+    health:
+      show-components: always
 #logging:
 #  level:
 #   com:

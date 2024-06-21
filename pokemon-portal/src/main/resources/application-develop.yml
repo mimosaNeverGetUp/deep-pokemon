@@ -17,21 +17,15 @@ spring:
       name: mimosa
       password: mimosa
 management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
   endpoint:
     health:
       show-components: always
-  info:
-    java:
-      enabled: true
-    os:
-      enabled: true
+  health:
+    redis:
+      enabled: false
 
 server:
-  tomca:
+  tomcat:
     accesslog:
       enabled: true
       directory: /logs/access

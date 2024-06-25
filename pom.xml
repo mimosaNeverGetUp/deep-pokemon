@@ -163,7 +163,7 @@
                     <execution>
                         <id>process-aot</id>
                         <configuration>
-                            <profiles>develop,swarm</profiles>
+                            <profiles>dev-swarm</profiles>
                         </configuration>
                     </execution>
                 </executions>

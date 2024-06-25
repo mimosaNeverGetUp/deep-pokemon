@@ -19,6 +19,20 @@ spring:
         config:
           pokemon-crawler:
             url: http://pokemon-crawler:8081
+  web:
+    cors: "*"
+  security:
+    user:
+      name: mimosa
+      password: mimosa
+
+management:
+  endpoint:
+    health:
+      show-components: always
+  health:
+    redis:
+      enabled: false
 
 eureka:
   client:

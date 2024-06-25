@@ -15,9 +15,3 @@ management:
   endpoint:
     health:
       show-components: always
-#logging:
-#  level:
-#   com:
-#       mimosa:
-#          deeppokemon:
-#           crawler: DEBUG

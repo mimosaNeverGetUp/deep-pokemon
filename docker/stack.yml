@@ -11,6 +11,7 @@ services:
     environment:
       THC_PORT: 8081
       THC_PATH: /actuator/health
+      spring.profiles.active: dev-swarm
   pokemon-portal:
     image: "pokemon-portal:0.0.1-SNAPSHOT"
     ports:
@@ -23,3 +24,5 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
+    environment:
+      spring.profiles.active: dev-swarm

@@ -5,7 +5,7 @@ spring:
   application:
     name: pokemon-portal
   profiles:
-    active: develop
+    default: dev
 #        active: production,startCraw
 logging:
   level:

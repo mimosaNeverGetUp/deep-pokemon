@@ -1,16 +1,25 @@
 spring:
     data:
         mongodb:
-            uri: mongodb://120.76.238.47:27017/?authSource=admin
-            database: deep_pokemon
-        jackson:
-        timeZone : GMT+8
-    web:
-        cors: "
-logging:
-    config: classpath:logback.xml
-server:
-    tomcat:
-        accesslog:
-            enabled: true
-            directory: /logs/access
+            uri: mongodb://host.docker.internal:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+            database: deep_pokemon_dev_env
+        redis:
+            host: host.docker.internal
+            port: 6379
+            timeout: 100
+    cloud:
+        refresh:
+            enabled: false
+        loadbalancer:
+            eager-load:
+                clients:
+                    - pokemon-crawler
+        openfeign:
+            client:
+                config:
+                    pokemon-crawler:
+                        url: http://pokemon-crawler:8081
+
+eureka:
+    client:
+        enabled: false

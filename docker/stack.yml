@@ -12,6 +12,9 @@ services:
       THC_PORT: 8081
       THC_PATH: /actuator/health
       spring.profiles.active: dev-swarm
+      SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
+    secrets:
+      - pwd
   pokemon-portal:
     image: "pokemon-portal:0.0.1-SNAPSHOT"
     ports:
@@ -26,3 +29,9 @@ services:
       start_period: 10s
     environment:
       spring.profiles.active: dev-swarm
+      SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
+    secrets:
+      - pwd
+secrets:
+  pwd:
+    file: pwd

@@ -86,8 +86,11 @@ public class BattleService {
             emptyPokemons.add(emptyPokemon);
         }
         for (LadderRank ladderRank : ladderRanks) {
-            String queryString = String.format("{ 'teams.playerName' : \"%s\",'teams.tier' : \"[Gen 9] OU\" }", ladderRank.getName());
-            Query query = new BasicQuery(queryString)
+            Criteria criteria = Criteria.where("teams.playerName").is(ladderRank.getName())
+                    .andOperator(Criteria.where("teams.tier").in("gen9ou", "[Gen 9] OU"));
+
+            Query query = new BasicQuery("{}")
+                    .addCriteria(criteria)
                     .with(Sort.by(Sort.Order.desc("date")))
                     .limit(2);
             List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);

@@ -31,17 +31,16 @@ import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ReplayBattleCrawler implements BattleCrawler {
     public static final String REPLAY_URL_PATTERN = "https://replay.pokemonshowdown.com/%s.json";
 
-    @Autowired
-    private BattleReplayExtractor battleReplayExtractor;
+    private final BattleReplayExtractor battleReplayExtractor;
 
-    public ReplayBattleCrawler() {
+    public ReplayBattleCrawler(BattleReplayExtractor battleReplayExtractor) {
+        this.battleReplayExtractor = battleReplayExtractor;
     }
 
     @Override
@@ -56,7 +55,6 @@ public class ReplayBattleCrawler implements BattleCrawler {
     }
 
     private ClassicHttpRequest initGet(String battleId) {
-        ClassicHttpRequest httpGet = ClassicRequestBuilder.get(String.format(REPLAY_URL_PATTERN, battleId)).build();
-        return httpGet;
+        return ClassicRequestBuilder.get(String.format(REPLAY_URL_PATTERN, battleId)).build();
     }
 }

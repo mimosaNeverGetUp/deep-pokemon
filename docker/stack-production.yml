@@ -11,7 +11,7 @@ services:
     environment:
       THC_PORT: 8081
       THC_PATH: /actuator/health
-      spring.profiles.active: production
+      spring.profiles.active: production,startCraw,crawDaily
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd
@@ -28,7 +28,7 @@ services:
       retries: 3
       start_period: 10s
     environment:
-      spring.profiles.active: production
+      spring.profiles.active: production,startCraw,crawDaily
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd

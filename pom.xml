@@ -163,7 +163,7 @@
                     <execution>
                         <id>process-aot</id>
                         <configuration>
-                            <profiles>dev-swarm</profiles>
+                            <profiles>production,startCraw,crawDaily</profiles>
                         </configuration>
                     </execution>
                 </executions>

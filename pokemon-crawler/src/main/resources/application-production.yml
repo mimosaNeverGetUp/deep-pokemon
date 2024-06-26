@@ -7,8 +7,6 @@ spring:
   cloud:
     refresh:
       enabled: false
-  profiles:
-    active: startCraw,crawDaily
 eureka:
   client:
     enabled: false

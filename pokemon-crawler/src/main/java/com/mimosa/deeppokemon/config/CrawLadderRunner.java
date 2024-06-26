@@ -38,6 +38,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Profile("startCraw")
 public class CrawLadderRunner {
+    private static final Logger logger = LoggerFactory.getLogger(CrawLadderRunner.class);
+
     LadderCrawler ladderCrawler;
 
     BattleService battleSevice;
@@ -60,6 +62,10 @@ public class CrawLadderRunner {
         log.info("craw start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());
-        ladderCrawler.crawLadder(true);
+        try {
+            ladderCrawler.crawLadder(true);
+        } catch (Exception e) {
+            logger.error("craw ladder exception", e);
+        }
     }
 }

@@ -41,6 +41,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Future;
 
 
@@ -99,14 +100,14 @@ public class LadderCrawler {
             var crawPlayerBattleFuture = battleService.crawBattleAndAnalyze(replayProvider);
             crawFutures.add(crawPlayerBattleFuture.crawFuture());
         }
-
         return crawFutures.stream().map(future -> {
             try {
                 return future.get();
             } catch (Exception e) {
-                throw new RuntimeException("craw ladder battle occur exception", e);
+                log.error("craw exception", e);
+                return null;
             }
-        }).flatMap(List::stream).toList();
+        }).filter(Objects::nonNull).flatMap(List::stream).toList();
     }
 
     public Ladder crawLadderRank(boolean overwrite) {

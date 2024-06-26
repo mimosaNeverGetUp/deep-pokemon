@@ -49,14 +49,19 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     @Override
     public List<Battle> call() {
         List<Battle> battles = new ArrayList<>();
+        List<Replay> replays = null;
         try {
             while (replayProvider.hasNext()) {
-                List<Replay> replays = replayProvider.next().replayList();
                 try {
+                    replays = replayProvider.next().replayList();
                     battles.addAll(crawBattleFromReplay(replays));
                 } catch (Exception e) {
-                    log.error("craw battle from replay fail, battles id: {}",
-                            replays.stream().map(Replay::id).collect(Collectors.toSet()), e);
+                    if (replays != null) {
+                        log.error("craw battle from replay fail, battles id: {}",
+                                replays.stream().map(Replay::id).collect(Collectors.toSet()), e);
+                    } else {
+                        log.error("craw battle replay fail", e);
+                    }
                 }
             }
 

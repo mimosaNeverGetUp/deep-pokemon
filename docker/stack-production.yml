@@ -6,14 +6,13 @@ services:
       - "8081:8081"
     healthcheck:
       test: [ "CMD", "/cnb/process/health-check" ]
-      interval: 5m
+      interval: 1m
       timeout: 10s
-      retries: 6
-      start_period: 10s
+      retries: 10
     environment:
       THC_PORT: 8081
       THC_PATH: /actuator/health
-      spring.profiles.active: "production,startCraw,crawDaily"
+      spring.profiles.active: "production,crawDaily"
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd
@@ -30,7 +29,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 6
-      start_period: 10s
     environment:
       spring.profiles.active: "production"
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"

@@ -27,16 +27,28 @@ package com.mimosa.deeppokemon;
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
 
 
+import com.mimosa.deeppokemon.entity.Replay;
+import org.springframework.aot.hint.RuntimeHints;
+import org.springframework.aot.hint.RuntimeHintsRegistrar;
+import org.springframework.aot.hint.TypeHint;
+import org.springframework.aot.hint.TypeReference;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ImportRuntimeHints;
 import org.springframework.context.annotation.Primary;
 
 import java.time.LocalDate;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static org.springframework.aot.hint.MemberCategory.INVOKE_PUBLIC_CONSTRUCTORS;
+import static org.springframework.aot.hint.MemberCategory.INVOKE_PUBLIC_METHODS;
 
 @SpringBootApplication
 @EnableCaching
+@ImportRuntimeHints(PokemonCrawlerApplication.ApplicationRuntimeHints.class)
 public class PokemonCrawlerApplication {
     public static void main(String[] args) {
         SpringApplication.run(PokemonCrawlerApplication.class, args);
@@ -49,4 +61,25 @@ public class PokemonCrawlerApplication {
                 200, 1600, LocalDate.now().minusMonths(1), 60.0f);
     }
 
+
+    /**
+     * graalvm runtime hint
+     */
+    static class ApplicationRuntimeHints implements RuntimeHintsRegistrar {
+
+        @Override
+        public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
+            hints.reflection()
+                    .registerTypes(TypeReference.listOf(
+                                    ArrayList.class,
+                                    LinkedList.class,
+                                    HashSet.class,
+                                    TreeSet.class,
+                                    ConcurrentHashMap.class,
+                                    LinkedHashMap.class,
+                                    TreeMap.class,
+                                    Replay.class),
+                            TypeHint.builtWith(INVOKE_PUBLIC_CONSTRUCTORS, INVOKE_PUBLIC_METHODS));
+        }
+    }
 }

@@ -18,6 +18,7 @@ import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.apache.hc.core5.net.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -74,6 +75,7 @@ public class PlayerReplayProvider implements ReplayProvider {
         }
     }
 
+    @RegisterReflectionForBinding(Replay.class)
     public List<ReplaySource> queryReplayPage(int page) {
         try {
             URI uri = new URIBuilder(PLAYER_REPLAY_QUERY_URL)
@@ -82,7 +84,7 @@ public class PlayerReplayProvider implements ReplayProvider {
                     .addParameter("format", format)
                     .build();
             ClassicHttpRequest httpGet = ClassicRequestBuilder.get(uri).build();
-            logger.info("query player {} replay: {}", name, uri.toString());
+            logger.info("query player {} replay: {}", name, uri);
 
             String replayJsonStr = convertResponseToJson(HttpUtil.request(httpGet));
             List<Replay> replays = OBJECT_MAPPER.readValue(replayJsonStr, new TypeReference<>() {
@@ -92,10 +94,8 @@ public class PlayerReplayProvider implements ReplayProvider {
                     .map(replay -> new ReplaySource(LADDER, Collections.singletonList(replay)))
                     .collect(Collectors.toList());
         } catch (URISyntaxException e) {
-            logger.error("build query replay uri occur error", e);
             throw new RuntimeException("build query replay uri occur error", e);
         } catch (JsonProcessingException e) {
-            logger.error("parse api response fail", e);
             throw new RuntimeException("parse api response fail", e);
         }
     }

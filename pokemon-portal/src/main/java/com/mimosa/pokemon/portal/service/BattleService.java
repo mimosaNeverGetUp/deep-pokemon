@@ -58,6 +58,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class BattleService {
+    protected static final String BATTLE = "battle";
     @Autowired
     private MongoTemplate mongoTemplate;
 
@@ -72,7 +73,7 @@ public class BattleService {
         long totalRecord = mongoTemplate.count(query, Battle.class);
         MongodbUtils.buildPageFacetAggregationOperation(query, page, row);
 
-        List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
+        List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
         return new PageResponse<>(totalRecord, page, row, battles);
     }
 
@@ -89,7 +90,7 @@ public class BattleService {
             Query query = new BasicQuery(queryString)
                     .with(Sort.by(Sort.Order.desc("date")))
                     .limit(2);
-            List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
+            List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
             for (Battle battle : battles) {
                 Team[] teams = battle.getTeams();
                 for (Team team : teams) {
@@ -119,11 +120,10 @@ public class BattleService {
         }
         for (Player player : list) {
             String queryString = String.format("{ 'teams.playerName' : \"%s\",'teams.tier' : \"[Gen 9] OU\" }", player.getName());
-            System.out.println(queryString);
             Query query = new BasicQuery(queryString)
                     .with(Sort.by(Sort.Order.desc("date")))
                     .limit(2);
-            List<Battle> battles = mongoTemplate.find(query, Battle.class, "battle");
+            List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
             for (Battle battle : battles) {
                 Team[] teams = battle.getTeams();
                 for (Team team : teams) {
@@ -212,7 +212,7 @@ public class BattleService {
                 Aggregation.sort(Sort.Direction.DESC, "use")
         );
         AggregationResults<PokemonMoveStat> aggregationResults =
-                mongoTemplate.aggregate(aggregation, "battle", PokemonMoveStat.class);
+                mongoTemplate.aggregate(aggregation, BATTLE, PokemonMoveStat.class);
         List<PokemonMoveStat> pokemonMoveStats = aggregationResults.getMappedResults();
 
         // 使用率排序
@@ -231,7 +231,7 @@ public class BattleService {
         Query countQuery = new BasicQuery("{}");
         countQuery.addCriteria(dateCondition);
         countQuery.addCriteria(fullPlayerCondition);
-        long totalGame = mongoTemplate.count(countQuery, "battle");
+        long totalGame = mongoTemplate.count(countQuery, BATTLE);
         Aggregation aggregation = Aggregation.newAggregation(
                 Aggregation.match(dateCondition),
                 // 过率脏数据
@@ -257,7 +257,7 @@ public class BattleService {
                 Aggregation.sort(Sort.Direction.DESC, "use")
         );
         AggregationResults<PokemonUsageStat> aggregationResults =
-                mongoTemplate.aggregate(aggregation, "battle", PokemonUsageStat.class);
+                mongoTemplate.aggregate(aggregation, BATTLE, PokemonUsageStat.class);
         List<PokemonUsageStat> pokemonUsageStats = aggregationResults.getMappedResults();
         pokemonUsageStats.forEach(stat -> {
             stat.setTotalGame(totalGame);
@@ -268,12 +268,13 @@ public class BattleService {
     }
 
     @Cacheable("team")
+    @RegisterReflectionForBinding(BattleTeamDto.class)
     public PageResponse<BattleTeamDto> team(int page, int row, List<String> tags, List<String> pokemonNames, String dayAfter,
                                             String dayBefore) {
         Aggregation queryAggregation = buildTeamQueryAggregation(tags, pokemonNames, dayAfter, dayBefore);
         MongodbUtils.addPageFacetOperation(queryAggregation, page, row);
 
-        AggregationResults<Document> result = mongoTemplate.aggregate(queryAggregation, "battle",
+        AggregationResults<Document> result = mongoTemplate.aggregate(queryAggregation, BATTLE,
                 Document.class);
         return MongodbUtils.parsePageAggregationResult(result, page, row, BattleTeamDto.class);
     }

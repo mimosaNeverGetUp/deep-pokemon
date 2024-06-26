@@ -1,8 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://root:${MONGODB_PWD}@host.docker.internal:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
-      database: deep_pokemon_dev_env
+      uri: mongodb://root:${MONGODB_PWD}@host.docker.internal:27017/deep_pokemon_dev_env?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
     redis:
       host: host.docker.internal
       port: 6379

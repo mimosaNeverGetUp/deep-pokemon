@@ -1,7 +1,7 @@
 version: "3"
 services:
   pokemon-crawler:
-    image: "pokemon-crawler:1.0.0"
+    image: "mimosa1997/pokemon-crawler:1.0.0"
     healthcheck:
       test: [ "CMD", "/cnb/process/health-check" ]
       interval: 30s
@@ -16,7 +16,7 @@ services:
     secrets:
       - pwd
   pokemon-portal:
-    image: "pokemon-portal:1.0.0"
+    image: "mimosa1997/pokemon-portal:1.0.0"
     ports:
       - "8080:8080"
     deploy:
@@ -30,7 +30,7 @@ services:
       retries: 3
       start_period: 10s
     environment:
-      spring.profiles.active: "production,startCraw,crawDaily"
+      spring.profiles.active: "production"
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd

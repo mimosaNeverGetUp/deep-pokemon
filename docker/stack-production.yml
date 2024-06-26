@@ -2,6 +2,8 @@ version: "3"
 services:
   pokemon-crawler:
     image: "mimosa1997/pokemon-crawler:1.0.0"
+    ports:
+      - "8081:8081"
     healthcheck:
       test: [ "CMD", "/cnb/process/health-check" ]
       interval: 5m

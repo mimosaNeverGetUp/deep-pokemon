@@ -7,22 +7,30 @@
 package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
+import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
+import com.mimosa.deeppokemon.task.entity.CrawAnalyzeBattleFuture;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 
 @SpringBootTest
@@ -42,7 +50,7 @@ class LadderCrawlerTest {
     @Qualifier("testLadderCrawler")
     LadderCrawler ladderCrawler;
 
-    @Autowired
+    @SpyBean
     BattleService battleSevice;
 
     @Autowired
@@ -76,5 +84,17 @@ class LadderCrawlerTest {
                 mongoTemplate.remove(ladder);
             }
         }
+    }
+
+    @Test
+    void crawLadder() throws ExecutionException, InterruptedException {
+        Ladder ladder = new Ladder();
+        ladder.setLadderRankList(Collections.nCopies(5, new LadderRank("testUser", 0, 0, 0.0F)));
+
+        List<Battle> battleList = Collections.nCopies(10, new Battle(null));
+        Mockito.doReturn(new CrawAnalyzeBattleFuture(CompletableFuture.completedFuture(battleList), null))
+                .when(battleSevice).crawBattleAndAnalyze(Mockito.any());
+        List<Battle> result = ladderCrawler.crawLadderBattle(ladder).get();
+        Assertions.assertEquals(50, result.size());
     }
 }

@@ -1,8 +1,8 @@
 spring:
     data:
         mongodb:
-            uri: mongodb://root:${MONGODB_PWD}@101.43.126.226:27017/deep_pokemon_dev_env?serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
-            database: deep_pokemon_dev_env
+            uri: mongodb://root:${MONGODB_PWD}@101.43.126.226:27017/deep_pokemon?serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+            database: deep_pokemon
             authentication-database: admin
         redis:
             host: 101.43.126.226

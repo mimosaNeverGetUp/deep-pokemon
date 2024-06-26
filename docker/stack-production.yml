@@ -11,7 +11,7 @@ services:
     environment:
       THC_PORT: 8081
       THC_PATH: /actuator/health
-      spring.profiles.active: production,startCraw,crawDaily
+      spring.profiles.active: "production,startCraw,crawDaily"
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd
@@ -19,6 +19,8 @@ services:
     image: "pokemon-portal:1.0.0"
     ports:
       - "8080:8080"
+    deploy:
+      replicas: 2
     depends_on:
       - pokemon-crawler
     healthcheck:
@@ -28,7 +30,7 @@ services:
       retries: 3
       start_period: 10s
     environment:
-      spring.profiles.active: production,startCraw,crawDaily
+      spring.profiles.active: "production,startCraw,crawDaily"
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd

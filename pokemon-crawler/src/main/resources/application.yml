@@ -4,11 +4,11 @@ spring:
   jackson:
     timeZone: GMT+8
   profiles:
-    active: develop
+    default: dev
 server:
   port: 8081
 
 logging:
   level:
     com:
-        netflix: ERROR
+      netflix: ERROR

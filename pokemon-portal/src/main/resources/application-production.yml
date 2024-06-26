@@ -1,16 +1,40 @@
 spring:
     data:
         mongodb:
-            uri: mongodb://120.76.238.47:27017/?authSource=admin
-            database: deep_pokemon
-        jackson:
-        timeZone : GMT+8
+            uri: mongodb://root:${MONGODB_PWD}@101.43.126.226:27017/deep_pokemon_dev_env?serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+            database: deep_pokemon_dev_env
+            authentication-database: admin
+        redis:
+            host: 101.43.126.226
+            port: 6379
+            timeout: 100
+    cloud:
+        refresh:
+            enabled: false
+        loadbalancer:
+            eager-load:
+                clients:
+                    - pokemon-crawler
+        openfeign:
+            client:
+                config:
+                    pokemon-crawler:
+                        url: http://pokemon-crawler:8081
     web:
-        cors: "
-logging:
-    config: classpath:logback.xml
-server:
-    tomcat:
-        accesslog:
-            enabled: true
-            directory: /logs/access
+        cors: "*"
+    security:
+        user:
+            name: mimosa
+            password: ${SPRING_USER_PWD:mimosa}
+
+management:
+    endpoint:
+        health:
+            show-components: always
+    health:
+        redis:
+            enabled: false
+
+eureka:
+    client:
+        enabled: false

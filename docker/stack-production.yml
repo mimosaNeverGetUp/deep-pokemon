@@ -1,7 +1,7 @@
 version: "3"
 services:
   pokemon-crawler:
-    image: "pokemon-crawler:0.0.1-SNAPSHOT"
+    image: "pokemon-crawler:1.0.0"
     healthcheck:
       test: [ "CMD", "/cnb/process/health-check" ]
       interval: 30s
@@ -11,12 +11,12 @@ services:
     environment:
       THC_PORT: 8081
       THC_PATH: /actuator/health
-      spring.profiles.active: dev-swarm
+      spring.profiles.active: production,startCraw,crawDaily
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd
   pokemon-portal:
-    image: "pokemon-portal:0.0.1-SNAPSHOT"
+    image: "pokemon-portal:1.0.0"
     ports:
       - "8080:8080"
     depends_on:
@@ -28,10 +28,10 @@ services:
       retries: 3
       start_period: 10s
     environment:
-      spring.profiles.active: dev-swarm
+      spring.profiles.active: production,startCraw,crawDaily
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd
 secrets:
   pwd:
-    file: pwd
+    external: true

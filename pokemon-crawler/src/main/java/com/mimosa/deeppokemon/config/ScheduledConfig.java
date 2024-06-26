@@ -56,7 +56,7 @@ public class ScheduledConfig {
      *
      * @author huangxiaocong(2070132549 @ qq.com)
      */
-    @Scheduled(cron = "0 0 * * * ?")
+    @Scheduled(cron = "0 0 1 * * ?")
     private void crawLadder() {
         log.info("start craw ladder");
         battleCrawler.crawLadder(false);

@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://host.docker.internal:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+      uri: mongodb://root:${MONGODB_PWD}@host.docker.internal:27017/?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
       database: deep_pokemon_dev_env
     redis:
       host: host.docker.internal
@@ -19,6 +19,20 @@ spring:
         config:
           pokemon-crawler:
             url: http://pokemon-crawler:8081
+  web:
+    cors: "*"
+  security:
+    user:
+      name: mimosa
+      password: ${SPRING_USER_PWD:mimosa}
+
+management:
+  endpoint:
+    health:
+      show-components: always
+  health:
+    redis:
+      enabled: false
 
 eureka:
   client:

@@ -63,9 +63,10 @@ public class CrawLadderRunner {
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());
         try {
-            ladderCrawler.crawLadder(true).get();
+            ladderCrawler.crawLadder(true).join();
         } catch (Exception e) {
             logger.error("craw ladder exception", e);
+            Thread.currentThread().interrupt();
         }
     }
 }

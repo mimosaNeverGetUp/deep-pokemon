@@ -29,7 +29,7 @@ import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.context.event.ApplicationStartedEvent;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -38,6 +38,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Profile("startCraw")
 public class CrawLadderRunner {
+    private static final Logger logger = LoggerFactory.getLogger(CrawLadderRunner.class);
+
     LadderCrawler ladderCrawler;
 
     BattleService battleSevice;
@@ -55,11 +57,16 @@ public class CrawLadderRunner {
     /**
      * 应用启动后爬取排行榜进行初始化统计
      */
-    @EventListener(value = ApplicationStartedEvent.class)
+    @EventListener(value = ApplicationReadyEvent.class)
     public void crawLadder() {
         log.info("craw start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());
-        ladderCrawler.crawLadder(true);
+        try {
+            ladderCrawler.crawLadder(true).join();
+        } catch (Exception e) {
+            logger.error("craw ladder exception", e);
+            Thread.currentThread().interrupt();
+        }
     }
 }

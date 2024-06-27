@@ -59,7 +59,7 @@ public class ScheduledConfig {
     @Scheduled(cron = "0 0 1 * * ?")
     private void crawLadder() {
         log.info("start craw ladder");
-        battleCrawler.crawLadder(false);
+        battleCrawler.crawLadder(false).join();
         log.info("craw ladder success");
     }
 }

@@ -6,26 +6,31 @@
 
 package com.mimosa.deeppokemon.controller;
 
+import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.service.BattleService;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/api")
 public class BattleApiController {
     private final BattleService battleService;
 
-    public BattleApiController(BattleService battleService) {
+    private final LadderCrawler ladderCrawler;
+
+    public BattleApiController(BattleService battleService, LadderCrawler ladderCrawler) {
         this.battleService = battleService;
+        this.ladderCrawler = ladderCrawler;
     }
 
     @GetMapping("/battle/{battleid}/stat")
-    @ResponseBody
     public BattleStat battleStat(@PathVariable("battleid") String battleId) {
         return battleService.getBattleStat(battleId);
+    }
+
+    @PostMapping("/ladder/craw")
+    public String crawLadder() {
+        ladderCrawler.crawLadder(true);
+        return "success trigger";
     }
 }

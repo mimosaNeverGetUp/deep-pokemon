@@ -41,7 +41,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Future;
+import java.util.concurrent.CompletableFuture;
 
 
 public class LadderCrawler {
@@ -81,17 +81,17 @@ public class LadderCrawler {
         this.dateAfter = dateAfter;
     }
 
-    public List<Battle> crawLadder(boolean overwrite) {
+    public CompletableFuture<List<Battle>> crawLadder(boolean overwrite) {
         Ladder ladder = crawLadderRank(overwrite);
         return crawLadderBattle(ladder);
     }
 
-    public List<Battle> crawLadderBattle(Ladder ladder) {
+    public CompletableFuture<List<Battle>> crawLadderBattle(Ladder ladder) {
         log.info("craw start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
                 getFormat(), getPageLimit(), getRankMoreThan(),
                 getMinElo(), getMinGxe(), getDateAfter());
 
-        List<Future<List<Battle>>> crawFutures = new ArrayList<>();
+        List<CompletableFuture<List<Battle>>> crawFutures = new ArrayList<>();
         for (LadderRank ladderRank : ladder.getLadderRankList()) {
             String playerName = ladderRank.getName();
             PlayerReplayProvider replayProvider = new PlayerReplayProvider(playerName, format,
@@ -99,14 +99,13 @@ public class LadderCrawler {
             var crawPlayerBattleFuture = battleService.crawBattleAndAnalyze(replayProvider);
             crawFutures.add(crawPlayerBattleFuture.crawFuture());
         }
-
-        return crawFutures.stream().map(future -> {
-            try {
-                return future.get();
-            } catch (Exception e) {
-                throw new RuntimeException("craw ladder battle occur exception", e);
-            }
-        }).flatMap(List::stream).toList();
+        CompletableFuture<Void> allBattleCrawFuture =
+                CompletableFuture.allOf(crawFutures.toArray(new CompletableFuture[0]));
+        return allBattleCrawFuture.thenApply(v ->
+                crawFutures.stream()
+                        .map(CompletableFuture::join)
+                        .flatMap(List::stream)
+                        .toList());
     }
 
     public Ladder crawLadderRank(boolean overwrite) {

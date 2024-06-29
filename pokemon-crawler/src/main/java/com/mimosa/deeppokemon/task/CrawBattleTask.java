@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
@@ -57,30 +58,34 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     @Override
     public List<Battle> call() {
         List<Battle> battles = new ArrayList<>();
-        List<Replay> replays = null;
         try {
             while (replayProvider.hasNext()) {
-                try {
-                    replays = replayProvider.next().replayList();
-                    battles.addAll(crawBattleFromReplay(replays));
-                } catch (InterruptedException e) {
-                    log.error("Thread interrupted", e);
-                    Thread.currentThread().interrupt();
-                } catch (Exception e) {
-                    if (replays != null) {
-                        log.error("craw battle from replay fail, battles id: {}",
-                                replays.stream().map(Replay::id).collect(Collectors.toSet()), e);
-                    } else {
-                        log.error("craw battle replay fail", e);
-                    }
-                }
+                battles.addAll(crawBattle(replayProvider.next().replayList()));
             }
-
             battleService.save(battles, update);
+        } catch (Exception e) {
+            log.error("craw battle fail", e);
         } finally {
             CrawLock.unlock(holdBattleLocks);
         }
         return battles;
+    }
+
+    private List<Battle> crawBattle(List<Replay> replays) {
+        try {
+            return crawBattleFromReplay(replays);
+        } catch (InterruptedException e) {
+            log.error("Thread interrupted", e);
+            Thread.currentThread().interrupt();
+        } catch (Exception e) {
+            if (replays != null) {
+                log.error("craw battle from replay fail, battles id: {}",
+                        replays.stream().map(Replay::id).collect(Collectors.toSet()), e);
+            } else {
+                log.error("craw battle replay fail", e);
+            }
+        }
+        return Collections.emptyList();
     }
 
     private List<Battle> crawBattleFromReplay(List<Replay> replays) throws InterruptedException {

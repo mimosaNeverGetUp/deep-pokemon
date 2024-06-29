@@ -19,6 +19,7 @@ import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactoryBuilder;
 import org.apache.hc.core5.http.ClassicHttpRequest;
+import org.apache.hc.core5.http.ConnectionClosedException;
 import org.apache.hc.core5.http.io.SocketConfig;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.ssl.TLS;
@@ -28,7 +29,13 @@ import org.apache.hc.core5.ssl.SSLContexts;
 import org.apache.hc.core5.util.TimeValue;
 import org.apache.hc.core5.util.Timeout;
 
+import javax.net.ssl.SSLException;
 import java.io.IOException;
+import java.net.ConnectException;
+import java.net.NoRouteToHostException;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HttpUtil {
@@ -66,7 +73,7 @@ public class HttpUtil {
                 .setDefaultRequestConfig(RequestConfig.custom()
                         .setCookieSpec(StandardCookieSpec.STRICT)
                         .build())
-                .setRetryStrategy(new DefaultHttpRequestRetryStrategy(MAX_RETRIES, TimeValue.of(1, TimeUnit.SECONDS)))
+                .setRetryStrategy(new HttpRequestRetryStrategy(MAX_RETRIES, TimeValue.of(1, TimeUnit.SECONDS)))
                 .build();
     }
 
@@ -89,6 +96,15 @@ public class HttpUtil {
             return OBJECT_MAPPER.readValue(request(request), tClass);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private static class HttpRequestRetryStrategy extends DefaultHttpRequestRetryStrategy {
+        protected static final List<Class<? extends IOException>> NO_RETRY_EXCEPTION = Arrays.asList(
+                UnknownHostException.class, ConnectException.class, ConnectionClosedException.class, NoRouteToHostException.class, SSLException.class);
+
+        public HttpRequestRetryStrategy(int maxRetries, TimeValue defaultRetryInterval) {
+            super(maxRetries, defaultRetryInterval, NO_RETRY_EXCEPTION, Arrays.asList(429, 503));
         }
     }
 }

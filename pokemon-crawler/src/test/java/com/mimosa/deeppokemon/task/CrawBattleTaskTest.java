@@ -51,8 +51,12 @@ class CrawBattleTaskTest {
     }
 
     @Test
-    void crawReplayExcetpion() {
+    void crawReplayException() {
         CrawBattleTask crawBattleTask = new CrawBattleTask(new MockExceptionReplayProvider(10), battleCrawler,
+                battleService, false, 0);
+        Assertions.assertDoesNotThrow(crawBattleTask::call);
+        // mock has next exception
+        crawBattleTask = new CrawBattleTask(new MockHasNextExceptionReplayProvider(10), battleCrawler,
                 battleService, false, 0);
         Assertions.assertDoesNotThrow(crawBattleTask::call);
     }
@@ -69,9 +73,8 @@ class CrawBattleTaskTest {
         Assertions.assertTrue(stopWatch.getTime() > 3 * CRAW_PERIOD);
     }
 
-
     private static class MockExceptionReplayProvider implements ReplayProvider {
-        int replayNumber;
+        protected int replayNumber;
 
         public MockExceptionReplayProvider(int replayNumber) {
             this.replayNumber = replayNumber;
@@ -87,6 +90,20 @@ class CrawBattleTaskTest {
             return replayNumber-- == 0;
         }
     }
+
+
+    private static class MockHasNextExceptionReplayProvider extends MockExceptionReplayProvider {
+
+        public MockHasNextExceptionReplayProvider(int replayNumber) {
+            super(replayNumber);
+        }
+
+        @Override
+        public boolean hasNext() {
+            throw new RuntimeException("mock exception");
+        }
+    }
+
 
     private static class NoOpBattleCrawler implements BattleCrawler {
         @Override

@@ -142,6 +142,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <image>
+                        <name>mimosa1997/${project.artifactId}:${project.version}</name>
                         <pullPolicy>IF_NOT_PRESENT</pullPolicy>
                         <bindings>
                             <binding>${rootProject.basedir}/graalvm/bindings:/platform/bindings</binding>
@@ -158,6 +159,12 @@
                             <buildpack>gcr.io/paketo-buildpacks/health-checker:latest</buildpack>
                         </buildpacks>
                     </image>
+                    <docker>
+                        <publishRegistry>
+                            <username>${docker.user}</username>
+                            <password>${docker.password}</password>
+                        </publishRegistry>
+                    </docker>
                 </configuration>
                 <executions>
                     <execution>

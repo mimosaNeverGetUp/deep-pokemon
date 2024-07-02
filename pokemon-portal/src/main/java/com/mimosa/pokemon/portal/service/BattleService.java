@@ -24,7 +24,10 @@
 
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.LadderRank;
+import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.PokemonStatDto;
@@ -37,7 +40,6 @@ import com.mimosa.pokemon.portal.util.MongodbUtils;
 import com.mongodb.BasicDBObject;
 import org.bson.Document;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -59,11 +61,13 @@ import java.util.stream.Collectors;
 @Service
 public class BattleService {
     protected static final String BATTLE = "battle";
-    @Autowired
-    private MongoTemplate mongoTemplate;
+    private final MongoTemplate mongoTemplate;
+    private final CrawlerApi crawlerApi;
 
-    @Autowired
-    private CrawlerApi crawlerApi;
+    public BattleService(MongoTemplate mongoTemplate, CrawlerApi crawlerApi) {
+        this.mongoTemplate = mongoTemplate;
+        this.crawlerApi = crawlerApi;
+    }
 
     @Cacheable("playerBattle")
     public PageResponse<Battle> listBattleByName(String playerName, int page, int row) {
@@ -106,39 +110,6 @@ public class BattleService {
             Team emptyTeam = new Team();
             emptyTeam.setPokemons(emptyPokemons);
             emptyTeam.setPlayerName(ladderRank.getName());
-            for (int j = 0; j < 2 - battles.size(); ++j) {
-                teamList.add(emptyTeam);
-            }
-        }
-        return teamList;
-    }
-
-    public List<Team> listTeamByPlayerList(List<Player> list) {
-        ArrayList<Pokemon> emptyPokemons = new ArrayList<>(6);
-        Pokemon emptyPokemon = new Pokemon("null");
-
-        List<Team> teamList = new ArrayList<>();
-        for (int i = 0; i < 6; ++i) {
-            emptyPokemons.add(emptyPokemon);
-        }
-        for (Player player : list) {
-            String queryString = String.format("{ 'teams.playerName' : \"%s\",'teams.tier' : \"[Gen 9] OU\" }", player.getName());
-            Query query = new BasicQuery(queryString)
-                    .with(Sort.by(Sort.Order.desc("date")))
-                    .limit(2);
-            List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
-            for (Battle battle : battles) {
-                Team[] teams = battle.getTeams();
-                for (Team team : teams) {
-                    if (player.getName().equals(team.getPlayerName())) {
-                        teamList.add(team);
-                        break;
-                    }
-                }
-            }
-            Team emptyTeam = new Team();
-            emptyTeam.setPokemons(emptyPokemons);
-            emptyTeam.setPlayerName(player.getName());
             for (int j = 0; j < 2 - battles.size(); ++j) {
                 teamList.add(emptyTeam);
             }
@@ -328,5 +299,4 @@ public class BattleService {
 
         return Aggregation.newAggregation(aggregationOperations);
     }
-
 }

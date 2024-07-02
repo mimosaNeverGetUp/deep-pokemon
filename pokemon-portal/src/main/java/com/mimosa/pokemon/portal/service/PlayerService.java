@@ -24,31 +24,24 @@
 
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.Ladder;
+import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
-import com.mimosa.pokemon.portal.entity.JsonArrayResponse;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 @Service
 public class PlayerService {
-    @Autowired
-    private MongoTemplate mongoTemplate;
+    private final MongoTemplate mongoTemplate;
 
-    @Autowired
-    private BattleService battleService;
+    public PlayerService(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
+    }
 
     public PlayerRankDTO queryPlayerLadderRank(@NonNull String playerName) {
         Ladder ladder = getLatestLadder();
@@ -66,85 +59,5 @@ public class PlayerService {
                 .with(Sort.by(Sort.Order.desc("date")))
                 .limit(1);
         return mongoTemplate.findOne(query, Ladder.class, "ladder");
-    }
-
-    public JsonArrayResponse listPlayerRank(int page, int limit) {
-        //查询数据库里储存的最新的日期
-        int start = limit * (page - 1);
-        Query query = new BasicQuery("{}")
-                .with(Sort.by(Sort.Order.desc("infoDate")))
-                .limit(1);
-        Player player = mongoTemplate.findOne(query, Player.class, "player");
-        LocalDate date = player.getInfoDate();
-        //查询最新日期的列表玩家
-        query = new BasicQuery("{}")
-                .with(Sort.by(Sort.Order.asc("rank")));
-        Criteria criteria = Criteria.where("infoDate").gte(date);
-        query.addCriteria(criteria);
-        long count = mongoTemplate.count(query, Player.class, "player");
-        query.skip(start);
-        query.limit(limit);
-
-        List<Player> playerList = mongoTemplate.find(query, Player.class, "player");
-        //去除列表里重复和范围外元素
-        for (int i = 0; i < playerList.size(); ++i) {
-            for (int j = playerList.size() - 1; j > i; --j) {
-                if (playerList.get(i).equals(playerList.get(j))) {
-                    playerList.remove(j);
-                }
-            }
-        }
-        JsonArrayResponse response = new JsonArrayResponse();
-        response.setData(playerList);
-        response.setCode(0);
-        response.setCount(count);
-        response.setMsg("");
-        return response;
-    }
-
-    public JsonArrayResponse listPlayerDTORank(int page, int limit) {
-        // 查询数据库里储存的最新的日期
-        int start = limit * (page - 1);
-        Query query = new BasicQuery("{}")
-                .with(Sort.by(Sort.Order.desc("infoDate")))
-                .limit(1);
-        Player player = mongoTemplate.findOne(query, Player.class, "player");
-        LocalDate date = player.getInfoDate();
-        // 查询最新日期的列表玩家
-        query = new BasicQuery("{}")
-                .with(Sort.by(Sort.Order.asc("rank")));
-        Criteria criteria = Criteria.where("infoDate").gte(date);
-        query.addCriteria(criteria);
-        long count = mongoTemplate.count(query, Player.class, "player");
-        query.skip(start);
-        query.limit(limit);
-
-        List<Player> playerList = mongoTemplate.find(query, Player.class, "player");
-
-        // 去除列表里重复和范围外元素
-        for (int i = 0; i < playerList.size(); ++i) {
-            for (int j = playerList.size() - 1; j > i; --j) {
-                if (playerList.get(i).equals(playerList.get(j))) {
-                    playerList.remove(j);
-                }
-            }
-        }
-        JsonArrayResponse response = new JsonArrayResponse();
-        response.setData(transferPlayerRankDTO(playerList));
-        response.setCode(0);
-        response.setCount(count);
-        response.setMsg("");
-        return response;
-    }
-
-    public List<PlayerRankDTO> transferPlayerRankDTO(List<Player> playerLists) {
-        List<PlayerRankDTO> playerRankDTOS = new ArrayList<>();
-        for (Player player : playerLists) {
-            PlayerRankDTO playerRankDTO = new PlayerRankDTO(player.getInfoDate(), player.getName(), player.getElo(),
-                    player.getRank(), player.getGxe(), player.getFormat());
-            playerRankDTO.setRecentTeam(battleService.listTeamByPlayerList(Collections.singletonList(player)));
-            playerRankDTOS.add(playerRankDTO);
-        }
-        return playerRankDTOS;
     }
 }

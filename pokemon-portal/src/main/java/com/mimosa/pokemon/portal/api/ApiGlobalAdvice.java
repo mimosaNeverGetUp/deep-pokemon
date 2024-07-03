@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
-@ControllerAdvice("com.mimosa.pokemon.portal.api")
+@ControllerAdvice
 public class ApiGlobalAdvice {
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiGlobalAdvice.class);
 

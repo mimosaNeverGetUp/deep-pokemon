@@ -1,7 +1,7 @@
 version: "3"
 services:
   pokemon-crawler:
-    image: "pokemon-crawler:1.0.0"
+    image: "mimosa1997/pokemon-crawler:1.0.2"
     ports:
       - "8081:8081"
     healthcheck:
@@ -19,7 +19,7 @@ services:
     secrets:
       - pwd
   pokemon-portal:
-    image: "pokemon-portal:1.0.0"
+    image: "mimosa1997/pokemon-portal:1.0.1"
     ports:
       - "8080:8080"
     depends_on:
@@ -34,8 +34,13 @@ services:
     environment:
       spring.profiles.active: dev-swarm
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
+      JKS_KEY: "showdown-analyze"
+      JKS_PATH: "/run/secrets/jks"
     secrets:
       - pwd
+      - jks
 secrets:
   pwd:
     file: pwd
+  jks:
+    file: showdown-analyze.jks

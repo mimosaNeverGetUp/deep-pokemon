@@ -40,7 +40,7 @@ server:
 management:
     endpoint:
         health:
-            show-components: always
+            show-components: when_authorized
     health:
         redis:
             enabled: false

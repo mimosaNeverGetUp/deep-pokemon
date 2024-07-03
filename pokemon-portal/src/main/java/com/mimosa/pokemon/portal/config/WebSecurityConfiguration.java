@@ -35,12 +35,7 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity,
                                                    Environment env) throws Exception {
         httpSecurity
-                .authorizeHttpRequests(request -> {
-                    request.requestMatchers("/actuator/**")
-                            .authenticated()
-                            .anyRequest()
-                            .permitAll();
-                })
+                .authorizeHttpRequests(request -> request.anyRequest().permitAll())
                 .httpBasic(Customizer.withDefaults())
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(
                         corsConfigurationSource(env.getProperty(SPRING_WEB_CORS, "*"))));

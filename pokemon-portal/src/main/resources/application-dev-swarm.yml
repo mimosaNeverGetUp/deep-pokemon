@@ -24,14 +24,26 @@ spring:
     user:
       name: mimosa
       password: ${SPRING_USER_PWD:mimosa}
-
+  ssl:
+    bundle:
+      jks:
+        web-server:
+          key:
+            alias: ${JKS_KEY}
+          keystore:
+            location: ${JKS_PATH}
+            password: ${JKS_PWD}
 management:
   endpoint:
     health:
-      show-components: always
+      show-components: when_authorized
   health:
     redis:
       enabled: false
+
+server:
+  ssl:
+    bundle: web-server
 
 eureka:
   client:

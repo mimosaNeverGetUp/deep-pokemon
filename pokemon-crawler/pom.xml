@@ -29,11 +29,11 @@
     <parent>
         <artifactId>deep-pokemon</artifactId>
         <groupId>com.mimosa</groupId>
-        <version>1.0.0</version>
+        <version>1.0.3-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>pokemon-crawler</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -45,7 +45,7 @@
         <dependency>
             <groupId>com.mimosa</groupId>
             <artifactId>pokemon-common</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.3-SNAPSHOT</version>
         </dependency>
 
         <dependency>

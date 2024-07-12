@@ -143,7 +143,6 @@
                 <configuration>
                     <image>
                         <name>mimosa1997/${project.artifactId}:${project.version}</name>
-                        <runImage>buildpack-deps:jammy-curl</runImage>
                         <pullPolicy>IF_NOT_PRESENT</pullPolicy>
                         <bindings>
                             <binding>${rootProject.basedir}/graalvm/bindings:/platform/bindings</binding>

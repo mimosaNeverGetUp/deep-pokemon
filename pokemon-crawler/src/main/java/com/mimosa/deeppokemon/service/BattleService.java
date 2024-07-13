@@ -70,8 +70,8 @@ public class BattleService {
     @Value("${CRAW_PERIOD_MILLISECOND:1000}")
     private int crawPeriodMillisecond;
 
-    private ThreadPoolExecutor crawBattleExecutor;
-    private ThreadPoolExecutor analyzeBattleExecutor;
+    private final ThreadPoolExecutor crawBattleExecutor;
+    private final ThreadPoolExecutor analyzeBattleExecutor;
 
     private final MongoTemplate mongoTemplate;
 

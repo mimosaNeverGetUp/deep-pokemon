@@ -67,9 +67,7 @@ public class BattleService {
     private static final String ID = "_id";
     private static final String BATTLE = "battle";
 
-    @Value("${CRAW_PERIOD_MILLISECOND:1000}")
-    private int crawPeriodMillisecond;
-
+    private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
     private final ThreadPoolExecutor analyzeBattleExecutor;
 

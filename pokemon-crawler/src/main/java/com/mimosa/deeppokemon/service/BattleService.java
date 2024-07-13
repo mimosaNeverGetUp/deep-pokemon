@@ -40,6 +40,7 @@ import com.mongodb.bulk.BulkWriteResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -65,10 +66,12 @@ public class BattleService {
     private static final Logger log = LoggerFactory.getLogger(BattleService.class);
     private static final String ID = "_id";
     private static final String BATTLE = "battle";
-    private static final ThreadPoolExecutor CRAW_BATTLE_EXECUTOR = new ThreadPoolExecutor(16, 16, 0,
-            TimeUnit.SECONDS, new LinkedBlockingQueue<>());
-    private static final ThreadPoolExecutor ANALYZE_BATTLE_EXECUTOR = new ThreadPoolExecutor(6, 6, 0,
-            TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+
+    @Value("${CRAW_PERIOD_MILLISECOND:1000}")
+    private int crawPeriodMillisecond;
+
+    private ThreadPoolExecutor crawBattleExecutor;
+    private ThreadPoolExecutor analyzeBattleExecutor;
 
     private final MongoTemplate mongoTemplate;
 
@@ -77,10 +80,17 @@ public class BattleService {
     private final BattleAnalyzer battleAnalyzer;
 
     public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler,
-                         BattleAnalyzer battleAnalyzer) {
+                         BattleAnalyzer battleAnalyzer, @Value("${CRAW_BATTLE_POOL_SIZE:8}") int crawBattlePoolSize,
+                         @Value("${ANALYZE_BATTLE_POOL_SIZE:3}") int analyzeBattlePoolSize,
+                         @Value("${CRAW_PERIOD_MILLISECOND:1000}") int crawPeriodMillisecond) {
         this.mongoTemplate = mongoTemplate;
         this.battleCrawler = battleCrawler;
         this.battleAnalyzer = battleAnalyzer;
+        crawBattleExecutor = new ThreadPoolExecutor(crawBattlePoolSize, crawBattlePoolSize, 0,
+                TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        analyzeBattleExecutor = new ThreadPoolExecutor(analyzeBattlePoolSize, analyzeBattlePoolSize, 0,
+                TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        this.crawPeriodMillisecond = crawPeriodMillisecond;
     }
 
     @RegisterReflectionForBinding({Battle.class, Team.class, Pokemon.class})
@@ -164,12 +174,13 @@ public class BattleService {
     }
 
     private CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider) {
-        CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, battleCrawler, this);
-        return CompletableFuture.supplyAsync(crawBattleTask::call, CRAW_BATTLE_EXECUTOR);
+        CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, battleCrawler, this,
+                false, crawPeriodMillisecond);
+        return CompletableFuture.supplyAsync(crawBattleTask::call, crawBattleExecutor);
     }
 
     public CompletableFuture<List<BattleStat>> analyzeBattleAfterCraw(CompletableFuture<List<Battle>> crawBattleFuture) {
-        return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, ANALYZE_BATTLE_EXECUTOR)
+        return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, analyzeBattleExecutor)
                 .thenApplyAsync(this::insert);
     }
 

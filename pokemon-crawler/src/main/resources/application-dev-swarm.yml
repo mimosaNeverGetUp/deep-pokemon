@@ -11,3 +11,12 @@ spring:
 eureka:
   client:
     enabled: false
+
+management:
+  endpoint:
+    health:
+      show-components: always
+
+CRAW_BATTLE_POOL_SIZE: 16
+ANALYZE_BATTLE_POOL_SIZE: 6
+CRAW_PERIOD_MILLISECOND: 300

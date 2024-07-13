@@ -13,3 +13,7 @@ management:
   endpoint:
     health:
       show-components: always
+
+CRAW_BATTLE_POOL_SIZE: 3
+ANALYZE_BATTLE_POOL_SIZE: 1
+CRAW_PERIOD_MILLISECOND: 100

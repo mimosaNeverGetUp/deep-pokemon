@@ -2,8 +2,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://root:mimosa@localhost:27017/deep_pokemon_dev_env?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
-      database: deep_pokemon_dev_env
-      authentication-database: admin
   cloud:
     refresh:
       enabled: false
@@ -16,3 +14,7 @@ management:
   endpoint:
     health:
       show-components: always
+
+CRAW_BATTLE_POOL_SIZE: 16
+ANALYZE_BATTLE_POOL_SIZE: 6
+CRAW_PERIOD_MILLISECOND: 1000

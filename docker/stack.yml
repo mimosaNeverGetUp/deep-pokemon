@@ -1,7 +1,7 @@
 version: "3"
 services:
   pokemon-crawler:
-    image: "mimosa1997/pokemon-crawler:1.0.2"
+    image: "mimosa1997/pokemon-crawler:1.0.3"
     ports:
       - "8081:8081"
     healthcheck:
@@ -19,13 +19,13 @@ services:
     secrets:
       - pwd
   pokemon-portal:
-    image: "mimosa1997/pokemon-portal:1.0.2-SNAPSHOT"
+    image: "mimosa1997/pokemon-portal:1.0.4_SNAPSHOT"
     ports:
       - "8080:8080"
     depends_on:
       - pokemon-crawler
     healthcheck:
-      test: [ "CMD", "curl", "-kf", "https://localhost:8080/actuator/health" ]
+      test: [ "CMD", "/cnb/process/health-check" ]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -34,13 +34,9 @@ services:
     environment:
       spring.profiles.active: dev-swarm
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
-      JKS_KEY: "showdown-analyze"
-      JKS_PATH: "/run/secrets/jks"
+      THC_PATH: /actuator/health
     secrets:
       - pwd
-      - jks
 secrets:
   pwd:
     file: pwd
-  jks:
-    file: showdown-analyze.jks

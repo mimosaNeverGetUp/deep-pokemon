@@ -26,8 +26,7 @@ package com.mimosa.deeppokemon.config;
 
 
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
-import com.mimosa.deeppokemon.service.BattleService;
-import com.mimosa.deeppokemon.service.LadderService;
+import com.mimosa.deeppokemon.service.StatsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -39,16 +38,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 @Profile({"crawDaily", "startCraw"})
 public class ScheduledConfig {
-    LadderCrawler battleCrawler;
-    BattleService battleSevice;
-    LadderService ladderService;
-
     private static final Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
+    private final LadderCrawler battleCrawler;
+    private final StatsService statsService;
 
-    public ScheduledConfig(LadderCrawler battleCrawler, BattleService battleSevice, LadderService ladderService) {
+    public ScheduledConfig(LadderCrawler battleCrawler, StatsService statsService) {
         this.battleCrawler = battleCrawler;
-        this.battleSevice = battleSevice;
-        this.ladderService = ladderService;
+        this.statsService = statsService;
     }
 
     /**
@@ -61,5 +57,10 @@ public class ScheduledConfig {
         log.info("start craw ladder");
         battleCrawler.crawLadder(false).join();
         log.info("craw ladder success");
+    }
+
+    @Scheduled(cron = "0 0 4 * * ?")
+    private void crawMonthlyStat() {
+        statsService.craw("gen9ou");
     }
 }

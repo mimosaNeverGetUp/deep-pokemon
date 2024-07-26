@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerErrorException;
 
 import java.net.URISyntaxException;
 import java.time.LocalDate;
@@ -54,7 +55,7 @@ public class PokemonSetCrawler {
                     new TypeReference<>() {});
             return convertPokemonSets(statId, pokemonSetMap);
         } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+            throw new ServerErrorException(e.getLocalizedMessage(), e);
         }
     }
 

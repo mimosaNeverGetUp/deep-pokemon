@@ -20,6 +20,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ServerErrorException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -31,6 +32,7 @@ public class StatsService {
     protected static final String STAT_ID = "statId";
     protected static final String YYYY_MM = "yyyyMM";
     protected static final String NAME = "name";
+    protected static final String QUERY_MONTHLY_STATS_FAIL = "Query monthly stats fail";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -41,8 +43,8 @@ public class StatsService {
 
     public PageResponse<MonthlyPokemonUsage> queryUsage(String format, int page, int row) {
         if (!ensureMonthlyStatsExist(format)) {
-            log.error("Query monthly stats fail");
-            throw new RuntimeException("Query monthly stats fail");
+            log.error(QUERY_MONTHLY_STATS_FAIL);
+            throw new ServerErrorException(QUERY_MONTHLY_STATS_FAIL, null);
         }
 
         String statId = getLatestStatId(format);
@@ -77,7 +79,7 @@ public class StatsService {
 
     public MonthlyMetaStat queryMeta(String format) {
         if (!ensureMonthlyStatsExist(format)) {
-            throw new RuntimeException("Query monthly stats fail");
+            throw new ServerErrorException(QUERY_MONTHLY_STATS_FAIL, null);
         }
 
         String statId = getLatestStatId(format);
@@ -86,7 +88,7 @@ public class StatsService {
 
     public MonthlyPokemonMoveSet queryMoveSet(String format, String pokmeon) {
         if (!ensureMonthlyStatsExist(format)) {
-            throw new RuntimeException("Query monthly stats fail");
+            throw new ServerErrorException(QUERY_MONTHLY_STATS_FAIL, null);
         }
 
         String statId = getLatestStatId(format);

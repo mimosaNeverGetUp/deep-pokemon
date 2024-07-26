@@ -44,7 +44,7 @@ public class StatsService {
     public boolean crawStat(String format, String statId) {
         MonthlyMetaStat metaStat = findMetaStat(statId);
         if (metaStat != null) {
-            log.info("{} stat is already exist", statId);
+            log.info("stat {} is already exist", statId);
             return true;
         }
         log.info("start craw {} stat", statId);

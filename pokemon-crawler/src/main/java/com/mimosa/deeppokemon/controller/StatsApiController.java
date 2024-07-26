@@ -7,6 +7,7 @@
 package com.mimosa.deeppokemon.controller;
 
 import com.mimosa.deeppokemon.service.StatsService;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ public class StatsApiController {
     }
 
     @GetMapping("/craw")
-    public boolean crawMonthlyStats(@RequestParam("format") String format) {
+    public boolean crawMonthlyStats(@RequestParam("format") @Pattern(regexp = "^[A-Za-z0-9]*&")String format) {
         return statsService.craw(format);
     }
 }

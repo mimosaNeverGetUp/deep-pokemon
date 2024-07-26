@@ -21,6 +21,7 @@ const props = defineProps({
   pokemon: Object
 })
 const moveset = ref()
+const sets = ref()
 const teams = ref(null)
 
 async function fetchStatsData(pokemon) {
@@ -44,6 +45,7 @@ function getIconUrl(pokemon) {
 watch(() => props.pokemon, async (newPokemon) => {
   await fetchStatsData(newPokemon.name);
   await queryTeams(0, 7, newPokemon.name);
+  await queryPokemonSet(newPokemon.name);
 })
 
 
@@ -103,7 +105,20 @@ async function queryTeams(page, row, pokemon) {
   if (res.ok) {
     let result = await res.json();
     teams.value = result.data;
-    console.log(teams.value)
+  }
+}
+
+async function queryPokemonSet(pokemon) {
+  let url = new URL(`${apiUrl}/api/stats/gen9ou/set/` + pokemon);
+
+  const res = await fetch(url,
+      {
+        method: "GET"
+      }
+  );
+  if (res.ok) {
+    let result = await res.json();
+    sets.value = result.sets;
   }
 }
 </script>
@@ -200,15 +215,22 @@ async function queryTeams(page, row, pokemon) {
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3" v-if="teams">
-
       <p class="text-xl text-gray-500">replay</p>
       <div class="mb-1 flex text-center" v-for="team in teams">
         <Team class="w-1/3" :team="team.team" :compact="true"></Team>
-        <span class="w-1/3">{{ team.team.playerName }}</span>
+        <span class="w-40">{{ team.team.playerName }}</span>
         <a class="text-green-300 w-1/3" style="display:block" target="_blank"
            :href="`https://replay.pokemonshowdown.com/${team.battleId}`">
           {{ team.battleId }}
         </a>
+      </div>
+    </div>
+    <Divider type="solid" v-if="sets"/>
+    <div class="ml-5 my-3" v-if="sets">
+      <p class="text-xl text-gray-500">sets</p>
+      <div class="mt-3 mb-10" v-for=" [setName, set] in Object.entries(sets)">
+        <p class="font-bold">{{ setName }}</p>
+        <pre >{{set}}</pre>
       </div>
     </div>
   </div>

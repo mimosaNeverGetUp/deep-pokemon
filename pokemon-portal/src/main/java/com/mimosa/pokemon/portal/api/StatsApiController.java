@@ -6,6 +6,7 @@
 
 package com.mimosa.pokemon.portal.api;
 
+import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonMoveSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonUsage;
@@ -28,7 +29,7 @@ public class StatsApiController {
 
     @GetMapping("{format}/usage")
     public PageResponse<MonthlyPokemonUsage> usages(@PathVariable("format") String format, @Min(0) int page,
-            @Min(1) @Max(100) int row) {
+                                                    @Min(1) @Max(100) int row) {
         return statsService.queryUsage(format, page, row);
     }
 
@@ -37,9 +38,14 @@ public class StatsApiController {
         return statsService.queryMeta(format);
     }
 
-
     @GetMapping("{format}/moveset/{pokemon}")
     public MonthlyPokemonMoveSet moveset(@PathVariable("format") String format, @PathVariable("pokemon") String pokmeon) {
-        return statsService.queryMoveSet(format,pokmeon);
+        return statsService.queryMoveSet(format, pokmeon);
+    }
+
+
+    @GetMapping("{format}/set/{pokemon}")
+    public PokemonSet set(@PathVariable("format") String format, @PathVariable("pokemon") String pokmeon) {
+        return statsService.queryPokemonSet(format, pokmeon);
     }
 }

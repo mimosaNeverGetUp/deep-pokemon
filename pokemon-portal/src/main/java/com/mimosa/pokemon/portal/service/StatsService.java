@@ -6,6 +6,7 @@
 
 package com.mimosa.pokemon.portal.service;
 
+import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonMoveSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonUsage;
@@ -27,6 +28,9 @@ import java.util.List;
 @Service
 public class StatsService {
     private static final Logger log = LoggerFactory.getLogger(StatsService.class);
+    protected static final String STAT_ID = "statId";
+    protected static final String YYYY_MM = "yyyyMM";
+    protected static final String NAME = "name";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -41,9 +45,8 @@ public class StatsService {
             throw new RuntimeException("Query monthly stats fail");
         }
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
-        String statId = formatter.format(LocalDate.now().minusMonths(1)) + format;
-        Query query = new Query().addCriteria(Criteria.where("statId").is(statId)).with(Sort.by(Sort.Order.desc("usage.weighted")));
+        String statId = getLatestStatId(format);
+        Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId)).with(Sort.by(Sort.Order.desc("usage.weighted")));
         long total = mongoTemplate.count(query, MonthlyPokemonUsage.class);
         MongodbUtils.withPageOperation(query, page, row);
         List<MonthlyPokemonUsage> pokemonUsages = mongoTemplate.find(query, MonthlyPokemonUsage.class);
@@ -51,9 +54,8 @@ public class StatsService {
     }
 
     public boolean ensureMonthlyStatsExist(String format) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
-        String statId = formatter.format(LocalDate.now().minusMonths(1)) + format;
-        if (mongoTemplate.findById(statId, MonthlyMetaStat.class) != null) {
+        String statId = getLatestStatId(format);
+        if (isStatsExist(statId)) {
             return true;
         }
         log.info("try craw {} stats", statId);
@@ -61,7 +63,13 @@ public class StatsService {
         if (!result) {
             log.warn("craw monthly stats {} failed", statId);
         }
-        return mongoTemplate.findById(statId, MonthlyMetaStat.class) != null;
+        return isStatsExist(statId);
+    }
+
+    private boolean isStatsExist(String statId) {
+        Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId));
+        return mongoTemplate.findById(statId, MonthlyMetaStat.class) != null
+                && mongoTemplate.count(query, PokemonSet.class) > 0;
     }
 
     public MonthlyMetaStat queryMeta(String format) {
@@ -69,8 +77,7 @@ public class StatsService {
             throw new RuntimeException("Query monthly stats fail");
         }
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
-        String statId = formatter.format(LocalDate.now().minusMonths(1)) + format;
+        String statId = getLatestStatId(format);
         return mongoTemplate.findById(statId, MonthlyMetaStat.class);
     }
 
@@ -79,12 +86,25 @@ public class StatsService {
             throw new RuntimeException("Query monthly stats fail");
         }
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
-        String statId = formatter.format(LocalDate.now().minusMonths(1)) + format;
+        String statId = getLatestStatId(format);
         Query query = new Query()
-                .addCriteria(Criteria.where("statId").is(statId))
-                .addCriteria(Criteria.where("name").is(pokmeon));
+                .addCriteria(Criteria.where(STAT_ID).is(statId))
+                .addCriteria(Criteria.where(NAME).is(pokmeon));
 
         return mongoTemplate.findOne(query, MonthlyPokemonMoveSet.class);
+    }
+
+    private static String getLatestStatId(String format) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(YYYY_MM);
+        return formatter.format(LocalDate.now().minusMonths(1)) + format;
+    }
+
+    public PokemonSet queryPokemonSet(String format, String pokemon) {
+        ensureMonthlyStatsExist(format);
+        String statId = getLatestStatId(format);
+        Query query = new Query()
+                .addCriteria(Criteria.where(STAT_ID).is(statId))
+                .addCriteria(Criteria.where(NAME).is(pokemon));
+        return mongoTemplate.findOne(query, PokemonSet.class);
     }
 }

@@ -7,6 +7,7 @@
 package com.mimosa.deeppokemon.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.config.ConnectionConfig;
@@ -94,6 +95,14 @@ public class HttpUtil {
     public static <T> T request(ClassicHttpRequest request, Class<T> tClass) {
         try {
             return OBJECT_MAPPER.readValue(request(request), tClass);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static <T> T request(ClassicHttpRequest request, TypeReference<T> typeReference) {
+        try {
+            return OBJECT_MAPPER.readValue(request(request), typeReference);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

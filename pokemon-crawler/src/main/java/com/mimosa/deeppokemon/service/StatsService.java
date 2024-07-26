@@ -30,7 +30,6 @@ public class StatsService {
     private static final Logger log = LoggerFactory.getLogger(StatsService.class);
     protected static final int COUNTER_KOED_INDEX = 1;
     protected static final int COUNTER_SWITCH_OUT_INDEX = 2;
-    protected static final String GEN_9_OU = "gen9ou";
     protected static final String STAT_ID = "statId";
     private final MongoTemplate mongoTemplate;
     private final MonthlyStatCrawler monthlyStatCrawler;
@@ -50,7 +49,7 @@ public class StatsService {
         }
         log.info("start craw {} stat", statId);
         try {
-            MonthlyBattleStatDto statDto = monthlyStatCrawler.craw(GEN_9_OU);
+            MonthlyBattleStatDto statDto = monthlyStatCrawler.craw(format);
             save(format, statDto);
         } catch (Exception e) {
             log.error("craw {} stat failed", statId, e);
@@ -62,7 +61,7 @@ public class StatsService {
     public boolean craw(String format) {
         boolean result = true;
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMM");
-        String statId = dateTimeFormatter.format(LocalDate.now().minusMonths(1)) + GEN_9_OU;
+        String statId = dateTimeFormatter.format(LocalDate.now().minusMonths(1)) + format;
         result = crawStat(format, statId);
 
         crawPokemonSet(format, statId);

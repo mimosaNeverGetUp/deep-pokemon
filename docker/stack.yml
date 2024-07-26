@@ -34,14 +34,9 @@ services:
     environment:
       spring.profiles.active: dev-swarm
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
-      JKS_KEY: "showdown-analyze"
-      JKS_PATH: "/run/secrets/jks"
       THC_PATH: /actuator/health
     secrets:
       - pwd
-      - jks
 secrets:
   pwd:
     file: pwd
-  jks:
-    file: showdown-analyze.jks

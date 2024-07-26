@@ -24,6 +24,7 @@ spring:
     user:
       name: mimosa
       password: ${SPRING_USER_PWD:mimosa}
+
 management:
   endpoint:
     health:
@@ -31,6 +32,7 @@ management:
   health:
     redis:
       enabled: false
+
 eureka:
   client:
     enabled: false

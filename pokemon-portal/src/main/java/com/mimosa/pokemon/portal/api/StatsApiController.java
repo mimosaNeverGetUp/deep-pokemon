@@ -43,7 +43,6 @@ public class StatsApiController {
         return statsService.queryMoveSet(format, pokmeon);
     }
 
-
     @GetMapping("{format}/set/{pokemon}")
     public PokemonSet set(@PathVariable("format") String format, @PathVariable("pokemon") String pokmeon) {
         return statsService.queryPokemonSet(format, pokmeon);

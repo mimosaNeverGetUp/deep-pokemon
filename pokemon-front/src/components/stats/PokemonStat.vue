@@ -18,15 +18,16 @@ import Team from "@/components/Team.vue";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const props = defineProps({
-  pokemon: Object
+  pokemon: Object,
+  format: String
 })
 const moveset = ref()
 const sets = ref()
 const teams = ref(null)
 
-async function fetchStatsData(pokemon) {
+async function fetchStatsData(format, pokemon) {
   moveset.value = null
-  const res = await fetch(`${apiUrl}/api/stats/gen9ou/moveset/` + pokemon, {
+  const res = await fetch(`${apiUrl}/api/stats/${format}/moveset/` + pokemon, {
         method: "GET"
       }
   );
@@ -43,11 +44,10 @@ function getIconUrl(pokemon) {
 }
 
 watch(() => props.pokemon, async (newPokemon) => {
-  await fetchStatsData(newPokemon.name);
+  await fetchStatsData(props.format, newPokemon.name);
   await queryTeams(0, 7, newPokemon.name);
-  await queryPokemonSet(newPokemon.name);
+  await queryPokemonSet(props.format, newPokemon.name);
 })
-
 
 function convertToPercentage(f) {
   return (f * 100).toFixed(2) + '%'
@@ -95,6 +95,9 @@ function getSpreadText(spread, showNatureIndex, showNatureName) {
 }
 
 async function queryTeams(page, row, pokemon) {
+  if (props.format !== 'gen9ou') {
+    return
+  }
   let url = new URL(`${apiUrl}/api/teams?page=${page}&row=${row}&pokemons=${pokemon}`);
 
   const res = await fetch(url,
@@ -108,8 +111,8 @@ async function queryTeams(page, row, pokemon) {
   }
 }
 
-async function queryPokemonSet(pokemon) {
-  let url = new URL(`${apiUrl}/api/stats/gen9ou/set/` + pokemon);
+async function queryPokemonSet(format, pokemon) {
+  let url = new URL(`${apiUrl}/api/stats/${format}/set/` + pokemon);
 
   const res = await fetch(url,
       {
@@ -213,6 +216,14 @@ async function queryPokemonSet(pokemon) {
         <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
       </div>
     </div>
+    <Divider type="solid" v-if="sets"/>
+    <div class="ml-5 my-3" v-if="sets">
+      <p class="text-xl text-gray-500">sets</p>
+      <div class="mt-3 mb-10" v-for=" [setName, set] in Object.entries(sets)">
+        <p class="font-bold">{{ setName }}</p>
+        <pre >{{set}}</pre>
+      </div>
+    </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3" v-if="teams">
       <p class="text-xl text-gray-500">replay</p>
@@ -223,14 +234,6 @@ async function queryPokemonSet(pokemon) {
            :href="`https://replay.pokemonshowdown.com/${team.battleId}`">
           {{ team.battleId }}
         </a>
-      </div>
-    </div>
-    <Divider type="solid" v-if="sets"/>
-    <div class="ml-5 my-3" v-if="sets">
-      <p class="text-xl text-gray-500">sets</p>
-      <div class="mt-3 mb-10" v-for=" [setName, set] in Object.entries(sets)">
-        <p class="font-bold">{{ setName }}</p>
-        <pre >{{set}}</pre>
       </div>
     </div>
   </div>

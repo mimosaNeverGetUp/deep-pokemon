@@ -8,11 +8,14 @@
 import MetaStatCard from '@/components/stats/MetaStatCard.vue';
 import {ref} from "vue";
 
+const props = defineProps({
+  format: String
+})
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const meta = ref(null)
 
 async function fetchMeta() {
-  const res = await fetch(`${apiUrl}/api/stats/gen9ou/meta`, {
+  const res = await fetch(`${apiUrl}/api/stats/${props.format}/meta`, {
         method: "GET"
       }
   )

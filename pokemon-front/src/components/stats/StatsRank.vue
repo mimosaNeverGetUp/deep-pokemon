@@ -17,12 +17,13 @@ const row = ref(20);
 const totalRecords = ref(null);
 
 const props = defineProps({
-  updateSelectPokemon: Function
+  updateSelectPokemon: Function,
+  format: String
 })
 
-async function fetchStatsData(page, row) {
+async function fetchStatsData(format, page, row) {
   usages.value = null
-  const res = await fetch(`${apiUrl}/api/stats/gen9ou/usage?&page=${page}&row=${row}`, {
+  const res = await fetch(`${apiUrl}/api/stats/${format}/usage?&page=${page}&row=${row}`, {
         method: "GET"
       }
   )
@@ -34,7 +35,7 @@ async function fetchStatsData(page, row) {
 
 function onPage(event) {
   currentPage.value = event.page
-  fetchStatsData(event.page, event.rows)
+  fetchStatsData(props.format, event.page, event.rows)
 }
 
 function convertToPercentage(f) {
@@ -50,7 +51,7 @@ function onRowSelect(row) {
   props.updateSelectPokemon(row.data);
 }
 
-fetchStatsData(page.value, row.value)
+fetchStatsData(props.format, page.value, row.value);
 </script>
 
 <template>

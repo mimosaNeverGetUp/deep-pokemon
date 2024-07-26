@@ -89,7 +89,7 @@ public class StatsService {
         String statId = formatter.format(date) + format;
         MonthlyMetaStat monthlyMetaStat = new MonthlyMetaStat(statId, format, date, monthlyBattleStatDto.battles(),
                 monthlyBattleStatDto.metagame().tags());
-        mongoTemplate.save(monthlyMetaStat);
+        mongoTemplate.insert(monthlyMetaStat);
 
         List<MonthlyPokemonUsage> pokemonUsages = new ArrayList<>(monthlyBattleStatDto.pokemon().size());
         List<MonthlyPokemonMoveSet> pokemonMoveSets = new ArrayList<>(monthlyBattleStatDto.pokemon().size());

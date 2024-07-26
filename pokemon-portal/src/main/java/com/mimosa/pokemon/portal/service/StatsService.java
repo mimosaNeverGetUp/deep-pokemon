@@ -55,7 +55,7 @@ public class StatsService {
 
     public boolean ensureMonthlyStatsExist(String format) {
         String statId = getLatestStatId(format);
-        if (isStatsExist(statId)) {
+        if (isStatsExist(statId, false)) {
             return true;
         }
         log.info("try craw {} stats", statId);
@@ -63,10 +63,13 @@ public class StatsService {
         if (!result) {
             log.warn("craw monthly stats {} failed", statId);
         }
-        return isStatsExist(statId);
+        return isStatsExist(statId, true);
     }
 
-    private boolean isStatsExist(String statId) {
+    private boolean isStatsExist(String statId, boolean ignoreSetExist) {
+        if (ignoreSetExist) {
+            return mongoTemplate.findById(statId, MonthlyMetaStat.class) != null;
+        }
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId));
         return mongoTemplate.findById(statId, MonthlyMetaStat.class) != null
                 && mongoTemplate.count(query, PokemonSet.class) > 0;

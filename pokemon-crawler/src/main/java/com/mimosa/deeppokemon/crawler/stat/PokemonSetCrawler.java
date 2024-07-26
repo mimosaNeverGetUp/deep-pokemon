@@ -63,19 +63,24 @@ public class PokemonSetCrawler {
         for (Map.Entry<String, Map<String, PokemonSetDto>> entry : pokemonSetMap.entrySet()) {
             String name = entry.getKey();
             Map<String, String> setMap = new LinkedHashMap<>();
-            for (Map.Entry<String, PokemonSetDto> setEntry : entry.getValue().entrySet()) {
-                String setName = setEntry.getKey();
-                PokemonSetDto set = setEntry.getValue();
-                setMap.put(setName, convertPokemonSetText(name, set));
+            try {
+                for (Map.Entry<String, PokemonSetDto> setEntry : entry.getValue().entrySet()) {
+                    String setName = setEntry.getKey();
+                    PokemonSetDto set = setEntry.getValue();
+                    setMap.put(setName, convertPokemonSetText(name, set));
+                }
+                PokemonSet pokemonSet = new PokemonSet(statId + name, name, statId, setMap);
+                pokemonSets.add(pokemonSet);
+            } catch (Exception e) {
+                log.error("error occurred while parsing pokemon set {}", name, e);
             }
-            PokemonSet pokemonSet = new PokemonSet(null, name, statId, setMap);
-            pokemonSets.add(pokemonSet);
         }
 
         return pokemonSets;
     }
 
     private String convertPokemonSetText(String name, PokemonSetDto set) {
+        List<Object> moves = set.moves();
         return String.format(POKEMON_SET_TEXT_TEMPLATE, name,
                 convertCommonSetText(set.item(), SET_LIST_JOIN),
                 convertCommonSetText(set.ability(), SET_LIST_JOIN),
@@ -83,9 +88,9 @@ public class PokemonSetCrawler {
                 convertEvsSetText(set.evs()),
                 convertCommonSetText(set.nature(), SET_LIST_JOIN),
                 convertCommonSetText(set.moves().get(0), SET_LIST_JOIN),
-                convertCommonSetText(set.moves().get(1), SET_LIST_JOIN),
-                convertCommonSetText(set.moves().get(2), SET_LIST_JOIN),
-                convertCommonSetText(set.moves().get(3), SET_LIST_JOIN)
+                moves.size() < 2 ? null : convertCommonSetText(moves.get(1), SET_LIST_JOIN),
+                moves.size() < 3 ? null :convertCommonSetText(set.moves().get(2), SET_LIST_JOIN),
+                moves.size() < 4 ? null :convertCommonSetText(set.moves().get(3), SET_LIST_JOIN)
         );
     }
 

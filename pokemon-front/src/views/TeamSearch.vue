@@ -28,14 +28,14 @@ function getTeamSearchUrl(pokemons, tags) {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 mt-[60px]  ">
-    <label >包含精灵</label>
+  <div class="flex flex-col gap-2 mt-[60px]">
+    <span>包含精灵</span>
     <MultiSelect v-model="pokemons" :options=" Object.values(pokemoninfo).map(item => item.name)" display="chip" filter
                  placeholder="select pokemons" variant="filled" class="size-auto font-normal min-w-80 min-h-9"  :virtualScrollerOptions="{ itemSize: 44 }"/>
   </div>
 
   <div class="flex flex-col gap-2 mt-5">
-    <label>队伍标签</label>
+    <span>队伍标签</span>
     <MultiSelect v-model="selectTags" :options="tags" display="chip" placeholder="select team tags" variant="filled"
                  class="w-full md:w-20rem" />
   </div>

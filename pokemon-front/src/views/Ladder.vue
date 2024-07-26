@@ -48,7 +48,7 @@ fetchData(page.value, row.value)
     <Column field="recentTeam" header="最近使用队伍" :style="{ width:'30%' }">
       <template #body="{data}">
         <div class="team-list">
-          <Team v-for="team in data.recentTeam" :team="team"></Team>
+          <Team v-for="team in data.recentTeam" :team="team" :compact="true"></Team>
         </div>
       </template>
     </Column>

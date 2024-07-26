@@ -37,12 +37,10 @@ queryPlayer();
       <p>
         {{ "排行第" + player?.rank + "位" }}
       </p>
-      <p th:text="'Gxe: ' + ${playerRank.getGxe()}">
+      <p text="'Gxe: ' + ${playerRank.getGxe()}">
         {{ "Gxe: " + player?.gxe }}
       </p>
     </div>
-
-
   </div>
 
 </template>

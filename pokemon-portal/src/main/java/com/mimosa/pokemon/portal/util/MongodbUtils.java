@@ -26,7 +26,7 @@ public class MongodbUtils {
     public static final String DATA = "data";
     public static final String TOTAL = "total";
 
-    public static Query buildPageFacetAggregationOperation(Query query, int page, int row) {
+    public static Query withPageOperation(Query query, int page, int row) {
         return query.skip((long) (page) * row).limit(row);
     }
 

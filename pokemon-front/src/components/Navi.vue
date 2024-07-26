@@ -18,7 +18,7 @@ import NaviItem from '@/components/NaviItem.vue'
       <p>队伍</p>
     </NaviItem>
 
-    <NaviItem url="/stat">
+    <NaviItem url="/stats">
       <img class="navi-label-icon" src="/pokemonicon/Ninetales-Alola.png" alt="deep-pokemon">
       <p>环境</p>
     </NaviItem>

@@ -3,6 +3,7 @@ import Ladder from '@/views/Ladder.vue'
 import TeamSearch from '@/views/TeamSearch.vue'
 import Teams from '@/views/Teams.vue'
 import PlayerRecord from '@/views/Player.vue'
+import Stats from '@/views/Stats.vue'
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/teams',
         name: 'Teams',
         component: Teams
+    },
+    {
+        path: '/stats',
+        name: 'Stats',
+        component: Stats
     },
     {
         path: '/',

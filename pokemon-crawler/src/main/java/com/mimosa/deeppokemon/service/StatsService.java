@@ -37,7 +37,7 @@ public class StatsService {
 
     public boolean craw(String format) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMM");
-        String statId = dateTimeFormatter.format(LocalDate.now()) + GEN_9_OU;
+        String statId = dateTimeFormatter.format(LocalDate.now().minusMonths(1)) + GEN_9_OU;
         MonthlyMetaStat metaStat = findMetaStat(statId);
         if (metaStat != null) {
             log.info("{} stat is already exist", statId);

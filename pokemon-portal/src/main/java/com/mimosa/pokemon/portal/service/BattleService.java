@@ -75,7 +75,7 @@ public class BattleService {
                 new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName)).
                         with(Sort.by(Sort.Order.desc("date")));
         long totalRecord = mongoTemplate.count(query, Battle.class);
-        MongodbUtils.buildPageFacetAggregationOperation(query, page, row);
+        MongodbUtils.withPageOperation(query, page, row);
 
         List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
         return new PageResponse<>(totalRecord, page, row, battles);

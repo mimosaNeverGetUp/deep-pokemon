@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
-  team: Object
+  team: Object,
+  compact: Boolean
 })
 
 function getIconUrl(pokemon) {
@@ -14,7 +15,7 @@ function getPokemonItemText(pokemon) {
 </script>
 
 <template>
-  <div class="pokemon-list">
+  <div :class="compact? 'pokemon-list-compact':'pokemon-list'">
     <div class="set-tip" v-for="pokemon in team.pokemons">
       <img :src="getIconUrl(pokemon)" :alt="pokemon.name"
            :title="pokemon.name"/>
@@ -36,6 +37,13 @@ function getPokemonItemText(pokemon) {
   list-style-type: none;
   justify-content: flex-start;
   gap: 30px;
+}
+
+.pokemon-list-compact {
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-start;
+  gap: 15px;
 }
 
 .set-tip {

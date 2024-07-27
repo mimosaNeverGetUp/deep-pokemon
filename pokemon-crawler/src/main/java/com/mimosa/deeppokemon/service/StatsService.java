@@ -58,7 +58,7 @@ public class StatsService {
         return true;
     }
 
-    public boolean craw(String format) {
+    public synchronized boolean craw(String format) {
         boolean result = true;
         String statId = getLatestStatId(format);
         result = crawStat(format, statId);
@@ -88,7 +88,6 @@ public class StatsService {
         String statId = formatter.format(date) + format;
         MonthlyMetaStat monthlyMetaStat = new MonthlyMetaStat(statId, format, date, monthlyBattleStatDto.battles(),
                 monthlyBattleStatDto.metagame().tags());
-        mongoTemplate.insert(monthlyMetaStat);
 
         List<MonthlyPokemonUsage> pokemonUsages = new ArrayList<>(monthlyBattleStatDto.pokemon().size());
         List<MonthlyPokemonMoveSet> pokemonMoveSets = new ArrayList<>(monthlyBattleStatDto.pokemon().size());
@@ -102,6 +101,7 @@ public class StatsService {
                     pokemonStatDto.items(), pokemonStatDto.spreads(), pokemonStatDto.moves(), pokemonStatDto.teammates()
                     , pokemonStatDto.happinesses(), convertCounter(pokemonStatDto.counters())));
         }
+        mongoTemplate.insert(monthlyMetaStat);
         mongoTemplate.insertAll(pokemonUsages);
         mongoTemplate.insertAll(pokemonMoveSets);
     }

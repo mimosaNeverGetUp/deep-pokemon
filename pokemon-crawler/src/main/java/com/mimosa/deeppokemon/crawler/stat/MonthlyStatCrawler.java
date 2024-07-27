@@ -7,9 +7,7 @@
 package com.mimosa.deeppokemon.crawler.stat;
 
 import com.mimosa.deeppokemon.crawler.stat.dto.MonthlyBattleStatDto;
-import com.mimosa.deeppokemon.utils.HttpUtil;
-import org.apache.hc.core5.http.ClassicHttpRequest;
-import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
+import com.mimosa.deeppokemon.utils.HttpProxy;
 import org.apache.hc.core5.net.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,20 +23,26 @@ public class MonthlyStatCrawler {
     private static final String SMOGON_STAT_BASE_URL = "https://pkmn.github.io/smogon/data/stats/";
     protected static final String PATTERN_FORMAT_TXT = "%s.json";
 
+    private final HttpProxy httpProxy;
+
+    public MonthlyStatCrawler(HttpProxy httpProxy) {
+        this.httpProxy = httpProxy;
+    }
+
     @RegisterReflectionForBinding(MonthlyBattleStatDto.class)
     public MonthlyBattleStatDto craw(String format) {
         try {
-            ClassicHttpRequest usageQueryRequest = initStatQuery(format);
-            log.debug("stat craw request uri: {}", usageQueryRequest.getRequestUri());
-            return HttpUtil.request(usageQueryRequest, MonthlyBattleStatDto.class);
+            String url = initStatQuery(format);
+            log.debug("stat craw request uri: {}", url);
+            return httpProxy.get(url, MonthlyBattleStatDto.class);
         } catch (URISyntaxException e) {
             throw new ServerErrorException(e.getLocalizedMessage(), e);
         }
     }
 
-    private ClassicHttpRequest initStatQuery(String format) throws URISyntaxException {
+    private String initStatQuery(String format) throws URISyntaxException {
         URIBuilder uriBuilder = new URIBuilder(SMOGON_STAT_BASE_URL);
         uriBuilder.appendPath(String.format(PATTERN_FORMAT_TXT, format));
-        return ClassicRequestBuilder.get(uriBuilder.build()).build();
+        return uriBuilder.build().toString();
     }
 }

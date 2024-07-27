@@ -7,6 +7,7 @@
 package com.mimosa.deeppokemon.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.config.ConnectionConfig;
@@ -28,6 +29,7 @@ import org.apache.hc.core5.pool.PoolReusePolicy;
 import org.apache.hc.core5.ssl.SSLContexts;
 import org.apache.hc.core5.util.TimeValue;
 import org.apache.hc.core5.util.Timeout;
+import org.springframework.web.server.ServerErrorException;
 
 import javax.net.ssl.SSLException;
 import java.io.IOException;
@@ -87,7 +89,7 @@ public class HttpUtil {
                 return body;
             });
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ServerErrorException(e.getLocalizedMessage(), e);
         }
     }
 
@@ -95,7 +97,15 @@ public class HttpUtil {
         try {
             return OBJECT_MAPPER.readValue(request(request), tClass);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new ServerErrorException(e.getLocalizedMessage(), e);
+        }
+    }
+
+    public static <T> T request(ClassicHttpRequest request, TypeReference<T> typeReference) {
+        try {
+            return OBJECT_MAPPER.readValue(request(request), typeReference);
+        } catch (JsonProcessingException e) {
+            throw new ServerErrorException(e.getLocalizedMessage(), e);
         }
     }
 

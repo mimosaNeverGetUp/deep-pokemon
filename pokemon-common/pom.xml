@@ -12,7 +12,7 @@
     <parent>
         <groupId>com.mimosa</groupId>
         <artifactId>deep-pokemon</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>pokemon-common</artifactId>

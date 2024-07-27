@@ -18,7 +18,6 @@ const teams = ref()
 const page = ref(0);
 const row = ref(15);
 
-
 async function queryTeams(page, row) {
   let url = new URL(`${apiUrl}/api/teams?page=${page}&row=${row}`);
   if (route.query.pokemons) {
@@ -36,7 +35,6 @@ async function queryTeams(page, row) {
   );
   const response = await res.json();
   teams.value = response;
-  totalRecords.value = response.totalRecords;
 }
 
 function onPage(event) {
@@ -53,7 +51,7 @@ queryTeams(page.value, row.value);
     <Column field="team" header="队伍" :style="{ width:'30%' }">
       <template #body="{data}">
         <div class="team-list">
-          <Team :team="data.team"></Team>
+          <Team :team="data.team" :compact="true"></Team>
         </div>
       </template>
     </Column>

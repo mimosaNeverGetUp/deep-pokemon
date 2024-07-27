@@ -26,6 +26,9 @@ spring:
       password: ${SPRING_USER_PWD:mimosa}
 
 management:
+  endpoint:
+    health:
+      show-components: when_authorized
   health:
     redis:
       enabled: false

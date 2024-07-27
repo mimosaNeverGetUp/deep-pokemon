@@ -4,12 +4,12 @@
     <parent>
         <artifactId>deep-pokemon</artifactId>
         <groupId>com.mimosa</groupId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.3</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>pokemon-portal</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.5</version>
     <name>pokemon-portal</name>
 
     <properties>
@@ -51,7 +51,7 @@
         <dependency>
             <groupId>com.mimosa</groupId>
             <artifactId>pokemon-common</artifactId>
-            <version>1.0.3-SNAPSHOT</version>
+            <version>1.0.3</version>
         </dependency>
 
         <dependency>

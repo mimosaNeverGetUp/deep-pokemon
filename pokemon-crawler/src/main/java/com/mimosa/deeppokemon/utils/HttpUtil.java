@@ -29,6 +29,8 @@ import org.apache.hc.core5.pool.PoolReusePolicy;
 import org.apache.hc.core5.ssl.SSLContexts;
 import org.apache.hc.core5.util.TimeValue;
 import org.apache.hc.core5.util.Timeout;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.server.ServerErrorException;
 
 import javax.net.ssl.SSLException;
@@ -41,6 +43,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HttpUtil {
+    private static final Logger log = LoggerFactory.getLogger(HttpUtil.class);
     private static final PoolingHttpClientConnectionManager connectionManager;
 
     private static final CloseableHttpClient client;
@@ -82,10 +85,12 @@ public class HttpUtil {
     private HttpUtil() {}
 
     public static String request(ClassicHttpRequest request) {
+        log.debug("start request {}", request);
         try {
             return client.execute(request, response -> {
                 String body = EntityUtils.toString(response.getEntity());
                 EntityUtils.consume(response.getEntity());
+                log.debug("end request {}", request);
                 return body;
             });
         } catch (IOException e) {

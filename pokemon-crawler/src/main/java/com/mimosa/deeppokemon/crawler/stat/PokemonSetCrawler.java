@@ -9,9 +9,7 @@ package com.mimosa.deeppokemon.crawler.stat;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.mimosa.deeppokemon.crawler.stat.dto.PokemonSetDto;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
-import com.mimosa.deeppokemon.utils.HttpUtil;
-import org.apache.hc.core5.http.ClassicHttpRequest;
-import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
+import com.mimosa.deeppokemon.utils.HttpProxy;
 import org.apache.hc.core5.net.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,15 +42,20 @@ public class PokemonSetCrawler {
     protected static final String SET_LIST_JOIN = EVS_DELIMITER;
     protected static final String EVS_SET_DELIMITER = " | ";
 
+    private final HttpProxy httpProxy;
+
+    public PokemonSetCrawler(HttpProxy httpProxy) {
+        this.httpProxy = httpProxy;
+    }
+
     @RegisterReflectionForBinding(PokemonSetDto.class)
     public List<PokemonSet> craw(String format) {
         try {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMM");
             String statId = dateTimeFormatter.format(LocalDate.now().minusMonths(1)) + format;
-            ClassicHttpRequest usageQueryRequest = initSetQuery(format);
-            log.debug("set craw request uri: {}", usageQueryRequest.getRequestUri());
-            Map<String, Map<String, PokemonSetDto>> pokemonSetMap = HttpUtil.request(usageQueryRequest,
-                    new TypeReference<>() {});
+            String url = initSetQuery(format);
+            log.debug("set craw request uri: {}", url);
+            Map<String, Map<String, PokemonSetDto>> pokemonSetMap = httpProxy.get(url, new TypeReference<>() {});
             return convertPokemonSets(statId, pokemonSetMap);
         } catch (URISyntaxException e) {
             throw new ServerErrorException(e.getLocalizedMessage(), e);
@@ -90,8 +93,8 @@ public class PokemonSetCrawler {
                 convertCommonSetText(set.nature(), SET_LIST_JOIN),
                 convertCommonSetText(set.moves().get(0), SET_LIST_JOIN),
                 moves.size() < 2 ? null : convertCommonSetText(moves.get(1), SET_LIST_JOIN),
-                moves.size() < 3 ? null :convertCommonSetText(set.moves().get(2), SET_LIST_JOIN),
-                moves.size() < 4 ? null :convertCommonSetText(set.moves().get(3), SET_LIST_JOIN)
+                moves.size() < 3 ? null : convertCommonSetText(set.moves().get(2), SET_LIST_JOIN),
+                moves.size() < 4 ? null : convertCommonSetText(set.moves().get(3), SET_LIST_JOIN)
         );
     }
 
@@ -133,9 +136,9 @@ public class PokemonSetCrawler {
         throw new IllegalArgumentException("unknown set type: " + set);
     }
 
-    private ClassicHttpRequest initSetQuery(String format) throws URISyntaxException {
+    private String initSetQuery(String format) throws URISyntaxException {
         URIBuilder uriBuilder = new URIBuilder(SMOGON_SET_BASE_URL);
         uriBuilder.appendPath(String.format(PATTERN_FORMAT_TXT, format));
-        return ClassicRequestBuilder.get(uriBuilder.build()).build();
+        return uriBuilder.build().toString();
     }
 }

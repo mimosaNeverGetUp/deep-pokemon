@@ -35,10 +35,12 @@ public class BattleAnalyzer {
         List<BattleStat> battleStats = new ArrayList<>();
         for (Battle battle : battles) {
             try {
+                log.debug("start analyze battle {}", battle.getBattleID());
                 BattleStat battleStat = new BattleStat(battle.getBattleID(), new ArrayList<>(), new ArrayList<>());
                 BattleStatus battleStatus = new BattleStatus(new ArrayList<>());
                 List<BattleEvent> battleEvents = battleEventParser.parse(battle.getLog());
                 battleEvents.forEach(battleEvent -> analyzeEvent(battleEvent, battleStat, battleStatus));
+                log.debug("end analyze battle {}", battle.getBattleID());
                 battleStats.add(battleStat);
             } catch (Exception e) {
                 log.error("analyze battle {} error", battle.getBattleID(), e);

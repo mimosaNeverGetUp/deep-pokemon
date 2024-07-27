@@ -62,7 +62,9 @@ public class CrawBattleTask implements Callable<List<Battle>> {
             while (replayProvider.hasNext()) {
                 battles.addAll(crawBattle(replayProvider.next().replayList()));
             }
+            log.debug("craw battle finished, battle size: {}, start save", battles.size());
             battleService.save(battles, update);
+            log.debug("save battle finished");
         } catch (Exception e) {
             log.error("craw battle fail", e);
         } finally {
@@ -91,11 +93,15 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     private List<Battle> crawBattleFromReplay(List<Replay> replays) throws InterruptedException {
         List<Battle> battles = new ArrayList<>();
         for (Replay replay : replays) {
+            log.debug("check craw replay {} is need to craw", replay.id());
             if (!isNeedCraw(replay)) {
+                log.debug("not need to craw{}", replay.id());
                 continue;
             }
 
+            log.debug("start craw replay {}", replay.id());
             battles.add(battleCrawler.craw(replay));
+            log.debug("end craw replay {}, sleep {} ms", replay.id(), crawPeriod);
             Thread.sleep(crawPeriod);
         }
         return battles;
@@ -109,6 +115,7 @@ public class CrawBattleTask implements Callable<List<Battle>> {
 
         if (!CrawLock.tryLock(replay.id())) {
             // another thread is craw ,skip
+            log.debug("replay {} is locked, skip", replay.id());
             return false;
         } else {
             holdBattleLocks.add(replay.id());

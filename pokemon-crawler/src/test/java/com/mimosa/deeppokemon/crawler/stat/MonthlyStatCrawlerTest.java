@@ -13,6 +13,7 @@ import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonMoveSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonUsage;
 import com.mimosa.deeppokemon.service.StatsService;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -21,6 +22,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -72,14 +74,16 @@ class MonthlyStatCrawlerTest {
         LinkedHashMap<String, Double> tags = metagame.tags();
         assertNotNull(tags);
         assertFalse(tags.isEmpty());
-
-        statsService.save("gen9ou", statDto);
+        MonthlyBattleStatDto mock = Mockito.spy(statDto);
+        Mockito.doReturn(LocalDate.of(2024,8,9)).when(mock).date();
+        statsService.save("gen9ou", mock);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
-        String statId = formatter.format(statDto.date()) + "gen9ou";
+        String statId = formatter.format(mock.date()) + "gen9ou";
         assertNotNull(mongoTemplate.findById(statId, MonthlyMetaStat.class));
 
         Query query = new BasicQuery("{}").addCriteria(Criteria.where("statId").is(statId));
         assertEquals(pokemon.size(), mongoTemplate.count(query, MonthlyPokemonUsage.class));
         assertEquals(pokemon.size(), mongoTemplate.count(query, MonthlyPokemonMoveSet.class));
     }
+
 }

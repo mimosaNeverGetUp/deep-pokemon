@@ -99,7 +99,7 @@ public class StatsService {
         return mongoTemplate.findOne(query, MonthlyPokemonMoveSet.class);
     }
 
-    private static String getLatestStatId(String format) {
+    public String getLatestStatId(String format) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(YYYY_MM);
         return formatter.format(LocalDate.now().minusMonths(1)) + format;
     }

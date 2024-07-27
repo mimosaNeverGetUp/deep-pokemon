@@ -25,7 +25,7 @@ public class StatsApiController {
     }
 
     @GetMapping("/craw")
-    public boolean crawMonthlyStats(@RequestParam("format") @Pattern(regexp = "^[A-Za-z0-9]*&")String format) {
+    public boolean crawMonthlyStats(@RequestParam("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format) {
         return statsService.craw(format);
     }
 }

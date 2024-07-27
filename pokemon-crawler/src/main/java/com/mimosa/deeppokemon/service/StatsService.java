@@ -60,8 +60,7 @@ public class StatsService {
 
     public boolean craw(String format) {
         boolean result = true;
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMM");
-        String statId = dateTimeFormatter.format(LocalDate.now().minusMonths(1)) + format;
+        String statId = getLatestStatId(format);
         result = crawStat(format, statId);
 
         crawPokemonSet(format, statId);
@@ -105,6 +104,11 @@ public class StatsService {
         }
         mongoTemplate.insertAll(pokemonUsages);
         mongoTemplate.insertAll(pokemonMoveSets);
+    }
+
+    public String getLatestStatId(String format) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
+        return formatter.format(LocalDate.now().minusMonths(1)) + format;
     }
 
     public MonthlyMetaStat findMetaStat(String statId) {

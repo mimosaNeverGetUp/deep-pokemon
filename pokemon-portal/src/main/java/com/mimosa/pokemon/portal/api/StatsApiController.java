@@ -29,24 +29,24 @@ public class StatsApiController {
     }
 
     @GetMapping("{format}/usage")
-    public PageResponse<MonthlyPokemonUsage> usages(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*&") String format,
+    public PageResponse<MonthlyPokemonUsage> usages(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format,
                                                     @Min(0) int page, @Min(1) @Max(100) int row) {
         return statsService.queryUsage(format, page, row);
     }
 
     @GetMapping("{format}/meta")
-    public MonthlyMetaStat meta(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*&") String format) {
+    public MonthlyMetaStat meta(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format) {
         return statsService.queryMeta(format);
     }
 
     @GetMapping("{format}/moveset/{pokemon}")
-    public MonthlyPokemonMoveSet moveset(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*&") String format,
+    public MonthlyPokemonMoveSet moveset(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format,
                                          @PathVariable("pokemon") String pokmeon) {
         return statsService.queryMoveSet(format, pokmeon);
     }
 
     @GetMapping("{format}/set/{pokemon}")
-    public PokemonSet set(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*&") String format,
+    public PokemonSet set(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format,
                           @PathVariable("pokemon") String pokmeon) {
         return statsService.queryPokemonSet(format, pokmeon);
     }

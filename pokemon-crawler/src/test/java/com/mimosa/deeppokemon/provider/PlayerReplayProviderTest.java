@@ -30,11 +30,11 @@ class PlayerReplayProviderTest {
 
     @ParameterizedTest
     @CsvSource(value = {"Separation,gen9ou"})
-    public void next(String name, String format) {
+    void next(String name, String format) {
         long uploadTimeAfter = 1713289463;
         PlayerReplayProvider provider = new PlayerReplayProvider(name, format, uploadTimeAfter);
         PlayerReplayProvider spyProvider = Mockito.spy(provider);
-        Replay replay = new Replay("1234", 1713289465, "gen9ou", 0, new String[]{"Separation", "mimosa"}, false);
+        Replay replay = new Replay("1234", 1713289465, "gen9ou", 1759, new String[]{"Separation", "mimosa"}, false);
         ReplaySource source = new ReplaySource("ladder", Collections.singletonList(
                 replay));
         Mockito.doReturn(Collections.singletonList(source)).when(spyProvider).queryReplayPage(1);
@@ -51,14 +51,15 @@ class PlayerReplayProviderTest {
 
     @ParameterizedTest
     @CsvSource(value = {"Separation,gen9ou"})
-    public void queryReplayPage(String name, String format) throws IOException{
+    void queryReplayPage(String name, String format) throws IOException{
         long uploadTimeAfter = 1713289463;
-        PlayerReplayProvider provider = new PlayerReplayProvider(name, format, uploadTimeAfter);
+        int minRating = 1750;
+        PlayerReplayProvider provider = new PlayerReplayProvider(name, format, uploadTimeAfter, minRating);
         try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
             mockHttpUtil.when(() -> HttpUtil.request(Mockito.any())).thenReturn(apiResponseResource
                     .getContentAsString(StandardCharsets.UTF_8));
             List<ReplaySource> replaySources = provider.queryReplayPage(1);
-            Assertions.assertEquals(10, replaySources.size());
+            Assertions.assertEquals(5, replaySources.size());
             replaySources.forEach(PlayerReplayProviderTest::assertReplaySource);
         }
     }
@@ -75,5 +76,6 @@ class PlayerReplayProviderTest {
         Assertions.assertNotNull(replay.format());
         Assertions.assertEquals(2, replay.players().length);
         Assertions.assertNotEquals(0, replay.uploadTime());
+        Assertions.assertNotEquals(0, replay.rating());
     }
 }

@@ -17,15 +17,15 @@ import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class ReplayBattleCrawlerTest {
-    final private String URL_GEN8 = "smogtours-gen8ou-759319";
-    final private String URL_GEN9 = "smogtours-gen9ou-686609";
+class ReplayBattleCrawlerTest {
+    final private String URL_GEN9 = "gen9ou-2159383579";
 
     @Autowired
     private ReplayBattleCrawler crawler;
@@ -34,10 +34,11 @@ public class ReplayBattleCrawlerTest {
     BattleService battleSevice;
 
     @ParameterizedTest
-    @ValueSource(strings = {URL_GEN8})
-    public void crawler(String id) {
-        Replay replay = new Replay(id, 0, null, 0, null, false);
+    @ValueSource(strings = {URL_GEN9})
+    void crawler(String id) {
+        Replay replay = new Replay(id, 0, null, 1790, null, false);
         Battle battle = crawler.craw(replay);
         MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
+        Assertions.assertNotEquals(0, battle.getAvageRating());
     }
 }

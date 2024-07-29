@@ -19,6 +19,7 @@ import org.apache.hc.core5.net.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
+import org.springframework.web.server.ServerErrorException;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -26,7 +27,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.stream.Collectors;
 
 public class PlayerReplayProvider implements ReplayProvider {
     private static final Logger logger = LoggerFactory.getLogger(PlayerReplayProvider.class);
@@ -44,16 +44,23 @@ public class PlayerReplayProvider implements ReplayProvider {
 
     private final long uploadTimeAfter;
 
+    private final int minRating;
+
     private int bufferPage;
 
     private final Queue<ReplaySource> replaySourceBuffer;
 
-    public PlayerReplayProvider(String name, String format, long uploadTimeAfter) {
+    public PlayerReplayProvider(String name, String format, long uploadTimeAfter, int minRating) {
         this.name = name;
         this.format = format;
         bufferPage = 1;
         this.uploadTimeAfter = uploadTimeAfter;
+        this.minRating = minRating;
         replaySourceBuffer = new LinkedList<>();
+    }
+
+    public PlayerReplayProvider(String name, String format, long uploadTimeAfter) {
+        this(name, format, uploadTimeAfter, 0);
     }
 
     @Override
@@ -91,12 +98,13 @@ public class PlayerReplayProvider implements ReplayProvider {
             });
             return replays.stream()
                     .filter(replay -> replay.uploadTime() > uploadTimeAfter)
+                    .filter(replay -> replay.rating() >= minRating)
                     .map(replay -> new ReplaySource(LADDER, Collections.singletonList(replay)))
-                    .collect(Collectors.toList());
+                    .toList();
         } catch (URISyntaxException e) {
-            throw new RuntimeException("build query replay uri occur error", e);
+            throw new ServerErrorException("build query replay uri occur error", e);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException("parse api response fail", e);
+            throw new ServerErrorException("parse api response fail", e);
         }
     }
 

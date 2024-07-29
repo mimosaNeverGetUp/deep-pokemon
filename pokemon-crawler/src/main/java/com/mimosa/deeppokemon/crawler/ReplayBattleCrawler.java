@@ -51,6 +51,7 @@ public class ReplayBattleCrawler implements BattleCrawler {
         Battle battle = battleReplayExtractor.extract(battleReplay);
         String battleID = replay.id();
         battle.setBattleID(battleID);
+        battle.setAvageRating(replay.rating());
         return battle;
     }
 

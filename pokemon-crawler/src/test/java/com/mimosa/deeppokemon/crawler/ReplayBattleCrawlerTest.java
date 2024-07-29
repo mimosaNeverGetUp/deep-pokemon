@@ -25,7 +25,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class ReplayBattleCrawlerTest {
-    final private String URL_GEN8 = "smogtours-gen8ou-759319";
     final private String URL_GEN9 = "gen9ou-2159383579";
 
     @Autowired

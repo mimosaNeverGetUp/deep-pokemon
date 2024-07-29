@@ -58,7 +58,7 @@ public class PokemonCrawlerApplication {
     @Primary
     LadderCrawler crawler() {
         return new LadderCrawler("gen9ou", 1,
-                200, 1600, LocalDate.now().minusMonths(1), 60.0f);
+                200, 1750, LocalDate.now().minusMonths(1), 60.0f);
     }
 
 

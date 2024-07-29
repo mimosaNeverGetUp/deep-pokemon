@@ -34,7 +34,8 @@ async function fetchStatsData(format, page, row) {
 }
 
 function onPage(event) {
-  currentPage.value = event.page
+  currentPage.value = event.page;
+  row.value = event.rows;
   fetchStatsData(props.format, event.page, event.rows)
 }
 

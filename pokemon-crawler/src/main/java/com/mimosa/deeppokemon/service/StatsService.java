@@ -14,6 +14,7 @@ import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -31,6 +32,8 @@ public class StatsService {
     protected static final int COUNTER_KOED_INDEX = 1;
     protected static final int COUNTER_SWITCH_OUT_INDEX = 2;
     protected static final String STAT_ID = "statId";
+    protected static final String FORMAT = "format";
+    protected static final String DATE = "date";
     private final MongoTemplate mongoTemplate;
     private final MonthlyStatCrawler monthlyStatCrawler;
     private final PokemonSetCrawler pokemonSetCrawler;
@@ -39,6 +42,14 @@ public class StatsService {
         this.mongoTemplate = mongoTemplate;
         this.monthlyStatCrawler = monthlyStatCrawler;
         this.pokemonSetCrawler = pokemonSetCrawler;
+    }
+
+    public synchronized boolean craw(String format) {
+        String statId = getLatestStatId(format);
+        boolean result = crawStat(format, statId);
+
+        result = result && crawPokemonSet(format, statId);
+        return result;
     }
 
     public boolean crawStat(String format, String statId) {
@@ -50,6 +61,12 @@ public class StatsService {
         log.info("start craw {} stat", statId);
         try {
             MonthlyBattleStatDto statDto = monthlyStatCrawler.craw(format);
+            MonthlyMetaStat latestMetaStat = getLatestMetaStat(format);
+            if (latestMetaStat != null && latestMetaStat.total() == statDto.battles()) {
+                log.info("{} stat battle count is same with latest stat {}, maybe data is not update, no save", statId,
+                        latestMetaStat.id());
+                return false;
+            }
             save(format, statDto);
         } catch (Exception e) {
             log.error("craw {} stat failed", statId, e);
@@ -58,20 +75,11 @@ public class StatsService {
         return true;
     }
 
-    public synchronized boolean craw(String format) {
-        boolean result = true;
-        String statId = getLatestStatId(format);
-        result = crawStat(format, statId);
-
-        crawPokemonSet(format, statId);
-        return result;
-    }
-
-    private void crawPokemonSet(String format, String statId) {
+    public boolean crawPokemonSet(String format, String statId) {
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId));
         if (mongoTemplate.count(query, PokemonSet.class) > 0) {
             log.info("{} pokemon set is already exist", statId);
-            return;
+            return true;
         }
 
         try {
@@ -79,7 +87,9 @@ public class StatsService {
             mongoTemplate.insertAll(pokemonSets);
         } catch (Exception e) {
             log.error("craw {} pokemon set failed", statId, e);
+            return false;
         }
+        return true;
     }
 
     public void save(String format, MonthlyBattleStatDto monthlyBattleStatDto) {
@@ -106,9 +116,23 @@ public class StatsService {
         mongoTemplate.insertAll(pokemonMoveSets);
     }
 
+    /**
+     * get latest stat id
+     * because smogon publish stat monthly, it is point to last month
+     */
     public String getLatestStatId(String format) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
         return formatter.format(LocalDate.now().minusMonths(1)) + format;
+    }
+
+    /**
+     * get latest stat in db
+     */
+    public MonthlyMetaStat getLatestMetaStat(String format) {
+        Query query = new Query()
+                .addCriteria(Criteria.where(FORMAT).is(format))
+                .with(Sort.by(Sort.Order.desc(DATE)));
+        return mongoTemplate.findOne(query, MonthlyMetaStat.class);
     }
 
     public MonthlyMetaStat findMetaStat(String statId) {

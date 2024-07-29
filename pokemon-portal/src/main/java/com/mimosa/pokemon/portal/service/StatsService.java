@@ -32,7 +32,8 @@ public class StatsService {
     protected static final String STAT_ID = "statId";
     protected static final String YYYY_MM = "yyyyMM";
     protected static final String NAME = "name";
-    protected static final String QUERY_MONTHLY_STATS_FAIL = "Query monthly stats fail";
+    protected static final String FORMAT = "format";
+    protected static final String DATE = "date";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -42,11 +43,6 @@ public class StatsService {
     }
 
     public PageResponse<MonthlyPokemonUsage> queryUsage(String format, int page, int row) {
-        if (!ensureMonthlyStatsExist(format)) {
-            log.error(QUERY_MONTHLY_STATS_FAIL);
-            throw new ServerErrorException(QUERY_MONTHLY_STATS_FAIL, null);
-        }
-
         String statId = getLatestStatId(format);
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId)).with(Sort.by(Sort.Order.desc("usage.weighted")));
         long total = mongoTemplate.count(query, MonthlyPokemonUsage.class);
@@ -55,42 +51,22 @@ public class StatsService {
         return new PageResponse<>(total, page, row, pokemonUsages);
     }
 
-    public boolean ensureMonthlyStatsExist(String format) {
-        String statId = getLatestStatId(format);
-        if (isStatsExist(statId, false)) {
-            return true;
-        }
-        log.info("try craw {} stats", statId);
-        boolean result = crawlerApi.crawMonthlyStats(format);
-        if (!result) {
-            log.warn("craw monthly stats {} failed", statId);
-        }
-        return isStatsExist(statId, true);
+    public boolean tryCrawLatestStat(String format) {
+        return crawlerApi.crawMonthlyStats(format);
     }
 
-    private boolean isStatsExist(String statId, boolean ignoreSetExist) {
-        if (ignoreSetExist) {
-            return mongoTemplate.findById(statId, MonthlyMetaStat.class) != null;
-        }
+    private boolean isStatsExist(String statId) {
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId));
         return mongoTemplate.findById(statId, MonthlyMetaStat.class) != null
                 && mongoTemplate.count(query, PokemonSet.class) > 0;
     }
 
     public MonthlyMetaStat queryMeta(String format) {
-        if (!ensureMonthlyStatsExist(format)) {
-            throw new ServerErrorException(QUERY_MONTHLY_STATS_FAIL, null);
-        }
-
         String statId = getLatestStatId(format);
         return mongoTemplate.findById(statId, MonthlyMetaStat.class);
     }
 
     public MonthlyPokemonMoveSet queryMoveSet(String format, String pokmeon) {
-        if (!ensureMonthlyStatsExist(format)) {
-            throw new ServerErrorException(QUERY_MONTHLY_STATS_FAIL, null);
-        }
-
         String statId = getLatestStatId(format);
         Query query = new Query()
                 .addCriteria(Criteria.where(STAT_ID).is(statId))
@@ -101,11 +77,31 @@ public class StatsService {
 
     public String getLatestStatId(String format) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(YYYY_MM);
-        return formatter.format(LocalDate.now().minusMonths(1)) + format;
+        String latestId = formatter.format(LocalDate.now().minusMonths(1)) + format;
+        if (isStatsExist(latestId)) {
+            return latestId;
+        }
+
+        log.info("try craw latest stat {}", latestId);
+        boolean crawResult = tryCrawLatestStat(format);
+        if (crawResult || isStatsExist(latestId)) {
+            return latestId;
+        }
+
+        log.warn("try craw latest stat {} failed, use last stat in db", latestId);
+        // use last stat in db
+        Query query = new Query()
+                .addCriteria(Criteria.where(FORMAT).is(format))
+                .with(Sort.by(Sort.Order.desc(DATE)));
+        MonthlyMetaStat latestStat = mongoTemplate.findOne(query, MonthlyMetaStat.class);
+
+        if (latestStat == null) {
+            throw new ServerErrorException("can not get latest stat", null);
+        }
+        return latestStat.id();
     }
 
     public PokemonSet queryPokemonSet(String format, String pokemon) {
-        ensureMonthlyStatsExist(format);
         String statId = getLatestStatId(format);
         Query query = new Query()
                 .addCriteria(Criteria.where(STAT_ID).is(statId))

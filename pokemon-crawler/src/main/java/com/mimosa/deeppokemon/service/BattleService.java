@@ -41,8 +41,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.BulkOperationException;
 import org.springframework.data.mongodb.core.BulkOperations;
@@ -54,10 +52,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -72,10 +67,10 @@ public class BattleService {
     private final ThreadPoolExecutor analyzeBattleExecutor;
 
     private final MongoTemplate mongoTemplate;
-
     private final BattleCrawler battleCrawler;
-
     private final BattleAnalyzer battleAnalyzer;
+
+    private final Set<String> battleIds = ConcurrentHashMap.newKeySet();
 
     public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler,
                          BattleAnalyzer battleAnalyzer, @Value("${CRAW_BATTLE_POOL_SIZE:8}") int crawBattlePoolSize,
@@ -96,11 +91,6 @@ public class BattleService {
         return mongoTemplate.findById(battleId, Battle.class, BATTLE);
     }
 
-    @CacheEvict(cacheNames = "battleIds", allEntries = true)
-    public void save(Battle battle) {
-        mongoTemplate.save(battle);
-    }
-
     private List<Battle> insert(List<Battle> battles) {
         if (battles.isEmpty()) {
             return battles;
@@ -108,18 +98,18 @@ public class BattleService {
         try {
             BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, BATTLE);
             BulkWriteResult result = bulkOperations.insert(battles).execute();
+            battleIds.addAll(battles.stream().map(Battle::getBattleID).toList());
             return result.getInserts().stream().map(BulkWriteInsert::getIndex).map(battles::get)
                     .toList();
         } catch (BulkOperationException e) {
             log.error("save battle fail", e);
-            if (!isDuplicateKeyException(e)) {
-                throw e;
-            }
             Set<Integer> errorIndexs = e.getErrors().stream().map(BulkWriteError::getIndex).collect(Collectors.toSet());
-            return IntStream.range(0, battles.size())
+            List<Battle> battleList = IntStream.range(0, battles.size())
                     .filter(i -> !errorIndexs.contains(i))
                     .mapToObj(battles::get)
                     .toList();
+            battleIds.addAll(battleList.stream().map(Battle::getBattleID).toList());
+            return battleList;
         }
     }
 
@@ -134,7 +124,6 @@ public class BattleService {
         return battles;
     }
 
-    @CacheEvict(cacheNames = "battleIds", allEntries = true)
     public List<Battle> save(List<Battle> battles, boolean overwrite) {
         List<Battle> saveResult;
         if (overwrite) {
@@ -145,17 +134,19 @@ public class BattleService {
         return saveResult;
     }
 
-    private boolean isDuplicateKeyException(BulkOperationException exception) {
-        return exception.getErrors().stream().allMatch(error -> error.getCode() == 11000);
-    }
-
     public List<Battle> find100BattleSortByDate() {
         Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date"))).limit(100);
         return mongoTemplate.find(query, Battle.class, BATTLE);
     }
 
-    @Cacheable(cacheNames = "battleIds")
     public Set<String> getAllBattleIds() {
+        if (battleIds.isEmpty()) {
+            battleIds.addAll(queryAllBattleIds());
+        }
+        return battleIds;
+    }
+
+    private Set<String> queryAllBattleIds() {
         Aggregation aggregation = Aggregation.newAggregation(
                 Aggregation.project(Fields.fields(ID))
         );

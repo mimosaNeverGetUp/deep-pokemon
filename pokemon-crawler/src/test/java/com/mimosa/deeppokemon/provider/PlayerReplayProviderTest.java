@@ -35,7 +35,7 @@ class PlayerReplayProviderTest {
         PlayerReplayProvider provider = new PlayerReplayProvider(name, format, uploadTimeAfter);
         PlayerReplayProvider spyProvider = Mockito.spy(provider);
         Replay replay = new Replay("1234", 1713289465, "gen9ou", 1759, new String[]{"Separation", "mimosa"}, false);
-        ReplaySource source = new ReplaySource("ladder", Collections.singletonList(
+        ReplaySource source = new ReplaySource(Collections.singletonList("ladder"), Collections.singletonList(
                 replay));
         Mockito.doReturn(Collections.singletonList(source)).when(spyProvider).queryReplayPage(1);
         Mockito.doReturn(Collections.emptyList()).when(spyProvider).queryReplayPage(2);

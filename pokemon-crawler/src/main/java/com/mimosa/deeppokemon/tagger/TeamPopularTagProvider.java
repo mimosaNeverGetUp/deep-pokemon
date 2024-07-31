@@ -56,7 +56,7 @@ public class TeamPopularTagProvider implements TeamTagProvider {
         try {
             //手动神经元，求和大于阈值判断分类
             for (Pokemon pokemon : team.getPokemons()) {
-                PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon);
+                PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon.getName());
                 if (pokemonInfo == null) {
                     throw new RuntimeException("pokemon info "+pokemon.getName()+" get fail");
                 }

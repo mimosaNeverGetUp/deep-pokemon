@@ -19,7 +19,7 @@ public class FixedReplayProvider implements ReplayProvider {
 
     public FixedReplayProvider(Collection<String> battleIds) {
         for (String battleId : battleIds) {
-            replays.add(new ReplaySource("fixed", Collections.singletonList(new Replay(battleId))));
+            replays.add(new ReplaySource(Collections.singletonList("fixed"), Collections.singletonList(new Replay(battleId))));
         }
     }
 

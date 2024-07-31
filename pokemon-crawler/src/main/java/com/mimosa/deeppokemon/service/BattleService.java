@@ -26,9 +26,8 @@ package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.analyzer.BattleAnalyzer;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.crawler.PokemonInfoCrawler;
+import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.deeppokemon.provider.FixedReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
@@ -50,6 +49,7 @@ import org.springframework.data.mongodb.core.aggregation.Fields;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ServerErrorException;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -61,6 +61,7 @@ public class BattleService {
     private static final Logger log = LoggerFactory.getLogger(BattleService.class);
     private static final String ID = "_id";
     private static final String BATTLE = "battle";
+    protected static final int POKEMONS_BITS = 10000;
 
     private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
@@ -69,16 +70,19 @@ public class BattleService {
     private final MongoTemplate mongoTemplate;
     private final BattleCrawler battleCrawler;
     private final BattleAnalyzer battleAnalyzer;
+    private final PokemonInfoCrawler pokemonInfoCrawler;
 
     private final Set<String> battleIds = ConcurrentHashMap.newKeySet();
 
     public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler,
-                         BattleAnalyzer battleAnalyzer, @Value("${CRAW_BATTLE_POOL_SIZE:8}") int crawBattlePoolSize,
+                         BattleAnalyzer battleAnalyzer, PokemonInfoCrawler pokemonInfoCrawler,
+                         @Value("${CRAW_BATTLE_POOL_SIZE:8}") int crawBattlePoolSize,
                          @Value("${ANALYZE_BATTLE_POOL_SIZE:3}") int analyzeBattlePoolSize,
                          @Value("${CRAW_PERIOD_MILLISECOND:1000}") int crawPeriodMillisecond) {
         this.mongoTemplate = mongoTemplate;
         this.battleCrawler = battleCrawler;
         this.battleAnalyzer = battleAnalyzer;
+        this.pokemonInfoCrawler = pokemonInfoCrawler;
         crawBattleExecutor = new ThreadPoolExecutor(crawBattlePoolSize, crawBattlePoolSize, 0,
                 TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         analyzeBattleExecutor = new ThreadPoolExecutor(analyzeBattlePoolSize, analyzeBattlePoolSize, 0,
@@ -91,7 +95,7 @@ public class BattleService {
         return mongoTemplate.findById(battleId, Battle.class, BATTLE);
     }
 
-    private List<Battle> insert(List<Battle> battles) {
+    public List<Battle> insert(List<Battle> battles) {
         if (battles.isEmpty()) {
             return battles;
         }
@@ -117,7 +121,7 @@ public class BattleService {
      * update battles
      * since can not update at once, performance is not good when battle size is big
      */
-    private List<Battle> update(List<Battle> battles) {
+    public List<Battle> update(List<Battle> battles) {
         for (Battle battle : battles) {
             mongoTemplate.save(battle, BATTLE);
         }
@@ -126,12 +130,52 @@ public class BattleService {
 
     public List<Battle> save(List<Battle> battles, boolean overwrite) {
         List<Battle> saveResult;
+        if (battles.isEmpty()) {
+            return battles;
+        }
+
         if (overwrite) {
             saveResult = update(battles);
         } else {
             saveResult = insert(battles);
+            insertTeam(battles);
         }
         return saveResult;
+    }
+
+    public void insertTeam(List<Battle> battles) {
+        List<BattleTeam> battleTeams = new ArrayList<>(battles.size() * 2);
+        for (Battle battle : battles) {
+            int index = 0;
+            for (Team team : battle.getTeams()) {
+                String battleTeamId = String.format("%s_%d", battle.getBattleID(), index);
+                byte[] teamId = calTeamId(team);
+                BattleTeam battleTeam = new BattleTeam(battleTeamId, battle.getBattleID(), teamId, battle.getDate(),
+                        battle.getType(), team.getPlayerName(), team.getPokemons(), team.getTagSet());
+                battleTeams.add(battleTeam);
+                index++;
+            }
+        }
+
+        try {
+            mongoTemplate.insertAll(battleTeams);
+        } catch (Exception e) {
+            log.error("save battle team fail", e);
+            throw new ServerErrorException(e.getMessage(), e);
+        }
+    }
+
+    public byte[] calTeamId(Team team) {
+        BitSet bitSet = new BitSet(POKEMONS_BITS);
+        for (Pokemon pokemon : team.getPokemons()) {
+            PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(pokemon.getName());
+            if (pokemonInfo == null) {
+                log.warn("can't find pokemon info for {}", pokemon.getName());
+                continue;
+            }
+            bitSet.set(pokemonInfo.getNumber());
+        }
+        return bitSet.toByteArray();
     }
 
     public List<Battle> find100BattleSortByDate() {

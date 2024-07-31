@@ -25,7 +25,6 @@
 package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.BaseStats;
-import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Type;
 import org.json.JSONArray;
@@ -62,7 +61,7 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
     private static final Logger logger = LoggerFactory.getLogger(PokemonInfoCrawlerImp.class);
     public static final String FORMES_PATTERN = "-";
     private final String dataPath = "pokemon/pokemoninfo.txt";
-    private HashMap<String, PokemonInfo> infoHashMap = new HashMap<>(900);
+    private final HashMap<String, PokemonInfo> infoHashMap = new HashMap<>(900);
 
     public PokemonInfoCrawlerImp() {
         try {
@@ -75,11 +74,10 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
         }
     }
 
-    public PokemonInfo getPokemonInfo(Pokemon pokemon) {
+    public PokemonInfo getPokemonInfo(String name) {
         if (infoHashMap == null) {
             return null;
         }
-        String name = pokemon.getName();
         //由于多形态而带后缀的名字消去后缀
         if (name.contains("-*")) {
             name = name.replace("-*", "");

@@ -72,6 +72,8 @@ public class BattleReplayExtractor {
         Integer avageRating = battleReplayData.rating();
         Battle battle = new Battle(teams, date, winner, avageRating);
         battle.setBattleID(battleReplayData.id());
+        battle.setPlayers(battleReplayData.players());
+        battle.setAvageRating(battleReplayData.rating());
         battle.setLog(battleReplayData.log());
         extractBattleTurn(battleReplayData.log(), battle);
         logger.debug("extract battle: {}", battle);

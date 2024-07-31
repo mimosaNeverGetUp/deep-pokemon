@@ -36,7 +36,7 @@ class ReplayBattleCrawlerTest {
     @ParameterizedTest
     @ValueSource(strings = {URL_GEN9})
     void crawler(String id) {
-        Replay replay = new Replay(id, 0, null, 1790, null, false);
+        Replay replay = new Replay(id, 0, null, 1790, new String[]{"PTLT508 jojo", "OU G Herbo"}, false);
         Battle battle = crawler.craw(replay);
         MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
         Assertions.assertNotEquals(0, battle.getAvageRating());

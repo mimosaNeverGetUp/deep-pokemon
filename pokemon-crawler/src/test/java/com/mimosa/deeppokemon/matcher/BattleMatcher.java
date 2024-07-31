@@ -42,6 +42,10 @@ public class BattleMatcher extends TypeSafeMatcher<Battle> {
             return false;
         }
 
+        if (battle.getPlayers().isEmpty()) {
+            return false;
+        }
+
         return Arrays.stream(battle.getTeams()).allMatch(TeamMatcher.TEAM_MATCHER::matches);
     }
 

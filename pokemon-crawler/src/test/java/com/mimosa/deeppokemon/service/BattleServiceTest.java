@@ -60,7 +60,7 @@ class BattleServiceTest {
     @Test
     void insertTeam() {
         List<Battle> battles = battleService.find100BattleSortByDate().subList(0, 5);
-
+        battles.forEach(battle -> battle.setAvageRating(1800.0F));
         List<BattleTeam> battleTeams = null;
         try {
             battleService.insertTeam(battles);
@@ -68,6 +68,7 @@ class BattleServiceTest {
             for (BattleTeam battleTeam : battleTeams) {
                 Assertions.assertNotNull(battleTeam.teamId());
                 Assertions.assertNotEquals(0, battleTeam.teamId().length);
+                Assertions.assertNotEquals(0.0F, battleTeam.rating());
                 Assertions.assertNotNull(battleTeam.battleDate());
                 Assertions.assertFalse(battleTeam.tagSet().isEmpty());
                 List<Pokemon> pokemons = battleTeam.pokemons();
@@ -124,6 +125,7 @@ class BattleServiceTest {
             Assertions.assertTrue(battleService.getAllBattleIds().contains(NOT_EXIST_BATTLE_ID));
         } finally {
             mongoTemplate.remove(notExistBattle);
+            mongoTemplate.remove(new Query(Criteria.where("battleId").is(NOT_EXIST_BATTLE_ID)), "battle_team");
         }
     }
 

@@ -151,7 +151,8 @@ public class BattleService {
                 String battleTeamId = String.format("%s_%d", battle.getBattleID(), index);
                 byte[] teamId = calTeamId(team);
                 BattleTeam battleTeam = new BattleTeam(battleTeamId, battle.getBattleID(), teamId, battle.getDate(),
-                        battle.getType(), team.getPlayerName(), team.getPokemons(), team.getTagSet());
+                        battle.getType(), battle.getAvageRating(), team.getPlayerName(), team.getPokemons(),
+                        team.getTagSet());
                 battleTeams.add(battleTeam);
                 index++;
             }

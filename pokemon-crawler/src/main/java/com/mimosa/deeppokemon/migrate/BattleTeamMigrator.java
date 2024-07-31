@@ -79,7 +79,6 @@ public class BattleTeamMigrator {
         if (!battleList.isEmpty()) {
             migrate(battleList);
         }
-
     }
 
     private void migrate(List<Battle> battleList) {

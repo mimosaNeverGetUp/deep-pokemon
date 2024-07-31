@@ -160,8 +160,7 @@ public class BattleService {
         try {
             mongoTemplate.insertAll(battleTeams);
         } catch (Exception e) {
-            log.error("save battle team fail", e);
-            throw new ServerErrorException(e.getMessage(), e);
+            throw new ServerErrorException("save battle team fail", e);
         }
     }
 

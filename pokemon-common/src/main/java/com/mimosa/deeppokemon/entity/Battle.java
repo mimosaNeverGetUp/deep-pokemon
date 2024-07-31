@@ -208,6 +208,6 @@ public class Battle implements Serializable {
                 "   date:" + date + "\n" +
                 "   winner:" + winner + "\n" +
                 "   turn:" + turnCount + "\n" +
-                "   avageRating:" + avageRating + "\n\n").replaceAll(",", " ");
+                "   avageRating:" + avageRating + "\n\n").replace(",", " ");
     }
 }

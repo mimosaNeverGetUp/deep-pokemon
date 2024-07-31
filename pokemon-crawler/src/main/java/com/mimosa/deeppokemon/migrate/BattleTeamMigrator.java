@@ -16,11 +16,14 @@ import org.springframework.context.event.EventListener;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
+
 
 @Component
 @Profile("migrateBattleTeam")
@@ -54,7 +57,7 @@ public class BattleTeamMigrator {
                 .as("battleTeam");
 
         MatchOperation matchOperation = Aggregation.match(Criteria.where("battleTeam").size(0));
-        ProjectionOperation projectionOperation = Aggregation.project("teams", "date", "_id");
+        ProjectionOperation projectionOperation = Aggregation.project("avageRating", "teams", "date", "_id");
         AggregationOptions aggregationOptions = Aggregation.newAggregationOptions()
                 .cursorBatchSize(BATCH_SIZE)
                 .build();
@@ -95,11 +98,16 @@ public class BattleTeamMigrator {
                 continue;
             }
             try {
-                battle.setPlayers(List.of(battle.getTeams()[0].getPlayerName(), battle.getTeams()[1].getPlayerName()));
-                mongoTemplate.save(battle);
+                updateBattlePlayers(battle);
             } catch (Exception e) {
                 log.error("set battle {} player error", battle.getBattleID(), e);
             }
         }
+    }
+
+    private void updateBattlePlayers(Battle battle) {
+        Query query = new Query(Criteria.where("_id").is(battle.getBattleID()));
+        Update update = new Update().set("players", List.of(battle.getTeams()[0].getPlayerName(), battle.getTeams()[1].getPlayerName()));
+        mongoTemplate.updateFirst(query, update, Battle.class);
     }
 }

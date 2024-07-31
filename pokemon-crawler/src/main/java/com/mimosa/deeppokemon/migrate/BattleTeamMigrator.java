@@ -24,7 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+
 @Component
+@Profile("migrateBattleTeam")
 public class BattleTeamMigrator {
     private static final Logger log = LoggerFactory.getLogger(BattleTeamMigrator.class);
     private final BattleService battleService;
@@ -36,7 +38,6 @@ public class BattleTeamMigrator {
         this.mongoTemplate = mongoTemplate;
     }
 
-    @Profile("migrateBattleTeam")
     @EventListener(value = ApplicationReadyEvent.class)
     public void migrateBattleTeam() {
         log.info("start migrate battle team");

@@ -6,7 +6,6 @@
 
 package com.mimosa.deeppokemon.migrate;
 
-import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.Pokemon;
@@ -16,14 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-@ContextConfiguration(classes = MongodbTestConfig.class)
 class BattleTeamMigratorTest {
     @Autowired
     private BattleTeamMigrator battleTeamMigrator;

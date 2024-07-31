@@ -9,7 +9,6 @@ package com.mimosa.pokemon.portal.api;
 import com.mimosa.pokemon.portal.config.MongodbTestConfig;
 import com.mimosa.pokemon.portal.matcher.TeamMatcher;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -18,9 +17,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.testcontainers.junit.jupiter.Testcontainers;
-
-import java.util.Collections;
-import java.util.stream.Stream;
 
 import static org.hamcrest.Matchers.everyItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

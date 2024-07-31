@@ -8,6 +8,6 @@ package com.mimosa.deeppokemon.entity;
 
 import java.util.List;
 
-public record ReplaySource(String replayType, List<Replay> replayList) {
+public record ReplaySource(List<String> replayType, List<Replay> replayList) {
 
 }

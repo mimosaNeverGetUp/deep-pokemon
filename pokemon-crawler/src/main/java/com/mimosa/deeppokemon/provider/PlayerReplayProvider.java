@@ -99,7 +99,7 @@ public class PlayerReplayProvider implements ReplayProvider {
             return replays.stream()
                     .filter(replay -> replay.uploadTime() > uploadTimeAfter)
                     .filter(replay -> replay.rating() >= minRating)
-                    .map(replay -> new ReplaySource(LADDER, Collections.singletonList(replay)))
+                    .map(replay -> new ReplaySource(Collections.singletonList(LADDER), Collections.singletonList(replay)))
                     .toList();
         } catch (URISyntaxException e) {
             throw new ServerErrorException("build query replay uri occur error", e);

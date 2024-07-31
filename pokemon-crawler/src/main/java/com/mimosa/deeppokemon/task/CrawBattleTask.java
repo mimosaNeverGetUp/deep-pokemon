@@ -10,6 +10,7 @@ import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.crawler.lock.CrawLock;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Replay;
+import com.mimosa.deeppokemon.entity.ReplaySource;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.slf4j.Logger;
@@ -34,6 +35,7 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     private final List<String> holdBattleLocks;
 
     private final boolean update;
+
     private long crawPeriod;
 
     public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler, BattleService battleService,
@@ -60,7 +62,8 @@ public class CrawBattleTask implements Callable<List<Battle>> {
         List<Battle> battles = new ArrayList<>();
         try {
             while (replayProvider.hasNext()) {
-                battles.addAll(crawBattle(replayProvider.next().replayList()));
+                ReplaySource replaySource = replayProvider.next();
+                battles.addAll(crawBattle(replaySource.replayList(), replaySource.replayType()));
             }
             log.debug("craw battle finished, battle size: {}, start save", battles.size());
             battleService.save(battles, update);
@@ -73,9 +76,11 @@ public class CrawBattleTask implements Callable<List<Battle>> {
         return battles;
     }
 
-    private List<Battle> crawBattle(List<Replay> replays) {
+    private List<Battle> crawBattle(List<Replay> replays, List<String> replayType) {
         try {
-            return crawBattleFromReplay(replays);
+            List<Battle> battles = crawBattleFromReplay(replays);
+            battles.forEach(battle -> battle.setType(replayType));
+            return battles;
         } catch (InterruptedException e) {
             log.error("Thread interrupted", e);
             Thread.currentThread().interrupt();

@@ -48,11 +48,7 @@ public class ReplayBattleCrawler implements BattleCrawler {
     public Battle craw(Replay replay) {
         ClassicHttpRequest httpGet = initGet(replay.id());
         BattleReplayData battleReplay = HttpUtil.request(httpGet, BattleReplayData.class);
-        Battle battle = battleReplayExtractor.extract(battleReplay);
-        String battleID = replay.id();
-        battle.setBattleID(battleID);
-        battle.setAvageRating(replay.rating());
-        return battle;
+        return battleReplayExtractor.extract(battleReplay);
     }
 
     private ClassicHttpRequest initGet(String battleId) {

@@ -57,7 +57,7 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
         float attackDefenseDif = 0;//攻受差异，大于0表示攻向
         try {
             for (Pokemon pokemon : team.getPokemons()) {
-                PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon);
+                PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon.getName());
                 if (pokemonInfo == null) {
                     logger.error("pokemoninfo {} not found and team tag fail",pokemon.getName());
                     return;

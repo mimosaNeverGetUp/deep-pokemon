@@ -29,7 +29,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.List;
 
 @Document(collection = "battle")
 public class Battle implements Serializable {
@@ -39,6 +39,8 @@ public class Battle implements Serializable {
     private String info;
     // 对局日期
     private LocalDate date;
+    // 对战玩家
+    private List<String> players;
     // 胜方
     private String winner;
     // 排名
@@ -53,6 +55,8 @@ public class Battle implements Serializable {
     private String log;
     //对局回合
     private int turnCount;
+    //比赛类型
+    private List<String> type;
 
     public Battle(Team[] teams) {
         this.teams = teams;
@@ -165,6 +169,22 @@ public class Battle implements Serializable {
         teams[playerIndex].getPokemon(pokemonName).getMoves().add(move);
     }
 
+    public List<String> getType() {
+        return type;
+    }
+
+    public void setType(List<String> type) {
+        this.type = type;
+    }
+
+    public List<String> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<String> players) {
+        this.players = players;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -188,8 +208,6 @@ public class Battle implements Serializable {
                 "   date:" + date + "\n" +
                 "   winner:" + winner + "\n" +
                 "   turn:" + turnCount + "\n" +
-                "   avageRating:" + avageRating + "\n\n" +
-                Arrays.toString(teams) +
-                "\n\n").replaceAll(",", " ");
+                "   avageRating:" + avageRating + "\n\n").replace(",", " ");
     }
 }

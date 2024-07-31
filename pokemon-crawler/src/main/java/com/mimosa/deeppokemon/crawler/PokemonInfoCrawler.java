@@ -37,4 +37,6 @@ import java.util.List;
  */
 public interface PokemonInfoCrawler {
     List<PokemonInfo> craw() throws IOException;
+
+    public PokemonInfo getPokemonInfo(String name);
 }

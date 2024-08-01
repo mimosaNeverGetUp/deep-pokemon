@@ -82,10 +82,12 @@ public class StatsService {
             return latestId;
         }
 
-        log.info("try craw latest stat {}", latestId);
-        boolean crawResult = tryCrawLatestStat(format);
-        if (crawResult || isStatsExist(latestId)) {
-            return latestId;
+        if (isLatestStatUpdate()) {
+            log.info("try craw latest stat {}", latestId);
+            boolean crawResult = tryCrawLatestStat(format);
+            if (crawResult || isStatsExist(latestId)) {
+                return latestId;
+            }
         }
 
         log.warn("try craw latest stat {} failed, use last stat in db", latestId);
@@ -99,6 +101,10 @@ public class StatsService {
             throw new ServerErrorException("can not get latest stat", null);
         }
         return latestStat.id();
+    }
+
+    private boolean isLatestStatUpdate() {
+        return LocalDate.now().getDayOfMonth() != 1;
     }
 
     public PokemonSet queryPokemonSet(String format, String pokemon) {

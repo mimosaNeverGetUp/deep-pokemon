@@ -70,6 +70,7 @@ class BattleServiceTest {
                 Assertions.assertNotEquals(0, battleTeam.teamId().length);
                 Assertions.assertNotEquals(0.0F, battleTeam.rating());
                 Assertions.assertNotNull(battleTeam.battleDate());
+                Assertions.assertNotNull(battleTeam.tier());
                 Assertions.assertFalse(battleTeam.tagSet().isEmpty());
                 List<Pokemon> pokemons = battleTeam.pokemons();
                 Assertions.assertNotNull(pokemons);

@@ -21,6 +21,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
+//@ContextConfiguration(classes = MongodbTestConfig.class)
 class BattleTeamMigratorTest {
     @Autowired
     private BattleTeamMigrator battleTeamMigrator;
@@ -36,6 +37,7 @@ class BattleTeamMigratorTest {
             Assertions.assertNotNull(battleTeam.teamId());
             Assertions.assertNotEquals(0, battleTeam.teamId().length);
             Assertions.assertNotNull(battleTeam.battleDate());
+            Assertions.assertNotNull(battleTeam.tier());
             Assertions.assertFalse(battleTeam.tagSet().isEmpty());
             List<Pokemon> pokemons = battleTeam.pokemons();
             Assertions.assertNotNull(pokemons);

@@ -39,7 +39,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @ContextConfiguration(classes = MongodbTestConfig.class)
 @AutoConfigureMockMvc
 class BattleServiceTest {
-    public static final String EXIST_PLAYER_NAME = "fuck-yu chi-yu";
+    public static final String EXIST_PLAYER_NAME = "lt111vz mimilimi";
     @Autowired
     BattleService battleService;
 

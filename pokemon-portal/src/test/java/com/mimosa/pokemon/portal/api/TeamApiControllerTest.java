@@ -8,6 +8,7 @@ package com.mimosa.pokemon.portal.api;
 
 import com.mimosa.pokemon.portal.config.MongodbTestConfig;
 import com.mimosa.pokemon.portal.matcher.TeamMatcher;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.hamcrest.Matchers.everyItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -24,7 +24,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Testcontainers
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
 @AutoConfigureMockMvc
@@ -52,17 +51,18 @@ class TeamApiControllerTest {
                 .andDo(print())
                 .andExpect(jsonPath("$.page").value(page))
                 .andExpect(jsonPath("$.row").value(row))
-                .andExpect(jsonPath("$.data[*].team").exists())
-                .andExpect(jsonPath("$.data[*].team", everyItem(TeamMatcher.isValidTeam())));
+                .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
+                .andExpect(jsonPath("$.data").isNotEmpty())
+                .andExpect(jsonPath("$.data", everyItem(TeamMatcher.isValidTeam())));
 
         if (pokemonNames != null) {
-            resultActions.andExpect(jsonPath("$.data[*].team",
+            resultActions.andExpect(jsonPath("$.data",
                     everyItem(TeamMatcher.hasPokemons(pokemonNames.split(",")))));
         }
 
 
         if (tags != null) {
-            resultActions.andExpect(jsonPath("$.data[*].team",
+            resultActions.andExpect(jsonPath("$.data",
                     everyItem(TeamMatcher.hasTags(tags.split(",")))));
         }
     }

@@ -22,9 +22,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class MongodbUtils {
-
     public static final String DATA = "data";
     public static final String TOTAL = "total";
+
+    private MongodbUtils() {}
 
     public static Query withPageOperation(Query query, int page, int row) {
         return query.skip((long) (page) * row).limit(row);

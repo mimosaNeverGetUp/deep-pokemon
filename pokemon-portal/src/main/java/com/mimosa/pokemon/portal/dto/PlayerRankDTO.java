@@ -24,11 +24,10 @@
 
 package com.mimosa.pokemon.portal.dto;
 
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 
 import java.time.LocalDate;
 import java.util.List;
-
 
 public class PlayerRankDTO {
     private String name;
@@ -37,8 +36,7 @@ public class PlayerRankDTO {
     private int elo;
     private int rank;
     private float gxe;
-    private List<Team> recentTeam;
-
+    private List<BattleTeam> recentTeam;
 
     public PlayerRankDTO() {
     }
@@ -100,11 +98,11 @@ public class PlayerRankDTO {
         this.format = format;
     }
 
-    public List<Team> getRecentTeam() {
+    public List<BattleTeam> getRecentTeam() {
         return recentTeam;
     }
 
-    public void setRecentTeam(List<Team> recentTeam) {
+    public void setRecentTeam(List<BattleTeam> recentTeam) {
         this.recentTeam = recentTeam;
     }
 }

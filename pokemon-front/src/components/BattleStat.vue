@@ -190,7 +190,7 @@ function rowStyle(row) {
   return {backgroundColor: backgroundColor, margin: 0};
 }
 
-queryBattleStat(props.data.battleID)
+queryBattleStat(props.data.id)
 </script>
 <template>
   <div>
@@ -207,7 +207,7 @@ queryBattleStat(props.data.battleID)
                    tableStyle="min-width: 50rem" :row-style="rowStyle">
           <Column field="name" header="pokemon" :style="{ width:'10%'}">
             <template #body="{data}">
-              <img :src="getIconUrl(data.name)"/>
+              <img :src="getIconUrl(data.name)" :alt="data.name"/>
               <span>{{ data.name }}</span>
             </template>
           </Column>

@@ -9,6 +9,7 @@ import {ref} from "vue";
 import Column from "primevue/column";
 import Team from "@/components/Team.vue";
 import DataTable from "primevue/datatable";
+import ProgressSpinner from 'primevue/progressspinner';
 import {useRoute} from "vue-router";
 
 const route = useRoute();
@@ -45,20 +46,21 @@ queryTeams(page.value, row.value);
 </script>
 
 <template>
-  <DataTable :value="teams.data" class="ladder" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
+  <DataTable v-if="teams" :value="teams.data" class="ladder" lazy paginator :rows="20"
+             :rowsPerPageOptions="[5, 10, 20, 50]"
              :totalRecords="teams.totalRecords" @page="onPage($event)" :scrollable="false" stripedRows
              tableStyle="min-width: 50rem">
-    <Column field="team" header="队伍" :style="{ width:'30%' }">
+    <Column field="" header="队伍" :style="{ width:'30%' }">
       <template #body="{data}">
         <div class="team-list">
-          <Team :team="data.team" :compact="true"></Team>
+          <Team :team="data" :compact="true"></Team>
         </div>
       </template>
     </Column>
     <Column field="playerName" header="玩家名" :style="{ width:'20%' }">
       <template #body="{data}">
-        <router-link :to="`/player-record?name=${data.team.playerName}`" class="text-black">
-          {{ data.team.playerName }}
+        <router-link :to="`/player-record?name=${data.playerName}`" class="text-black">
+          {{ data.playerName }}
         </router-link>
       </template>
     </Column>
@@ -71,6 +73,7 @@ queryTeams(page.value, row.value);
     </Column>
 
   </DataTable>
+  <ProgressSpinner v-else/>
 </template>
 
 <style scoped>

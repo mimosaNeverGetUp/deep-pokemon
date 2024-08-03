@@ -34,12 +34,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
-@Testcontainers
+@SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
 @AutoConfigureMockMvc
-@SpringBootTest
 class BattleServiceTest {
     public static final String EXIST_PLAYER_NAME = "fuck-yu chi-yu";
     @Autowired
@@ -55,12 +53,12 @@ class BattleServiceTest {
     MockMvc mockMvc;
 
     @Test
-    void listPlayer() throws Exception {
+    void listPlayer() {
         PlayerRankDTO playerRankDTO = playerService.queryPlayerLadderRank(EXIST_PLAYER_NAME);
         Assertions.assertAll(
                 () -> Assertions.assertNotNull(playerRankDTO),
-                () -> Assertions.assertNotNull(playerRankDTO.getRank()),
-                () -> Assertions.assertNotNull(playerRankDTO.getElo()),
+                () -> Assertions.assertNotEquals(0, playerRankDTO.getRank()),
+                () -> Assertions.assertNotEquals(0, playerRankDTO.getElo()),
 //                ()->Assertions.assertNotNull(playerRankDTO.getFormat()),
                 () -> Assertions.assertNotNull(playerRankDTO.getInfoDate())
         );

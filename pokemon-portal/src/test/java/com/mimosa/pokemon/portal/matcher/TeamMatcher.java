@@ -30,7 +30,7 @@ public class TeamMatcher {
     public static Matcher<?> isValidTeam() {
         return Matchers.allOf(
                 VALID_TEAM_MAP_MATCHER,
-                Matchers.hasEntry(Matchers.equalTo(POKEMONS), Matchers.not(Matchers.emptyArray()))
+                Matchers.hasEntry(Matchers.equalTo(POKEMONS), Matchers.iterableWithSize(6))
         );
     }
 

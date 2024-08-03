@@ -228,8 +228,8 @@ async function queryPokemonSet(format, pokemon) {
     <div class="ml-5 my-3" v-if="teams">
       <p class="text-xl text-gray-500">replay</p>
       <div class="mb-1 flex text-center" v-for="team in teams">
-        <Team class="w-1/3" :team="team.team" :compact="true"></Team>
-        <span class="w-40">{{ team.team.playerName }}</span>
+        <Team class="w-1/3" :team="team" :compact="true"></Team>
+        <span class="w-40">{{ team.playerName }}</span>
         <a class="text-green-300 w-1/3" style="display:block" target="_blank"
            :href="`https://replay.pokemonshowdown.com/${team.battleId}`">
           {{ team.battleId }}

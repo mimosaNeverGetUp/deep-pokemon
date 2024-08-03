@@ -11,6 +11,9 @@ const rank = ref(null)
 const page = ref(0);
 const row = ref(25);
 const totalRecords = ref(null);
+const emptyTeam = ref({
+  pokemons: [{name: "null"}, {name: "null"}, {name: "null"}, {name: "null"}, {name: "null"}, {name: "null"}]
+});
 
 async function fetchData(page, row) {
   rank.value = null
@@ -36,10 +39,10 @@ fetchData(page.value, row.value)
              tableStyle="min-width: 50rem">
     <Column field="rank" header="排名"
             :style="{ width:'5%' }"></Column>
-    <Column field="name" header="玩家名" :style="{ width:'20%' }" >
+    <Column field="name" header="玩家名" :style="{ width:'20%' }">
       <template #body="{data}">
         <router-link :to="`/player-record?name=${data.name}`" class="text-black">
-          {{data.name}}
+          {{ data.name }}
         </router-link>
       </template>
     </Column>
@@ -47,8 +50,11 @@ fetchData(page.value, row.value)
     <Column field="gxe" header="gxe" :style="{ width:'5%' }"></Column>
     <Column field="recentTeam" header="最近使用队伍" :style="{ width:'30%' }">
       <template #body="{data}">
-        <div class="team-list">
+        <div class="team-list" v-if="data.recentTeam.length !== 0">
           <Team v-for="team in data.recentTeam" :team="team" :compact="true"></Team>
+        </div>
+        <div v-else>
+          <Team :team="emptyTeam" :compact="true"></Team>
         </div>
       </template>
     </Column>

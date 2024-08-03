@@ -6,10 +6,9 @@
 
 package com.mimosa.pokemon.portal.api;
 
-import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.pokemon.portal.dto.BattleDto;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.BattleService;
@@ -17,15 +16,17 @@ import com.mimosa.pokemon.portal.service.PlayerService;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Validated
-@Controller
+@RestController
 @RequestMapping("/api")
 public class PlayerApiController {
 
@@ -39,13 +40,11 @@ public class PlayerApiController {
     }
 
     @GetMapping("/rank/update-time")
-    @ResponseBody
     public Map<String, String> getDataUpdateDate() {
         return Collections.singletonMap("date",
                 DateTimeFormatter.ISO_LOCAL_DATE.format(playerService.getLatestLadder().getDate()));
     }
 
-    @ResponseBody
     @GetMapping("/rank")
     public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) @Max(100) int row) {
         int start = page * row;
@@ -54,11 +53,9 @@ public class PlayerApiController {
         List<LadderRank> ladderRank = ladder.getLadderRankList();
         ladderRank.sort(Comparator.comparingInt(LadderRank::getRank));
         List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
-        List<Team> teamList = battleService.listTeamByLadderRank(segmentLadderRank);
 
         List<PlayerRankDTO> playerRankDTOS = new ArrayList<>();
 
-        int i = 0;
         for (var rank : segmentLadderRank) {
             var playerRankDTO = new PlayerRankDTO();
             playerRankDTO.setRank(rank.getRank());
@@ -66,24 +63,20 @@ public class PlayerApiController {
             playerRankDTO.setName(rank.getName());
             playerRankDTO.setGxe(rank.getGxe());
             playerRankDTO.setInfoDate(ladder.getDate());
-            playerRankDTO.setRecentTeam(teamList.subList(2 * i, 2 * i + 2));
+            playerRankDTO.setRecentTeam(battleService.listRecentTeam(rank.getName()));
             playerRankDTOS.add(playerRankDTO);
-            ++i;
         }
         return new PageResponse<>(ladderRank.size(), page, row, playerRankDTOS);
     }
 
-
-    @ResponseBody
     @GetMapping("/player/{username}")
     public PlayerRankDTO getPlayerRank(@PathVariable("username") @NotNull String name) {
         return playerService.queryPlayerLadderRank(name);
     }
 
-    @ResponseBody
     @GetMapping("/player/{username}/battle")
-    public PageResponse<Battle> getPlayerBattleRecord(@PathVariable("username") @NotNull String name,
-                                               @Min(0) int page, @Min(1) int row) {
+    public PageResponse<BattleDto> getPlayerBattleRecord(@PathVariable("username") @NotNull String name,
+                                                         @Min(0) int page, @Min(1) int row) {
         return battleService.listBattleByName(name, page, row);
     }
 }

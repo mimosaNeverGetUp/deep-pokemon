@@ -25,15 +25,16 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.BitSet;
+import java.util.Collections;
 import java.util.List;
 
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
 class BattleServiceTest {
-    public static final String EXIST_BATTLE_ID = "gen9ou-1874088419";
+    public static final String EXIST_BATTLE_ID = "gen9ou-2171069120";
     public static final String NOT_EXIST_BATTLE_ID = "test-12345";
     private static final String NOT_SAVE_BATTLE_ID = "smogtours-gen9ou-746547";
-    private static final String NOT_LOG_BATTLE_ID = "gen9ou-2053586253";
+    private static final String NOT_LOG_BATTLE_ID = "gen9ou-2171080820";
     @Autowired
     private BattleService battleService;
 
@@ -59,12 +60,22 @@ class BattleServiceTest {
 
     @Test
     void insertTeam() {
-        List<Battle> battles = battleService.find100BattleSortByDate().subList(0, 5);
-        battles.forEach(battle -> battle.setAvageRating(1800.0F));
+        Battle battle = mongoTemplate.findOne(new Query(), Battle.class);
+        BattleTeam teamSample = mongoTemplate.findOne(new Query(), BattleTeam.class);
+        Team team = new Team(teamSample.pokemons());
+        team.setTagSet(teamSample.tagSet());
+        team.setTier(teamSample.tier());
+        team.setPlayerName(teamSample.playerName());
+        battle.setBattleID(NOT_EXIST_BATTLE_ID);
+        battle.setAvageRating(1800.0F);
+        battle.setTeams(new Team[]{team, team});
         List<BattleTeam> battleTeams = null;
         try {
-            battleService.insertTeam(battles);
-            battleTeams = mongoTemplate.findAll(BattleTeam.class);
+            battleService.insertTeam(Collections.singletonList(battle));
+            Query query = new Query();
+            query.addCriteria(Criteria.where("battleId").is(NOT_EXIST_BATTLE_ID));
+            battleTeams = mongoTemplate.find(query, BattleTeam.class);
+            Assertions.assertEquals(2, battleTeams.size());
             for (BattleTeam battleTeam : battleTeams) {
                 Assertions.assertNotNull(battleTeam.teamId());
                 Assertions.assertNotEquals(0, battleTeam.teamId().length);
@@ -120,7 +131,13 @@ class BattleServiceTest {
         Assertions.assertTrue(battleService.getAllBattleIds().contains(EXIST_BATTLE_ID));
 
         Battle notExistBattle = battleService.findBattle(EXIST_BATTLE_ID);
+        BattleTeam teamSample = mongoTemplate.findOne(new Query(), BattleTeam.class);
+        Team team = new Team(teamSample.pokemons());
+        team.setTagSet(teamSample.tagSet());
+        team.setTier(teamSample.tier());
+        team.setPlayerName(teamSample.playerName());
         notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
+        notExistBattle.setTeams(new Team[]{team, team});
         try {
             battleService.save(List.of(notExistBattle), false);
             Assertions.assertTrue(battleService.getAllBattleIds().contains(NOT_EXIST_BATTLE_ID));
@@ -134,7 +151,7 @@ class BattleServiceTest {
     void calTeamId() {
         Team team = new Team();
         team.setPokemons(List.of(new Pokemon("Ogerpon-Wellspring"), new Pokemon("Kingambit"), new Pokemon("Great Tusk"),
-                new Pokemon("Zamazenta-*"),new Pokemon("Landorus-Therian"),new Pokemon("Slowking-Galar")));
+                new Pokemon("Zamazenta-*"), new Pokemon("Landorus-Therian"), new Pokemon("Slowking-Galar")));
         byte[] bytes = battleService.calTeamId(team);
         BitSet bitSet = BitSet.valueOf(bytes);
         Assertions.assertTrue(bitSet.get(1017));

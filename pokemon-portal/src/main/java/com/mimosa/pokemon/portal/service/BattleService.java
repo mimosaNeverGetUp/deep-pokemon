@@ -25,26 +25,19 @@
 package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.LadderRank;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.stat.*;
+import com.mimosa.pokemon.portal.dto.BattleDto;
 import com.mimosa.pokemon.portal.dto.BattleTeamDto;
-import com.mimosa.pokemon.portal.dto.PokemonStatDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
-import com.mimosa.pokemon.portal.entity.stat.PokemonMoveStat;
-import com.mimosa.pokemon.portal.entity.stat.PokemonUsageStat;
 import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
 import com.mimosa.pokemon.portal.util.MongodbUtils;
-import com.mongodb.BasicDBObject;
-import org.bson.Document;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
-import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
@@ -52,15 +45,20 @@ import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class BattleService {
     protected static final String BATTLE = "battle";
+    protected static final String TEAMS = "teams";
+    protected static final String BATTLE_ID = "battleId";
+    protected static final String BATTLE_TEAM = "battle_team";
+    protected static final String ID = "_id";
+    protected static final String DATE = "date";
+    protected static final String TYPE = "type";
+    protected static final String AVAGE_RATING = "avageRating";
+    protected static final String WINNER = "winner";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -70,187 +68,69 @@ public class BattleService {
     }
 
     @Cacheable("playerBattle")
-    public PageResponse<Battle> listBattleByName(String playerName, int page, int row) {
-        Query query =
-                new BasicQuery(String.format("{ 'teams.playerName' : \"%s\" }", playerName)).
-                        with(Sort.by(Sort.Order.desc("date")));
-        long totalRecord = mongoTemplate.count(query, Battle.class);
-        MongodbUtils.withPageOperation(query, page, row);
-
-        List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
-        return new PageResponse<>(totalRecord, page, row, battles);
-    }
-
-    public List<Team> listTeamByLadderRank(List<LadderRank> ladderRanks) {
-        ArrayList<Pokemon> emptyPokemons = new ArrayList<>(6);
-        Pokemon emptyPokemon = new Pokemon("null");
-
-        List<Team> teamList = new ArrayList<>();
-        for (int i = 0; i < 6; ++i) {
-            emptyPokemons.add(emptyPokemon);
+    public PageResponse<BattleDto> listBattleByName(String playerName, int page, int row) {
+        Criteria criteria = Criteria.where("players").in(playerName);
+        long count = mongoTemplate.count(new Query(criteria), Battle.class);
+        if (count == 0) {
+            return new PageResponse<>(count, page, row, Collections.emptyList());
         }
-        for (LadderRank ladderRank : ladderRanks) {
-            Criteria criteria = Criteria.where("teams.playerName").is(ladderRank.getName())
-                    .andOperator(Criteria.where("teams.tier").in("gen9ou", "[Gen 9] OU"));
 
-            Query query = new BasicQuery("{}")
-                    .addCriteria(criteria)
-                    .with(Sort.by(Sort.Order.desc("date")))
-                    .limit(2);
-            List<Battle> battles = mongoTemplate.find(query, Battle.class, BATTLE);
-            for (Battle battle : battles) {
-                Team[] teams = battle.getTeams();
-                for (Team team : teams) {
-                    if (ladderRank.getName().equals(team.getPlayerName())) {
-                        teamList.add(team);
-                        break;
-                    }
-                }
-            }
-            Team emptyTeam = new Team();
-            emptyTeam.setPokemons(emptyPokemons);
-            emptyTeam.setPlayerName(ladderRank.getName());
-            for (int j = 0; j < 2 - battles.size(); ++j) {
-                teamList.add(emptyTeam);
-            }
-        }
-        return teamList;
-    }
-
-    public List<PokemonStatDto> queryPokemonStat(LocalDate dayAfter,
-                                                 LocalDate dayBefore) {
-        Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date")));
-        Criteria criteria = Criteria.where("date").gte(dayAfter).lte(dayBefore);
-        query.addCriteria(criteria);
-        // 统计宝可梦使用率、招式使用率
-        List<PokemonUsageStat> pokemonUsageStats = aggregationPokemonUsageStatistics(dayAfter, dayBefore);
-        List<PokemonMoveStat> pokemonMoveStats = aggregationPokemonMoveStat(dayAfter, dayBefore);
-
-        List<PokemonStatDto> pokemonStatDtos = new ArrayList<>();
-        Map<String, List<PokemonMoveStat>> pokemonMoveStatMap = pokemonMoveStats.stream()
-                .collect(Collectors.groupingBy(PokemonMoveStat::getName));
-
-        // 转换为dto
-        for (PokemonUsageStat pokemonUsageStat : pokemonUsageStats) {
-            if (pokemonMoveStatMap.containsKey(pokemonUsageStat.getName())) {
-                pokemonStatDtos.add(new PokemonStatDto(pokemonUsageStat.getName(), pokemonUsageStat,
-                        pokemonMoveStatMap.get(pokemonUsageStat.getName()).get(0)));
-            } else {
-                PokemonMoveStat emptyMoveStat = new PokemonMoveStat();
-                pokemonStatDtos.add(new PokemonStatDto(pokemonUsageStat.getName(), pokemonUsageStat,
-                        emptyMoveStat));
-            }
-
-        }
-        return pokemonStatDtos;
-    }
-
-    /**
-     * 聚合统计宝可梦招式使用率
-     */
-    public List<PokemonMoveStat> aggregationPokemonMoveStat(LocalDate dayAfter, LocalDate dayBefore) {
-        Criteria dateCondition = Criteria.where("date").gte(dayAfter).lte(dayBefore);
-        Criteria fullPlayerCondition = Criteria.where("teams.0.playerName").ne("")
-                .and("teams.1.playerName").ne("");
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC, DATE);
+        ProjectionOperation projectionOperation = Aggregation.project(ID, TYPE, AVAGE_RATING, WINNER, DATE);
+        LookupOperation lookupOperation = LookupOperation.newLookup()
+                .from(BATTLE_TEAM)
+                .localField(ID)
+                .foreignField(BATTLE_ID)
+                .as(TEAMS);
         Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(dateCondition),
-                // 过率脏数据
-                Aggregation.match(fullPlayerCondition),
-                // moves数组拆为多条记录
-                Aggregation.unwind("teams"),
-                Aggregation.unwind("teams.pokemons"),
-                Aggregation.unwind("teams.pokemons.moves"),
-
-                // 统计宝可梦使用次数
-                Aggregation.group("teams.pokemons.name")
-                        .count().as("use")
-                        .push("teams.pokemons.moves").as("movelist"),
-                Aggregation.unwind("movelist"),
-                // moves拆分聚合为多条记录
-                Aggregation.group("_id", "movelist")
-                        .count().as("moveUse")
-                        .first("use").as("pokemonUse"),
-                // 统计各招式使用率
-                Aggregation.group("_id._id")
-                        .first("pokemonUse").as("use")
-                        .push(new BasicDBObject("name", "$_id.movelist")
-                                .append("usePercent", new BasicDBObject("$multiply",
-                                        new Object[]{
-                                                new BasicDBObject("$divide", new Object[]{"$moveUse", "$pokemonUse"}),
-                                                100
-                                        })
-                                )
-                        ).as("moveUsage"),
-                Aggregation.project("use", "moveUsage")
-                        .and("_id").as("name").andExclude("_id"),
-                Aggregation.sort(Sort.Direction.DESC, "use")
+                matchOperation,
+                sortOperation,
+                projectionOperation,
+                Aggregation.skip((long) (page) * row),
+                Aggregation.limit(row),
+                lookupOperation
         );
-        AggregationResults<PokemonMoveStat> aggregationResults =
-                mongoTemplate.aggregate(aggregation, BATTLE, PokemonMoveStat.class);
-        List<PokemonMoveStat> pokemonMoveStats = aggregationResults.getMappedResults();
 
-        // 使用率排序
-        pokemonMoveStats.forEach(stat -> stat.getMoveUsage()
-                .sort(Comparator.comparingDouble(PokemonMoveStat.PokemonMoveUsageStat::getUsePercent).reversed()));
-        return pokemonMoveStats;
+        List<BattleDto> battles = mongoTemplate.aggregate(aggregation, BATTLE, BattleDto.class).getMappedResults();
+        return new PageResponse<>(count, page, row, battles);
     }
 
-    /**
-     * 聚合统计宝可梦使用率
-     */
-    public List<PokemonUsageStat> aggregationPokemonUsageStatistics(LocalDate dayAfter, LocalDate dayBefore) {
-        Criteria dateCondition = Criteria.where("date").gte(dayAfter).lte(dayBefore);
-        Criteria fullPlayerCondition = Criteria.where("teams.0.playerName").ne("")
-                .and("teams.1.playerName").ne("");
-        Query countQuery = new BasicQuery("{}");
-        countQuery.addCriteria(dateCondition);
-        countQuery.addCriteria(fullPlayerCondition);
-        long totalGame = mongoTemplate.count(countQuery, BATTLE);
-        Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(dateCondition),
-                // 过率脏数据
-                Aggregation.match(fullPlayerCondition),
-                // 数组拆为多条记录
-                Aggregation.unwind("teams"),
-                Aggregation.unwind("teams.pokemons"),
-                // 根据winner设置win字段
-                Aggregation.project("teams", "winner")
-                        .and("win").applyCondition(
-                                ConditionalOperators.Cond.newBuilder()
-                                        .when(Document.parse("{ $eq: [ \"$winner\", \"$teams.playerName\" ] }"))
-                                        .then(1)
-                                        .otherwise(0)
-                        ),
-                // 统计使用率胜率
-                Aggregation.group("teams.pokemons.name")
-                        .count().as("use")
-                        .sum("win").as("win"),
-
-                // 字段映射，排序
-                Aggregation.project("use", "win").and("_id").as("name").andExclude("_id"),
-                Aggregation.sort(Sort.Direction.DESC, "use")
-        );
-        AggregationResults<PokemonUsageStat> aggregationResults =
-                mongoTemplate.aggregate(aggregation, BATTLE, PokemonUsageStat.class);
-        List<PokemonUsageStat> pokemonUsageStats = aggregationResults.getMappedResults();
-        pokemonUsageStats.forEach(stat -> {
-            stat.setTotalGame(totalGame);
-            stat.setUsePercent((double) stat.getUse() / totalGame);
-            stat.setWinPercent((double) stat.getWin() / stat.getUse());
-        });
-        return pokemonUsageStats;
+    public List<BattleTeam> listRecentTeam(String playerName) {
+        Criteria criteria = Criteria.where("playerName").is(playerName)
+                .andOperator(Criteria.where("tier").in("gen9ou", "[Gen 9] OU"));
+        Query query = new Query(criteria)
+                .with(Sort.by(Sort.Order.desc("battleDate")))
+                .limit(2);
+        return mongoTemplate.find(query, BattleTeam.class);
     }
 
     @Cacheable("team")
     @RegisterReflectionForBinding(BattleTeamDto.class)
-    public PageResponse<BattleTeamDto> team(int page, int row, List<String> tags, List<String> pokemonNames, String dayAfter,
+    public PageResponse<BattleTeam> team(int page, int row, List<String> tags, List<String> pokemonNames, String dayAfter,
                                             String dayBefore) {
-        Aggregation queryAggregation = buildTeamQueryAggregation(tags, pokemonNames, dayAfter, dayBefore);
-        MongodbUtils.addPageFacetOperation(queryAggregation, page, row);
+        Criteria criteria = new Criteria();
+        if (StringUtils.hasText(dayAfter)) {
+            LocalDate after = LocalDate.parse(dayAfter, DateTimeFormatter.ISO_DATE);
+            criteria.andOperator(Criteria.where(DATE).lte(after));
+        }
+        if (StringUtils.hasText(dayBefore)) {
+            LocalDate before = LocalDate.parse(dayBefore, DateTimeFormatter.ISO_DATE);
+            criteria.andOperator(Criteria.where(DATE).gte(before));
 
-        AggregationResults<Document> result = mongoTemplate.aggregate(queryAggregation, BATTLE,
-                Document.class);
-        return MongodbUtils.parsePageAggregationResult(result, page, row, BattleTeamDto.class);
+        }
+        if (CollectionUtils.hasNotNullObject(tags)) {
+            criteria.andOperator(Criteria.where("tagSet").all(tags));
+        }
+        if (CollectionUtils.hasNotNullObject(pokemonNames)) {
+            criteria.andOperator(Criteria.where("pokemons.name").all(pokemonNames));
+        }
+
+        Query query = new Query(criteria).with(Sort.by(Sort.Order.desc("battleDate")));
+        long count = mongoTemplate.count(query, BattleTeam.class);
+        MongodbUtils.withPageOperation(query, page, row);
+        List<BattleTeam> battleTeams = mongoTemplate.find(query, BattleTeam.class);
+        return new PageResponse<>(count, page, row, battleTeams);
     }
 
     @Cacheable("battlestat")
@@ -262,41 +142,5 @@ public class BattleService {
             battleStat = crawlerApi.battleStat(battleId);
         }
         return battleStat;
-    }
-
-    private Aggregation buildTeamQueryAggregation(List<String> tags, List<String> pokemonNames, String dayAfter,
-                                                  String dayBefore) {
-        List<AggregationOperation> aggregationOperations = new ArrayList<>();
-        aggregationOperations.add(Aggregation.sort(Sort.by(Sort.Order.desc("date"))));
-        aggregationOperations.add(Aggregation.unwind("teams"));
-
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        if (StringUtils.hasText(dayAfter)) {
-            LocalDate after = LocalDate.parse(dayAfter, format);
-            aggregationOperations.add(Aggregation.match(Criteria.where("date").gte(after)));
-        }
-        if (StringUtils.hasText(dayBefore)) {
-            LocalDate before = LocalDate.parse(dayBefore, format);
-            aggregationOperations.add(Aggregation.match(Criteria.where("date").gte(before)));
-        }
-
-        // 队伍过滤
-        List<Criteria> teamCriterias = new ArrayList<>();
-        if (CollectionUtils.hasNotNullObject(tags)) {
-            teamCriterias.add(Criteria.where("teams.tagSet").all(tags));
-        }
-        if (CollectionUtils.hasNotNullObject(pokemonNames)) {
-            teamCriterias.add(Criteria.where("teams.pokemons.name").all(pokemonNames));
-        }
-        if (!teamCriterias.isEmpty()) {
-            aggregationOperations.add(
-                    Aggregation.match(new Criteria().andOperator(teamCriterias)));
-        }
-
-        Field[] projectFields = new Field[]{Fields.field("team", "teams")};
-        aggregationOperations.add(Aggregation.project(Fields.from(projectFields))
-                .and("_id").as("battleId").andExclude("_id"));
-
-        return Aggregation.newAggregation(aggregationOperations);
     }
 }

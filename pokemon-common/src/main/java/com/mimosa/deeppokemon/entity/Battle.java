@@ -25,6 +25,7 @@
 package com.mimosa.deeppokemon.entity;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -46,6 +47,7 @@ public class Battle implements Serializable {
     // 排名
     private float avageRating;
     // 队伍
+    @Transient
     private Team[] teams;
     // 总血线变化表，json字符串
     private String healthLinePairJsonString;

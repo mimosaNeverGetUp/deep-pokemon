@@ -24,7 +24,7 @@ function battleButtonIcon() {
   <div :class="data.winner===props.playerName ? 'deco-winner': 'deco-loser' "></div>
   <div class="battle-table text-lg">
     <a style="display:block" target="_blank" :href="`https://replay.pokemonshowdown.com/${data.battleID}`" class="text-black">
-      {{ data.battleID }}
+      {{ data.id }}
     </a>
     <span>
           {{ data.date }}

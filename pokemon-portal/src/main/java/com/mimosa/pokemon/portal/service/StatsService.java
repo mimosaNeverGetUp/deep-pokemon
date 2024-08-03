@@ -84,9 +84,13 @@ public class StatsService {
 
         if (isLatestStatUpdate()) {
             log.info("try craw latest stat {}", latestId);
-            boolean crawResult = tryCrawLatestStat(format);
-            if (crawResult || isStatsExist(latestId)) {
-                return latestId;
+            try {
+                boolean crawResult = tryCrawLatestStat(format);
+                if (crawResult || isStatsExist(latestId)) {
+                    return latestId;
+                }
+            } catch (Exception e) {
+                log.warn("craw latest stat {} fail", latestId);
             }
         }
 

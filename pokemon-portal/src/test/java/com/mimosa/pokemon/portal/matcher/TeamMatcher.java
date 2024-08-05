@@ -48,6 +48,6 @@ public class TeamMatcher {
 
     public static Matcher<?> hasTags(@NotNull String... tags) {
         return Matchers.hasEntry(Matchers.equalTo(TAG_SET),
-                Matchers.hasItems(tags));
+                Matchers.hasItems(Matchers.in(tags)));
     }
 }

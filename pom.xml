@@ -170,7 +170,7 @@
                     <execution>
                         <id>process-aot</id>
                         <configuration>
-                            <profiles>production,crawDaily,migrateBattleTeam</profiles>
+                            <profiles>production,crawDaily</profiles>
                         </configuration>
                     </execution>
                 </executions>

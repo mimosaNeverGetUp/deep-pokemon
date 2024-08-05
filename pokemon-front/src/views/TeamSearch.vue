@@ -7,14 +7,18 @@
 <script setup>
 import Button from 'primevue/button';
 import MultiSelect from 'primevue/multiselect';
+import SelectButton from 'primevue/selectbutton';
+
 import {pokemoninfo} from "@/components/data/pokemoninfo.js"
 import {ref} from "vue";
 
 const pokemons = ref()
 const selectTags = ref()
-const tags = ref(["STAFF","BALANCE","BALANCE_ATTACK","BALANCE_STAFF","ATTACK","UNPOPULAR"])
+const selectedSort = ref("rating")
+const tags = ref(["Offense" , "Balance", "HO", "Stall"]);
+const sortModes = ref(["rating", "popularity", "date"])
 
-function getTeamSearchUrl(pokemons, tags) {
+function getTeamSearchUrl(pokemons, tags, sort) {
   if (!pokemons) {
     pokemons = '';
   }
@@ -23,7 +27,7 @@ function getTeamSearchUrl(pokemons, tags) {
     tags = '';
   }
 
-  return `/teams?pokemons=${pokemons}&tags=${tags}`;
+  return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}`;
 }
 </script>
 
@@ -31,15 +35,19 @@ function getTeamSearchUrl(pokemons, tags) {
   <div class="flex flex-col gap-2 mt-[60px]">
     <span>包含精灵</span>
     <MultiSelect v-model="pokemons" :options=" Object.values(pokemoninfo).map(item => item.name)" display="chip" filter
-                 placeholder="select pokemons" variant="filled" class="size-auto font-normal min-w-80 min-h-9"  :virtualScrollerOptions="{ itemSize: 44 }"/>
+                 placeholder="select pokemons" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
+                 :virtualScrollerOptions="{ itemSize: 44 }"/>
   </div>
 
   <div class="flex flex-col gap-2 mt-5">
     <span>队伍标签</span>
-    <MultiSelect v-model="selectTags" :options="tags" display="chip" placeholder="select team tags" variant="filled"
-                 class="w-full md:w-20rem" />
+    <SelectButton v-model="selectTags" :options="tags" aria-labelledby="basic"/>
+    <span>Sort mode</span>
+    <SelectButton v-model="selectedSort" :options="sortModes" aria-labelledby="basic"/>
+
+
   </div>
-  <router-link :to="getTeamSearchUrl(pokemons, selectTags)">
+  <router-link :to="getTeamSearchUrl(pokemons, selectTags, selectedSort)">
     <Button class="mt-3" icon="pi pi-search" label="Submit"/>
   </router-link>
 </template>

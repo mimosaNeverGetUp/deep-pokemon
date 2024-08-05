@@ -55,13 +55,10 @@ function getPokemonItemText(pokemon) {
   visibility: hidden;
   background-color: black;
   color: #fff;
-  width: 180px;
+  width: 150px;
   /* 定位 */
   position: absolute;
   z-index: 1;
-  top: -5px;
-  right: 105%;
-
 }
 
 .set-tip:hover .set-tip-text {

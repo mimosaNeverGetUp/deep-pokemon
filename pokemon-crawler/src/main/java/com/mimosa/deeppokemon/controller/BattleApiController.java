@@ -33,4 +33,10 @@ public class BattleApiController {
         ladderCrawler.crawLadder(true);
         return "success trigger";
     }
+
+    @PostMapping("/team-group/update")
+    public String updateTeamGroup() {
+        battleService.updateTeamGroup();
+        return "success";
+    }
 }

@@ -1,7 +1,7 @@
 version: "3"
 services:
   pokemon-crawler:
-    image: "mimosa1997/pokemon-crawler:1.0.8"
+    image: "mimosa1997/pokemon-crawler:1.0.10"
     ports:
       - "8081:8081"
     healthcheck:
@@ -14,12 +14,12 @@ services:
     environment:
       THC_PORT: 8081
       THC_PATH: /actuator/health
-      spring.profiles.active: "dev-swarm,crawDaily,migrateBattleTeam"
+      spring.profiles.active: "dev-swarm,crawDaily"
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
       - pwd
   pokemon-portal:
-    image: "mimosa1997/pokemon-portal:1.0.8"
+    image: "mimosa1997/pokemon-portal:1.0.9"
     ports:
       - "8080:8080"
     depends_on:

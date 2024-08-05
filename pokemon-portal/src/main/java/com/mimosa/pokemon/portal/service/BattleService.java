@@ -26,9 +26,9 @@ package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleTeam;
+import com.mimosa.deeppokemon.entity.TeamGroup;
 import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.pokemon.portal.dto.BattleDto;
-import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
@@ -41,12 +41,11 @@ import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class BattleService {
@@ -59,6 +58,8 @@ public class BattleService {
     protected static final String TYPE = "type";
     protected static final String AVAGE_RATING = "avageRating";
     protected static final String WINNER = "winner";
+    protected static final Set<String> VALIDATE_TEAM_GROUP_SORT = new HashSet<>(List.of("maxRating", "uniquePlayerNum"
+            , "latestBattleDate"));
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -105,20 +106,35 @@ public class BattleService {
         return mongoTemplate.find(query, BattleTeam.class);
     }
 
-    @Cacheable("team")
-    @RegisterReflectionForBinding(BattleTeamDto.class)
-    public PageResponse<BattleTeam> team(int page, int row, List<String> tags, List<String> pokemonNames, String dayAfter,
-                                            String dayBefore) {
-        Criteria criteria = new Criteria();
-        if (StringUtils.hasText(dayAfter)) {
-            LocalDate after = LocalDate.parse(dayAfter, DateTimeFormatter.ISO_DATE);
-            criteria.andOperator(Criteria.where(DATE).lte(after));
+    @Cacheable("teamGroup")
+    @RegisterReflectionForBinding(TeamGroup.class)
+    public PageResponse<TeamGroup> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
+                                             String sort) {
+        if (!VALIDATE_TEAM_GROUP_SORT.contains(sort)) {
+            throw new IllegalArgumentException("Invalid sort value: " + sort);
         }
-        if (StringUtils.hasText(dayBefore)) {
-            LocalDate before = LocalDate.parse(dayBefore, DateTimeFormatter.ISO_DATE);
-            criteria.andOperator(Criteria.where(DATE).gte(before));
 
+        Criteria criteria = new Criteria();
+
+        if (CollectionUtils.hasNotNullObject(tags)) {
+            criteria.andOperator(Criteria.where("tagSet").in(tags));
         }
+        if (CollectionUtils.hasNotNullObject(pokemonNames)) {
+            criteria.andOperator(Criteria.where("pokemons.name").all(pokemonNames));
+        }
+
+        Query query = new Query(criteria).with(Sort.by(Sort.Order.desc(sort)));
+        query.fields().exclude("teams.pokemons");
+        long total = mongoTemplate.count(query, TeamGroup.class);
+        MongodbUtils.withPageOperation(query, page, row);
+        List<TeamGroup> battleTeams = mongoTemplate.find(query, TeamGroup.class);
+        return new PageResponse<>(total, page, row, battleTeams);
+    }
+
+    @Cacheable("team")
+    @RegisterReflectionForBinding(BattleTeam.class)
+    public PageResponse<BattleTeam> team(int page, int row, List<String> tags, List<String> pokemonNames) {
+        Criteria criteria = new Criteria();
         if (CollectionUtils.hasNotNullObject(tags)) {
             criteria.andOperator(Criteria.where("tagSet").all(tags));
         }

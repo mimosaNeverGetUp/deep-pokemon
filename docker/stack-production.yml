@@ -1,7 +1,7 @@
 version: "3"
 services:
   pokemon-crawler:
-    image: "mimosa1997/pokemon-crawler:1.0.2"
+    image: "mimosa1997/pokemon-crawler:1.0.9"
     healthcheck:
       test: [ "CMD", "/cnb/process/health-check" ]
       interval: 1m
@@ -10,13 +10,13 @@ services:
     environment:
       THC_PORT: 8081
       THC_PATH: /actuator/health
-      spring.profiles.active: "production,crawDaily"
+      spring.profiles.active: "production,crawDaily,migrateBattleTeam"
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
     secrets:
-      - source: pwd_1.0.1
+      - source: pwd_1.0.2
         target: /run/secrets/pwd
   pokemon-portal:
-    image: "mimosa1997/pokemon-portal:1.0.4"
+    image: "mimosa1997/pokemon-portal:1.0.8"
     ports:
       - "8080:8080"
     deploy:
@@ -31,15 +31,10 @@ services:
     environment:
       spring.profiles.active: "production"
       SECRET_CONFIG_PATH: "file:/run/secrets/pwd"
-      JKS_PATH: "/run/secrets/jks"
-      JKS_KEY: "showdown-analyze"
       THC_PATH: /actuator/health
     secrets:
-      - source: pwd_1.0.1
+      - source: pwd_1.0.2
         target: /run/secrets/pwd
-      - source: jks
 secrets:
-  pwd_1.0.1:
-    external: true
-  jks:
+  pwd_1.0.2:
     external: true

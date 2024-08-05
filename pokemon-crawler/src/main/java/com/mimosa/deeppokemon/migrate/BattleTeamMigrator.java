@@ -6,7 +6,7 @@
 
 package com.mimosa.deeppokemon.migrate;
 
-import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,6 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
@@ -50,64 +49,49 @@ public class BattleTeamMigrator {
     }
 
     public void migrate() {
-        LookupOperation lookupOperation = LookupOperation.newLookup()
-                .from("battle_team")
-                .localField("_id")
-                .foreignField("battleId")
-                .as("battleTeam");
+        Query query = new Query().cursorBatchSize(BATCH_SIZE);
+        Stream<BattleTeam> teamStream = mongoTemplate.stream(query, BattleTeam.class);
 
-        MatchOperation matchOperation = Aggregation.match(Criteria.where("battleTeam").size(0));
-        ProjectionOperation projectionOperation = Aggregation.project("avageRating", "teams", "date", "_id");
-        AggregationOptions aggregationOptions = Aggregation.newAggregationOptions()
-                .cursorBatchSize(BATCH_SIZE)
-                .build();
-        Aggregation aggregation = Aggregation.newAggregation(
-                lookupOperation,
-                matchOperation,
-                projectionOperation
-        ).withOptions(aggregationOptions);
-        Stream<Battle> battleStream = mongoTemplate.aggregateStream(aggregation, "battle", Battle.class);
-
-        List<Battle> battleList = new ArrayList<>();
-        battleStream.forEach(battle -> {
-            battleList.add(battle);
-            if (battleList.size() >= BATCH_SIZE) {
+        List<BattleTeam> teams = new ArrayList<>();
+        teamStream.forEach(team -> {
+            teams.add(team);
+            if (teams.size() >= BATCH_SIZE) {
                 try {
-                    migrate(battleList);
+                    migrate(teams);
                 } catch (Exception e) {
                     log.error("migrate battle team error", e);
                 }
             }
         });
-        if (!battleList.isEmpty()) {
-            migrate(battleList);
+        if (!teams.isEmpty()) {
+            migrate(teams);
         }
     }
 
-    private void migrate(List<Battle> battleList) {
-        log.info("start to migrate battle {}", battleList.stream().map(Battle::getBattleID).toList());
-        battleService.insertTeam(battleList);
-        setBattlePlayers(battleList);
+    private void migrate(List<BattleTeam> battleList) {
+        log.info("start to migrate team {}", battleList.stream().map(BattleTeam::id).toList());
+        setBattleTeamId(battleList);
         battleList.clear();
     }
 
-    private void setBattlePlayers(List<Battle> battleList) {
-        for (Battle battle : battleList) {
-            if (battle.getTeams().length < 2) {
-                log.warn("battle team length less than 2 : {}", battle.getBattleID());
+    private void setBattleTeamId(List<BattleTeam> teams) {
+        for (BattleTeam team : teams) {
+            if (team.pokemons() == null || team.pokemons().isEmpty()) {
+                log.warn("battle team is empty : {}", team.id());
                 continue;
             }
+            byte[] teamId = battleService.calTeamId(team.pokemons());
             try {
-                updateBattlePlayers(battle);
+                updateTeamId(team, teamId);
             } catch (Exception e) {
-                log.error("set battle {} player error", battle.getBattleID(), e);
+                log.error("set team {} teamId error", team.id(), e);
             }
         }
     }
 
-    private void updateBattlePlayers(Battle battle) {
-        Query query = new Query(Criteria.where("_id").is(battle.getBattleID()));
-        Update update = new Update().set("players", List.of(battle.getTeams()[0].getPlayerName(), battle.getTeams()[1].getPlayerName()));
-        mongoTemplate.updateFirst(query, update, Battle.class);
+    private void updateTeamId(BattleTeam team, byte[] teamId) {
+        Query query = new Query(Criteria.where("_id").is(team.id()));
+        Update update = new Update().set("teamId", teamId);
+        mongoTemplate.updateFirst(query, update, BattleTeam.class);
     }
 }

@@ -6,7 +6,7 @@
 
 package com.mimosa.deeppokemon.migrate;
 
-import com.mimosa.deeppokemon.entity.Battle;
+import com.google.common.base.Strings;
 import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.matcher.PokemonMatcher;
@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
 //@ContextConfiguration(classes = MongodbTestConfig.class)
@@ -35,6 +35,9 @@ class BattleTeamMigratorTest {
         List<BattleTeam> battleTeams = mongoTemplate.find(new Query().limit(10), BattleTeam.class);
         for (BattleTeam battleTeam : battleTeams) {
             Assertions.assertNotNull(battleTeam.teamId());
+            String teamId = new String(battleTeam.teamId());
+            Assertions.assertEquals(24, teamId.length());
+            assertNotEquals(Strings.repeat("0", 24), teamId);
             Assertions.assertNotEquals(0, battleTeam.teamId().length);
             Assertions.assertNotNull(battleTeam.battleDate());
             Assertions.assertNotNull(battleTeam.tier());
@@ -43,9 +46,5 @@ class BattleTeamMigratorTest {
             Assertions.assertNotNull(pokemons);
             Assertions.assertTrue(pokemons.stream().allMatch(PokemonMatcher.POKEMON_MATCHER::matches));
         }
-
-        List<Battle> battles = mongoTemplate.find(new Query().limit(10), Battle.class);
-        assertTrue(battles.stream().allMatch(battle -> battle.getWinner() != null && battle.getTeams() != null
-                && battle.getPlayers() != null && battle.getDate() != null));
     }
 }

@@ -149,7 +149,7 @@ public class BattleService {
             int index = 0;
             for (Team team : battle.getTeams()) {
                 String battleTeamId = String.format("%s_%d", battle.getBattleID(), index);
-                byte[] teamId = calTeamId(team);
+                byte[] teamId = calTeamId(team.getPokemons());
                 BattleTeam battleTeam = new BattleTeam(battleTeamId, battle.getBattleID(), teamId, battle.getDate(),
                         battle.getType(), battle.getAvageRating(), team.getPlayerName(), team.getTier(),
                         team.getPokemons(), team.getTagSet());
@@ -165,17 +165,22 @@ public class BattleService {
         }
     }
 
-    public byte[] calTeamId(Team team) {
-        BitSet bitSet = new BitSet(POKEMONS_BITS);
-        for (Pokemon pokemon : team.getPokemons()) {
+    public byte[] calTeamId(List<Pokemon> pokemons) {
+        StringBuilder stringBuilder = new StringBuilder();
+        List<Integer> pokemonNumbers = new ArrayList<>();
+        for (Pokemon pokemon : pokemons) {
             PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(pokemon.getName());
             if (pokemonInfo == null) {
                 log.warn("can't find pokemon info for {}", pokemon.getName());
                 continue;
             }
-            bitSet.set(pokemonInfo.getNumber());
+            pokemonNumbers.add(pokemonInfo.getNumber());
         }
-        return bitSet.toByteArray();
+        pokemonNumbers.sort(Integer::compareTo);
+        for(int pokemonNumber: pokemonNumbers) {
+            stringBuilder.append(String.format("%04d", pokemonNumber));
+        }
+        return stringBuilder.toString().getBytes();
     }
 
     public List<Battle> find100BattleSortByDate() {

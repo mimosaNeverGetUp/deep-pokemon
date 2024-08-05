@@ -24,7 +24,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.util.BitSet;
 import java.util.Collections;
 import java.util.List;
 
@@ -152,14 +151,9 @@ class BattleServiceTest {
         Team team = new Team();
         team.setPokemons(List.of(new Pokemon("Ogerpon-Wellspring"), new Pokemon("Kingambit"), new Pokemon("Great Tusk"),
                 new Pokemon("Zamazenta-*"), new Pokemon("Landorus-Therian"), new Pokemon("Slowking-Galar")));
-        byte[] bytes = battleService.calTeamId(team);
-        BitSet bitSet = BitSet.valueOf(bytes);
-        Assertions.assertTrue(bitSet.get(1017));
-        Assertions.assertTrue(bitSet.get(889));
-        Assertions.assertTrue(bitSet.get(983));
-        Assertions.assertTrue(bitSet.get(983));
-        Assertions.assertTrue(bitSet.get(645));
-        Assertions.assertTrue(bitSet.get(199));
-        Assertions.assertFalse(bitSet.get(123));
+        byte[] bytes = battleService.calTeamId(team.getPokemons());
+
+        String teamId = new String(bytes);
+        Assertions.assertEquals("019906450889098309841017",teamId);
     }
 }

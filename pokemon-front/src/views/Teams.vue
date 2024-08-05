@@ -57,13 +57,15 @@ queryTeams(page.value, row.value);
         </div>
       </template>
     </Column>
-    <Column field="playerName" header="玩家名" :style="{ width:'20%' }">
+    <Column field="playerName" header="玩家名" :style="{ width:'10%' }">
       <template #body="{data}">
         <router-link :to="`/player-record?name=${data.playerName}`" class="text-black">
           {{ data.playerName }}
         </router-link>
       </template>
     </Column>
+    <Column field="rating" header="rating" :style="{ width:'10%' }"/>
+    <Column field="battleDate" header="date" :style="{ width:'10%' }"/>
     <Column field="battle-example" header="replay" :style="{ width:'20%' }">
       <template #body="{data}">
         <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="text-black">

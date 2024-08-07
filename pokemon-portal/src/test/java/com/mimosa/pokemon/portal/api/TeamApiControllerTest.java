@@ -34,15 +34,15 @@ class TeamApiControllerTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "Blissey::0:15",
-            "Blissey,Clefable::0:15",
-            ":ATTACK:0:15",
-            ":ATTACK,UNPOPULAR:0:15"},
+            "Kingambit::0:7",
+            "Kingambit,Deoxys-Speed::0:7",
+            ":ATTACK:0:7",
+            ":STAFF,BALANCE_STAFF:0:7"},
             delimiterString = ":"
     )
     void searchTeams_withValidParams(String pokemonNames, String tags, String page, String row) throws Exception {
 
-        ResultActions resultActions = mockMvc.perform(get("/api/teams")
+        ResultActions resultActions = mockMvc.perform(get("/api/v2/teams")
                         .queryParam("pokemons", pokemonNames)
                         .queryParam("tags", tags)
                         .queryParam("page", page)
@@ -53,8 +53,14 @@ class TeamApiControllerTest {
                 .andExpect(jsonPath("$.row").value(row))
                 .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
                 .andExpect(jsonPath("$.data").isNotEmpty())
-                .andExpect(jsonPath("$.data", everyItem(TeamMatcher.isValidTeam())));
-
+                .andExpect(jsonPath("$.data", Matchers.everyItem(Matchers.allOf(
+                        Matchers.hasEntry(Matchers.equalTo("id"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("latestBattleDate"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("maxRating"), Matchers.not(0)),
+                        Matchers.hasEntry(Matchers.equalTo("uniquePlayerNum"), Matchers.not(0)),
+                        Matchers.hasEntry(Matchers.equalTo("pokemons"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.notNullValue())
+                ))));
         if (pokemonNames != null) {
             resultActions.andExpect(jsonPath("$.data",
                     everyItem(TeamMatcher.hasPokemons(pokemonNames.split(",")))));
@@ -73,7 +79,7 @@ class TeamApiControllerTest {
             ":ATTACK:0:200"},
             delimiterString = ":")
     void searchTeams_withInvalidParams(String pokemonNames, String tags, String page, String row) throws Exception {
-        mockMvc.perform(get("/api/teams")
+        mockMvc.perform(get("/api/v2/teams")
                         .queryParam("pokemons", pokemonNames)
                         .queryParam("tags", tags)
                         .queryParam("page", page)

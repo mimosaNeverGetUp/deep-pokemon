@@ -29,15 +29,12 @@ import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
-@AutoConfigureMockMvc
 class BattleServiceTest {
     public static final String EXIST_PLAYER_NAME = "lt111vz mimilimi";
     @Autowired
@@ -48,9 +45,6 @@ class BattleServiceTest {
 
     @Autowired
     MongoTemplate mongoTemplate;
-
-    @Autowired
-    MockMvc mockMvc;
 
     @Test
     void listPlayer() {

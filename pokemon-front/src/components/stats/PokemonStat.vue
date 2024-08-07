@@ -45,7 +45,7 @@ function getIconUrl(pokemon) {
 
 watch(() => props.pokemon, async (newPokemon) => {
   await fetchStatsData(props.format, newPokemon.name);
-  await queryTeams(0, 7, newPokemon.name);
+  await queryTeams(0, 5, newPokemon.name);
   await queryPokemonSet(props.format, newPokemon.name);
 })
 
@@ -98,7 +98,7 @@ async function queryTeams(page, row, pokemon) {
   if (props.format !== 'gen9ou') {
     return
   }
-  let url = new URL(`${apiUrl}/api/teams?page=${page}&row=${row}&pokemons=${pokemon}`);
+  let url = new URL(`${apiUrl}/api/v2/teams?page=${page}&row=${row}&pokemons=${pokemon}&sort=maxRating`);
 
   const res = await fetch(url,
       {
@@ -107,6 +107,9 @@ async function queryTeams(page, row, pokemon) {
   );
   if (res.ok) {
     let result = await res.json();
+    for ( let teamGroup of result.data) {
+      teamGroup.teams = teamGroup.teams.slice(0, 1);
+    }
     teams.value = result.data;
   }
 }
@@ -226,14 +229,17 @@ async function queryPokemonSet(format, pokemon) {
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3" v-if="teams">
-      <p class="text-xl text-gray-500">replay</p>
-      <div class="mb-1 flex text-center" v-for="team in teams">
-        <Team class="w-1/3" :team="team" :compact="true"></Team>
-        <span class="w-40">{{ team.playerName }}</span>
-        <a class="text-green-300 w-1/3" style="display:block" target="_blank"
-           :href="`https://replay.pokemonshowdown.com/${team.battleId}`">
-          {{ team.battleId }}
-        </a>
+      <p class="text-xl  mb-3">replay</p>
+      <div class="mb-3 flex items-center text-center" v-for="teamGroup in teams">
+        <Team class="w-1/3" :team="teamGroup" :compact="true"></Team>
+        <div class="flex gap-2 w-full" v-for="team in teamGroup.teams">
+          <router-link :to="`/player-record?name=${team.playerName}`" class="text-black w-1/2">
+            {{ team.playerName }}
+          </router-link>
+          <a :href="`https://replay.pokemonshowdown.com/${team.battleId}`" target="_blank" class="text-black w-1/2">
+            {{ team.battleId }}
+          </a>
+        </div>
       </div>
     </div>
   </div>

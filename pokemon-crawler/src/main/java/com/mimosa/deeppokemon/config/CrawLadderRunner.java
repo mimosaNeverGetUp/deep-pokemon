@@ -42,15 +42,15 @@ public class CrawLadderRunner {
 
     LadderCrawler ladderCrawler;
 
-    BattleService battleSevice;
+    BattleService battleService;
 
     LadderService ladderService;
 
     private static final Logger log = LoggerFactory.getLogger(CrawLadderRunner.class);
 
-    public CrawLadderRunner(LadderCrawler ladderCrawler, BattleService battleSevice, LadderService ladderService) {
+    public CrawLadderRunner(LadderCrawler ladderCrawler, BattleService battleService, LadderService ladderService) {
         this.ladderCrawler = ladderCrawler;
-        this.battleSevice = battleSevice;
+        this.battleService = battleService;
         this.ladderService = ladderService;
     }
 
@@ -64,6 +64,7 @@ public class CrawLadderRunner {
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());
         try {
             ladderCrawler.crawLadder(true).join();
+            battleService.updateTeamGroup();
         } catch (Exception e) {
             logger.error("craw ladder exception", e);
             Thread.currentThread().interrupt();

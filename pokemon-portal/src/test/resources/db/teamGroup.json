@@ -1,0 +1,8090 @@
+[{
+  "_id": {
+    "$binary": {
+      "base64": "MDAwMzAwMzgwNDg1MDk4NDEwMDUxMDIw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1847.0"
+  },
+  "pokemons": [
+    {
+      "name": "Heatran",
+      "moves": [
+        "Magma Storm",
+        "Stealth Rock"
+      ]
+    },
+    {
+      "name": "Venusaur",
+      "moves": [
+        "Giga Drain",
+        "Growth",
+        "Weather Ball"
+      ]
+    },
+    {
+      "name": "Ninetales",
+      "moves": [
+        "Will-O-Wisp",
+        "Healing Wish"
+      ]
+    },
+    {
+      "name": "Gouging Fire",
+      "moves": [
+        "Raging Fury"
+      ]
+    },
+    {
+      "name": "Great Tusk",
+      "moves": [
+        "Bulk Up",
+        "Rapid Spin",
+        "Headlong Rush"
+      ]
+    },
+    {
+      "name": "Roaring Moon",
+      "moves": []
+    }
+  ],
+  "tagSet": [
+    "STAFF",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172364694_0",
+      "battleId": "gen9ou-2172364694",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAwMzAwMzgwNDg1MDk4NDEwMDUxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1847.0"
+      },
+      "playerName": "lt111vz lftz",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Heatran",
+          "moves": [
+            "Magma Storm",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Venusaur",
+          "moves": [
+            "Giga Drain",
+            "Growth",
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp",
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Bulk Up",
+            "Rapid Spin",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Roaring Moon",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172406004_0",
+      "battleId": "gen9ou-2172406004",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAwMzAwMzgwNDg1MDk4NDEwMDUxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1828.0"
+      },
+      "playerName": "lt111vz lftz",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Heatran",
+          "moves": [
+            "Magma Storm"
+          ]
+        },
+        {
+          "name": "Venusaur",
+          "moves": [
+            "Growth",
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Roaring Moon",
+          "moves": [
+            "U-turn",
+            "Knock Off"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172411115_1",
+      "battleId": "gen9ou-2172411115",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAwMzAwMzgwNDg1MDk4NDEwMDUxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1806.0"
+      },
+      "playerName": "lt111vz lftz",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Heatran",
+          "moves": [
+            "Earth Power"
+          ]
+        },
+        {
+          "name": "Venusaur",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Dragon Claw",
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin",
+            "Bulk Up",
+            "Ice Spinner",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Roaring Moon",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172369982_0",
+      "battleId": "gen9ou-2172369982",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAwMzAwMzgwNDg1MDk4NDEwMDUxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1756.0"
+      },
+      "playerName": "lt111vz lftz",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Heatran",
+          "moves": []
+        },
+        {
+          "name": "Venusaur",
+          "moves": [
+            "Earthquake",
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Bulk Up",
+            "Ice Spinner",
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Roaring Moon",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAwMzAwMzgwOTg0MTAwMDEwMDkxMDIw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1905.0"
+  },
+  "pokemons": [
+    {
+      "name": "Ninetales",
+      "moves": []
+    },
+    {
+      "name": "Great Tusk",
+      "moves": [
+        "Headlong Rush"
+      ]
+    },
+    {
+      "name": "Venusaur",
+      "moves": [
+        "Giga Drain",
+        "Earth Power"
+      ]
+    },
+    {
+      "name": "Gouging Fire",
+      "moves": [
+        "Temper Flare",
+        "Dragon Claw",
+        "Rest",
+        "Dragon Dance"
+      ]
+    },
+    {
+      "name": "Walking Wake",
+      "moves": [
+        "Hydro Steam",
+        "Flip Turn",
+        "Dragon Pulse"
+      ]
+    },
+    {
+      "name": "Gholdengo",
+      "moves": []
+    }
+  ],
+  "tagSet": [
+    "BALANCE",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172430846_0",
+      "battleId": "gen9ou-2172430846",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAwMzAwMzgwOTg0MTAwMDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1905.0"
+      },
+      "playerName": "LT111VZAL318259147",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Venusaur",
+          "moves": [
+            "Giga Drain",
+            "Earth Power"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Temper Flare",
+            "Dragon Claw",
+            "Rest",
+            "Dragon Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Gholdengo",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzNjAyMjcwNDcyMDQ5MTA5MzQxMDIx",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1949.0"
+  },
+  "pokemons": [
+    {
+      "name": "Clefable",
+      "moves": [
+        "Calm Mind",
+        "Moonlight",
+        "Knock Off",
+        "Moonblast"
+      ]
+    },
+    {
+      "name": "Darkrai",
+      "moves": [
+        "Dark Pulse"
+      ]
+    },
+    {
+      "name": "Raging Bolt",
+      "moves": [
+        "Volt Switch"
+      ]
+    },
+    {
+      "name": "Skarmory",
+      "moves": [
+        "Spikes",
+        "Iron Defense",
+        "Roost",
+        "Body Press"
+      ]
+    },
+    {
+      "name": "Gliscor",
+      "moves": [
+        "Facade",
+        "Protect",
+        "Swords Dance",
+        "Knock Off"
+      ]
+    },
+    {
+      "name": "Garganacl",
+      "moves": [
+        "Protect",
+        "Recover",
+        "Stealth Rock",
+        "Salt Cure"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE_STAFF",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172158832_0",
+      "battleId": "gen9ou-2172158832",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzNjAyMjcwNDcyMDQ5MTA5MzQxMDIx",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1949.0"
+      },
+      "playerName": "ough robocop",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Clefable",
+          "moves": [
+            "Calm Mind",
+            "Moonlight",
+            "Knock Off",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Darkrai",
+          "moves": [
+            "Dark Pulse"
+          ]
+        },
+        {
+          "name": "Raging Bolt",
+          "moves": [
+            "Volt Switch"
+          ]
+        },
+        {
+          "name": "Skarmory",
+          "moves": [
+            "Spikes",
+            "Iron Defense",
+            "Roost",
+            "Body Press"
+          ]
+        },
+        {
+          "name": "Gliscor",
+          "moves": [
+            "Facade",
+            "Protect",
+            "Swords Dance",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Garganacl",
+          "moves": [
+            "Protect",
+            "Recover",
+            "Stealth Rock",
+            "Salt Cure"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzNjAyMjcwNzIxMDg4NzA4ODkxMDAz",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1812.0"
+  },
+  "pokemons": [
+    {
+      "name": "Ting-Lu",
+      "moves": [
+        "Ruination",
+        "Stealth Rock",
+        "Whirlwind"
+      ]
+    },
+    {
+      "name": "Skarmory",
+      "moves": [
+        "Spikes",
+        "Iron Defense",
+        "Roost",
+        "Body Press"
+      ]
+    },
+    {
+      "name": "Volcanion",
+      "moves": [
+        "Steam Eruption"
+      ]
+    },
+    {
+      "name": "Dragapult",
+      "moves": [
+        "Will-O-Wisp",
+        "U-turn",
+        "Hex",
+        "Dragon Darts"
+      ]
+    },
+    {
+      "name": "Zamazenta-*",
+      "moves": [
+        "Body Press"
+      ]
+    },
+    {
+      "name": "Clefable",
+      "moves": [
+        "Encore",
+        "Moonlight",
+        "Trick",
+        "Moonblast"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE_STAFF",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172313849_1",
+      "battleId": "gen9ou-2172313849",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzNjAyMjcwNzIxMDg4NzA4ODkxMDAz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1812.0"
+      },
+      "playerName": "muk galar",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ting-Lu",
+          "moves": [
+            "Ruination",
+            "Stealth Rock",
+            "Whirlwind"
+          ]
+        },
+        {
+          "name": "Skarmory",
+          "moves": [
+            "Spikes",
+            "Iron Defense",
+            "Roost",
+            "Body Press"
+          ]
+        },
+        {
+          "name": "Volcanion",
+          "moves": [
+            "Steam Eruption"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Will-O-Wisp",
+            "U-turn",
+            "Hex",
+            "Dragon Darts"
+          ]
+        },
+        {
+          "name": "Zamazenta-*",
+          "moves": [
+            "Body Press"
+          ]
+        },
+        {
+          "name": "Clefable",
+          "moves": [
+            "Encore",
+            "Moonlight",
+            "Trick",
+            "Moonblast"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzODAwOTEwNjQ2MDk3MDEwMDAxMDIw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1974.0"
+  },
+  "pokemons": [
+    {
+      "name": "Glimmora",
+      "moves": [
+        "Stealth Rock",
+        "Power Gem",
+        "Mortal Spin"
+      ]
+    },
+    {
+      "name": "Kyurem",
+      "moves": [
+        "Substitute",
+        "Dragon Dance",
+        "Icicle Spear"
+      ]
+    },
+    {
+      "name": "Gholdengo",
+      "moves": [
+        "Shadow Ball",
+        "Make It Rain"
+      ]
+    },
+    {
+      "name": "Ninetales-Alola",
+      "moves": [
+        "Aurora Veil",
+        "Encore",
+        "Moonblast"
+      ]
+    },
+    {
+      "name": "Cloyster",
+      "moves": [
+        "Rock Blast",
+        "Icicle Spear"
+      ]
+    },
+    {
+      "name": "Gouging Fire",
+      "moves": [
+        "Outrage",
+        "Morning Sun",
+        "Heat Crash",
+        "Dragon Dance"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172347925_1",
+      "battleId": "gen9ou-2172347925",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAwOTEwNjQ2MDk3MDEwMDAxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1974.0"
+      },
+      "playerName": "BITTER BLADEE",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Glimmora",
+          "moves": [
+            "Stealth Rock",
+            "Power Gem",
+            "Mortal Spin"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Substitute",
+            "Dragon Dance",
+            "Icicle Spear"
+          ]
+        },
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Shadow Ball",
+            "Make It Rain"
+          ]
+        },
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Aurora Veil",
+            "Encore",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Cloyster",
+          "moves": [
+            "Rock Blast",
+            "Icicle Spear"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Morning Sun",
+            "Heat Crash",
+            "Dragon Dance"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2171490317_1",
+      "battleId": "gen9ou-2171490317",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAwOTEwNjQ2MDk3MDEwMDAxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1801.0"
+      },
+      "playerName": "SMGs",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Glimmora",
+          "moves": [
+            "Power Gem",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Substitute",
+            "Dragon Dance",
+            "Icicle Spear"
+          ]
+        },
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Shadow Ball",
+            "Nasty Plot"
+          ]
+        },
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Aurora Veil",
+            "Encore",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Cloyster",
+          "moves": [
+            "Shell Smash",
+            "Icicle Spear"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Dragon Dance",
+            "Heat Crash"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2171469615_1",
+      "battleId": "gen9ou-2171469615",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAwOTEwNjQ2MDk3MDEwMDAxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1764.0"
+      },
+      "playerName": "SMGs",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Glimmora",
+          "moves": [
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": []
+        },
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Shadow Ball"
+          ]
+        },
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Aurora Veil",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Cloyster",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Heat Crash",
+            "Morning Sun",
+            "Dragon Dance"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2171506936_1",
+      "battleId": "gen9ou-2171506936",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAwOTEwNjQ2MDk3MDEwMDAxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1782.0"
+      },
+      "playerName": "SMGs",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Glimmora",
+          "moves": [
+            "Mortal Spin",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": []
+        },
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Shadow Ball",
+            "Nasty Plot"
+          ]
+        },
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Cloyster",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Dragon Dance"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "2"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzODAxNDkwODU4MDg3MzA5MDEwOTcw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1797.0"
+  },
+  "pokemons": [
+    {
+      "name": "Frosmoth",
+      "moves": [
+        "Quiver Dance"
+      ]
+    },
+    {
+      "name": "Ninetales-Alola",
+      "moves": []
+    },
+    {
+      "name": "Hatterene",
+      "moves": []
+    },
+    {
+      "name": "Ursaluna",
+      "moves": []
+    },
+    {
+      "name": "Dragonite",
+      "moves": [
+        "Dragon Dance"
+      ]
+    },
+    {
+      "name": "Glimmora",
+      "moves": []
+    }
+  ],
+  "tagSet": [
+    "ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172145646_0",
+      "battleId": "gen9ou-2172145646",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAxNDkwODU4MDg3MzA5MDEwOTcw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1797.0"
+      },
+      "playerName": "LT111VZ spook",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Frosmoth",
+          "moves": [
+            "Quiver Dance"
+          ]
+        },
+        {
+          "name": "Ninetales-Alola",
+          "moves": []
+        },
+        {
+          "name": "Hatterene",
+          "moves": []
+        },
+        {
+          "name": "Ursaluna",
+          "moves": []
+        },
+        {
+          "name": "Dragonite",
+          "moves": [
+            "Dragon Dance"
+          ]
+        },
+        {
+          "name": "Glimmora",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzODAzODEwNTAzMDk5MDEwMTQxMDIy",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "2014.0"
+  },
+  "pokemons": [
+    {
+      "name": "Ninetales-Alola",
+      "moves": [
+        "Blizzard"
+      ]
+    },
+    {
+      "name": "Iron Treads",
+      "moves": [
+        "Stealth Rock"
+      ]
+    },
+    {
+      "name": "Iron Boulder",
+      "moves": [
+        "Swords Dance"
+      ]
+    },
+    {
+      "name": "Okidogi",
+      "moves": [
+        "Bulk Up",
+        "Poison Jab",
+        "Knock Off"
+      ]
+    },
+    {
+      "name": "Samurott-Hisui",
+      "moves": [
+        "Sucker Punch"
+      ]
+    },
+    {
+      "name": "Latios",
+      "moves": [
+        "Psychic Noise",
+        "Draco Meteor"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE_ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172434703_1",
+      "battleId": "gen9ou-2172434703",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAzODEwNTAzMDk5MDEwMTQxMDIy",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1876.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Blizzard"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Iron Boulder",
+          "moves": [
+            "Swords Dance"
+          ]
+        },
+        {
+          "name": "Okidogi",
+          "moves": [
+            "Bulk Up",
+            "Poison Jab",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Sucker Punch"
+          ]
+        },
+        {
+          "name": "Latios",
+          "moves": [
+            "Psychic Noise",
+            "Draco Meteor"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172394098_0",
+      "battleId": "gen9ou-2172394098",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAzODEwNTAzMDk5MDEwMTQxMDIy",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1990.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Blizzard",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Stealth Rock",
+            "Steel Beam"
+          ]
+        },
+        {
+          "name": "Iron Boulder",
+          "moves": []
+        },
+        {
+          "name": "Okidogi",
+          "moves": [
+            "Bulk Up",
+            "Drain Punch",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": []
+        },
+        {
+          "name": "Latios",
+          "moves": [
+            "Draco Meteor"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172400841_1",
+      "battleId": "gen9ou-2172400841",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAzODEwNTAzMDk5MDEwMTQxMDIy",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "2014.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Freeze-Dry",
+            "Blizzard"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Stealth Rock",
+            "Steel Beam"
+          ]
+        },
+        {
+          "name": "Iron Boulder",
+          "moves": [
+            "Swords Dance",
+            "Mighty Cleave"
+          ]
+        },
+        {
+          "name": "Okidogi",
+          "moves": [
+            "Drain Punch",
+            "Bulk Up",
+            "Poison Jab",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Ceaseless Edge"
+          ]
+        },
+        {
+          "name": "Latios",
+          "moves": [
+            "Calm Mind",
+            "Draco Meteor",
+            "Recover",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172408364_0",
+      "battleId": "gen9ou-2172408364",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAzODEwNTAzMDk5MDEwMTQxMDIy",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "2004.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Blizzard"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Volt Switch",
+            "Steel Beam"
+          ]
+        },
+        {
+          "name": "Iron Boulder",
+          "moves": [
+            "Mighty Cleave",
+            "Swords Dance"
+          ]
+        },
+        {
+          "name": "Okidogi",
+          "moves": [
+            "Drain Punch",
+            "Bulk Up",
+            "Poison Jab",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Ceaseless Edge",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Latios",
+          "moves": [
+            "Calm Mind",
+            "Recover",
+            "Draco Meteor",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172415906_0",
+      "battleId": "gen9ou-2172415906",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAzODEwNTAzMDk5MDEwMTQxMDIy",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1905.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Blizzard",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Volt Switch",
+            "Stealth Rock",
+            "Steel Beam"
+          ]
+        },
+        {
+          "name": "Iron Boulder",
+          "moves": [
+            "Swords Dance",
+            "Mighty Cleave"
+          ]
+        },
+        {
+          "name": "Okidogi",
+          "moves": [
+            "Bulk Up",
+            "Drain Punch",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Sucker Punch",
+            "Ceaseless Edge",
+            "Flip Turn",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Latios",
+          "moves": [
+            "Calm Mind",
+            "Psychic Noise",
+            "Draco Meteor"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172406004_1",
+      "battleId": "gen9ou-2172406004",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAzODEwNTAzMDk5MDEwMTQxMDIy",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1828.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Stealth Rock",
+            "Steel Beam"
+          ]
+        },
+        {
+          "name": "Iron Boulder",
+          "moves": []
+        },
+        {
+          "name": "Okidogi",
+          "moves": []
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Sucker Punch",
+            "Ceaseless Edge"
+          ]
+        },
+        {
+          "name": "Latios",
+          "moves": [
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172397081_1",
+      "battleId": "gen9ou-2172397081",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODAzODEwNTAzMDk5MDEwMTQxMDIy",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1857.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales-Alola",
+          "moves": [
+            "Encore"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Stealth Rock",
+            "Steel Beam"
+          ]
+        },
+        {
+          "name": "Iron Boulder",
+          "moves": [
+            "Earthquake",
+            "Zen Headbutt",
+            "Swords Dance"
+          ]
+        },
+        {
+          "name": "Okidogi",
+          "moves": []
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Sucker Punch",
+            "Ceaseless Edge",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Latios",
+          "moves": [
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzODA2NDUwODg5MDk4OTEwMDkxMDIw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "2109.0"
+  },
+  "pokemons": [
+    {
+      "name": "Zamazenta-*",
+      "moves": [
+        "Roar",
+        "Body Press",
+        "Iron Defense"
+      ]
+    },
+    {
+      "name": "Sandy Shocks",
+      "moves": [
+        "Thunderbolt",
+        "Earth Power",
+        "Tera Blast"
+      ]
+    },
+    {
+      "name": "Gouging Fire",
+      "moves": [
+        "Heat Crash"
+      ]
+    },
+    {
+      "name": "Ninetales",
+      "moves": [
+        "Weather Ball",
+        "Healing Wish",
+        "Encore"
+      ]
+    },
+    {
+      "name": "Landorus-Therian",
+      "moves": [
+        "U-turn"
+      ]
+    },
+    {
+      "name": "Walking Wake",
+      "moves": [
+        "Hydro Steam",
+        "Dragon Pulse"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE_ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172099392_0",
+      "battleId": "gen9ou-2172099392",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA2NDUwODg5MDk4OTEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "2109.0"
+      },
+      "playerName": "GALAXY☆00000",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Zamazenta-*",
+          "moves": [
+            "Roar",
+            "Body Press",
+            "Iron Defense"
+          ]
+        },
+        {
+          "name": "Sandy Shocks",
+          "moves": [
+            "Thunderbolt",
+            "Earth Power",
+            "Tera Blast"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball",
+            "Healing Wish",
+            "Encore"
+          ]
+        },
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "U-turn"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172064853_1",
+      "battleId": "gen9ou-2172064853",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA2NDUwODg5MDk4OTEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1969.0"
+      },
+      "playerName": "GALAXY☆00000",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Zamazenta-*",
+          "moves": []
+        },
+        {
+          "name": "Sandy Shocks",
+          "moves": [
+            "Volt Switch"
+          ]
+        },
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "U-turn",
+            "Taunt",
+            "Stealth Rock",
+            "Earth Power"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake",
+            "Raging Fury",
+            "Dragon Claw"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Dragon Pulse",
+            "Knock Off"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1977.0"
+  },
+  "pokemons": [
+    {
+      "name": "Ninetales",
+      "moves": [
+        "Weather Ball"
+      ]
+    },
+    {
+      "name": "Great Tusk",
+      "moves": []
+    },
+    {
+      "name": "Gouging Fire",
+      "moves": [
+        "Heat Crash"
+      ]
+    },
+    {
+      "name": "Iron Moth",
+      "moves": []
+    },
+    {
+      "name": "Walking Wake",
+      "moves": []
+    },
+    {
+      "name": "Hatterene",
+      "moves": []
+    }
+  ],
+  "tagSet": [
+    "BALANCE",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172126711_0",
+      "battleId": "gen9ou-2172126711",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1922.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": []
+        },
+        {
+          "name": "Hatterene",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172424414_1",
+      "battleId": "gen9ou-2172424414",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1953.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat",
+            "Ice Spinner"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Substitute",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse",
+            "Flamethrower"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172362227_0",
+      "battleId": "gen9ou-2172362227",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1933.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172259953_0",
+      "battleId": "gen9ou-2172259953",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1922.0"
+      },
+      "playerName": "LT111VZ Lacks",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball",
+            "Encore"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat",
+            "Ice Spinner"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Dazzling Gleam"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flamethrower",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Psychic Noise",
+            "Mystical Fire",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172350714_0",
+      "battleId": "gen9ou-2172350714",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1948.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Toxic",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172275535_0",
+      "battleId": "gen9ou-2172275535",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1843.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": []
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Toxic",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172278812_1",
+      "battleId": "gen9ou-2172278812",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1864.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball",
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172266181_0",
+      "battleId": "gen9ou-2172266181",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1872.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat",
+            "Ice Spinner",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake",
+            "Outrage",
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Healing Wish"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172244489_0",
+      "battleId": "gen9ou-2172244489",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1829.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake",
+            "Raging Fury",
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Spikes",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172390577_1",
+      "battleId": "gen9ou-2172390577",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1890.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Encore"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance",
+            "Tera Blast"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172429003_0",
+      "battleId": "gen9ou-2172429003",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1941.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172230697_0",
+      "battleId": "gen9ou-2172230697",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1802.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury",
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Toxic",
+            "Nuzzle",
+            "Psychic Noise",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172387662_1",
+      "battleId": "gen9ou-2172387662",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1814.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172344733_0",
+      "battleId": "gen9ou-2172344733",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1886.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake",
+            "Raging Fury",
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise",
+            "Draining Kiss",
+            "Healing Wish"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172281565_0",
+      "battleId": "gen9ou-2172281565",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1889.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Earthquake",
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Psychic Noise",
+            "Healing Wish"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172276858_0",
+      "battleId": "gen9ou-2172276858",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1833.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse",
+            "Flamethrower"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172271805_1",
+      "battleId": "gen9ou-2172271805",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1755.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake",
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172224292_1",
+      "battleId": "gen9ou-2172224292",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1783.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner",
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Substitute",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172246430_1",
+      "battleId": "gen9ou-2172246430",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1891.0"
+      },
+      "playerName": "LT111VZ Lacks",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp",
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat",
+            "Ice Spinner",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance",
+            "Tera Blast"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flamethrower",
+            "Draco Meteor",
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Mystical Fire",
+            "Nuzzle",
+            "Psychic Noise",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172235362_0",
+      "battleId": "gen9ou-2172235362",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1847.0"
+      },
+      "playerName": "LT111VZ Lacks",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flamethrower"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Psychic Noise",
+            "Mystical Fire"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172233056_1",
+      "battleId": "gen9ou-2172233056",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1789.0"
+      },
+      "playerName": "LT111VZ Lacks",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Stealth Rock",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172342500_1",
+      "battleId": "gen9ou-2172342500",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1903.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172374560_0",
+      "battleId": "gen9ou-2172374560",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1914.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat",
+            "Rapid Spin",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Substitute",
+            "Sludge Wave"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172190683_1",
+      "battleId": "gen9ou-2172190683",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1977.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise",
+            "Healing Wish"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172181572_0",
+      "battleId": "gen9ou-2172181572",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1809.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse",
+            "Flamethrower",
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Psychic Noise",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172171892_1",
+      "battleId": "gen9ou-2172171892",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1913.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172161738_1",
+      "battleId": "gen9ou-2172161738",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1909.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flamethrower"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172153506_1",
+      "battleId": "gen9ou-2172153506",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1870.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance",
+            "Tera Blast"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172145646_1",
+      "battleId": "gen9ou-2172145646",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1797.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Tera Blast",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Flip Turn"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172142488_0",
+      "battleId": "gen9ou-2172142488",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1927.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172139151_0",
+      "battleId": "gen9ou-2172139151",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1891.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp",
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172135807_1",
+      "battleId": "gen9ou-2172135807",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1854.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Tera Blast",
+            "Fiery Dance",
+            "Substitute",
+            "Sludge Wave"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172130926_1",
+      "battleId": "gen9ou-2172130926",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1920.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Headlong Rush",
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance",
+            "Tera Blast",
+            "Substitute",
+            "Sludge Wave"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Healing Wish"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172122401_0",
+      "battleId": "gen9ou-2172122401",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1849.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp",
+            "Weather Ball",
+            "Encore",
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Flip Turn",
+            "Flamethrower"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise",
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172116710_1",
+      "battleId": "gen9ou-2172116710",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1840.0"
+      },
+      "playerName": "LT111VZ Ox",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp",
+            "Weather Ball",
+            "Encore"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury",
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Draining Kiss"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172367251_1",
+      "battleId": "gen9ou-2172367251",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1892.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Stealth Rock"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172261590_0",
+      "battleId": "gen9ou-2172261590",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1912.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Substitute",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172209781_0",
+      "battleId": "gen9ou-2172209781",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1777.0"
+      },
+      "playerName": "LT111VZ Lacks",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flip Turn",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172430846_1",
+      "battleId": "gen9ou-2172430846",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1905.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Weather Ball"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172265381_0",
+      "battleId": "gen9ou-2172265381",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1851.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Flamethrower"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Psychic Noise"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172252135_1",
+      "battleId": "gen9ou-2172252135",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MDk5NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1850.0"
+      },
+      "playerName": "time to boogie tn",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Encore"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Flip Turn",
+            "Flamethrower"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise",
+            "Stealth Rock"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "3"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzODA4NTgwOTg0MTAwOTEwMjAxMDIx",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1754.0"
+  },
+  "pokemons": [
+    {
+      "name": "Gouging Fire",
+      "moves": [
+        "Raging Fury"
+      ]
+    },
+    {
+      "name": "Raging Bolt",
+      "moves": []
+    },
+    {
+      "name": "Walking Wake",
+      "moves": []
+    },
+    {
+      "name": "Great Tusk",
+      "moves": [
+        "Knock Off"
+      ]
+    },
+    {
+      "name": "Hatterene",
+      "moves": [
+        "Nuzzle",
+        "Psychic Noise",
+        "Draining Kiss",
+        "Strength Sap"
+      ]
+    },
+    {
+      "name": "Ninetales",
+      "moves": [
+        "Healing Wish"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172335349_0",
+      "battleId": "gen9ou-2172335349",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA4NTgwOTg0MTAwOTEwMjAxMDIx",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1754.0"
+      },
+      "playerName": "stierball",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Raging Bolt",
+          "moves": []
+        },
+        {
+          "name": "Walking Wake",
+          "moves": []
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Hatterene",
+          "moves": [
+            "Nuzzle",
+            "Psychic Noise",
+            "Draining Kiss",
+            "Strength Sap"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Healing Wish"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzODA5NTkwOTk0MTAwOTEwMjAxMDIz",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1955.0"
+  },
+  "pokemons": [
+    {
+      "name": "Walking Wake",
+      "moves": [
+        "Hydro Steam",
+        "Dragon Pulse",
+        "Flamethrower"
+      ]
+    },
+    {
+      "name": "Iron Moth",
+      "moves": [
+        "Psychic",
+        "Fiery Dance"
+      ]
+    },
+    {
+      "name": "Ninetales",
+      "moves": [
+        "Will-O-Wisp"
+      ]
+    },
+    {
+      "name": "Tinkaton",
+      "moves": [
+        "Thunder Wave",
+        "Gigaton Hammer",
+        "Encore"
+      ]
+    },
+    {
+      "name": "Iron Crown",
+      "moves": [
+        "Calm Mind",
+        "Psychic",
+        "Tera Blast"
+      ]
+    },
+    {
+      "name": "Gouging Fire",
+      "moves": []
+    }
+  ],
+  "tagSet": [
+    "BALANCE",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172365097_1",
+      "battleId": "gen9ou-2172365097",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA5NTkwOTk0MTAwOTEwMjAxMDIz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1955.0"
+      },
+      "playerName": "lt111vz Plague",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse",
+            "Flamethrower"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Psychic",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp"
+          ]
+        },
+        {
+          "name": "Tinkaton",
+          "moves": [
+            "Thunder Wave",
+            "Gigaton Hammer",
+            "Encore"
+          ]
+        },
+        {
+          "name": "Iron Crown",
+          "moves": [
+            "Calm Mind",
+            "Psychic",
+            "Tera Blast"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172213972_1",
+      "battleId": "gen9ou-2172213972",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA5NTkwOTk0MTAwOTEwMjAxMDIz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1916.0"
+      },
+      "playerName": "lt111vz Plague",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Psychic",
+            "Fiery Dance",
+            "Substitute",
+            "Sludge Wave"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Will-O-Wisp",
+            "Weather Ball",
+            "Encore",
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Tinkaton",
+          "moves": [
+            "Stealth Rock",
+            "Thunder Wave",
+            "Gigaton Hammer"
+          ]
+        },
+        {
+          "name": "Iron Crown",
+          "moves": [
+            "Calm Mind",
+            "Psychic"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Flare Blitz"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172236888_0",
+      "battleId": "gen9ou-2172236888",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA5NTkwOTk0MTAwOTEwMjAxMDIz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1902.0"
+      },
+      "playerName": "lt111vz Plague",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Tinkaton",
+          "moves": [
+            "Gigaton Hammer",
+            "Encore",
+            "Stealth Rock",
+            "Thunder Wave"
+          ]
+        },
+        {
+          "name": "Iron Crown",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Dragon Dance",
+            "Flare Blitz"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172317528_0",
+      "battleId": "gen9ou-2172317528",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA5NTkwOTk0MTAwOTEwMjAxMDIz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1905.0"
+      },
+      "playerName": "lt111vz Plague",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": []
+        },
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Tinkaton",
+          "moves": [
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Iron Crown",
+          "moves": [
+            "Calm Mind",
+            "Tachyon Cutter"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Dragon Dance",
+            "Flare Blitz"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172450793_1",
+      "battleId": "gen9ou-2172450793",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA5NTkwOTk0MTAwOTEwMjAxMDIz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1833.0"
+      },
+      "playerName": "lt111vz Plague",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Walking Wake",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Psychic",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Healing Wish"
+          ]
+        },
+        {
+          "name": "Tinkaton",
+          "moves": [
+            "Stealth Rock",
+            "Encore"
+          ]
+        },
+        {
+          "name": "Iron Crown",
+          "moves": [
+            "Calm Mind",
+            "Tera Blast",
+            "Tachyon Cutter"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Flare Blitz"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172427229_1",
+      "battleId": "gen9ou-2172427229",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA5NTkwOTk0MTAwOTEwMjAxMDIz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1779.0"
+      },
+      "playerName": "lt111vz Plague",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Walking Wake",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Substitute",
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": []
+        },
+        {
+          "name": "Tinkaton",
+          "moves": [
+            "Gigaton Hammer",
+            "Encore",
+            "Stealth Rock",
+            "Thunder Wave"
+          ]
+        },
+        {
+          "name": "Iron Crown",
+          "moves": [
+            "Calm Mind"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172232686_1",
+      "battleId": "gen9ou-2172232686",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzODA5NTkwOTk0MTAwOTEwMjAxMDIz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1879.0"
+      },
+      "playerName": "lt111vz Plague",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Psychic",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ninetales",
+          "moves": [
+            "Healing Wish",
+            "Encore"
+          ]
+        },
+        {
+          "name": "Tinkaton",
+          "moves": [
+            "Stealth Rock",
+            "Gigaton Hammer",
+            "Encore"
+          ]
+        },
+        {
+          "name": "Iron Crown",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Outrage",
+            "Dragon Dance",
+            "Flare Blitz"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDA3MzAyNzkwODM0MDg0NzA5MjMxMDIx",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1873.0"
+  },
+  "pokemons": [
+    {
+      "name": "Drednaw",
+      "moves": []
+    },
+    {
+      "name": "Pelipper",
+      "moves": [
+        "Roost",
+        "Hurricane",
+        "U-turn"
+      ]
+    },
+    {
+      "name": "Pawmot",
+      "moves": []
+    },
+    {
+      "name": "Barraskewda",
+      "moves": [
+        "Close Combat",
+        "Flip Turn",
+        "Aqua Jet"
+      ]
+    },
+    {
+      "name": "Raging Bolt",
+      "moves": [
+        "Draco Meteor",
+        "Thunder"
+      ]
+    },
+    {
+      "name": "Tentacruel",
+      "moves": [
+        "Surf"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE_ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172252437_0",
+      "battleId": "gen9ou-2172252437",
+      "teamId": {
+        "$binary": {
+          "base64": "MDA3MzAyNzkwODM0MDg0NzA5MjMxMDIx",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1873.0"
+      },
+      "playerName": "radahndorus",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Drednaw",
+          "moves": []
+        },
+        {
+          "name": "Pelipper",
+          "moves": [
+            "Roost",
+            "Hurricane",
+            "U-turn"
+          ]
+        },
+        {
+          "name": "Pawmot",
+          "moves": []
+        },
+        {
+          "name": "Barraskewda",
+          "moves": [
+            "Close Combat",
+            "Flip Turn",
+            "Aqua Jet"
+          ]
+        },
+        {
+          "name": "Raging Bolt",
+          "moves": [
+            "Draco Meteor",
+            "Thunder"
+          ]
+        },
+        {
+          "name": "Tentacruel",
+          "moves": [
+            "Surf"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172209982_1",
+      "battleId": "gen9ou-2172209982",
+      "teamId": {
+        "$binary": {
+          "base64": "MDA3MzAyNzkwODM0MDg0NzA5MjMxMDIx",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1847.0"
+      },
+      "playerName": "radahndorus",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Drednaw",
+          "moves": [
+            "Rock Blast",
+            "Shell Smash"
+          ]
+        },
+        {
+          "name": "Pelipper",
+          "moves": [
+            "Hurricane",
+            "U-turn",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Pawmot",
+          "moves": [
+            "Revival Blessing"
+          ]
+        },
+        {
+          "name": "Barraskewda",
+          "moves": [
+            "Close Combat",
+            "Liquidation"
+          ]
+        },
+        {
+          "name": "Raging Bolt",
+          "moves": [
+            "Thunderclap",
+            "Thunder"
+          ]
+        },
+        {
+          "name": "Tentacruel",
+          "moves": [
+            "Weather Ball",
+            "Rapid Spin",
+            "Sludge Bomb"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172204882_1",
+      "battleId": "gen9ou-2172204882",
+      "teamId": {
+        "$binary": {
+          "base64": "MDA3MzAyNzkwODM0MDg0NzA5MjMxMDIx",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1826.0"
+      },
+      "playerName": "radahndorus",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Drednaw",
+          "moves": [
+            "Head Smash"
+          ]
+        },
+        {
+          "name": "Pelipper",
+          "moves": [
+            "Hurricane",
+            "U-turn"
+          ]
+        },
+        {
+          "name": "Pawmot",
+          "moves": [
+            "Close Combat",
+            "Encore"
+          ]
+        },
+        {
+          "name": "Barraskewda",
+          "moves": [
+            "Close Combat",
+            "Flip Turn",
+            "Liquidation"
+          ]
+        },
+        {
+          "name": "Raging Bolt",
+          "moves": [
+            "Calm Mind",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Tentacruel",
+          "moves": [
+            "Weather Ball",
+            "Mirror Coat",
+            "Sludge Bomb"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDA4OTAzMjQwODIzMDk4NDEwMDkxMDIw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1901.0"
+  },
+  "pokemons": [
+    {
+      "name": "Great Tusk",
+      "moves": [
+        "Headlong Rush",
+        "Stone Edge"
+      ]
+    },
+    {
+      "name": "Muk-Alola",
+      "moves": [
+        "Rest",
+        "Poison Jab",
+        "Sleep Talk",
+        "Knock Off"
+      ]
+    },
+    {
+      "name": "Torkoal",
+      "moves": [
+        "Rapid Spin"
+      ]
+    },
+    {
+      "name": "Corviknight",
+      "moves": [
+        "Roost",
+        "U-turn",
+        "Iron Defense"
+      ]
+    },
+    {
+      "name": "Gouging Fire",
+      "moves": [
+        "Earthquake",
+        "Raging Fury"
+      ]
+    },
+    {
+      "name": "Walking Wake",
+      "moves": [
+        "Hydro Steam",
+        "Dragon Pulse",
+        "Draco Meteor"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE_STAFF",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172287353_0",
+      "battleId": "gen9ou-2172287353",
+      "teamId": {
+        "$binary": {
+          "base64": "MDA4OTAzMjQwODIzMDk4NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1852.0"
+      },
+      "playerName": "LT111VZ Loser",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Headlong Rush",
+            "Stone Edge"
+          ]
+        },
+        {
+          "name": "Muk-Alola",
+          "moves": [
+            "Rest",
+            "Poison Jab",
+            "Sleep Talk",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Torkoal",
+          "moves": [
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Corviknight",
+          "moves": [
+            "Roost",
+            "U-turn",
+            "Iron Defense"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake",
+            "Raging Fury"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse",
+            "Draco Meteor"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172302101_0",
+      "battleId": "gen9ou-2172302101",
+      "teamId": {
+        "$binary": {
+          "base64": "MDA4OTAzMjQwODIzMDk4NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1901.0"
+      },
+      "playerName": "LT111VZ Loser",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Muk-Alola",
+          "moves": [
+            "Poison Jab",
+            "Rest",
+            "Sleep Talk"
+          ]
+        },
+        {
+          "name": "Torkoal",
+          "moves": [
+            "Stealth Rock",
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Corviknight",
+          "moves": []
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Earthquake"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Dragon Pulse",
+            "Draco Meteor"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172294813_0",
+      "battleId": "gen9ou-2172294813",
+      "teamId": {
+        "$binary": {
+          "base64": "MDA4OTAzMjQwODIzMDk4NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1881.0"
+      },
+      "playerName": "LT111VZ Loser",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Stone Edge"
+          ]
+        },
+        {
+          "name": "Muk-Alola",
+          "moves": [
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Torkoal",
+          "moves": []
+        },
+        {
+          "name": "Corviknight",
+          "moves": [
+            "Brave Bird",
+            "U-turn"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Dragon Claw",
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam",
+            "Draco Meteor"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2171514981_1",
+      "battleId": "gen9ou-2171514981",
+      "teamId": {
+        "$binary": {
+          "base64": "MDA4OTAzMjQwODIzMDk4NDEwMDkxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1825.0"
+      },
+      "playerName": "LT111VZ Loser",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Close Combat"
+          ]
+        },
+        {
+          "name": "Muk-Alola",
+          "moves": [
+            "Poison Jab",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Torkoal",
+          "moves": [
+            "Lava Plume"
+          ]
+        },
+        {
+          "name": "Corviknight",
+          "moves": [
+            "Brave Bird",
+            "U-turn"
+          ]
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Heat Crash"
+          ]
+        },
+        {
+          "name": "Walking Wake",
+          "moves": [
+            "Hydro Steam"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDA5MTAyMTIwNTAzMDY0NTA5NzAxMDA1",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1797.0"
+  },
+  "pokemons": [
+    {
+      "name": "Samurott-Hisui",
+      "moves": [
+        "Ceaseless Edge",
+        "Aqua Cutter"
+      ]
+    },
+    {
+      "name": "Glimmora",
+      "moves": [
+        "Mortal Spin"
+      ]
+    },
+    {
+      "name": "Roaring Moon",
+      "moves": [
+        "Knock Off"
+      ]
+    },
+    {
+      "name": "Scizor",
+      "moves": [
+        "Swords Dance",
+        "Dual Wingbeat",
+        "Bullet Punch"
+      ]
+    },
+    {
+      "name": "Landorus-Therian",
+      "moves": [
+        "Taunt"
+      ]
+    },
+    {
+      "name": "Cloyster",
+      "moves": [
+        "Icicle Spear",
+        "Shell Smash"
+      ]
+    }
+  ],
+  "tagSet": [
+    "ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172321615_0",
+      "battleId": "gen9ou-2172321615",
+      "teamId": {
+        "$binary": {
+          "base64": "MDA5MTAyMTIwNTAzMDY0NTA5NzAxMDA1",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1797.0"
+      },
+      "playerName": "LT111VZ Fakye",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Ceaseless Edge",
+            "Aqua Cutter"
+          ]
+        },
+        {
+          "name": "Glimmora",
+          "moves": [
+            "Mortal Spin"
+          ]
+        },
+        {
+          "name": "Roaring Moon",
+          "moves": [
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Scizor",
+          "moves": [
+            "Swords Dance",
+            "Dual Wingbeat",
+            "Bullet Punch"
+          ]
+        },
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "Taunt"
+          ]
+        },
+        {
+          "name": "Cloyster",
+          "moves": [
+            "Icicle Spear",
+            "Shell Smash"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE0NTA2NDIwNzQzMDg4NzA5OTQxMDA1",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1788.0"
+  },
+  "pokemons": [
+    {
+      "name": "Roaring Moon",
+      "moves": [
+        "Dragon Dance",
+        "Acrobatics",
+        "Taunt"
+      ]
+    },
+    {
+      "name": "Thundurus-Therian",
+      "moves": [
+        "Thunderbolt",
+        "Focus Blast",
+        "Nasty Plot"
+      ]
+    },
+    {
+      "name": "Zapdos",
+      "moves": [
+        "Hurricane"
+      ]
+    },
+    {
+      "name": "Iron Moth",
+      "moves": [
+        "Fiery Dance"
+      ]
+    },
+    {
+      "name": "Ribombee",
+      "moves": [
+        "Psychic Noise",
+        "Moonblast"
+      ]
+    },
+    {
+      "name": "Dragapult",
+      "moves": [
+        "Will-O-Wisp",
+        "Dragon Darts",
+        "Flamethrower"
+      ]
+    }
+  ],
+  "tagSet": [
+    "ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172075221_0",
+      "battleId": "gen9ou-2172075221",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NTA2NDIwNzQzMDg4NzA5OTQxMDA1",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1773.0"
+      },
+      "playerName": "oi oi majikayo",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Roaring Moon",
+          "moves": [
+            "Dragon Dance",
+            "Acrobatics",
+            "Taunt"
+          ]
+        },
+        {
+          "name": "Thundurus-Therian",
+          "moves": [
+            "Thunderbolt",
+            "Focus Blast",
+            "Nasty Plot"
+          ]
+        },
+        {
+          "name": "Zapdos",
+          "moves": [
+            "Hurricane"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ribombee",
+          "moves": [
+            "Psychic Noise",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Will-O-Wisp",
+            "Dragon Darts",
+            "Flamethrower"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2171493821_1",
+      "battleId": "gen9ou-2171493821",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NTA2NDIwNzQzMDg4NzA5OTQxMDA1",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1788.0"
+      },
+      "playerName": "oi oi majikayo",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Roaring Moon",
+          "moves": []
+        },
+        {
+          "name": "Thundurus-Therian",
+          "moves": []
+        },
+        {
+          "name": "Zapdos",
+          "moves": []
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Substitute",
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ribombee",
+          "moves": [
+            "Sticky Web",
+            "Psychic Noise",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172062259_1",
+      "battleId": "gen9ou-2172062259",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NTA2NDIwNzQzMDg4NzA5OTQxMDA1",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1752.0"
+      },
+      "playerName": "oi oi majikayo",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Roaring Moon",
+          "moves": [
+            "Taunt",
+            "Dragon Dance",
+            "Acrobatics",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Thundurus-Therian",
+          "moves": [
+            "Thunderbolt",
+            "Nasty Plot",
+            "Tera Blast"
+          ]
+        },
+        {
+          "name": "Zapdos",
+          "moves": [
+            "Thunderbolt",
+            "Charge",
+            "Hurricane"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ribombee",
+          "moves": [
+            "Psychic Noise",
+            "Stun Spore",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Will-O-Wisp",
+            "Dragon Darts",
+            "Hex"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2171783727_0",
+      "battleId": "gen9ou-2171783727",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NTA2NDIwNzQzMDg4NzA5OTQxMDA1",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1783.0"
+      },
+      "playerName": "oi oi majikayo",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Roaring Moon",
+          "moves": [
+            "Acrobatics",
+            "Knock Off",
+            "Taunt"
+          ]
+        },
+        {
+          "name": "Thundurus-Therian",
+          "moves": [
+            "Focus Blast"
+          ]
+        },
+        {
+          "name": "Zapdos",
+          "moves": [
+            "Charge",
+            "Hurricane",
+            "Thunderbolt"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Substitute",
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ribombee",
+          "moves": [
+            "Sticky Web",
+            "Stun Spore"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Will-O-Wisp",
+            "Hex"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2171789750_0",
+      "battleId": "gen9ou-2171789750",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NTA2NDIwNzQzMDg4NzA5OTQxMDA1",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1771.0"
+      },
+      "playerName": "oi oi majikayo",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Roaring Moon",
+          "moves": [
+            "Dragon Dance",
+            "Taunt"
+          ]
+        },
+        {
+          "name": "Thundurus-Therian",
+          "moves": [
+            "Thunderbolt",
+            "Tera Blast"
+          ]
+        },
+        {
+          "name": "Zapdos",
+          "moves": [
+            "Charge",
+            "Thunderbolt",
+            "Roost",
+            "Hurricane"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Sludge Wave",
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ribombee",
+          "moves": [
+            "Stun Spore",
+            "Moonblast"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Will-O-Wisp",
+            "Flamethrower"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2171477676_1",
+      "battleId": "gen9ou-2171477676",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NTA2NDIwNzQzMDg4NzA5OTQxMDA1",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722528000000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1777.0"
+      },
+      "playerName": "oi oi majikayo",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Roaring Moon",
+          "moves": [
+            "Taunt",
+            "Dragon Dance",
+            "Acrobatics",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Thundurus-Therian",
+          "moves": []
+        },
+        {
+          "name": "Zapdos",
+          "moves": [
+            "Charge",
+            "Hurricane",
+            "Roost",
+            "Thunderbolt"
+          ]
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [
+            "Fiery Dance"
+          ]
+        },
+        {
+          "name": "Ribombee",
+          "moves": [
+            "Sticky Web",
+            "Stun Spore"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Dragon Darts"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE0NTA2NDUwNzA2MDgxNTA4ODkwOTA4",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1876.0"
+  },
+  "pokemons": [
+    {
+      "name": "Zamazenta-*",
+      "moves": [
+        "Roar",
+        "Iron Defense",
+        "Body Press",
+        "Crunch"
+      ]
+    },
+    {
+      "name": "Zapdos",
+      "moves": [
+        "Discharge"
+      ]
+    },
+    {
+      "name": "Goodra-Hisui",
+      "moves": [
+        "Dragon Pulse"
+      ]
+    },
+    {
+      "name": "Meowscarada",
+      "moves": [
+        "U-turn",
+        "Flower Trick"
+      ]
+    },
+    {
+      "name": "Landorus-Therian",
+      "moves": [
+        "Earthquake",
+        "Substitute"
+      ]
+    },
+    {
+      "name": "Cinderace",
+      "moves": [
+        "U-turn",
+        "Pyro Ball",
+        "Taunt"
+      ]
+    }
+  ],
+  "tagSet": [
+    "ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172177111_1",
+      "battleId": "gen9ou-2172177111",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NTA2NDUwNzA2MDgxNTA4ODkwOTA4",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1876.0"
+      },
+      "playerName": "Juyen RPPLF",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Zamazenta-*",
+          "moves": [
+            "Roar",
+            "Iron Defense",
+            "Body Press",
+            "Crunch"
+          ]
+        },
+        {
+          "name": "Zapdos",
+          "moves": [
+            "Discharge"
+          ]
+        },
+        {
+          "name": "Goodra-Hisui",
+          "moves": [
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Meowscarada",
+          "moves": [
+            "U-turn",
+            "Flower Trick"
+          ]
+        },
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "Earthquake",
+            "Substitute"
+          ]
+        },
+        {
+          "name": "Cinderace",
+          "moves": [
+            "U-turn",
+            "Pyro Ball",
+            "Taunt"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE0NjAxNDkwNDYxMDg4NzEwMDAxMDAz",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1909.0"
+  },
+  "pokemons": [
+    {
+      "name": "Gholdengo",
+      "moves": [
+        "Thunderbolt",
+        "Psyshock",
+        "Nasty Plot",
+        "Make It Rain"
+      ]
+    },
+    {
+      "name": "Ting-Lu",
+      "moves": [
+        "Ruination",
+        "Whirlwind",
+        "Stealth Rock"
+      ]
+    },
+    {
+      "name": "Moltres",
+      "moves": []
+    },
+    {
+      "name": "Weavile",
+      "moves": [
+        "Knock Off"
+      ]
+    },
+    {
+      "name": "Dragonite",
+      "moves": []
+    },
+    {
+      "name": "Dragapult",
+      "moves": []
+    }
+  ],
+  "tagSet": [
+    "BALANCE_ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172310724_0",
+      "battleId": "gen9ou-2172310724",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxNDkwNDYxMDg4NzEwMDAxMDAz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1902.0"
+      },
+      "playerName": "LT111VZ mindgaming",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Thunderbolt",
+            "Psyshock",
+            "Nasty Plot",
+            "Make It Rain"
+          ]
+        },
+        {
+          "name": "Ting-Lu",
+          "moves": [
+            "Ruination",
+            "Whirlwind",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Moltres",
+          "moves": []
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Dragonite",
+          "moves": []
+        },
+        {
+          "name": "Dragapult",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172266974_0",
+      "battleId": "gen9ou-2172266974",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxNDkwNDYxMDg4NzEwMDAxMDAz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1793.0"
+      },
+      "playerName": "LT111VZ mindgaming",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Thunderbolt"
+          ]
+        },
+        {
+          "name": "Ting-Lu",
+          "moves": [
+            "Ruination",
+            "Earthquake",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Moltres",
+          "moves": []
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Dragonite",
+          "moves": [
+            "Outrage",
+            "Dragon Dance",
+            "Extreme Speed"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Draco Meteor"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172260731_1",
+      "battleId": "gen9ou-2172260731",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxNDkwNDYxMDg4NzEwMDAxMDAz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1883.0"
+      },
+      "playerName": "LT111VZ mindgaming",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Gholdengo",
+          "moves": []
+        },
+        {
+          "name": "Ting-Lu",
+          "moves": [
+            "Earthquake",
+            "Ruination",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Moltres",
+          "moves": [
+            "U-turn",
+            "Flamethrower",
+            "Scorching Sands"
+          ]
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Ice Shard"
+          ]
+        },
+        {
+          "name": "Dragonite",
+          "moves": [
+            "Earthquake",
+            "Extreme Speed"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Hex",
+            "Thunder Wave"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172295392_0",
+      "battleId": "gen9ou-2172295392",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxNDkwNDYxMDg4NzEwMDAxMDAz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1909.0"
+      },
+      "playerName": "LT111VZ mindgaming",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Thunderbolt",
+            "Psyshock",
+            "Nasty Plot",
+            "Make It Rain"
+          ]
+        },
+        {
+          "name": "Ting-Lu",
+          "moves": [
+            "Ruination",
+            "Stealth Rock",
+            "Whirlwind"
+          ]
+        },
+        {
+          "name": "Moltres",
+          "moves": [
+            "U-turn",
+            "Flamethrower",
+            "Scorching Sands"
+          ]
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Dragonite",
+          "moves": []
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Will-O-Wisp",
+            "Hex"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172274066_1",
+      "battleId": "gen9ou-2172274066",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxNDkwNDYxMDg4NzEwMDAxMDAz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1889.0"
+      },
+      "playerName": "LT111VZ mindgaming",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Nasty Plot"
+          ]
+        },
+        {
+          "name": "Ting-Lu",
+          "moves": [
+            "Ruination",
+            "Earthquake"
+          ]
+        },
+        {
+          "name": "Moltres",
+          "moves": [
+            "U-turn",
+            "Flamethrower",
+            "Scorching Sands"
+          ]
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Knock Off",
+            "Ice Shard"
+          ]
+        },
+        {
+          "name": "Dragonite",
+          "moves": [
+            "Outrage",
+            "Dragon Dance",
+            "Extreme Speed"
+          ]
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Will-O-Wisp",
+            "Thunder Wave"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE0NjAxOTkwNDYxMDQ3MjA2NDYwOTg0",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "2067.0"
+  },
+  "pokemons": [
+    {
+      "name": "Moltres",
+      "moves": [
+        "Roar",
+        "Flamethrower",
+        "Scorching Sands",
+        "Roost"
+      ]
+    },
+    {
+      "name": "Gliscor",
+      "moves": []
+    },
+    {
+      "name": "Weavile",
+      "moves": [
+        "Low Kick"
+      ]
+    },
+    {
+      "name": "Great Tusk",
+      "moves": [
+        "Rapid Spin",
+        "Ice Spinner",
+        "Knock Off",
+        "Headlong Rush"
+      ]
+    },
+    {
+      "name": "Slowking-Galar",
+      "moves": [
+        "Thunder Wave"
+      ]
+    },
+    {
+      "name": "Kyurem",
+      "moves": [
+        "Freeze-Dry"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172450844_0",
+      "battleId": "gen9ou-2172450844",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxOTkwNDYxMDQ3MjA2NDYwOTg0",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "2021.0"
+      },
+      "playerName": "certifiedlovergirl",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Moltres",
+          "moves": [
+            "Roar",
+            "Flamethrower",
+            "Scorching Sands",
+            "Roost"
+          ]
+        },
+        {
+          "name": "Gliscor",
+          "moves": []
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Low Kick"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin",
+            "Ice Spinner",
+            "Knock Off",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": [
+            "Thunder Wave"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Freeze-Dry"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172445349_1",
+      "battleId": "gen9ou-2172445349",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxOTkwNDYxMDQ3MjA2NDYwOTg0",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "2011.0"
+      },
+      "playerName": "certifiedlovergirl",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Moltres",
+          "moves": []
+        },
+        {
+          "name": "Gliscor",
+          "moves": [
+            "U-turn",
+            "Protect",
+            "Earthquake",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Knock Off",
+            "Rapid Spin",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": [
+            "Chilly Reception",
+            "Sludge Bomb"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Protect",
+            "Freeze-Dry",
+            "Substitute",
+            "Earth Power"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172422467_0",
+      "battleId": "gen9ou-2172422467",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxOTkwNDYxMDQ3MjA2NDYwOTg0",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "2019.0"
+      },
+      "playerName": "certifiedlovergirl",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Moltres",
+          "moves": []
+        },
+        {
+          "name": "Gliscor",
+          "moves": [
+            "U-turn",
+            "Protect",
+            "Earthquake",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner",
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": [
+            "Chilly Reception",
+            "Future Sight",
+            "Sludge Bomb",
+            "Thunder Wave"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Protect",
+            "Freeze-Dry",
+            "Substitute",
+            "Earth Power"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172412742_1",
+      "battleId": "gen9ou-2172412742",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxOTkwNDYxMDQ3MjA2NDYwOTg0",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "2067.0"
+      },
+      "playerName": "certifiedlovergirl",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Moltres",
+          "moves": [
+            "Roar",
+            "Flamethrower",
+            "Scorching Sands",
+            "Roost"
+          ]
+        },
+        {
+          "name": "Gliscor",
+          "moves": [
+            "U-turn",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Triple Axel",
+            "Knock Off",
+            "Ice Shard"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": [
+            "Future Sight"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Protect",
+            "Freeze-Dry",
+            "Substitute",
+            "Earth Power"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172430538_1",
+      "battleId": "gen9ou-2172430538",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAxOTkwNDYxMDQ3MjA2NDYwOTg0",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "2025.0"
+      },
+      "playerName": "certifiedlovergirl",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Moltres",
+          "moves": [
+            "Roar",
+            "Flamethrower",
+            "Scorching Sands",
+            "Roost"
+          ]
+        },
+        {
+          "name": "Gliscor",
+          "moves": [
+            "U-turn",
+            "Protect",
+            "Earthquake",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Triple Axel",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Rapid Spin",
+            "Ice Spinner",
+            "Knock Off",
+            "Headlong Rush"
+          ]
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": [
+            "Future Sight",
+            "Chilly Reception",
+            "Thunder Wave",
+            "Sludge Bomb"
+          ]
+        },
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Substitute",
+            "Protect",
+            "Freeze-Dry"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE0NjAzODYwNzMwMDg4OTA5MDEwOTgz",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1911.0"
+  },
+  "pokemons": [
+    {
+      "name": "Deoxys-Speed",
+      "moves": [
+        "Stealth Rock",
+        "Ice Beam",
+        "Psycho Boost"
+      ]
+    },
+    {
+      "name": "Primarina",
+      "moves": [
+        "Calm Mind"
+      ]
+    },
+    {
+      "name": "Kingambit",
+      "moves": [
+        "Kowtow Cleave",
+        "Low Kick",
+        "Swords Dance"
+      ]
+    },
+    {
+      "name": "Ursaluna",
+      "moves": [
+        "Swords Dance",
+        "Ice Punch"
+      ]
+    },
+    {
+      "name": "Moltres",
+      "moves": [
+        "U-turn"
+      ]
+    },
+    {
+      "name": "Zamazenta-*",
+      "moves": []
+    }
+  ],
+  "tagSet": [
+    "BALANCE_ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172186200_1",
+      "battleId": "gen9ou-2172186200",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAzODYwNzMwMDg4OTA5MDEwOTgz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1911.0"
+      },
+      "playerName": "ough robocop",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Deoxys-Speed",
+          "moves": [
+            "Stealth Rock",
+            "Ice Beam",
+            "Psycho Boost"
+          ]
+        },
+        {
+          "name": "Primarina",
+          "moves": [
+            "Calm Mind"
+          ]
+        },
+        {
+          "name": "Kingambit",
+          "moves": [
+            "Kowtow Cleave",
+            "Low Kick",
+            "Swords Dance"
+          ]
+        },
+        {
+          "name": "Ursaluna",
+          "moves": [
+            "Swords Dance",
+            "Ice Punch"
+          ]
+        },
+        {
+          "name": "Moltres",
+          "moves": [
+            "U-turn"
+          ]
+        },
+        {
+          "name": "Zamazenta-*",
+          "moves": []
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE0NjAzODYwODE1MDkzNDA5OTAxMDE2",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1722614400000"
+    }
+  },
+  "maxRating": {
+    "$numberDouble": "1885.0"
+  },
+  "pokemons": [
+    {
+      "name": "Moltres",
+      "moves": []
+    },
+    {
+      "name": "Garganacl",
+      "moves": [
+        "Stealth Rock",
+        "Salt Cure",
+        "Recover"
+      ]
+    },
+    {
+      "name": "Iron Treads",
+      "moves": [
+        "Rapid Spin",
+        "Earthquake",
+        "Supercell Slam",
+        "Ice Spinner"
+      ]
+    },
+    {
+      "name": "Fezandipiti",
+      "moves": []
+    },
+    {
+      "name": "Cinderace",
+      "moves": [
+        "U-turn"
+      ]
+    },
+    {
+      "name": "Deoxys-Speed",
+      "moves": [
+        "Ice Beam",
+        "Knock Off"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "gen9ou-2172084725_1",
+      "battleId": "gen9ou-2172084725",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAzODYwODE1MDkzNDA5OTAxMDE2",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1885.0"
+      },
+      "playerName": "ough robocop",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Moltres",
+          "moves": []
+        },
+        {
+          "name": "Garganacl",
+          "moves": [
+            "Stealth Rock",
+            "Salt Cure",
+            "Recover"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Rapid Spin",
+            "Earthquake",
+            "Supercell Slam",
+            "Ice Spinner"
+          ]
+        },
+        {
+          "name": "Fezandipiti",
+          "moves": []
+        },
+        {
+          "name": "Cinderace",
+          "moves": [
+            "U-turn"
+          ]
+        },
+        {
+          "name": "Deoxys-Speed",
+          "moves": [
+            "Ice Beam",
+            "Knock Off"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    },
+    {
+      "_id": "gen9ou-2172081622_0",
+      "battleId": "gen9ou-2172081622",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NjAzODYwODE1MDkzNDA5OTAxMDE2",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1722614400000"
+        }
+      },
+      "battleType": [
+        "ladder"
+      ],
+      "rating": {
+        "$numberDouble": "1813.0"
+      },
+      "playerName": "ough robocop",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Moltres",
+          "moves": [
+            "Will-O-Wisp"
+          ]
+        },
+        {
+          "name": "Garganacl",
+          "moves": []
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Rapid Spin"
+          ]
+        },
+        {
+          "name": "Fezandipiti",
+          "moves": [
+            "U-turn",
+            "Play Rough",
+            "Roost",
+            "Beat Up"
+          ]
+        },
+        {
+          "name": "Cinderace",
+          "moves": []
+        },
+        {
+          "name": "Deoxys-Speed",
+          "moves": [
+            "Knock Off"
+          ]
+        }
+      ],
+      "tagSet": [
+        "BALANCE",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.BattleTeam"
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  }
+}]

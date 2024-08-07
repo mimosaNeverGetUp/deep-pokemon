@@ -44,8 +44,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.BulkOperationException;
 import org.springframework.data.mongodb.core.BulkOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.Fields;
+import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
@@ -62,6 +61,20 @@ public class BattleService {
     private static final String ID = "_id";
     private static final String BATTLE = "battle";
     protected static final int POKEMONS_BITS = 10000;
+    protected static final String TEAM_ID = "teamId";
+    protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
+    protected static final String BATTLE_DATE = "battleDate";
+    protected static final String RATING = "rating";
+    protected static final String MAX_RATING = "maxRating";
+    protected static final String POKEMONS = "pokemons";
+    protected static final String TAG_SET = "tagSet";
+    protected static final String TIER = "tier";
+    protected static final String PLAYER_NAME = "playerName";
+    protected static final String PLAYER_SET = "playerSet";
+    protected static final String TEAMS = "teams";
+    protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
+    protected static final String TEAM_GROUP = "team_group";
+    protected static final String BATTLE_TEAM = "battle_team";
 
     private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
@@ -177,7 +190,7 @@ public class BattleService {
             pokemonNumbers.add(pokemonInfo.getNumber());
         }
         pokemonNumbers.sort(Integer::compareTo);
-        for(int pokemonNumber: pokemonNumbers) {
+        for (int pokemonNumber : pokemonNumbers) {
             stringBuilder.append(String.format("%04d", pokemonNumber));
         }
         return stringBuilder.toString().getBytes();
@@ -249,5 +262,33 @@ public class BattleService {
             log.warn("save battle stat fail", e);
         }
         return battleStats.get(0);
+    }
+
+    public synchronized void updateTeamGroup() {
+        GroupOperation groupOperation = Aggregation.group(TEAM_ID)
+                .first(BATTLE_DATE).as(LATEST_BATTLE_DATE)
+                .max(RATING).as(MAX_RATING)
+                .first(POKEMONS).as(POKEMONS)
+                .first(TAG_SET).as(TAG_SET)
+                .first(TIER).as(TIER)
+                .addToSet(PLAYER_NAME).as(PLAYER_SET)
+                .push("$$ROOT").as(TEAMS);
+
+        AddFieldsOperation addFieldsOperationBuilder = Aggregation.addFields()
+                .addFieldWithValue(UNIQUE_PLAYER_NUM, ArrayOperators.arrayOf(PLAYER_SET).length()).build();
+        ProjectionOperation projectionOperation = Aggregation.project().andExclude(PLAYER_SET);
+        MergeOperation mergeOperation = Aggregation.merge()
+                .intoCollection(TEAM_GROUP)
+                .whenDocumentsMatch(MergeOperation.WhenDocumentsMatch.replaceDocument())
+                .whenDocumentsDontMatch(MergeOperation.WhenDocumentsDontMatch.insertNewDocument())
+                .build();
+
+        Aggregation aggregation = Aggregation.newAggregation(groupOperation, addFieldsOperationBuilder,
+                projectionOperation, mergeOperation);
+        AggregationOptions options = AggregationOptions.builder()
+                .allowDiskUse(true)  // 启用磁盘使用
+                .build();
+        mongoTemplate.aggregate(aggregation.withOptions(options), BATTLE_TEAM,
+                TeamGroup.class);
     }
 }

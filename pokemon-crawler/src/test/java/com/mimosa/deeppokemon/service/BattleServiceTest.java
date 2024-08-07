@@ -7,10 +7,7 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.BattleTeam;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.matcher.BattleStatMatcher;
 import com.mimosa.deeppokemon.matcher.PokemonMatcher;
@@ -155,5 +152,23 @@ class BattleServiceTest {
 
         String teamId = new String(bytes);
         Assertions.assertEquals("019906450889098309841017",teamId);
+    }
+
+    @Test
+    void updateTeamGroup() {
+        battleService.updateTeamGroup();
+        TeamGroup teamGroup = mongoTemplate.findOne(new Query(), TeamGroup.class);
+        Assertions.assertNotNull(teamGroup);
+        Assertions.assertNotNull(teamGroup.pokemons());
+        Assertions.assertNotNull(teamGroup.tagSet());
+        Assertions.assertNotNull(teamGroup.teams());
+        Assertions.assertNotNull(teamGroup.tier());
+        Assertions.assertNotNull(teamGroup.latestBattleDate());
+        Assertions.assertNotNull(teamGroup.id());
+        Assertions.assertNotNull(teamGroup.id());
+        Assertions.assertFalse(teamGroup.teams().isEmpty());
+
+        Assertions.assertFalse(teamGroup.pokemons().isEmpty());
+        Assertions.assertFalse(teamGroup.tagSet().isEmpty());
     }
 }

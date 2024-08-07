@@ -286,7 +286,8 @@ public class BattleService {
         Aggregation aggregation = Aggregation.newAggregation(groupOperation, addFieldsOperationBuilder,
                 projectionOperation, mergeOperation);
         AggregationOptions options = AggregationOptions.builder()
-                .allowDiskUse(true)  // 启用磁盘使用
+                .allowDiskUse(true)
+                .skipOutput()
                 .build();
         mongoTemplate.aggregate(aggregation.withOptions(options), BATTLE_TEAM,
                 TeamGroup.class);

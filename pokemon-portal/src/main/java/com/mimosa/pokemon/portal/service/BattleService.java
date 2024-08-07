@@ -117,10 +117,10 @@ public class BattleService {
         Criteria criteria = new Criteria();
 
         if (CollectionUtils.hasNotNullObject(tags)) {
-            criteria.andOperator(Criteria.where("tagSet").in(tags));
+            criteria.and("tagSet").in(tags);
         }
         if (CollectionUtils.hasNotNullObject(pokemonNames)) {
-            criteria.andOperator(Criteria.where("pokemons.name").all(pokemonNames));
+            criteria.and("pokemons.name").all(pokemonNames);
         }
 
         Query query = new Query(criteria).with(Sort.by(Sort.Order.desc(sort)));

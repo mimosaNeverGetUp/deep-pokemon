@@ -124,7 +124,8 @@ public class BattleService {
         }
 
         Query query = new Query(criteria).with(Sort.by(Sort.Order.desc(sort)));
-        query.fields().exclude("teams.pokemons");
+        query.fields().exclude("teams.pokemons", "teams._id", "teams.teamId", "teams.tagSet", "teams.tier",
+                "teams.battleType");
         long total = mongoTemplate.count(query, TeamGroup.class);
         MongodbUtils.withPageOperation(query, page, row);
         List<TeamGroup> battleTeams = mongoTemplate.find(query, TeamGroup.class);

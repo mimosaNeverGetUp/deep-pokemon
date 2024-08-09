@@ -88,6 +88,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             String[] splits = damageFrom.split(":");
             if (splits.length < 2) {
                 log.error("can not get item by from str:{}", damageFrom);
+                return;
             }
             String item = splits[1].strip();
             if (item.contains(STICKY_BARB)) {

@@ -94,8 +94,8 @@ class BattleAnalyzerTest {
     private static Team[] extractTeam(String html) {
         Pattern pattern = Pattern.compile("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]");
         Matcher matcher = pattern.matcher(html);
-        ArrayList<Pokemon> pokemons1 = new ArrayList<Pokemon>(6);
-        ArrayList<Pokemon> pokemons2 = new ArrayList<Pokemon>(6);
+        ArrayList<Pokemon> pokemons1 = new ArrayList<>(6);
+        ArrayList<Pokemon> pokemons2 = new ArrayList<>(6);
         while (matcher.find()) {
             if (matcher.group(1).equals("1")) {
                 String pokemonName = matcher.group(2).trim();
@@ -107,7 +107,7 @@ class BattleAnalyzerTest {
                 pokemons2.add(pokemon);
             }
         }
-        if (pokemons1.size() == 0 && pokemons2.size() == 0) {
+        if (pokemons1.isEmpty() && pokemons2.isEmpty()) {
             throw new RuntimeException("A Team match failed");
         }
         Team team1 = new Team(pokemons1);
@@ -143,8 +143,7 @@ class BattleAnalyzerTest {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(html);
         if (matcher.find()) {
-            String pokemonMoveName = matcher.group(1).trim();
-            return pokemonMoveName;
+            return matcher.group(1).trim();
         }
         return pokemonName;
     }

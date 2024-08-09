@@ -6,16 +6,14 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
-import com.mimosa.deeppokemon.entity.stat.TurnPlayerStat;
-import com.mimosa.deeppokemon.entity.stat.TurnPokemonStat;
-import com.mimosa.deeppokemon.entity.stat.TurnStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnPlayerStat;
+import com.mimosa.deeppokemon.entity.stat.TurnPokemonStat;
+import com.mimosa.deeppokemon.entity.stat.TurnStat;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

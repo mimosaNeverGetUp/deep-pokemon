@@ -48,6 +48,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final String RECOIL = "Recoil";
     private static final Map<String, String> statusFromMap = new HashMap<>();
     private static final String OF = "of";
+    protected static final String STICKY_BARB = "Sticky Barb";
 
     static {
         statusFromMap.put("tox", "psn");
@@ -75,20 +76,35 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
 
             setPlayerSwitchDamageStat(battleEvent, battleStat, eventTarget, healthDiff);
 
-            setPokemonItem(battleContext, damageEventStat);
+            setPokemonItem(battleContext, damageEventStat, eventTarget);
         }
     }
 
-    private static void setPokemonItem(BattleContext battleContext, DamageEventStat damageEventStat) {
+    private static void setPokemonItem(BattleContext battleContext, DamageEventStat damageEventStat,
+                                       EventTarget eventTarget) {
         String damageFrom = damageEventStat.damageFrom();
         EventTarget damageOf = damageEventStat.damageOf();
-        if (damageFrom != null && damageFrom.contains(ITEM) && damageOf != null) {
-            String[] splits = damageFrom.split("item:");
+        if (damageFrom != null && damageFrom.contains(ITEM)) {
+            String[] splits = damageFrom.split(":");
             if (splits.length < 2) {
                 log.error("can not get item by from str:{}", damageFrom);
             }
             String item = splits[1].strip();
-            battleContext.setPokemonItem(damageOf.playerNumber(), damageOf.targetName(), item);
+            if (damageOf != null) {
+                battleContext.setPokemonItem(damageOf.playerNumber(), damageOf.targetName(), item);
+            } else {
+                if (damageFrom.contains(STICKY_BARB)) {
+                    int opponentPlayerNumber = 3 - eventTarget.playerNumber();
+
+                    battleContext.setPokemonItem(opponentPlayerNumber,
+                            battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1).getActivePokemonName(), item);
+                    return;
+                }
+
+                log.warn("damage of is null, may item {} is hold by eventTarget", eventTarget);
+                battleContext.setPokemonItem(eventTarget.playerNumber(), eventTarget.targetName(), item);
+
+            }
         }
     }
 

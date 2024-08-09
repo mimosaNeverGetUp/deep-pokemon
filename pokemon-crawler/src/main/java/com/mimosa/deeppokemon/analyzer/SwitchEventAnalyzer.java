@@ -7,20 +7,26 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
+import com.mimosa.deeppokemon.analyzer.entity.Side;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
+import com.mimosa.deeppokemon.crawler.PokemonInfoCrawler;
+import com.mimosa.deeppokemon.entity.PokemonInfo;
+import com.mimosa.deeppokemon.entity.Type;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -33,6 +39,17 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(SWITCH, DRAG, REPLACE);
     private static final String FORM_SPLIT = "-";
     private static final int HEALTH_INDEX = 2;
+    protected static final String HEAVY_DUTY_BOOTS = "Heavy-Duty Boots";
+    protected static final String STEALTH_ROCK = "Stealth Rock";
+    protected static final String SPIKES = "Spikes";
+    protected static final String LEVITATE = "Levitate";
+    protected static final String MAGIC_GUARD = "Magic Guard";
+
+    private final PokemonInfoCrawler pokemonInfoCrawler;
+
+    public SwitchEventAnalyzer(PokemonInfoCrawler pokemonInfoCrawler) {
+        this.pokemonInfoCrawler = pokemonInfoCrawler;
+    }
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -59,7 +76,59 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
                 setBattleStat(battleEvent, battleStat, battleContext, eventTarget, pokemonName, healthDiff);
                 playerStatus.getPokemonStatus(pokemonName).setLastActivateTurn(battleContext.getTurn());
             }
+            checkHeavyDutyBootsItem(pokemonName, eventTarget.playerNumber(), battleEvent, battleContext);
         }
+    }
+
+    private void checkHeavyDutyBootsItem(String switchName, int switchPlayerNumber, BattleEvent battleEvent,
+                                         BattleContext battleContext) {
+        PlayerStatus playerStatus = battleContext.getPlayerStatusList().get(switchPlayerNumber - 1);
+        List<Side> sideList = playerStatus.getSideList();
+        if (sideList == null || sideList.isEmpty()) {
+            return;
+        }
+
+        boolean hasSwitchDamage = hasDamageChildrenEvent(battleEvent);
+        if (!hasSwitchDamage) {
+            if (sideList.stream().anyMatch(side -> StringUtils.equals(STEALTH_ROCK, side.name())) && isNotStealthRockImmunity(switchName)) {
+                battleContext.setPokemonItem(switchPlayerNumber, switchName, HEAVY_DUTY_BOOTS);
+                return;
+            }
+
+            if (sideList.stream().anyMatch(side -> StringUtils.equals(SPIKES, side.name())) && isNotSpikeImmunity(switchName)) {
+                battleContext.setPokemonItem(switchPlayerNumber, switchName, HEAVY_DUTY_BOOTS);
+            }
+        }
+    }
+
+    private boolean isNotSpikeImmunity(String pokemon) {
+        PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(pokemon);
+        if (pokemonInfo == null) {
+            log.error("pokemon {} info is null", pokemon);
+            return false;
+        }
+
+        boolean hasFlyType = pokemonInfo.getTypes().contains(Type.FLYING);
+        boolean hasImmunityAbility = pokemonInfo.getAbilities().contains(MAGIC_GUARD)
+                || pokemonInfo.getAbilities().contains(LEVITATE);
+        return !hasFlyType && !hasImmunityAbility;
+    }
+
+    private boolean isNotStealthRockImmunity(String pokemon) {
+        PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(pokemon);
+        if (pokemonInfo == null) {
+            log.error("pokemon {} info is null", pokemon);
+            return false;
+        }
+
+        return !pokemonInfo.getAbilities().contains(MAGIC_GUARD);
+    }
+
+    private boolean hasDamageChildrenEvent(BattleEvent battleEvent) {
+        if (battleEvent.getChildrenEvents() == null) {
+            return false;
+        }
+        return battleEvent.getChildrenEvents().stream().anyMatch(event -> StringUtils.equals("damage", event.getType()));
     }
 
     /**

@@ -4,7 +4,7 @@ spring:
   jackson:
     timeZone: GMT+8
   profiles:
-    default: dev,startCraw
+    default: dev
 server:
   port: 8081
 

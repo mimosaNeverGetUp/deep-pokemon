@@ -151,12 +151,11 @@ public class BattleService {
             saveResult = update(battles);
         } else {
             saveResult = insert(battles);
-            insertTeam(battles);
         }
         return saveResult;
     }
 
-    public void insertTeam(List<Battle> battles) {
+    public void insertTeam(Collection<Battle> battles) {
         List<BattleTeam> battleTeams = new ArrayList<>(battles.size() * 2);
         for (Battle battle : battles) {
             int index = 0;
@@ -232,7 +231,19 @@ public class BattleService {
 
     public CompletableFuture<List<BattleStat>> analyzeBattleAfterCraw(CompletableFuture<List<Battle>> crawBattleFuture) {
         return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, analyzeBattleExecutor)
-                .thenApplyAsync(this::insert);
+                .thenApplyAsync(battles -> {
+                    try {
+                        insertTeam(battles);
+                    } catch (Exception e) {
+                        log.error("save battle team fail", e);
+                    }
+
+                    return insertBattleStat(battles);
+                });
+    }
+
+    private List<BattleStat> insertBattleStat(Collection<Battle> battles) {
+        return insert(battles.stream().map(Battle::getBattleStat).filter(Objects::nonNull).toList());
     }
 
     public List<BattleStat> insert(Collection<BattleStat> battleStats) {
@@ -255,13 +266,13 @@ public class BattleService {
             battle = crawBattleTask.call().get(0);
         }
 
-        List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
+        battleAnalyzer.analyze(Collections.singletonList(battle));
         try {
-            insert(battleStats);
+            insert(Collections.singletonList(battle.getBattleStat()));
         } catch (Exception e) {
             log.warn("save battle stat fail", e);
         }
-        return battleStats.get(0);
+        return battle.getBattleStat();
     }
 
     public synchronized void updateTeamGroup() {

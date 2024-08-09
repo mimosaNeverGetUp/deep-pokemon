@@ -8,8 +8,8 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.Field;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,11 +26,11 @@ class FieldEndEventAnalyzerTest {
     @Test
     void analyze() {
         BattleEvent battleEvent = new BattleEvent("fieldend", List.of("move: Grassy Terrain"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .setFiled(new Field("Grassy Terrain", null))
                 .build();
         assertTrue(fieldEndEventAnalyzer.supportAnalyze(battleEvent));
-        fieldEndEventAnalyzer.analyze(battleEvent, null, battleStatus);
-        assertNull(battleStatus.getField());
+        fieldEndEventAnalyzer.analyze(battleEvent, null, battleContext);
+        assertNull(battleContext.getField());
     }
 }

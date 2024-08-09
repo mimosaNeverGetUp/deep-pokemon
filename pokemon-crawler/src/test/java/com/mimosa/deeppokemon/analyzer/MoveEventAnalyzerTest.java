@@ -8,8 +8,12 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
+import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
+import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -39,9 +43,9 @@ class MoveEventAnalyzerTest {
 
         PlayerStatus p1Stauts = new PlayerStatus();
         p1Stauts.setPokemonNickName("YOUCANTBREAKME", "Gliscor");
-        BattleStatus battleStatus = new BattleStatus(List.of(p1Stauts));
+        BattleContext battleContext = new BattleContext(List.of(p1Stauts), null);
         Assertions.assertTrue(moveEventAnalyzer.supportAnalyze(battleEvent));
-        moveEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        moveEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         Assertions.assertEquals(1, gliscor.getMoveCount());
         Assertions.assertEquals(1, p1.getMoveCount());
         assertInstanceOf(MoveEventStat.class, battleEvent.getBattleEventStat());
@@ -50,5 +54,35 @@ class MoveEventAnalyzerTest {
         Assertions.assertEquals("Gliscor", stat.eventTarget().targetName());
         Assertions.assertEquals("YOUCANTBREAKME", stat.eventTarget().nickName());
         Assertions.assertEquals("Protect", stat.moveName());
+    }
+
+    @Test
+    void analyzeTrick() {
+        BattleEvent trickEventA = new BattleEvent("item", List.of("p1a: Ah mon gars", "Choice Scarf", "[from] move: Trick"),
+                null, null);
+        BattleEvent trickEventB = new BattleEvent("item", List.of("p2a: Gholdengo", "Rocky Helmet", "[from] move: " +
+                "Trick"), null, null);
+        BattleEvent battleEvent = new BattleEvent("move", List.of("p2a: Gholdengo", "Trick", "p1a: Ah mon gars"),
+                null, List.of(trickEventA, trickEventB));
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, "Amoonguss")
+                .addPokemonStat(2, "Gholdengo")
+                .build();
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, "Amoonguss")
+                .addPokemon(2, "Gholdengo")
+                .build();
+
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, "Gholdengo", "Gholdengo")
+                .addPokemon(1, "Amoonguss", "Ah mon gars")
+                .setBattle(battle)
+                .build();
+
+        Assertions.assertTrue(moveEventAnalyzer.supportAnalyze(battleEvent));
+        moveEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        Assertions.assertEquals("Rocky Helmet", battle.getTeams()[0].getPokemon("Amoonguss").getItem());
+        Assertions.assertEquals("Choice Scarf", battle.getTeams()[1].getPokemon("Gholdengo").getItem());
     }
 }

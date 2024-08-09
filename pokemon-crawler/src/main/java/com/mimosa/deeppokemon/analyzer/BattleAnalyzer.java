@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.slf4j.Logger;
@@ -31,32 +31,31 @@ public class BattleAnalyzer {
         this.battleEventAnalyzers = battleEventAnalyzers;
     }
 
-    public List<BattleStat> analyze(Collection<Battle> battles) {
-        List<BattleStat> battleStats = new ArrayList<>();
+    public Collection<Battle> analyze(Collection<Battle> battles) {
         for (Battle battle : battles) {
             try {
                 log.debug("start analyze battle {}", battle.getBattleID());
                 BattleStat battleStat = new BattleStat(battle.getBattleID(), new ArrayList<>(), new ArrayList<>());
-                BattleStatus battleStatus = new BattleStatus(new ArrayList<>());
+                BattleContext battleContext = new BattleContext(new ArrayList<>(), battle);
                 List<BattleEvent> battleEvents = battleEventParser.parse(battle.getLog());
-                battleEvents.forEach(battleEvent -> analyzeEvent(battleEvent, battleStat, battleStatus));
+                battleEvents.forEach(battleEvent -> analyzeEvent(battleEvent, battleStat, battleContext));
                 log.debug("end analyze battle {}", battle.getBattleID());
-                battleStats.add(battleStat);
+                battle.setBattleStat(battleStat);
             } catch (Exception e) {
                 log.error("analyze battle {} error", battle.getBattleID(), e);
             }
         }
-        return battleStats;
+        return battles;
     }
 
-    public void analyzeEvent(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyzeEvent(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         battleEventAnalyzers.forEach(battleEventAnalyzer -> {
             if (battleEventAnalyzer.supportAnalyze(battleEvent)) {
-                battleEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+                battleEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
             }
         });
         if (battleEvent.getChildrenEvents() != null) {
-            battleEvent.getChildrenEvents().forEach(childEvent -> analyzeEvent(childEvent, battleStat, battleStatus));
+            battleEvent.getChildrenEvents().forEach(childEvent -> analyzeEvent(childEvent, battleStat, battleContext));
         }
     }
 }

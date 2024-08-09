@@ -9,9 +9,9 @@ package com.mimosa.deeppokemon.analyzer;
 import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.entity.stat.BattleHighLight;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
@@ -43,7 +43,7 @@ class FaintEventAnalyzerTest {
                 BigDecimal.valueOf(27)));
         BattleEvent moveEvent = new BattleEvent("move", null, null, List.of(damageEvent));
         BattleEvent faintEvent = new BattleEvent("faint", List.of("p1a: Ogerpon"), null, null, moveEvent);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(killPlyayerNumber, gliscor, gliscor)
                 .addPokemon(1, ogerpon, ogerpon)
                 .setTurn(5)
@@ -54,7 +54,7 @@ class FaintEventAnalyzerTest {
                 .addPokemonStat(1, ogerpon)
                 .build();
         Assertions.assertTrue(faintEventAnalyzer.supportAnalyze(faintEvent));
-        faintEventAnalyzer.analyze(faintEvent, battleStat, battleStatus);
+        faintEventAnalyzer.analyze(faintEvent, battleStat, battleContext);
         PlayerStat killPlayerStat = battleStat.playerStatList().get(killPlyayerNumber - 1);
         PokemonBattleStat killPokemonBattleStat =
                 killPlayerStat.getPokemonBattleStat(gliscor);

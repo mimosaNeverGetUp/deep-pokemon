@@ -31,6 +31,7 @@ class BattleServiceTest {
     public static final String NOT_EXIST_BATTLE_ID = "test-12345";
     private static final String NOT_SAVE_BATTLE_ID = "smogtours-gen9ou-746547";
     private static final String NOT_LOG_BATTLE_ID = "gen9ou-2171080820";
+
     @Autowired
     private BattleService battleService;
 

@@ -18,21 +18,27 @@ import org.springframework.stereotype.Component;
 import java.util.Set;
 
 @Component
-public class CureStatusEventAnalyzer implements BattleEventAnalyzer{
-    private static final Logger log = LoggerFactory.getLogger(CureStatusEventAnalyzer.class);
-    private static final String CURE_STATUS = "curestatus";
-    private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(CURE_STATUS);
+public class EndItemEventAnalyzer implements BattleEventAnalyzer {
+    private static final Logger log = LoggerFactory.getLogger(EndItemEventAnalyzer.class);
+
+    private static final String END_ITEM = "enditem";
+    private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(END_ITEM);
+
+    private static final int TARGET_INDEX = 0;
+    private static final int ITEM_INDEX = 1;
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
-        if (battleEvent.getContents().isEmpty()) {
+        if (battleEvent.getContents().size() < 2) {
             log.warn("can not analyze battle event {}", battleEvent);
             return;
         }
-        EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(0), battleContext);
+
+        EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX),
+                battleContext);
+        String item = battleEvent.getContents().get(ITEM_INDEX);
         if (eventTarget != null) {
-            battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
-                    .setStatus(null);
+            battleContext.setPokemonItem(eventTarget.playerNumber(), eventTarget.targetName(), item);
         }
     }
 

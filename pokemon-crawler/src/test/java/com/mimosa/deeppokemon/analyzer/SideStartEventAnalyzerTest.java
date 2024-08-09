@@ -9,10 +9,10 @@ package com.mimosa.deeppokemon.analyzer;
 import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.entity.stat.BattleHighLight;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
@@ -38,10 +38,10 @@ class SideStartEventAnalyzerTest {
         BattleStat battleStat = new BattleStatBuilder().build();
 
         PlayerStatus p1Status = new PlayerStatus();
-        BattleStatus battleStatus = new BattleStatus(List.of(p1Status));
-        battleStatus.setTurn(10);
+        BattleContext battleContext = new BattleContext(List.of(p1Status), null);
+        battleContext.setTurn(10);
         Assertions.assertTrue(sideStartEventAnalyzer.supportAnalyze(sideEvent));
-        sideStartEventAnalyzer.analyze(sideEvent, battleStat, battleStatus);
+        sideStartEventAnalyzer.analyze(sideEvent, battleStat, battleContext);
         Assertions.assertEquals(1, p1Status.getSideList().size());
         Side side = p1Status.getSideListByName("Stealth Rock").stream().findFirst().orElseThrow();
         Assertions.assertEquals("Stealth Rock", side.name());
@@ -65,12 +65,12 @@ class SideStartEventAnalyzerTest {
         BattleEvent sideEvent = new BattleEvent("sidestart", List.of("p1: RUBYBLOOD", "Reflect"),
                 moveEvent, null);
         BattleStat battleStat = new BattleStatBuilder().build();
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .setTurn(7)
                 .build();
-        sideStartEventAnalyzer.analyze(sideEvent, battleStat, battleStatus);
+        sideStartEventAnalyzer.analyze(sideEvent, battleStat, battleContext);
 
-        PlayerStatus p1Status = battleStatus.getPlayerStatusList().get(0);
+        PlayerStatus p1Status = battleContext.getPlayerStatusList().get(0);
         Assertions.assertEquals(1, p1Status.getSideList().size());
         Side side = p1Status.getSideListByName(reflect).stream().findFirst().orElseThrow();
         Assertions.assertEquals(reflect, side.name());

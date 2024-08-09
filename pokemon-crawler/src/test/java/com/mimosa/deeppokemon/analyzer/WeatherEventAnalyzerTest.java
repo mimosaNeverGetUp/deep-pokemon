@@ -7,8 +7,8 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,22 +30,22 @@ class WeatherEventAnalyzerTest {
         BattleEvent weatherKeepEvent = new BattleEvent("weather", List.of(rainDance, "upkeep"), null, null);
         BattleEvent weatherEndEvent = new BattleEvent("weather", List.of("none"), null, null);
 
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, pelipper, pelipper)
                 .build();
         Assertions.assertTrue(weatherEventAnalyzer.supportAnalyze(weatherStartEvent));
-        weatherEventAnalyzer.analyze(weatherStartEvent, null, battleStatus);
-        Assertions.assertNotNull(battleStatus.getWeather());
-        Assertions.assertEquals(rainDance, battleStatus.getWeather().name());
-        Assertions.assertEquals(1, battleStatus.getWeather().ofTarget().playerNumber());
-        Assertions.assertEquals(pelipper, battleStatus.getWeather().ofTarget().targetName());
+        weatherEventAnalyzer.analyze(weatherStartEvent, null, battleContext);
+        Assertions.assertNotNull(battleContext.getWeather());
+        Assertions.assertEquals(rainDance, battleContext.getWeather().name());
+        Assertions.assertEquals(1, battleContext.getWeather().ofTarget().playerNumber());
+        Assertions.assertEquals(pelipper, battleContext.getWeather().ofTarget().targetName());
 
-        weatherEventAnalyzer.analyze(weatherKeepEvent, null, battleStatus);
-        Assertions.assertNotNull(battleStatus.getWeather());
-        Assertions.assertEquals(rainDance, battleStatus.getWeather().name());
-        Assertions.assertEquals(1, battleStatus.getWeather().ofTarget().playerNumber());
-        Assertions.assertEquals(pelipper, battleStatus.getWeather().ofTarget().targetName());
-        weatherEventAnalyzer.analyze(weatherEndEvent, null, battleStatus);
-        Assertions.assertNull(battleStatus.getWeather());
+        weatherEventAnalyzer.analyze(weatherKeepEvent, null, battleContext);
+        Assertions.assertNotNull(battleContext.getWeather());
+        Assertions.assertEquals(rainDance, battleContext.getWeather().name());
+        Assertions.assertEquals(1, battleContext.getWeather().ofTarget().playerNumber());
+        Assertions.assertEquals(pelipper, battleContext.getWeather().ofTarget().targetName());
+        weatherEventAnalyzer.analyze(weatherEndEvent, null, battleContext);
+        Assertions.assertNull(battleContext.getWeather());
     }
 }

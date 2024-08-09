@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,13 +22,13 @@ public class FieldEndEventAnalyzer implements BattleEventAnalyzer{
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(FIELD_END);
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().isEmpty()) {
             log.warn("can not analyze battle event: {}", battleEvent);
             return;
         }
 
-        battleStatus.setField(null);
+        battleContext.setField(null);
     }
 
     @Override

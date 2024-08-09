@@ -9,7 +9,7 @@ package com.mimosa.deeppokemon.analyzer;
 import com.mimosa.deeppokemon.entity.stat.BattleHighLight;import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,7 @@ public class SideEndEventAnalyzer implements BattleEventAnalyzer {
     private static final int OF_INDEX = 3;
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().size() < FROM_INDEX) {
             log.warn("can not analyze battle event {}", battleEvent);
             return;
@@ -46,11 +46,11 @@ public class SideEndEventAnalyzer implements BattleEventAnalyzer {
                 endOf = null;
                 endFrom = null;
             }
-            battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getSideList()
+            battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getSideList()
                     .removeIf(side -> side.name().equals(sideName));
 
             String description = String.format("side %s end from %s of %s", sideName, endFrom, endOf);
-            BattleHighLight battleHighLight = new BattleHighLight(battleStatus.getTurn(),
+            BattleHighLight battleHighLight = new BattleHighLight(battleContext.getTurn(),
                     BattleHighLight.HighLightType.END_SIDE, description);
             battleStat.playerStatList().get(eventTarget.playerNumber() - 1).addHighLight(battleHighLight);
         }

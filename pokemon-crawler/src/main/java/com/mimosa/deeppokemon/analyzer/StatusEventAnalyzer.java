@@ -6,14 +6,14 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Side;
 import com.mimosa.deeppokemon.analyzer.entity.Status;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -34,15 +34,16 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
     private static final String ITEM = "item";
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().size() < 2) {
             log.warn("can not analyze battle event {}", battleEvent);
             return;
         }
 
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX),
-                battleStatus);
+                battleContext);
         String status = battleEvent.getContents().get(STATUS_INDEX);
+        String statusFrom = null;
         if (eventTarget != null) {
             EventTarget ofTarget = null;
             if (battleEvent.getParentEvent() != null && battleEvent.getParentEvent().getBattleEventStat()
@@ -50,14 +51,17 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
                 ofTarget = moveEventStat.eventTarget();
             } else if (battleEvent.getContents().size() > FROM_INDEX
                     && isItemStatus(battleEvent.getContents().get(FROM_INDEX))) {
+                statusFrom = BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX));
                 ofTarget = eventTarget;
+                setPokemonItem(battleContext, statusFrom, eventTarget);
             } else if (battleEvent.getContents().size() - 1 > FROM_INDEX) {
                 ofTarget = eventTarget;
-            } else if (!getToxicSide(battleStatus, eventTarget.playerNumber()).isEmpty()) {
-                List<Side> toxicSide = getToxicSide(battleStatus, eventTarget.playerNumber());
+            } else if (!getToxicSide(battleContext, eventTarget.playerNumber()).isEmpty()) {
+                List<Side> toxicSide = getToxicSide(battleContext, eventTarget.playerNumber());
                 ofTarget = toxicSide.get(toxicSide.size() - 1).ofTarget();
             }
-            battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
+
+            battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
                     .setStatus(new Status(status, ofTarget));
         }
     }
@@ -66,8 +70,26 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
         return statusFrom.contains(ITEM);
     }
 
-    private List<Side> getToxicSide(BattleStatus battleStatus, int playerNumber) {
-        return battleStatus.getPlayerStatusList().get(playerNumber - 1).getSideListByName(TOXIC_SPIKES);
+    private List<Side> getToxicSide(BattleContext battleContext, int playerNumber) {
+        return battleContext.getPlayerStatusList().get(playerNumber - 1).getSideListByName(TOXIC_SPIKES);
+    }
+
+    private static void setPokemonItem(BattleContext battleContext, String from, EventTarget eventTarget) {
+        if (from != null && from.contains(ITEM)) {
+            String item;
+            if (from.contains(":")) {
+                String[] splits = from.split(":");
+                if (splits.length < 2) {
+                    log.error("can not get item by from str:{}", from);
+                    return;
+                }
+                item = splits[1].strip();
+            } else {
+                item = from;
+            }
+
+            battleContext.setPokemonItem(eventTarget.playerNumber(), eventTarget.targetName(), item);
+        }
     }
 
     @Override

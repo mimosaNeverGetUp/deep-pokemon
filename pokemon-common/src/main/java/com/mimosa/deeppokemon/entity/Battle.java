@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.entity;
 
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -46,19 +47,19 @@ public class Battle implements Serializable {
     private String winner;
     // 排名
     private float avageRating;
-    // 队伍
-    @Transient
-    private Team[] teams;
-    // 总血线变化表，json字符串
-    private String healthLinePairJsonString;
-    // 比赛highlight表，json字符串
-    private String highLightJsonString;
     // 对局记录
     private String log;
     //对局回合
     private int turnCount;
     //比赛类型
     private List<String> type;
+
+    // 队伍
+    @Transient
+    private Team[] teams;
+
+    @Transient
+    private transient BattleStat battleStat;
 
     public Battle(Team[] teams) {
         this.teams = teams;
@@ -147,30 +148,6 @@ public class Battle implements Serializable {
         this.turnCount = turnCount;
     }
 
-    public String getHealthLinePairJsonString() {
-        return healthLinePairJsonString;
-    }
-
-    public void setHealthLinePairJsonString(String healthLinePairJsonString) {
-        this.healthLinePairJsonString = healthLinePairJsonString;
-    }
-
-    public String getHighLightJsonString() {
-        return highLightJsonString;
-    }
-
-    public void setHighLightJsonString(String highLightJsonString) {
-        this.highLightJsonString = highLightJsonString;
-    }
-
-    public void setPokemonItem(int playIndex, String pokemonName, String item) {
-        teams[playIndex].getPokemon(pokemonName).setItem(item);
-    }
-
-    public void setPokemonMove(int playerIndex, String pokemonName, String move) {
-        teams[playerIndex].getPokemon(pokemonName).getMoves().add(move);
-    }
-
     public List<String> getType() {
         return type;
     }
@@ -185,6 +162,14 @@ public class Battle implements Serializable {
 
     public void setPlayers(List<String> players) {
         this.players = players;
+    }
+
+    public BattleStat getBattleStat() {
+        return battleStat;
+    }
+
+    public void setBattleStat(BattleStat battleStat) {
+        this.battleStat = battleStat;
     }
 
     @Override

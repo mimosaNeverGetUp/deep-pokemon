@@ -7,8 +7,8 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,15 +26,15 @@ class FieldStartEventAnalyzerTest {
     void analyze() {
         BattleEvent battleEvent = new BattleEvent("fieldstart", List.of("move: Grassy Terrain", "[from] ability: " +
                 "Grassy Surge", "[of] p2a: Rillaboom"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, "Rillaboom", "Rillaboom")
                 .build();
         assertTrue(fieldStartEventAnalyzer.supportAnalyze(battleEvent));
-        fieldStartEventAnalyzer.analyze(battleEvent, null, battleStatus);
-        assertNotNull(battleStatus.getField());
-        assertNotNull(battleStatus.getField().eventTarget());
-        assertEquals("Grassy Terrain", battleStatus.getField().name());
-        assertEquals(2, battleStatus.getField().eventTarget().playerNumber());
-        assertEquals("Rillaboom", battleStatus.getField().eventTarget().targetName());
+        fieldStartEventAnalyzer.analyze(battleEvent, null, battleContext);
+        assertNotNull(battleContext.getField());
+        assertNotNull(battleContext.getField().eventTarget());
+        assertEquals("Grassy Terrain", battleContext.getField().name());
+        assertEquals(2, battleContext.getField().eventTarget().playerNumber());
+        assertEquals("Rillaboom", battleContext.getField().eventTarget().targetName());
     }
 }

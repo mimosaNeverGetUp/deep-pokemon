@@ -9,10 +9,10 @@ package com.mimosa.deeppokemon.analyzer;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.TurnStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ class TurnEventAnalyzerTest {
     @Test
     void analyze() {
         BattleEvent battleEvent = new BattleEvent("turn", List.of("1"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, PIKACHU, PIKACHU)
                 .addPokemon(2, PIKACHU, PIKACHU)
                 .addPokemon(1, IRON_VALIANT, IRON_VALIANT)
@@ -48,10 +48,10 @@ class TurnEventAnalyzerTest {
 
         Assertions.assertTrue(turnEventAnalyzer.supportAnalyze(battleEvent));
 
-        turnEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
-        PlayerStatus p1 = battleStatus.getPlayerStatusList().get(0);
-        PlayerStatus p2 = battleStatus.getPlayerStatusList().get(1);
-        Assertions.assertEquals(1, battleStatus.getTurn());
+        turnEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        PlayerStatus p1 = battleContext.getPlayerStatusList().get(0);
+        PlayerStatus p2 = battleContext.getPlayerStatusList().get(1);
+        Assertions.assertEquals(1, battleContext.getTurn());
         Assertions.assertEquals(PIKACHU, p1.getTurnStartPokemonName());
         Assertions.assertEquals(IRON_VALIANT, p2.getTurnStartPokemonName());
         Assertions.assertEquals(PIKACHU, p1.getTurnStartPokemonName(1));

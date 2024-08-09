@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import org.junit.jupiter.api.Assertions;
@@ -29,8 +29,8 @@ class PlayerEventAnalyzerTest {
         BattleEvent battleEvent = new BattleEvent("player", List.of("p1", "RUBYBLOOD", "#splxvtyrants2"), null
                 , null);
         BattleStat battleStat = new BattleStat(null, new ArrayList<>(),new ArrayList<>());
-        BattleStatus battleStatus = new BattleStatus(new ArrayList<>());
-        playerEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        BattleContext battleContext = new BattleContext(new ArrayList<>(), null);
+        playerEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         Assertions.assertEquals(1, battleStat.playerStatList().size());
         PlayerStat playerStat = battleStat.playerStatList().get(0);
         Assertions.assertTrue(playerEventAnalyzer.supportAnalyze(battleEvent));
@@ -38,9 +38,9 @@ class PlayerEventAnalyzerTest {
         Assertions.assertEquals(1, playerStat.getPlayerNumber());
         Assertions.assertEquals("RUBYBLOOD", playerStat.getPlayerName());
         Assertions.assertNotNull(playerStat.getPokemonBattleStats());
-        Assertions.assertEquals(1, battleStatus.getPlayerStatusList().size());
+        Assertions.assertEquals(1, battleContext.getPlayerStatusList().size());
 
-        playerEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        playerEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         Assertions.assertEquals(1, battleStat.playerStatList().size());
     }
 }

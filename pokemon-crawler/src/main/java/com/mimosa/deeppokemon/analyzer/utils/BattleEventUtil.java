@@ -11,7 +11,7 @@ import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +30,8 @@ public class BattleEventUtil {
     private static final Pattern HEALTH_PATTERN = Pattern.compile("(\\d+)/(\\d+)");
     private static final int PERCENTAGE = 100;
 
+    private BattleEventUtil() {}
+
     public static EventTarget getEventTarget(String eventContent) {
         Matcher matcher = TARGET_PATTERN.matcher(eventContent);
         if (matcher.find()) {
@@ -42,12 +44,12 @@ public class BattleEventUtil {
         return null;
     }
 
-    public static EventTarget getEventTarget(String eventContent, BattleStatus battleStatus) {
+    public static EventTarget getEventTarget(String eventContent, BattleContext battleContext) {
         EventTarget target = getEventTarget(eventContent);
         if (target == null) {
             return null;
         }
-        String pokemonName = battleStatus.getPlayerStatusList()
+        String pokemonName = battleContext.getPlayerStatusList()
                 .get(target.playerNumber() - 1).getPokemonName(target.nickName());
         return target.withTargetName(pokemonName);
     }
@@ -81,12 +83,12 @@ public class BattleEventUtil {
         throw new RuntimeException("can not match health context " + healthContext);
     }
 
-    public static PokemonStatus getPokemonStatus(BattleStatus battleStatus, EventTarget eventTarget) {
-        return getPokemonStatus(battleStatus, eventTarget.playerNumber(), eventTarget.targetName());
+    public static PokemonStatus getPokemonStatus(BattleContext battleContext, EventTarget eventTarget) {
+        return getPokemonStatus(battleContext, eventTarget.playerNumber(), eventTarget.targetName());
     }
 
-    public static PokemonStatus getPokemonStatus(BattleStatus battleStatus, int playerNumber, String pokemonName) {
-        return battleStatus.getPlayerStatusList().get(playerNumber - 1).getPokemonStatus(pokemonName);
+    public static PokemonStatus getPokemonStatus(BattleContext battleContext, int playerNumber, String pokemonName) {
+        return battleContext.getPlayerStatusList().get(playerNumber - 1).getPokemonStatus(pokemonName);
     }
 
     public static PokemonBattleStat getPokemonStat(BattleStat battleStat, EventTarget eventTarget) {
@@ -105,21 +107,21 @@ public class BattleEventUtil {
         return index == 0 ? null : battleEvent.getParentEvent().getChildrenEvents().get(index - 1);
     }
 
-    public static PlayerStatus getOpponentPlayerStatus(BattleStatus battleStatus, EventTarget eventTarget) {
+    public static PlayerStatus getOpponentPlayerStatus(BattleContext battleContext, EventTarget eventTarget) {
         int opponentPlayerNumber = 3 - eventTarget.playerNumber();
-        return battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
+        return battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1);
     }
 
-    public static EventTarget getOpponentTurnStartPokemonTarget(BattleStatus battleStatus, EventTarget eventTarget) {
+    public static EventTarget getOpponentTurnStartPokemonTarget(BattleContext battleContext, EventTarget eventTarget) {
         int opponentPlayerNumber = 3 - eventTarget.playerNumber();
-        PlayerStatus oppentPlayerStatus = battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
+        PlayerStatus oppentPlayerStatus = battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1);
         return new EventTarget(opponentPlayerNumber, oppentPlayerStatus.getTurnStartPokemonName(), null);
     }
 
 
-    public static EventTarget getOpponentActivePokemonTarget(BattleStatus battleStatus, EventTarget eventTarget) {
+    public static EventTarget getOpponentActivePokemonTarget(BattleContext battleContext, EventTarget eventTarget) {
         int opponentPlayerNumber = 3 - eventTarget.playerNumber();
-        PlayerStatus oppentPlayerStatus = battleStatus.getPlayerStatusList().get(opponentPlayerNumber - 1);
+        PlayerStatus oppentPlayerStatus = battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1);
         return new EventTarget(opponentPlayerNumber, oppentPlayerStatus.getActivePokemonName(), null);
     }
 }

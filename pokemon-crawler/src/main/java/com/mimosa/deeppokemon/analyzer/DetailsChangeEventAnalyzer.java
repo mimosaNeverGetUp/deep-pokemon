@@ -8,7 +8,7 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
@@ -28,17 +28,17 @@ public class DetailsChangeEventAnalyzer implements BattleEventAnalyzer {
     private static final int CHANGE_NAME_INDEX = 1;
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().size() < 2) {
             log.warn("can not analyze battle event {}", battleEvent);
             return;
         }
 
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX),
-                battleStatus);
+                battleContext);
         String detailChangeName = battleEvent.getContents().get(CHANGE_NAME_INDEX).split(EventConstants.NAME_SPLIT)[0];
         if (eventTarget != null) {
-            battleStatus.getPlayerStatusList().get(eventTarget.playerNumber()-1).
+            battleContext.getPlayerStatusList().get(eventTarget.playerNumber()-1).
                     setDetailChangeName(eventTarget.nickName(), detailChangeName);
         }
     }

@@ -10,9 +10,9 @@ import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,7 +38,7 @@ class StartEventAnalyzerTest {
         BattleEvent moveEvent = new BattleEvent("move", null, null, null);
         moveEvent.setBattleEventStat(new MoveEventStat(new EventTarget(1, GARGANACL, GARGANACL), SALT_CURE));
         BattleEvent startEvent = new BattleEvent("start", List.of("p2a: Iron Valiant", "Salt Cure"), moveEvent, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, IRON_VALIANT, IRON_VALIANT)
                 .addPokemon(1, GARGANACL, GARGANACL)
                 .build();
@@ -48,8 +48,8 @@ class StartEventAnalyzerTest {
                 .addPokemonStat(1, GARGANACL)
                 .build();
         assertTrue(startEventAnalyzer.supportAnalyze(startEvent));
-        startEventAnalyzer.analyze(startEvent, battleStat, battleStatus);
-        EventTarget buffOf = battleStatus.getPlayerStatusList().get(1).getPokemonStatus(IRON_VALIANT).getBuffOf(SALT_CURE);
+        startEventAnalyzer.analyze(startEvent, battleStat, battleContext);
+        EventTarget buffOf = battleContext.getPlayerStatusList().get(1).getPokemonStatus(IRON_VALIANT).getBuffOf(SALT_CURE);
         assertNotNull(buffOf);
         assertEquals(1, buffOf.playerNumber());
         assertEquals(GARGANACL, buffOf.targetName());
@@ -59,7 +59,7 @@ class StartEventAnalyzerTest {
     void analyzeConfusion() {
         BattleEvent startEvent = new BattleEvent("start", List.of("p1a: Dragonite", CONFUSION, "[from] ability: " +
                 "Poison Puppeteer", "[of] p2a: Pecharunt"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, PECHARUNT, PECHARUNT)
                 .addPokemon(1, DRAGONITE, DRAGONITE)
                 .build();
@@ -68,8 +68,8 @@ class StartEventAnalyzerTest {
                 .addPokemonStat(2, PECHARUNT)
                 .addPokemonStat(1, DRAGONITE)
                 .build();
-        startEventAnalyzer.analyze(startEvent, battleStat, battleStatus);
-        EventTarget buffOf = battleStatus.getPlayerStatusList().get(0).getPokemonStatus(DRAGONITE).getBuffOf(CONFUSION);
+        startEventAnalyzer.analyze(startEvent, battleStat, battleContext);
+        EventTarget buffOf = battleContext.getPlayerStatusList().get(0).getPokemonStatus(DRAGONITE).getBuffOf(CONFUSION);
         assertNotNull(buffOf);
         assertEquals(2, buffOf.playerNumber());
         assertEquals(PECHARUNT, buffOf.targetName());

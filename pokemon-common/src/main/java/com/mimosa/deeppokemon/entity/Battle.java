@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.entity;
 
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -46,15 +47,19 @@ public class Battle implements Serializable {
     private String winner;
     // 排名
     private float avageRating;
-    // 队伍
-    @Transient
-    private Team[] teams;
     // 对局记录
     private String log;
     //对局回合
     private int turnCount;
     //比赛类型
     private List<String> type;
+
+    // 队伍
+    @Transient
+    private Team[] teams;
+
+    @Transient
+    private transient BattleStat battleStat;
 
     public Battle(Team[] teams) {
         this.teams = teams;
@@ -157,6 +162,14 @@ public class Battle implements Serializable {
 
     public void setPlayers(List<String> players) {
         this.players = players;
+    }
+
+    public BattleStat getBattleStat() {
+        return battleStat;
+    }
+
+    public void setBattleStat(BattleStat battleStat) {
+        this.battleStat = battleStat;
     }
 
     @Override

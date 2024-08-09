@@ -92,9 +92,10 @@ class LadderCrawlerTest {
         ladder.setLadderRankList(Collections.nCopies(5, new LadderRank("testUser", 0, 0, 0.0F)));
 
         List<Battle> battleList = Collections.nCopies(10, new Battle(null));
-        Mockito.doReturn(new CrawAnalyzeBattleFuture(CompletableFuture.completedFuture(battleList), null))
+        Mockito.doReturn(new CrawAnalyzeBattleFuture(CompletableFuture.completedFuture(battleList),
+                        CompletableFuture.completedFuture(Collections.emptyList())))
                 .when(battleSevice).crawBattleAndAnalyze(Mockito.any());
-        List<Battle> result = ladderCrawler.crawLadderBattle(ladder).get();
+        List<Battle> result = ladderCrawler.crawLadderBattle(ladder).crawFuture().get();
         Assertions.assertEquals(50, result.size());
     }
 }

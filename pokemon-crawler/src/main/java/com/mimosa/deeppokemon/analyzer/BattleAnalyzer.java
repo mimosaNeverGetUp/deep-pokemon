@@ -31,8 +31,7 @@ public class BattleAnalyzer {
         this.battleEventAnalyzers = battleEventAnalyzers;
     }
 
-    public List<BattleStat> analyze(Collection<Battle> battles) {
-        List<BattleStat> battleStats = new ArrayList<>();
+    public Collection<Battle> analyze(Collection<Battle> battles) {
         for (Battle battle : battles) {
             try {
                 log.debug("start analyze battle {}", battle.getBattleID());
@@ -41,12 +40,12 @@ public class BattleAnalyzer {
                 List<BattleEvent> battleEvents = battleEventParser.parse(battle.getLog());
                 battleEvents.forEach(battleEvent -> analyzeEvent(battleEvent, battleStat, battleContext));
                 log.debug("end analyze battle {}", battle.getBattleID());
-                battleStats.add(battleStat);
+                battle.setBattleStat(battleStat);
             } catch (Exception e) {
                 log.error("analyze battle {} error", battle.getBattleID(), e);
             }
         }
-        return battleStats;
+        return battles;
     }
 
     public void analyzeEvent(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {

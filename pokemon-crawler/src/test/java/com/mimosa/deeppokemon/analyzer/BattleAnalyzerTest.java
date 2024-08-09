@@ -13,7 +13,6 @@ import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.matcher.BattleStatMatcher;
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -79,17 +78,17 @@ class BattleAnalyzerTest {
                 new ObjectMapper().readValue(battleStat.getContentAsString(StandardCharsets.UTF_8), BattleStat.class);
         battle.setBattleID(exceptBattleStat.battleId());
         battle.setLog(battleReplay.getContentAsString(StandardCharsets.UTF_8));
-        List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
-        Assertions.assertEquals(1, battleStats.size());
-        Assertions.assertEquals(exceptBattleStat, battleStats.get(0));
+        battleAnalyzer.analyze(Collections.singletonList(battle));
+        Assertions.assertNotNull(battle.getBattleStat());
+        Assertions.assertEquals(exceptBattleStat, battle.getBattleStat());
     }
 
     @ParameterizedTest
     @MethodSource("provideBattleLog")
     void analyze_noException(Battle battle) {
-        List<BattleStat> battleStats = battleAnalyzer.analyze(Collections.singletonList(battle));
-        MatcherAssert.assertThat(battleStats, Matchers.everyItem(BattleStatMatcher.BATTLE_STAT_MATCHER));
-        Assertions.assertEquals(1, battleStats.size());
+        battleAnalyzer.analyze(Collections.singletonList(battle));
+        MatcherAssert.assertThat(battle.getBattleStat(), BattleStatMatcher.BATTLE_STAT_MATCHER);
+        Assertions.assertNotNull(battle.getBattleStat());
     }
 
     private static Team[] extractTeam(String html) {

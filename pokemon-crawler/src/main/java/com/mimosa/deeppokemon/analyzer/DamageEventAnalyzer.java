@@ -90,17 +90,16 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                 log.error("can not get item by from str:{}", damageFrom);
             }
             String item = splits[1].strip();
+            if (item.contains(STICKY_BARB)) {
+                int opponentPlayerNumber = 3 - eventTarget.playerNumber();
+
+                battleContext.setPokemonItem(opponentPlayerNumber,
+                        battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1).getActivePokemonName(), item);
+                return;
+            }
             if (damageOf != null) {
                 battleContext.setPokemonItem(damageOf.playerNumber(), damageOf.targetName(), item);
             } else {
-                if (damageFrom.contains(STICKY_BARB)) {
-                    int opponentPlayerNumber = 3 - eventTarget.playerNumber();
-
-                    battleContext.setPokemonItem(opponentPlayerNumber,
-                            battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1).getActivePokemonName(), item);
-                    return;
-                }
-
                 log.warn("damage of is null, may item {} is hold by eventTarget", eventTarget);
                 battleContext.setPokemonItem(eventTarget.playerNumber(), eventTarget.targetName(), item);
 

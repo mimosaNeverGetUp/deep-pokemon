@@ -1,0 +1,104 @@
+|j|☆sunshineboy123
+|j|‽friend are fiction
+|t:|1723211062
+|gametype|singles
+|player|p1|sunshineboy123|twins|
+|player|p2|friend are fiction|170|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Gliscor, M|
+|poke|p1|Gholdengo|
+|poke|p1|Kingambit, F|
+|poke|p1|Ting-Lu|
+|poke|p1|Dondozo, M|
+|poke|p1|Latios, M|
+|poke|p2|Gliscor, F|
+|poke|p2|Gholdengo|
+|poke|p2|Kingambit, F|
+|poke|p2|Ting-Lu|
+|poke|p2|Dondozo, F|
+|poke|p2|Latios, M|
+|teampreview
+|
+|t:|1723211067
+|start
+|switch|p1a: Latios|Latios, M|100/100
+|switch|p2a: Latios|Latios, M|100/100
+|turn|1
+|
+|t:|1723211074
+|move|p1a: Latios|Ice Beam|p2a: Latios
+|-supereffective|p2a: Latios
+|-crit|p2a: Latios
+|-damage|p2a: Latios|0 fnt
+|faint|p2a: Latios
+|-damage|p1a: Latios|91/100|[from] item: Life Orb
+|
+|upkeep
+|
+|t:|1723211082
+|switch|p2a: Ting-Lu|Ting-Lu|100/100
+|-ability|p2a: Ting-Lu|Vessel of Ruin
+|turn|2
+|
+|t:|1723211088
+|move|p1a: Latios|Ice Beam|p2a: Ting-Lu
+|-supereffective|p2a: Ting-Lu
+|-crit|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|52/100
+|-damage|p1a: Latios|81/100|[from] item: Life Orb
+|move|p2a: Ting-Lu|Stealth Rock|p1a: Latios
+|-sidestart|p1: sunshineboy123|move: Stealth Rock
+|
+|upkeep
+|turn|3
+|
+|t:|1723211098
+|move|p1a: Latios|Ice Beam|p2a: Ting-Lu
+|-supereffective|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|19/100
+|-damage|p1a: Latios|71/100|[from] item: Life Orb
+|move|p2a: Ting-Lu|Spikes|p1a: Latios
+|-sidestart|p1: sunshineboy123|Spikes
+|
+|upkeep
+|turn|4
+|
+|t:|1723211107
+|switch|p2a: Kingambit|Kingambit, F|100/100
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen1|[silent]
+|move|p1a: Latios|Draco Meteor|p2a: Kingambit
+|-resisted|p2a: Kingambit
+|-damage|p2a: Kingambit|55/100
+|-unboost|p1a: Latios|spa|2
+|-damage|p1a: Latios|61/100|[from] item: Life Orb
+|
+|-heal|p2a: Kingambit|61/100|[from] item: Leftovers
+|upkeep
+|turn|5
+|
+|t:|1723211118
+|switch|p1a: Ting-Lu|Ting-Lu|100/100
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|move|p2a: Kingambit|Iron Head|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|74/100
+|
+|-heal|p2a: Kingambit|67/100|[from] item: Leftovers
+|upkeep
+|turn|6
+|-message|friend are fiction forfeited.
+|
+|win|sunshineboy123
+|l|‽friend are fiction
+|player|p2|

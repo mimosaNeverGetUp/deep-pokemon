@@ -7,9 +7,9 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +32,18 @@ class DetailsChangeEventAnalyzerTest {
     void analyze() {
         BattleEvent battleEvent = new BattleEvent("detailschange", List.of("p1a: Ogerpon", "Ogerpon-Wellspring-Tera, " +
                 "F, tera:Water"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, OGERPON_WELLSPRING, OGERPON)
                 .build();
         BattleStat battleStat = new BattleStatBuilder()
                 .addPokemonStat(1, OGERPON_WELLSPRING)
                 .build();
         assertTrue(detailsChangeEventAnalyzer.supportAnalyze(battleEvent));
-        detailsChangeEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        detailsChangeEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         assertNotNull(battleStat.playerStatList().get(0).getPokemonBattleStat(OGERPON_WELLSPRING));
         assertNull(battleStat.playerStatList().get(0).getPokemonBattleStat(OGERPON_WELLSPRING_TERA));
-        assertNotNull(battleStatus.getPlayerStatusList().get(0).getPokemonStatus(OGERPON_WELLSPRING));
-        assertNull(battleStatus.getPlayerStatusList().get(0).getPokemonStatus(OGERPON_WELLSPRING_TERA));
-        assertEquals(OGERPON_WELLSPRING_TERA,battleStatus.getPlayerStatusList().get(0).getDetailChangeName(OGERPON));
+        assertNotNull(battleContext.getPlayerStatusList().get(0).getPokemonStatus(OGERPON_WELLSPRING));
+        assertNull(battleContext.getPlayerStatusList().get(0).getPokemonStatus(OGERPON_WELLSPRING_TERA));
+        assertEquals(OGERPON_WELLSPRING_TERA, battleContext.getPlayerStatusList().get(0).getDetailChangeName(OGERPON));
     }
 }

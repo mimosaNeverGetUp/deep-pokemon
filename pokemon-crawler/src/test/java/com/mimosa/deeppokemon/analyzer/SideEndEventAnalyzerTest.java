@@ -10,9 +10,9 @@ import com.mimosa.deeppokemon.entity.stat.BattleHighLight;import com.mimosa.deep
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Side;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +32,15 @@ class SideEndEventAnalyzerTest {
         String stealthRock = "Stealth Rock";
         BattleEvent sideEndEvent = new BattleEvent("sideend", List.of("p2: SOULWIND", stealthRock, "[from] move: " +
                 "Rapid Spin", "[of] p2a: Starmie"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .setTurn(4)
                 .addSide(2, new Side(stealthRock, new EventTarget(1, CELEBI, CELEBI)))
                 .build();
         BattleStat battleStat = new BattleStatBuilder()
                 .build();
         Assertions.assertTrue(sideEndEventAnalyzer.supportAnalyze(sideEndEvent));
-        sideEndEventAnalyzer.analyze(sideEndEvent, battleStat, battleStatus);
-        Assertions.assertEquals(0, battleStatus.getPlayerStatusList().get(1).getSideList().size());
+        sideEndEventAnalyzer.analyze(sideEndEvent, battleStat, battleContext);
+        Assertions.assertEquals(0, battleContext.getPlayerStatusList().get(1).getSideList().size());
         Assertions.assertEquals(1, battleStat.playerStatList().get(1).getHighLights().size());
         BattleHighLight highLight = battleStat.playerStatList().get(1).getHighLights().get(0);
         Assertions.assertEquals(4, highLight.turn());

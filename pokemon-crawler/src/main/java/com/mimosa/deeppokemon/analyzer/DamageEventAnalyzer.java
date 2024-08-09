@@ -10,7 +10,7 @@ import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
@@ -54,22 +54,22 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     }
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().size() < 2) {
             log.error("can not match player content: {}", battleEvent);
             return;
         }
-        EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleStatus);
+        EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleContext);
         if (eventTarget != null) {
             BigDecimal pokemonHealth = BattleEventUtil.getHealthPercentage(battleEvent.getContents().get(HEALTH_INDEX));
             // set health status
-            PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
+            PlayerStatus playerStatus = battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1);
             PokemonStatus pokemonStatus = playerStatus.getPokemonStatus(eventTarget.targetName());
             BigDecimal healthDiff = pokemonStatus.getHealth().subtract(pokemonHealth);
             pokemonStatus.setHealth(pokemonHealth);
 
             // set health value、attack value
-            DamageEventStat damageEventStat = setHealthValueStat(battleEvent, battleStat, battleStatus, eventTarget,
+            DamageEventStat damageEventStat = setHealthValueStat(battleEvent, battleStat, battleContext, eventTarget,
                     playerStatus, healthDiff);
             battleEvent.setBattleEventStat(damageEventStat);
 
@@ -85,7 +85,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         }
     }
 
-    private DamageEventStat setHealthValueStat(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus,
+    private DamageEventStat setHealthValueStat(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext,
                                                EventTarget eventTarget, PlayerStatus targetPlayerStatus,
                                                BigDecimal healthDiff) {
         EventTarget damageOf;
@@ -98,10 +98,10 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         if (OF_INDEX < battleEvent.getContents().size() && battleEvent.getContents().get(OF_INDEX).contains(OF)) {
             // get stat by damage from xxx of xxx
             damageOf = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX),
-                    battleStatus);
+                    battleContext);
         } else if (FROM_INDEX == battleEvent.getContents().size() - 1) {
             // get stat by damage from xxx
-            damageOf = getDamageOfByFrom(eventTarget, damageFrom, battleStatus, targetPlayerStatus);
+            damageOf = getDamageOfByFrom(eventTarget, damageFrom, battleContext, targetPlayerStatus);
         } else if (battleEvent.getParentEvent() != null && battleEvent.getParentEvent().getBattleEventStat()
                 instanceof MoveEventStat moveEventStat) {
             // get stat by parent move event
@@ -109,7 +109,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             damageFrom = moveEventStat.moveName();
         } else {
             // may be is opponent player turn start pokemon
-            damageOf = BattleEventUtil.getOpponentTurnStartPokemonTarget(battleStatus, eventTarget);
+            damageOf = BattleEventUtil.getOpponentTurnStartPokemonTarget(battleContext, eventTarget);
         }
         if (damageOf != null) {
             damageOfPokemonStat = battleStat.playerStatList().get(damageOf.playerNumber() - 1)
@@ -117,65 +117,65 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             if (damageOf.playerNumber() != eventTarget.playerNumber()) {
                 damageOfPokemonStat.setHealthValue(damageOfPokemonStat.getHealthValue().add(healthDiff));
                 damageOfPokemonStat.setAttackValue(damageOfPokemonStat.getAttackValue().add(healthDiff));
-                minusTurnStartPokemonHealthStat(battleStat, battleStatus, eventTarget.playerNumber(), healthDiff);
+                minusTurnStartPokemonHealthStat(battleStat, battleContext, eventTarget.playerNumber(), healthDiff);
             } else {
                 damageOfPokemonStat.setHealthValue(damageOfPokemonStat.getHealthValue().subtract(healthDiff));
-                addTurnStartPokemonHealthStat(battleStat, battleStatus, 3 - eventTarget.playerNumber(),
+                addTurnStartPokemonHealthStat(battleStat, battleContext, 3 - eventTarget.playerNumber(),
                         healthDiff);
             }
         } else {
             // default damage of opponent turn start pokemon
             log.warn("can not get damage source from {}", battleEvent);
-            minusTurnStartPokemonHealthStat(battleStat, battleStatus, eventTarget.playerNumber(), healthDiff);
-            addTurnStartPokemonHealthStat(battleStat, battleStatus, 3 - eventTarget.playerNumber(),
+            minusTurnStartPokemonHealthStat(battleStat, battleContext, eventTarget.playerNumber(), healthDiff);
+            addTurnStartPokemonHealthStat(battleStat, battleContext, 3 - eventTarget.playerNumber(),
                     healthDiff);
         }
         return new DamageEventStat(eventTarget, damageOf, damageFrom, healthDiff);
     }
 
-    private void minusTurnStartPokemonHealthStat(BattleStat battleStat, BattleStatus battleStatus, int playerNumber,
+    private void minusTurnStartPokemonHealthStat(BattleStat battleStat, BattleContext battleContext, int playerNumber,
                                                  BigDecimal healthDiff) {
         PokemonBattleStat turnStartPokemonBattleStat =
-                getTurnStartPokemonBattleStat(battleStat, battleStatus, playerNumber);
+                getTurnStartPokemonBattleStat(battleStat, battleContext, playerNumber);
         turnStartPokemonBattleStat.setHealthValue(turnStartPokemonBattleStat.getHealthValue().subtract(healthDiff));
     }
 
-    private void addTurnStartPokemonHealthStat(BattleStat battleStat, BattleStatus battleStatus,
+    private void addTurnStartPokemonHealthStat(BattleStat battleStat, BattleContext battleContext,
                                                int playerNumber, BigDecimal healthDiff) {
         PokemonBattleStat opponentTurnStartPokemonBattleStat = getTurnStartPokemonBattleStat(battleStat,
-                battleStatus, playerNumber);
+                battleContext, playerNumber);
         opponentTurnStartPokemonBattleStat
                 .setHealthValue(opponentTurnStartPokemonBattleStat.getHealthValue().add(healthDiff));
         opponentTurnStartPokemonBattleStat
                 .setAttackValue(opponentTurnStartPokemonBattleStat.getAttackValue().add(healthDiff));
     }
 
-    private PokemonBattleStat getTurnStartPokemonBattleStat(BattleStat battleStat, BattleStatus battleStatus,
+    private PokemonBattleStat getTurnStartPokemonBattleStat(BattleStat battleStat, BattleContext battleContext,
                                                             int playerNumber) {
         PlayerStat playerStat = battleStat.playerStatList().get(playerNumber - 1);
-        PlayerStatus playerStatus = battleStatus.getPlayerStatusList().get(playerNumber - 1);
+        PlayerStatus playerStatus = battleContext.getPlayerStatusList().get(playerNumber - 1);
         return playerStat.getPokemonBattleStat(playerStatus.getTurnStartPokemonName());
     }
 
-    private EventTarget getDamageOfByFrom(EventTarget eventTarget, String damageFrom, BattleStatus battleStatus,
+    private EventTarget getDamageOfByFrom(EventTarget eventTarget, String damageFrom, BattleContext battleContext,
                                           PlayerStatus targetPlayerStatus) {
         if (damageFrom == null) {
             log.warn("can not match damage from");
             return null;
         }
 
-        return getOfTarget(eventTarget, damageFrom, battleStatus, targetPlayerStatus);
+        return getOfTarget(eventTarget, damageFrom, battleContext, targetPlayerStatus);
     }
 
-    private EventTarget getOfTarget(EventTarget eventTarget, String damageFrom, BattleStatus battleStatus, PlayerStatus targetPlayerStatus) {
+    private EventTarget getOfTarget(EventTarget eventTarget, String damageFrom, BattleContext battleContext, PlayerStatus targetPlayerStatus) {
         EventTarget ofTarget = null;
         if (isSideDamage(damageFrom)) {
             for (Side side : targetPlayerStatus.getSideListByName(damageFrom)) {
                 ofTarget = side.ofTarget();
             }
-        } else if (isWeatherDamage(damageFrom, battleStatus.getWeather())) {
-            ofTarget = battleStatus.getWeather().ofTarget();
-        } else if (isStatusDamage(damageFrom, eventTarget, battleStatus)) {
+        } else if (isWeatherDamage(damageFrom, battleContext.getWeather())) {
+            ofTarget = battleContext.getWeather().ofTarget();
+        } else if (isStatusDamage(damageFrom, eventTarget, battleContext)) {
             ofTarget = targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getStatus().ofTarget();
         } else if (isItemDamage(damageFrom)) {
             // maybe damage from life orb
@@ -184,14 +184,14 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             ofTarget = targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getBuffOf(damageFrom);
         } else if (isRecoilDamage(damageFrom) || isSpecialRecoilDamage(damageFrom)) {
             // recoil is damage by opponent active pokemon
-            ofTarget = BattleEventUtil.getOpponentActivePokemonTarget(battleStatus, eventTarget);
+            ofTarget = BattleEventUtil.getOpponentActivePokemonTarget(battleContext, eventTarget);
         } else if (isActivateDamage(damageFrom, targetPlayerStatus.getPokemonStatus(eventTarget.targetName()))) {
             List<ActivateStatus> activateStatuses =
                     targetPlayerStatus.getPokemonStatus(eventTarget.targetName()).getActivateStatusList();
             ofTarget = activateStatuses.stream().filter(activateStatus -> StringUtils.equals(activateStatus.content()
                     , damageFrom) || StringUtils.equals(activateStatus.status(), damageFrom)).findFirst().orElseThrow().ofTarget();
         } else {
-            log.error("can not get damage from {},turn: {}", damageFrom, battleStatus.getTurn());
+            log.error("can not get damage from {},turn: {}", damageFrom, battleContext.getTurn());
         }
         return ofTarget;
     }
@@ -208,9 +208,9 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         return damageFrom.contains(ITEM);
     }
 
-    private boolean isStatusDamage(String damageFrom, EventTarget eventTarget, BattleStatus battleStatus) {
+    private boolean isStatusDamage(String damageFrom, EventTarget eventTarget, BattleContext battleContext) {
         Status status =
-                battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName()).getStatus();
+                battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName()).getStatus();
         if (status == null) {
             return false;
         }

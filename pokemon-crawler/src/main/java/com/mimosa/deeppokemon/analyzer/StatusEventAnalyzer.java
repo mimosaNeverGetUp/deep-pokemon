@@ -12,7 +12,7 @@ import com.mimosa.deeppokemon.analyzer.entity.Side;
 import com.mimosa.deeppokemon.analyzer.entity.Status;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,14 +34,14 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
     private static final String ITEM = "item";
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().size() < 2) {
             log.warn("can not analyze battle event {}", battleEvent);
             return;
         }
 
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX),
-                battleStatus);
+                battleContext);
         String status = battleEvent.getContents().get(STATUS_INDEX);
         if (eventTarget != null) {
             EventTarget ofTarget = null;
@@ -53,11 +53,11 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
                 ofTarget = eventTarget;
             } else if (battleEvent.getContents().size() - 1 > FROM_INDEX) {
                 ofTarget = eventTarget;
-            } else if (!getToxicSide(battleStatus, eventTarget.playerNumber()).isEmpty()) {
-                List<Side> toxicSide = getToxicSide(battleStatus, eventTarget.playerNumber());
+            } else if (!getToxicSide(battleContext, eventTarget.playerNumber()).isEmpty()) {
+                List<Side> toxicSide = getToxicSide(battleContext, eventTarget.playerNumber());
                 ofTarget = toxicSide.get(toxicSide.size() - 1).ofTarget();
             }
-            battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
+            battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
                     .setStatus(new Status(status, ofTarget));
         }
     }
@@ -66,8 +66,8 @@ public class StatusEventAnalyzer implements BattleEventAnalyzer {
         return statusFrom.contains(ITEM);
     }
 
-    private List<Side> getToxicSide(BattleStatus battleStatus, int playerNumber) {
-        return battleStatus.getPlayerStatusList().get(playerNumber - 1).getSideListByName(TOXIC_SPIKES);
+    private List<Side> getToxicSide(BattleContext battleContext, int playerNumber) {
+        return battleContext.getPlayerStatusList().get(playerNumber - 1).getSideListByName(TOXIC_SPIKES);
     }
 
     @Override

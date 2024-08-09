@@ -12,7 +12,7 @@ import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Side;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import org.slf4j.Logger;
@@ -31,7 +31,7 @@ public class SideStartEventAnalyzer implements BattleEventAnalyzer {
     private static final String ACTIVATE = "activate";
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().size() < 2) {
             log.warn("can not analyze battle event, content size is less than 2:{}", battleEvent);
             return;
@@ -45,14 +45,14 @@ public class SideStartEventAnalyzer implements BattleEventAnalyzer {
                 BattleEvent previousEvent = BattleEventUtil.getPreviousChildrenEvent(battleEvent);
                 if (previousEvent != null && ACTIVATE.equals(previousEvent.getType())) {
                     // ofTarget is ability target, no move target, such as toxic debris
-                    ofTarget = BattleEventUtil.getEventTarget(previousEvent.getContents().get(TARGET_INDEX), battleStatus);
+                    ofTarget = BattleEventUtil.getEventTarget(previousEvent.getContents().get(TARGET_INDEX), battleContext);
                 } else {
                     ofTarget = moveEventStat.eventTarget();
                 }
             }
-            battleStatus.getPlayerStatusList().get(eventTarget.playerNumber() - 1)
+            battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1)
                     .addSide(new Side(sideName, ofTarget));
-            BattleHighLight highLight = new BattleHighLight(battleStatus.getTurn(),
+            BattleHighLight highLight = new BattleHighLight(battleContext.getTurn(),
                     BattleHighLight.HighLightType.SIDE, String.format("side %s start", sideName));
             battleStat.playerStatList().get(eventTarget.playerNumber() - 1).addHighLight(highLight);
         }

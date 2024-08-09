@@ -10,7 +10,7 @@ import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Weather;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ public class WeatherEventAnalyzer implements BattleEventAnalyzer {
     private static final int OF_INDEX = 2;
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().isEmpty()) {
             log.warn("can not analyze battle event: {}", battleEvent);
             return;
@@ -37,7 +37,7 @@ public class WeatherEventAnalyzer implements BattleEventAnalyzer {
 
         String weather = battleEvent.getContents().get(WEATHER_INDEX);
         if (NONE.equals(weather)) {
-            battleStatus.setWeather(null);
+            battleContext.setWeather(null);
             return;
         }
 
@@ -46,8 +46,8 @@ public class WeatherEventAnalyzer implements BattleEventAnalyzer {
             return;
         }
 
-        EventTarget ofTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX), battleStatus);
-        battleStatus.setWeather(new Weather(weather, ofTarget));
+        EventTarget ofTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX), battleContext);
+        battleContext.setWeather(new Weather(weather, ofTarget));
     }
 
     @Override

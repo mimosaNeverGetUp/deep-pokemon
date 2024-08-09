@@ -9,7 +9,7 @@ package com.mimosa.deeppokemon.analyzer;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.slf4j.Logger;
@@ -29,12 +29,12 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
     private static final String OF = "of";
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().size() < 2) {
             log.debug("can not analyze battle event {}", battleEvent);
             return;
         }
-        EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleStatus);
+        EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleContext);
         if(eventTarget == null){
             log.debug("can not analyze battle event without event target {}", battleEvent);
             return;
@@ -42,25 +42,26 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
 
         String buff = battleEvent.getContents().get(BUFF_INDEX);
         switch (buff) {
-            case "Salt Cure" -> setSaltBuffOf(battleEvent, battleStatus, eventTarget, buff);
-            case "confusion" -> setConfusionBuffOf(battleEvent, battleStatus, eventTarget, buff);
+            case "Salt Cure" -> setSaltBuffOf(battleEvent, battleContext, eventTarget, buff);
+            case "confusion" -> setConfusionBuffOf(battleEvent, battleContext, eventTarget, buff);
+            default -> log.warn("buff {} start and nothing set?", buff);
         }
     }
 
-    private static void setSaltBuffOf(BattleEvent battleEvent, BattleStatus battleStatus, EventTarget eventTarget, String buff) {
+    private static void setSaltBuffOf(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget, String buff) {
         EventTarget saltOf = null;
         if (battleEvent.getParentEvent() != null &&
                 battleEvent.getParentEvent().getBattleEventStat() instanceof MoveEventStat moveEventStat) {
             saltOf = moveEventStat.eventTarget();
         }
-        BattleEventUtil.getPokemonStatus(battleStatus, eventTarget).setBuffOf(buff, saltOf);
+        BattleEventUtil.getPokemonStatus(battleContext, eventTarget).setBuffOf(buff, saltOf);
     }
 
-    private static void setConfusionBuffOf(BattleEvent battleEvent, BattleStatus battleStatus, EventTarget eventTarget,
-                                   String buff) {
+    private static void setConfusionBuffOf(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget,
+                                           String buff) {
         EventTarget confusionOf = null;
         if (battleEvent.getContents().size() > OF_INDEX && battleEvent.getContents().get(OF_INDEX).contains(OF)) {
-            confusionOf = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX),battleStatus);
+            confusionOf = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX), battleContext);
         } else if (battleEvent.getParentEvent() != null &&
                 battleEvent.getParentEvent().getBattleEventStat() instanceof MoveEventStat moveEventStat) {
             confusionOf = moveEventStat.eventTarget();
@@ -68,7 +69,7 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
             log.error("can not get confusion of,may be is confusion by itself");
             confusionOf = eventTarget;
         }
-        BattleEventUtil.getPokemonStatus(battleStatus, eventTarget).setBuffOf(buff, confusionOf);
+        BattleEventUtil.getPokemonStatus(battleContext, eventTarget).setBuffOf(buff, confusionOf);
     }
 
     @Override

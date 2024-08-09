@@ -11,13 +11,13 @@ import com.mimosa.deeppokemon.analyzer.entity.Weather;
 
 import java.util.List;
 
-public class BattleStatus {
+public class BattleContext {
     private List<PlayerStatus> playerStatusList;
     private int turn;
     private Weather weather;
     private Field field;
 
-    public BattleStatus(List<PlayerStatus> playerStatusList) {
+    public BattleContext(List<PlayerStatus> playerStatusList) {
         this.playerStatusList = playerStatusList;
         this.turn = 0;
         this.weather = null;

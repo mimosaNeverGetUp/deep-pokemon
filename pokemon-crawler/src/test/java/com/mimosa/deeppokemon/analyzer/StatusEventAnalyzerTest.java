@@ -10,8 +10,8 @@ import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Status;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +33,13 @@ class StatusEventAnalyzerTest {
         EventTarget eventTarget = new EventTarget(2, slowking, slowking);
         moveEvent.setBattleEventStat(new MoveEventStat(eventTarget, "Sludge Bomb"));
         BattleEvent statusEvent = new BattleEvent("status", List.of("p1a: AK (oppmouto mode)", "psn"), moveEvent, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, alomomola, "AK (oppmouto mode)")
                 .addPokemon(2, slowking, slowking)
                 .build();
         Assertions.assertTrue(statusEventAnalyzer.supportAnalyze(statusEvent));
-        statusEventAnalyzer.analyze(statusEvent, null, battleStatus);
-        Status status = battleStatus.getPlayerStatusList().get(0).getPokemonStatus(alomomola).getStatus();
+        statusEventAnalyzer.analyze(statusEvent, null, battleContext);
+        Status status = battleContext.getPlayerStatusList().get(0).getPokemonStatus(alomomola).getStatus();
         Assertions.assertNotNull(status);
         Assertions.assertEquals("psn", status.name());
         Assertions.assertEquals(eventTarget, status.ofTarget());
@@ -51,12 +51,12 @@ class StatusEventAnalyzerTest {
         EventTarget exceptTarget = new EventTarget(1, ursaluna, ursaluna);
 
         BattleEvent statusEvent = new BattleEvent("status", List.of("p1a: Ursaluna", "brn", "[from] item: Flame Orb"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, ursaluna, ursaluna)
                 .build();
         Assertions.assertTrue(statusEventAnalyzer.supportAnalyze(statusEvent));
-        statusEventAnalyzer.analyze(statusEvent, null, battleStatus);
-        Status status = battleStatus.getPlayerStatusList().get(0).getPokemonStatus(ursaluna).getStatus();
+        statusEventAnalyzer.analyze(statusEvent, null, battleContext);
+        Status status = battleContext.getPlayerStatusList().get(0).getPokemonStatus(ursaluna).getStatus();
         Assertions.assertNotNull(status);
         Assertions.assertEquals("brn", status.name());
         Assertions.assertEquals(exceptTarget

@@ -6,7 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 
@@ -16,9 +16,9 @@ public interface BattleEventAnalyzer {
      *
      * @param battleEvent
      * @param battleStat all player battle stat
-     * @param battleStatus  all player battle status
+     * @param battleContext  all player battle status
      */
-    void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus);
+    void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext);
 
     boolean supportAnalyze(BattleEvent battleEvent);
 }

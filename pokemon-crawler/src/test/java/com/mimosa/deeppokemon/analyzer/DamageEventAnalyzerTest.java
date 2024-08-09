@@ -10,11 +10,11 @@ import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -61,7 +61,7 @@ class DamageEventAnalyzerTest {
 
     @ParameterizedTest
     @MethodSource("provideAnalyzeParams")
-    void analyze(BattleEvent event, BattleStat stat, BattleStatus status,
+    void analyze(BattleEvent event, BattleStat stat, BattleContext status,
                  PokemonBattleStat targetStat, PokemonBattleStat exceptTargetStat,
                  PokemonBattleStat opponentTargetStat, PokemonBattleStat exceptOpponentTargetStat,
                  PokemonStatus targetStatus, PokemonStatus exceptTargetStatus) {
@@ -84,7 +84,7 @@ class DamageEventAnalyzerTest {
 
     @ParameterizedTest
     @MethodSource("provideSwitchDamageEvent")
-    void analyzeSwitchDamageEvent(BattleEvent event, BattleStat stat, BattleStatus status, PlayerStat playerStat,
+    void analyzeSwitchDamageEvent(BattleEvent event, BattleStat stat, BattleContext status, PlayerStat playerStat,
                                   BigDecimal exceptSwitchDamage) {
         damageEventAnalyzer.analyze(event, stat, status);
         Assertions.assertEquals(exceptSwitchDamage, playerStat.getSwitchDamage());
@@ -97,7 +97,7 @@ class DamageEventAnalyzerTest {
         int sideFromPlayerNumber = 2;
         String skarmory = "Skarmory";
         String gholdengo = "Gholdengo";
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(sideFromPlayerNumber, skarmory, skarmory)
                 .addPokemon(1, gholdengo, gholdengo)
                 .addSide(1, new Side("Stealth Rock", new EventTarget(sideFromPlayerNumber, skarmory, skarmory)))
@@ -108,7 +108,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(1, gholdengo)
                 .addPokemonStat(sideFromPlayerNumber, skarmory)
                 .build();
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat skarmoryStat = battleStat.playerStatList().get(sideFromPlayerNumber - 1)
                 .getPokemonBattleStat(skarmory);
         Assertions.assertEquals(BigDecimal.valueOf(6.0), skarmoryStat.getAttackValue());
@@ -118,7 +118,7 @@ class DamageEventAnalyzerTest {
     @Test
     void analyzeWeatherDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Zapdos", "94/100", "[from] Sandstorm"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, HIPPOWDONW, HIPPOWDONW)
                 .addPokemon(1, ZAPDOS, ZAPDOS)
                 .setWeather(new Weather("Sandstorm", new EventTarget(2, HIPPOWDONW, HIPPOWDONW)))
@@ -129,7 +129,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, HIPPOWDONW)
                 .build();
 
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat hippowdonwStat = battleStat.playerStatList().get(1)
                 .getPokemonBattleStat(HIPPOWDONW);
         Assertions.assertEquals(BigDecimal.valueOf(6.0), hippowdonwStat.getAttackValue());
@@ -144,7 +144,7 @@ class DamageEventAnalyzerTest {
     @Test
     void analyzeSelfWeatherDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Zapdos", "94/100", "[from] Sandstorm"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, HIPPOWDONW, HIPPOWDONW)
                 .addPokemon(1, ZAPDOS, ZAPDOS)
                 .setWeather(new Weather("Sandstorm", new EventTarget(1, ZAPDOS, ZAPDOS)))
@@ -156,7 +156,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, HIPPOWDONW)
                 .build();
 
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat hippowdonwStat = battleStat.playerStatList().get(1)
                 .getPokemonBattleStat(HIPPOWDONW);
         Assertions.assertEquals(BigDecimal.valueOf(6.0), hippowdonwStat.getAttackValue());
@@ -172,7 +172,7 @@ class DamageEventAnalyzerTest {
     void analyzeStatusDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p2a: Raging Bolt", "80/100 brn", "[from] " +
                 "brn"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, RAGING_BOLT, RAGING_BOLT)
                 .addPokemon(1, SKELEDIRGE, SKELEDIRGE)
                 .setStatus(2, RAGING_BOLT, new Status("brn", new EventTarget(1, SKELEDIRGE, SKELEDIRGE)))
@@ -184,7 +184,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, RAGING_BOLT)
                 .build();
 
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat ragingboltStat = battleStat.playerStatList().get(1)
                 .getPokemonBattleStat(RAGING_BOLT);
         Assertions.assertEquals(BigDecimal.valueOf(0.0), ragingboltStat.getAttackValue());
@@ -200,7 +200,7 @@ class DamageEventAnalyzerTest {
     void analyzeToxicStatusDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p2a: Roaring Moon", "0 fnt", "[from] " +
                 "psn"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, ROARING_MOON, ROARING_MOON)
                 .addPokemon(1, TOXAPEX, TOXAPEX)
                 .setStatus(2, ROARING_MOON, new Status("tox", new EventTarget(1, TOXAPEX, TOXAPEX)))
@@ -212,7 +212,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, ROARING_MOON)
                 .build();
 
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat p2Stat = battleStat.playerStatList().get(1)
                 .getPokemonBattleStat(ROARING_MOON);
         Assertions.assertEquals(BigDecimal.valueOf(0.0), p2Stat.getAttackValue());
@@ -227,7 +227,7 @@ class DamageEventAnalyzerTest {
     @Test
     void analyzeBuffDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p2a: Iron Valiant", "88/100", "[from] Salt Cure"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, IRON_VALIANT, IRON_VALIANT)
                 .addPokemon(1, GARGANACL, GARGANACL)
                 .setTurnStartPokemon(2, IRON_VALIANT)
@@ -238,7 +238,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, IRON_VALIANT)
                 .addPokemonStat(1, GARGANACL)
                 .build();
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat ironStat = battleStat.playerStatList().get(1).getPokemonBattleStat(IRON_VALIANT);
         Assertions.assertEquals(0, ironStat.getAttackValue().intValue());
         Assertions.assertEquals(-12, ironStat.getHealthValue().intValue());
@@ -250,7 +250,7 @@ class DamageEventAnalyzerTest {
     @Test
     void analyzeRecoilDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Corviknight", "0 fnt", "[from] Recoil"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, OGERPON, OGERPON)
                 .addPokemon(1, CORVIKNIGHT, CORVIKNIGHT)
                 .setActivePokemonName(2, OGERPON)
@@ -262,7 +262,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, OGERPON)
                 .addPokemonStat(1, CORVIKNIGHT)
                 .build();
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat ogerponStat = battleStat.playerStatList().get(1).getPokemonBattleStat(OGERPON);
         Assertions.assertEquals(22, ogerponStat.getAttackValue().intValue());
         Assertions.assertEquals(22, ogerponStat.getHealthValue().intValue());
@@ -274,7 +274,7 @@ class DamageEventAnalyzerTest {
     @Test
     void analyzeSpecialRecoilDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Iron Treads", "20/100", "[from] steelbeam"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, OGERPON, OGERPON)
                 .addPokemon(1, IRON_TREADS, IRON_TREADS)
                 .setActivePokemonName(2, OGERPON)
@@ -286,7 +286,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, OGERPON)
                 .addPokemonStat(1, IRON_TREADS)
                 .build();
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat ogerponStat = battleStat.playerStatList().get(1).getPokemonBattleStat(OGERPON);
         Assertions.assertEquals(51, ogerponStat.getAttackValue().intValue());
         Assertions.assertEquals(51, ogerponStat.getHealthValue().intValue());
@@ -299,7 +299,7 @@ class DamageEventAnalyzerTest {
     void analyzeInfestDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: oops??", "18/100", "[from] move: Infestation"),
                 null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, TOXAPEX, TOXAPEX)
                 .addPokemon(1, IRON_VALIANT, "oops??")
                 .addActivateStatus(1, IRON_VALIANT, new ActivateStatus("move: Infestation", "move", "Infestation",
@@ -313,7 +313,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, TOXAPEX)
                 .build();
 
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat p2Stat = battleStat.playerStatList().get(1)
                 .getPokemonBattleStat(TOXAPEX);
         Assertions.assertEquals(BigDecimal.valueOf(12.0), p2Stat.getAttackValue());
@@ -328,7 +328,7 @@ class DamageEventAnalyzerTest {
     @Test
     void analyzeConfusionDamage() {
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Dragonite", "0 fnt", "[from] confusion"), null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, PECHARUNT, PECHARUNT)
                 .addPokemon(1, DRAGONITE, DRAGONITE)
                 .setTurnStartPokemon(1, DRAGONITE)
@@ -340,7 +340,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(2, PECHARUNT)
                 .addPokemonStat(1, DRAGONITE)
                 .build();
-        damageEventAnalyzer.analyze(battleEvent, battleStat, battleStatus);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         PokemonBattleStat p2Stat = battleStat.playerStatList().get(1).getPokemonBattleStat(PECHARUNT);
         Assertions.assertEquals(14, p2Stat.getAttackValue().intValue());
         Assertions.assertEquals(14, p2Stat.getHealthValue().intValue());
@@ -373,10 +373,10 @@ class DamageEventAnalyzerTest {
         PokemonBattleStat gliscor = new PokemonBattleStat("Gliscor");
         p2.addPokemonBattleStat(gliscor);
 
-        BattleStatus battleStatus = new BattleStatus(List.of(p1Status, p2Status));
+        BattleContext battleContext = new BattleContext(List.of(p1Status, p2Status));
         BattleStat battleStat = new BattleStat(null, List.of(p1, p2), new ArrayList<>());
 
-        return Arguments.of(damageEvent, battleStat, battleStatus, p1, BigDecimal.valueOf(27.0));
+        return Arguments.of(damageEvent, battleStat, battleContext, p1, BigDecimal.valueOf(27.0));
     }
 
     private static Arguments buildMoveDamageEvent() {
@@ -393,7 +393,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(damageTargetPlayerNumber, skarmory)
                 .addPokemonStat(movePlayerNumber, gliscor)
                 .build();
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, skarmory, "OLD DOG DIFFERENCE")
                 .addPokemon(2, gliscor, gliscor)
                 .setTurnStartPokemon(1, skarmory)
@@ -413,9 +413,9 @@ class DamageEventAnalyzerTest {
                 skarmory);
         PokemonBattleStat gliscorStat = battleStat.playerStatList().get(movePlayerNumber - 1).getPokemonBattleStat(
                 gliscor);
-        PokemonStatus skyStatus = battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(skarmory);
+        PokemonStatus skyStatus = battleContext.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(skarmory);
 
-        return Arguments.of(damageEvent, battleStat, battleStatus, skyStat,
+        return Arguments.of(damageEvent, battleStat, battleContext, skyStat,
                 exceptSkarmory, gliscorStat, exceptGliscor, skyStatus, exceptSkarmoryStatus);
     }
 
@@ -433,7 +433,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(damageTargetPlayerNumber, skarmory)
                 .addPokemonStat(movePlayerNumber, gliscor)
                 .build();
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, skarmory, "OLD DOG DIFFERENCE")
                 .addPokemon(2, gliscor, gliscor)
                 .setTurnStartPokemon(1, skarmory)
@@ -454,9 +454,9 @@ class DamageEventAnalyzerTest {
                 skarmory);
         PokemonBattleStat gliscorStat = battleStat.playerStatList().get(movePlayerNumber - 1).getPokemonBattleStat(
                 gliscor);
-        PokemonStatus skyStatus = battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(skarmory);
+        PokemonStatus skyStatus = battleContext.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(skarmory);
 
-        return Arguments.of(damageEvent, battleStat, battleStatus, skyStat,
+        return Arguments.of(damageEvent, battleStat, battleContext, skyStat,
                 exceptSkarmory, gliscorStat, exceptGliscor, skyStatus, exceptSkarmoryStatus);
     }
 
@@ -475,7 +475,7 @@ class DamageEventAnalyzerTest {
                 .addPokemonStat(helmetPlayerNumber, skarmory)
                 .addPokemonStat(damageTargetPlayerNumber, gliscor)
                 .build();
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(helmetPlayerNumber, skarmory, "OLD DOG DIFFERENCE")
                 .addPokemon(damageTargetPlayerNumber, gliscor, gliscor)
                 .setTurnStartPokemon(damageTargetPlayerNumber, gliscor)
@@ -496,9 +496,9 @@ class DamageEventAnalyzerTest {
         PokemonBattleStat skarmoryStat =
                 battleStat.playerStatList().get(helmetPlayerNumber - 1).getPokemonBattleStat(skarmory);
         PokemonStatus gliscorStatus =
-                battleStatus.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(gliscor);
+                battleContext.getPlayerStatusList().get(damageTargetPlayerNumber - 1).getPokemonStatus(gliscor);
 
-        return Arguments.of(damageEvent, battleStat, battleStatus, gliscorStat, exceptGliscor, skarmoryStat,
+        return Arguments.of(damageEvent, battleStat, battleContext, gliscorStat, exceptGliscor, skarmoryStat,
                 exceptSkarmory, gliscorStatus, exceptGliscorStatus);
     }
 }

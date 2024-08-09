@@ -6,12 +6,11 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatusBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -40,14 +39,14 @@ class SwitchEventAnalyzerTest {
         p1.addPokemonBattleStat(new PokemonBattleStat("Gliscor"));
         BattleStat battleStat = new BattleStat(null, List.of(p1), new ArrayList<>());
 
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, "Gliscor", "YOUCANTBREAKME")
                 .build();
-        battleStatus.setTurn(10);
+        battleContext.setTurn(10);
 
         Assertions.assertTrue(analyzer.supportAnalyze(battleEvent));
-        analyzer.analyze(battleEvent, battleStat, battleStatus);
-        PlayerStatus p1Status = battleStatus.getPlayerStatusList().get(0);
+        analyzer.analyze(battleEvent, battleStat, battleContext);
+        PlayerStatus p1Status = battleContext.getPlayerStatusList().get(0);
         Assertions.assertEquals("Gliscor", p1Status.getActivePokemonName());
         Assertions.assertEquals(1, p1.getSwitchCount());
         Assertions.assertEquals(1, p1.getPokemonBattleStat("Gliscor").getSwitchCount());
@@ -65,13 +64,13 @@ class SwitchEventAnalyzerTest {
         p1.addPokemonBattleStat(new PokemonBattleStat("Gliscor"));
         BattleStat battleStat = new BattleStat(null, List.of(p1), new ArrayList<>());
 
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, "Gliscor", "YOUCANTBREAKME")
                 .build();
 
         Assertions.assertTrue(analyzer.supportAnalyze(battleEvent));
-        analyzer.analyze(battleEvent, battleStat, battleStatus);
-        PlayerStatus p1Status = battleStatus.getPlayerStatusList().get(0);
+        analyzer.analyze(battleEvent, battleStat, battleContext);
+        PlayerStatus p1Status = battleContext.getPlayerStatusList().get(0);
         Assertions.assertEquals("Gliscor", p1Status.getPokemonName("YOUCANTBREAKME"));
         Assertions.assertEquals("Gliscor", p1Status.getActivePokemonName());
         Assertions.assertEquals(0, p1.getSwitchCount());
@@ -83,7 +82,7 @@ class SwitchEventAnalyzerTest {
     void analyzeRegeneratorSwitch() {
         BattleEvent switchEvent = new BattleEvent("switch", List.of("p1a: Slowking", "Slowking-Galar, M", "100/100"),
                 null, null);
-        BattleStatus battleStatus = new BattleStatusBuilder()
+        BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, SLOWKING_GALAR, "Slowking")
                 .addPokemon(2, DRAGAPULT, DRAGAPULT)
                 .setHealth(1, SLOWKING_GALAR, BigDecimal.valueOf(80.0))
@@ -95,7 +94,7 @@ class SwitchEventAnalyzerTest {
                 .addPokemonStat(1, SLOWKING_GALAR)
                 .addPokemonStat(2, DRAGAPULT)
                 .build();
-        analyzer.analyze(switchEvent, battleStat, battleStatus);
+        analyzer.analyze(switchEvent, battleStat, battleContext);
 
         PokemonBattleStat slowkingStat = battleStat.playerStatList().get(0).getPokemonBattleStat(SLOWKING_GALAR);
         PokemonBattleStat dragapultStat = battleStat.playerStatList().get(1).getPokemonBattleStat(DRAGAPULT);

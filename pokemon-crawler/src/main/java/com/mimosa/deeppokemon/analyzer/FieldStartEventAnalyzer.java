@@ -11,7 +11,7 @@ import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Field;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import org.slf4j.Logger;
@@ -29,7 +29,7 @@ public class FieldStartEventAnalyzer implements BattleEventAnalyzer{
     private static final int OF_INDEX = 2;
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().isEmpty()) {
             log.warn("can not analyze battle event: {}", battleEvent);
             return;
@@ -43,12 +43,12 @@ public class FieldStartEventAnalyzer implements BattleEventAnalyzer{
             field = battleEvent.getContents().get(FIELD_INDEX);
         }
         if (battleEvent.getContents().size() > OF_INDEX) {
-            ofTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX), battleStatus);
+            ofTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX), battleContext);
         } else if (battleEvent.getParentEvent() != null &&
                 battleEvent.getParentEvent().getBattleEventStat() instanceof MoveEventStat moveEventStat) {
             ofTarget = moveEventStat.eventTarget();
         }
-        battleStatus.setField(new Field(field, ofTarget));
+        battleContext.setField(new Field(field, ofTarget));
     }
 
     @Override

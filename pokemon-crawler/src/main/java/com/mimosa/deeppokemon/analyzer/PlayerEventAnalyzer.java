@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
-import com.mimosa.deeppokemon.analyzer.entity.status.BattleStatus;
+import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
@@ -29,7 +29,7 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
     public static final Pattern PLAYER_NUMBER_PATTERN = Pattern.compile("p(\\d)");
 
     @Override
-    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleStatus battleStatus) {
+    public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
         if (battleEvent.getContents().size() < 2) {
             log.warn("can not match player content: {}", battleEvent);
             return;
@@ -43,7 +43,7 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
         }
         if (battleStat.playerStatList().stream().noneMatch(playerStat -> playerStat.getPlayerName().equals(playerName))) {
             battleStat.playerStatList().add(new PlayerStat(Integer.parseInt(playerNumberStr), playerName));
-            battleStatus.getPlayerStatusList().add(new PlayerStatus());
+            battleContext.getPlayerStatusList().add(new PlayerStatus());
         }
     }
 

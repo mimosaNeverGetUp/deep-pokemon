@@ -6,16 +6,18 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Field;
-import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
-import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
+import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +25,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class HealEventAnalyzerTest {
@@ -72,11 +75,15 @@ class HealEventAnalyzerTest {
                 .addPokemonStat(2, TING_LU)
                 .addPokemonStat(1, CORVIKNIGHT)
                 .build();
+        Battle battle = new BattleBuilder()
+                .addPokemon(2, TING_LU)
+                .build();
         BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, TING_LU, TING_LU)
                 .addPokemon(1, CORVIKNIGHT, "in a groove")
                 .setTurnStartPokemon(1, CORVIKNIGHT)
                 .setHealth(2, TING_LU, BigDecimal.valueOf(89))
+                .setBattle(battle)
                 .build();
         assertTrue(healEventAnalyzer.supportAnalyze(healthEvent));
         healEventAnalyzer.analyze(healthEvent, battleStat, battleContext);
@@ -90,6 +97,7 @@ class HealEventAnalyzerTest {
 
         PokemonStatus tiluStatus = battleContext.getPlayerStatusList().get(1).getPokemonStatus(TING_LU);
         assertEquals(BigDecimal.valueOf(95.0), tiluStatus.getHealth());
+        assertEquals("Leftovers", battle.getTeams()[1].getPokemon(TING_LU).getItem());
     }
 
     @Test

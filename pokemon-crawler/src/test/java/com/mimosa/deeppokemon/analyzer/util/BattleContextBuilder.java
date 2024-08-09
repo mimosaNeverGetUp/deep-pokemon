@@ -10,6 +10,7 @@ import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
+import com.mimosa.deeppokemon.entity.Battle;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,6 +20,7 @@ public class BattleContextBuilder {
     private int turn = 0;
     private Weather weather;
     private Field field;
+    private Battle battle;
 
     public BattleContextBuilder() {
         playerStatuses = List.of(new PlayerStatus(), new PlayerStatus());
@@ -32,10 +34,11 @@ public class BattleContextBuilder {
     }
 
     public BattleContext build() {
-        BattleContext battleContext = new BattleContext(playerStatuses);
+        BattleContext battleContext = new BattleContext(playerStatuses, null);
         battleContext.setTurn(turn);
         battleContext.setWeather(weather);
         battleContext.setField(field);
+        battleContext.setBattle(battle);
         return battleContext;}
 
     public BattleContextBuilder addSide(int playerNumber, Side side) {
@@ -96,6 +99,11 @@ public class BattleContextBuilder {
 
     public BattleContextBuilder addActivateStatus(int playerNumber, String pokemon, ActivateStatus activateStatus) {
         playerStatuses.get(playerNumber - 1).getPokemonStatus(pokemon).addActivateStatus(activateStatus);
+        return this;
+    }
+
+    public BattleContextBuilder setBattle(Battle battle) {
+        this.battle = battle;
         return this;
     }
 }

@@ -49,10 +49,6 @@ public class Battle implements Serializable {
     // 队伍
     @Transient
     private Team[] teams;
-    // 总血线变化表，json字符串
-    private String healthLinePairJsonString;
-    // 比赛highlight表，json字符串
-    private String highLightJsonString;
     // 对局记录
     private String log;
     //对局回合
@@ -145,30 +141,6 @@ public class Battle implements Serializable {
 
     public void setTurnCount(int turnCount) {
         this.turnCount = turnCount;
-    }
-
-    public String getHealthLinePairJsonString() {
-        return healthLinePairJsonString;
-    }
-
-    public void setHealthLinePairJsonString(String healthLinePairJsonString) {
-        this.healthLinePairJsonString = healthLinePairJsonString;
-    }
-
-    public String getHighLightJsonString() {
-        return highLightJsonString;
-    }
-
-    public void setHighLightJsonString(String highLightJsonString) {
-        this.highLightJsonString = highLightJsonString;
-    }
-
-    public void setPokemonItem(int playIndex, String pokemonName, String item) {
-        teams[playIndex].getPokemon(pokemonName).setItem(item);
-    }
-
-    public void setPokemonMove(int playerIndex, String pokemonName, String move) {
-        teams[playerIndex].getPokemon(pokemonName).getMoves().add(move);
     }
 
     public List<String> getType() {

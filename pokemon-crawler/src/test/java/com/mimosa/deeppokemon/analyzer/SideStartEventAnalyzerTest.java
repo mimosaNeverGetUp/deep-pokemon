@@ -38,7 +38,7 @@ class SideStartEventAnalyzerTest {
         BattleStat battleStat = new BattleStatBuilder().build();
 
         PlayerStatus p1Status = new PlayerStatus();
-        BattleContext battleContext = new BattleContext(List.of(p1Status));
+        BattleContext battleContext = new BattleContext(List.of(p1Status), null);
         battleContext.setTurn(10);
         Assertions.assertTrue(sideStartEventAnalyzer.supportAnalyze(sideEvent));
         sideStartEventAnalyzer.analyze(sideEvent, battleStat, battleContext);

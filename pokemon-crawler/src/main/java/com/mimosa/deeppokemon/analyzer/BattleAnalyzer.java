@@ -37,7 +37,7 @@ public class BattleAnalyzer {
             try {
                 log.debug("start analyze battle {}", battle.getBattleID());
                 BattleStat battleStat = new BattleStat(battle.getBattleID(), new ArrayList<>(), new ArrayList<>());
-                BattleContext battleContext = new BattleContext(new ArrayList<>());
+                BattleContext battleContext = new BattleContext(new ArrayList<>(), battle);
                 List<BattleEvent> battleEvents = battleEventParser.parse(battle.getLog());
                 battleEvents.forEach(battleEvent -> analyzeEvent(battleEvent, battleStat, battleContext));
                 log.debug("end analyze battle {}", battle.getBattleID());

@@ -40,8 +40,8 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final Set<String> SPECIAL_RECOIL_DAMAGE = Set.of(STEELBEAM, SUPERCELLSLAM, HIGHJUMPKICK);
     private static final int TARGET_INDEX = 0;
     private static final int HEALTH_INDEX = 1;
-    private static final int OF_INDEX = 3;
     private static final int FROM_INDEX = 2;
+    private static final int OF_INDEX = 3;
     public static final String STEALTH_ROCK = "Stealth Rock";
     public static final String SPIKES = "Spikes";
     private static final String ITEM = "item";
@@ -74,6 +74,21 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             battleEvent.setBattleEventStat(damageEventStat);
 
             setPlayerSwitchDamageStat(battleEvent, battleStat, eventTarget, healthDiff);
+
+            setPokemonItem(battleContext, damageEventStat);
+        }
+    }
+
+    private static void setPokemonItem(BattleContext battleContext, DamageEventStat damageEventStat) {
+        String damageFrom = damageEventStat.damageFrom();
+        EventTarget damageOf = damageEventStat.damageOf();
+        if (damageFrom != null && damageFrom.contains(ITEM) && damageOf != null) {
+            String[] splits = damageFrom.split("item:");
+            if (splits.length < 2) {
+                log.error("can not get item by from str:{}", damageFrom);
+            }
+            String item = splits[1].strip();
+            battleContext.setPokemonItem(damageOf.playerNumber(), damageOf.targetName(), item);
         }
     }
 

@@ -29,7 +29,7 @@ class PlayerEventAnalyzerTest {
         BattleEvent battleEvent = new BattleEvent("player", List.of("p1", "RUBYBLOOD", "#splxvtyrants2"), null
                 , null);
         BattleStat battleStat = new BattleStat(null, new ArrayList<>(),new ArrayList<>());
-        BattleContext battleContext = new BattleContext(new ArrayList<>());
+        BattleContext battleContext = new BattleContext(new ArrayList<>(), null);
         playerEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         Assertions.assertEquals(1, battleStat.playerStatList().size());
         PlayerStat playerStat = battleStat.playerStatList().get(0);

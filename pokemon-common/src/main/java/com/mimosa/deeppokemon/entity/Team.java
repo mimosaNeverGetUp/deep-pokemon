@@ -77,6 +77,11 @@ public class Team implements Serializable {
         return pokemons;
     }
 
+    public void addPokemon(Pokemon pokemon) {
+        pokemons.add(pokemon);
+        pokemonMap.put(pokemon.getName(), pokemon);
+    }
+
     public void setPokemons(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
         pokemonMap = pokemons.stream().collect(Collectors.toMap(Pokemon::getName, Function.identity(), (p1, p2) -> p1));

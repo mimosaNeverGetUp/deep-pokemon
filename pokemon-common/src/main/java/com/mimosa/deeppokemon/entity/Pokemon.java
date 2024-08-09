@@ -66,10 +66,7 @@ public class Pokemon implements Serializable, Comparable<Pokemon> {
     }
 
     public void setItem(String item) {
-        if (item == null) {
-            // 只可以修改一次，代表原始配置
-            this.item = item;
-        }
+        this.item = item;
     }
 
     public String getAblity() {
@@ -98,7 +95,6 @@ public class Pokemon implements Serializable, Comparable<Pokemon> {
             it = "@???";
         }
         return name + it + m;
-        //return String.format("      %s @%s \n       -%s \n \n", name, item, moves);
     }
 
     @Override

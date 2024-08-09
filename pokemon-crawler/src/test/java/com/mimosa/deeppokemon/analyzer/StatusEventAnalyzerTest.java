@@ -11,7 +11,10 @@ import com.mimosa.deeppokemon.analyzer.entity.Status;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
+import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Pokemon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +54,14 @@ class StatusEventAnalyzerTest {
         EventTarget exceptTarget = new EventTarget(1, ursaluna, ursaluna);
 
         BattleEvent statusEvent = new BattleEvent("status", List.of("p1a: Ursaluna", "brn", "[from] item: Flame Orb"), null, null);
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, ursaluna)
+                .build();
         BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, ursaluna, ursaluna)
+                .setBattle(battle)
                 .build();
+
         Assertions.assertTrue(statusEventAnalyzer.supportAnalyze(statusEvent));
         statusEventAnalyzer.analyze(statusEvent, null, battleContext);
         Status status = battleContext.getPlayerStatusList().get(0).getPokemonStatus(ursaluna).getStatus();
@@ -61,5 +69,8 @@ class StatusEventAnalyzerTest {
         Assertions.assertEquals("brn", status.name());
         Assertions.assertEquals(exceptTarget
                 , status.ofTarget());
+        Pokemon pokemon = battle.getTeams()[0].getPokemon(ursaluna);
+        Assertions.assertNotNull(pokemon);
+        Assertions.assertEquals("Flame Orb", pokemon.getItem());
     }
 }

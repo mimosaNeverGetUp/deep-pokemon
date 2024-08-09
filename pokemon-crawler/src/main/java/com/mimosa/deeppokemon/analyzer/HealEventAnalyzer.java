@@ -6,16 +6,16 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
-import com.mimosa.deeppokemon.entity.stat.PlayerStat;
-import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.PlayerStat;
+import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -31,6 +31,7 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
     private static final int TARGET_INDEX = 0;
     private static final int HEALTH_INDEX = 1;
     private static final int FROM_INDEX = 2;
+    protected static final String ITEM = "item";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -53,6 +54,7 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
 
             pokemonStatus.setHealth(health);
             setHealthStat(battleEvent, battleStat, battleContext, healthFrom, eventTarget, healthDiff);
+            setPokemonItem(battleContext, healthFrom, eventTarget);
         }
     }
 
@@ -93,6 +95,23 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
                 opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue().subtract(healthDiff));
                 opponentPokemonStat.setAttackValue(opponentPokemonStat.getAttackValue().subtract(healthDiff));
             }
+        }
+    }
+
+    private static void setPokemonItem(BattleContext battleContext, String healthFrom, EventTarget eventTarget) {
+        if (healthFrom != null && healthFrom.contains(ITEM)) {
+            String item;
+            if (healthFrom.contains(":")) {
+                String[] splits = healthFrom.split(":");
+                if (splits.length < 2) {
+                    log.error("can not get item by from str:{}", healthFrom);
+                    return;
+                }
+                item = splits[1].strip();
+            } else {
+                item = healthFrom;
+            }
+            battleContext.setPokemonItem(eventTarget.playerNumber(), eventTarget.targetName(), item);
         }
     }
 

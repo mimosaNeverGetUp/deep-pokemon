@@ -34,7 +34,7 @@ public class TeamService {
         this.mongoTemplate = mongoTemplate;
     }
 
-    @RegisterReflectionForBinding({TeamGroup.class, TeamSet.class})
+    @RegisterReflectionForBinding({TeamGroup.class, TeamSet.class, PokemonBuildSet.class})
     public void updateTeamSet() {
         List<Binary> needUpdateTeamGroup = new ArrayList<>();
 

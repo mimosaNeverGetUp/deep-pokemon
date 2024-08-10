@@ -60,7 +60,7 @@ public class ScheduledConfig {
         log.info("start craw ladder");
         battleCrawler.crawLadder(false).analyzeFuture().join();
         log.info("craw ladder success");
-        battleService.updateTeamGroup();
+        battleService.updateTeam();
     }
 
     @Scheduled(cron = "0 0 4 * * ?")

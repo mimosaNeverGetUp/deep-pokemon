@@ -152,12 +152,12 @@ class BattleServiceTest {
         byte[] bytes = battleService.calTeamId(team.getPokemons());
 
         String teamId = new String(bytes);
-        Assertions.assertEquals("019906450889098309841017",teamId);
+        Assertions.assertEquals("019906450889098309841017", teamId);
     }
 
     @Test
-    void updateTeamGroup() {
-        battleService.updateTeamGroup();
+    void updateTeam() {
+        battleService.updateTeam();
         TeamGroup teamGroup = mongoTemplate.findOne(new Query(), TeamGroup.class);
         Assertions.assertNotNull(teamGroup);
         Assertions.assertNotNull(teamGroup.pokemons());
@@ -168,8 +168,27 @@ class BattleServiceTest {
         Assertions.assertNotNull(teamGroup.id());
         Assertions.assertNotNull(teamGroup.id());
         Assertions.assertFalse(teamGroup.teams().isEmpty());
+        Assertions.assertNotEquals(0, teamGroup.replayNum());
+        Assertions.assertNotEquals(0, teamGroup.uniquePlayerNum());
 
         Assertions.assertFalse(teamGroup.pokemons().isEmpty());
         Assertions.assertFalse(teamGroup.tagSet().isEmpty());
+
+        Assertions.assertEquals(mongoTemplate.count(new Query(), TeamGroup.class), mongoTemplate.count(new Query(),
+                TeamSet.class));
+        TeamSet teamSet = mongoTemplate.findOne(new Query(), TeamSet.class);
+        Assertions.assertNotNull(teamSet);
+        Assertions.assertNotNull(teamSet.pokemons());
+        Assertions.assertNotNull(teamSet.tier());
+        Assertions.assertNotEquals(0, teamSet.replayNum());
+        Assertions.assertFalse(teamSet.pokemons().isEmpty());
+        boolean foundMove = false;
+        for (PokemonBuildSet pokemonBuildSet : teamSet.pokemons()) {
+            Assertions.assertNotNull(pokemonBuildSet.name());
+            if (!pokemonBuildSet.moves().isEmpty()) {
+                foundMove = true;
+            }
+        }
+        Assertions.assertTrue(foundMove);
     }
 }

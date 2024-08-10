@@ -60,7 +60,6 @@ public class BattleService {
     private static final Logger log = LoggerFactory.getLogger(BattleService.class);
     private static final String ID = "_id";
     private static final String BATTLE = "battle";
-    protected static final int POKEMONS_BITS = 10000;
     protected static final String TEAM_ID = "teamId";
     protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
     protected static final String BATTLE_DATE = "battleDate";
@@ -75,6 +74,10 @@ public class BattleService {
     protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
     protected static final String TEAM_GROUP = "team_group";
     protected static final String BATTLE_TEAM = "battle_team";
+    protected static final String REPLAY_NUM = "replayNum";
+    protected static final String POKEMONS_MOVE = "pokemons.moves";
+    protected static final String POKEMONS_ITEM = "pokemons.item";
+    protected static final String POKEMONS_ABILITY = "pokemons.ability";
 
     private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
@@ -84,11 +87,13 @@ public class BattleService {
     private final BattleCrawler battleCrawler;
     private final BattleAnalyzer battleAnalyzer;
     private final PokemonInfoCrawler pokemonInfoCrawler;
+    private final TeamService teamService;
 
     private final Set<String> battleIds = ConcurrentHashMap.newKeySet();
 
     public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler,
                          BattleAnalyzer battleAnalyzer, PokemonInfoCrawler pokemonInfoCrawler,
+                         TeamService teamService,
                          @Value("${CRAW_BATTLE_POOL_SIZE:8}") int crawBattlePoolSize,
                          @Value("${ANALYZE_BATTLE_POOL_SIZE:3}") int analyzeBattlePoolSize,
                          @Value("${CRAW_PERIOD_MILLISECOND:1000}") int crawPeriodMillisecond) {
@@ -96,6 +101,7 @@ public class BattleService {
         this.battleCrawler = battleCrawler;
         this.battleAnalyzer = battleAnalyzer;
         this.pokemonInfoCrawler = pokemonInfoCrawler;
+        this.teamService = teamService;
         crawBattleExecutor = new ThreadPoolExecutor(crawBattlePoolSize, crawBattlePoolSize, 0,
                 TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         analyzeBattleExecutor = new ThreadPoolExecutor(analyzeBattlePoolSize, analyzeBattlePoolSize, 0,
@@ -275,7 +281,12 @@ public class BattleService {
         return battle.getBattleStat();
     }
 
-    public synchronized void updateTeamGroup() {
+    public synchronized void updateTeam() {
+        updateTeamGroup();
+        teamService.updateTeamSet();
+    }
+
+    private void updateTeamGroup() {
         GroupOperation groupOperation = Aggregation.group(TEAM_ID)
                 .first(BATTLE_DATE).as(LATEST_BATTLE_DATE)
                 .max(RATING).as(MAX_RATING)
@@ -286,8 +297,11 @@ public class BattleService {
                 .push("$$ROOT").as(TEAMS);
 
         AddFieldsOperation addFieldsOperationBuilder = Aggregation.addFields()
-                .addFieldWithValue(UNIQUE_PLAYER_NUM, ArrayOperators.arrayOf(PLAYER_SET).length()).build();
-        ProjectionOperation projectionOperation = Aggregation.project().andExclude(PLAYER_SET);
+                .addFieldWithValue(UNIQUE_PLAYER_NUM, ArrayOperators.arrayOf(PLAYER_SET).length())
+                .addFieldWithValue(REPLAY_NUM, ArrayOperators.arrayOf(TEAMS).length())
+                .build();
+        ProjectionOperation projectionOperation = Aggregation.project().andExclude(PLAYER_SET, POKEMONS_MOVE,
+                POKEMONS_ITEM, POKEMONS_ABILITY);
         MergeOperation mergeOperation = Aggregation.merge()
                 .intoCollection(TEAM_GROUP)
                 .whenDocumentsMatch(MergeOperation.WhenDocumentsMatch.replaceDocument())

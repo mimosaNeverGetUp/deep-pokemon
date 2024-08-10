@@ -64,7 +64,7 @@ public class CrawLadderRunner {
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());
         try {
             ladderCrawler.crawLadder(true).analyzeFuture().join();
-            battleService.updateTeamGroup();
+            battleService.updateTeam();
         } catch (Exception e) {
             logger.error("craw ladder exception", e);
             Thread.currentThread().interrupt();

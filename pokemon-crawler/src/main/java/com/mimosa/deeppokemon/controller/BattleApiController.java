@@ -34,9 +34,9 @@ public class BattleApiController {
         return "success trigger";
     }
 
-    @PostMapping("/team-group/update")
-    public String updateTeamGroup() {
-        battleService.updateTeamGroup();
+    @PostMapping("/team/update")
+    public String updateTeam() {
+        battleService.updateTeam();
         return "success";
     }
 }

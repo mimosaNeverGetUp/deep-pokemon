@@ -35,7 +35,7 @@ public class Pokemon implements Serializable, Comparable<Pokemon> {
     private Set<String> moves = new HashSet<>();
 
     private String item;
-    private String ablity;
+    private String ability;
 
     public Pokemon() {
 
@@ -69,12 +69,12 @@ public class Pokemon implements Serializable, Comparable<Pokemon> {
         this.item = item;
     }
 
-    public String getAblity() {
-        return ablity;
+    public String getAbility() {
+        return ability;
     }
 
-    public void setAblity(String ablity) {
-        this.ablity = ablity;
+    public void setAbility(String ability) {
+        this.ability = ability;
     }
 
     @Override

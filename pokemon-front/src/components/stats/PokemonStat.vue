@@ -168,7 +168,7 @@ async function queryPokemonSet(format, pokemon) {
           <span>{{ item }}</span>
         </div>
         <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
-        <span>{{ itemText[item].desc }}</span>
+        <span>{{ itemText[item]?.desc }}</span>
       </div>
     </div>
     <Divider type="solid"/>
@@ -228,10 +228,10 @@ async function queryPokemonSet(format, pokemon) {
       </div>
     </div>
     <Divider type="solid"/>
-    <div class="ml-5 my-3" v-if="teams">
+    <div class="ml-5 my-3" v-if="teams && teams.length !== 0">
       <p class="text-xl  mb-3">replay</p>
       <div class="mb-3 flex items-center text-center" v-for="teamGroup in teams">
-        <Team class="w-1/3" :team="teamGroup" :compact="true"></Team>
+        <Team class="w-1/3" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
         <div class="flex gap-2 w-full" v-for="team in teamGroup.teams">
           <router-link :to="`/player-record?name=${team.playerName}`" class="text-black w-1/2">
             {{ team.playerName }}

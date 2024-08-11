@@ -39,7 +39,7 @@ fetchData(page.value, row.value)
              tableStyle="min-width: 50rem">
     <Column field="rank" header="排名"
             :style="{ width:'5%' }"></Column>
-    <Column field="name" header="玩家名" :style="{ width:'20%' }">
+    <Column field="name" header="玩家名" :style="{ width:'10%' }">
       <template #body="{data}">
         <router-link :to="`/player-record?name=${data.name}`" class="text-black">
           {{ data.name }}
@@ -48,13 +48,18 @@ fetchData(page.value, row.value)
     </Column>
     <Column field="elo" header="elo" :style="{ width:'5%' }"></Column>
     <Column field="gxe" header="gxe" :style="{ width:'5%' }"></Column>
-    <Column field="recentTeam" header="最近使用队伍" :style="{ width:'30%' }">
+    <Column field="recentTeam" :style="{ width:'20%', 'text-align': 'center'}">
+      <template #header>
+        <div class="flex-1 text-center">最近使用队伍</div>
+      </template>
       <template #body="{data}">
-        <div class="team-list" v-if="data.recentTeam.length !== 0">
-          <Team v-for="team in data.recentTeam" :team="team" :compact="true"></Team>
-        </div>
-        <div v-else>
-          <Team :team="emptyTeam" :compact="true"></Team>
+        <div class="flex justify-center">
+          <div class="team-list" v-if="data.recentTeam.length !== 0">
+            <Team v-for="team in data.recentTeam" :team="team" :compact="false"></Team>
+          </div>
+          <div v-else>
+            <Team :team="emptyTeam" :compact="false"></Team>
+          </div>
         </div>
       </template>
     </Column>

@@ -81,7 +81,7 @@ queryTeams(page.value, row.value);
     <Column field="teamId" header="team" :style="{ width:'20%'}">
       <template #body="slotProps">
         <div class="flex items-center">
-          <Team :team="slotProps.data" :compact="true"></Team>
+          <Team :team="slotProps.data" :compact="true" :teamSet="slotProps.data.teamSet"></Team>
         </div>
       </template>
     </Column>

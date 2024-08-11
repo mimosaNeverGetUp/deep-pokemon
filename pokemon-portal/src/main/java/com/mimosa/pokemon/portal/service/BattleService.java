@@ -29,6 +29,7 @@ import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.TeamGroup;
 import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.pokemon.portal.dto.BattleDto;
+import com.mimosa.pokemon.portal.dto.TeamGroupDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
@@ -60,6 +61,9 @@ public class BattleService {
     protected static final String WINNER = "winner";
     protected static final Set<String> VALIDATE_TEAM_GROUP_SORT = new HashSet<>(List.of("maxRating", "uniquePlayerNum"
             , "latestBattleDate"));
+    protected static final String TEAM_SET = "team_set";
+    protected static final String SET = "set";
+    protected static final String TEAM_GROUP = "team_group";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -107,9 +111,9 @@ public class BattleService {
     }
 
     @Cacheable("teamGroup")
-    @RegisterReflectionForBinding(TeamGroup.class)
-    public PageResponse<TeamGroup> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
-                                             String sort) {
+    @RegisterReflectionForBinding({TeamGroup.class, BattleTeam.class})
+    public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
+                                                String sort) {
         if (!VALIDATE_TEAM_GROUP_SORT.contains(sort)) {
             throw new IllegalArgumentException("Invalid sort value: " + sort);
         }
@@ -123,31 +127,30 @@ public class BattleService {
             criteria.and("pokemons.name").all(pokemonNames);
         }
 
-        Query query = new Query(criteria).with(Sort.by(Sort.Order.desc(sort)));
-        query.fields().exclude("teams.pokemons", "teams._id", "teams.teamId", "teams.tagSet", "teams.tier",
-                "teams.battleType");
+        Query query = new Query(criteria);
         long total = mongoTemplate.count(query, TeamGroup.class);
+
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC, sort);
+        LookupOperation lookupOperation = LookupOperation.newLookup()
+                .from(TEAM_SET)
+                .localField(ID)
+                .foreignField(ID)
+                .as(SET);
+        Aggregation aggregation = Aggregation.newAggregation(
+                matchOperation,
+                sortOperation,
+                Aggregation.skip((long) (page) * row),
+                Aggregation.limit(row),
+                lookupOperation,
+                Aggregation.addFields().
+                        addFieldWithValue("teamSet", ArrayOperators.arrayOf(SET).first()).build(),
+                Aggregation.stage("{ $project : { 'teams.pokemons': 0, 'teams._id': 0, 'teams.teamId': 0, 'teams" +
+                        ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, '_id': 0, 'set': 0} }"));
         MongodbUtils.withPageOperation(query, page, row);
-        List<TeamGroup> battleTeams = mongoTemplate.find(query, TeamGroup.class);
+        List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation, TEAM_GROUP, TeamGroupDto.class)
+                .getMappedResults();
         return new PageResponse<>(total, page, row, battleTeams);
-    }
-
-    @Cacheable("team")
-    @RegisterReflectionForBinding(BattleTeam.class)
-    public PageResponse<BattleTeam> team(int page, int row, List<String> tags, List<String> pokemonNames) {
-        Criteria criteria = new Criteria();
-        if (CollectionUtils.hasNotNullObject(tags)) {
-            criteria.andOperator(Criteria.where("tagSet").all(tags));
-        }
-        if (CollectionUtils.hasNotNullObject(pokemonNames)) {
-            criteria.andOperator(Criteria.where("pokemons.name").all(pokemonNames));
-        }
-
-        Query query = new Query(criteria).with(Sort.by(Sort.Order.desc("battleDate")));
-        long count = mongoTemplate.count(query, BattleTeam.class);
-        MongodbUtils.withPageOperation(query, page, row);
-        List<BattleTeam> battleTeams = mongoTemplate.find(query, BattleTeam.class);
-        return new PageResponse<>(count, page, row, battleTeams);
     }
 
     @Cacheable("battlestat")

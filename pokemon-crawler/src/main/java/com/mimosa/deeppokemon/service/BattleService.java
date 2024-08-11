@@ -75,9 +75,6 @@ public class BattleService {
     protected static final String TEAM_GROUP = "team_group";
     protected static final String BATTLE_TEAM = "battle_team";
     protected static final String REPLAY_NUM = "replayNum";
-    protected static final String POKEMONS_MOVE = "pokemons.moves";
-    protected static final String POKEMONS_ITEM = "pokemons.item";
-    protected static final String POKEMONS_ABILITY = "pokemons.ability";
 
     private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
@@ -300,16 +297,18 @@ public class BattleService {
                 .addFieldWithValue(UNIQUE_PLAYER_NUM, ArrayOperators.arrayOf(PLAYER_SET).length())
                 .addFieldWithValue(REPLAY_NUM, ArrayOperators.arrayOf(TEAMS).length())
                 .build();
-        ProjectionOperation projectionOperation = Aggregation.project().andExclude(PLAYER_SET, POKEMONS_MOVE,
-                POKEMONS_ITEM, POKEMONS_ABILITY);
+
         MergeOperation mergeOperation = Aggregation.merge()
                 .intoCollection(TEAM_GROUP)
                 .whenDocumentsMatch(MergeOperation.WhenDocumentsMatch.replaceDocument())
                 .whenDocumentsDontMatch(MergeOperation.WhenDocumentsDontMatch.insertNewDocument())
                 .build();
 
-        Aggregation aggregation = Aggregation.newAggregation(groupOperation, addFieldsOperationBuilder,
-                projectionOperation, mergeOperation);
+        Aggregation aggregation = Aggregation.newAggregation(groupOperation,
+                addFieldsOperationBuilder,
+                Aggregation.stage("{ $project : { 'playerSet': 0, 'pokemons.moves': 0, 'pokemons.item': 0," +
+                        " 'pokemons.ability': 0 } }"),
+                mergeOperation);
         AggregationOptions options = AggregationOptions.builder()
                 .allowDiskUse(true)
                 .skipOutput()

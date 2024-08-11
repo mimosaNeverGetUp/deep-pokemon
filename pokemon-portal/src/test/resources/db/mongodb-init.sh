@@ -2,6 +2,7 @@ mongoimport --jsonArray --db test --collection battle --file /docker-entrypoint-
 mongoimport --jsonArray --db test --collection battle_team --file /docker-entrypoint-initdb.d/battle_team.json
 mongoimport --jsonArray --db test --collection battle_stat --file /docker-entrypoint-initdb.d/battle_stat.json
 mongoimport --jsonArray --db test --collection team_group --file /docker-entrypoint-initdb.d/teamGroup.json
+mongoimport --jsonArray --db test --collection team_set --file /docker-entrypoint-initdb.d/teamSet.json
 mongoimport --jsonArray --db test --collection ladder --file /docker-entrypoint-initdb.d/ladder.json
 mongoimport --jsonArray --db test --collection monthly_stat_meta --file /docker-entrypoint-initdb.d/metaStat.json
 mongoimport --jsonArray --db test --collection monthly_stat_pokemon_moveset --file /docker-entrypoint-initdb.d/moveSet.json

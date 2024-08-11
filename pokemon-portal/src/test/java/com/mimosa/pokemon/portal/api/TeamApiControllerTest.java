@@ -35,7 +35,7 @@ class TeamApiControllerTest {
     @ParameterizedTest
     @CsvSource(value = {
             "Kingambit::0:7",
-            "Kingambit,Deoxys-Speed::0:7",
+            "Kingambit,Slowking-Galar::0:7",
             ":ATTACK:0:7",
             ":STAFF,BALANCE_STAFF:0:7"},
             delimiterString = ":"
@@ -54,7 +54,7 @@ class TeamApiControllerTest {
                 .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
                 .andExpect(jsonPath("$.data").isNotEmpty())
                 .andExpect(jsonPath("$.data", Matchers.everyItem(Matchers.allOf(
-                        Matchers.hasEntry(Matchers.equalTo("id"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("teamSet"), Matchers.notNullValue()),
                         Matchers.hasEntry(Matchers.equalTo("latestBattleDate"), Matchers.notNullValue()),
                         Matchers.hasEntry(Matchers.equalTo("maxRating"), Matchers.not(0)),
                         Matchers.hasEntry(Matchers.equalTo("uniquePlayerNum"), Matchers.not(0)),

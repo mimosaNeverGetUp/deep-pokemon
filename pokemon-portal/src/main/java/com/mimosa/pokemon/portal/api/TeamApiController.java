@@ -6,8 +6,7 @@
 
 package com.mimosa.pokemon.portal.api;
 
-import com.mimosa.deeppokemon.entity.BattleTeam;
-import com.mimosa.deeppokemon.entity.TeamGroup;
+import com.mimosa.pokemon.portal.dto.TeamGroupDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.BattleService;
 import jakarta.validation.constraints.Max;
@@ -30,20 +29,12 @@ public class TeamApiController {
         this.battleService = battleService;
     }
 
-    @GetMapping("/teams")
-    public PageResponse<BattleTeam> teams(@RequestParam(required = false, name = "pokemons") List<String> pokemons,
-                                          @RequestParam(required = false, name = "tags") List<String> tags,
-                                          @RequestParam(name = "page") @Min(0) int page,
-                                          @RequestParam(name = "row") @Min(1) @Max(100) int row) {
-        return battleService.team(page, row, tags, pokemons);
-    }
-
     @GetMapping("/v2/teams")
-    public PageResponse<TeamGroup> teamGroup(@RequestParam(required = false, name = "pokemons") List<String> pokemons,
-                                             @RequestParam(required = false, name = "tags") List<String> tags,
-                                             @RequestParam(required = false, name = "sort", defaultValue = "maxRating") String sort,
-                                             @RequestParam(name = "page") @Min(0) int page,
-                                             @RequestParam(name = "row") @Min(1) @Max(20) int row) {
+    public PageResponse<TeamGroupDto> teamGroup(@RequestParam(required = false, name = "pokemons") List<String> pokemons,
+                                                @RequestParam(required = false, name = "tags") List<String> tags,
+                                                @RequestParam(required = false, name = "sort", defaultValue = "maxRating") String sort,
+                                                @RequestParam(name = "page") @Min(0) int page,
+                                                @RequestParam(name = "row") @Min(1) @Max(20) int row) {
         return battleService.teamGroup(page, row, tags, pokemons, sort);
     }
 }

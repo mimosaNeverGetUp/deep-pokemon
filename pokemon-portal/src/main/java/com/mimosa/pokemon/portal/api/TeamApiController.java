@@ -33,8 +33,9 @@ public class TeamApiController {
     public PageResponse<TeamGroupDto> teamGroup(@RequestParam(required = false, name = "pokemons") List<String> pokemons,
                                                 @RequestParam(required = false, name = "tags") List<String> tags,
                                                 @RequestParam(required = false, name = "sort", defaultValue = "maxRating") String sort,
+                                                @RequestParam(required = false, name = "groupName") String groupName,
                                                 @RequestParam(name = "page") @Min(0) int page,
                                                 @RequestParam(name = "row") @Min(1) @Max(20) int row) {
-        return battleService.teamGroup(page, row, tags, pokemons, sort);
+        return battleService.teamGroup(page, row, tags, pokemons, sort, groupName);
     }
 }

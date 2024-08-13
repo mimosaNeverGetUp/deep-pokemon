@@ -33,6 +33,10 @@ async function queryTeams(page, row) {
     url.searchParams.set('sort', getSortFiled(route.query.sort));
   }
 
+  if (route.query.range) {
+    url.searchParams.set('groupName', getTeamGroupName(route.query.range));
+  }
+
   const res = await fetch(url,
       {
         method: "GET"
@@ -65,6 +69,20 @@ function getTeamTagFiled(teamTag) {
     case "Stall":
       return ["STAFF", "BALANCE_STAFF"];
   }
+}
+
+function getTeamGroupName(range) {
+  switch (range) {
+    case "Last 3 days":
+      return "last_3_days";
+    case "Last week":
+      return "last_7_days";
+    case "Last month":
+      return "last_30_days";
+    case "Last 3 months":
+      return "last_90_days";
+  }
+  return "last_7_days";
 }
 
 function onPage(event) {

@@ -21,6 +21,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,6 +32,8 @@ class BattleServiceTest {
     public static final String NOT_EXIST_BATTLE_ID = "test-12345";
     private static final String NOT_SAVE_BATTLE_ID = "smogtours-gen9ou-746547";
     private static final String NOT_LOG_BATTLE_ID = "gen9ou-2171080820";
+    protected static final String TEAM_GROUP_LAST_99_Y = "team_group_last_99_y";
+    protected static final String TEAM_SET_LAST_99_Y = "team_set_last_99_y";
 
     @Autowired
     private BattleService battleService;
@@ -157,8 +160,9 @@ class BattleServiceTest {
 
     @Test
     void updateTeam() {
-        battleService.updateTeam();
-        TeamGroup teamGroup = mongoTemplate.findOne(new Query(), TeamGroup.class);
+        battleService.updateTeam(new TeamGroupDetail(LocalDate.now().minusYears(99), LocalDate.now(),
+                TEAM_GROUP_LAST_99_Y, TEAM_SET_LAST_99_Y));
+        TeamGroup teamGroup = mongoTemplate.findOne(new Query(), TeamGroup.class, TEAM_GROUP_LAST_99_Y);
         Assertions.assertNotNull(teamGroup);
         Assertions.assertNotNull(teamGroup.pokemons());
         Assertions.assertNotNull(teamGroup.tagSet());
@@ -174,12 +178,13 @@ class BattleServiceTest {
         Assertions.assertFalse(teamGroup.pokemons().isEmpty());
         Assertions.assertFalse(teamGroup.tagSet().isEmpty());
 
-        Assertions.assertEquals(mongoTemplate.count(new Query(), TeamGroup.class), mongoTemplate.count(new Query(),
-                TeamSet.class));
-        TeamSet teamSet = mongoTemplate.findOne(new Query(), TeamSet.class);
+        Assertions.assertEquals(mongoTemplate.count(new Query(), TeamGroup.class, TEAM_GROUP_LAST_99_Y), mongoTemplate.count(new Query(),
+                TeamSet.class, TEAM_SET_LAST_99_Y));
+        TeamSet teamSet = mongoTemplate.findOne(new Query(), TeamSet.class, TEAM_SET_LAST_99_Y);
         Assertions.assertNotNull(teamSet);
         Assertions.assertNotNull(teamSet.pokemons());
         Assertions.assertNotNull(teamSet.tier());
+        Assertions.assertNotNull(teamSet.minReplayDate());
         Assertions.assertNotEquals(0, teamSet.replayNum());
         Assertions.assertFalse(teamSet.pokemons().isEmpty());
         boolean foundMove = false;

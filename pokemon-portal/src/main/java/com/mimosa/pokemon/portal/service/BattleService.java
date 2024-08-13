@@ -113,7 +113,7 @@ public class BattleService {
     @Cacheable("teamGroup")
     @RegisterReflectionForBinding({TeamGroup.class, BattleTeam.class})
     public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
-                                                String sort) {
+                                                String sort, String groupName) {
         if (!VALIDATE_TEAM_GROUP_SORT.contains(sort)) {
             throw new IllegalArgumentException("Invalid sort value: " + sort);
         }
@@ -128,12 +128,12 @@ public class BattleService {
         }
 
         Query query = new Query(criteria);
-        long total = mongoTemplate.count(query, TeamGroup.class);
+        long total = mongoTemplate.count(query, getTeamGroupCollection(groupName));
 
         MatchOperation matchOperation = Aggregation.match(criteria);
         SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC, sort);
         LookupOperation lookupOperation = LookupOperation.newLookup()
-                .from(TEAM_SET)
+                .from(getTeamSetCollection(groupName))
                 .localField(ID)
                 .foreignField(ID)
                 .as(SET);
@@ -148,9 +148,24 @@ public class BattleService {
                 Aggregation.stage("{ $project : { 'teams.pokemons': 0, 'teams._id': 0, 'teams.teamId': 0, 'teams" +
                         ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, '_id': 0, 'set': 0} }"));
         MongodbUtils.withPageOperation(query, page, row);
-        List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation, TEAM_GROUP, TeamGroupDto.class)
+        List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation, getTeamGroupCollection(groupName),
+                        TeamGroupDto.class)
                 .getMappedResults();
         return new PageResponse<>(total, page, row, battleTeams);
+    }
+
+    private String getTeamGroupCollection(String groupName) {
+        if (groupName == null) {
+            return TEAM_GROUP;
+        }
+        return String.format("%s_%s", TEAM_GROUP, groupName);
+    }
+
+    private String getTeamSetCollection(String groupName) {
+        if (groupName == null) {
+            return TEAM_SET;
+        }
+        return String.format("%s_%s", TEAM_SET, groupName);
     }
 
     @Cacheable("battlestat")

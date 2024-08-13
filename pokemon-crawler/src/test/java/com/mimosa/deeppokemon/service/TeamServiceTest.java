@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,20 +25,27 @@ class TeamServiceTest {
 
     @Test
     void queryNeedUpdateTeamGroup() {
-        TeamSet teamSetA = new TeamSet(new Binary("testA".getBytes()), "gen9ou", 1, null);
-        TeamSet teamSetB = new TeamSet(new Binary("testB".getBytes()), "gen9ou", 3, null);
-        Mockito.doReturn(List.of(teamSetA, teamSetB)).when(teamService).getTeamSets(Mockito.any());
+        TeamSet teamSetA = new TeamSet(new Binary("testA".getBytes()), "gen9ou", 1, LocalDate.now(), null);
+        TeamSet teamSetB = new TeamSet(new Binary("testB".getBytes()), "gen9ou", 3, LocalDate.now(), null);
+        Mockito.doReturn(List.of(teamSetA, teamSetB)).when(teamService).getTeamSets(Mockito.any(), Mockito.any());
         List<TeamGroup> teamGroups = new ArrayList<>();
         TeamGroup teamGroupA = new TeamGroup("testA".getBytes(), null, 0, 1, 0, null, null, null, null);
-        TeamGroup teamGroupB = new TeamGroup("testB".getBytes(), null, 0, 5, 0, null, null, null, null);
-        TeamGroup teamGroupC = new TeamGroup("testC".getBytes(), null, 0, 1, 0, null, null, null, null);
+        TeamGroup teamGroupB = new TeamGroup("testB".getBytes(), null, 0, 5, 0, null, null,
+                null, null);
+        TeamGroup teamGroupC = new TeamGroup("testC".getBytes(), null, 0, 1, 0, null, null,
+                null, null);
         teamGroups.add(teamGroupA);
         teamGroups.add(teamGroupB);
         teamGroups.add(teamGroupC);
-        List<Binary> binaries = new ArrayList<>(teamService.queryNeedUpdateTeamGroup(teamGroups));
+        List<Binary> binaries = new ArrayList<>(teamService.queryNeedUpdateTeamGroup(teamGroups, null,
+                LocalDate.now().minusMonths(3)));
         assertEquals(2, binaries.size());
         assertEquals("testB", new String(binaries.get(0).getData()));
         assertEquals("testC", new String(binaries.get(1).getData()));
+
+         binaries = new ArrayList<>(teamService.queryNeedUpdateTeamGroup(teamGroups, null,
+                LocalDate.now().plusDays(1)));
+        assertEquals(3, binaries.size());
     }
 
     @Test
@@ -50,16 +58,17 @@ class TeamServiceTest {
                 List.of("Stealth Rock", "Wish", "MoonBlast")));
         BattleTeam battleTeamA = new BattleTeam("1", "1", "1".getBytes(), null, null,
                 0, null, "gen9ou", pokemonsA, null);
-        BattleTeam battleTeamB = new BattleTeam("1", "1", "1".getBytes(), null, null,
+        BattleTeam battleTeamB = new BattleTeam("1", "1", "1".getBytes(), LocalDate.now().minusMonths(1), null,
                 0, null, "gen9ou", pokemonsB, null);
-        BattleTeam battleTeamC = new BattleTeam("1", "1", "1".getBytes(), null, null,
+        BattleTeam battleTeamC = new BattleTeam("1", "1", "1".getBytes(), LocalDate.now().minusMonths(1), null,
                 0, null, "gen9ou", pokemonsC, null);
 
         TeamGroup teamGroup = new TeamGroup("1".getBytes(), "gen9ou", 3, 3, 0,
-                null, null, null, List.of(battleTeamA, battleTeamB, battleTeamC));
+                null, null, LocalDate.now().minusMonths(1), List.of(battleTeamA, battleTeamB, battleTeamC));
         TeamSet teamSet = teamService.buildTeamSet(teamGroup);
         assertEquals("1", new String(teamSet.id().getData()));
         assertEquals("gen9ou", teamSet.tier());
+        assertEquals(LocalDate.now().minusMonths(1), teamSet.minReplayDate());
         assertEquals(3, teamSet.replayNum());
         assertEquals(1, teamSet.pokemons().size());
         PokemonBuildSet pokemonBuildSet = teamSet.pokemons().get(0);

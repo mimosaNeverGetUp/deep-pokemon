@@ -18,6 +18,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -35,21 +36,22 @@ public class TeamService {
     }
 
     @RegisterReflectionForBinding({TeamGroup.class, TeamSet.class, PokemonBuildSet.class})
-    public void updateTeamSet() {
+    public void updateTeamSet(TeamGroupDetail teamGroupDetail) {
         List<Binary> needUpdateTeamGroup = new ArrayList<>();
 
         Query query = new Query()
                 .with(Sort.by(Sort.Order.desc("latestBattleDate")))
                 .cursorBatchSize(BATCH_SIZE);
         query.fields().include("_id", "replayNum", "uniquePlayerNum", "maxRating");
-        Stream<TeamGroup> teamGroupStream = mongoTemplate.stream(query, TeamGroup.class);
+        Stream<TeamGroup> teamGroupStream = mongoTemplate.stream(query, TeamGroup.class, teamGroupDetail.teamGroupCollectionName());
 
         List<TeamGroup> batchTeamGroup = new ArrayList<>();
         teamGroupStream.forEach(teamGroup -> {
             batchTeamGroup.add(teamGroup);
             if (batchTeamGroup.size() >= BATCH_SIZE) {
                 try {
-                    needUpdateTeamGroup.addAll(queryNeedUpdateTeamGroup(batchTeamGroup));
+                    needUpdateTeamGroup.addAll(queryNeedUpdateTeamGroup(batchTeamGroup,
+                            teamGroupDetail.teamSetCollectionName(), teamGroupDetail.start()));
                 } catch (Exception e) {
                     log.error("queryNeedUpdateTeamGroup exception", e);
                 } finally {
@@ -59,42 +61,48 @@ public class TeamService {
         });
         if (!batchTeamGroup.isEmpty()) {
             try {
-                needUpdateTeamGroup.addAll(queryNeedUpdateTeamGroup(batchTeamGroup));
+                needUpdateTeamGroup.addAll(queryNeedUpdateTeamGroup(batchTeamGroup,
+                        teamGroupDetail.teamSetCollectionName(), teamGroupDetail.start()));
             } catch (Exception e) {
                 log.error("queryNeedUpdateTeamGroup exception", e);
             }
         }
 
-        updateTeamSet(needUpdateTeamGroup);
+        updateTeamSet(needUpdateTeamGroup, teamGroupDetail.teamGroupCollectionName(),
+                teamGroupDetail.teamSetCollectionName());
+        mongoTemplate.remove(new Query(Criteria.where("minReplayDate").lt(teamGroupDetail.start())), teamGroupDetail.teamSetCollectionName());
     }
 
-    public Collection<Binary> queryNeedUpdateTeamGroup(List<TeamGroup> teamGroups) {
+    public Collection<Binary> queryNeedUpdateTeamGroup(List<TeamGroup> teamGroups, String teamSetCollectionName,
+                                                       LocalDate minReplayDate) {
         List<Binary> teamIds = teamGroups.stream().map(teamGroup -> new Binary(teamGroup.id())).toList();
-        List<TeamSet> teamSets = getTeamSets(teamIds);
+        List<TeamSet> teamSets = getTeamSets(teamIds, teamSetCollectionName);
         Map<Binary, TeamSet> teamSetMap = teamSets.stream().collect(Collectors.toMap(TeamSet::id,
                 Function.identity()));
 
         List<Binary> needUpdateTeamGroup = new ArrayList<>();
         for (TeamGroup teamGroup : teamGroups) {
             Binary teamId = new Binary(teamGroup.id());
-            if (!teamSetMap.containsKey(teamId)) {
+            TeamSet teamSet = teamSetMap.get(teamId);
+            if (teamSet == null || teamSet.minReplayDate() == null) {
                 needUpdateTeamGroup.add(new Binary(teamGroup.id()));
                 continue;
             }
-            TeamSet teamSet = teamSetMap.get(teamId);
-            if (teamSet != null && teamSet.replayNum() < teamGroup.replayNum()) {
+
+            if (teamSet.replayNum() < teamGroup.replayNum()
+                    || teamSet.minReplayDate().isBefore(minReplayDate)) {
                 needUpdateTeamGroup.add(new Binary(teamGroup.id()));
             }
         }
         return needUpdateTeamGroup;
     }
 
-    public List<TeamSet> getTeamSets(List<Binary> teamIds) {
+    public List<TeamSet> getTeamSets(List<Binary> teamIds, String teamSetCollectionName) {
         Query query = new Query(Criteria.where("_id").in(teamIds));
-        return mongoTemplate.find(query, TeamSet.class);
+        return mongoTemplate.find(query, TeamSet.class, teamSetCollectionName);
     }
 
-    public void updateTeamSet(List<Binary> teamIds) {
+    public void updateTeamSet(List<Binary> teamIds, String teamGroupCollectionName, String insertCollectionName) {
         List<List<Binary>> partitionList = Lists.partition(teamIds, 100);
         for (List<Binary> partition : partitionList) {
             log.info("start update team set {}", partition.stream().map(binary -> new String(binary.getData()))
@@ -102,10 +110,10 @@ public class TeamService {
             try {
                 List<TeamSet> teamSets = new ArrayList<>();
                 Query query = new Query(Criteria.where("_id").in(partition));
-                List<TeamGroup> teamGroups = mongoTemplate.find(query, TeamGroup.class);
+                List<TeamGroup> teamGroups = mongoTemplate.find(query, TeamGroup.class, teamGroupCollectionName);
                 teamGroups.forEach(teamGroup -> teamSets.add(buildTeamSet(teamGroup)));
-                mongoTemplate.remove(query, TeamSet.class);
-                mongoTemplate.insertAll(teamSets);
+                mongoTemplate.remove(query, insertCollectionName);
+                mongoTemplate.insert(teamSets, insertCollectionName);
             } catch (Exception e) {
                 log.error("updateTeamSet exception", e);
             }
@@ -114,7 +122,7 @@ public class TeamService {
 
     public TeamSet buildTeamSet(TeamGroup teamGroup) {
         if (teamGroup.teams() == null || teamGroup.teams().isEmpty()) {
-            return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), 0, Collections.emptyList());
+            return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), 0, null, Collections.emptyList());
         }
 
         Map<String, Map<String, Integer>> moveMap = new HashMap<>();
@@ -131,7 +139,13 @@ public class TeamService {
                     descSortByValue(abilityMap.get(pokemon)), descSortByValue(itemsMap.get(pokemon))));
         }
 
-        return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(), pokemonBuildSets);
+        LocalDate minReplayDate = teamGroup.teams().stream()
+                        .map(BattleTeam::battleDate)
+                        .filter(Objects::nonNull)
+                        .min(LocalDate::compareTo)
+                        .orElse(null);
+        return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(), minReplayDate,
+                pokemonBuildSets);
     }
 
     private static void countPokemonSet(BattleTeam team,

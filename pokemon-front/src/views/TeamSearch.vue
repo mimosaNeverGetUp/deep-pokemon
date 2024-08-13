@@ -15,10 +15,12 @@ import {ref} from "vue";
 const pokemons = ref()
 const selectTags = ref()
 const selectedSort = ref("rating")
-const tags = ref(["Offense" , "Balance", "HO", "Stall"]);
+const selectedRange = ref("Last week")
+const tags = ref(["Offense", "Balance", "HO", "Stall"]);
+const ranges = ref(["Last 3 days", "Last week", "Last month", "Last 3 months"]);
 const sortModes = ref(["rating", "popularity", "date"])
 
-function getTeamSearchUrl(pokemons, tags, sort) {
+function getTeamSearchUrl(pokemons, tags, range, sort) {
   if (!pokemons) {
     pokemons = '';
   }
@@ -27,7 +29,7 @@ function getTeamSearchUrl(pokemons, tags, sort) {
     tags = '';
   }
 
-  return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}`;
+  return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&range=${range}`;
 }
 </script>
 
@@ -44,10 +46,12 @@ function getTeamSearchUrl(pokemons, tags, sort) {
     <SelectButton v-model="selectTags" :options="tags" aria-labelledby="basic"/>
     <span>Sort mode</span>
     <SelectButton v-model="selectedSort" :options="sortModes" aria-labelledby="basic"/>
+    <span>Range</span>
+    <SelectButton v-model="selectedRange" :options="ranges" aria-labelledby="basic"/>
 
 
   </div>
-  <router-link :to="getTeamSearchUrl(pokemons, selectTags, selectedSort)">
+  <router-link :to="getTeamSearchUrl(pokemons, selectTags, selectedRange, selectedSort)">
     <Button class="mt-3" icon="pi pi-search" label="Submit"/>
   </router-link>
 </template>

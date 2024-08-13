@@ -36,6 +36,7 @@ import com.mimosa.deeppokemon.task.entity.CrawAnalyzeBattleFuture;
 import com.mongodb.bulk.BulkWriteError;
 import com.mongodb.bulk.BulkWriteInsert;
 import com.mongodb.bulk.BulkWriteResult;
+import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
@@ -45,11 +46,15 @@ import org.springframework.data.mongodb.BulkOperationException;
 import org.springframework.data.mongodb.core.BulkOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
+import org.springframework.data.mongodb.core.index.CompoundIndexDefinition;
+import org.springframework.data.mongodb.core.index.Index;
 import org.springframework.data.mongodb.core.query.BasicQuery;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ServerErrorException;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
@@ -72,9 +77,9 @@ public class BattleService {
     protected static final String PLAYER_SET = "playerSet";
     protected static final String TEAMS = "teams";
     protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
-    protected static final String TEAM_GROUP = "team_group";
     protected static final String BATTLE_TEAM = "battle_team";
     protected static final String REPLAY_NUM = "replayNum";
+    protected static final String POKEMONS_NAME = "pokemons.name";
 
     private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
@@ -278,12 +283,67 @@ public class BattleService {
         return battle.getBattleStat();
     }
 
+
     public synchronized void updateTeam() {
-        updateTeamGroup();
-        teamService.updateTeamSet();
+        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(3), LocalDate.now()
+                , "team_group_last_3_days", "team_set_last_3_days"));
+        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(7), LocalDate.now()
+                , "team_group_last_7_days", "team_set_last_7_days"));
+        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(30), LocalDate.now()
+                , "team_group_last_30_days", "team_set_last_30_days"));
+        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(90), LocalDate.now()
+                , "team_group_last_90_days", "team_set_last_90_days"));
     }
 
-    private void updateTeamGroup() {
+    public synchronized void updateTeam(TeamGroupDetail teamGroupDetail) {
+        log.info("start update team group {}", teamGroupDetail.teamGroupCollectionName());
+        try {
+            updateTeamGroup(teamGroupDetail);
+            teamService.updateTeamSet(teamGroupDetail);
+
+            ensureTeamCollectionIndex(teamGroupDetail);
+        } catch (Exception e) {
+            log.error("update team fail, teamGroupDetail={}", teamGroupDetail, e);
+        }
+    }
+
+    private void ensureTeamCollectionIndex(TeamGroupDetail teamGroupDetail) {
+        createIndex(teamGroupDetail.teamGroupCollectionName(), LATEST_BATTLE_DATE, Sort.Direction.DESC);
+        createIndex(teamGroupDetail.teamGroupCollectionName(), MAX_RATING, Sort.Direction.DESC);
+        createIndex(teamGroupDetail.teamGroupCollectionName(), UNIQUE_PLAYER_NUM, Sort.Direction.DESC);
+        createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(TAG_SET, LATEST_BATTLE_DATE),
+                Sort.Direction.DESC);
+        createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, LATEST_BATTLE_DATE),
+                Sort.Direction.DESC);
+        createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, MAX_RATING),
+                Sort.Direction.DESC);
+        createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, UNIQUE_PLAYER_NUM),
+                Sort.Direction.DESC);
+
+        createIndex(teamGroupDetail.teamSetCollectionName(), "minReplayDate", Sort.Direction.DESC);
+    }
+
+    private void createIndex(String collectionName, String indexName, Sort.Direction direction) {
+        Index index = new Index(indexName, direction);
+        mongoTemplate.indexOps(collectionName).ensureIndex(index);
+    }
+
+    private void createCompoundIndex(String collectionName, List<String> indexNames, Sort.Direction direction) {
+        if (indexNames.isEmpty()) {
+            return;
+        }
+
+        int sort = direction == Sort.Direction.ASC ? 1 : -1;
+        Document document = new Document();
+        for (String indexName : indexNames) {
+            document.append(indexName, sort);
+        }
+        mongoTemplate.indexOps(collectionName).ensureIndex(new CompoundIndexDefinition(document));
+    }
+
+    private void updateTeamGroup(TeamGroupDetail teamGroupDetail) {
+        MatchOperation matchOperation = Aggregation.match(
+                Criteria.where(BATTLE_DATE).gte(teamGroupDetail.start()).lte(teamGroupDetail.end()));
         GroupOperation groupOperation = Aggregation.group(TEAM_ID)
                 .max(BATTLE_DATE).as(LATEST_BATTLE_DATE)
                 .max(RATING).as(MAX_RATING)
@@ -299,12 +359,13 @@ public class BattleService {
                 .build();
 
         MergeOperation mergeOperation = Aggregation.merge()
-                .intoCollection(TEAM_GROUP)
+                .intoCollection(teamGroupDetail.teamGroupCollectionName())
                 .whenDocumentsMatch(MergeOperation.WhenDocumentsMatch.replaceDocument())
                 .whenDocumentsDontMatch(MergeOperation.WhenDocumentsDontMatch.insertNewDocument())
                 .build();
 
-        Aggregation aggregation = Aggregation.newAggregation(groupOperation,
+        Aggregation aggregation = Aggregation.newAggregation(matchOperation,
+                groupOperation,
                 addFieldsOperationBuilder,
                 Aggregation.stage("{ $project : { 'playerSet': 0, 'pokemons.moves': 0, 'pokemons.item': 0," +
                         " 'pokemons.ability': 0 } }"),
@@ -315,5 +376,7 @@ public class BattleService {
                 .build();
         mongoTemplate.aggregate(aggregation.withOptions(options), BATTLE_TEAM,
                 TeamGroup.class);
+        Query query = new Query(Criteria.where(LATEST_BATTLE_DATE).lt(teamGroupDetail.start()));
+        mongoTemplate.remove(query, teamGroupDetail.teamGroupCollectionName());
     }
 }

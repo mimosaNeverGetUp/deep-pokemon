@@ -77,7 +77,6 @@ public class BattleService {
     protected static final String PLAYER_SET = "playerSet";
     protected static final String TEAMS = "teams";
     protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
-    protected static final String TEAM_GROUP = "team_group";
     protected static final String BATTLE_TEAM = "battle_team";
     protected static final String REPLAY_NUM = "replayNum";
     protected static final String POKEMONS_NAME = "pokemons.name";

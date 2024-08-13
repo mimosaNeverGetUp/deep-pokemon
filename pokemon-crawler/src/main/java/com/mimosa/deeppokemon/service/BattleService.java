@@ -285,7 +285,7 @@ public class BattleService {
 
     private void updateTeamGroup() {
         GroupOperation groupOperation = Aggregation.group(TEAM_ID)
-                .first(BATTLE_DATE).as(LATEST_BATTLE_DATE)
+                .max(BATTLE_DATE).as(LATEST_BATTLE_DATE)
                 .max(RATING).as(MAX_RATING)
                 .first(POKEMONS).as(POKEMONS)
                 .first(TAG_SET).as(TAG_SET)

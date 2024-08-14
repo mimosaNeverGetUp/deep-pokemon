@@ -42,7 +42,7 @@ async function queryBattleStat(battleId) {
 
 function getIconUrl(pokemonName) {
   const iconName = pokemonName.replace(" ", "").replace("-*", "")
-  return "/pokemonicon/" + iconName + ".png"
+  return "pokemonicon/" + iconName + ".png"
 }
 
 function battleChartData(battle) {
@@ -126,19 +126,64 @@ function highLightChartDataSets(players, playerHighLights) {
       };
       if (turnHighLight.type === "KILL") {
         pointRadius = 8;
-        const pointIcon = new Image(20, 20);
-        pointIcon.src = "/flag-fill.svg";
-        data["pointStyle"] = pointIcon;
+        const killPokemonIcon = new Image(30, 22);
+        let pokemon = turnHighLight.description.split("kill")[0].trim();
+        killPokemonIcon.src = getIconUrl(pokemon);
+        killPokemonIcon.onerror = function () {
+          killPokemonIcon.src = "pokemonicon/null.png";
+        };
+        data["pointStyle"] = killPokemonIcon;
+
+        // build faint pokemon
+        let faintPokemon = turnHighLight.description.split("opponent")[1].split(" by ")[0].trim();
+        let opponentY = -300 - y;
+        let opponentPointColor = pointBackgroundColor === "blue" ? "red" : "blue";
+        let faintPokemonPointData = buildPointData(opponentPointColor, event, x, opponentY);
+        const faintPokemonIcon = new Image(30, 22);
+        createTransparentImage(getIconUrl(faintPokemon), 0.3, faintPokemonIcon)
+        faintPokemonIcon.onerror = function () {
+          faintPokemonIcon.src = "pokemonicon/null.png";
+        };
+        faintPokemonPointData["pointStyle"] = faintPokemonIcon;
+        highLightChartDataSets.push(faintPokemonPointData);
+
+        // build kill event data
+        let killEventPointData = buildPointData("black", event, x, -150);
+        const killEventIcon = new Image(20, 20);
+        killEventIcon.src = "kill.png";
+        killEventPointData["pointStyle"] = killEventIcon;
+        highLightChartDataSets.push(killEventPointData);
+
       } else if (turnHighLight.type === "SIDE") {
         pointRadius = 4;
-        const pointIcon = new Image(20, 20);
-        pointIcon.src = "/chevron-down.svg";
-        data["pointStyle"] = pointIcon;
+        const sideIcon = new Image(15, 15);
+        let side = turnHighLight.description.split("side")[1].split("start")[0].trim();
+        if (side === "Stealth Rock") {
+          sideIcon.src = "side/rock.png";
+        } else if (side === "Spikes") {
+          sideIcon.src = "side/caltrop.png";
+        } else if (side === "Toxic Spikes") {
+          sideIcon.src = "side/poisoncaltrop.png";
+        } else {
+          continue;
+        }
+        data["pointStyle"] = sideIcon;
       } else if (turnHighLight.type === "END_SIDE") {
         pointRadius = 4;
-        const pointIcon = new Image(20, 20);
-        pointIcon.src = "/chevron-up.svg";
-        data["pointStyle"] = pointIcon;
+        const sideIcon = new Image(15, 15);
+        let side = turnHighLight.description.split("side")[1].split("end")[0].trim();
+        let sideIconSrc;
+        if (side === "Stealth Rock") {
+          sideIconSrc = "side/rock.png";
+        } else if (side === "Spikes") {
+          sideIconSrc = "side/caltrop.png";
+        } else if (side === "Toxic Spikes") {
+          sideIconSrc = "side/poisoncaltrop.png";
+        } else {
+          continue;
+        }
+        createTransparentImage(sideIconSrc, 0.3, sideIcon)
+        data["pointStyle"] = sideIcon;
       }
       data["pointRadius"] = pointRadius;
       data["pointHoverRadius"] = pointRadius;
@@ -146,6 +191,41 @@ function highLightChartDataSets(players, playerHighLights) {
     }
   }
   return highLightChartDataSets;
+}
+
+function buildPointData(pointBackgroundColor, event, x, y) {
+  return {
+    pointBackgroundColor: pointBackgroundColor,
+    pointHitRadius: 8,
+    pointRadius: 8,
+    pointHoverRadius: 8,
+    label: event,
+    type: "scatter",
+    data: [
+      {
+        x: x,
+        y: y
+      }
+    ]
+  };
+}
+
+function createTransparentImage(imageSrc, opacity, pointImage) {
+  const img = new Image();
+  img.src = imageSrc;
+  let canvas = document.getElementById('canvas');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+  }
+  img.onload = function () {
+    const ctx = canvas.getContext('2d');
+    canvas.width = 30;
+    canvas.height = 22;
+
+    ctx.globalAlpha = opacity;
+    ctx.drawImage(img, 0, 0, 30, 22);
+    pointImage.src = canvas.toDataURL();
+  }
 }
 
 function battleStatChartDataSet(players, battleStat) {

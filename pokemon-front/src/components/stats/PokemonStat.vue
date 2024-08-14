@@ -98,7 +98,7 @@ async function queryTeams(page, row, pokemon) {
   if (props.format !== 'gen9ou') {
     return
   }
-  let url = new URL(`${apiUrl}/api/v2/teams?page=${page}&row=${row}&pokemons=${pokemon}&sort=maxRating`);
+  let url = new URL(`${apiUrl}/api/v2/teams?page=${page}&row=${row}&pokemons=${pokemon}&sort=maxRating&groupName=last_90_days`);
 
   const res = await fetch(url,
       {

@@ -8,5 +8,6 @@ package com.mimosa.deeppokemon.entity;
 
 import java.util.List;
 
-public record PokemonBuildSet(String name, List<String> moves, List<String> abilities, List<String> items) {
+public record PokemonBuildSet(String name, List<String> moves, List<String> abilities, List<String> items,
+                              List<String> teraTypes) {
 }

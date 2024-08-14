@@ -36,6 +36,7 @@ public class Pokemon implements Serializable, Comparable<Pokemon> {
 
     private String item;
     private String ability;
+    private String teraType;
 
     public Pokemon() {
 
@@ -75,6 +76,14 @@ public class Pokemon implements Serializable, Comparable<Pokemon> {
 
     public void setAbility(String ability) {
         this.ability = ability;
+    }
+
+    public String getTeraType() {
+        return teraType;
+    }
+
+    public void setTeraType(String teraType) {
+        this.teraType = teraType;
     }
 
     @Override

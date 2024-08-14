@@ -51,11 +51,11 @@ class TeamServiceTest {
     @Test
     void buildTeamSet() {
         List<Pokemon> pokemonsA = Collections.singletonList(buildPokemon("Clefable", "Magic gurad", "Leftovers",
-                List.of("Stealth Rock")));
+                List.of("Stealth Rock"),"Steel"));
         List<Pokemon> pokemonsB = Collections.singletonList(buildPokemon("Clefable", "Magic gurad", "Leftovers",
-                List.of("Stealth Rock", "MoonBlast")));
+                List.of("Stealth Rock", "MoonBlast"),null));
         List<Pokemon> pokemonsC = Collections.singletonList(buildPokemon("Clefable", "Unware", "Heavy-Duty Boots",
-                List.of("Stealth Rock", "Wish", "MoonBlast")));
+                List.of("Stealth Rock", "Wish", "MoonBlast"),"Water"));
         BattleTeam battleTeamA = new BattleTeam("1", "1", "1".getBytes(), null, null,
                 0, null, "gen9ou", pokemonsA, null);
         BattleTeam battleTeamB = new BattleTeam("1", "1", "1".getBytes(), LocalDate.now().minusMonths(1), null,
@@ -77,6 +77,9 @@ class TeamServiceTest {
         assertEquals("Stealth Rock", pokemonBuildSet.moves().get(0));
         assertEquals("MoonBlast", pokemonBuildSet.moves().get(1));
         assertEquals("Wish", pokemonBuildSet.moves().get(2));
+        assertEquals(2, pokemonBuildSet.teraTypes().size());
+        assertTrue(pokemonBuildSet.teraTypes().contains("Steel"));
+        assertTrue(pokemonBuildSet.teraTypes().contains("Water"));
 
 
         assertEquals(2, pokemonBuildSet.items().size());
@@ -89,10 +92,11 @@ class TeamServiceTest {
 
     }
 
-    private Pokemon buildPokemon(String name, String ability, String item, List<String> move) {
+    private Pokemon buildPokemon(String name, String ability, String item, List<String> move, String tera) {
         Pokemon pokemon = new Pokemon(name);
         pokemon.setMoves(new HashSet<>(move));
         pokemon.setItem(item);
+        pokemon.setTeraType(tera);
         pokemon.setAbility(ability);
         return pokemon;
     }

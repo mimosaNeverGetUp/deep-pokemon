@@ -128,22 +128,24 @@ public class TeamService {
         Map<String, Map<String, Integer>> moveMap = new HashMap<>();
         Map<String, Map<String, Integer>> itemsMap = new HashMap<>();
         Map<String, Map<String, Integer>> abilityMap = new HashMap<>();
+        Map<String, Map<String, Integer>> teraTypes = new HashMap<>();
         for (BattleTeam team : teamGroup.teams()) {
-            countPokemonSet(team, moveMap, itemsMap, abilityMap);
+            countPokemonSet(team, moveMap, itemsMap, abilityMap, teraTypes);
         }
 
         List<PokemonBuildSet> pokemonBuildSets = new ArrayList<>();
         for (var entrySet : moveMap.entrySet()) {
             String pokemon = entrySet.getKey();
             pokemonBuildSets.add(new PokemonBuildSet(pokemon, descSortByValue(moveMap.get(pokemon)),
-                    descSortByValue(abilityMap.get(pokemon)), descSortByValue(itemsMap.get(pokemon))));
+                    descSortByValue(abilityMap.get(pokemon)), descSortByValue(itemsMap.get(pokemon)),
+                    descSortByValue(teraTypes.get(pokemon))));
         }
 
         LocalDate minReplayDate = teamGroup.teams().stream()
-                        .map(BattleTeam::battleDate)
-                        .filter(Objects::nonNull)
-                        .min(LocalDate::compareTo)
-                        .orElse(null);
+                .map(BattleTeam::battleDate)
+                .filter(Objects::nonNull)
+                .min(LocalDate::compareTo)
+                .orElse(null);
         return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(), minReplayDate,
                 pokemonBuildSets);
     }
@@ -151,12 +153,14 @@ public class TeamService {
     private static void countPokemonSet(BattleTeam team,
                                         Map<String, Map<String, Integer>> moveMap,
                                         Map<String, Map<String, Integer>> itemsMap,
-                                        Map<String, Map<String, Integer>> abilityMap) {
+                                        Map<String, Map<String, Integer>> abilityMap,
+                                        Map<String, Map<String, Integer>> teraTypes) {
         for (Pokemon pokemon : team.pokemons()) {
             if (!moveMap.containsKey(pokemon.getName())) {
                 moveMap.put(pokemon.getName(), new HashMap<>());
                 itemsMap.put(pokemon.getName(), new HashMap<>());
                 abilityMap.put(pokemon.getName(), new HashMap<>());
+                teraTypes.put(pokemon.getName(), new HashMap<>());
             }
 
             if (pokemon.getItem() != null) {
@@ -165,6 +169,10 @@ public class TeamService {
 
             if (pokemon.getAbility() != null) {
                 abilityMap.get(pokemon.getName()).merge(pokemon.getAbility().trim(), 1, Integer::sum);
+            }
+
+            if (pokemon.getTeraType() != null) {
+                teraTypes.get(pokemon.getName()).merge(pokemon.getTeraType().trim(), 1, Integer::sum);
             }
 
             for (String move : pokemon.getMoves()) {

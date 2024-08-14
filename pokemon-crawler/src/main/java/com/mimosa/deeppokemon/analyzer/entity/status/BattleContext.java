@@ -84,7 +84,7 @@ public class BattleContext {
         }
 
         Pokemon pokemon = battle.getTeams()[playerNumber - 1].getPokemon(pokemonName);
-        if(pokemon == null) {
+        if (pokemon == null) {
             log.warn("pokemon {} is not found in battle", pokemonName);
             return;
         }
@@ -92,5 +92,20 @@ public class BattleContext {
         if (pokemon.getItem() == null) {
             pokemon.setItem(item);
         }
+    }
+
+    public void setPokemonTeraType(int playerNumber, String pokemonName, String teraType) {
+        if (battle == null || battle.getTeams() == null || battle.getTeams().length < playerNumber
+                || battle.getTeams()[playerNumber - 1] == null) {
+            log.warn("battle {} is invalid", battle);
+            return;
+        }
+
+        Pokemon pokemon = battle.getTeams()[playerNumber - 1].getPokemon(pokemonName);
+        if (pokemon == null) {
+            log.warn("pokemon {} is not found in battle", pokemonName);
+            return;
+        }
+        pokemon.setTeraType(teraType);
     }
 }

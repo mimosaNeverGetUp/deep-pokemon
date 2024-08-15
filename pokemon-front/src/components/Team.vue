@@ -18,6 +18,10 @@ function getItemUrl(item) {
   return "/itemicon/" + item + ".png";
 }
 
+function getTeraIcon(tera) {
+  return "/types/" + tera + ".png";
+}
+
 function getPokemonItemText(pokemon) {
   if (pokemonConfigMap.value) {
     let pokemonConfig = pokemonConfigMap.value[pokemon.name];
@@ -52,6 +56,10 @@ function updateTeamConfig(teamSet) {
       pokemon.ability = pokemonConfig.abilities[0];
     }
 
+    if (pokemonConfig.teraTypes && pokemonConfig.teraTypes.length !== 0) {
+      pokemon.teraType = pokemonConfig.teraTypes.join("/");
+    }
+
     if (pokemonConfig.moves) {
       pokemon.moves = pokemonConfig.moves;
     }
@@ -72,13 +80,19 @@ watch(() => props.teamSet, async (teamSet) => {
         <img class="absolute h-4 w-4 bottom-0 right-0" v-if="pokemon.item" :src="getItemUrl(pokemon.item)"
              :alt="pokemon.item" :title="pokemon.item"/>
       </div>
-      <div class="set-tip-text">
+      <div class="set-tip-text text-left">
         <p>
           {{ pokemon.name }}
         </p>
-        <p class="text-red-500">
-          {{ getPokemonItemText(pokemon) }}
-        </p>
+        <div v-if="pokemon.item" >
+          <span class="text-red-500">{{ getPokemonItemText(pokemon) }}</span>
+        </div>
+
+        <div v-if="pokemon.teraType" class="flex items-center gap-1">
+          <p class="text-red-500">Tera:</p>
+          <img v-for="tera in pokemon.teraType.split('/')" :src="getTeraIcon(tera)" :alt="pokemon.teraType"
+               :title="pokemon.teraType">
+        </div>
         <div v-if="pokemon.moves && pokemon.moves.length !==0">
           <p class="text-blue-500">Top 4 moves:</p>
           <p v-for="move in pokemon.moves.slice(0, 4)">

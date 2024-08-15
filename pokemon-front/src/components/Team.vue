@@ -90,8 +90,8 @@ watch(() => props.teamSet, async (teamSet) => {
 
         <div v-if="pokemon.teraType" class="flex items-center gap-1">
           <p class="text-red-500">Tera:</p>
-          <img v-for="tera in pokemon.teraType.split('/')" :src="getTeraIcon(tera)" :alt="pokemon.teraType"
-               :title="pokemon.teraType">
+          <img height="17" width="40" v-for="tera in pokemon.teraType.split('/')" :src="getTeraIcon(tera)"
+               :alt="pokemon.teraType" :title="pokemon.teraType">
         </div>
         <div v-if="pokemon.moves && pokemon.moves.length !==0">
           <p class="text-blue-500">Top 4 moves:</p>

@@ -109,6 +109,9 @@ public class PokemonSetCrawler {
                 evsSetTextList.add(convertEvsSetTextByMap(evsMap));
             }
             return String.join(EVS_SET_DELIMITER, evsSetTextList);
+        } else if (evs == null) {
+            log.warn("evs is null");
+            return null;
         }
         throw new IllegalArgumentException("unknown evs type: " + evs);
     }

@@ -35,12 +35,23 @@ class StatsApiControllerTest {
 
     @Test
     void usages() throws Exception {
-        Mockito.doReturn("202406gen9ou").when(statsService).getLatestStatId("gen9ou");
+        Mockito.doReturn("202407gen9ou").when(statsService).getLatestStatId("gen9ou");
         mockMvc.perform(get("/api/stats/gen9ou/usage")
                         .queryParam("page", "0")
                         .queryParam("row", "20"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
+                .andExpect(jsonPath("$.page").value(0))
+                .andExpect(jsonPath("$.row").value(20))
+                .andExpect(jsonPath("$.data").isNotEmpty())
+                .andExpect(jsonPath("$.data",
+                        Matchers.everyItem(Matchers.allOf(
+                                Matchers.hasEntry(Matchers.equalTo("lastMonthUsage"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("rank"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("usage"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("name"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("count"), Matchers.notNullValue())
+                        ))))
                 .andDo(print())
                 .andReturn();
     }
@@ -59,7 +70,7 @@ class StatsApiControllerTest {
 
     @Test
     void moveset() throws Exception {
-        Mockito.doReturn("202406gen9ou").when(statsService).getLatestStatId("gen9ou");
+        Mockito.doReturn("202407gen9ou").when(statsService).getLatestStatId("gen9ou");
         mockMvc.perform(get("/api/stats/gen9ou/moveset/Kingambit"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.abilities").isMap())
@@ -69,9 +80,8 @@ class StatsApiControllerTest {
                 .andExpect(jsonPath("$.spreads").isMap())
                 .andExpect(jsonPath("$.spreads", Matchers.not(Matchers.anEmptyMap())))
                 .andExpect(jsonPath("$.moves", Matchers.not(Matchers.anEmptyMap())))
-                .andExpect(jsonPath("$.moves", Matchers.not(Matchers.anEmptyMap())))
                 .andExpect(jsonPath("$.teammates", Matchers.not(Matchers.anEmptyMap())))
-                .andExpect(jsonPath("$.teammates", Matchers.not(Matchers.anEmptyMap())))
+                .andExpect(jsonPath("$.lastMonthMoveSet").isNotEmpty())
                 .andDo(print())
                 .andReturn();
     }

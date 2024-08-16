@@ -9,6 +9,7 @@ import {ref, watch} from "vue";
 
 import Divider from 'primevue/divider';
 import ProgressSpinner from 'primevue/progressspinner';
+import UsageDif from "@/components/stats/UsageDif.vue";
 import {abilityText} from "@/components/data/abilityText.js";
 import {itemText} from "@/components/data/ItemText.js";
 import {moveText} from "@/components/data/moveText.js";
@@ -139,23 +140,32 @@ async function queryPokemonSet(format, pokemon) {
     </div>
     <div class="flex justify-start items-center gap-2 mb-5">
       <Divider layout="vertical" type="solid"/>
-      <div class="w-1/6 text-center	">
+      <div class="items-center">
         <p class="text-xl text-gray-500">weight</p>
-        <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.weighted) }}</p>
+        <div class="flex gap-5 w-44 items-center">
+          <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.weighted) }}</p>
+          <UsageDif :newValue="pokemon.usage.weighted" :oldValue="pokemon.lastMonthUsage?.usage.weighted"/>
+        </div>
       </div>
       <Divider layout="vertical" type="solid"/>
-      <div class="w-1/6 text-center	">
+      <div class="items-center">
         <p class="text-xl text-gray-500">raw</p>
-        <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.raw) }}</p>
+        <div class="flex gap-5 items-center">
+          <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.raw) }}</p>
+          <UsageDif :newValue="pokemon.usage.raw" :oldValue="pokemon.lastMonthUsage?.usage.raw"/>
+        </div>
       </div>
       <Divider layout="vertical"/>
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">abilities</p>
-      <div class="flex justify-start gap-2 mb-1" v-for=" [ability, value] in Object.entries(moveset.abilities)">
+      <div class="flex justify-start items-center gap-2 mb-1" v-for=" [ability, value] in Object.entries(moveset.abilities)">
         <span class="w-44">{{ ability }}</span>
-        <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
+        <div class="flex gap-5 w-44 items-center">
+          <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
+          <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.abilities[ability]"/>
+        </div>
         <span class="">{{ abilityText[ability].shortDesc }}</span>
       </div>
     </div>
@@ -163,21 +173,26 @@ async function queryPokemonSet(format, pokemon) {
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">items</p>
       <div class="flex justify-start gap-2 mb-1" v-for=" [item, value] in filterPopularSet(moveset.items,0.01)">
-        <div class="w-44">
+        <div class="w-44 items-center">
           <img :src="`/itemicon/${item}.png`" :alt="item"/>
           <span>{{ item }}</span>
         </div>
-        <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
+        <div class="flex gap-5 w-44 items-center">
+          <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
+          <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.items[item]"/>
+        </div>
         <span>{{ itemText[item]?.desc }}</span>
       </div>
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">moves</p>
-      <div class="flex justify-start items-center gap-2 mb-1" v-for=" [move, value] in
-      filterPopularSet(moveset.moves,0.01)">
+      <div class="flex justify-start items-center gap-2 mb-1" v-for=" [move, value] in filterPopularSet(moveset.moves,0.01)">
         <span class="w-44">{{ move }}</span>
-        <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
+        <div class="flex gap-5 w-44 items-center">
+          <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
+          <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.moves[move]"/>
+        </div>
         <img :src="getMoveTypeIconUrl(move)" :alt="move"/>
         <img :src="getMoveCategoryIconUrl(move)" :alt="move"/>
         <span class="w-7">{{ moveInfo[move].basePower }}</span>

@@ -8,6 +8,7 @@
 import {ref} from "vue";
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import RankDif from "@/components/stats/RankDif.vue";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const usages = ref(null)
@@ -56,18 +57,18 @@ fetchStatsData(props.format, page.value, row.value);
 </script>
 
 <template>
-  <DataTable :value="usages" class="w-2/5" lazy paginator :rows="row" :rowsPerPageOptions="[20, 30, 40 ,50, 100]"
+  <DataTable :value="usages" class="" lazy paginator :rows="row" :rowsPerPageOptions="[20, 30, 40 ,50, 100]"
              :totalRecords="totalRecords" @page="onPage($event)" :scrollable="false" selectionMode="single" dataKey="id"
              @rowSelect="onRowSelect">
     <Column field="rank" header="rank" :style="{ width:'5%' }">
-      <template #body="{index}">{{ currentPage * row + index + 1 }}</template>
+      <template #body="{data}">{{ data.rank }}</template>
     </Column>
-    <Column field="name" header="pokemon" :style="{ width:'5%' }">
+    <Column field="name" header="pokemon" :style="{ width:'35%' }">
       <template #body="{data}">
-        <div class="flex justify-start items-center">
-          <img :src="getIconUrl(data.name)" :alt="data.name"
-               :title="data.name"/>
-          <span> {{ data.name }}</span>
+        <div class="flex gap-1 items-center justify-center">
+          <img :src="getIconUrl(data.name)" :alt="data.name" :title="data.name"/>
+          <span class="w-full"> {{ data.name }}</span>
+          <RankDif :newValue="data.rank" :oldValue="data.lastMonthUsage?.rank"/>
         </div>
       </template>
     </Column>
@@ -77,9 +78,6 @@ fetchStatsData(props.format, page.value, row.value);
     </Column>
     <Column field="usage.raw" header="raw" :style="{ width:'5%' }">
       <template #body="{data}">{{ convertToPercentage(data.usage.raw) }}</template>
-    </Column>
-    <Column field="usage.real" header="real" :style="{ width:'5%' }">
-      <template #body="{data}">{{ convertToPercentage(data.usage.real) }}</template>
     </Column>
   </DataTable>
 </template>

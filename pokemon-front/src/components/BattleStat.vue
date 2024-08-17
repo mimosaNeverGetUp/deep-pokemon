@@ -104,7 +104,7 @@ function highLightChartDataSets(players, playerHighLights) {
       let pointBackgroundColor;
       let y;
       let x = turnHighLight.turn;
-      if (props.playerName === player) {
+      if (props.playerName.toLowerCase() === player.toLowerCase()) {
         pointBackgroundColor = "blue";
         y = -100;
       } else {
@@ -257,7 +257,7 @@ function healthLineChartDataSets(playerNames, turnStats) {
     healthLineChartDataSets.push({
       label: playerName === "" ? "null" : playerName,
       data: battleTrendChartData,
-      borderColor: playerName === props.playerName ? "blue" : "red",
+      borderColor: playerName.toLowerCase() === props.playerName.toLowerCase() ? "blue" : "red",
       borderWidth: 1,
       pointRadius: 2
     });

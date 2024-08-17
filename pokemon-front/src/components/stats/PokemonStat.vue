@@ -25,6 +25,7 @@ const props = defineProps({
 const moveset = ref()
 const sets = ref()
 const teams = ref(null)
+const loadFail = ref(false)
 
 async function fetchStatsData(format, pokemon) {
   moveset.value = null
@@ -32,7 +33,12 @@ async function fetchStatsData(format, pokemon) {
         method: "GET"
       }
   );
-  moveset.value = await res.json()
+  if (res.ok) {
+    moveset.value = await res.json();
+    loadFail.value = false;
+  } else {
+    loadFail.value = true;
+  }
 }
 
 function showDefaultIcon(event) {
@@ -258,5 +264,6 @@ async function queryPokemonSet(format, pokemon) {
       </div>
     </div>
   </div>
+  <span v-else-if="loadFail">load move set fail.</span>
   <ProgressSpinner v-else/>
 </template>

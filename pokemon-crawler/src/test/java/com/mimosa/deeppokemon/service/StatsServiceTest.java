@@ -33,7 +33,6 @@ class StatsServiceTest {
     @SpyBean
     private MonthlyStatCrawler monthlyStatCrawler;
 
-
     @Test
     void crawStat() {
         MonthlyMetaStat latestMetaStat = statsService.getLatestMetaStat(GEN_9_OU);
@@ -46,4 +45,15 @@ class StatsServiceTest {
         assertNull(mongoTemplate.findById(statId, MonthlyMetaStat.class));
     }
 
+
+    @Test
+    void crawStat_too_many() {
+        StatsService spy = Mockito.spy(statsService);
+        Mockito.doReturn(true).when(spy).crawStat(Mockito.any(),Mockito.any());
+        Mockito.doReturn(true).when(spy).crawPokemonSet(Mockito.any(),Mockito.any());
+        boolean result = spy.craw(GEN_9_OU);
+        assertTrue(result);
+        result = statsService.craw(GEN_9_OU);
+        assertFalse(result);
+    }
 }

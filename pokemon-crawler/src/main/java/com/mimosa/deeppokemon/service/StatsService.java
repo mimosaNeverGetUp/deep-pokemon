@@ -21,8 +21,10 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,18 +39,31 @@ public class StatsService {
     private final MongoTemplate mongoTemplate;
     private final MonthlyStatCrawler monthlyStatCrawler;
     private final PokemonSetCrawler pokemonSetCrawler;
+    private final Map<String, LocalDateTime> crawStatTimeMap;
 
     public StatsService(MongoTemplate mongoTemplate, MonthlyStatCrawler monthlyStatCrawler, PokemonSetCrawler pokemonSetCrawler) {
         this.mongoTemplate = mongoTemplate;
         this.monthlyStatCrawler = monthlyStatCrawler;
         this.pokemonSetCrawler = pokemonSetCrawler;
+        crawStatTimeMap = new HashMap<>();
     }
 
     public synchronized boolean craw(String format) {
-        String statId = getLatestStatId(format);
-        boolean result = crawStat(format, statId);
+        LocalDateTime now = LocalDateTime.now();
+        if (crawStatTimeMap.containsKey(format) && now.minusMinutes(5).isBefore(crawStatTimeMap.get(format))) {
+            log.warn("craw {} too many time,last craw time: {}", format, crawStatTimeMap.get(format));
+            return false;
+        }
 
-        result = result && crawPokemonSet(format, statId);
+        boolean result;
+        try {
+            String statId = getLatestStatId(format);
+            result = crawStat(format, statId);
+
+            result = result && crawPokemonSet(format, statId);
+        } finally {
+            crawStatTimeMap.put(format, now);
+        }
         return result;
     }
 

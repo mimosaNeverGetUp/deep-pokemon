@@ -39,23 +39,20 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
+import org.springframework.data.mongodb.core.query.Collation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class BattleService {
     protected static final String BATTLE = "battle";
-    protected static final String TEAMS = "teams";
     protected static final String BATTLE_ID = "battleId";
-    protected static final String BATTLE_TEAM = "battle_team";
     protected static final String ID = "_id";
     protected static final String DATE = "date";
-    protected static final String TYPE = "type";
-    protected static final String AVAGE_RATING = "avageRating";
-    protected static final String WINNER = "winner";
     protected static final Set<String> VALIDATE_TEAM_GROUP_SORT = new HashSet<>(List.of("maxRating", "uniquePlayerNum"
             , "latestBattleDate"));
     protected static final Set<String> MULTI_FORM_POKEMON = new HashSet<>(List.of("Urshifu", "Zamazenta"
@@ -73,30 +70,26 @@ public class BattleService {
 
     @Cacheable("playerBattle")
     public PageResponse<BattleDto> listBattleByName(String playerName, int page, int row) {
-        Criteria criteria = Criteria.where("players").in(playerName);
-        long count = mongoTemplate.count(new Query(criteria), Battle.class);
+        Criteria criteria = Criteria.where("players").is(playerName);
+        Query query = new Query(criteria);
+        query.collation(Collation.of("en").strength(2));
+        long count = mongoTemplate.count(query, Battle.class);
         if (count == 0) {
             return new PageResponse<>(count, page, row, Collections.emptyList());
         }
+        query.with(Sort.by(Sort.Order.desc(DATE)));
+        query.skip((long) (page) * row);
+        query.limit(row);
+        List<BattleDto> battles = mongoTemplate.find(query, BattleDto.class, BATTLE);
 
-        MatchOperation matchOperation = Aggregation.match(criteria);
-        SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC, DATE);
-        ProjectionOperation projectionOperation = Aggregation.project(ID, TYPE, AVAGE_RATING, WINNER, DATE);
-        LookupOperation lookupOperation = LookupOperation.newLookup()
-                .from(BATTLE_TEAM)
-                .localField(ID)
-                .foreignField(BATTLE_ID)
-                .as(TEAMS);
-        Aggregation aggregation = Aggregation.newAggregation(
-                matchOperation,
-                sortOperation,
-                projectionOperation,
-                Aggregation.skip((long) (page) * row),
-                Aggregation.limit(row),
-                lookupOperation
-        );
+        Query statQuery = new Query(Criteria.where(BATTLE_ID).in(battles.stream().map(BattleDto::getId).toList()));
+        List<BattleTeam> battleStats = mongoTemplate.find(statQuery, BattleTeam.class);
+        Map<String, List<BattleTeam>> battleTeamsMap =
+                battleStats.stream().collect(Collectors.groupingBy(BattleTeam::battleId));
+        for (BattleDto battleDto : battles) {
+            battleDto.setTeams(battleTeamsMap.get(battleDto.getId()));
+        }
 
-        List<BattleDto> battles = mongoTemplate.aggregate(aggregation, BATTLE, BattleDto.class).getMappedResults();
         return new PageResponse<>(count, page, row, battles);
     }
 
@@ -106,6 +99,7 @@ public class BattleService {
         Query query = new Query(criteria)
                 .with(Sort.by(Sort.Order.desc("battleDate")))
                 .limit(2);
+        query.collation(Collation.of("en").strength(2));
         return mongoTemplate.find(query, BattleTeam.class);
     }
 

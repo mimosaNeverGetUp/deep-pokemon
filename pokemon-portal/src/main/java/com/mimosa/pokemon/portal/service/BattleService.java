@@ -43,10 +43,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class BattleService {
@@ -61,6 +58,8 @@ public class BattleService {
     protected static final String WINNER = "winner";
     protected static final Set<String> VALIDATE_TEAM_GROUP_SORT = new HashSet<>(List.of("maxRating", "uniquePlayerNum"
             , "latestBattleDate"));
+    protected static final Set<String> MULTI_FORM_POKEMON = new HashSet<>(List.of("Urshifu", "Zamazenta"
+            , "Greninja", "Dudunsparce"));
     protected static final String TEAM_SET = "team_set";
     protected static final String SET = "set";
     protected static final String TEAM_GROUP = "team_group";
@@ -124,7 +123,8 @@ public class BattleService {
             criteria.and("tagSet").in(tags);
         }
         if (CollectionUtils.hasNotNullObject(pokemonNames)) {
-            criteria.and("pokemons.name").all(pokemonNames);
+            List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
+            criteria.and("pokemons.name").all(puzzlePokemonNames);
         }
 
         Query query = new Query(criteria);
@@ -152,6 +152,18 @@ public class BattleService {
                         TeamGroupDto.class)
                 .getMappedResults();
         return new PageResponse<>(total, page, row, battleTeams);
+    }
+
+    private List<String> getPuzzlePokemonNames(List<String> pokemonNames) {
+        List<String> puzzlePokemonNames = new ArrayList<>();
+        for (String pokemonName : pokemonNames) {
+            if (MULTI_FORM_POKEMON.contains(pokemonName)) {
+                puzzlePokemonNames.add(pokemonName + "-*");
+            } else {
+                puzzlePokemonNames.add(pokemonName);
+            }
+        }
+        return puzzlePokemonNames;
     }
 
     private String getTeamGroupCollection(String groupName) {

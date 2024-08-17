@@ -35,6 +35,7 @@ class TeamApiControllerTest {
     @ParameterizedTest
     @CsvSource(value = {
             "Kingambit::0:7",
+            "Zamazenta::0:7",
             "Kingambit,Slowking-Galar::0:7",
             ":ATTACK:0:7",
             ":STAFF,BALANCE_STAFF:0:7"},

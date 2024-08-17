@@ -38,7 +38,11 @@ public class TeamMatcher {
     public static Matcher<?> hasPokemons(@NotNull String... pokemonNames) {
         List<Matcher<?>> pokemonMatchers = new ArrayList<>();
         for (String pokemonName : pokemonNames) {
-            pokemonMatchers.add(PokemonMatcher.isPokemon(pokemonName));
+            if (pokemonName.equals("Zamazenta")) {
+                pokemonMatchers.add(PokemonMatcher.isPokemon("Zamazenta-*"));
+            } else {
+                pokemonMatchers.add(PokemonMatcher.isPokemon(pokemonName));
+            }
         }
 
         Matcher<? super Map<?, ?>>[] itemMatchers = (Matcher<? super Map<?, ?>>[]) pokemonMatchers.toArray(new Matcher<?>[0]);

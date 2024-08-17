@@ -53,6 +53,9 @@ public class BattleService {
     protected static final String BATTLE_ID = "battleId";
     protected static final String ID = "_id";
     protected static final String DATE = "date";
+    protected static final String TYPE = "type";
+    protected static final String AVAGE_RATING = "avageRating";
+    protected static final String WINNER = "winner";
     protected static final Set<String> VALIDATE_TEAM_GROUP_SORT = new HashSet<>(List.of("maxRating", "uniquePlayerNum"
             , "latestBattleDate"));
     protected static final Set<String> MULTI_FORM_POKEMON = new HashSet<>(List.of("Urshifu", "Zamazenta"
@@ -80,6 +83,7 @@ public class BattleService {
         query.with(Sort.by(Sort.Order.desc(DATE)));
         query.skip((long) (page) * row);
         query.limit(row);
+        query.fields().include(ID, TYPE, AVAGE_RATING, WINNER, DATE);
         List<BattleDto> battles = mongoTemplate.find(query, BattleDto.class, BATTLE);
 
         Query statQuery = new Query(Criteria.where(BATTLE_ID).in(battles.stream().map(BattleDto::getId).toList()));

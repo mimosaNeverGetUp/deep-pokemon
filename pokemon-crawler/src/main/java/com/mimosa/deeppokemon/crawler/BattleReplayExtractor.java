@@ -50,8 +50,11 @@ import java.util.regex.Pattern;
 @Component
 public class BattleReplayExtractor {
     private static final Logger logger = LoggerFactory.getLogger(BattleReplayExtractor.class);
-    @Autowired
-    private TeamTagger teamTagger;
+    private final TeamTagger teamTagger;
+
+    public BattleReplayExtractor(TeamTagger teamTagger) {
+        this.teamTagger = teamTagger;
+    }
 
     public Battle extract(BattleReplayData battleReplayData) {
         logger.debug("extract Team start");
@@ -60,7 +63,7 @@ public class BattleReplayExtractor {
         Team[] teams = extractTeam(battleReplayData.log());
         //贴标签
         for (Team team : teams) {
-            teamTagger.tagTeam(team);
+            teamTagger.tagTeam(team, null);
         }
 
         teams[0].setPlayerName(battleReplayData.players().get(0));
@@ -99,7 +102,7 @@ public class BattleReplayExtractor {
                 pokemons2.add(pokemon);
             }
         }
-        if (pokemons1.size() == 0 && pokemons2.size() == 0) {
+        if (pokemons1.isEmpty() && pokemons2.isEmpty()) {
             throw new ServerErrorException("A Team match failed", null);
         }
         Team team1 = new Team(pokemons1);
@@ -121,8 +124,9 @@ public class BattleReplayExtractor {
             Matcher matcher = pattern.matcher(html);
             HashSet<String> moves = new HashSet<>(4);
             while (matcher.find()) {
-                if (moves.add(matcher.group(1))) {
-                    logger.debug("match {} move:{}", pokemonName, matcher.group(1));
+                String move = matcher.group(1);
+                if (moves.add(move)) {
+                    logger.debug("match {} move:{}", pokemonName, move);
                 }
             }
             pokemon.setMoves(moves);

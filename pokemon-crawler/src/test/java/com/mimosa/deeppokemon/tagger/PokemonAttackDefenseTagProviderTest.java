@@ -58,7 +58,7 @@ class PokemonAttackDefenseTagProviderTest {
         assertTag("Gholdengo", Tag.BALANCE_ATTACK);
         assertTag("Zamazenta", Tag.BALANCE_ATTACK);
         assertTag("Landorus-Therian", Tag.BALANCE_ATTACK);
-        assertTag("Dragapult", Tag.ATTACK);
+        assertTag("Dragapult", Tag.BALANCE_ATTACK);
         assertTag("Raging Bolt", Tag.BALANCE_ATTACK);
         assertTag("Iron Valiant", Tag.ATTACK);
         assertTag("Iron Moth", Tag.ATTACK);

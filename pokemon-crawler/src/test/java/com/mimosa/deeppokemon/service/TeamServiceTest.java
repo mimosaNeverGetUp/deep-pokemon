@@ -25,8 +25,10 @@ class TeamServiceTest {
 
     @Test
     void queryNeedUpdateTeamGroup() {
-        TeamSet teamSetA = new TeamSet(new Binary("testA".getBytes()), "gen9ou", 1, LocalDate.now(), null);
-        TeamSet teamSetB = new TeamSet(new Binary("testB".getBytes()), "gen9ou", 3, LocalDate.now(), null);
+        TeamSet teamSetA = new TeamSet(new Binary("testA".getBytes()), "gen9ou", 1, LocalDate.now(),
+                Collections.singleton(Tag.ATTACK), null);
+        TeamSet teamSetB = new TeamSet(new Binary("testB".getBytes()), "gen9ou", 3, LocalDate.now(),
+                Collections.singleton(Tag.ATTACK),null);
         Mockito.doReturn(List.of(teamSetA, teamSetB)).when(teamService).getTeamSets(Mockito.any(), Mockito.any());
         List<TeamGroup> teamGroups = new ArrayList<>();
         TeamGroup teamGroupA = new TeamGroup("testA".getBytes(), null, 0, 1, 0, null, null, null, null);
@@ -71,6 +73,7 @@ class TeamServiceTest {
         assertEquals(LocalDate.now().minusMonths(1), teamSet.minReplayDate());
         assertEquals(3, teamSet.replayNum());
         assertEquals(1, teamSet.pokemons().size());
+        assertFalse(teamSet.tags().isEmpty());
         PokemonBuildSet pokemonBuildSet = teamSet.pokemons().get(0);
         assertEquals("Clefable", pokemonBuildSet.name());
         assertEquals(3, pokemonBuildSet.moves().size());

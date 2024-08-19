@@ -8,6 +8,7 @@ package com.mimosa.deeppokemon.service;
 
 import com.google.common.collect.Lists;
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.bson.types.Binary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,9 +31,11 @@ public class TeamService {
 
     protected static final int BATCH_SIZE = 1000;
     private final MongoTemplate mongoTemplate;
+    private final TeamTagger teamTagger;
 
-    public TeamService(MongoTemplate mongoTemplate) {
+    public TeamService(MongoTemplate mongoTemplate, TeamTagger teamTagger) {
         this.mongoTemplate = mongoTemplate;
+        this.teamTagger = teamTagger;
     }
 
     @RegisterReflectionForBinding({TeamGroup.class, TeamSet.class, PokemonBuildSet.class})
@@ -84,7 +87,7 @@ public class TeamService {
         for (TeamGroup teamGroup : teamGroups) {
             Binary teamId = new Binary(teamGroup.id());
             TeamSet teamSet = teamSetMap.get(teamId);
-            if (teamSet == null || teamSet.minReplayDate() == null) {
+            if (teamSet == null || teamSet.minReplayDate() == null || teamSet.tags() == null || teamSet.tags().isEmpty()) {
                 needUpdateTeamGroup.add(new Binary(teamGroup.id()));
                 continue;
             }
@@ -122,7 +125,8 @@ public class TeamService {
 
     public TeamSet buildTeamSet(TeamGroup teamGroup) {
         if (teamGroup.teams() == null || teamGroup.teams().isEmpty()) {
-            return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), 0, null, Collections.emptyList());
+            return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), 0, null,
+                    Collections.emptySet(), Collections.emptyList());
         }
 
         Map<String, Map<String, Integer>> moveMap = new HashMap<>();
@@ -146,8 +150,26 @@ public class TeamService {
                 .filter(Objects::nonNull)
                 .min(LocalDate::compareTo)
                 .orElse(null);
-        return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(), minReplayDate,
-                pokemonBuildSets);
+        TeamSet teamSet = new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(), minReplayDate,
+                null, pokemonBuildSets);
+        return tagTeamSet(teamSet);
+    }
+
+    private TeamSet tagTeamSet(TeamSet teamSet) {
+        Team team = convertTeam(teamSet);
+        teamTagger.tagTeam(team,teamSet);
+        return teamSet.withTags(team.getTagSet());
+    }
+
+    private Team convertTeam(TeamSet teamSet) {
+        Team team = new Team();
+        List<Pokemon> pokemons =new ArrayList<>();
+        for (var pokemonSet : teamSet.pokemons()) {
+            pokemons.add(new Pokemon(pokemonSet.name()));
+        }
+        team.setPokemons(pokemons);
+        team.setTagSet(new HashSet<>());
+        return team;
     }
 
     private static void countPokemonSet(BattleTeam team,

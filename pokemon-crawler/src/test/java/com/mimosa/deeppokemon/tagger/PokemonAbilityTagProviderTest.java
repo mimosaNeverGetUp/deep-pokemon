@@ -32,6 +32,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 import java.util.List;
+
 @SpringBootTest
 class PokemonAbilityTagProviderTest {
 
@@ -45,10 +46,10 @@ class PokemonAbilityTagProviderTest {
     void tag() throws IOException {
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (int i = 0; i < pokemonInfoList.size(); i++) {
-            PokemonInfo pokemonInfo =  pokemonInfoList.get(i);
-            pokemonAbilityTagProvider.tag(pokemonInfo);
+            PokemonInfo pokemonInfo = pokemonInfoList.get(i);
+            pokemonAbilityTagProvider.tag(pokemonInfo, null);
             if ("OU".equals(pokemonInfo.getTier()) || "UU".equals(pokemonInfo.getTier())) {
-                System.out.println(pokemonInfo.getName()+" "+pokemonInfo.getAbilities()+" "+
+                System.out.println(pokemonInfo.getName() + " " + pokemonInfo.getAbilities() + " " +
                         pokemonInfo.getTags());
             }
         }

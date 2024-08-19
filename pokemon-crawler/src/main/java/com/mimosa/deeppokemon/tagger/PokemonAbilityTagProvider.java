@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.tagger;
 
+import com.mimosa.deeppokemon.entity.PokemonBuildSet;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
 import org.slf4j.Logger;
@@ -74,7 +75,7 @@ public class PokemonAbilityTagProvider implements PokemonTagProvider {
     }
 
     @Override
-    public void tag(PokemonInfo pokemonInfo) {
+    public void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         int maxAttackLevel = 0; //特性之中最好的进攻等级
         int maxDefenceLevel = 0;//特性之中最好的防守等级
 

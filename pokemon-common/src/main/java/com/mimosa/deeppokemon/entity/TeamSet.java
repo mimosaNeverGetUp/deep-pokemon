@@ -15,9 +15,8 @@ import java.util.List;
 import java.util.Set;
 
 @Document("team_set")
-public record TeamSet(@MongoId Binary id, String tier, long replayNum, LocalDate minReplayDate, Set<Tag> tags,
+public record TeamSet(@MongoId Binary id, String tier, long replayNum, LocalDate minReplayDate, Set<Tag> tagSet,
                       List<PokemonBuildSet> pokemons) {
-
     public TeamSet withTags(Set<Tag> tagSet) {
         return new TeamSet(id, tier, replayNum, minReplayDate, tagSet, pokemons);
     }

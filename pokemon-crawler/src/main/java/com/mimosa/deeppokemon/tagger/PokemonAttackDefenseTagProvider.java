@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.tagger;
 
+import com.mimosa.deeppokemon.entity.PokemonBuildSet;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
 import org.slf4j.Logger;
@@ -59,15 +60,15 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
     private static final String AIBLITY_ATTACK_PATTERN = "ABILITY_ATTACK";
 
     @Override
-    public void tag(PokemonInfo pokemonInfo) {
+    public void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (tagSpecifyPokemon(pokemonInfo)) {
             return;
         }
 
         //标记低层次的标签
-        pokemonStatsTagProvider.tag(pokemonInfo);
-        pokemonAbilityTagProvider.tag(pokemonInfo);
-        pokemonTypeTagProvider.tag(pokemonInfo);
+        pokemonStatsTagProvider.tag(pokemonInfo, pokemonBuildSet);
+        pokemonAbilityTagProvider.tag(pokemonInfo, pokemonBuildSet);
+        pokemonTypeTagProvider.tag(pokemonInfo, pokemonBuildSet);
         HashSet<Tag> highLevelTagSet = new HashSet<>();//高层次的标签集合，用于替换之前的低层次
         log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
         //获取攻防种族level

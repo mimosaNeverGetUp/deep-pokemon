@@ -73,7 +73,7 @@ class TeamServiceTest {
         assertEquals(LocalDate.now().minusMonths(1), teamSet.minReplayDate());
         assertEquals(3, teamSet.replayNum());
         assertEquals(1, teamSet.pokemons().size());
-        assertFalse(teamSet.tags().isEmpty());
+        assertFalse(teamSet.tagSet().isEmpty());
         PokemonBuildSet pokemonBuildSet = teamSet.pokemons().get(0);
         assertEquals("Clefable", pokemonBuildSet.name());
         assertEquals(3, pokemonBuildSet.moves().size());

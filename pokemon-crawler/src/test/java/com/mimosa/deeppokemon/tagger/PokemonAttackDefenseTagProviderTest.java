@@ -46,7 +46,7 @@ class PokemonAttackDefenseTagProviderTest {
     void tag() throws Exception {
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (PokemonInfo pokemonInfo : pokemonInfoList) {
-            pokemonAttackDefenseTagProvider.tag(pokemonInfo);
+            pokemonAttackDefenseTagProvider.tag(pokemonInfo,null);
             Assertions.assertEquals(1, pokemonInfo.getTags().size());
         }
     }
@@ -71,7 +71,7 @@ class PokemonAttackDefenseTagProviderTest {
 
     public void assertTag(String name, Tag tag) {
         PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(name);
-        pokemonAttackDefenseTagProvider.tag(pokemonInfo);
+        pokemonAttackDefenseTagProvider.tag(pokemonInfo,null);
         Assertions.assertEquals(1, pokemonInfo.getTags().size());
         Assertions.assertTrue(pokemonInfo.getTags().contains(tag));
     }

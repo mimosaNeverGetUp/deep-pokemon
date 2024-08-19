@@ -25,6 +25,7 @@
 package com.mimosa.deeppokemon.tagger;
 
 import com.mimosa.deeppokemon.entity.BaseStats;
+import com.mimosa.deeppokemon.entity.PokemonBuildSet;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
 import org.springframework.stereotype.Component;
@@ -44,7 +45,7 @@ public class PokemonStatsTagProvider implements PokemonTagProvider {
     private static final float DEFENSETHRESOLD_EXCELLENT = (120 * 2 + 204) * 1.1F * (120 * 2 + 99);
 
     @Override
-    public void tag(PokemonInfo pokemonInfo) {
+    public void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         tagAtk(pokemonInfo);
         tagSatk(pokemonInfo);
         tagDef(pokemonInfo);

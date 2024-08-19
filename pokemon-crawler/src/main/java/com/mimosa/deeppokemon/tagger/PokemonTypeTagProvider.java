@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.tagger;
 
+import com.mimosa.deeppokemon.entity.PokemonBuildSet;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
 import com.mimosa.deeppokemon.entity.Type;
@@ -45,7 +46,7 @@ public class PokemonTypeTagProvider implements PokemonTagProvider {
     private static final float THRESOLD_WEAK_NORMAL = -6.75f;
 
     @Override
-    public void tag(PokemonInfo pokemonInfo) {
+    public void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         List<Float> reistanceRates = Type.getResistanceRate(pokemonInfo);
         float totalValue = 0; //抵抗价值
         float totalWeakValue = 0;//弱点负价值

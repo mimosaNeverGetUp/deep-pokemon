@@ -30,6 +30,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 @Component
@@ -49,6 +51,13 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
     public void tag(Team team, TeamSet teamSet) {
         Set<Tag> tags = team.getTagSet();
         float attackDefenseDif = 0;//攻受差异，大于0表示攻向
+        Map<String, PokemonBuildSet> pokemonBuildSetMap = new HashMap<>();
+        if (teamSet != null && teamSet.pokemons() != null) {
+            for(PokemonBuildSet pokemonBuildSet : teamSet.pokemons()) {
+                pokemonBuildSetMap.put(pokemonBuildSet.name(), pokemonBuildSet);
+            }
+        }
+
         try {
             for (Pokemon pokemon : team.getPokemons()) {
                 PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon.getName());
@@ -56,7 +65,7 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
                     logger.error("pokemoninfo {} not found and team tag fail", pokemon.getName());
                     return;
                 }
-                pokemonAttackDefenseTagProvider.tag(pokemonInfo);
+                pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSetMap.get(pokemon.getName()));
                 logger.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
                 //手动神经元，加权求和大于阈值进行分类...
                 for (Tag tag : pokemonInfo.getTags()) {

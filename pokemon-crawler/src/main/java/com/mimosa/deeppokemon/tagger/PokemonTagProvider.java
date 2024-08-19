@@ -24,6 +24,7 @@
 
 package com.mimosa.deeppokemon.tagger;
 
+import com.mimosa.deeppokemon.entity.PokemonBuildSet;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 
 /**
@@ -35,5 +36,5 @@ import com.mimosa.deeppokemon.entity.PokemonInfo;
 
 public interface PokemonTagProvider {
 
-    public void tag(PokemonInfo pokemonInfo);
+    void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet);
 }

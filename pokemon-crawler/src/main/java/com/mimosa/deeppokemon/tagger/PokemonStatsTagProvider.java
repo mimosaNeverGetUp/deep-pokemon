@@ -29,14 +29,6 @@ import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
 import org.springframework.stereotype.Component;
 
-/**
- * @program: deep-pokemon
- * @description: 宝可梦种族分类标签提供类
- * @author: mimosa
- * @create: 2020//10//23
- */
-
-
 @Component
 public class PokemonStatsTagProvider implements PokemonTagProvider {
     //种族分类判断阈值（除hp外）

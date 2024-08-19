@@ -33,12 +33,6 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.HashSet;
 
-/**
- * @program: deep-pokemon
- * @description: 宝可梦特性分类标签类
- * @author: mimosa
- * @create: 2020//10//23
- */
 @Component
 public class PokemonAbilityTagProvider implements PokemonTagProvider {
     private static final Logger log = LoggerFactory.getLogger(PokemonAbilityTagProvider.class);

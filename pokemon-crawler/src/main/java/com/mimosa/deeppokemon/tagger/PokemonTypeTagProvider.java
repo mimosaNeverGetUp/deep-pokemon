@@ -28,18 +28,12 @@ import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
 import com.mimosa.deeppokemon.entity.Type;
 import org.springframework.stereotype.Component;
-import java.util.List;
 
-/**
- * @program: deep-pokemon
- * @description: 宝可梦属性分类标签类
- * @author: mimosa
- * @create: 2020//10//23
- */
+import java.util.List;
 
 @Component
 public class PokemonTypeTagProvider implements PokemonTagProvider {
-    private static final float superReistanceValueRate = 1.5f; //4倍抵抗或免疫的价值
+    private static final float SUPER_REISTANCE_VALUE_RATE = 1.5f; //4倍抵抗或免疫的价值
 
     //属性抵抗价值标签判断阈值
     private static final float THRESOLD_BAD = 4.5f;
@@ -54,21 +48,21 @@ public class PokemonTypeTagProvider implements PokemonTagProvider {
     public void tag(PokemonInfo pokemonInfo) {
         List<Float> reistanceRates = Type.getResistanceRate(pokemonInfo);
         float totalValue = 0; //抵抗价值
-        float totalWeakValue =0;//弱点负价值
+        float totalWeakValue = 0;//弱点负价值
         for (int i = 0; i < reistanceRates.size(); i++) {
-            Float f =  reistanceRates.get(i);
+            Float f = reistanceRates.get(i);
             Type reistanceType = Type.valueOf(Type.TYPEORDER.get(i));//数组对应属性抵抗是按TYPEORDER的位置给的
             if (f < 1) {
                 float reistanceValue = getValueOfReistance(reistanceType);
                 if (f < 0.5) {
-                    totalValue += reistanceValue * superReistanceValueRate;
+                    totalValue += reistanceValue * SUPER_REISTANCE_VALUE_RATE;
                 } else {
                     totalValue += reistanceValue;
                 }
             } else if (f > 1) {
                 float weakValue = getValueOfReistance(reistanceType);
                 if (f > 2) {
-                    totalWeakValue -= superReistanceValueRate * weakValue;
+                    totalWeakValue -= SUPER_REISTANCE_VALUE_RATE * weakValue;
                 } else {
                     totalWeakValue -= weakValue;
                 }
@@ -102,24 +96,11 @@ public class PokemonTypeTagProvider implements PokemonTagProvider {
     //属性抵抗价值
     private float getValueOfReistance(Type type) {
         switch (type) {
-            case BUG:
-            case STEEL:
-            case POISON:
-            case NORMAL:
+            case BUG, STEEL, POISON, NORMAL:
                 return 0.75f; //虫、钢、毒、一般 抵抗价值小
-            case ROCK:
-            case GRASS:
-            case FLYING:
-            case FIGHTING:
-            case PSYCHIC:
-            case FAIRY:
+            case ROCK, GRASS, FLYING, FIGHTING, PSYCHIC, FAIRY:
                 return 1.0f; //草  岩石 超能 格斗 飞行 仙 抵抗价值一般
-            case FIRE:
-            case ICE:
-            case GHOST:
-            case DARK:
-            case WATER:
-            case DRAGON:
+            case FIRE, ICE, GHOST, DARK, WATER, DRAGON:
                 return 1.25f;//鬼 恶 水 龙 冰 火 抵抗价值好
             default:
                 return 1.5f;//剩余的电 地 抵抗价值重要

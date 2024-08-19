@@ -35,15 +35,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
-/**
- * @program: deep-pokemon
- * @description: 队伍攻受标签提供类
- * @author: mimosa
- * @create: 2020//10//27
- */
 @Component
 public class TeamAttackDefenceTagProvider implements TeamTagProvider {
-    private static Logger logger = LoggerFactory.getLogger(TeamAttackDefenceTagProvider.class);
+    private static final Logger logger = LoggerFactory.getLogger(TeamAttackDefenceTagProvider.class);
 
     private final PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider;
 
@@ -71,18 +65,18 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
                 for (Tag tag : pokemonInfo.getTags()) {
                     switch (tag) {
                         case STAFF:
-                            attackDefenseDif -= 1;
+                            attackDefenseDif -= 1F;
                             break;
                         case BALANCE_STAFF:
-                            attackDefenseDif -= 0.5;
+                            attackDefenseDif -= 0.5F;
                             break;
                         case BALANCE:
                             break;
                         case BALANCE_ATTACK:
-                            attackDefenseDif += 0.5;
+                            attackDefenseDif += 0.5F;
                             break;
                         case ATTACK:
-                            attackDefenseDif += 1;
+                            attackDefenseDif += 1F;
                             break;
                         default:
                             logger.error("tag {} not supported", tag);

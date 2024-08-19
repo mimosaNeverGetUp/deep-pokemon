@@ -26,10 +26,14 @@ package com.mimosa.deeppokemon.tagger;
 
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @program: deep-pokemon
@@ -40,6 +44,11 @@ import java.util.HashSet;
 
 @Component
 public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
+    private static final Logger log = LoggerFactory.getLogger(PokemonAttackDefenseTagProvider.class);
+    private static final Set<String> OFFENSIVE_POKEMONS = Set.of("Deoxys-Speed", "Ribombee", "Ninetales-Alola",
+            "Maushold", "Maushold-Four", "Grimmsnarl", "Torkoal");
+    private static final Set<String> BALANCE_POKEMONS = Set.of("Ditto", "Tinkaton");
+
     @Autowired
     private PokemonStatsTagProvider pokemonStatsTagProvider;
 
@@ -53,19 +62,22 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
     private final static String defensePattern = "DEFENCESTATS";
     private final static String spaPattern = "SPASTATS";
     private final static String spdPattern = "SPDSTATS";
-    private final static String spePattern = "SPESTATS";
     private final static String typePattern = "TYPE";
     private final static String aiblityDefencePattern = "ABILITY_DEFENCE";
     private final static String aiblityAttackPattern = "ABILITY_ATTACK";
 
     @Override
     public void tag(PokemonInfo pokemonInfo) throws Exception {
+        if (tagSpecifyPokemon(pokemonInfo)) {
+            return;
+        }
 
         //标记低层次的标签
         pokemonStatsTagProvider.tag(pokemonInfo);
         pokemonAbilityTagProvider.tag(pokemonInfo);
         pokemonTypeTagProvider.tag(pokemonInfo);
         HashSet<Tag> highLevelTagSet = new HashSet<>();//高层次的标签集合，用于替换之前的低层次
+        log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
         //获取攻防种族level
         int level_attack = getLevelOfStat(pokemonInfo, attackPattern);
         int level_defence = getLevelOfStat(pokemonInfo, defensePattern);
@@ -80,10 +92,18 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         float abilityAttackValue = getValueOfAbility(pokemonInfo, aiblityAttackPattern);
         maxLevel_attack += abilityAttackValue;
         maxLevel_defence += abilityDefenceValue + typeValue;
+        log.debug("pokemon {} maxLevel_attack {} maxLevel_defence {} typeValue {} abilityDefenceValue {} " +
+                        "abilityAttackValue {}",
+                pokemonInfo.getName(), maxLevel_attack, maxLevel_defence, typeValue, abilityDefenceValue, abilityAttackValue);
+
         if (maxLevel_attack < 2 && maxLevel_defence < 2) {
             highLevelTagSet.add(Tag.WEAK);
         } else if (Math.abs(maxLevel_attack - maxLevel_defence) < 0.5) {
             highLevelTagSet.add(Tag.BALANCE); //相差不大 平衡标签
+        } else if (maxLevel_attack - maxLevel_defence >= 2) {
+            highLevelTagSet.add(Tag.ATTACK); //相差不大 平衡标签
+        } else if (maxLevel_defence - maxLevel_attack >= 2) {
+            highLevelTagSet.add(Tag.STAFF); //相差不大 平衡标签
         } else if (maxLevel_attack < 2 && maxLevel_defence >= 3) {
             highLevelTagSet.add(Tag.STAFF);   //攻击太小 受标签
         } else if (maxLevel_attack >= 2 && maxLevel_defence > maxLevel_attack) {
@@ -100,6 +120,24 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             highLevelTagSet.add(Tag.ABILITY_WEATHER);
         }
         pokemonInfo.setTags(highLevelTagSet);
+        log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
+    }
+
+    private boolean tagSpecifyPokemon(PokemonInfo pokemonInfo) {
+        if (OFFENSIVE_POKEMONS.contains(pokemonInfo.getName())) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        if (BALANCE_POKEMONS.contains(pokemonInfo.getName())) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.BALANCE);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        return false;
     }
 
     private int getLevelOfStat(PokemonInfo pokemonInfo, String pattern) {

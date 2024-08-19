@@ -31,7 +31,6 @@ import com.mimosa.deeppokemon.entity.Tag;
 import com.mimosa.deeppokemon.entity.Team;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -44,13 +43,17 @@ import java.util.Set;
  */
 @Component
 public class TeamAttackDefenceTagProvider implements TeamTagProvider {
-    @Autowired
-    private PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider;
-
-    @Autowired
-    private PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
-
     private static Logger logger = LoggerFactory.getLogger(TeamAttackDefenceTagProvider.class);
+
+    private final PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider;
+
+    private final PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
+
+    public TeamAttackDefenceTagProvider(PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider, PokemonInfoCrawlerImp pokemonInfoCrawlerImp) {
+        this.pokemonAttackDefenseTagProvider = pokemonAttackDefenseTagProvider;
+        this.pokemonInfoCrawlerImp = pokemonInfoCrawlerImp;
+    }
+
     @Override
     public void tag(Team team) {
         Set<Tag> tags = team.getTagSet();
@@ -59,10 +62,11 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
             for (Pokemon pokemon : team.getPokemons()) {
                 PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon.getName());
                 if (pokemonInfo == null) {
-                    logger.error("pokemoninfo {} not found and team tag fail",pokemon.getName());
+                    logger.error("pokemoninfo {} not found and team tag fail", pokemon.getName());
                     return;
                 }
                 pokemonAttackDefenseTagProvider.tag(pokemonInfo);
+                logger.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
                 //手动神经元，加权求和大于阈值进行分类...
                 for (Tag tag : pokemonInfo.getTags()) {
                     switch (tag) {
@@ -79,6 +83,9 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
                             break;
                         case ATTACK:
                             attackDefenseDif += 1;
+                            break;
+                        default:
+                            logger.error("tag {} not supported", tag);
                     }
                 }
             }
@@ -97,9 +104,9 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
             } else {
                 tags.add(Tag.BALANCE);
             }
-            logger.debug("{} attackDefence diff is {}",team.getPokemons(),attackDefenseDif);
+            logger.debug("{} attackDefence diff is {}", team.getPokemons(), attackDefenseDif);
         } catch (Exception e) {
-            logger.error("tag team fail",e);
+            logger.error("tag team fail", e);
         }
 
     }

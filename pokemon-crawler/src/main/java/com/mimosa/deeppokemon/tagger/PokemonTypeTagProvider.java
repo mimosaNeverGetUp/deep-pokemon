@@ -39,8 +39,7 @@ import java.util.List;
 
 @Component
 public class PokemonTypeTagProvider implements PokemonTagProvider {
-
-    private final static float superReistanceValueRate = 1.5f; //4倍抵抗或免疫的价值
+    private static final float superReistanceValueRate = 1.5f; //4倍抵抗或免疫的价值
 
     //属性抵抗价值标签判断阈值
     private static final float THRESOLD_BAD = 4.5f;

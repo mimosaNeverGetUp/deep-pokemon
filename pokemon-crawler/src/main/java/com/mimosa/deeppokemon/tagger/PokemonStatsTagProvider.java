@@ -68,14 +68,14 @@ public class PokemonStatsTagProvider implements PokemonTagProvider {
         BaseStats baseStats = pokemonInfo.getBaseStats();
         int hp = baseStats.getHp();
         int def = baseStats.getDef();
-        float endurance_def = getEndurance(hp, def);
-        if (endurance_def < DEFENSETHRESOLD_BAD) {
+        float enduranceDef = getEndurance(hp, def);
+        if (enduranceDef < DEFENSETHRESOLD_BAD) {
             pokemonInfo.addTag(Tag.BAD_DEFENCESTATS);
-        } else if (endurance_def < DEFENSETHRESOLD_NROMAL) {
+        } else if (enduranceDef < DEFENSETHRESOLD_NROMAL) {
             pokemonInfo.addTag(Tag.NORMAL_DEFENCESTATS);
-        } else if (endurance_def < DEFENSETHRESOLD_GOOD) {
+        } else if (enduranceDef < DEFENSETHRESOLD_GOOD) {
             pokemonInfo.addTag(Tag.GOOD_DEFENCESTATS);
-        } else if (endurance_def < DEFENSETHRESOLD_EXCELLENT) {
+        } else if (enduranceDef < DEFENSETHRESOLD_EXCELLENT) {
             pokemonInfo.addTag(Tag.EXCELLENT_DEFENCESTATS);
         } else {
             pokemonInfo.addTag(Tag.PRETTY_DEFENCESTATS);
@@ -86,14 +86,14 @@ public class PokemonStatsTagProvider implements PokemonTagProvider {
         BaseStats baseStats = pokemonInfo.getBaseStats();
         int hp = baseStats.getHp();
         int spd = baseStats.getSpd();
-        float endurance_def = getEndurance(hp, spd);
-        if (endurance_def < DEFENSETHRESOLD_BAD) {
+        float enduranceDef = getEndurance(hp, spd);
+        if (enduranceDef < DEFENSETHRESOLD_BAD) {
             pokemonInfo.addTag(Tag.BAD_SPDSTATS);
-        } else if (endurance_def < DEFENSETHRESOLD_NROMAL) {
+        } else if (enduranceDef < DEFENSETHRESOLD_NROMAL) {
             pokemonInfo.addTag(Tag.NORMAL_SPDSTATS);
-        } else if (endurance_def < DEFENSETHRESOLD_GOOD) {
+        } else if (enduranceDef < DEFENSETHRESOLD_GOOD) {
             pokemonInfo.addTag(Tag.GOOD_SPDSTATS);
-        } else if (endurance_def < DEFENSETHRESOLD_EXCELLENT) {
+        } else if (enduranceDef < DEFENSETHRESOLD_EXCELLENT) {
             pokemonInfo.addTag(Tag.EXCELLENT_SPDSTATS);
         } else {
             pokemonInfo.addTag(Tag.PRETTY_SPDSTATS);

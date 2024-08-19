@@ -59,7 +59,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
     private static final String AIBLITY_ATTACK_PATTERN = "ABILITY_ATTACK";
 
     @Override
-    public void tag(PokemonInfo pokemonInfo) throws Exception {
+    public void tag(PokemonInfo pokemonInfo) {
         if (tagSpecifyPokemon(pokemonInfo)) {
             return;
         }

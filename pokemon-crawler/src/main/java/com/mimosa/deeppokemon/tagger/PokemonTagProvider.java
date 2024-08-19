@@ -35,5 +35,5 @@ import com.mimosa.deeppokemon.entity.PokemonInfo;
 
 public interface PokemonTagProvider {
 
-    public void tag(PokemonInfo pokemonInfo) throws Exception;
+    public void tag(PokemonInfo pokemonInfo);
 }

@@ -26,6 +26,8 @@ package com.mimosa.deeppokemon.tagger;
 
 import com.mimosa.deeppokemon.crawler.PokemonInfoCrawler;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
+import com.mimosa.deeppokemon.entity.Tag;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,6 +47,32 @@ class PokemonAttackDefenseTagProviderTest {
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (PokemonInfo pokemonInfo : pokemonInfoList) {
             pokemonAttackDefenseTagProvider.tag(pokemonInfo);
+            Assertions.assertEquals(1, pokemonInfo.getTags().size());
         }
+    }
+
+    @Test
+    void tagHighUsage() {
+        assertTag("Kingambit", Tag.BALANCE_ATTACK);
+        assertTag("Great Tusk", Tag.BALANCE);
+        assertTag("Gholdengo", Tag.BALANCE_ATTACK);
+        assertTag("Zamazenta", Tag.BALANCE_ATTACK);
+        assertTag("Landorus-Therian", Tag.BALANCE_ATTACK);
+        assertTag("Dragapult", Tag.ATTACK);
+        assertTag("Raging Bolt", Tag.BALANCE_ATTACK);
+        assertTag("Iron Valiant", Tag.ATTACK);
+        assertTag("Iron Moth", Tag.ATTACK);
+        assertTag("Darkrai", Tag.ATTACK);
+        assertTag("Slowking-Galar", Tag.BALANCE_STAFF);
+        assertTag("Dragonite", Tag.BALANCE);
+        assertTag("Ogerpon-Wellspring", Tag.BALANCE_ATTACK);
+        assertTag("Samurott-Hisui", Tag.BALANCE_ATTACK);
+    }
+
+    public void assertTag(String name, Tag tag) {
+        PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(name);
+        pokemonAttackDefenseTagProvider.tag(pokemonInfo);
+        Assertions.assertEquals(1, pokemonInfo.getTags().size());
+        Assertions.assertTrue(pokemonInfo.getTags().contains(tag));
     }
 }

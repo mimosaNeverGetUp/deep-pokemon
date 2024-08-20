@@ -11,6 +11,7 @@ import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.matcher.BattleStatMatcher;
 import com.mimosa.deeppokemon.matcher.PokemonMatcher;
+import org.bson.types.Binary;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,7 @@ import org.springframework.test.context.ContextConfiguration;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
@@ -180,7 +182,7 @@ class BattleServiceTest {
 
         Assertions.assertEquals(mongoTemplate.count(new Query(), TeamGroup.class, TEAM_GROUP_LAST_99_Y), mongoTemplate.count(new Query(),
                 TeamSet.class, TEAM_SET_LAST_99_Y));
-        TeamSet teamSet = mongoTemplate.findOne(new Query(), TeamSet.class, TEAM_SET_LAST_99_Y);
+        TeamSet teamSet = mongoTemplate.findById(new Binary(teamGroup.id()), TeamSet.class, TEAM_SET_LAST_99_Y);
         Assertions.assertNotNull(teamSet);
         Assertions.assertNotNull(teamSet.pokemons());
         Assertions.assertNotNull(teamSet.tier());
@@ -195,5 +197,11 @@ class BattleServiceTest {
             }
         }
         Assertions.assertTrue(foundMove);
+        Set<Tag> tagSet = teamSet.tagSet();
+        Assertions.assertNotNull(tagSet);
+        Assertions.assertFalse(tagSet.isEmpty());
+        for (var tag : tagSet) {
+            Assertions.assertTrue(teamGroup.tagSet().contains(tag));
+        }
     }
 }

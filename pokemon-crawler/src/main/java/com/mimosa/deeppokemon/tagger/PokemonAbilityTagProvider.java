@@ -50,10 +50,11 @@ public class PokemonAbilityTagProvider implements PokemonTagProvider {
     static {
         String[] normalAtkAbility = {"Iron Fist", "Skill Link", "Tinted Lens", "Reckless", "Defiant", "Infiltrator", "Moxie"
                 , "Normalize", "Tough Claws", "Pixilate", "Aerilate", "Psychic Surge", "Electric Surge", "Grassy Surge",
-                "Punk Rock", "Neutralizing Gas", "Toxic Chain", "Guard Dog"};
+                "Punk Rock", "Neutralizing Gas", "Toxic Chain", "Guard Dog", "Poison Heal", "Magic Guard",
+                "Purifying Salt"};
         String[] goodAtkAbility = {"Guts", "Adaptability", "Mold Breaker", "Contrary", "Protean", "Battle Bond",
-                "Transistor", "Dragon's Maw", "Libero", "Soul-Heart", "Beast Boost", "Good as Gold", "Protosynthesis",
-                "Quark Drive", "Water Bubble", "Sharpness", "Toxic Debris", "Grassy Terrain", "Swift Swim",
+                "Transistor", "Dragon's Maw", "Libero", "Soul-Heart", "Beast Boost", "Good as Gold", "Water Bubble",
+                "Sharpness", "Toxic Debris", "Grassy Terrain", "Swift Swim",
                 "Tinted Lens", "Chlorophyll", "Sand Rush", "Speed Boost", "Technician"};
         String[] prettyAtkAbility = {"Huge Power", "Magnet Pull", "Stance Change", "Supreme Overlord", "Drought",
                 "Drizzle", "Snow Warning", "Sand Stream"};
@@ -62,8 +63,8 @@ public class PokemonAbilityTagProvider implements PokemonTagProvider {
                 , "Natural Cure", "Thick Fat", "Flame Body", "Marvel Scale", "Storm Drain", "Sap Sipper", "Stamina",
                 "Triage", "Good as Gold", "Dauntless Shield", "Multiscale", "Grassy Terrain", "Heatproof", "Sand Stream"};
         String[] goodDefAbility = {"Unaware", "Regenerator", "Fluffy", "Magic Bounce", "Poison Heal", "Disguise",
-                "Intimidate", "Vessel of Ruin",};
-        String[] prettyDefAbility = {"Magic Guard", "Purifying Salt"};
+                "Intimidate", "Vessel of Ruin", "Magic Guard"};
+        String[] prettyDefAbility = {"Purifying Salt"};
 
         ABILITIES_ATTACK_BAD.addAll(Arrays.asList(normalAtkAbility));
         ABILITIES_ATTACK_GOOD.addAll(Arrays.asList(goodAtkAbility));

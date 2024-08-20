@@ -25,6 +25,7 @@
 package com.mimosa.deeppokemon.tagger;
 
 import com.mimosa.deeppokemon.crawler.PokemonInfoCrawler;
+import com.mimosa.deeppokemon.entity.PokemonBuildSet;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Tag;
 import org.junit.jupiter.api.Assertions;
@@ -32,6 +33,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Collections;
 import java.util.List;
 
 @SpringBootTest
@@ -46,33 +48,60 @@ class PokemonAttackDefenseTagProviderTest {
     void tag() throws Exception {
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (PokemonInfo pokemonInfo : pokemonInfoList) {
-            pokemonAttackDefenseTagProvider.tag(pokemonInfo,null);
+            pokemonAttackDefenseTagProvider.tag(pokemonInfo, null);
             Assertions.assertEquals(1, pokemonInfo.getTags().size());
         }
     }
 
     @Test
     void tagHighUsage() {
-        assertTag("Kingambit", Tag.BALANCE_ATTACK);
-        assertTag("Great Tusk", Tag.BALANCE);
-        assertTag("Gholdengo", Tag.BALANCE_ATTACK);
-        assertTag("Zamazenta", Tag.BALANCE_ATTACK);
-        assertTag("Landorus-Therian", Tag.BALANCE_ATTACK);
-        assertTag("Dragapult", Tag.BALANCE_ATTACK);
-        assertTag("Raging Bolt", Tag.BALANCE_ATTACK);
-        assertTag("Iron Valiant", Tag.ATTACK);
-        assertTag("Iron Moth", Tag.ATTACK);
-        assertTag("Darkrai", Tag.ATTACK);
-        assertTag("Slowking-Galar", Tag.BALANCE_STAFF);
-        assertTag("Dragonite", Tag.BALANCE);
-        assertTag("Ogerpon-Wellspring", Tag.BALANCE_ATTACK);
-        assertTag("Samurott-Hisui", Tag.BALANCE_ATTACK);
+        assertTag("Kingambit", Tag.BALANCE_ATTACK, null);
+        assertTag("Great Tusk", Tag.BALANCE_STAFF, null);
+        assertTag("Gholdengo", Tag.BALANCE_ATTACK, null);
+        assertTag("Zamazenta", Tag.BALANCE_ATTACK, null);
+        assertTag("Landorus-Therian", Tag.BALANCE_ATTACK, null);
+        assertTag("Dragapult", Tag.BALANCE_ATTACK, null);
+        assertTag("Raging Bolt", Tag.BALANCE_ATTACK, null);
+        assertTag("Iron Valiant", Tag.BALANCE_ATTACK, null);
+        assertTag("Iron Moth", Tag.BALANCE_ATTACK, null);
+        assertTag("Darkrai", Tag.ATTACK, null);
+        assertTag("Slowking-Galar", Tag.BALANCE_STAFF, null);
+        assertTag("Dragonite", Tag.BALANCE, null);
+        assertTag("Ogerpon-Wellspring", Tag.BALANCE_ATTACK, null);
+        assertTag("Samurott-Hisui", Tag.BALANCE_ATTACK, null);
+
+        assertTag("Kingambit", Tag.BALANCE_ATTACK, buildSet("Kingambit", "Black Glasses", "Swords Dance"));
+        assertTag("Great Tusk", Tag.BALANCE_ATTACK, buildSet("Great Tusk", "Booster Energy", "Bulk Up"));
+        assertTag("Great Tusk", Tag.BALANCE, buildSet("Great Tusk", "Booster Energy", ""));
+        assertTag("Great Tusk", Tag.BALANCE_STAFF, buildSet("Great Tusk", "Heavy-Duty Boots", ""));
+        assertTag("Iron Valiant", Tag.ATTACK, buildSet("Iron Valiant", "Booster Energy", ""));
+        assertTag("Iron Valiant", Tag.ATTACK, buildSet("Iron Valiant", "Choice Specs", ""));
+        assertTag("Iron Moth", Tag.ATTACK, buildSet("Iron Moth", "Booster Energy", ""));
+        assertTag("Gholdengo", Tag.BALANCE, buildSet("Gold Glasses", "Heavy-Duty Boots", "Recover"));
+        assertTag("Raging Bolt", Tag.ATTACK, buildSet("Raging Bolt", "Booster Energy", ""));
+        assertTag("Raging Bolt", Tag.BALANCE_ATTACK, buildSet("Raging Bolt", "Leftovers", "Calm Mind"));
+        assertTag("Gouging Fire", Tag.BALANCE_ATTACK, buildSet("Gouging Fire", "Booster Energy", "Dragon Dance"));
+        assertTag("Gouging Fire", Tag.BALANCE, buildSet("Gouging Fire", "Booster Energy", "Dragon Dance", "Morning Sun"));
+        assertTag("Roaring Moon", Tag.ATTACK, buildSet("Roaring Moon", "Booster Energy", "Dragon Dance"));
+        assertTag("Roaring Moon", Tag.BALANCE_ATTACK, buildSet("Roaring Moon", "", "Dragon Dance", "Roost"));
+        assertTag("Iron Treads", Tag.BALANCE_STAFF, buildSet("Iron Treads", "Booster Energy",""));
+        assertTag("Hatterene", Tag.BALANCE_ATTACK, buildSet("Hatterene", "Leftovers",""));
+        assertTag("Hatterene", Tag.ATTACK, buildSet("Hatterene", "Grassy Seed","Calm Mind"));
+        assertTag("Iron Crown", Tag.BALANCE_ATTACK, buildSet("Iron Crown", "Booster Energy", "Calm Mind"));
+        assertTag("Iron Crown", Tag.BALANCE_STAFF, buildSet("Iron Crown", "Assault Vest", ""));
+        assertTag("Dragapult", Tag.BALANCE_ATTACK, buildSet("Dragapult", "Heavy-Duty Boots", ""));
+        assertTag("Dragapult", Tag.ATTACK, buildSet("Dragapult", "Heavy-Duty Boots", "Dragon Dance"));
+        assertTag("Dragapult", Tag.ATTACK, buildSet("Dragapult", "Choice Specs", ""));
     }
 
-    public void assertTag(String name, Tag tag) {
+    public void assertTag(String name, Tag tag, PokemonBuildSet pokemonBuildSet) {
         PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(name);
-        pokemonAttackDefenseTagProvider.tag(pokemonInfo,null);
+        pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSet);
         Assertions.assertEquals(1, pokemonInfo.getTags().size());
         Assertions.assertTrue(pokemonInfo.getTags().contains(tag));
+    }
+
+    public PokemonBuildSet buildSet(String name, String item, String... moves) {
+        return new PokemonBuildSet(name, List.of(moves), null, Collections.singletonList(item), null);
     }
 }

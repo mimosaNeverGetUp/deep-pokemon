@@ -36,7 +36,8 @@ public class PokemonStatsTagProvider implements PokemonTagProvider {
     private static final int THRESOLD_BAD = 85;
     private static final int THRESOLD_NROMAL = 100;
     private static final int THRESOLD_GOOD = 120;
-    private static final int THRESOLD_EXCELLENT = 140;
+    private static final int THRESOLD_EXCELLENT = 135;
+    private static final int THRESOLD_OUTSTANDING_EXCELLENT = 140;
 
     //双防种族分类判断阈值,对应的值为hp*def/spd的极限能力值相乘(暂定等级档 80*80 / 90*90/ 100*100 /105*105 /120*120)
     private static final float DEFENSETHRESOLD_BAD = (80 * 2 + 204) * 1.1F * (80 * 2 + 99);
@@ -104,6 +105,8 @@ public class PokemonStatsTagProvider implements PokemonTagProvider {
             pokemonInfo.addTag(Tag.GOOD_ATTACKSTATS);
         } else if (atk < THRESOLD_EXCELLENT) {
             pokemonInfo.addTag(Tag.EXCELLENT_ATTACKSTATS);
+        } else if (atk < THRESOLD_OUTSTANDING_EXCELLENT) {
+            pokemonInfo.addTag(Tag.OUTSTANDING_ATTACKSTATS);
         } else {
             pokemonInfo.addTag(Tag.PRETTY_ATTACKSTATS);
         }
@@ -118,8 +121,10 @@ public class PokemonStatsTagProvider implements PokemonTagProvider {
             pokemonInfo.addTag(Tag.NORMAL_SPASTATS);
         } else if (satk < THRESOLD_GOOD) {
             pokemonInfo.addTag(Tag.GOOD_SPASTATS);
-        } else if (satk < THRESOLD_EXCELLENT) {
+        }  else if (satk < THRESOLD_EXCELLENT) {
             pokemonInfo.addTag(Tag.EXCELLENT_SPASTATS);
+        }else if (satk < THRESOLD_OUTSTANDING_EXCELLENT) {
+            pokemonInfo.addTag(Tag.OUTSTANDING_SPASTATS);
         } else {
             pokemonInfo.addTag(Tag.PRETTY_SPASTATS);
         }

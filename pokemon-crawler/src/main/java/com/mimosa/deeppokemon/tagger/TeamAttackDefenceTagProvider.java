@@ -104,7 +104,8 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
             } else {
                 tags.add(Tag.BALANCE);
             }
-            logger.debug("{} attackDefence diff is {}", team.getPokemons(), attackDefenseDif);
+            logger.debug("{} attackDefence diff is {} tag {}", team.getPokemons().stream().map(Pokemon::getName).toList(),
+                    attackDefenseDif, tags);
         } catch (Exception e) {
             logger.error("tag team fail", e);
         }

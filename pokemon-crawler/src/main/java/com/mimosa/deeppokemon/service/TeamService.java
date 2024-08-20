@@ -112,17 +112,21 @@ public class TeamService {
         List<TeamSet> teamSets = mongoTemplate.find(query, TeamSet.class, teamSetCollectionName);
         Map<Binary, TeamSet> teamSetMap = teamSets.stream().collect(Collectors.toMap(TeamSet::id, Function.identity()));
         BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, teamGroupCollectionName);
+        boolean needUpdate = false;
         for (TeamGroup teamGroup : batchTeamGroup) {
             Binary teamId = new Binary(teamGroup.id());
             if (teamSetMap.containsKey(teamId)) {
                 TeamSet teamSet = teamSetMap.get(teamId);
                 if (!isTagSync(teamGroup, teamSet)) {
-                    log.info("start to update team group {} tag",  new String(teamId.getData()));
+                    log.debug("start to update team group {} tag",  new String(teamId.getData()));
+                    needUpdate = true;
                     updateTeamGroupTag(bulkOperations, teamId, teamSet.tagSet());
                 }
             }
         }
-        bulkOperations.execute();
+        if (needUpdate) {
+            bulkOperations.execute();
+        }
     }
 
     private void updateTeamGroupTag(BulkOperations bulkOperations, Binary teamId, Set<Tag> tags) {

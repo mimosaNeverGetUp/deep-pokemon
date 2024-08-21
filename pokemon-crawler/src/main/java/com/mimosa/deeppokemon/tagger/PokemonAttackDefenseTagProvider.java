@@ -31,6 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -38,61 +39,60 @@ import java.util.Set;
 @Component
 public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
     private static final Logger log = LoggerFactory.getLogger(PokemonAttackDefenseTagProvider.class);
-    private static final Set<String> OFFENSIVE_POKEMONS = Set.of("Deoxys-Speed", "Ribombee", "Ninetales-Alola",
-            "Maushold", "Maushold-Four", "Grimmsnarl", "Torkoal");
-    private static final Set<String> BALANCE_POKEMONS = Set.of("Ditto", "Tinkaton");
-    private static final Set<String> BOOST_ATTACK_MOVES = Set.of("Swords Dance", "Bulk Up",
+    private static final Set<String> ATTACK_SET_POKEMONS = Set.of("Ninetales", "Ribombee", "Serperior", "Ninetales-Alola");
+    private static final Set<String> ATTACK_MIX_POKEMONS = Set.of("Torkoal");
+
+    private static final Set<String> BOOST_ATTACK_MOVES = Set.of("Bulk Up",
             "Growth", "Coil", "Hone Claws", "No Retreat", "Victory Dance", "Work Up", "Curse", "Gear Up", "Howl",
-            "Dragon Dance", "Shell Smash", "Belly Drum", "Calm Mind", "Take Heart", "Meteor Beam", "Fiery Dance", "Electro Shot",
-            "Quiver Dance", "Geomancy", "Nasty Plot", "Tail Glow", "Torch Song");
+            "Belly Drum", "Calm Mind", "Take Heart", "Meteor Beam", "Fiery Dance", "Electro Shot", "Quiver Dance",
+            "Geomancy", "Torch Song");
+
+    private static final Set<String> BOOST_MULTI_ATTACK_MOVES = Set.of("Swords Dance",
+            "Dragon Dance", "Shell Smash", "Nasty Plot", "Tail Glow");
+
     private static final Set<String> RECOVERY_MOVES = Set.of("Jungle Healing", "Slack Off",
             "Synthesis", "Strength Sap", "Milk Drink", "Heal Order", "Ingrain", "Morning Sun", "Moonlight", "Aqua Ring",
             "Life Dew", "Soft-Boiled", "Rest", "Wish", "Roost", "Recover", "Shore Up");
 
-    private final PokemonStatsTagProvider pokemonStatsTagProvider;
+    private static final Set<String> OTHER_DEF_MOVES = Set.of("Will-O-Wisp", "Pain Split");
+
+    private static final String TYPE_PATTERN = "TYPE";
+
+    private final PokemonStatsLevelCrawler pokemonStatsLevelCrawler;
 
     private final PokemonTypeTagProvider pokemonTypeTagProvider;
 
-    private final PokemonAbilityTagProvider pokemonAbilityTagProvider;
-
-    public PokemonAttackDefenseTagProvider(PokemonStatsTagProvider pokemonStatsTagProvider, PokemonTypeTagProvider pokemonTypeTagProvider, PokemonAbilityTagProvider pokemonAbilityTagProvider) {
-        this.pokemonStatsTagProvider = pokemonStatsTagProvider;
+    public PokemonAttackDefenseTagProvider(PokemonStatsLevelCrawler pokemonStatsLevelCrawler, PokemonTypeTagProvider pokemonTypeTagProvider) {
+        this.pokemonStatsLevelCrawler = pokemonStatsLevelCrawler;
         this.pokemonTypeTagProvider = pokemonTypeTagProvider;
-        this.pokemonAbilityTagProvider = pokemonAbilityTagProvider;
     }
-
-    private static final String ATTACK_PATTERN = "ATTACKSTATS";
-    private static final String DEFENSE_PATTERN = "DEFENCESTATS";
-    private static final String SPA_PATTERN = "SPASTATS";
-    private static final String SPD_PATTERN = "SPDSTATS";
-    private static final String TYPE_PATTERN = "TYPE";
-    private static final String AIBLITY_DEFENCE_PATTERN = "ABILITY_DEFENCE";
-    private static final String AIBLITY_ATTACK_PATTERN = "ABILITY_ATTACK";
 
     @Override
     public void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
-        if (tagSpecifyPokemon(pokemonInfo)) {
+        if (tagSpecifyPokemon(pokemonInfo, pokemonBuildSet)) {
+            log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
             return;
         }
 
-        //标记低层次的标签
-        pokemonStatsTagProvider.tag(pokemonInfo, pokemonBuildSet);
-        pokemonAbilityTagProvider.tag(pokemonInfo, pokemonBuildSet);
         pokemonTypeTagProvider.tag(pokemonInfo, pokemonBuildSet);
         HashSet<Tag> highLevelTagSet = new HashSet<>();//高层次的标签集合，用于替换之前的低层次
         log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
         //获取攻防种族level
-        float levelAttack = getLevelOfStat(pokemonInfo, ATTACK_PATTERN);
-        float levelDefence = getLevelOfStat(pokemonInfo, DEFENSE_PATTERN);
-        float levelSpa = getLevelOfStat(pokemonInfo, SPA_PATTERN);
-        float levelSpd = getLevelOfStat(pokemonInfo, SPD_PATTERN);
+        float levelAttack = pokemonStatsLevelCrawler.getAtkLevel(pokemonInfo);
+        float levelDefence = pokemonStatsLevelCrawler.getDefLevel(pokemonInfo);
+        float levelSpa = pokemonStatsLevelCrawler.getSatkLevel(pokemonInfo);
+        float levelSpd = pokemonStatsLevelCrawler.getSpdLevel(pokemonInfo);
 
         float maxLevelAttack = Math.max(levelAttack, levelSpa);
         float maxLevelDefence = Math.max(levelDefence, levelSpd);
+        if (levelDefence >= 3.5 && levelSpd >= 3.5) {
+            // 双盾
+            maxLevelDefence += 0.25F;
+        }
         //获取属性和特性加成value
         float typeValue = getValueOfType(pokemonInfo);
-        float abilityDefenceValue = getValueOfAbility(pokemonInfo, AIBLITY_DEFENCE_PATTERN);
-        float abilityAttackValue = getValueOfAbility(pokemonInfo, AIBLITY_ATTACK_PATTERN);
+        float abilityDefenceValue = getMaxDefLevelOfAbilities(pokemonInfo);
+        float abilityAttackValue = getMaxAtkLevelOfAbilities(pokemonInfo);
         float setAttackValue = setAttackValue(pokemonBuildSet);
         float setDefValue = setDefValue(pokemonBuildSet);
         maxLevelAttack += abilityAttackValue;
@@ -104,30 +104,30 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                         "abilityAttackValue {} setAttackValue {} setDefValue {} set {}",
                 pokemonInfo.getName(), maxLevelAttack, maxLevelDefence, typeValue, abilityDefenceValue,
                 abilityAttackValue, setAttackValue, setDefValue, pokemonBuildSet);
-
-        if (maxLevelAttack < 2 && maxLevelDefence < 2) {
-            highLevelTagSet.add(Tag.WEAK);
-        } else if (Math.abs(maxLevelAttack - maxLevelDefence) < 0.5) {
-            highLevelTagSet.add(Tag.BALANCE); //相差不大 平衡标签
-        } else if (maxLevelAttack - maxLevelDefence >= 2) {
-            highLevelTagSet.add(Tag.ATTACK); //相差不大 平衡标签
-        } else if (maxLevelDefence - maxLevelAttack >= 2) {
-            highLevelTagSet.add(Tag.STAFF); //相差不大 平衡标签
-        } else if (maxLevelAttack < 2 && maxLevelDefence >= 3) {
-            highLevelTagSet.add(Tag.STAFF);   //攻击太小 受标签
-        } else if (maxLevelAttack >= 2 && maxLevelDefence > maxLevelAttack) {
-            highLevelTagSet.add(Tag.BALANCE_STAFF); //攻击还行 平衡受
-        } else if (maxLevelDefence <= 2 && maxLevelAttack >= 3) {
-            highLevelTagSet.add(Tag.ATTACK); //防御太小 攻标签
-        } else if (maxLevelDefence > 2 && maxLevelAttack > maxLevelDefence) {
-            highLevelTagSet.add(Tag.BALANCE_ATTACK);//防御还行 平衡攻
+        if (maxLevelAttack > maxLevelDefence) {
+            if (maxLevelDefence >= 4.25) {
+                highLevelTagSet.add(Tag.ATTACK_BULK_SET);
+            } else if (maxLevelDefence >= 3.5) {
+                highLevelTagSet.add(Tag.ATTACK_MIX_SET);
+            } else {
+                highLevelTagSet.add(Tag.ATTACK_SET);
+            }
+        } else if (maxLevelDefence > maxLevelAttack) {
+            if (maxLevelAttack >= 4.25) {
+                highLevelTagSet.add(Tag.DEFENSE_BULK_SET);
+            } else if (maxLevelAttack >= 3.5) {
+                highLevelTagSet.add(Tag.DEFENSE_MIX_SET);
+            } else {
+                highLevelTagSet.add(Tag.DEFENSE_SET);
+            }
         } else {
-            highLevelTagSet.add(Tag.WEAK);
+            if (maxLevelAttack >= 4.25) {
+                highLevelTagSet.add(Tag.BALANCE_BULK_SET);
+            } else {
+                highLevelTagSet.add(Tag.BALANCE_SET);
+            }
         }
-        //如果有场地标签，贴上
-        if (pokemonInfo.getTags().contains(Tag.ABILITY_WEATHER)) {
-            highLevelTagSet.add(Tag.ABILITY_WEATHER);
-        }
+
         pokemonInfo.setTags(highLevelTagSet);
         log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
     }
@@ -142,11 +142,11 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         if (item != null) {
             switch (item) {
                 case "Choice Band", "Choice Specs" -> setAttackValue += 1;
-                case "Booster Energy" -> setAttackValue += 1.25F;
-                case "Life Orb" -> setAttackValue += 0.75F;
+                case "Booster Energy" -> setAttackValue += 1;
+                case "Life Orb" -> setAttackValue += 1;
                 // 1.1x item
                 case "Muscle Band", "Punching Glove", "Wise Glasses", "Loaded Dice", "Eject Button", "Focus Sash",
-                     "Grassy Seed" -> setAttackValue += 0.25F;
+                     "Grassy Seed" -> setAttackValue += 0.5F;
                 // 1.2x item
                 case "Black Belt", "Black Glasses", "Charcoal", "Draco Plate", "Dragon Fang", "Dread Plate",
                      "Earth Plate", "Expert Belt", "Fairy Feather", "Fist Plate", "Flame Plate", "Hard Stone",
@@ -154,19 +154,32 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                      "Miracle Seed", "Mystic Water", "Never-Melt Ice", "Odd Incense", "Pixie Plate", "Poison Barb",
                      "Rock Incense", "Rose Incense", "Sea Incense", "Sharp Beak", "Silk Scarf", "Silver Powder",
                      "Soft Sand", "Soul Dew", "Spell Tag", "Splash Plate", "Spooky Plate", "Stone Plate", "Toxic Plate",
-                     "Twisted Spoon", "Wave Incense", "Zap Plate", "Sky Plate" -> setAttackValue += 0.25F;
+                     "Twisted Spoon", "Wave Incense", "Zap Plate", "Sky Plate" -> setAttackValue += 0.5F;
                 default -> log.debug("no attack item {}", item);
             }
         }
 
+        float moveAttackValue = 0;
         if (pokemonBuildSet.moves() != null) {
             Set<String> topMoves = new HashSet<>(pokemonBuildSet.moves().subList(0,
                     Math.min(pokemonBuildSet.moves().size(), 4)));
             if (topMoves.stream().anyMatch(BOOST_ATTACK_MOVES::contains)) {
-                setAttackValue += 0.5F;
+                moveAttackValue = 0.5F;
+            }
+
+            if (topMoves.contains("Body Press") && topMoves.contains("Iron Defense")) {
+                moveAttackValue = 0.5F;
+            }
+
+            if (topMoves.stream().anyMatch(BOOST_MULTI_ATTACK_MOVES::contains)) {
+                moveAttackValue = 0.75F;
+            }
+
+            if (topMoves.stream().anyMatch("Belly Drum"::equals)) {
+                moveAttackValue = 1F;
             }
         }
-
+        setAttackValue += moveAttackValue;
         return setAttackValue;
     }
 
@@ -179,8 +192,9 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         String item = items == null || items.isEmpty() ? null : items.get(0);
         if (item != null) {
             switch (item) {
-                case "Leftovers", "Heavy-Duty Boots" -> setDefValue += 0.25F;
-                case "Assault Vest", "Eviolite" -> setDefValue += 0.5F;
+                case "Leftovers", "Heavy-Duty Boots", "Rocky Helmet" -> setDefValue += 0.25F;
+                case "Assault Vest" -> setDefValue += 0.5F;
+                case "Eviolite" -> setDefValue += 1F;
                 default -> log.debug("no def item {}", item);
             }
         }
@@ -190,50 +204,92 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                     Math.min(pokemonBuildSet.moves().size(), 4)));
             if (topMoves.stream().anyMatch(RECOVERY_MOVES::contains)) {
                 setDefValue += 0.5F;
+            } else if (topMoves.stream().anyMatch(OTHER_DEF_MOVES::contains)) {
+                setDefValue += 0.25F;
             }
         }
 
         return setDefValue;
     }
 
-    private boolean tagSpecifyPokemon(PokemonInfo pokemonInfo) {
-        if (OFFENSIVE_POKEMONS.contains(pokemonInfo.getName())) {
+    private boolean tagSpecifyPokemon(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        switch (pokemonInfo.getName()) {
+            case "Landorus-Therian" -> {
+                return tagLandorus(pokemonInfo, pokemonBuildSet);
+            }
+            case "Iron Treads" -> {
+                return tagIronTreads(pokemonInfo, pokemonBuildSet);
+            }
+            default -> log.debug("Unknown pokemon:{}", pokemonInfo.getName());
+        }
+
+        if (ATTACK_SET_POKEMONS.contains(pokemonInfo.getName())) {
             HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.ATTACK);
+            tags.add(Tag.ATTACK_SET);
             pokemonInfo.setTags(tags);
             return true;
         }
 
-        if (BALANCE_POKEMONS.contains(pokemonInfo.getName())) {
+        if (ATTACK_MIX_POKEMONS.contains(pokemonInfo.getName())) {
             HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.BALANCE);
+            tags.add(Tag.ATTACK_MIX_SET);
             pokemonInfo.setTags(tags);
             return true;
         }
         return false;
     }
 
-    private float getLevelOfStat(PokemonInfo pokemonInfo, String pattern) {
-        for (Tag tag : pokemonInfo.getTags()) {
-            String name = tag.name();
-            if (name.contains(pattern)) {
-                if (name.contains("BAD")) {
-                    return 1;
-                } else if (name.contains("NORMAL")) {
-                    return 2;
-                } else if (name.contains("GOOD")) {
-                    return 3;
-                } else if (name.contains("EXCELLENT")) {
-                    return 4;
-                } else if (name.contains("OUTSTANDING")) {
-                    return 4.5F;
-                } else if (name.contains("PRETTY")) {
-                    return 5;
+    private boolean tagIronTreads(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        if (item != null) {
+            switch (item) {
+                case "Booster Energy" -> {
+                    HashSet<Tag> tags = new HashSet<>();
+                    tags.add(Tag.BALANCE_SET);
+                    pokemonInfo.setTags(tags);
+                    return true;
                 }
+                case "Leftovers", "Heavy-Duty Boots" -> {
+                    HashSet<Tag> tags = new HashSet<>();
+                    tags.add(Tag.DEFENSE_MIX_SET);
+                    pokemonInfo.setTags(tags);
+                    return true;
+                }
+                default -> log.debug("Unknown item:{}", item);
             }
         }
-        //没有贴种族标签
-        throw new IllegalArgumentException("pokemoninfo.tag does not hava full base stat tag!");
+        return false;
+    }
+
+    private boolean tagLandorus(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+        if (topMoves.contains("Earth Power") && !topMoves.contains("Earthquake")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        if ("Rocky Helmet".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        return false;
     }
 
     private float getValueOfType(PokemonInfo pokemonInfo) {
@@ -242,39 +298,65 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             if (name.contains(TYPE_PATTERN)) {
                 if (name.contains("BAD")) {
                     if (pokemonInfo.getTags().contains(Tag.TYPE_MANYWEAK)) {
-                        return -0.6f;
-                    } else if (pokemonInfo.getTags().contains(Tag.TYPE_NORMALWEAK)) {
                         return -0.3f;
+                    } else if (pokemonInfo.getTags().contains(Tag.TYPE_NORMALWEAK)) {
+                        return -0.15f;
                     } else {
                         return 0.0f;
                     }
                 } else if (name.equals("TYPE_NORMAL")) {
-                    return 0.25f;
+                    return 0.05f;
                 } else if (name.equals("TYPE_GOOD")) {
-                    return 0.5f;
+                    return 0.15f;
                 } else if (name.equals("TYPE_EXCELLENT")) {
-                    return 0.75f;
+                    return 0.3f;
                 } else if (name.equals("TYPE_PRETTY")) {
-                    return 1.0f;
+                    return 0.5f;
                 }
             }
         }
         return 0.0f;
     }
 
-    private float getValueOfAbility(PokemonInfo pokemonInfo, String aiblityPattern) {
-        for (Tag tag : pokemonInfo.getTags()) {
-            String name = tag.name();
-            if (name.contains(aiblityPattern)) {
-                if (name.contains("BAD")) {
-                    return 0.5f;
-                } else if (name.contains("GOOD")) {
-                    return 1.0f;
-                } else if (name.contains("PRETTY")) {
-                    return 1.5f;
-                }
+    public float getMaxAtkLevelOfAbilities(PokemonInfo pokemonInfo) {
+        float maxAttackLevel = 0; //特性之中最好的进攻等级
+
+        for (String ability : pokemonInfo.getAbilities()) {
+            switch (ability) {
+                case "Defiant", "Infiltrator", "Clear Body", "Torrent", "Blaze", "Overgrow", "Technician",
+                     "Hydration", "Guard Dog", "Iron Fist", "Reckless", "Normalize", "Tough Claws", "Aerilate",
+                     "Soul-Heart", "Beast Boost", "Grassy Terrain" -> maxAttackLevel = Math.max(0.25F, maxAttackLevel);
+                case "Good as Gold", "Sharpness", "Toxic Debris", "Poison Heal", "Libero", "Magic Bounce",
+                     "Purifying Salt", "Grassy Surge", "Contrary", "Magic Guard", "Protean", "Mold Breaker",
+                     "Unburden", "Battle Bond", "Swift Swim", "Snow Warning", "Tinted Lens", "Sand Stream",
+                     "Neutralizing Gas", "Weak Armor", "Chlorophyll", "Sand Rush", "Speed Boost", "Toxic Chain",
+                     "Skill Link", "Moxie", "Pixilate", "Psychic Surge", "Electric Surge", "Punk Rock", "Transistor",
+                     "Water Bubble" -> maxAttackLevel = Math.max(0.5F, maxAttackLevel);
+                case "Magnet Pull", "Supreme Overlord" -> maxAttackLevel = Math.max(0.75F, maxAttackLevel);
+                case "Drought", "Drizzle", "Guts", "Adaptability", "Huge Power", "Stance Change" ->
+                        maxAttackLevel = Math.max(1.0F, maxAttackLevel);
+                default -> log.debug("Unknown ability:{}", ability);
             }
         }
-        return 0.0f;
+        return maxAttackLevel;
+    }
+
+    public float getMaxDefLevelOfAbilities(PokemonInfo pokemonInfo) {
+        float maxDefLevel = 0;
+
+        for (String ability : pokemonInfo.getAbilities()) {
+            switch (ability) {
+                case "Sturdy", "Static", "Water Absorb", "Flash Fire", "Rough Skin", "Natural Cure",
+                     "Thick Fat", "Flame Body", "Marvel Scale", "Storm Drain", "Sap Sipper", "Triage", "Good as Gold",
+                     "Grassy Terrain", "Heatproof", "Sand Stream", "Disguise", "Hydration" ->
+                        maxDefLevel = Math.max(0.25F, maxDefLevel);
+                case "Volt Absorb", "Levitate", "Stamina", "Dauntless Shield", "Multiscale", "Unaware", "Fluffy",
+                     "Magic Bounce", "Vessel of Ruin", "Magic Guard" -> maxDefLevel = Math.max(0.5F, maxDefLevel);
+                case "Regenerator", "Purifying Salt" -> maxDefLevel = Math.max(0.75F, maxDefLevel);
+                case "Poison Heal", "Intimidate" -> maxDefLevel = Math.max(1.0F, maxDefLevel);
+                default -> log.debug("Unknown ability:{}", ability);
+            }
+        }
+        return maxDefLevel;
     }
 }

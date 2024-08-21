@@ -27,6 +27,7 @@ package com.mimosa.deeppokemon.tagger;
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.Tag;
 import com.mimosa.deeppokemon.entity.Team;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -67,12 +68,20 @@ class TeamAttackDefenceTagProviderTest {
         }
     }
 
-//    @Test
-//    void tag_specify() {
-//        teamAttackDefenceTagProvider.tag(build("Kingambit", "Gholdengo", "Enamorus", "Raging Bolt", "Great Tusk", "Ribombee"));
-//        teamAttackDefenceTagProvider.tag(build("Hydrapple", "Chansey", "Moltres", "Great Tusk", "Enamorus", "Toxapex"));
-//        teamAttackDefenceTagProvider.tag(build("Kyurem", "Zamazenta-*", "Ting-Lu", "Weezing-Galar", "Toxapex", "Corviknight"));
-//    }
+    @Test
+    void tag_specify() {
+        assertTag(Tag.BALANCE, "Hydrapple", "Chansey", "Moltres", "Great Tusk", "Enamorus", "Toxapex");
+        assertTag(Tag.STAFF, "Dondozo", "Blissey", "Clodsire", "Gliscor", "Corviknight", "Toxapex");
+        assertTag(Tag.BALANCE, "Gliscor", "Garganacl", "Weezing-Galar", "Kingambit", "Dragapult", "Alomomola");
+        assertTag(Tag.ATTACK, "Kyurem", "Iron Valiant", "Iron Moth", "Kingambit", "Samurott-Hisui", "Landorus-Therian");
+        assertTag(Tag.BALANCE_ATTACK, "Cinderace", "Kingambit", "Landorus-Therian", "Kyurem", "Slowking-Galar", "Dragapult");
+    }
+
+    public void assertTag(Tag tag, String... pokemons) {
+        Team team = build(pokemons);
+        teamAttackDefenceTagProvider.tag(team, null);
+        Assertions.assertTrue(team.getTagSet().contains(tag));
+    }
 
     public Team build(String... names) {
         Team team = new Team();

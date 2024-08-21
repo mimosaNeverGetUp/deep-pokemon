@@ -32,6 +32,11 @@ public class TeamService {
     private static final Logger log = LoggerFactory.getLogger(TeamService.class);
 
     protected static final int BATCH_SIZE = 1000;
+    protected static final String REPLAY_NUM = "replayNum";
+    protected static final String ID = "_id";
+    protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
+    protected static final String MAX_RATING = "maxRating";
+    protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
     private final MongoTemplate mongoTemplate;
     private final TeamTagger teamTagger;
 
@@ -45,9 +50,9 @@ public class TeamService {
         List<Binary> needUpdateTeamGroup = new ArrayList<>();
 
         Query query = new Query()
-                .with(Sort.by(Sort.Order.desc("latestBattleDate")))
+                .with(Sort.by(Sort.Order.desc(LATEST_BATTLE_DATE)))
                 .cursorBatchSize(BATCH_SIZE);
-        query.fields().include("_id", "replayNum", "uniquePlayerNum", "maxRating");
+        query.fields().include(ID, REPLAY_NUM, UNIQUE_PLAYER_NUM, MAX_RATING);
         Stream<TeamGroup> teamGroupStream = mongoTemplate.stream(query, TeamGroup.class, teamGroupDetail.teamGroupCollectionName());
 
         List<TeamGroup> batchTeamGroup = new ArrayList<>();
@@ -81,9 +86,9 @@ public class TeamService {
 
     private void syncTeamSetAndTeamGroup(String teamSetCollectionName, String teamGroupCollectionName) {
         Query query = new Query()
-                .with(Sort.by(Sort.Order.desc("latestBattleDate")))
+                .with(Sort.by(Sort.Order.desc(LATEST_BATTLE_DATE)))
                 .cursorBatchSize(BATCH_SIZE);
-        query.fields().include("_id", "tagSet", "replayNum", "uniquePlayerNum", "maxRating");
+        query.fields().include(ID, "tagSet", REPLAY_NUM, UNIQUE_PLAYER_NUM, MAX_RATING);
         Stream<TeamGroup> teamGroupStream = mongoTemplate.stream(query, TeamGroup.class, teamGroupCollectionName);
 
         List<TeamGroup> batchTeamGroup = new ArrayList<>();
@@ -107,8 +112,8 @@ public class TeamService {
 
     private void syncTeamSetAndTeamGroup(List<TeamGroup> batchTeamGroup, String teamSetCollectionName,
                                          String teamGroupCollectionName) {
-        Query query = new Query(Criteria.where("_id").in(batchTeamGroup.stream().map(TeamGroup::id).toList()));
-        query.fields().include("_id", "tagSet", "replayNum");
+        Query query = new Query(Criteria.where(ID).in(batchTeamGroup.stream().map(TeamGroup::id).toList()));
+        query.fields().include(ID, "tagSet", REPLAY_NUM);
         List<TeamSet> teamSets = mongoTemplate.find(query, TeamSet.class, teamSetCollectionName);
         Map<Binary, TeamSet> teamSetMap = teamSets.stream().collect(Collectors.toMap(TeamSet::id, Function.identity()));
         BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, teamGroupCollectionName);
@@ -130,7 +135,7 @@ public class TeamService {
     }
 
     private void updateTeamGroupTag(BulkOperations bulkOperations, Binary teamId, Set<Tag> tags) {
-        Query query = new Query(Criteria.where("_id").is(teamId));
+        Query query = new Query(Criteria.where(ID).is(teamId));
         Update update = new Update().set("tagSet", tags);
         bulkOperations.updateOne(query, update);
     }
@@ -169,7 +174,7 @@ public class TeamService {
     }
 
     public List<TeamSet> getTeamSets(List<Binary> teamIds, String teamSetCollectionName) {
-        Query query = new Query(Criteria.where("_id").in(teamIds));
+        Query query = new Query(Criteria.where(ID).in(teamIds));
         return mongoTemplate.find(query, TeamSet.class, teamSetCollectionName);
     }
 
@@ -180,7 +185,7 @@ public class TeamService {
                     .toList());
             try {
                 List<TeamSet> teamSets = new ArrayList<>();
-                Query query = new Query(Criteria.where("_id").in(partition));
+                Query query = new Query(Criteria.where(ID).in(partition));
                 List<TeamGroup> teamGroups = mongoTemplate.find(query, TeamGroup.class, teamGroupCollectionName);
                 teamGroups.forEach(teamGroup -> teamSets.add(buildTeamSet(teamGroup)));
                 mongoTemplate.remove(query, insertCollectionName);
@@ -227,6 +232,12 @@ public class TeamService {
         Team team = convertTeam(teamSet);
         teamTagger.tagTeam(team, teamSet);
         return teamSet.withTags(team.getTagSet());
+    }
+
+    public Set<Tag> tagTeam(String teamId,String collectionName) {
+        TeamSet teamSet = mongoTemplate.findById(new Binary(Base64.getDecoder().decode(teamId)), TeamSet.class,
+                collectionName);
+        return tagTeamSet(teamSet).tagSet();
     }
 
     private Team convertTeam(TeamSet teamSet) {

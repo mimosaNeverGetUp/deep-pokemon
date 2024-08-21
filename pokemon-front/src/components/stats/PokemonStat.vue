@@ -71,18 +71,21 @@ function filterPopularSet(set, thresold) {
 }
 
 function getMoveTypeIconUrl(move) {
-  let type = moveInfo[move].type
+  let type = moveInfo[move]?.type
   return `/types/${type}.png`
 }
 
 function getMoveCategoryIconUrl(move) {
-  let category = moveInfo[move].category
+  let category = moveInfo[move]?.category
   return `/categories/${category}.png`
 }
 
 function getAccuracyText(accuracy) {
   if (accuracy === true) {
     return '100%';
+  }
+  if (!accuracy) {
+    return "NA"
   }
   return accuracy + '%';
 }
@@ -102,6 +105,7 @@ function getSpreadText(spread, showNatureIndex, showNatureName) {
 }
 
 async function queryTeams(page, row, pokemon) {
+  teams.value = null;
   if (props.format !== 'gen9ou') {
     return
   }
@@ -114,7 +118,7 @@ async function queryTeams(page, row, pokemon) {
   );
   if (res.ok) {
     let result = await res.json();
-    for ( let teamGroup of result.data) {
+    for (let teamGroup of result.data) {
       teamGroup.teams = teamGroup.teams.slice(0, 1);
     }
     teams.value = result.data;
@@ -122,6 +126,7 @@ async function queryTeams(page, row, pokemon) {
 }
 
 async function queryPokemonSet(format, pokemon) {
+  sets.value = null;
   let url = new URL(`${apiUrl}/api/stats/${format}/set/` + pokemon);
 
   const res = await fetch(url,
@@ -172,7 +177,7 @@ async function queryPokemonSet(format, pokemon) {
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.abilities[ability]"/>
         </div>
-        <span class="">{{ abilityText[ability].shortDesc }}</span>
+        <span class="">{{ abilityText[ability]?.shortDesc }}</span>
       </div>
     </div>
     <Divider type="solid"/>
@@ -201,9 +206,9 @@ async function queryPokemonSet(format, pokemon) {
         </div>
         <img :src="getMoveTypeIconUrl(move)" :alt="move"/>
         <img :src="getMoveCategoryIconUrl(move)" :alt="move"/>
-        <span class="w-7">{{ moveInfo[move].basePower }}</span>
-        <span class="w-12">{{ getAccuracyText(moveInfo[move].accuracy) }}</span>
-        <span>{{ moveText[move].shortDesc }}</span>
+        <span class="w-7">{{ moveInfo[move]?.basePower }}</span>
+        <span class="w-12">{{ getAccuracyText(moveInfo[move]?.accuracy) }}</span>
+        <span>{{ moveText[move]?.shortDesc }}</span>
       </div>
     </div>
     <Divider type="solid"/>

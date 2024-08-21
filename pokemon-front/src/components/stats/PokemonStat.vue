@@ -52,8 +52,8 @@ function getIconUrl(pokemon) {
 
 watch(() => props.pokemon, async (newPokemon) => {
   await fetchStatsData(props.format, newPokemon.name);
-  await queryTeams(0, 5, newPokemon.name);
   await queryPokemonSet(props.format, newPokemon.name);
+  await queryTeams(0, 5, newPokemon.name);
 })
 
 function convertToPercentage(f) {
@@ -135,8 +135,12 @@ async function queryPokemonSet(format, pokemon) {
       }
   );
   if (res.ok) {
-    let result = await res.json();
-    sets.value = result.sets;
+    try {
+      let result = await res.json();
+      sets.value = result.sets;
+    } catch (e){
+      console.log("response is empty or invalid")
+    }
   }
 }
 </script>

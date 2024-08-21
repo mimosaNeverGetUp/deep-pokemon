@@ -77,17 +77,8 @@ public class BattleContext {
     }
 
     public void setPokemonItem(int playerNumber, String pokemonName, String item) {
-        if (battle == null || battle.getTeams() == null || battle.getTeams().length < playerNumber
-                || battle.getTeams()[playerNumber - 1] == null) {
-            log.warn("battle {} is invalid", battle);
-            return;
-        }
-
-        Pokemon pokemon = battle.getTeams()[playerNumber - 1].getPokemon(pokemonName);
-        if (pokemon == null) {
-            log.warn("pokemon {} is not found in battle", pokemonName);
-            return;
-        }
+        Pokemon pokemon = findPokemon(playerNumber, pokemonName);
+        if (pokemon == null) return;
 
         if (pokemon.getItem() == null) {
             pokemon.setItem(item);
@@ -95,17 +86,31 @@ public class BattleContext {
     }
 
     public void setPokemonTeraType(int playerNumber, String pokemonName, String teraType) {
+        Pokemon pokemon = findPokemon(playerNumber, pokemonName);
+        if (pokemon == null) return;
+
+        if(pokemon.getTeraType() == null) {
+            pokemon.setTeraType(teraType);
+        }
+    }
+
+    private Pokemon findPokemon(int playerNumber, String pokemonName) {
         if (battle == null || battle.getTeams() == null || battle.getTeams().length < playerNumber
                 || battle.getTeams()[playerNumber - 1] == null) {
             log.warn("battle {} is invalid", battle);
-            return;
+            return null;
         }
 
         Pokemon pokemon = battle.getTeams()[playerNumber - 1].getPokemon(pokemonName);
         if (pokemon == null) {
-            log.warn("pokemon {} is not found in battle", pokemonName);
-            return;
+            log.warn("pokemon {} is not found in battle,try use blur pokemon name", pokemonName);
+            String blurPokemonName = pokemonName + "-*";
+            if (battle.getTeams()[playerNumber - 1].getPokemon(blurPokemonName) != null) {
+                pokemon = battle.getTeams()[playerNumber - 1].getPokemon(blurPokemonName);
+            } else {
+                log.warn("blur pokemon {} is not found in battle", blurPokemonName);
+            }
         }
-        pokemon.setTeraType(teraType);
+        return pokemon;
     }
 }

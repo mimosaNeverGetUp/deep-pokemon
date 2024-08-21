@@ -1,0 +1,402 @@
+|badge|p1|bronze|gen9ou|100-2
+|uhtml|medal-msg|<div class="broadcast-blue">Curious what those medals under the avatar are? PS now has Ladder Seasons! For more information, check out the <a href="https://www.smogon.com/forums/threads/3740067/">thread on Smogon.</a></div>
+|raw|<div class="broadcast-blue"><strong>This battle is required to be public due to a player having a name starting with 'lt113tr'.</div>
+|j|☆lt113 trick room
+|j|☆clips inserted
+|t:|1723919464
+|gametype|singles
+|player|p1|lt113 trick room|nurse|1936
+|player|p2|clips inserted|bugcatcher-gen4dp|1884
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Landorus-Therian, M|
+|poke|p1|Hatterene, F|
+|poke|p1|Zamazenta-*|
+|poke|p1|Samurott-Hisui, M|
+|poke|p1|Iron Moth|
+|poke|p1|Dragonite, F|
+|poke|p2|Glimmora, F|
+|poke|p2|Kingambit, M|
+|poke|p2|Roaring Moon|
+|poke|p2|Primarina, M|
+|poke|p2|Gouging Fire|
+|poke|p2|Zamazenta-*|
+|teampreview
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by clips inserted)
+|j| lt113trpo
+|j| LT113TRFukTStaller
+|
+|t:|1723919492
+|start
+|switch|p1a: Landorus|Landorus-Therian, M|100/100
+|switch|p2a: Primarina|Primarina, M|100/100
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Primarina|atk|1
+|turn|1
+|j| juiicyskiller
+|
+|t:|1723919507
+|move|p1a: Landorus|Stealth Rock|p2a: Primarina
+|-sidestart|p2: clips inserted|move: Stealth Rock
+|move|p2a: Primarina|Surf|p1a: Landorus
+|-supereffective|p1a: Landorus
+|-damage|p1a: Landorus|0 fnt
+|faint|p1a: Landorus
+|
+|upkeep
+|
+|t:|1723919520
+|switch|p1a: Dragonite|Dragonite, F|100/100
+|turn|2
+|
+|t:|1723919523
+|move|p1a: Dragonite|Encore|p2a: Primarina
+|-start|p2a: Primarina|Encore
+|move|p2a: Primarina|Surf|p1a: Dragonite
+|-resisted|p1a: Dragonite
+|-damage|p1a: Dragonite|86/100
+|
+|-heal|p1a: Dragonite|92/100|[from] item: Leftovers
+|upkeep
+|turn|3
+|
+|t:|1723919530
+|switch|p2a: Zamazenta|Zamazenta|100/100
+|-damage|p2a: Zamazenta|94/100|[from] Stealth Rock
+|-ability|p2a: Zamazenta|Dauntless Shield|boost
+|-boost|p2a: Zamazenta|def|1
+|move|p1a: Dragonite|Dragon Dance|p1a: Dragonite
+|-boost|p1a: Dragonite|atk|1
+|-boost|p1a: Dragonite|spe|1
+|
+|-heal|p1a: Dragonite|99/100|[from] item: Leftovers
+|-heal|p2a: Zamazenta|100/100|[from] item: Leftovers
+|upkeep
+|turn|4
+|
+|t:|1723919537
+|move|p1a: Dragonite|Earthquake|p2a: Zamazenta
+|-damage|p2a: Zamazenta|69/100
+|move|p2a: Zamazenta|Roar|p1a: Dragonite
+|drag|p1a: Hatterene|Hatterene, F|100/100
+|
+|-heal|p2a: Zamazenta|76/100|[from] item: Leftovers
+|upkeep
+|turn|5
+|j|&ken@!
+|
+|t:|1723919545
+|switch|p2a: Glimmora|Glimmora, F, shiny|100/100
+|-damage|p2a: Glimmora|88/100|[from] Stealth Rock
+|move|p1a: Hatterene|Future Sight|p2a: Glimmora
+|-start|p1a: Hatterene|move: Future Sight
+|
+|upkeep
+|turn|6
+|j| Eclyn Aucls
+|j| iDybala Jr!(◕‿◕)
+|
+|t:|1723919565
+|move|p2a: Glimmora|Mortal Spin|p1a: Hatterene
+|-supereffective|p1a: Hatterene
+|-damage|p1a: Hatterene|87/100
+|-status|p1a: Hatterene|psn
+|-sideend|p2: clips inserted|Stealth Rock|[from] move: Mortal Spin|[of] p2a: Glimmora
+|move|p1a: Hatterene|Psyshock|p2a: Glimmora
+|-supereffective|p2a: Glimmora
+|-damage|p2a: Glimmora|0 fnt
+|faint|p2a: Glimmora
+|
+|-damage|p1a: Hatterene|75/100 psn|[from] psn
+|upkeep
+|
+|t:|1723919573
+|switch|p2a: Kingambit|Kingambit, M|100/100
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen1|[silent]
+|turn|7
+|j| LT113TR COALLA
+|l| LT113TR COALLA
+|
+|t:|1723919591
+|switch|p1a: Zamazenta|Zamazenta|100/100
+|-ability|p1a: Zamazenta|Dauntless Shield|boost
+|-boost|p1a: Zamazenta|def|1
+|move|p2a: Kingambit|Iron Head|p1a: Zamazenta
+|-damage|p1a: Zamazenta|73/100
+|
+|-end|p2a: Kingambit|move: Future Sight
+|-immune|p2a: Kingambit
+|-heal|p1a: Zamazenta|80/100|[from] item: Leftovers
+|upkeep
+|turn|8
+|
+|t:|1723919596
+|-end|p2a: Kingambit|fallen1|[silent]
+|switch|p2a: Primarina|Primarina, M|100/100
+|move|p1a: Zamazenta|Howl|p1a: Zamazenta
+|-boost|p1a: Zamazenta|atk|1
+|
+|-heal|p1a: Zamazenta|86/100|[from] item: Leftovers
+|upkeep
+|turn|9
+|
+|t:|1723919609
+|-terastallize|p1a: Zamazenta|Electric
+|move|p1a: Zamazenta|Wild Charge|p2a: Primarina
+|-supereffective|p2a: Primarina
+|-damage|p2a: Primarina|0 fnt
+|faint|p2a: Primarina
+|-damage|p1a: Zamazenta|59/100|[from] Recoil
+|
+|-heal|p1a: Zamazenta|65/100|[from] item: Leftovers
+|upkeep
+|l|☆clips inserted
+|inactive|clips inserted disconnected and has a minute to reconnect!
+|player|p2|
+|j|☆clips inserted
+|inactive|clips inserted reconnected and has 125 seconds left.
+|player|p2|clips inserted|bugcatcher-gen4dp|
+|inactive|clips inserted has 120 seconds left.
+|
+|t:|1723919646
+|switch|p2a: Gouging Fire|Gouging Fire|100/100
+|turn|10
+|
+|t:|1723919651
+|move|p1a: Zamazenta|Close Combat|p2a: Gouging Fire
+|-damage|p2a: Gouging Fire|50/100
+|-unboost|p1a: Zamazenta|def|1
+|-unboost|p1a: Zamazenta|spd|1
+|move|p2a: Gouging Fire|Breaking Swipe|p1a: Zamazenta
+|-crit|p1a: Zamazenta
+|-damage|p1a: Zamazenta|28/100
+|-unboost|p1a: Zamazenta|atk|1
+|
+|-heal|p1a: Zamazenta|34/100|[from] item: Leftovers
+|upkeep
+|turn|11
+|
+|t:|1723919659
+|switch|p1a: Dragonite|Dragonite, F|99/100
+|move|p2a: Gouging Fire|Morning Sun|p2a: Gouging Fire
+|-heal|p2a: Gouging Fire|99/100
+|
+|-heal|p1a: Dragonite|100/100|[from] item: Leftovers
+|upkeep
+|turn|12
+|
+|t:|1723919664
+|-end|p2a: Gouging Fire|Protosynthesis|[silent]
+|switch|p2a: Zamazenta|Zamazenta|76/100
+|move|p1a: Dragonite|Encore||[still]
+|-fail|p1a: Dragonite
+|
+|-heal|p2a: Zamazenta|82/100|[from] item: Leftovers
+|upkeep
+|turn|13
+|
+|t:|1723919667
+|move|p1a: Dragonite|Dragon Dance|p1a: Dragonite
+|-boost|p1a: Dragonite|atk|1
+|-boost|p1a: Dragonite|spe|1
+|move|p2a: Zamazenta|Roar|p1a: Dragonite
+|drag|p1a: Hatterene|Hatterene, F|75/100 psn
+|
+|-heal|p2a: Zamazenta|88/100|[from] item: Leftovers
+|-damage|p1a: Hatterene|63/100 psn|[from] psn
+|upkeep
+|turn|14
+|
+|t:|1723919681
+|switch|p2a: Kingambit|Kingambit, M|100/100
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen2|[silent]
+|move|p1a: Hatterene|Future Sight|p2a: Kingambit
+|-start|p1a: Hatterene|move: Future Sight
+|
+|-damage|p1a: Hatterene|50/100 psn|[from] psn
+|upkeep
+|turn|15
+|j| Cncksmco
+|
+|t:|1723919692
+|switch|p1a: Zamazenta|Zamazenta, tera:Electric|34/100
+|move|p2a: Kingambit|Kowtow Cleave|p1a: Zamazenta
+|-damage|p1a: Zamazenta|0 fnt
+|faint|p1a: Zamazenta
+|
+|upkeep
+|
+|t:|1723919706
+|switch|p1a: Dragonite|Dragonite, F|100/100
+|turn|16
+|
+|t:|1723919710
+|move|p1a: Dragonite|Earthquake|p2a: Kingambit
+|-supereffective|p2a: Kingambit
+|-damage|p2a: Kingambit|38/100
+|move|p2a: Kingambit|Kowtow Cleave|p1a: Dragonite
+|-damage|p1a: Dragonite|63/100
+|
+|-end|p2a: Kingambit|move: Future Sight
+|-immune|p2a: Kingambit
+|-heal|p1a: Dragonite|69/100|[from] item: Leftovers
+|upkeep
+|turn|17
+|
+|t:|1723919726
+|move|p1a: Dragonite|Encore|p2a: Kingambit
+|-start|p2a: Kingambit|Encore
+|move|p2a: Kingambit|Kowtow Cleave|p1a: Dragonite
+|-damage|p1a: Dragonite|0 fnt
+|faint|p1a: Dragonite
+|
+|upkeep
+|
+|t:|1723919735
+|switch|p1a: Iron Moth|Iron Moth|100/100
+|-enditem|p1a: Iron Moth|Booster Energy
+|-activate|p1a: Iron Moth|ability: Quark Drive|[fromitem]
+|-start|p1a: Iron Moth|quarkdrivespe
+|turn|18
+|
+|t:|1723919737
+|move|p1a: Iron Moth|Fiery Dance|p2a: Kingambit
+|-supereffective|p2a: Kingambit
+|-damage|p2a: Kingambit|0 fnt
+|faint|p2a: Kingambit
+|-end|p2a: Kingambit|fallen2|[silent]
+|
+|upkeep
+|
+|t:|1723919739
+|switch|p2a: Roaring Moon|Roaring Moon|100/100
+|-enditem|p2a: Roaring Moon|Booster Energy
+|-activate|p2a: Roaring Moon|ability: Protosynthesis|[fromitem]
+|-start|p2a: Roaring Moon|protosynthesisatk
+|turn|19
+|
+|t:|1723919745
+|-terastallize|p2a: Roaring Moon|Flying
+|move|p1a: Iron Moth|Sludge Wave|p2a: Roaring Moon
+|-crit|p2a: Roaring Moon
+|-damage|p2a: Roaring Moon|31/100
+|move|p2a: Roaring Moon|Earthquake|p1a: Iron Moth
+|-supereffective|p1a: Iron Moth
+|-damage|p1a: Iron Moth|0 fnt
+|faint|p1a: Iron Moth
+|-end|p1a: Iron Moth|Quark Drive|[silent]
+|
+|upkeep
+|
+|t:|1723919748
+|switch|p1a: Samurott|Samurott-Hisui, M|100/100
+|turn|20
+|
+|t:|1723919752
+|move|p1a: Samurott|Sucker Punch|p2a: Roaring Moon
+|-damage|p2a: Roaring Moon|0 fnt
+|faint|p2a: Roaring Moon
+|-end|p2a: Roaring Moon|Protosynthesis|[silent]
+|
+|upkeep
+|
+|t:|1723919756
+|switch|p2a: Zamazenta|Zamazenta|88/100
+|turn|21
+|
+|t:|1723919768
+|switch|p1a: Hatterene|Hatterene, F|50/100 psn
+|move|p2a: Zamazenta|Body Press|p1a: Hatterene
+|-resisted|p1a: Hatterene
+|-damage|p1a: Hatterene|40/100 psn
+|
+|-heal|p2a: Zamazenta|94/100|[from] item: Leftovers
+|-damage|p1a: Hatterene|28/100 psn|[from] psn
+|upkeep
+|turn|22
+|
+|t:|1723919776
+|switch|p2a: Gouging Fire|Gouging Fire|99/100
+|move|p1a: Hatterene|Draining Kiss|p2a: Gouging Fire
+|-damage|p2a: Gouging Fire|73/100
+|-heal|p1a: Hatterene|53/100 psn|[from] drain|[of] p2a: Gouging Fire
+|
+|-damage|p1a: Hatterene|41/100 psn|[from] psn
+|upkeep
+|turn|23
+|
+|t:|1723919778
+|move|p2a: Gouging Fire|Flare Blitz|p1a: Hatterene
+|-damage|p1a: Hatterene|0 fnt
+|faint|p1a: Hatterene
+|-damage|p2a: Gouging Fire|62/100|[from] Recoil
+|
+|upkeep
+|
+|t:|1723919780
+|switch|p1a: Samurott|Samurott-Hisui, M|100/100
+|turn|24
+|
+|t:|1723919784
+|move|p1a: Samurott|Ceaseless Edge|p2a: Gouging Fire
+|-damage|p2a: Gouging Fire|31/100
+|-sidestart|p2: clips inserted|Spikes
+|move|p2a: Gouging Fire|Breaking Swipe|p1a: Samurott
+|-damage|p1a: Samurott|67/100
+|-unboost|p1a: Samurott|atk|1
+|
+|upkeep
+|turn|25
+|
+|t:|1723919786
+|move|p1a: Samurott|Ceaseless Edge|p2a: Gouging Fire
+|-damage|p2a: Gouging Fire|11/100
+|-sidestart|p2: clips inserted|Spikes
+|move|p2a: Gouging Fire|Breaking Swipe|p1a: Samurott
+|-damage|p1a: Samurott|32/100
+|-unboost|p1a: Samurott|atk|1
+|
+|upkeep
+|turn|26
+|
+|t:|1723919789
+|move|p1a: Samurott|Ceaseless Edge|p2a: Gouging Fire
+|-damage|p2a: Gouging Fire|0 fnt
+|-sidestart|p2: clips inserted|Spikes
+|faint|p2a: Gouging Fire
+|-end|p2a: Gouging Fire|Protosynthesis|[silent]
+|
+|upkeep
+|
+|t:|1723919791
+|switch|p2a: Zamazenta|Zamazenta|94/100
+|-damage|p2a: Zamazenta|69/100|[from] Spikes
+|turn|27
+|-message|lt113 trick room forfeited.
+|
+|win|clips inserted
+|raw|lt113 trick room's rating: 1909 &rarr; <strong>1888</strong><br />(-21 for losing)
+|raw|clips inserted's rating: 1899 &rarr; <strong>1920</strong><br />(+21 for winning)
+|l|&ken
+|l|☆lt113 trick room
+|player|p1|
+|l|☆clips inserted
+|player|p2|
+|l| lt113trpo
+|l| Cncksmco
+|l| iDybala Jr!(◕‿◕)
+|l| juiicyskiller
+|l| Eclyn Aucls

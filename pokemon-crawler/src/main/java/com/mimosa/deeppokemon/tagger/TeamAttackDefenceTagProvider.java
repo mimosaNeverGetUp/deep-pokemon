@@ -25,82 +25,107 @@
 package com.mimosa.deeppokemon.tagger;
 
 import com.mimosa.deeppokemon.crawler.PokemonInfoCrawlerImp;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.PokemonInfo;
-import com.mimosa.deeppokemon.entity.Tag;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
-/**
- * @program: deep-pokemon
- * @description: 队伍攻受标签提供类
- * @author: mimosa
- * @create: 2020//10//27
- */
 @Component
 public class TeamAttackDefenceTagProvider implements TeamTagProvider {
-    @Autowired
-    private PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider;
+    private static final Logger logger = LoggerFactory.getLogger(TeamAttackDefenceTagProvider.class);
 
-    @Autowired
-    private PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
+    private final PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider;
 
-    private static Logger logger = LoggerFactory.getLogger(TeamAttackDefenceTagProvider.class);
+    private final PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
+
+    public TeamAttackDefenceTagProvider(PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider, PokemonInfoCrawlerImp pokemonInfoCrawlerImp) {
+        this.pokemonAttackDefenseTagProvider = pokemonAttackDefenseTagProvider;
+        this.pokemonInfoCrawlerImp = pokemonInfoCrawlerImp;
+    }
+
     @Override
-    public void tag(Team team) {
+    public void tag(Team team, TeamSet teamSet) {
         Set<Tag> tags = team.getTagSet();
-        float attackDefenseDif = 0;//攻受差异，大于0表示攻向
+        Map<String, PokemonBuildSet> pokemonBuildSetMap = new HashMap<>();
+        if (teamSet != null && teamSet.pokemons() != null) {
+            for (PokemonBuildSet pokemonBuildSet : teamSet.pokemons()) {
+                pokemonBuildSetMap.put(pokemonBuildSet.name(), pokemonBuildSet);
+            }
+        }
+
         try {
+            float atk = 0;
+            float def = 0;
             for (Pokemon pokemon : team.getPokemons()) {
                 PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon.getName());
                 if (pokemonInfo == null) {
-                    logger.error("pokemoninfo {} not found and team tag fail",pokemon.getName());
+                    logger.error("pokemoninfo {} not found and team tag fail", pokemon.getName());
                     return;
                 }
-                pokemonAttackDefenseTagProvider.tag(pokemonInfo);
+                pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSetMap.get(pokemon.getName()));
+                logger.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
+
                 //手动神经元，加权求和大于阈值进行分类...
                 for (Tag tag : pokemonInfo.getTags()) {
                     switch (tag) {
-                        case STAFF:
-                            attackDefenseDif -= 1;
+                        case ATTACK_SET:
+                            atk += 1;
                             break;
-                        case BALANCE_STAFF:
-                            attackDefenseDif -= 0.5;
+                        case ATTACK_BULK_SET:
+                            atk += 1;
+                            def += 0.5F;
                             break;
-                        case BALANCE:
+                        case ATTACK_MIX_SET:
+                            atk += 1;
+                            def += 0.25F;
                             break;
-                        case BALANCE_ATTACK:
-                            attackDefenseDif += 0.5;
+                        case DEFENSE_SET:
+                            def += 1F;
                             break;
-                        case ATTACK:
-                            attackDefenseDif += 1;
+                        case DEFENSE_BULK_SET:
+                            def += 1;
+                            atk += 0.5F;
+                            break;
+                        case DEFENSE_MIX_SET:
+                            def += 1;
+                            atk += 0.25F;
+                            break;
+                        case BALANCE_SET:
+                            atk += 0.5F;
+                            def += 0.5F;
+                            break;
+                        case BALANCE_BULK_SET:
+                            atk += 0.75F;
+                            def += 0.75F;
+                            break;
+                        default:
+                            logger.error("tag {} not supported", tag);
                     }
                 }
             }
-            if (Math.abs(attackDefenseDif) >= 2) {
-                if (attackDefenseDif > 0) {
-                    tags.add(Tag.ATTACK);
-                } else {
-                    tags.add(Tag.STAFF);
-                }
-            } else if (Math.abs(attackDefenseDif) >= 1) {
-                if (attackDefenseDif > 0) {
-                    tags.add(Tag.BALANCE_ATTACK);
-                } else {
-                    tags.add(Tag.BALANCE_STAFF);
-                }
-            } else {
+            float dif = atk - def;
+            if (Math.abs(dif) <= 1.25) {
                 tags.add(Tag.BALANCE);
+            } else if (dif > 0 && def >= 2) {
+                tags.add(Tag.BALANCE_ATTACK);
+            } else if (dif > 0 && def < 2) {
+                tags.add(Tag.ATTACK);
+            } else if (dif < 0 && atk >= 2) {
+                tags.add(Tag.BALANCE);
+            } else if (dif < 0 && atk < 2) {
+                tags.add(Tag.STAFF);
+            } else {
+                logger.error("unknown tag situation atk {} def {}", atk, def);
             }
-            logger.debug("{} attackDefence diff is {}",team.getPokemons(),attackDefenseDif);
-        } catch (Exception e) {
-            logger.error("tag team fail",e);
-        }
 
+            logger.debug("{} atk {} def {} tag {}", team.getPokemons().stream().map(Pokemon::getName).toList(),
+                    atk, def, tags);
+        } catch (Exception e) {
+            logger.error("tag team fail", e);
+        }
     }
 }

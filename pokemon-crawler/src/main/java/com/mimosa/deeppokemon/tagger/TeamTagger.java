@@ -24,14 +24,10 @@
 
 package com.mimosa.deeppokemon.tagger;
 
-import com.mimosa.deeppokemon.crawler.PokemonInfoCrawler;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.PokemonInfo;
-import com.mimosa.deeppokemon.entity.Tag;
 import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.TeamSet;
 
-import java.io.IOException;
-import java.util.*;
+import java.util.List;
 
 /**
  * @program: deep-pokemon
@@ -48,9 +44,9 @@ public class TeamTagger {
     }
 
 
-    public void tagTeam(Team team) {
+    public void tagTeam(Team team, TeamSet teamSet) {
         for (TeamTagProvider teamTagProvider : teamTagProviders) {
-            teamTagProvider.tag(team);
+            teamTagProvider.tag(team, teamSet);
         }
     }
 

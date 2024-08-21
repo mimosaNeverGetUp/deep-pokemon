@@ -27,6 +27,7 @@ package com.mimosa.deeppokemon.tagger;
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.Tag;
 import com.mimosa.deeppokemon.entity.Team;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -36,6 +37,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @SpringBootTest
@@ -55,7 +58,7 @@ class TeamAttackDefenceTagProviderTest {
             Team team = new Team(battleTeam.pokemons());
             team.setPlayerName(battleTeam.playerName());
             team.setTier(battleTeam.tier());
-            teamAttackDefenceTagProvider.tag(team);
+            teamAttackDefenceTagProvider.tag(team, null);
             Assertions.assertFalse(team.getTagSet() == null || team.getTagSet().isEmpty());
 
             System.out.println("tag: " + team.getTagSet());
@@ -63,5 +66,33 @@ class TeamAttackDefenceTagProviderTest {
                 System.out.println(pokemon.getName());
             }
         }
+    }
+
+    @Test
+    void tag_specify() {
+        assertTag(Tag.BALANCE, "Hydrapple", "Chansey", "Moltres", "Great Tusk", "Enamorus", "Toxapex");
+        assertTag(Tag.STAFF, "Dondozo", "Blissey", "Clodsire", "Gliscor", "Corviknight", "Toxapex");
+        assertTag(Tag.BALANCE, "Gliscor", "Garganacl", "Weezing-Galar", "Kingambit", "Dragapult", "Alomomola");
+        assertTag(Tag.ATTACK, "Kyurem", "Iron Valiant", "Iron Moth", "Kingambit", "Samurott-Hisui", "Landorus-Therian");
+        assertTag(Tag.BALANCE_ATTACK, "Cinderace", "Kingambit", "Landorus-Therian", "Kyurem", "Slowking-Galar", "Dragapult");
+    }
+
+    public void assertTag(Tag tag, String... pokemons) {
+        Team team = build(pokemons);
+        teamAttackDefenceTagProvider.tag(team, null);
+        Assertions.assertTrue(team.getTagSet().contains(tag));
+    }
+
+    public Team build(String... names) {
+        Team team = new Team();
+        List<Pokemon> pokemons = new ArrayList<>();
+        for (String name : names) {
+            Pokemon pokemon = new Pokemon();
+            pokemon.setName(name);
+            pokemons.add(pokemon);
+        }
+        team.setPokemons(pokemons);
+        team.setTagSet(new HashSet<>());
+        return team;
     }
 }

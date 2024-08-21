@@ -55,7 +55,7 @@ class TeamPopularTagProviderTest {
             Team team = new Team(battleTeam.pokemons());
             team.setPlayerName(battleTeam.playerName());
             team.setTier(battleTeam.tier());
-            teamPopularTagProvider.tag(team);
+            teamPopularTagProvider.tag(team, null);
         }
         Assertions.assertTrue(battleTeams.stream().anyMatch(battleTeam -> !battleTeam.tagSet().isEmpty()));
     }

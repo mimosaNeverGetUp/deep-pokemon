@@ -26,32 +26,34 @@ package com.mimosa.deeppokemon.tagger;
 
 import com.mimosa.deeppokemon.crawler.PokemonInfoCrawler;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.IOException;
-import java.util.List;
-
 
 @SpringBootTest
-class PokemonStatsTagProviderTest {
+class PokemonStatsLevelCrawlerTest {
 
     @Autowired
-    private PokemonStatsTagProvider pokemonStatsTagProvider;
+    private PokemonStatsLevelCrawler pokemonStatsLevelCrawler;
 
     @Autowired
     private PokemonInfoCrawler pokemonInfoCrawler;
 
     @Test
-    void tag() throws IOException {
-        List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
-        for (int i = 0; i < pokemonInfoList.size(); i++) {
-            PokemonInfo pokemonInfo =  pokemonInfoList.get(i);
-            pokemonStatsTagProvider.tag(pokemonInfo);
-            if ("OU".equals(pokemonInfo.getTier()) || "UU".equals(pokemonInfo.getTier())) {
-                System.out.println(pokemonInfo.getName()+pokemonInfo.getTags());
-            }
-        }
+    void tag() {
+        assertLevel("Kingambit", 4.5F, 1, 3, 4);
+        assertLevel("Great Tusk", 4, 1, 1.0F, 4.5F);
+        assertLevel("Gholdengo", 1, 4, 2.5F, 3F);
+        assertLevel("Slowking-Galar" , 1, 3, 3.5F, 2.5F);
+    }
+
+    private void assertLevel(String name, float atk, float spa, float spd, float def) {
+        PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(name);
+        Assertions.assertEquals(atk, pokemonStatsLevelCrawler.getAtkLevel(pokemonInfo));
+        Assertions.assertEquals(spa, pokemonStatsLevelCrawler.getSatkLevel(pokemonInfo));
+        Assertions.assertEquals(spd, pokemonStatsLevelCrawler.getSpdLevel(pokemonInfo));
+        Assertions.assertEquals(def, pokemonStatsLevelCrawler.getDefLevel(pokemonInfo));
     }
 }

@@ -360,7 +360,14 @@ public class BattleService {
 
         MergeOperation mergeOperation = Aggregation.merge()
                 .intoCollection(teamGroupDetail.teamGroupCollectionName())
-                .whenDocumentsMatch(MergeOperation.WhenDocumentsMatch.replaceDocument())
+                .whenDocumentsMatch(MergeOperation.WhenDocumentsMatch.updateWith(Aggregation.newAggregation(
+                        SetOperation.set(LATEST_BATTLE_DATE).toValue("$$new.latestBattleDate")
+                                        .and().set(MAX_RATING).toValue("$$new.maxRating")
+                                        .and().set(POKEMONS).toValue("$$new.pokemons")
+                                        .and().set(TEAMS).toValue("$$new.teams")
+                                        .and().set(UNIQUE_PLAYER_NUM).toValue("$$new.uniquePlayerNum")
+                                        .and().set(REPLAY_NUM).toValue("$$new.replayNum")
+                )))
                 .whenDocumentsDontMatch(MergeOperation.WhenDocumentsDontMatch.insertNewDocument())
                 .build();
 

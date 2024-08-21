@@ -8,14 +8,17 @@ package com.mimosa.deeppokemon.service;
 
 import com.google.common.collect.Lists;
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.bson.types.Binary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.BulkOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -29,10 +32,17 @@ public class TeamService {
     private static final Logger log = LoggerFactory.getLogger(TeamService.class);
 
     protected static final int BATCH_SIZE = 1000;
+    protected static final String REPLAY_NUM = "replayNum";
+    protected static final String ID = "_id";
+    protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
+    protected static final String MAX_RATING = "maxRating";
+    protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
     private final MongoTemplate mongoTemplate;
+    private final TeamTagger teamTagger;
 
-    public TeamService(MongoTemplate mongoTemplate) {
+    public TeamService(MongoTemplate mongoTemplate, TeamTagger teamTagger) {
         this.mongoTemplate = mongoTemplate;
+        this.teamTagger = teamTagger;
     }
 
     @RegisterReflectionForBinding({TeamGroup.class, TeamSet.class, PokemonBuildSet.class})
@@ -40,9 +50,9 @@ public class TeamService {
         List<Binary> needUpdateTeamGroup = new ArrayList<>();
 
         Query query = new Query()
-                .with(Sort.by(Sort.Order.desc("latestBattleDate")))
+                .with(Sort.by(Sort.Order.desc(LATEST_BATTLE_DATE)))
                 .cursorBatchSize(BATCH_SIZE);
-        query.fields().include("_id", "replayNum", "uniquePlayerNum", "maxRating");
+        query.fields().include(ID, REPLAY_NUM, UNIQUE_PLAYER_NUM, MAX_RATING);
         Stream<TeamGroup> teamGroupStream = mongoTemplate.stream(query, TeamGroup.class, teamGroupDetail.teamGroupCollectionName());
 
         List<TeamGroup> batchTeamGroup = new ArrayList<>();
@@ -71,6 +81,72 @@ public class TeamService {
         updateTeamSet(needUpdateTeamGroup, teamGroupDetail.teamGroupCollectionName(),
                 teamGroupDetail.teamSetCollectionName());
         mongoTemplate.remove(new Query(Criteria.where("minReplayDate").lt(teamGroupDetail.start())), teamGroupDetail.teamSetCollectionName());
+        syncTeamSetAndTeamGroup(teamGroupDetail.teamSetCollectionName(), teamGroupDetail.teamGroupCollectionName());
+    }
+
+    private void syncTeamSetAndTeamGroup(String teamSetCollectionName, String teamGroupCollectionName) {
+        Query query = new Query()
+                .with(Sort.by(Sort.Order.desc(LATEST_BATTLE_DATE)))
+                .cursorBatchSize(BATCH_SIZE);
+        query.fields().include(ID, "tagSet", REPLAY_NUM, UNIQUE_PLAYER_NUM, MAX_RATING);
+        Stream<TeamGroup> teamGroupStream = mongoTemplate.stream(query, TeamGroup.class, teamGroupCollectionName);
+
+        List<TeamGroup> batchTeamGroup = new ArrayList<>();
+        teamGroupStream.forEach(teamGroup -> {
+            batchTeamGroup.add(teamGroup);
+            if (batchTeamGroup.size() >= BATCH_SIZE) {
+                try {
+                    syncTeamSetAndTeamGroup(batchTeamGroup, teamSetCollectionName, teamGroupCollectionName);
+                } catch (Exception e) {
+                    log.error("sync team group fail", e);
+                } finally {
+                    batchTeamGroup.clear();
+                }
+            }
+        });
+
+        if (!batchTeamGroup.isEmpty()) {
+            syncTeamSetAndTeamGroup(batchTeamGroup, teamSetCollectionName, teamGroupCollectionName);
+        }
+    }
+
+    private void syncTeamSetAndTeamGroup(List<TeamGroup> batchTeamGroup, String teamSetCollectionName,
+                                         String teamGroupCollectionName) {
+        Query query = new Query(Criteria.where(ID).in(batchTeamGroup.stream().map(TeamGroup::id).toList()));
+        query.fields().include(ID, "tagSet", REPLAY_NUM);
+        List<TeamSet> teamSets = mongoTemplate.find(query, TeamSet.class, teamSetCollectionName);
+        Map<Binary, TeamSet> teamSetMap = teamSets.stream().collect(Collectors.toMap(TeamSet::id, Function.identity()));
+        BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, teamGroupCollectionName);
+        boolean needUpdate = false;
+        for (TeamGroup teamGroup : batchTeamGroup) {
+            Binary teamId = new Binary(teamGroup.id());
+            if (teamSetMap.containsKey(teamId)) {
+                TeamSet teamSet = teamSetMap.get(teamId);
+                if (!isTagSync(teamGroup, teamSet)) {
+                    log.debug("start to update team group {} tag",  new String(teamId.getData()));
+                    needUpdate = true;
+                    updateTeamGroupTag(bulkOperations, teamId, teamSet.tagSet());
+                }
+            }
+        }
+        if (needUpdate) {
+            bulkOperations.execute();
+        }
+    }
+
+    private void updateTeamGroupTag(BulkOperations bulkOperations, Binary teamId, Set<Tag> tags) {
+        Query query = new Query(Criteria.where(ID).is(teamId));
+        Update update = new Update().set("tagSet", tags);
+        bulkOperations.updateOne(query, update);
+    }
+
+    private boolean isTagSync(TeamGroup teamGroup, TeamSet teamSet) {
+        for (Tag tag : teamSet.tagSet()) {
+            if (!teamGroup.tagSet().contains(tag)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public Collection<Binary> queryNeedUpdateTeamGroup(List<TeamGroup> teamGroups, String teamSetCollectionName,
@@ -84,7 +160,7 @@ public class TeamService {
         for (TeamGroup teamGroup : teamGroups) {
             Binary teamId = new Binary(teamGroup.id());
             TeamSet teamSet = teamSetMap.get(teamId);
-            if (teamSet == null || teamSet.minReplayDate() == null) {
+            if (teamSet == null || teamSet.minReplayDate() == null || teamSet.tagSet() == null || teamSet.tagSet().isEmpty()) {
                 needUpdateTeamGroup.add(new Binary(teamGroup.id()));
                 continue;
             }
@@ -98,7 +174,7 @@ public class TeamService {
     }
 
     public List<TeamSet> getTeamSets(List<Binary> teamIds, String teamSetCollectionName) {
-        Query query = new Query(Criteria.where("_id").in(teamIds));
+        Query query = new Query(Criteria.where(ID).in(teamIds));
         return mongoTemplate.find(query, TeamSet.class, teamSetCollectionName);
     }
 
@@ -109,7 +185,7 @@ public class TeamService {
                     .toList());
             try {
                 List<TeamSet> teamSets = new ArrayList<>();
-                Query query = new Query(Criteria.where("_id").in(partition));
+                Query query = new Query(Criteria.where(ID).in(partition));
                 List<TeamGroup> teamGroups = mongoTemplate.find(query, TeamGroup.class, teamGroupCollectionName);
                 teamGroups.forEach(teamGroup -> teamSets.add(buildTeamSet(teamGroup)));
                 mongoTemplate.remove(query, insertCollectionName);
@@ -122,7 +198,8 @@ public class TeamService {
 
     public TeamSet buildTeamSet(TeamGroup teamGroup) {
         if (teamGroup.teams() == null || teamGroup.teams().isEmpty()) {
-            return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), 0, null, Collections.emptyList());
+            return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), 0, null,
+                    Collections.emptySet(), Collections.emptyList());
         }
 
         Map<String, Map<String, Integer>> moveMap = new HashMap<>();
@@ -146,8 +223,32 @@ public class TeamService {
                 .filter(Objects::nonNull)
                 .min(LocalDate::compareTo)
                 .orElse(null);
-        return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(), minReplayDate,
-                pokemonBuildSets);
+        TeamSet teamSet = new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(), minReplayDate,
+                null, pokemonBuildSets);
+        return tagTeamSet(teamSet);
+    }
+
+    private TeamSet tagTeamSet(TeamSet teamSet) {
+        Team team = convertTeam(teamSet);
+        teamTagger.tagTeam(team, teamSet);
+        return teamSet.withTags(team.getTagSet());
+    }
+
+    public Set<Tag> tagTeam(String teamId,String collectionName) {
+        TeamSet teamSet = mongoTemplate.findById(new Binary(Base64.getDecoder().decode(teamId)), TeamSet.class,
+                collectionName);
+        return tagTeamSet(teamSet).tagSet();
+    }
+
+    private Team convertTeam(TeamSet teamSet) {
+        Team team = new Team();
+        List<Pokemon> pokemons = new ArrayList<>();
+        for (var pokemonSet : teamSet.pokemons()) {
+            pokemons.add(new Pokemon(pokemonSet.name()));
+        }
+        team.setPokemons(pokemons);
+        team.setTagSet(new HashSet<>());
+        return team;
     }
 
     private static void countPokemonSet(BattleTeam team,

@@ -25,13 +25,9 @@
 package com.mimosa.deeppokemon.tagger;
 
 import com.mimosa.deeppokemon.crawler.PokemonInfoCrawlerImp;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.PokemonInfo;
-import com.mimosa.deeppokemon.entity.Tag;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -45,12 +41,15 @@ import java.util.Set;
 @Component
 public class TeamPopularTagProvider implements TeamTagProvider {
 
-    @Autowired
-    private PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
+    private final PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
+
+    public TeamPopularTagProvider(PokemonInfoCrawlerImp pokemonInfoCrawlerImp) {
+        this.pokemonInfoCrawlerImp = pokemonInfoCrawlerImp;
+    }
 
     private static final Logger logger = LoggerFactory.getLogger(TeamPopularTagProvider.class);
     @Override
-    public void tag(Team team) {
+    public void tag(Team team, TeamSet teamSet) {
         Set<Tag> tags = team.getTagSet();
         float unpopularPokemonUse = 0;//使用冷门精灵的程度
         try {
@@ -58,7 +57,7 @@ public class TeamPopularTagProvider implements TeamTagProvider {
             for (Pokemon pokemon : team.getPokemons()) {
                 PokemonInfo pokemonInfo = pokemonInfoCrawlerImp.getPokemonInfo(pokemon.getName());
                 if (pokemonInfo == null) {
-                    throw new RuntimeException("pokemon info "+pokemon.getName()+" get fail");
+                    throw new IllegalArgumentException("pokemon info "+pokemon.getName()+" get fail");
                 }
                 if (!pokemonInfo.getTier().equals("Illegal") && !pokemonInfo.getTier().equals("OU")) {
                     if (pokemonInfo.getTier().contains("UU")) {

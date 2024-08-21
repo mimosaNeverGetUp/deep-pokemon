@@ -46,7 +46,7 @@ class PokemonTypeTagProviderTest {
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (int i = 0; i < pokemonInfoList.size(); i++) {
             PokemonInfo pokemonInfo =  pokemonInfoList.get(i);
-            pokemonTypeTagProvider.tag(pokemonInfo);
+            pokemonTypeTagProvider.tag(pokemonInfo, null);
             if ("OU".equals(pokemonInfo.getTier()) || "UU".equals(pokemonInfo.getTier())) {
                 System.out.println(pokemonInfo.getName() + pokemonInfo.getTypes() + ':'
                         + pokemonInfo.getTags());

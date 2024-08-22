@@ -51,10 +51,10 @@ public class CacheService {
             loadTeamGroupBySort(groupName, MAX_RATING);
             loadTeamGroupBySort(groupName, UNIQUE_PLAYER_NUM);
             loadTeamGroupBySort(groupName, LATEST_BATTLE_DATE);
-            loadTeamGroupByTeamType(groupName, "BALANCE");
-            loadTeamGroupByTeamType(groupName, "STAFF");
-            loadTeamGroupByTeamType(groupName, "ATTACK");
-            loadTeamGroupByTeamType(groupName, "BALANCE_ATTACK");
+            loadTeamGroupByTeamType(groupName, Collections.singletonList("BALANCE"));
+            loadTeamGroupByTeamType(groupName, List.of("STAFF", "BALANCE_STAFF"));
+            loadTeamGroupByTeamType(groupName, Collections.singletonList("ATTACK"));
+            loadTeamGroupByTeamType(groupName, Collections.singletonList("BALANCE_ATTACK"));
         } catch (Exception e) {
             log.error("load team group error", e);
             return false;
@@ -68,8 +68,7 @@ public class CacheService {
         battleService.teamGroup(2, 7, null, null, sort, groupName);
     }
 
-    private void loadTeamGroupByTeamType(String groupName, String type) {
-        List<String> tags = Collections.singletonList(type);
+    private void loadTeamGroupByTeamType(String groupName, List<String> tags) {
         battleService.teamGroup(0, 7, tags, null, MAX_RATING, groupName);
         battleService.teamGroup(1, 7, tags, null, MAX_RATING, groupName);
         battleService.teamGroup(2, 7, tags, null, MAX_RATING, groupName);

@@ -7,7 +7,7 @@
 package com.mimosa.pokemon.portal.api;
 
 import com.mimosa.pokemon.portal.service.CacheService;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +20,7 @@ public class CacheApiController {
         this.cacheService = cacheService;
     }
 
-    @PostMapping("/load")
+    @GetMapping("/load")
     public boolean loadHeatData() {
         return cacheService.loadHeatData();
     }

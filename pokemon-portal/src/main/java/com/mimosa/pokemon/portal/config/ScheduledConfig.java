@@ -42,7 +42,7 @@ public class ScheduledConfig {
         this.cacheService = cacheService;
     }
 
-    @Scheduled(cron = "0 30 1 * * ?")
+    @Scheduled(cron = "0 30 1/6 * * ?")
     private void loadHeatData() {
         log.info("Loading heat data...");
         boolean res = cacheService.loadHeatData();

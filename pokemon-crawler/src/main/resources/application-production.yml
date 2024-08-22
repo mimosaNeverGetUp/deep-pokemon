@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://root:${MONGODB_PWD}@101.43.126.226:27017/deep_pokemon?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
+      uri: mongodb://root:${MONGODB_PWD}@101.43.126.226:27017/deep_pokemon?authSource=admin&serverSelectionTimeoutMS=5000&connectTimeoutMS=5000
   cloud:
     refresh:
       enabled: false

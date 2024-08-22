@@ -27,7 +27,11 @@ package com.mimosa.pokemon.portal.service;
 import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
+import com.mimosa.pokemon.portal.entity.PageResponse;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
@@ -35,14 +39,22 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 @Service
 public class PlayerService {
     private final MongoTemplate mongoTemplate;
+    private final BattleService battleService;
 
-    public PlayerService(MongoTemplate mongoTemplate) {
+    public PlayerService(MongoTemplate mongoTemplate, BattleService battleService) {
         this.mongoTemplate = mongoTemplate;
+        this.battleService = battleService;
     }
 
+    @Cacheable("playerRank")
     public PlayerRankDTO queryPlayerLadderRank(@NonNull String playerName) {
         Ladder ladder = getLatestLadder();
         LadderRank playerRank =
@@ -59,5 +71,37 @@ public class PlayerService {
                 .with(Sort.by(Sort.Order.desc("date")))
                 .limit(1);
         return mongoTemplate.findOne(query, Ladder.class, "ladder");
+    }
+
+    public LocalDate getUpdateTime() {
+        Query query = new BasicQuery("{}")
+                .with(Sort.by(Sort.Order.desc("date")))
+                .limit(1);
+        query.fields().include("date");
+        return mongoTemplate.findOne(query, Ladder.class, "ladder").getDate();
+    }
+
+    @Cacheable("rank")
+    public PageResponse<PlayerRankDTO> rank(@Min(0) int page, @Min(1) @Max(100) int row) {
+        int start = page * row;
+        int end = start + row;
+        Ladder ladder = getLatestLadder();
+        List<LadderRank> ladderRank = ladder.getLadderRankList();
+        ladderRank.sort(Comparator.comparingInt(LadderRank::getRank));
+        List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
+
+        List<PlayerRankDTO> playerRankDTOS = new ArrayList<>();
+
+        for (var rank : segmentLadderRank) {
+            var playerRankDTO = new PlayerRankDTO();
+            playerRankDTO.setRank(rank.getRank());
+            playerRankDTO.setElo(rank.getElo());
+            playerRankDTO.setName(rank.getName());
+            playerRankDTO.setGxe(rank.getGxe());
+            playerRankDTO.setInfoDate(ladder.getDate());
+            playerRankDTO.setRecentTeam(battleService.listRecentTeam(rank.getName()));
+            playerRankDTOS.add(playerRankDTO);
+        }
+        return new PageResponse<>(ladderRank.size(), page, row, playerRankDTOS);
     }
 }

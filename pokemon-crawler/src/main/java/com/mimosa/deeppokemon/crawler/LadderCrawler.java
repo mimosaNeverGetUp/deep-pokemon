@@ -38,6 +38,7 @@ import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -121,6 +122,7 @@ public class LadderCrawler {
         return new CrawAnalyzeBattleFuture(battleCrawFuture, battleAnalyzeFuture);
     }
 
+    @CacheEvict(value = {"rank", "playerRank"}, allEntries = true)
     public Ladder crawLadderRank(boolean overwrite) {
         ClassicHttpRequest httpGet = initLadderQueryGet();
         String html = HttpUtil.request(httpGet);

@@ -4,7 +4,7 @@
  *  Copyright (c) 2024-2024 mimosa
  */
 
-package com.mimosa.pokemon.portal.config;
+package com.mimosa.deeppokemon.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

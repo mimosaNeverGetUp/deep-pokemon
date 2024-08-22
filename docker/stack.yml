@@ -37,6 +37,17 @@ services:
       THC_PATH: /actuator/health
     secrets:
       - pwd
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli","ping" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
 secrets:
   pwd:
     file: pwd

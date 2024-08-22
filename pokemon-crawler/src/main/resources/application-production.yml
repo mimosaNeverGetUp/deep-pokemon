@@ -2,6 +2,10 @@ spring:
   data:
     mongodb:
       uri: mongodb://root:${MONGODB_PWD}@101.43.126.226:27017/deep_pokemon?authSource=admin&serverSelectionTimeoutMS=5000&connectTimeoutMS=5000
+    redis:
+      host: pokemon-cache
+      port: 6379
+      timeout: 5000
   cloud:
     refresh:
       enabled: false

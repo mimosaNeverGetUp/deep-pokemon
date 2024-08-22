@@ -4,6 +4,7 @@ services:
     image: "redis:latest"
     ports:
       - "6379:6379"
+    command: redis-server /usr/local/etc/redis/redis.conf
     healthcheck:
       test: [ "CMD", "redis-cli","ping" ]
       interval: 30s

@@ -3,10 +3,13 @@ import {ref} from "vue";
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Team from '@/components/Team.vue'
+import ProgressSpinner from "primevue/progressspinner";
 
 
 // 在需要使用后端 URL 的地方
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
+const loading = ref(true);
+const loadFail = ref(false);
 const rank = ref(null)
 const page = ref(0);
 const row = ref(25);
@@ -21,22 +24,34 @@ async function fetchData(page, row) {
         method: "GET"
       }
   )
-  const response = await res.json()
-  rank.value = response.data
-  totalRecords.value = response.totalRecords
+
+  if (res.ok) {
+    const response = await res.json();
+    rank.value = response.data;
+    totalRecords.value = response.totalRecords;
+    loading.value = false;
+  } else {
+    loadFail.value = true;
+    loading.value = false;
+  }
+
 }
 
-function onPage(event) {
-  fetchData(event.page, event.rows)
+async function onPage(event) {
+  loading.value = true;
+  await fetchData(event.page, event.rows);
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 fetchData(page.value, row.value)
 </script>
 
 <template>
-  <DataTable :value="rank" class="ladder" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
-             :totalRecords="totalRecords" @page="onPage($event)" :scrollable="false" stripedRows
-             tableStyle="min-width: 50rem">
+  <DataTable :value="rank" v-show="loading===false && loadFail===false" class="ladder" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
+             :totalRecords="totalRecords" @page="onPage($event)" :scrollable="false" stripedRows tableStyle="min-width: 50rem">
     <Column field="rank" header="排名"
             :style="{ width:'5%' }"></Column>
     <Column field="name" header="玩家名" :style="{ width:'10%' }">
@@ -64,6 +79,8 @@ fetchData(page.value, row.value)
       </template>
     </Column>
   </DataTable>
+  <ProgressSpinner v-if="loading"/>
+  <p v-if="loadFail" class="mt-[60px]">load ladder fail.</p>
 </template>
 
 <style scoped>

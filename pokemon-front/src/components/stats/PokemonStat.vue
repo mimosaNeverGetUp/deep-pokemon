@@ -28,7 +28,6 @@ const teams = ref(null)
 const loadFail = ref(false)
 
 async function fetchStatsData(format, pokemon) {
-  moveset.value = null
   const res = await fetch(`${apiUrl}/api/stats/${format}/moveset/` + pokemon, {
         method: "GET"
       }
@@ -51,10 +50,18 @@ function getIconUrl(pokemon) {
 }
 
 watch(() => props.pokemon, async (newPokemon) => {
+  moveset.value = null
+  sets.value = null;
+  teams.value = null;
+
   await fetchStatsData(props.format, newPokemon.name);
+  window.scrollTo({
+    top: 0,
+    behavior: 'auto'
+  });
   await queryPokemonSet(props.format, newPokemon.name);
   await queryTeams(0, 5, newPokemon.name);
-})
+});
 
 function convertToPercentage(f) {
   return (f * 100).toFixed(2) + '%'
@@ -105,7 +112,6 @@ function getSpreadText(spread, showNatureIndex, showNatureName) {
 }
 
 async function queryTeams(page, row, pokemon) {
-  teams.value = null;
   if (props.format !== 'gen9ou') {
     return
   }
@@ -126,7 +132,6 @@ async function queryTeams(page, row, pokemon) {
 }
 
 async function queryPokemonSet(format, pokemon) {
-  sets.value = null;
   let url = new URL(`${apiUrl}/api/stats/${format}/set/` + pokemon);
 
   const res = await fetch(url,

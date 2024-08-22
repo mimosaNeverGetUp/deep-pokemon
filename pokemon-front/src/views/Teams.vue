@@ -15,7 +15,9 @@ import {useRoute} from "vue-router";
 const route = useRoute();
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
-const teams = ref()
+const loading = ref(true);
+const loadFail = ref(false);
+const teams = ref();
 const page = ref(0);
 const row = ref(7);
 
@@ -42,12 +44,18 @@ async function queryTeams(page, row) {
         method: "GET"
       }
   );
-  const response = await res.json();
-  teams.value = response;
+
+  if (res.ok) {
+    const response = await res.json();
+    teams.value = response;
+    loading.value = false;
+  } else {
+    loadFail.value = true;
+    loading.value = false;
+  }
 }
 
 function getSortFiled(sortMode) {
-
   switch (sortMode) {
     case "rating":
       return "maxRating";
@@ -85,17 +93,22 @@ function getTeamGroupName(range) {
   return "last_7_days";
 }
 
-function onPage(event) {
-  queryTeams(event.page, event.rows);
+async function onPage(event) {
+  loading.value = true;
+  await queryTeams(event.page, event.rows);
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 queryTeams(page.value, row.value);
 </script>
 
 <template>
-  <DataTable v-if="teams" :value="teams.data" class="ladder" lazy paginator :rows="row"
-             :rowsPerPageOptions="[7, 10, 15]" :totalRecords="teams.totalRecords" @page="onPage($event)"
-             :scrollable="false" tableStyle="min-width: 50rem">
+  <DataTable v-if="teams" v-show="loading===false && loadFail===false" :value="teams.data" class="ladder"
+             lazy paginator :rows="row" :rowsPerPageOptions="[7, 10, 15]" :totalRecords="teams.totalRecords"
+             @page="onPage($event)" :scrollable="false" tableStyle="min-width: 50rem">
     <Column field="teamId" header="team" :style="{ width:'20%'}">
       <template #body="slotProps">
         <div class="flex items-center">
@@ -130,7 +143,8 @@ queryTeams(page.value, row.value);
     </Column>
 
   </DataTable>
-  <ProgressSpinner v-else/>
+  <ProgressSpinner v-if="loading"/>
+  <p v-if="loadFail" class="mt-[60px]">load team fail.</p>
 </template>
 
 <style scoped>

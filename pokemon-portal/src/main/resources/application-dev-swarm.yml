@@ -3,7 +3,7 @@ spring:
     mongodb:
       uri: mongodb://root:${MONGODB_PWD}@host.docker.internal:27017/deep_pokemon_dev_env?authSource=admin&serverSelectionTimeoutMS=2000&connectTimeoutMS=2000
     redis:
-      host: pokemon-cache
+      host: redis_pokemon-cache
       port: 6379
       timeout: 100
   cloud:

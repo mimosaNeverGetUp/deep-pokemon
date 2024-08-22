@@ -22,6 +22,9 @@ management:
     web:
       exposure:
         include: health,loggers
+  health:
+    redis:
+      enabled: false
 
 CRAW_BATTLE_POOL_SIZE: 16
 ANALYZE_BATTLE_POOL_SIZE: 6

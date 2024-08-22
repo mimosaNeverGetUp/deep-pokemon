@@ -5,7 +5,7 @@ spring:
       database: deep_pokemon_dev_env
       authentication-database: admin
     redis:
-      host: localhost
+      host: pokemon-cache
       port: 6379
       timeout: 100
   cloud:

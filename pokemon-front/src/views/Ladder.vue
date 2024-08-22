@@ -12,7 +12,7 @@ const loading = ref(true);
 const loadFail = ref(false);
 const rank = ref(null)
 const page = ref(0);
-const row = ref(25);
+const row = ref(20);
 const totalRecords = ref(null);
 const emptyTeam = ref({
   pokemons: [{name: "null"}, {name: "null"}, {name: "null"}, {name: "null"}, {name: "null"}, {name: "null"}]

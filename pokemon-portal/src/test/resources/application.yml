@@ -1,4 +1,6 @@
 spring:
+  cache:
+    type: NONE
   web:
     cors: "*"
 eureka:

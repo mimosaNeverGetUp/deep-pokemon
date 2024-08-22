@@ -178,7 +178,6 @@ public class BattleService {
         return String.format("%s_%s", TEAM_SET, groupName);
     }
 
-    @Cacheable("battlestat")
     @RegisterReflectionForBinding({BattleStat.class, PlayerStat.class, PokemonBattleStat.class, TurnStat.class,
             TurnPlayerStat.class, TurnPokemonStat.class})
     public BattleStat battleStat(String battleId) {

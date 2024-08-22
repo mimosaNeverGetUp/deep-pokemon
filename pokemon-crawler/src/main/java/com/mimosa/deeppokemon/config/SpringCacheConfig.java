@@ -4,11 +4,10 @@
  *  Copyright (c) 2024-2024 mimosa
  */
 
-package com.mimosa.pokemon.portal.config;
+package com.mimosa.deeppokemon.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CachingConfigurer;
 import org.springframework.cache.annotation.EnableCaching;
@@ -25,10 +24,9 @@ import java.time.Duration;
 @Configuration
 public class SpringCacheConfig implements CachingConfigurer {
     @Bean
-    public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory,
-                                          @Value("${CACHE_TTL_MIN:360}") int cacheTtl) {
+    public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
         return RedisCacheManager.builder(connectionFactory)
-                .cacheDefaults(RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(cacheTtl)))
+                .cacheDefaults(RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(3)))
                 .transactionAware()
                 .build();
     }

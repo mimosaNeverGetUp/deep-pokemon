@@ -41,6 +41,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.BulkOperationException;
 import org.springframework.data.mongodb.core.BulkOperations;
@@ -284,6 +285,7 @@ public class BattleService {
     }
 
 
+    @CacheEvict(value = "teamGroup", allEntries = true)
     public synchronized void updateTeam() {
         updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(3), LocalDate.now()
                 , "team_group_last_3_days", "team_set_last_3_days"));
@@ -362,11 +364,11 @@ public class BattleService {
                 .intoCollection(teamGroupDetail.teamGroupCollectionName())
                 .whenDocumentsMatch(MergeOperation.WhenDocumentsMatch.updateWith(Aggregation.newAggregation(
                         SetOperation.set(LATEST_BATTLE_DATE).toValue("$$new.latestBattleDate")
-                                        .and().set(MAX_RATING).toValue("$$new.maxRating")
-                                        .and().set(POKEMONS).toValue("$$new.pokemons")
-                                        .and().set(TEAMS).toValue("$$new.teams")
-                                        .and().set(UNIQUE_PLAYER_NUM).toValue("$$new.uniquePlayerNum")
-                                        .and().set(REPLAY_NUM).toValue("$$new.replayNum")
+                                .and().set(MAX_RATING).toValue("$$new.maxRating")
+                                .and().set(POKEMONS).toValue("$$new.pokemons")
+                                .and().set(TEAMS).toValue("$$new.teams")
+                                .and().set(UNIQUE_PLAYER_NUM).toValue("$$new.uniquePlayerNum")
+                                .and().set(REPLAY_NUM).toValue("$$new.replayNum")
                 )))
                 .whenDocumentsDontMatch(MergeOperation.WhenDocumentsDontMatch.insertNewDocument())
                 .build();

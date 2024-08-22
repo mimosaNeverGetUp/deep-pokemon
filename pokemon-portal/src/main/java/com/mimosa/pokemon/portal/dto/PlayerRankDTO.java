@@ -26,10 +26,11 @@ package com.mimosa.pokemon.portal.dto;
 
 import com.mimosa.deeppokemon.entity.BattleTeam;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-public class PlayerRankDTO {
+public class PlayerRankDTO implements Serializable {
     private String name;
     private String format;
     private LocalDate infoDate;

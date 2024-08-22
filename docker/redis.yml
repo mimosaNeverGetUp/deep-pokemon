@@ -1,0 +1,18 @@
+version: "3"
+services:
+  pokemon-cache:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli","ping" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - showdown_default
+networks:
+  showdown_default:
+    external: true

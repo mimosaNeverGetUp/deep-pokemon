@@ -1,4 +1,6 @@
 spring:
+  cache:
+    type: NONE
   data:
     mongodb:
       database: test

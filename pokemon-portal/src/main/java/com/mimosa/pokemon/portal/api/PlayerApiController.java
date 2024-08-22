@@ -6,8 +6,6 @@
 
 package com.mimosa.pokemon.portal.api;
 
-import com.mimosa.deeppokemon.entity.Ladder;
-import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.pokemon.portal.dto.BattleDto;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.entity.PageResponse;
@@ -23,7 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.Collections;
+import java.util.Map;
 
 @Validated
 @RestController
@@ -42,31 +41,12 @@ public class PlayerApiController {
     @GetMapping("/rank/update-time")
     public Map<String, String> getDataUpdateDate() {
         return Collections.singletonMap("date",
-                DateTimeFormatter.ISO_LOCAL_DATE.format(playerService.getLatestLadder().getDate()));
+                DateTimeFormatter.ISO_LOCAL_DATE.format(playerService.getUpdateTime()));
     }
 
     @GetMapping("/rank")
     public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) @Max(100) int row) {
-        int start = page * row;
-        int end = start + row;
-        Ladder ladder = playerService.getLatestLadder();
-        List<LadderRank> ladderRank = ladder.getLadderRankList();
-        ladderRank.sort(Comparator.comparingInt(LadderRank::getRank));
-        List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
-
-        List<PlayerRankDTO> playerRankDTOS = new ArrayList<>();
-
-        for (var rank : segmentLadderRank) {
-            var playerRankDTO = new PlayerRankDTO();
-            playerRankDTO.setRank(rank.getRank());
-            playerRankDTO.setElo(rank.getElo());
-            playerRankDTO.setName(rank.getName());
-            playerRankDTO.setGxe(rank.getGxe());
-            playerRankDTO.setInfoDate(ladder.getDate());
-            playerRankDTO.setRecentTeam(battleService.listRecentTeam(rank.getName()));
-            playerRankDTOS.add(playerRankDTO);
-        }
-        return new PageResponse<>(ladderRank.size(), page, row, playerRankDTOS);
+        return playerService.rank(page, row);
     }
 
     @GetMapping("/player/{username}")

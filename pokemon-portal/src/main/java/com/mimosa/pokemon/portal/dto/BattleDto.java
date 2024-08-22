@@ -8,10 +8,11 @@ package com.mimosa.pokemon.portal.dto;
 
 import com.mimosa.deeppokemon.entity.BattleTeam;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-public final class BattleDto {
+public final class BattleDto implements Serializable {
     private String id;
     private LocalDate date;
     private float avageRating;

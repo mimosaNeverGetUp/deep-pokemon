@@ -26,7 +26,7 @@ import java.time.Duration;
 public class SpringCacheConfig implements CachingConfigurer {
     @Bean
     public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory,
-                                          @Value("${CACHE_TTL_MIN:360}") int cacheTtl) {
+                                          @Value("${CACHE_TTL_MIN:355}") int cacheTtl) {
         return RedisCacheManager.builder(connectionFactory)
                 .cacheDefaults(RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(cacheTtl)))
                 .transactionAware()
@@ -43,7 +43,7 @@ public class SpringCacheConfig implements CachingConfigurer {
 
         @Override
         public void handleCachePutError(RuntimeException e, Cache cache, Object o, Object o1) {
-            log.error("cache {} put error {}", cache.getName(), e.getMessage());
+            log.error("cache {} put error {}", cache.getName(), e.getMessage(), e);
         }
 
         @Override

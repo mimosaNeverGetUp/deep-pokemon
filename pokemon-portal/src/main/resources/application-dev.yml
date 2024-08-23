@@ -6,6 +6,7 @@ spring:
       host: localhost
       port: 6379
       timeout: 100
+      connect-timeout: 50
   #禁用templates缓存，方便hotswap
   thymeleaf:
     cache: false

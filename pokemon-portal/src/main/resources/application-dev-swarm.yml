@@ -6,6 +6,7 @@ spring:
       host: redis_pokemon-cache
       port: 6379
       timeout: 100
+      connect-timeout: 100
   cloud:
     refresh:
       enabled: false

@@ -315,6 +315,10 @@ public class BattleService {
         createIndex(teamGroupDetail.teamGroupCollectionName(), UNIQUE_PLAYER_NUM, Sort.Direction.DESC);
         createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(TAG_SET, LATEST_BATTLE_DATE),
                 Sort.Direction.DESC);
+        createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(TAG_SET, UNIQUE_PLAYER_NUM),
+                Sort.Direction.DESC);
+        createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(TAG_SET, MAX_RATING),
+                Sort.Direction.DESC);
         createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, LATEST_BATTLE_DATE),
                 Sort.Direction.DESC);
         createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, MAX_RATING),

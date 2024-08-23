@@ -27,6 +27,14 @@ management:
     redis:
       enabled: false
 
+logging:
+  level:
+    com:
+      mimosa:
+        deeppokemon:
+          config:
+            SpringCacheConfig: off
+
 CRAW_BATTLE_POOL_SIZE: 16
 ANALYZE_BATTLE_POOL_SIZE: 6
 CRAW_PERIOD_MILLISECOND: 1000

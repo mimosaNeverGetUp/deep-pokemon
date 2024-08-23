@@ -35,3 +35,12 @@ eureka:
     registerWithEureka: false
     serviceUrl:
       defaultZone: http://mimosa:mimosa@localhost:8761/eureka/
+
+logging:
+  level:
+    com:
+      mimosa:
+        pokemon:
+          portal:
+            config:
+              SpringCacheConfig: off

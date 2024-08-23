@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://root:${MONGODB_PWD}@101.43.126.226:27017/deep_pokemon?authSource=admin&serverSelectionTimeoutMS=5000&connectTimeoutMS=5000
+      uri: mongodb://root:${MONGODB_PWD}@${MONGODB_HOST}:27017/deep_pokemon?authSource=admin&serverSelectionTimeoutMS=5000&connectTimeoutMS=5000
     redis:
       host: redis_pokemon-cache
       port: 6379

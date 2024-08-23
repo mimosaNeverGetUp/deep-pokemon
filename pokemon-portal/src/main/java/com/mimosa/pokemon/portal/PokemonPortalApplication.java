@@ -26,9 +26,10 @@ package com.mimosa.pokemon.portal;
 
 
 import com.mimosa.deeppokemon.entity.*;
-import com.mimosa.pokemon.portal.dto.BattleDto;
-import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
-import com.mimosa.pokemon.portal.dto.TeamGroupDto;
+import com.mimosa.deeppokemon.entity.stat.PokemonSet;
+import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
+import com.mimosa.deeppokemon.entity.stat.monthly.Usage;
+import com.mimosa.pokemon.portal.dto.*;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import org.bson.types.Binary;
 import org.springframework.aot.hint.RuntimeHints;
@@ -89,11 +90,27 @@ public class PokemonPortalApplication {
                     .registerType(TeamSet.class)
                     .registerType(PokemonBuildSet.class)
                     .registerType(PlayerRankDTO.class)
+                    .registerType(MonthlyPokemonMoveSetDto.class)
+                    .registerType(MonthlyPokemonUsageDto.class)
+                    .registerType(MonthlyMetaStat.class)
+                    .registerType(PokemonSet.class)
+                    .registerType(Usage.class)
+                    .registerType(PlayerRankDTO.class)
                     .registerType(ArrayList.class)
                     .registerType(LinkedList.class)
                     .registerType(HashSet.class)
+                    .registerType(HashMap.class)
                     .registerType(TreeSet.class)
                     .registerType(ConcurrentHashMap.class)
+                    .registerType(LinkedHashMap.class)
+                    .registerType(LinkedHashSet.class)
+                    .registerType(Number.class)
+                    .registerType(Double.class)
+                    .registerType(TreeMap.class)
+                    .registerType(LocalDate.class)
+                    .registerType(Binary.class)
+                    .registerType(Tag.class)
+                    .registerType(TypeReference.of("java.time.Ser"))
                     .registerType(TypeReference.of("java.util.Collections$UnmodifiableCollection"))
                     .registerType(TypeReference.of("java.util.Collections$UnmodifiableList"))
                     .registerType(TypeReference.of("java.util.Collections$UnmodifiableSet"))
@@ -106,15 +123,7 @@ public class PokemonPortalApplication {
                     .registerType(TypeReference.of("java.util.Collections$UnmodifiableNavigableMap"))
                     .registerType(TypeReference.of("java.util.Collections$EmptyList"))
                     .registerType(TypeReference.of("java.util.Collections$EmptySet"))
-                    .registerType(TypeReference.of("java.util.Collections$EmptyMap"))
-                    .registerType(LinkedHashMap.class)
-                    .registerType(LinkedHashSet.class)
-                    .registerType(Number.class)
-                    .registerType(TreeMap.class)
-                    .registerType(LocalDate.class)
-                    .registerType(TypeReference.of("java.time.Ser"))
-                    .registerType(Binary.class)
-                    .registerType(Tag.class);
+                    .registerType(TypeReference.of("java.util.Collections$EmptyMap"));
         }
     }
 }

@@ -8,9 +8,10 @@ package com.mimosa.pokemon.portal.dto;
 
 import com.mimosa.deeppokemon.entity.stat.monthly.Usage;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MonthlyPokemonUsageDto {
+public class MonthlyPokemonUsageDto implements Serializable {
     private int rank;
     private String name;
     private LocalDate date;

@@ -17,6 +17,7 @@ import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.MongodbUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -54,6 +55,7 @@ public class StatsService {
         this.crawlerApi = crawlerApi;
     }
 
+    @Cacheable("monthlyUsage")
     public PageResponse<MonthlyPokemonUsageDto> queryUsage(String format, int page, int row) {
         String statId = getLatestStatId(format);
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId)).with(Sort.by(Sort.Order.desc(USAGE_WEIGHTED)));
@@ -116,11 +118,13 @@ public class StatsService {
                 && mongoTemplate.count(query, PokemonSet.class) > 0;
     }
 
+    @Cacheable("monthlyMeta")
     public MonthlyMetaStat queryMeta(String format) {
         String statId = getLatestStatId(format);
         return mongoTemplate.findById(statId, MonthlyMetaStat.class);
     }
 
+    @Cacheable("monthlyMoveSet")
     public MonthlyPokemonMoveSetDto queryMoveSet(String format, String pokmeon) {
         String statId = getLatestStatId(format);
         Query query = new Query()
@@ -181,6 +185,7 @@ public class StatsService {
         return LocalDate.now().getDayOfMonth() != 1;
     }
 
+    @Cacheable("monthlyPokemonSet")
     public PokemonSet queryPokemonSet(String format, String pokemon) {
         String statId = getLatestStatId(format);
         Query query = new Query()

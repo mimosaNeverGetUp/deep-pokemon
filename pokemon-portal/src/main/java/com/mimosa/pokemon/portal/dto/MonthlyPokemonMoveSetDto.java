@@ -6,11 +6,12 @@
 
 package com.mimosa.pokemon.portal.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Map;
 
 
-public final class MonthlyPokemonMoveSetDto {
+public final class MonthlyPokemonMoveSetDto implements Serializable {
     private String name;
     private String format;
     private LocalDate date;

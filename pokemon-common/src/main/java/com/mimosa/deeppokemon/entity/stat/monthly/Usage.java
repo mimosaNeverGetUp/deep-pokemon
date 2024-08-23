@@ -6,5 +6,7 @@
 
 package com.mimosa.deeppokemon.entity.stat.monthly;
 
-public record Usage(double raw, double real, double weighted) {
+import java.io.Serializable;
+
+public record Usage(double raw, double real, double weighted) implements Serializable {
 }

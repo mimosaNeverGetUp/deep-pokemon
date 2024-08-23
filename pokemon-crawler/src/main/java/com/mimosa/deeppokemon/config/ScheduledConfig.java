@@ -74,5 +74,14 @@ public class ScheduledConfig {
     @Scheduled(cron = "0 0 4 * * ?")
     private void crawMonthlyStat() {
         statsService.craw("gen9ou");
+        statsService.craw("gen9vgc2024");
+        statsService.craw("gen9uu");
+        statsService.craw("gen9ubers");
+        statsService.craw("gen9ru");
+        statsService.craw("gen9nationaldex");
+        statsService.craw("gen8ou");
+        statsService.craw("gen7ou");
+        statsService.craw("gen5ou");
+        cacheService.clearMonthlyStat();
     }
 }

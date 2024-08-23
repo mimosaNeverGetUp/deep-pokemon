@@ -30,4 +30,9 @@ public class CacheService {
     public void clearAll() {
         // execute annotation
     }
+
+    @CacheEvict(value = {"monthlyUsage", "monthlyMeta", "monthlyMoveSet", "monthlyPokemonSet"}, allEntries = true)
+    public void clearMonthlyStat() {
+        // execute annotation
+    }
 }

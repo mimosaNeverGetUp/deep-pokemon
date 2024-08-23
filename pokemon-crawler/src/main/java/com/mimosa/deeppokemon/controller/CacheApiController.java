@@ -35,6 +35,12 @@ public class CacheApiController {
         return true;
     }
 
+    @PostMapping("/stat/delete")
+    public boolean deleteStat() {
+        cacheService.clearMonthlyStat();
+        return true;
+    }
+
     @PostMapping("/deleteAll")
     public boolean deleteAll() {
         cacheService.clearAll();

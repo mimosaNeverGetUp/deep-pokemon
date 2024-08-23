@@ -6,12 +6,14 @@
 
 package com.mimosa.pokemon.portal.service;
 
+import com.mimosa.pokemon.portal.dto.MonthlyPokemonUsageDto;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,15 +26,18 @@ public class CacheService {
 
     private final BattleService battleService;
     private final PlayerService playerService;
+    private final StatsService statsService;
 
-    public CacheService(BattleService battleService, PlayerService playerService) {
+    public CacheService(BattleService battleService, PlayerService playerService, StatsService statsService) {
         this.battleService = battleService;
         this.playerService = playerService;
+        this.statsService = statsService;
     }
 
     public boolean loadHeatData() {
         boolean result = loadRankAndPlayer();
         result = result && loadTeam();
+        result = result && loadMonthlyStat();
         return result;
     }
 
@@ -95,5 +100,41 @@ public class CacheService {
             return false;
         }
         return true;
+    }
+
+    public boolean loadMonthlyStat() {
+        log.info("start load monthly stat");
+        boolean res = loadMonthlyStat("gen9ou");
+        res &= loadMonthlyStat("gen9uu");
+        res &= loadMonthlyStat("gen9ubers");
+        res &= loadMonthlyStat("gen9vgc2024");
+        res &= loadMonthlyStat("gen9nationaldex");
+        return res;
+    }
+
+    public boolean loadMonthlyStat(String format) {
+        try {
+            statsService.queryMeta(format);
+            loadMonthlyStat(format, 0, 20, true);
+            loadMonthlyStat(format, 1, 20, false);
+            loadMonthlyStat(format, 2, 20, false);
+        } catch (Exception e) {
+            log.error("load monthly stat fail", e);
+            return false;
+        }
+        return true;
+    }
+
+    public void loadMonthlyStat(String format, int page, int row, boolean loadTeam) {
+        PageResponse<MonthlyPokemonUsageDto> usages = statsService.queryUsage(format, page, row);
+        for (var usage : usages.data()) {
+            statsService.queryMoveSet(format, usage.getName());
+            statsService.queryPokemonSet(format, usage.getName());
+            if (loadTeam) {
+                List<String> pokemons = new ArrayList<>();
+                pokemons.add(usage.getName());
+                battleService.teamGroup(0, 5, null, pokemons, MAX_RATING, "last_90_days");
+            }
+        }
     }
 }

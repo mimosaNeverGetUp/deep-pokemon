@@ -1,7 +1,7 @@
 version: "3"
 services:
   pokemon-crawler:
-    image: "mimosa1997/pokemon-crawler:1.1.9"
+    image: "mimosa1997/pokemon-crawler:1.1.10"
     ports:
       - "8081:8081"
     healthcheck:

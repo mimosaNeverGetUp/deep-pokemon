@@ -5,7 +5,7 @@ spring:
       database: deep_pokemon_dev_env
       authentication-database: admin
     redis:
-      host: redis_pokemon-cache
+      host: host.docker.internal
       port: 6379
       timeout: 100
       connect-timeout: 50

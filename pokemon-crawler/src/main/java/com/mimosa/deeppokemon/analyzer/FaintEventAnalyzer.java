@@ -18,12 +18,13 @@ import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerErrorException;
 
 import java.util.Set;
 
 @Component
 public class FaintEventAnalyzer implements BattleEventAnalyzer {
-    private final static Logger log = LoggerFactory.getLogger(FaintEventAnalyzer.class);
+    private static final Logger log = LoggerFactory.getLogger(FaintEventAnalyzer.class);
     private static final String FAINT = "faint";
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(FAINT);
     private static final int TARGET_INDEX = 0;
@@ -37,18 +38,32 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer {
 
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleContext);
         if (eventTarget != null) {
-            DamageEventStat damageEventStat = getPreviousDamageEventStat(battleEvent);
+            DamageEventStat damageEventStat = getKillDamageEventStat(battleEvent);
             if (damageEventStat != null) {
                 EventTarget damageOf = damageEventStat.damageOf();
                 if (damageOf == null) {
                     log.error("can't analyze damage with empty damageOf: {}, turn: {}", damageEventStat,
                             battleContext.getTurn());
-                    throw new RuntimeException("can't analyze damage with empty damageOf: " + damageEventStat);
+                    throw new ServerErrorException("can't analyze damage with empty damageOf: " + damageEventStat,
+                            null);
                 }
 
                 setKillCountAndHighLight(battleStat, battleContext, damageOf, eventTarget, damageEventStat);
             }
         }
+    }
+
+    private DamageEventStat getKillDamageEventStat(BattleEvent battleEvent) {
+        DamageEventStat previousDamageEventStat = getPreviousDamageEventStat(battleEvent);
+        if (previousDamageEventStat != null) {
+            return previousDamageEventStat;
+        }
+
+        if (battleEvent.getPreviousEvent() != null && battleEvent.getPreviousEvent().getBattleEventStat()
+                instanceof DamageEventStat damageEventStat) {
+            return damageEventStat;
+        }
+        return null;
     }
 
     private void setKillCountAndHighLight(BattleStat battleStat, BattleContext battleContext, EventTarget damageOf, EventTarget eventTarget, DamageEventStat damageEventStat) {

@@ -65,4 +65,37 @@ class FaintEventAnalyzerTest {
         Assertions.assertEquals(5, battleHighLight.turn());
         Assertions.assertNotNull(battleHighLight.description());
     }
+
+    @Test
+    void analyze_statusDamage_faint() {
+        BattleEvent damageEvent = new BattleEvent("damage", null, null, null);
+        String targetName = "Slowking-Galar";
+        String oftargetName = "Weezing-Galar";
+        EventTarget damageTarget = new EventTarget(2, targetName, "Slowking");
+        EventTarget damageOf = new EventTarget(1, oftargetName, "Weezing");
+        damageEvent.setBattleEventStat(new DamageEventStat(damageTarget, damageOf, "brn",
+                BigDecimal.valueOf(6)));
+        BattleEvent faintEvent = new BattleEvent("faint", List.of("p2a: Slowking"), null, null, damageEvent);
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(1, oftargetName, "Weezing")
+                .addPokemon(2, targetName, "Slowking")
+                .setTurn(54)
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, targetName)
+                .addPokemonStat(1, oftargetName)
+                .build();
+        Assertions.assertTrue(faintEventAnalyzer.supportAnalyze(faintEvent));
+        faintEventAnalyzer.analyze(faintEvent, battleStat, battleContext);
+        PlayerStat killPlayerStat = battleStat.playerStatList().get(0);
+        PokemonBattleStat killPokemonBattleStat =
+                killPlayerStat.getPokemonBattleStat(oftargetName);
+        Assertions.assertEquals(1, killPokemonBattleStat.getKillCount());
+        Assertions.assertEquals(1, killPlayerStat.getHighLights().size());
+        BattleHighLight battleHighLight = killPlayerStat.getHighLights().get(0);
+        Assertions.assertEquals(BattleHighLight.HighLightType.KILL, battleHighLight.type());
+        Assertions.assertEquals(54, battleHighLight.turn());
+        Assertions.assertNotNull(battleHighLight.description());
+    }
 }

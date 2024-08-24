@@ -13,7 +13,8 @@ const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const player = ref()
 
 async function queryPlayer() {
-  const res = await fetch(`${apiUrl}/api/player/${props.name}`, {
+  let encodePlayerName = encodeURIComponent(props.name);
+  const res = await fetch(`${apiUrl}/api/player/${encodePlayerName}`, {
         method: "GET"
       }
   )

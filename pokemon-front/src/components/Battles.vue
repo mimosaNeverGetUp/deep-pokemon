@@ -18,7 +18,9 @@ const page = ref(0);
 const row = ref(25);
 
 async function queryBattle(page, row) {
-  const res = await fetch(`${apiUrl}/api/player/${props.playerName}/battle?page=${page}&row=${row}`, {
+  let encodeName = encodeURIComponent(props.playerName);
+  let url = `${apiUrl}/api/player/${encodeName}/battle?page=${page}&row=${row}`;
+  const res = await fetch((url), {
         method: "GET"
       }
   )

@@ -13,7 +13,7 @@ import com.mimosa.deeppokemon.entity.Team;
 import java.util.ArrayList;
 
 public class BattleBuilder {
-    private Battle battle;
+    private final Battle battle;
 
     public BattleBuilder() {
         battle = new Battle();
@@ -22,6 +22,16 @@ public class BattleBuilder {
 
     public BattleBuilder addPokemon(int playerNumber, String pokemonName) {
         battle.getTeams()[playerNumber - 1].addPokemon(new Pokemon(pokemonName));
+        return this;
+    }
+
+    public BattleBuilder setPlayerName(int playerNumber, String playerName) {
+        battle.getTeams()[playerNumber - 1].setPlayerName(playerName);
+        return this;
+    }
+
+    public BattleBuilder setRating(int playerNumber, float rating) {
+        battle.getTeams()[playerNumber - 1].setRating(rating);
         return this;
     }
 

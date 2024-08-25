@@ -67,6 +67,7 @@ class BattleServiceTest {
         Team team = new Team(teamSample.pokemons());
         team.setTagSet(teamSample.tagSet());
         team.setTier(teamSample.tier());
+        team.setRating(1900F);
         team.setPlayerName(teamSample.playerName());
         battle.setBattleID(NOT_EXIST_BATTLE_ID);
         battle.setAvageRating(1800.0F);
@@ -81,7 +82,7 @@ class BattleServiceTest {
             for (BattleTeam battleTeam : battleTeams) {
                 Assertions.assertNotNull(battleTeam.teamId());
                 Assertions.assertNotEquals(0, battleTeam.teamId().length);
-                Assertions.assertNotEquals(0.0F, battleTeam.rating());
+                Assertions.assertEquals(1900F, battleTeam.rating());
                 Assertions.assertNotNull(battleTeam.battleDate());
                 Assertions.assertNotNull(battleTeam.tier());
                 Assertions.assertFalse(battleTeam.tagSet().isEmpty());

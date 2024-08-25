@@ -69,10 +69,12 @@ public class BattleReplayExtractor {
         teams[1].setPlayerName(battleReplayData.players().get(1));
         teams[0].setTier(tier);
         teams[1].setTier(tier);
+        teams[0].setRating(battleReplayData.rating());
+        teams[1].setRating(battleReplayData.rating());
         logger.debug("extract end");
         LocalDate date = LocalDate.ofInstant(Instant.ofEpochSecond(battleReplayData.uploadTime()), ZoneId.systemDefault());
         String winner = extractWinner(battleReplayData.log());
-        Integer avageRating = battleReplayData.rating();
+        int avageRating = battleReplayData.rating();
         Battle battle = new Battle(teams, date, winner, avageRating);
         battle.setBattleID(battleReplayData.id());
         battle.setPlayers(battleReplayData.players());
@@ -158,7 +160,7 @@ public class BattleReplayExtractor {
 
     private void extractBattleTurn(String html, Battle battle) {
         String lastTurn = html.substring(html.lastIndexOf("|turn|"));
-        String turnCount = null;
+        String turnCount;
         try {
             turnCount = new BufferedReader(new StringReader(lastTurn)).readLine().split("\\|")[2];
             battle.setTurnCount(Integer.parseInt(turnCount));

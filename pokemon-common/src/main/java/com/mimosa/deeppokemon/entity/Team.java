@@ -40,6 +40,7 @@ public class Team implements Serializable {
     private String tier;
     private List<Pokemon> pokemons;
     private Set<Tag> tagSet = new HashSet<>();
+    private float rating;
 
     /**
      * 非持久化变量,pokemons的map形式，方便查询
@@ -97,6 +98,14 @@ public class Team implements Serializable {
 
     public Pokemon getPokemon(String pokemonName) {
         return pokemonMap.get(pokemonName);
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 
     @Override

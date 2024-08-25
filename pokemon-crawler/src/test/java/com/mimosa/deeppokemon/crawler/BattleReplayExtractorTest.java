@@ -29,8 +29,10 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleReplayData;
+import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
 import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,7 +51,7 @@ class BattleReplayExtractorTest {
     Resource battleReplay;
 
     @Autowired
-    private static final ObjectMapper OBJECT_MAPPER =
+    private final ObjectMapper OBJECT_MAPPER =
             new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @Test
@@ -59,5 +61,8 @@ class BattleReplayExtractorTest {
         Battle battle = battleReplayExtractor.extract(battleReplayData);
 
         MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
+        for (Team team : battle.getTeams()) {
+            Assertions.assertNotEquals(0F, team.getRating());
+        }
     }
 }

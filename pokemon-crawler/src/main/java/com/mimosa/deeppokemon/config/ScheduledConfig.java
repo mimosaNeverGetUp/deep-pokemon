@@ -87,7 +87,7 @@ public class ScheduledConfig {
         cacheService.clearMonthlyStat();
     }
 
-    @Scheduled(cron = "0 0 0 3 * ?")
+    @Scheduled(cron = "0 0 0 1 * ?")
     private void crawMonthlyTeam() {
         LocalDate lastMonth = LocalDate.now().minusMonths(1);
         battleService.updateMonthTeam(lastMonth);

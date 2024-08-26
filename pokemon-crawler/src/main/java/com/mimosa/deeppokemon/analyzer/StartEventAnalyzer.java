@@ -41,11 +41,20 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
         }
 
         String buff = battleEvent.getContents().get(BUFF_INDEX);
+        if (buff.contains("move:")) {
+            buff = buff.replace("move:", "").trim();
+        }
+
         switch (buff) {
             case "Salt Cure" -> setSaltBuffOf(battleEvent, battleContext, eventTarget, buff);
+            case "Future Sight","Doom Desire" -> setStartMoveTarget(battleContext, eventTarget, buff);
             case "confusion" -> setConfusionBuffOf(battleEvent, battleContext, eventTarget, buff);
             default -> log.warn("buff {} start and nothing set?", buff);
         }
+    }
+
+    private void setStartMoveTarget(BattleContext battleContext, EventTarget eventTarget, String buff) {
+        battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).setStartMoveTarget(buff, eventTarget);
     }
 
     private static void setSaltBuffOf(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget, String buff) {
@@ -59,7 +68,7 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
 
     private static void setConfusionBuffOf(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget,
                                            String buff) {
-        EventTarget confusionOf = null;
+        EventTarget confusionOf;
         if (battleEvent.getContents().size() > OF_INDEX && battleEvent.getContents().get(OF_INDEX).contains(OF)) {
             confusionOf = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX), battleContext);
         } else if (battleEvent.getParentEvent() != null &&

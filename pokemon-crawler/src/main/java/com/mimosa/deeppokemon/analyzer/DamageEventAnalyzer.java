@@ -9,6 +9,7 @@ package com.mimosa.deeppokemon.analyzer;
 import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
+import com.mimosa.deeppokemon.analyzer.entity.event.EndEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
@@ -138,7 +139,12 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             // get stat by parent move event
             damageOf = moveEventStat.eventTarget();
             damageFrom = moveEventStat.moveName();
-        } else {
+        } else if (battleEvent.getParentEvent() != null && battleEvent.getParentEvent().getBattleEventStat()
+                instanceof EndEventStat endEventStat) {
+            // get stat by parent end event
+            damageOf = endEventStat.eventTarget();
+            damageFrom = endEventStat.endEvent();
+        }  else {
             // may be is opponent player turn start pokemon
             damageOf = BattleEventUtil.getOpponentTurnStartPokemonTarget(battleContext, eventTarget);
         }

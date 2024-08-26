@@ -9,6 +9,7 @@ package com.mimosa.deeppokemon.analyzer;
 import com.mimosa.deeppokemon.analyzer.entity.*;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.event.DamageEventStat;
+import com.mimosa.deeppokemon.analyzer.entity.event.EndEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
@@ -380,6 +381,50 @@ class DamageEventAnalyzerTest {
         PokemonBattleStat p1Stat = battleStat.playerStatList().get(0).getPokemonBattleStat(DRAGONITE);
         Assertions.assertEquals(0, p1Stat.getAttackValue().intValue());
         Assertions.assertEquals(-14, p1Stat.getHealthValue().intValue());
+    }
+
+    @Test
+    void analyzeFutureSightDamage() {
+        String hatterene = "Hatterene";
+        String ironValiant = "Iron Valiant";
+        String futureSight = "Future Sight";
+        String corviknight = "Corviknight";
+        String glimmora = "Glimmora";
+
+        BattleEvent endEvent = new BattleEvent("end", null, null, null);
+        endEvent.setBattleEventStat(new EndEventStat(new EventTarget(1, hatterene, "Nothin' Under"), futureSight));
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p2a: Iron Valiant", "0 fnt"), endEvent, null);
+
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(1, hatterene, "Nothin' Under")
+                .addPokemon(1, glimmora, glimmora)
+                .addPokemon(2, ironValiant, ironValiant)
+                .addPokemon(2, corviknight, corviknight)
+                .setTurnStartPokemon(2, corviknight)
+                .setTurnStartPokemon(1, glimmora)
+                .setHealth(2, ironValiant, BigDecimal.valueOf(100))
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, hatterene)
+                .addPokemonStat(1, glimmora)
+                .addPokemonStat(2, ironValiant)
+                .addPokemonStat(2, corviknight)
+                .build();
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        PokemonBattleStat p2Stat = battleStat.playerStatList().get(1).getPokemonBattleStat(corviknight);
+        Assertions.assertEquals(0, p2Stat.getAttackValue().intValue());
+        Assertions.assertEquals(-100, p2Stat.getHealthValue().intValue());
+        p2Stat = battleStat.playerStatList().get(1).getPokemonBattleStat(ironValiant);
+        Assertions.assertEquals(0, p2Stat.getAttackValue().intValue());
+        Assertions.assertEquals(0, p2Stat.getHealthValue().intValue());
+
+        PokemonBattleStat p1Stat = battleStat.playerStatList().get(0).getPokemonBattleStat(hatterene);
+        Assertions.assertEquals(100, p1Stat.getAttackValue().intValue());
+        Assertions.assertEquals(100, p1Stat.getHealthValue().intValue());
+        p1Stat = battleStat.playerStatList().get(0).getPokemonBattleStat(glimmora);
+        Assertions.assertEquals(0, p1Stat.getAttackValue().intValue());
+        Assertions.assertEquals(0, p1Stat.getHealthValue().intValue());
     }
 
     private static Arguments buildSwitchDamageEvent() {

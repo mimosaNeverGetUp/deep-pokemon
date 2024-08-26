@@ -71,7 +71,7 @@ public class ScheduledConfig {
         log.info("update team success");
     }
 
-    @Scheduled(cron = "0 0 4 * * ?")
+    @Scheduled(cron = "0 15 0 * * ?")
     private void crawMonthlyStat() {
         statsService.craw("gen9ou");
         statsService.craw("gen9vgc2024");

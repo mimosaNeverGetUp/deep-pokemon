@@ -11,6 +11,8 @@ import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @RestController
 @RequestMapping("/api")
 public class BattleApiController {
@@ -37,6 +39,12 @@ public class BattleApiController {
     @PostMapping("/team/update")
     public String updateTeam() {
         battleService.updateTeam();
+        return "success";
+    }
+
+    @PostMapping("/team/month/update")
+    public String updateMonthTeam(@RequestParam(name = "year") int year, @RequestParam(name = "month") int month) {
+        battleService.updateMonthTeam(LocalDate.of(year, month, 1));
         return "success";
     }
 }

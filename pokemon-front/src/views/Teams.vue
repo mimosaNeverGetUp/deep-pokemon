@@ -90,7 +90,7 @@ function getTeamGroupName(range) {
     case "Last 3 months":
       return "last_90_days";
   }
-  return "last_7_days";
+  return range;
 }
 
 async function onPage(event) {

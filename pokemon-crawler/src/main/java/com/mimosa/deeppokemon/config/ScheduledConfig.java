@@ -36,6 +36,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
+import java.time.LocalDate;
+
 @Configuration
 @EnableScheduling
 @Profile({"crawDaily", "startCraw"})
@@ -83,5 +85,11 @@ public class ScheduledConfig {
         statsService.craw("gen7ou");
         statsService.craw("gen5ou");
         cacheService.clearMonthlyStat();
+    }
+
+    @Scheduled(cron = "0 0 0 3 * ?")
+    private void crawMonthlyTeam() {
+        LocalDate lastMonth = LocalDate.now().minusMonths(1);
+        battleService.updateMonthTeam(lastMonth);
     }
 }

@@ -74,4 +74,22 @@ class StartEventAnalyzerTest {
         assertEquals(2, buffOf.playerNumber());
         assertEquals(PECHARUNT, buffOf.targetName());
     }
+
+    @Test
+    void analyzeFutureSight() {
+        String hatterene = "Hatterene";
+        BattleEvent startEvent = new BattleEvent("start", List.of("p1a: Nothin' Under", "move: Future Sight"), null, null);
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(1, hatterene, "Nothin' Under")
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, hatterene)
+                .build();
+        startEventAnalyzer.analyze(startEvent, battleStat, battleContext);
+        EventTarget moveTarget = battleContext.getPlayerStatusList().get(0).getMoveTarget("Future Sight");
+        assertNotNull(moveTarget);
+        assertEquals(1, moveTarget.playerNumber());
+        assertEquals(hatterene, moveTarget.targetName());
+    }
 }

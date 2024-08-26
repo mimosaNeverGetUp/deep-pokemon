@@ -6,6 +6,7 @@
 
 package com.mimosa.deeppokemon.analyzer.entity.status;
 
+import com.mimosa.deeppokemon.analyzer.entity.EventTarget;
 import com.mimosa.deeppokemon.analyzer.entity.Side;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class PlayerStatus {
     private final Map<String, String> pokemonDetailChangeNameMap;
     private final Map<String, PokemonStatus> pokemonStatusMap;
     private final Map<Integer, String> turnStartPokemonNames;
+    private final Map<String, EventTarget> startMoveEventTargetMap;
     private String turnStartPokemonName;
     private String activePokemonName;
     private List<Side> sideList;
@@ -30,6 +32,7 @@ public class PlayerStatus {
         this.activePokemonName = null;
         this.turnStartPokemonName = null;
         this.turnStartPokemonNames = new HashMap<>();
+        this.startMoveEventTargetMap = new HashMap<>();
     }
 
     public String getPokemonName(String nickName) {
@@ -102,5 +105,13 @@ public class PlayerStatus {
         PokemonStatus pokemonStatus = pokemonStatusMap.remove(nameBefore);
         pokemonStatus.setPokemonName(changeName);
         pokemonStatusMap.put(changeName, pokemonStatus);
+    }
+
+    public void setStartMoveTarget(String move, EventTarget eventTarget) {
+        startMoveEventTargetMap.put(move, eventTarget);
+    }
+
+    public EventTarget getMoveTarget(String move) {
+        return startMoveEventTargetMap.get(move);
     }
 }

@@ -39,7 +39,8 @@ public class BattleContextBuilder {
         battleContext.setWeather(weather);
         battleContext.setField(field);
         battleContext.setBattle(battle);
-        return battleContext;}
+        return battleContext;
+    }
 
     public BattleContextBuilder addSide(int playerNumber, Side side) {
         playerStatuses.get(playerNumber - 1).addSide(side);
@@ -106,4 +107,10 @@ public class BattleContextBuilder {
         this.battle = battle;
         return this;
     }
+
+    public BattleContextBuilder setStartMoveTarget(int playerNumber, String move, EventTarget eventTarget) {
+        playerStatuses.get(playerNumber - 1).setStartMoveTarget(move, eventTarget);
+        return this;
+    }
+
 }

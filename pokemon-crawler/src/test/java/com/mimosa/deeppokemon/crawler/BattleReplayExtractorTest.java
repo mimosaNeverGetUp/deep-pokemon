@@ -29,8 +29,10 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleReplayData;
+import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
+import org.apache.commons.lang.StringUtils;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -50,6 +52,9 @@ class BattleReplayExtractorTest {
     @Value("classpath:api/battleReplay.json")
     Resource battleReplay;
 
+    @Value("classpath:api/battleReplay_magic_bounce.json")
+    Resource battleReplayWithMagicBounce;
+
     @Autowired
     private final ObjectMapper OBJECT_MAPPER =
             new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -63,6 +68,23 @@ class BattleReplayExtractorTest {
         MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
         for (Team team : battle.getTeams()) {
             Assertions.assertNotEquals(0F, team.getRating());
+        }
+    }
+
+    @Test
+    void extraBattleWithMagicBounce() throws IOException {
+        BattleReplayData battleReplayData =
+                OBJECT_MAPPER.readValue(battleReplayWithMagicBounce.getContentAsString(StandardCharsets.UTF_8), BattleReplayData.class);
+        Battle battle = battleReplayExtractor.extract(battleReplayData);
+
+        MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
+        for (Team team : battle.getTeams()) {
+            Assertions.assertNotEquals(0F, team.getRating());
+            for(Pokemon pokemon : team.getPokemons()) {
+                if (StringUtils.equals(pokemon.getName(), "Hatterene")) {
+                    Assertions.assertFalse(pokemon.getMoves().contains("Stealth Rock"));
+                }
+            }
         }
     }
 }

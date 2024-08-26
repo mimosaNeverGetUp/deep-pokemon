@@ -120,12 +120,18 @@ public class BattleReplayExtractor {
         if ("Ditto".equals(pokemonName)) {
             pokemon.setMoves(new HashSet<>(Collections.singletonList("Transform")));
         } else {
-            String regex = String.format("move\\|p%da: %s\\|([^\\|]*)\\|", playerNumber, Pattern.quote(pokemonMoveName));
+            String regex = String.format("move\\|p%da: %s\\|([^\\|]*)\\|(.*)", playerNumber,
+                    Pattern.quote(pokemonMoveName));
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(html);
             HashSet<String> moves = new HashSet<>(4);
             while (matcher.find()) {
                 String move = matcher.group(1);
+                String other = matcher.group(2);
+                if (other.contains("Magic Bounce")) {
+                    logger.debug("match {} move {} but it is use via magic bounce", pokemonName, move);
+                    continue;
+                }
                 if (moves.add(move)) {
                     logger.debug("match {} move:{}", pokemonName, move);
                 }

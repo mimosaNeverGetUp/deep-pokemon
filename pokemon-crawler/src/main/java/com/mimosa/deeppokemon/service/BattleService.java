@@ -56,10 +56,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ServerErrorException;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
+import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 
 @Service("crawBattleService")
 public class BattleService {
@@ -392,5 +396,16 @@ public class BattleService {
                 TeamGroup.class);
         Query query = new Query(Criteria.where(LATEST_BATTLE_DATE).lt(teamGroupDetail.start()));
         mongoTemplate.remove(query, teamGroupDetail.teamGroupCollectionName());
+    }
+
+    public void updateMonthTeam(LocalDate month) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
+        String yearMonth = formatter.format(month);
+        log.info("start craw monthly team,month: {}", yearMonth);
+        String teamGroupCollectionName = String.format("team_group_%s", yearMonth);
+        String teamSetCollectionName = String.format("team_set_%s", yearMonth);
+        TeamGroupDetail teamGroupDetail = new TeamGroupDetail(month.with(firstDayOfMonth()), month.with(lastDayOfMonth()),
+                teamGroupCollectionName, teamSetCollectionName);
+        updateTeam(teamGroupDetail);
     }
 }

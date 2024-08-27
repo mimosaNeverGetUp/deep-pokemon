@@ -24,7 +24,7 @@
 
 package com.mimosa.deeppokemon.tagger;
 
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.TeamSet;
 
 /**
@@ -36,5 +36,5 @@ import com.mimosa.deeppokemon.entity.TeamSet;
 
 
 public interface TeamTagProvider {
-    void tag(Team team, TeamSet teamSet) ;
+    void tag(BattleTeam team, TeamSet teamSet) ;
 }

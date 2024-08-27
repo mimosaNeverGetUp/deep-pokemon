@@ -24,10 +24,7 @@
 
 package com.mimosa.deeppokemon.crawler;
 
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.BattleReplayData;
-import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +40,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,18 +57,18 @@ public class BattleReplayExtractor {
         logger.debug("extract Team start");
 
         String tier = battleReplayData.formatId();
-        Team[] teams = extractTeam(battleReplayData.log());
+        List<BattleTeam> teams = extractTeam(battleReplayData.log());
         //贴标签
-        for (Team team : teams) {
+        for (BattleTeam team : teams) {
             teamTagger.tagTeam(team, null);
         }
 
-        teams[0].setPlayerName(battleReplayData.players().get(0));
-        teams[1].setPlayerName(battleReplayData.players().get(1));
-        teams[0].setTier(tier);
-        teams[1].setTier(tier);
-        teams[0].setRating(battleReplayData.rating());
-        teams[1].setRating(battleReplayData.rating());
+        teams.get(0).setPlayerName(battleReplayData.players().get(0));
+        teams.get(1).setPlayerName(battleReplayData.players().get(1));
+        teams.get(0).setTier(tier);
+        teams.get(1).setTier(tier);
+        teams.get(0).setRating(battleReplayData.rating());
+        teams.get(1).setRating(battleReplayData.rating());
         logger.debug("extract end");
         LocalDate date = LocalDate.ofInstant(Instant.ofEpochSecond(battleReplayData.uploadTime()), ZoneId.systemDefault());
         String winner = extractWinner(battleReplayData.log());
@@ -85,11 +83,11 @@ public class BattleReplayExtractor {
         return battle;
     }
 
-    private static Team[] extractTeam(String html) {
+    private static List<BattleTeam> extractTeam(String html) {
         Pattern pattern = Pattern.compile("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]");
         Matcher matcher = pattern.matcher(html);
-        ArrayList<Pokemon> pokemons1 = new ArrayList<>(6);
-        ArrayList<Pokemon> pokemons2 = new ArrayList<>(6);
+        List<Pokemon> pokemons1 = new ArrayList<>(6);
+        List<Pokemon> pokemons2 = new ArrayList<>(6);
         while (matcher.find()) {
             if (matcher.group(1).equals("1")) {
                 String pokemonName = matcher.group(2).trim();
@@ -106,11 +104,14 @@ public class BattleReplayExtractor {
         if (pokemons1.isEmpty() && pokemons2.isEmpty()) {
             throw new ServerErrorException("A Team match failed", null);
         }
-        Team team1 = new Team(pokemons1);
-        Team team2 = new Team(pokemons2);
-        Team[] teams = new Team[2];
-        teams[0] = team1;
-        teams[1] = team2;
+
+        List<BattleTeam> teams = new ArrayList<>(2);
+        BattleTeam team1 = new BattleTeam();
+        team1.setPokemons(pokemons1);
+        BattleTeam team2 = new BattleTeam();
+        team2.setPokemons(pokemons2);
+        teams.add(team1);
+        teams.add(team2);
         return teams;
     }
 

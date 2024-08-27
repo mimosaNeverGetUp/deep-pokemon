@@ -8,8 +8,8 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Team;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.matcher.BattleStatMatcher;
 import org.hamcrest.MatcherAssert;
@@ -60,7 +60,7 @@ class BattleAnalyzerTest {
                     battle.setBattleID(battleReplay.getFileName().toString().split("\\.")[0]);
                     String log = Files.readString(battleReplay);
                     battle.setLog(log);
-                    battle.setTeams(extractTeam(log));
+                    battle.setBattleTeams(extractTeam(log));
                     arguments.add(Arguments.of(battle));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -91,7 +91,7 @@ class BattleAnalyzerTest {
         Assertions.assertNotNull(battle.getBattleStat());
     }
 
-    private static Team[] extractTeam(String html) {
+    private static List<BattleTeam> extractTeam(String html) {
         Pattern pattern = Pattern.compile("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]");
         Matcher matcher = pattern.matcher(html);
         ArrayList<Pokemon> pokemons1 = new ArrayList<>(6);
@@ -110,11 +110,13 @@ class BattleAnalyzerTest {
         if (pokemons1.isEmpty() && pokemons2.isEmpty()) {
             throw new RuntimeException("A Team match failed");
         }
-        Team team1 = new Team(pokemons1);
-        Team team2 = new Team(pokemons2);
-        Team[] teams = new Team[2];
-        teams[0] = team1;
-        teams[1] = team2;
+        List<BattleTeam> teams = new ArrayList<>(2);
+        BattleTeam team1 = new BattleTeam();
+        team1.setPokemons(pokemons1);
+        BattleTeam team2 = new BattleTeam();
+        team2.setPokemons(pokemons2);
+        teams.add(team1);
+        teams.add(team2);
         return teams;
     }
 

@@ -89,24 +89,24 @@ public class BattleContext {
         Pokemon pokemon = findPokemon(playerNumber, pokemonName);
         if (pokemon == null) return;
 
-        if(pokemon.getTeraType() == null) {
+        if (pokemon.getTeraType() == null) {
             pokemon.setTeraType(teraType);
         }
     }
 
     private Pokemon findPokemon(int playerNumber, String pokemonName) {
-        if (battle == null || battle.getTeams() == null || battle.getTeams().length < playerNumber
-                || battle.getTeams()[playerNumber - 1] == null) {
+        if (battle == null || battle.getBattleTeams() == null || battle.getBattleTeams().size() < playerNumber
+                || battle.getBattleTeams().get(playerNumber - 1) == null) {
             log.warn("battle {} is invalid", battle);
             return null;
         }
 
-        Pokemon pokemon = battle.getTeams()[playerNumber - 1].getPokemon(pokemonName);
+        Pokemon pokemon = battle.getBattleTeams().get(playerNumber - 1).findPokemon(pokemonName);
         if (pokemon == null) {
             log.warn("pokemon {} is not found in battle,try use blur pokemon name", pokemonName);
             String blurPokemonName = pokemonName + "-*";
-            if (battle.getTeams()[playerNumber - 1].getPokemon(blurPokemonName) != null) {
-                pokemon = battle.getTeams()[playerNumber - 1].getPokemon(blurPokemonName);
+            if (battle.getBattleTeams().get(playerNumber - 1).findPokemon(blurPokemonName) != null) {
+                pokemon = battle.getBattleTeams().get(playerNumber - 1).findPokemon(blurPokemonName);
             } else {
                 log.warn("blur pokemon {} is not found in battle", blurPokemonName);
             }

@@ -116,7 +116,7 @@ public class BattleService {
         this.crawPeriodMillisecond = crawPeriodMillisecond;
     }
 
-    @RegisterReflectionForBinding({Battle.class, Team.class, Pokemon.class})
+    @RegisterReflectionForBinding({Battle.class, Pokemon.class})
     public Battle findBattle(String battleId) {
         return mongoTemplate.findById(battleId, Battle.class, BATTLE);
     }
@@ -172,20 +172,23 @@ public class BattleService {
         List<BattleTeam> battleTeams = new ArrayList<>(battles.size() * 2);
         for (Battle battle : battles) {
             int index = 0;
-            for (Team team : battle.getTeams()) {
+            for (BattleTeam team : battle.getBattleTeams()) {
                 String battleTeamId = String.format("%s_%d", battle.getBattleID(), index);
                 byte[] teamId = calTeamId(team.getPokemons());
                 float rating = Math.max(battle.getAvageRating(), team.getRating());
-                BattleTeam battleTeam = new BattleTeam(battleTeamId, battle.getBattleID(), teamId, battle.getDate(),
-                        battle.getType(), rating, team.getPlayerName(), team.getTier(),
-                        team.getPokemons(), team.getTagSet());
-                battleTeams.add(battleTeam);
+                team.setId(battleTeamId);
+                team.setRating(rating);
+                team.setTeamId(teamId);
+                team.setBattleId(battle.getBattleID());
+                team.setBattleDate(battle.getDate());
+                team.setBattleType(battle.getType());
+                battleTeams.add(team);
                 index++;
             }
         }
 
         try {
-            mongoTemplate.insertAll(battleTeams);
+            mongoTemplate.insertAll(battles);
         } catch (Exception e) {
             throw new ServerErrorException("save battle team fail", e);
         }

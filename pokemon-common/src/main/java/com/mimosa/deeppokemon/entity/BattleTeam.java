@@ -5,6 +5,8 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -22,7 +24,11 @@ public class BattleTeam implements Serializable {
     protected List<Pokemon> pokemons;
     protected Set<Tag> tagSet;
 
-    public BattleTeam() {}
+    public BattleTeam() {
+        battleType = new ArrayList<>();
+        pokemons = new ArrayList<>();
+        tagSet = new HashSet<>();
+    }
 
     public BattleTeam(String id, String battleId, byte[] teamId, LocalDate battleDate, List<String> battleType,
                       float rating, String playerName, String tier, List<Pokemon> pokemons, Set<Tag> tagSet) {
@@ -116,5 +122,14 @@ public class BattleTeam implements Serializable {
 
     public void setTagSet(Set<Tag> tagSet) {
         this.tagSet = tagSet;
+    }
+
+    public Pokemon findPokemon(String pokemonName) {
+        for (Pokemon p : pokemons) {
+            if (p.getName().equals(pokemonName)) {
+                return p;
+            }
+        }
+        return null;
     }
 }

@@ -24,7 +24,7 @@
 
 package com.mimosa.deeppokemon.tagger;
 
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.TeamSet;
 
 import java.util.List;
@@ -44,7 +44,7 @@ public class TeamTagger {
     }
 
 
-    public void tagTeam(Team team, TeamSet teamSet) {
+    public void tagTeam(BattleTeam team, TeamSet teamSet) {
         for (TeamTagProvider teamTagProvider : teamTagProviders) {
             teamTagProvider.tag(team, teamSet);
         }

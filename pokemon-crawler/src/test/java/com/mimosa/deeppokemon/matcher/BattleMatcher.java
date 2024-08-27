@@ -10,8 +10,6 @@ import com.mimosa.deeppokemon.entity.Battle;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 
-import java.util.Arrays;
-
 public class BattleMatcher extends TypeSafeMatcher<Battle> {
 
     public static final BattleMatcher BATTLE_MATCHER = new BattleMatcher();
@@ -34,7 +32,7 @@ public class BattleMatcher extends TypeSafeMatcher<Battle> {
             return false;
         }
 
-        if (battle.getTeams() == null || battle.getTeams().length == 0) {
+        if (battle.getBattleTeams() == null || battle.getBattleTeams().isEmpty()) {
             return false;
         }
 
@@ -46,7 +44,7 @@ public class BattleMatcher extends TypeSafeMatcher<Battle> {
             return false;
         }
 
-        return Arrays.stream(battle.getTeams()).allMatch(TeamMatcher.TEAM_MATCHER::matches);
+        return battle.getBattleTeams().stream().allMatch(TeamMatcher.TEAM_MATCHER::matches);
     }
 
     @Override

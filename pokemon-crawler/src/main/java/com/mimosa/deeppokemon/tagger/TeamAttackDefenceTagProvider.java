@@ -48,7 +48,7 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
     }
 
     @Override
-    public void tag(Team team, TeamSet teamSet) {
+    public void tag(BattleTeam team, TeamSet teamSet) {
         Set<Tag> tags = team.getTagSet();
         Map<String, PokemonBuildSet> pokemonBuildSetMap = new HashMap<>();
         if (teamSet != null && teamSet.pokemons() != null) {

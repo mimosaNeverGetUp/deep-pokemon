@@ -56,26 +56,27 @@ public class Battle implements Serializable {
 
     // 队伍
     @Transient
-    protected Team[] teams;
+    protected transient List<BattleTeam> battleTeams;
 
     @Transient
     protected transient BattleStat battleStat;
 
-    public Battle(Team[] teams) {
-        this.teams = teams;
+    public Battle(List<BattleTeam> battleTeams) {
+        this.battleTeams = battleTeams;
     }
 
-    public Battle(String battleID, String info, LocalDate date, String winner, float avageRating, Team[] teams) {
+    public Battle(String battleID, String info, LocalDate date, String winner, float avageRating,
+                  List<BattleTeam> battleTeams) {
         this.battleID = battleID;
         this.info = info;
         this.date = date;
         this.winner = winner;
         this.avageRating = avageRating;
-        this.teams = teams;
+        this.battleTeams = battleTeams;
     }
 
-    public Battle(Team[] teams, LocalDate date, String winner, float avageRating) {
-        this.teams = teams;
+    public Battle(List<BattleTeam> battleTeams, LocalDate date, String winner, float avageRating) {
+        this.battleTeams = battleTeams;
         this.date = date;
         this.winner = winner;
         this.avageRating = avageRating;
@@ -100,12 +101,12 @@ public class Battle implements Serializable {
         this.winner = winner;
     }
 
-    public Team[] getTeams() {
-        return teams;
+    public List<BattleTeam> getBattleTeams() {
+        return battleTeams;
     }
 
-    public void setTeams(Team[] teams) {
-        this.teams = teams;
+    public void setBattleTeams(List<BattleTeam> battleTeams) {
+        this.battleTeams = battleTeams;
     }
 
     public LocalDate getDate() {
@@ -190,7 +191,8 @@ public class Battle implements Serializable {
     @Override
     public String toString() {
         return ("Battle:\n" +
-                "   info:" + String.format("%s  vs %s", teams[0].getPlayerName(), teams[1].getPlayerName()) + "\n" +
+                "   info:" + String.format("%s  vs %s", battleTeams.get(0).getPlayerName(),
+                battleTeams.get(1).getPlayerName()) + "\n" +
                 "   battle id:" + battleID + "\n" +
                 "   date:" + date + "\n" +
                 "   winner:" + winner + "\n" +

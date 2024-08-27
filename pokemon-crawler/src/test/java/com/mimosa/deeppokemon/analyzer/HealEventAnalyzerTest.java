@@ -97,7 +97,7 @@ class HealEventAnalyzerTest {
 
         PokemonStatus tiluStatus = battleContext.getPlayerStatusList().get(1).getPokemonStatus(TING_LU);
         assertEquals(BigDecimal.valueOf(95.0), tiluStatus.getHealth());
-        assertEquals("Leftovers", battle.getTeams()[1].getPokemon(TING_LU).getItem());
+        assertEquals("Leftovers", battle.getBattleTeams().get(1).findPokemon(TING_LU).getItem());
     }
 
     @Test

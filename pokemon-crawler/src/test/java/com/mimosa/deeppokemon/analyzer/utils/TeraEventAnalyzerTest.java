@@ -43,6 +43,6 @@ class TeraEventAnalyzerTest {
                 .build();
         assertTrue(teraEventAnalyzer.supportAnalyze(itemEvent));
         teraEventAnalyzer.analyze(itemEvent, battleStat, battleContext);
-        assertEquals("Steel", battle.getTeams()[0].getPokemon(dragonite).getTeraType());
+        assertEquals("Steel", battle.getBattleTeams().get(0).findPokemon(dragonite).getTeraType());
     }
 }

@@ -64,14 +64,15 @@ class BattleServiceTest {
     void insertTeam() {
         Battle battle = mongoTemplate.findOne(new Query(), Battle.class);
         BattleTeam teamSample = mongoTemplate.findOne(new Query(), BattleTeam.class);
-        Team team = new Team(teamSample.getPokemons());
+        BattleTeam team = new BattleTeam();
+        team.setPokemons(teamSample.getPokemons());
         team.setTagSet(teamSample.getTagSet());
         team.setTier(teamSample.getTier());
         team.setRating(1900F);
         team.setPlayerName(teamSample.getPlayerName());
         battle.setBattleID(NOT_EXIST_BATTLE_ID);
         battle.setAvageRating(1800.0F);
-        battle.setTeams(new Team[]{team, team});
+        battle.setBattleTeams(List.of(team, team));
         List<BattleTeam> battleTeams = null;
         try {
             battleService.insertTeam(Collections.singletonList(battle));
@@ -135,12 +136,13 @@ class BattleServiceTest {
 
         Battle notExistBattle = battleService.findBattle(EXIST_BATTLE_ID);
         BattleTeam teamSample = mongoTemplate.findOne(new Query(), BattleTeam.class);
-        Team team = new Team(teamSample.getPokemons());
+        BattleTeam team = new BattleTeam();
+        team.setPokemons(teamSample.getPokemons());
         team.setTagSet(teamSample.getTagSet());
         team.setTier(teamSample.getTier());
         team.setPlayerName(teamSample.getPlayerName());
         notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
-        notExistBattle.setTeams(new Team[]{team, team});
+        notExistBattle.setBattleTeams(List.of(team, team));
         try {
             battleService.save(List.of(notExistBattle), false);
             Assertions.assertTrue(battleService.getAllBattleIds().contains(NOT_EXIST_BATTLE_ID));
@@ -152,10 +154,8 @@ class BattleServiceTest {
 
     @Test
     void calTeamId() {
-        Team team = new Team();
-        team.setPokemons(List.of(new Pokemon("Ogerpon-Wellspring"), new Pokemon("Kingambit"), new Pokemon("Great Tusk"),
+        byte[] bytes = battleService.calTeamId(List.of(new Pokemon("Ogerpon-Wellspring"), new Pokemon("Kingambit"), new Pokemon("Great Tusk"),
                 new Pokemon("Zamazenta-*"), new Pokemon("Landorus-Therian"), new Pokemon("Slowking-Galar")));
-        byte[] bytes = battleService.calTeamId(team.getPokemons());
 
         String teamId = new String(bytes);
         Assertions.assertEquals("019906450889098309841017", teamId);

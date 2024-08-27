@@ -8,7 +8,7 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -45,7 +45,7 @@ public class RatingEventAnalyzer implements BattleEventAnalyzer {
                 float afterRating = Float.parseFloat(matcher.group(3));
                 float rating = Math.max(afterRating, beforeRating);
                 log.debug("start to set rating {} for player '{}'", rating, player);
-                for (Team team : battleContext.getBattle().getTeams()) {
+                for (BattleTeam team : battleContext.getBattle().getBattleTeams()) {
                     if (StringUtils.equals(player, team.getPlayerName())) {
                         team.setRating(Math.max(team.getRating(), rating));
                     }

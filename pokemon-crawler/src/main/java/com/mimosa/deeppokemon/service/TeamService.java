@@ -37,6 +37,7 @@ public class TeamService {
     protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
     protected static final String MAX_RATING = "maxRating";
     protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
+    protected static final String TAG_SET = "tagSet";
     private final MongoTemplate mongoTemplate;
     private final TeamTagger teamTagger;
 
@@ -88,7 +89,7 @@ public class TeamService {
         Query query = new Query()
                 .with(Sort.by(Sort.Order.desc(LATEST_BATTLE_DATE)))
                 .cursorBatchSize(BATCH_SIZE);
-        query.fields().include(ID, "tagSet", REPLAY_NUM, UNIQUE_PLAYER_NUM, MAX_RATING);
+        query.fields().include(ID, TAG_SET, REPLAY_NUM, UNIQUE_PLAYER_NUM, MAX_RATING);
         Stream<TeamGroup> teamGroupStream = mongoTemplate.stream(query, TeamGroup.class, teamGroupCollectionName);
 
         List<TeamGroup> batchTeamGroup = new ArrayList<>();
@@ -113,7 +114,7 @@ public class TeamService {
     private void syncTeamSetAndTeamGroup(List<TeamGroup> batchTeamGroup, String teamSetCollectionName,
                                          String teamGroupCollectionName) {
         Query query = new Query(Criteria.where(ID).in(batchTeamGroup.stream().map(TeamGroup::id).toList()));
-        query.fields().include(ID, "tagSet", REPLAY_NUM);
+        query.fields().include(ID, TAG_SET, REPLAY_NUM);
         List<TeamSet> teamSets = mongoTemplate.find(query, TeamSet.class, teamSetCollectionName);
         Map<Binary, TeamSet> teamSetMap = teamSets.stream().collect(Collectors.toMap(TeamSet::id, Function.identity()));
         BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, teamGroupCollectionName);
@@ -136,7 +137,7 @@ public class TeamService {
 
     private void updateTeamGroupTag(BulkOperations bulkOperations, Binary teamId, Set<Tag> tags) {
         Query query = new Query(Criteria.where(ID).is(teamId));
-        Update update = new Update().set("tagSet", tags);
+        Update update = new Update().set(TAG_SET, tags);
         bulkOperations.updateOne(query, update);
     }
 
@@ -229,7 +230,7 @@ public class TeamService {
     }
 
     private TeamSet tagTeamSet(TeamSet teamSet) {
-        Team team = convertTeam(teamSet);
+        BattleTeam team = convertTeam(teamSet);
         teamTagger.tagTeam(team, teamSet);
         return teamSet.withTags(team.getTagSet());
     }
@@ -240,8 +241,8 @@ public class TeamService {
         return tagTeamSet(teamSet).tagSet();
     }
 
-    private Team convertTeam(TeamSet teamSet) {
-        Team team = new Team();
+    private BattleTeam convertTeam(TeamSet teamSet) {
+        BattleTeam team = new BattleTeam();
         List<Pokemon> pokemons = new ArrayList<>();
         for (var pokemonSet : teamSet.pokemons()) {
             pokemons.add(new Pokemon(pokemonSet.name()));

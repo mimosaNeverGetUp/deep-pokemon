@@ -45,6 +45,6 @@ class ItemEventAnalyzerTest {
                 .build();
         assertTrue(itemEventAnalyzer.supportAnalyze(itemEvent));
         itemEventAnalyzer.analyze(itemEvent, battleStat, battleContext);
-        assertEquals("Air Balloon", battle.getTeams()[0].getPokemon(kingambit).getItem());
+        assertEquals("Air Balloon", battle.getBattleTeams().get(0).findPokemon(kingambit).getItem());
     }
 }

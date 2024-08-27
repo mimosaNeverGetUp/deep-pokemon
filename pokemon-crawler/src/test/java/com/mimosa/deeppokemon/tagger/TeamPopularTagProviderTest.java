@@ -52,11 +52,11 @@ class TeamPopularTagProviderTest {
     void tag() {
         List<BattleTeam> battleTeams = mongoTemplate.find(new Query().limit(20), BattleTeam.class);
         for (BattleTeam battleTeam : battleTeams) {
-            Team team = new Team(battleTeam.pokemons());
-            team.setPlayerName(battleTeam.playerName());
-            team.setTier(battleTeam.tier());
+            Team team = new Team(battleTeam.getPokemons());
+            team.setPlayerName(battleTeam.getPlayerName());
+            team.setTier(battleTeam.getTier());
             teamPopularTagProvider.tag(team, null);
         }
-        Assertions.assertTrue(battleTeams.stream().anyMatch(battleTeam -> !battleTeam.tagSet().isEmpty()));
+        Assertions.assertTrue(battleTeams.stream().anyMatch(battleTeam -> !battleTeam.getTagSet().isEmpty()));
     }
 }

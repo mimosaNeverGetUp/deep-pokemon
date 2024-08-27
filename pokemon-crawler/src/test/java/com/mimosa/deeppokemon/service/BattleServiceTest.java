@@ -64,11 +64,11 @@ class BattleServiceTest {
     void insertTeam() {
         Battle battle = mongoTemplate.findOne(new Query(), Battle.class);
         BattleTeam teamSample = mongoTemplate.findOne(new Query(), BattleTeam.class);
-        Team team = new Team(teamSample.pokemons());
-        team.setTagSet(teamSample.tagSet());
-        team.setTier(teamSample.tier());
+        Team team = new Team(teamSample.getPokemons());
+        team.setTagSet(teamSample.getTagSet());
+        team.setTier(teamSample.getTier());
         team.setRating(1900F);
-        team.setPlayerName(teamSample.playerName());
+        team.setPlayerName(teamSample.getPlayerName());
         battle.setBattleID(NOT_EXIST_BATTLE_ID);
         battle.setAvageRating(1800.0F);
         battle.setTeams(new Team[]{team, team});
@@ -80,13 +80,13 @@ class BattleServiceTest {
             battleTeams = mongoTemplate.find(query, BattleTeam.class);
             Assertions.assertEquals(2, battleTeams.size());
             for (BattleTeam battleTeam : battleTeams) {
-                Assertions.assertNotNull(battleTeam.teamId());
-                Assertions.assertNotEquals(0, battleTeam.teamId().length);
-                Assertions.assertEquals(1900F, battleTeam.rating());
-                Assertions.assertNotNull(battleTeam.battleDate());
-                Assertions.assertNotNull(battleTeam.tier());
-                Assertions.assertFalse(battleTeam.tagSet().isEmpty());
-                List<Pokemon> pokemons = battleTeam.pokemons();
+                Assertions.assertNotNull(battleTeam.getTeamId());
+                Assertions.assertNotEquals(0, battleTeam.getTeamId().length);
+                Assertions.assertEquals(1900F, battleTeam.getRating());
+                Assertions.assertNotNull(battleTeam.getBattleDate());
+                Assertions.assertNotNull(battleTeam.getTier());
+                Assertions.assertFalse(battleTeam.getTagSet().isEmpty());
+                List<Pokemon> pokemons = battleTeam.getPokemons();
                 Assertions.assertNotNull(pokemons);
                 Assertions.assertTrue(pokemons.stream().allMatch(PokemonMatcher.POKEMON_MATCHER::matches));
             }
@@ -135,10 +135,10 @@ class BattleServiceTest {
 
         Battle notExistBattle = battleService.findBattle(EXIST_BATTLE_ID);
         BattleTeam teamSample = mongoTemplate.findOne(new Query(), BattleTeam.class);
-        Team team = new Team(teamSample.pokemons());
-        team.setTagSet(teamSample.tagSet());
-        team.setTier(teamSample.tier());
-        team.setPlayerName(teamSample.playerName());
+        Team team = new Team(teamSample.getPokemons());
+        team.setTagSet(teamSample.getTagSet());
+        team.setTier(teamSample.getTier());
+        team.setPlayerName(teamSample.getPlayerName());
         notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
         notExistBattle.setTeams(new Team[]{team, team});
         try {

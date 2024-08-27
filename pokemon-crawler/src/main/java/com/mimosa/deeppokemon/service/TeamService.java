@@ -219,7 +219,7 @@ public class TeamService {
         }
 
         LocalDate minReplayDate = teamGroup.teams().stream()
-                .map(BattleTeam::battleDate)
+                .map(BattleTeam::getBattleDate)
                 .filter(Objects::nonNull)
                 .min(LocalDate::compareTo)
                 .orElse(null);
@@ -256,7 +256,7 @@ public class TeamService {
                                         Map<String, Map<String, Integer>> itemsMap,
                                         Map<String, Map<String, Integer>> abilityMap,
                                         Map<String, Map<String, Integer>> teraTypes) {
-        for (Pokemon pokemon : team.pokemons()) {
+        for (Pokemon pokemon : team.getPokemons()) {
             if (!moveMap.containsKey(pokemon.getName())) {
                 moveMap.put(pokemon.getName(), new HashMap<>());
                 itemsMap.put(pokemon.getName(), new HashMap<>());

@@ -24,6 +24,8 @@
 
 package com.mimosa.pokemon.portal.service;
 
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.tour.TourBattle;
 import com.mimosa.pokemon.portal.config.MongodbTestConfig;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
 import org.junit.jupiter.api.Assertions;
@@ -31,7 +33,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
+
+import java.util.List;
 
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
@@ -56,5 +61,14 @@ class BattleServiceTest {
 //                ()->Assertions.assertNotNull(playerRankDTO.getFormat()),
                 () -> Assertions.assertNotNull(playerRankDTO.getInfoDate())
         );
+    }
+
+    @Test
+    void test() {
+        Battle tourBattle = new TourBattle();
+        tourBattle.setBattleID("smogoutour123");
+        mongoTemplate.save(tourBattle);
+        List<TourBattle> tourBattles = mongoTemplate.find(new Query(), TourBattle.class);
+        Assertions.assertFalse(tourBattles.isEmpty());
     }
 }

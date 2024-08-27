@@ -89,7 +89,7 @@ public class BattleService {
         Query statQuery = new Query(Criteria.where(BATTLE_ID).in(battles.stream().map(BattleDto::getId).toList()));
         List<BattleTeam> battleStats = mongoTemplate.find(statQuery, BattleTeam.class);
         Map<String, List<BattleTeam>> battleTeamsMap =
-                battleStats.stream().collect(Collectors.groupingBy(BattleTeam::battleId));
+                battleStats.stream().collect(Collectors.groupingBy(BattleTeam::getBattleId));
         for (BattleDto battleDto : battles) {
             battleDto.setTeams(battleTeamsMap.get(battleDto.getId()));
         }

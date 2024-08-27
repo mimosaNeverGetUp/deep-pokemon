@@ -36,30 +36,30 @@ import java.util.List;
 @Document(collection = "battle")
 public class Battle implements Serializable {
     @Id
-    private String battleID;
+    protected String battleID;
     // 简介
-    private String info;
+    protected String info;
     // 对局日期
-    private LocalDate date;
+    protected LocalDate date;
     // 对战玩家
-    private List<String> players;
+    protected List<String> players;
     // 胜方
-    private String winner;
+    protected String winner;
     // 排名
-    private float avageRating;
+    protected float avageRating;
     // 对局记录
-    private String log;
+    protected String log;
     //对局回合
-    private int turnCount;
+    protected int turnCount;
     //比赛类型
-    private List<String> type;
+    protected List<String> type;
 
     // 队伍
     @Transient
-    private Team[] teams;
+    protected Team[] teams;
 
     @Transient
-    private transient BattleStat battleStat;
+    protected transient BattleStat battleStat;
 
     public Battle(Team[] teams) {
         this.teams = teams;

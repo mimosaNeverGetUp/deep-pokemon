@@ -5,45 +5,116 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 @Document("battle_team")
-public record BattleTeam(@MongoId String id, String battleId, byte[] teamId, LocalDate battleDate,
-                         List<String> battleType, float rating, String playerName, String tier,
-                         List<Pokemon> pokemons, Set<Tag> tagSet) implements Serializable {
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BattleTeam that = (BattleTeam) o;
-        return Float.compare(rating, that.rating) == 0 && Objects.equals(id, that.id)
-                && Objects.deepEquals(teamId, that.teamId) && Objects.equals(tier, that.tier)
-                && Objects.equals(battleId, that.battleId) && Objects.equals(tagSet, that.tagSet)
-                && Objects.equals(playerName, that.playerName) && Objects.equals(battleDate, that.battleDate)
-                && Objects.equals(pokemons, that.pokemons) && Objects.equals(battleType, that.battleType);
+public class BattleTeam implements Serializable {
+    @MongoId
+    protected String id;
+    protected String battleId;
+    protected byte[] teamId;
+    protected LocalDate battleDate;
+    protected List<String> battleType;
+    protected float rating;
+    protected String playerName;
+    protected String tier;
+    protected List<Pokemon> pokemons;
+    protected Set<Tag> tagSet;
+
+    public BattleTeam() {}
+
+    public BattleTeam(String id, String battleId, byte[] teamId, LocalDate battleDate, List<String> battleType,
+                      float rating, String playerName, String tier, List<Pokemon> pokemons, Set<Tag> tagSet) {
+        this.id = id;
+        this.battleId = battleId;
+        this.teamId = teamId;
+        this.battleDate = battleDate;
+        this.battleType = battleType;
+        this.rating = rating;
+        this.playerName = playerName;
+        this.tier = tier;
+        this.pokemons = pokemons;
+        this.tagSet = tagSet;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, battleId, Arrays.hashCode(teamId), battleDate, battleType, rating, playerName, tier, pokemons, tagSet);
+    public String getId() {
+        return id;
     }
 
-    @Override
-    public String toString() {
-        return "BattleTeam{" +
-                "id='" + id + '\'' +
-                ", battleId='" + battleId + '\'' +
-                ", teamId=" + Arrays.toString(teamId) +
-                ", battleDate=" + battleDate +
-                ", battleType=" + battleType +
-                ", rating=" + rating +
-                ", playerName='" + playerName + '\'' +
-                ", tier='" + tier + '\'' +
-                ", pokemons=" + pokemons +
-                ", tagSet=" + tagSet +
-                '}';
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getBattleId() {
+        return battleId;
+    }
+
+    public void setBattleId(String battleId) {
+        this.battleId = battleId;
+    }
+
+    public byte[] getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(byte[] teamId) {
+        this.teamId = teamId;
+    }
+
+    public LocalDate getBattleDate() {
+        return battleDate;
+    }
+
+    public void setBattleDate(LocalDate battleDate) {
+        this.battleDate = battleDate;
+    }
+
+    public List<String> getBattleType() {
+        return battleType;
+    }
+
+    public void setBattleType(List<String> battleType) {
+        this.battleType = battleType;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public String getTier() {
+        return tier;
+    }
+
+    public void setTier(String tier) {
+        this.tier = tier;
+    }
+
+    public List<Pokemon> getPokemons() {
+        return pokemons;
+    }
+
+    public void setPokemons(List<Pokemon> pokemons) {
+        this.pokemons = pokemons;
+    }
+
+    public Set<Tag> getTagSet() {
+        return tagSet;
+    }
+
+    public void setTagSet(Set<Tag> tagSet) {
+        this.tagSet = tagSet;
     }
 }

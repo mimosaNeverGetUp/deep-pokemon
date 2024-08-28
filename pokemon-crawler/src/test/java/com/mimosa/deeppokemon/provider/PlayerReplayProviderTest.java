@@ -72,10 +72,10 @@ class PlayerReplayProviderTest {
     }
 
     private static void assertReplay(Replay replay) {
-        Assertions.assertNotNull(replay.id());
-        Assertions.assertNotNull(replay.format());
-        Assertions.assertEquals(2, replay.players().length);
-        Assertions.assertNotEquals(0, replay.uploadTime());
-        Assertions.assertNotEquals(0, replay.rating());
+        Assertions.assertNotNull(replay.getId());
+        Assertions.assertNotNull(replay.getFormat());
+        Assertions.assertEquals(2, replay.getPlayers().length);
+        Assertions.assertNotEquals(0, replay.getUploadTime());
+        Assertions.assertNotEquals(0, replay.getRating());
     }
 }

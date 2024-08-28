@@ -14,6 +14,7 @@ public class TourPlayerRecord {
     @MongoId
     protected String id;
     protected String name;
+    protected String team;
     protected String tourId;
     protected String format;
     protected int total;
@@ -35,6 +36,14 @@ public class TourPlayerRecord {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
     }
 
     public String getTourId() {

@@ -7,6 +7,7 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
+import com.mimosa.deeppokemon.crawler.BattleReplayExtractor;
 import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.matcher.BattleStatMatcher;
@@ -36,12 +37,16 @@ class BattleServiceTest {
     private static final String NOT_LOG_BATTLE_ID = "gen9ou-2171080820";
     protected static final String TEAM_GROUP_LAST_99_Y = "team_group_last_99_y";
     protected static final String TEAM_SET_LAST_99_Y = "team_set_last_99_y";
+    List<String> stageTitles = List.of("Qualifier R1", "Qualifier R2", "Round 1", "Round 2", " Semifinals", " Finals");
 
     @Autowired
     private BattleService battleService;
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private BattleReplayExtractor battleReplayExtractor;
 
     @Test
     void insert() {
@@ -59,20 +64,26 @@ class BattleServiceTest {
         }
     }
 
-
     @Test
     void insertTeam() {
         Battle battle = mongoTemplate.findOne(new Query(), Battle.class);
         BattleTeam teamSample = mongoTemplate.findOne(new Query(), BattleTeam.class);
-        BattleTeam team = new BattleTeam();
-        team.setPokemons(teamSample.getPokemons());
-        team.setTagSet(teamSample.getTagSet());
-        team.setTier(teamSample.getTier());
-        team.setRating(1900F);
-        team.setPlayerName(teamSample.getPlayerName());
+        BattleTeam team1 = new BattleTeam();
+        team1.setPokemons(teamSample.getPokemons());
+        team1.setTagSet(teamSample.getTagSet());
+        team1.setTier(teamSample.getTier());
+        team1.setRating(1900F);
+        team1.setPlayerName(teamSample.getPlayerName());
+
+        BattleTeam team2 = new BattleTeam();
+        team2.setPokemons(teamSample.getPokemons());
+        team2.setTagSet(teamSample.getTagSet());
+        team2.setTier(teamSample.getTier());
+        team2.setRating(1900F);
+        team2.setPlayerName(teamSample.getPlayerName());
         battle.setBattleID(NOT_EXIST_BATTLE_ID);
         battle.setAvageRating(1800.0F);
-        battle.setBattleTeams(List.of(team, team));
+        battle.setBattleTeams(List.of(team1, team2));
         List<BattleTeam> battleTeams = null;
         try {
             battleService.insertTeam(Collections.singletonList(battle));

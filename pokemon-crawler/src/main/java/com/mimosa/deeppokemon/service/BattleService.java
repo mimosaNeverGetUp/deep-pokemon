@@ -85,6 +85,7 @@ public class BattleService {
     protected static final String BATTLE_TEAM = "battle_team";
     protected static final String REPLAY_NUM = "replayNum";
     protected static final String POKEMONS_NAME = "pokemons.name";
+    protected static final String TOUR_BATTLE = "tour_battle";
 
     private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
@@ -188,7 +189,7 @@ public class BattleService {
         }
 
         try {
-            mongoTemplate.insertAll(battles);
+            mongoTemplate.insertAll(battleTeams);
         } catch (Exception e) {
             throw new ServerErrorException("save battle team fail", e);
         }
@@ -229,9 +230,11 @@ public class BattleService {
                 Aggregation.project(Fields.fields(ID))
         );
 
-        List<Battle> battles = mongoTemplate.aggregate(aggregation, BATTLE, Battle.class).getMappedResults();
+        List<Battle> battleList = new ArrayList<>();
+        battleList.addAll(mongoTemplate.aggregate(aggregation, BATTLE, Battle.class).getMappedResults());
+        battleList.addAll(mongoTemplate.aggregate(aggregation, TOUR_BATTLE, Battle.class).getMappedResults());
 
-        return battles.stream().map(Battle::getBattleID).collect(Collectors.toSet());
+        return battleList.stream().map(Battle::getBattleID).collect(Collectors.toSet());
     }
 
     public CrawAnalyzeBattleFuture crawBattleAndAnalyze(ReplayProvider replayProvider) {
@@ -240,8 +243,12 @@ public class BattleService {
         return new CrawAnalyzeBattleFuture(crawFuture, analyzeFuture);
     }
 
-    private CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider) {
-        CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, battleCrawler, this,
+    public CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider) {
+        return crawBattle(replayProvider, battleCrawler);
+    }
+
+    public CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider, BattleCrawler crawler) {
+        CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, crawler, this,
                 false, crawPeriodMillisecond);
         return CompletableFuture.supplyAsync(crawBattleTask::call, crawBattleExecutor);
     }

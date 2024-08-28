@@ -6,10 +6,18 @@
 
 package com.mimosa.deeppokemon.entity.tour;
 
-public class TourPlayer {
+import java.io.Serializable;
+
+public class TourPlayer implements Serializable {
     protected String name;
     protected String team;
     protected String region;
+
+    public TourPlayer(String name, String team, String region) {
+        this.name = name;
+        this.team = team;
+        this.region = region;
+    }
 
     public String getName() {
         return name;

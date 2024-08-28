@@ -87,7 +87,7 @@ public class CrawBattleTask implements Callable<List<Battle>> {
         } catch (Exception e) {
             if (replays != null) {
                 log.error("craw battle from replay fail, battles id: {}",
-                        replays.stream().map(Replay::id).collect(Collectors.toSet()), e);
+                        replays.stream().map(Replay::getId).collect(Collectors.toSet()), e);
             } else {
                 log.error("craw battle replay fail", e);
             }
@@ -98,15 +98,16 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     private List<Battle> crawBattleFromReplay(List<Replay> replays) throws InterruptedException {
         List<Battle> battles = new ArrayList<>();
         for (Replay replay : replays) {
-            log.debug("check craw replay {} is need to craw", replay.id());
+            log.debug("check craw replay {} is need to craw", replay.getId());
             if (!isNeedCraw(replay)) {
-                log.debug("not need to craw{}", replay.id());
+                log.debug("not need to craw{}", replay.getId());
                 continue;
             }
 
-            log.debug("start craw replay {}", replay.id());
-            battles.add(battleCrawler.craw(replay));
-            log.debug("end craw replay {}, sleep {} ms", replay.id(), crawPeriod);
+            log.debug("start craw replay {}", replay.getId());
+            Battle craw = battleCrawler.craw(replay);
+            battles.add(craw);
+            log.debug("end craw replay {}, sleep {} ms", replay.getId(), crawPeriod);
             Thread.sleep(crawPeriod);
         }
         return battles;
@@ -114,17 +115,17 @@ public class CrawBattleTask implements Callable<List<Battle>> {
 
     private boolean isNeedCraw(Replay replay) {
         // check replay is need to craw
-        if (replay.id() == null) {
+        if (replay.getId() == null) {
             return false;
         }
 
-        if (!CrawLock.tryLock(replay.id())) {
+        if (!CrawLock.tryLock(replay.getId())) {
             // another thread is craw ,skip
-            log.debug("replay {} is locked, skip", replay.id());
+            log.debug("replay {} is locked, skip", replay.getId());
             return false;
         } else {
-            holdBattleLocks.add(replay.id());
+            holdBattleLocks.add(replay.getId());
         }
-        return update || !battleService.getAllBattleIds().contains(replay.id());
+        return update || !battleService.getAllBattleIds().contains(replay.getId());
     }
 }

@@ -27,11 +27,10 @@ package com.mimosa.deeppokemon.crawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
-import com.mimosa.deeppokemon.task.entity.CrawAnalyzeBattleFuture;
+import com.mimosa.deeppokemon.task.entity.CrawBattleFuture;
 import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
@@ -84,25 +83,23 @@ public class LadderCrawler {
         this.dateAfter = dateAfter;
     }
 
-    public CrawAnalyzeBattleFuture crawLadder(boolean overwrite) {
+    public CrawBattleFuture crawLadder(boolean overwrite) {
         Ladder ladder = crawLadderRank(overwrite);
         return crawLadderBattle(ladder);
     }
 
-    public CrawAnalyzeBattleFuture crawLadderBattle(Ladder ladder) {
+    public CrawBattleFuture crawLadderBattle(Ladder ladder) {
         log.info("craw start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
                 getFormat(), getPageLimit(), getRankMoreThan(),
                 getMinElo(), getMinGxe(), getDateAfter());
 
         List<CompletableFuture<List<Battle>>> crawFutures = new ArrayList<>();
-        List<CompletableFuture<List<BattleStat>>> analzyeFutures = new ArrayList<>();
         for (LadderRank ladderRank : ladder.getLadderRankList()) {
             String playerName = ladderRank.getName();
             PlayerReplayProvider replayProvider = new PlayerReplayProvider(playerName, format,
                     getDateAfter().atStartOfDay(ZoneId.systemDefault()).toEpochSecond(), getMinElo());
-            var crawPlayerBattleFuture = battleService.crawBattleAndAnalyze(replayProvider);
+            var crawPlayerBattleFuture = battleService.crawBattle(replayProvider);
             crawFutures.add(crawPlayerBattleFuture.crawFuture());
-            analzyeFutures.add((crawPlayerBattleFuture.analyzeFuture()));
         }
         CompletableFuture<Void> allBattleCrawFuture =
                 CompletableFuture.allOf(crawFutures.toArray(new CompletableFuture[0]));
@@ -111,15 +108,7 @@ public class LadderCrawler {
                         .map(CompletableFuture::join)
                         .flatMap(List::stream)
                         .toList());
-
-        CompletableFuture<Void> allBattleAnalyzeFuture =
-                CompletableFuture.allOf(analzyeFutures.toArray(new CompletableFuture[0]));
-        CompletableFuture<List<BattleStat>> battleAnalyzeFuture = allBattleAnalyzeFuture.thenApply(v ->
-                analzyeFutures.stream()
-                        .map(CompletableFuture::join)
-                        .flatMap(List::stream)
-                        .toList());
-        return new CrawAnalyzeBattleFuture(battleCrawFuture, battleAnalyzeFuture);
+        return new CrawBattleFuture(battleCrawFuture);
     }
 
     @CacheEvict(value = {"rank", "playerRank"}, allEntries = true)

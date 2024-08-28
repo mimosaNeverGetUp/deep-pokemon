@@ -37,7 +37,6 @@ class BattleServiceTest {
     private static final String NOT_LOG_BATTLE_ID = "gen9ou-2171080820";
     protected static final String TEAM_GROUP_LAST_99_Y = "team_group_last_99_y";
     protected static final String TEAM_SET_LAST_99_Y = "team_set_last_99_y";
-    List<String> stageTitles = List.of("Qualifier R1", "Qualifier R2", "Round 1", "Round 2", " Semifinals", " Finals");
 
     @Autowired
     private BattleService battleService;

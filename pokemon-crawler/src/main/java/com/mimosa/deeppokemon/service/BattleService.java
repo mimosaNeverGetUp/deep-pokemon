@@ -32,7 +32,7 @@ import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.deeppokemon.provider.FixedReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.task.CrawBattleTask;
-import com.mimosa.deeppokemon.task.entity.CrawAnalyzeBattleFuture;
+import com.mimosa.deeppokemon.task.entity.CrawBattleFuture;
 import com.mongodb.bulk.BulkWriteError;
 import com.mongodb.bulk.BulkWriteInsert;
 import com.mongodb.bulk.BulkWriteResult;
@@ -89,7 +89,7 @@ public class BattleService {
 
     private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
-    private final ThreadPoolExecutor analyzeBattleExecutor;
+    private final ThreadPoolExecutor forkCrawBattleExecutor;
 
     private final MongoTemplate mongoTemplate;
     private final BattleCrawler battleCrawler;
@@ -102,9 +102,9 @@ public class BattleService {
     public BattleService(MongoTemplate mongoTemplate, BattleCrawler battleCrawler,
                          BattleAnalyzer battleAnalyzer, PokemonInfoCrawler pokemonInfoCrawler,
                          TeamService teamService,
-                         @Value("${CRAW_BATTLE_POOL_SIZE:8}") int crawBattlePoolSize,
-                         @Value("${ANALYZE_BATTLE_POOL_SIZE:3}") int analyzeBattlePoolSize,
-                         @Value("${CRAW_PERIOD_MILLISECOND:1000}") int crawPeriodMillisecond) {
+                         @Value("${CRAW_BATTLE_POOL_SIZE:4}") int crawBattlePoolSize,
+                         @Value("${FORK_CRAW_BATTLE_POOL_SIZE:4}") int analyzeBattlePoolSize,
+                         @Value("${CRAW_PERIOD_MILLISECOND:10}") int crawPeriodMillisecond) {
         this.mongoTemplate = mongoTemplate;
         this.battleCrawler = battleCrawler;
         this.battleAnalyzer = battleAnalyzer;
@@ -112,7 +112,7 @@ public class BattleService {
         this.teamService = teamService;
         crawBattleExecutor = new ThreadPoolExecutor(crawBattlePoolSize, crawBattlePoolSize, 0,
                 TimeUnit.SECONDS, new LinkedBlockingQueue<>());
-        analyzeBattleExecutor = new ThreadPoolExecutor(analyzeBattlePoolSize, analyzeBattlePoolSize, 0,
+        forkCrawBattleExecutor = new ThreadPoolExecutor(analyzeBattlePoolSize, analyzeBattlePoolSize, 0,
                 TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         this.crawPeriodMillisecond = crawPeriodMillisecond;
     }
@@ -126,8 +126,10 @@ public class BattleService {
         if (battles.isEmpty()) {
             return battles;
         }
+
+        String collectionName = mongoTemplate.getCollectionName(battles.get(0).getClass());
         try {
-            BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, BATTLE);
+            BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, collectionName);
             BulkWriteResult result = bulkOperations.insert(battles).execute();
             battleIds.addAll(battles.stream().map(Battle::getBattleID).toList());
             return result.getInserts().stream().map(BulkWriteInsert::getIndex).map(battles::get)
@@ -173,6 +175,10 @@ public class BattleService {
         List<BattleTeam> battleTeams = new ArrayList<>(battles.size() * 2);
         for (Battle battle : battles) {
             int index = 0;
+            if (battle.getBattleTeams() == null) {
+                continue;
+            }
+
             for (BattleTeam team : battle.getBattleTeams()) {
                 String battleTeamId = String.format("%s_%d", battle.getBattleID(), index);
                 byte[] teamId = calTeamId(team.getPokemons());
@@ -186,6 +192,9 @@ public class BattleService {
                 battleTeams.add(team);
                 index++;
             }
+        }
+        if (battleTeams.isEmpty()) {
+            return;
         }
 
         try {
@@ -237,40 +246,32 @@ public class BattleService {
         return battleList.stream().map(Battle::getBattleID).collect(Collectors.toSet());
     }
 
-    public CrawAnalyzeBattleFuture crawBattleAndAnalyze(ReplayProvider replayProvider) {
-        CompletableFuture<List<Battle>> crawFuture = crawBattle(replayProvider);
-        CompletableFuture<List<BattleStat>> analyzeFuture = analyzeBattleAfterCraw(crawFuture);
-        return new CrawAnalyzeBattleFuture(crawFuture, analyzeFuture);
+    public CrawBattleFuture crawBattle(ReplayProvider replayProvider) {
+        CompletableFuture<List<Battle>> crawFuture = crawBattle(replayProvider, battleCrawler, false);
+        return new CrawBattleFuture(crawFuture);
     }
 
-    public CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider) {
-        return crawBattle(replayProvider, battleCrawler);
-    }
-
-    public CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider, BattleCrawler crawler) {
-        CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, crawler, this,
+    public CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider, BattleCrawler crawler,
+                                                      BattleAnalyzer analyzer, boolean isForkTask) {
+        CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, crawler, analyzer, this,
                 false, crawPeriodMillisecond);
-        return CompletableFuture.supplyAsync(crawBattleTask::call, crawBattleExecutor);
+        return CompletableFuture.supplyAsync(crawBattleTask::call, isForkTask ? forkCrawBattleExecutor : crawBattleExecutor);
     }
 
-    public CompletableFuture<List<BattleStat>> analyzeBattleAfterCraw(CompletableFuture<List<Battle>> crawBattleFuture) {
-        return crawBattleFuture.thenApplyAsync(battleAnalyzer::analyze, analyzeBattleExecutor)
-                .thenApplyAsync(battles -> {
-                    try {
-                        insertTeam(battles);
-                    } catch (Exception e) {
-                        log.error("save battle team fail", e);
-                    }
-
-                    return insertBattleStat(battles);
-                });
+    public CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider, BattleCrawler crawler,
+                                                      boolean isForkTask) {
+        return crawBattle(replayProvider, crawler, battleAnalyzer, isForkTask);
     }
 
-    private List<BattleStat> insertBattleStat(Collection<Battle> battles) {
+
+    public List<BattleStat> insertBattleStat(Collection<Battle> battles) {
         return insert(battles.stream().map(Battle::getBattleStat).filter(Objects::nonNull).toList());
     }
 
     public List<BattleStat> insert(Collection<BattleStat> battleStats) {
+        if (battleStats.isEmpty()) {
+            return Collections.emptyList();
+        }
         return new ArrayList<>(mongoTemplate.insertAll(battleStats));
     }
 
@@ -281,13 +282,13 @@ public class BattleService {
         if (battle == null) {
             // craw and save
             CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(Collections.singletonList(battleId)),
-                    battleCrawler, this);
-            battle = crawBattleTask.call().get(0);
+                    battleCrawler, battleAnalyzer, this);
+            return crawBattleTask.call().get(0).getBattleStat();
         } else if (battle.getLog() == null) {
             // craw and update
             CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(Collections.singletonList(battleId)),
-                    battleCrawler, this, true);
-            battle = crawBattleTask.call().get(0);
+                    battleCrawler, battleAnalyzer, this, true);
+            return crawBattleTask.call().get(0).getBattleStat();
         }
 
         battleAnalyzer.analyze(Collections.singletonList(battle));

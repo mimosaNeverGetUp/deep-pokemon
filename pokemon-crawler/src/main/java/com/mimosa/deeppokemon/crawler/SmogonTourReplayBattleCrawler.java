@@ -6,14 +6,14 @@
 
 package com.mimosa.deeppokemon.crawler;
 
-import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.BattleTeam;
+import com.mimosa.deeppokemon.entity.Replay;
+import com.mimosa.deeppokemon.entity.SmogonTourReplay;
 import com.mimosa.deeppokemon.entity.tour.TourBattle;
 import com.mimosa.deeppokemon.entity.tour.TourPlayer;
 import com.mimosa.deeppokemon.entity.tour.TourTeam;
-import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.apache.commons.lang.StringUtils;
-import org.apache.hc.core5.http.ClassicHttpRequest;
-import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,11 +24,12 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
     private static final Logger log = LoggerFactory.getLogger(SmogonTourReplayBattleCrawler.class);
     public static final String REPLAY_URL_PATTERN = "https://replay.pokemonshowdown.com/%s.json";
 
-    private final BattleReplayExtractor battleReplayExtractor;
+    private final ReplayBattleCrawler replayBattleCrawler;
     private final SmogonTourWinPlayerExtractor smogonTourWinPlayerExtractor;
 
-    public SmogonTourReplayBattleCrawler(BattleReplayExtractor battleReplayExtractor, SmogonTourWinPlayerExtractor smogonTourWinPlayerExtractor) {
-        this.battleReplayExtractor = battleReplayExtractor;
+    public SmogonTourReplayBattleCrawler(ReplayBattleCrawler replayBattleCrawler,
+                                         SmogonTourWinPlayerExtractor smogonTourWinPlayerExtractor) {
+        this.replayBattleCrawler = replayBattleCrawler;
         this.smogonTourWinPlayerExtractor = smogonTourWinPlayerExtractor;
     }
 
@@ -38,10 +39,7 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
             throw new IllegalArgumentException("Replay is not a SmogonTourReplay");
         }
         SmogonTourReplay tourReplay = (SmogonTourReplay) replay;
-        ClassicHttpRequest httpGet = initGet(replay.getId());
-        BattleReplayData battleReplay = HttpUtil.request(httpGet, BattleReplayData.class);
-        Battle battle = battleReplayExtractor.extract(battleReplay);
-
+        Battle battle = replayBattleCrawler.craw(replay);
 
         TourBattle tourBattle = new TourBattle();
         tourBattle.setBattleID(battle.getBattleID());
@@ -63,7 +61,7 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
         TourPlayer losePlayer = null;
         if (winPlayer != null) {
             losePlayer = tourReplay.getTourPlayers().stream()
-                    .filter(tourPlayer -> StringUtils.equalsIgnoreCase(winPlayer.getName(), tourPlayer.getName()))
+                    .filter(tourPlayer -> !StringUtils.equalsIgnoreCase(winPlayer.getName(), tourPlayer.getName()))
                     .findFirst()
                     .orElse(null);
             tourBattle.setWinSmogonPlayerName(winPlayer.getName());
@@ -97,9 +95,5 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
         }
         tourBattle.setBattleTeams(tourTeams);
         return tourBattle;
-    }
-
-    private ClassicHttpRequest initGet(String battleId) {
-        return ClassicRequestBuilder.get(String.format(REPLAY_URL_PATTERN, battleId)).build();
     }
 }

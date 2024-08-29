@@ -80,7 +80,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
     private void extractFromReplayThread() {
         Set<String> existBattleIds = new HashSet<>();
         try {
-            Document doc = Jsoup.connect(replayThreadUrl).get();
+            Document doc = Jsoup.connect(replayThreadUrl).timeout(60000).get();
             Elements stages = doc.select(THREAD_REPLAY_STAGE_CLASS);
             int stageIndex = 0;
             String stageTitle = "";

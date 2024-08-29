@@ -24,8 +24,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SmogonTourWinPlayerExtractor {
+    protected static final Logger log = LoggerFactory.getLogger(SmogonTourWinPlayerExtractor.class);
+
     protected static final String MEMBER = "member";
-    Logger log = LoggerFactory.getLogger(SmogonTourWinPlayerExtractor.class);
+    protected static final int TIMEOUT_MS = 60000;
     private static final String FORUMS_THREAD_CLASS = "div.structItem--thread";
     protected static final String THREAD_MESSAGE_CLASS = "div.message-cell--main";
     protected static final String THREAD_COMMENT_CLASS = "div.bbWrapper";
@@ -75,7 +77,7 @@ public class SmogonTourWinPlayerExtractor {
 
     private synchronized void init() throws IOException {
         if (!init) {
-            Document doc = Jsoup.connect(tourForumsUrl).get();
+            Document doc = Jsoup.connect(tourForumsUrl).timeout(TIMEOUT_MS).get();
             Elements threads = doc.select(FORUMS_THREAD_CLASS);
             if (threads.isEmpty()) {
                 log.error("can't find threads in {}", tourForumsUrl);
@@ -125,7 +127,7 @@ public class SmogonTourWinPlayerExtractor {
     private void extractMoreBattleMatchUpInMatchThread(String threadUrl, String stage, int extrageBatchMatchFloor) throws IOException {
         int page = (int) Math.ceil(extrageBatchMatchFloor / 25F);
         String tbPageUrl = String.format("%spage-%d", threadUrl, page);
-        Document doc = Jsoup.connect(tbPageUrl).get();
+        Document doc = Jsoup.connect(tbPageUrl).timeout(TIMEOUT_MS).get();
         Elements messages = doc.select(THREAD_MESSAGE_CLASS);
         if (messages.isEmpty()) {
             log.error("can not find message in {}", tbPageUrl);
@@ -146,7 +148,7 @@ public class SmogonTourWinPlayerExtractor {
     }
 
     private void extractMatchThread(String url, String stage) throws IOException {
-        Document doc = Jsoup.connect(url).get();
+        Document doc = Jsoup.connect(url).timeout(TIMEOUT_MS).get();
         Element main = doc.select(THREAD_COMMENT_CLASS).first();
         Map<BattleMatch, String> battleWinner = getBattleWinner(main);
         if (battleWinner.isEmpty()) {

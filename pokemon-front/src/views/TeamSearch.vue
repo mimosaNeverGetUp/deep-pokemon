@@ -67,8 +67,8 @@ function getTeamSearchUrl(pokemons, tags, range, month, sort) {
     <SelectButton v-model="selectedSort" :options="sortModes" aria-labelledby="basic"/>
     <div>
       <span class="items-center text-center">Range</span>
-      <i class="ml-2 pi pi-calendar cursor-pointer hover:bg-green-500" style="font-size: 1.5rem"
-         @click="changeShowMode"></i>
+<!--      <i class="ml-2 pi pi-calendar cursor-pointer hover:bg-green-500" style="font-size: 1.5rem"-->
+<!--         @click="changeShowMode"></i>-->
     </div>
 
     <Calendar v-if="useMonthRange" class="w-96" v-model="selectMonth" view="month" dateFormat="dd/mm" :maxDate="maxMonth"

@@ -17,7 +17,7 @@ const props = defineProps({
 <template>
   <Card>
     <template #title>
-      <p class="font-bold">{{ metric }}</p></template>
+      <p class="font-bold text-center">{{ metric }}</p></template>
     <template #content>
       <p>{{ value }}</p>
     </template>

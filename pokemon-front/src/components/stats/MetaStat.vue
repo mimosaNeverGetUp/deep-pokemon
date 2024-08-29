@@ -34,11 +34,22 @@ function convertPercentageString(data) {
   return data ? (data * 100).toFixed(2) + "%" : "NA";
 }
 
+function getYearMonth(dateStr) {
+  if (!dateStr) {
+    return "NA"
+  }
+  let date =new Date(dateStr)
+  let monthNumber = date.getMonth() + 1;
+  let monthId = date.getFullYear() + monthNumber.toString().padStart(2, "0");
+  return monthId;
+}
+
 fetchMeta();
 </script>
 
 <template>
   <div class="flex justify-center items-center gap-4">
+    <MetaStatCard metric="Date" :value="getYearMonth(meta?.date)"></MetaStatCard>
     <MetaStatCard metric="Battle" :value="convertString(meta?.total)"></MetaStatCard>
     <MetaStatCard metric="Offense" :value="convertPercentageString(meta?.tags['offense'])"></MetaStatCard>
     <MetaStatCard metric="Balance" :value="convertPercentageString(meta?.tags['balance'])"></MetaStatCard>

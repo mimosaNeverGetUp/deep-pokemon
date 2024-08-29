@@ -40,8 +40,7 @@ function getYearMonth(dateStr) {
   }
   let date =new Date(dateStr)
   let monthNumber = date.getMonth() + 1;
-  let monthId = date.getFullYear() + "-" + monthNumber.toString().padStart(2, "0");
-  return monthId;
+  return date.getFullYear() + "-" + monthNumber.toString().padStart(2, "0");
 }
 
 fetchMeta();

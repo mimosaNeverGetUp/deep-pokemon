@@ -44,6 +44,7 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
 
         TourBattle tourBattle = new TourBattle();
         tourBattle.setBattleID(battle.getBattleID());
+        tourBattle.setFormat(battle.getFormat());
         tourBattle.setBattleTeams(battle.getBattleTeams());
         tourBattle.setLog(battle.getLog());
         tourBattle.setPlayers(battle.getPlayers());

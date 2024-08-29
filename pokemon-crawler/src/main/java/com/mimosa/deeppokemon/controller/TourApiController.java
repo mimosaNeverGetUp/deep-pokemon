@@ -9,6 +9,7 @@ package com.mimosa.deeppokemon.controller;
 import com.mimosa.deeppokemon.service.TourService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,6 +24,12 @@ public class TourApiController {
     @PostMapping("/wcop2024/battle")
     public boolean crawlTour() {
         tourService.crawWcop2024();
+        return true;
+    }
+
+    @PostMapping("/wcop2024/player/record")
+    public boolean updateTourPlayerRecord(@RequestParam("format") String format) {
+        tourService.updatePlayerRecord("The World Cup of Pokémon 2024", format);
         return true;
     }
 }

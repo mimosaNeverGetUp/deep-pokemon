@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 import java.util.List;
 
-@Document(collection = "toru_battle")
+@Document(collection = "tour_battle")
 public class TourBattle extends Battle implements Serializable {
     protected String tourId;
     protected String stage;

@@ -11,7 +11,11 @@ import com.mimosa.deeppokemon.crawler.SmogonTourReplayBattleCrawler;
 import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.tour.Tour;
+import com.mimosa.deeppokemon.entity.tour.TourBattle;
+import com.mimosa.deeppokemon.entity.tour.TourPlayer;
+import com.mimosa.deeppokemon.entity.tour.TourPlayerRecord;
 import com.mimosa.deeppokemon.provider.SmogonTourReplayProvider;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -19,26 +23,27 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 @Service
 public class TourService {
     private static final Logger log = LoggerFactory.getLogger(TourService.class);
+    protected static final String SMOGON_PLAYER = "smogonPlayer";
+    protected static final String WIN_SMOGON_PLAYER_NAME = "winSmogonPlayerName";
+    protected static final String AVAGE_RATING = "avageRating";
+    protected static final String TURN_COUNT = "turnCount";
+    protected static final String TOUR_ID = "tourId";
+    protected static final String FORMAT = "format";
 
     protected static final String GEN_9_OU = "gen9ou";
     protected static final String WCOP_2024_FULL_TOUR_NAME = "The World Cup of Pokémon 2024";
-    protected static final String WCOP_2024_REPLAY_URL =
-            "https://www.smogon.com/forums/threads/the-world-cup-of-pok%C3%A9mon-2024-replays.3742226/";
+    protected static final String WCOP_2024_REPLAY_URL = "https://www.smogon.com/forums/threads/the-world-cup-of-pok%C3%A9mon-2024-replays.3742226/";
     protected static final String WCOP_FORUMS_URL = "https://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
-
-    protected static final List<String> WCOP_FORUMS_THREAD_SUFFIX_STAGES = List.of("Qualifiers", "Round 1",
-            "Quarterfinals", "Semifinals", "Finals");
-    protected static final List<String> WCOP_REPLAY_STAGES = List.of("Qualifiers", "Qualifiers Round 2", "Round 1",
-            "Quarterfinals", "Semifinals", "Finals");
+    protected static final List<String> WCOP_FORUMS_THREAD_SUFFIX_STAGES =
+            List.of("Qualifiers", "Round 1", "Quarterfinals", "Semifinals", "Finals");
+    protected static final List<String> WCOP_REPLAY_STAGES =
+            List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Quarterfinals", "Semifinals", "Finals");
 
     private final BattleService battleService;
     private final MongoTemplate mongoTemplate;
@@ -70,7 +75,7 @@ public class TourService {
         return battles;
     }
 
-    private void updateTour(String tourName, String format) {
+    public void updateTour(String tourName, String format) {
         Tour tour = mongoTemplate.findById(tourName, Tour.class);
         if (tour == null) {
             tour = new Tour();
@@ -87,10 +92,37 @@ public class TourService {
         }
     }
 
-    private void updatePlayerRecord(String tourName, String format) {
-        Criteria criteria = Criteria.where("tourId").is(tourName)
-                .and("format").is(format);
-        new Query(criteria);
+    public List<TourPlayerRecord> updatePlayerRecord(String tourName, String format) {
+        Criteria criteria = Criteria.where(TOUR_ID).is(tourName)
+                .and(FORMAT).is(format);
+        Query query = new Query(criteria);
+        query.fields().include(SMOGON_PLAYER, WIN_SMOGON_PLAYER_NAME, AVAGE_RATING, TURN_COUNT);
+        List<TourBattle> tourBattles = mongoTemplate.find(query, TourBattle.class);
+        Map<String, TourPlayerRecord> recordMap = new HashMap<>();
+        for (TourBattle tourBattle : tourBattles) {
+            if (tourBattle.getSmogonPlayer() == null || tourBattle.getWinSmogonPlayerName() == null) {
+                log.error("can find smogon player or winner in {}", tourBattle.getBattleID());
+                continue;
+            }
+
+            for (TourPlayer player : tourBattle.getSmogonPlayer()) {
+                TourPlayerRecord playerRecord = recordMap.computeIfAbsent(player.getName(),
+                        k -> new TourPlayerRecord(player.getName(), format, player.getTeam()));
+
+                playerRecord.setTotal(playerRecord.getTotal() + 1);
+                if (StringUtils.equals(player.getName(), tourBattle.getWinSmogonPlayerName())) {
+                    playerRecord.setWin(playerRecord.getWin() + 1);
+                } else {
+                    playerRecord.setLoss(playerRecord.getLoss() + 1);
+                }
+                playerRecord.setWinDif(playerRecord.getWin() - playerRecord.getLoss());
+                playerRecord.setWinRate((float) playerRecord.getWin() / (float) playerRecord.getTotal());
+            }
+        }
+        List<TourPlayerRecord> tourPlayerRecords = new ArrayList<>(recordMap.values());
+        mongoTemplate.remove(query, TourPlayerRecord.class);
+        mongoTemplate.insertAll(tourPlayerRecords);
+        return tourPlayerRecords;
     }
 
     public List<Battle> crawWcop2024() {

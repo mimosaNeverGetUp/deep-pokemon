@@ -20,7 +20,16 @@ public class TourPlayerRecord {
     protected int total;
     protected int win;
     protected int loss;
+    protected int winDif;
     protected float winRate;
+
+    public TourPlayerRecord() {}
+
+    public TourPlayerRecord(String name, String format, String team) {
+        this.name = name;
+        this.format = format;
+        this.team = team;
+    }
 
     public String getId() {
         return id;
@@ -92,5 +101,13 @@ public class TourPlayerRecord {
 
     public void setWinRate(float winRate) {
         this.winRate = winRate;
+    }
+
+    public int getWinDif() {
+        return winDif;
+    }
+
+    public void setWinDif(int winDif) {
+        this.winDif = winDif;
     }
 }

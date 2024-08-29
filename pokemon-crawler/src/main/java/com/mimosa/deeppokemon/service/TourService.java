@@ -18,6 +18,7 @@ import com.mimosa.deeppokemon.provider.SmogonTourReplayProvider;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -74,7 +75,7 @@ public class TourService {
 
         return battles;
     }
-
+    @RegisterReflectionForBinding(Tour.class)
     public void updateTour(String tourName, String format) {
         Tour tour = mongoTemplate.findById(tourName, Tour.class);
         if (tour == null) {
@@ -92,6 +93,7 @@ public class TourService {
         }
     }
 
+    @RegisterReflectionForBinding({TourBattle.class, TourPlayer.class})
     public List<TourPlayerRecord> updatePlayerRecord(String tourName, String format) {
         Criteria criteria = Criteria.where(TOUR_ID).is(tourName)
                 .and(FORMAT).is(format);

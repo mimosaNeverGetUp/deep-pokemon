@@ -48,7 +48,7 @@ fetchMeta();
 </script>
 
 <template>
-  <div class="flex justify-center items-center gap-4">
+  <div class="flex justify-center items-center gap-4 flex-wrap">
     <MetaStatCard metric="Date" :value="getYearMonth(meta?.date)"></MetaStatCard>
     <MetaStatCard metric="Battle" :value="convertString(meta?.total)"></MetaStatCard>
     <MetaStatCard metric="Offense" :value="convertPercentageString(meta?.tags['offense'])"></MetaStatCard>

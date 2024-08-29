@@ -22,7 +22,6 @@ import java.util.List;
 
 public class SmogonTourReplayBattleCrawler implements BattleCrawler {
     private static final Logger log = LoggerFactory.getLogger(SmogonTourReplayBattleCrawler.class);
-    public static final String REPLAY_URL_PATTERN = "https://replay.pokemonshowdown.com/%s.json";
 
     private final ReplayBattleCrawler replayBattleCrawler;
     private final SmogonTourWinPlayerExtractor smogonTourWinPlayerExtractor;
@@ -39,6 +38,8 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
             throw new IllegalArgumentException("Replay is not a SmogonTourReplay");
         }
         SmogonTourReplay tourReplay = (SmogonTourReplay) replay;
+        log.info("start to crawl tour {}, stage {}, id {}", tourReplay.getTourName(), tourReplay.getStage(),
+                tourReplay.getId());
         Battle battle = replayBattleCrawler.craw(replay);
 
         TourBattle tourBattle = new TourBattle();

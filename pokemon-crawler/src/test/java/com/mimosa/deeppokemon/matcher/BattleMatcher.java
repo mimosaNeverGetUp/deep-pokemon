@@ -20,6 +20,10 @@ public class BattleMatcher extends TypeSafeMatcher<Battle> {
             return false;
         }
 
+        if (battle.getFormat() == null) {
+            return false;
+        }
+
         if (battle.getDate() == null) {
             return false;
         }

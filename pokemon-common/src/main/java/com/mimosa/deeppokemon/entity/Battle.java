@@ -37,6 +37,7 @@ import java.util.List;
 public class Battle implements Serializable {
     @Id
     protected String battleID;
+    protected String format;
     // 简介
     protected String info;
     // 对局日期
@@ -171,6 +172,14 @@ public class Battle implements Serializable {
 
     public void setBattleStat(BattleStat battleStat) {
         this.battleStat = battleStat;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 
     @Override

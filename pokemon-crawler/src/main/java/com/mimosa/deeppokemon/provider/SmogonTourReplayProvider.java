@@ -107,7 +107,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
                 for (Replay replay : replays) {
                     ((SmogonTourReplay) replay).setStage(stageTitle);
                 }
-                replaySources.add(new ReplaySource(List.of(TOUR, tourName, stageTitle), replays));
+                replaySources.add(new ReplaySource(List.of(TOUR, tourName), replays));
             }
         } catch (IOException e) {
             log.error("extract replay thread fail", e);
@@ -190,30 +190,64 @@ public class SmogonTourReplayProvider implements ReplayProvider {
             log.error("getPlayersByReplayText fail, replayText:{}", replayText);
             return Collections.emptyList();
         }
-        for (String playerText : players) {
-            Matcher leftTeamPlayerMatcher = TEAM_PLAYER_LEFT_PATTERN.matcher(playerText);
-            Matcher rightTeamPlayerMatcher = TEAM_PLAYER_RIGHT_PATTERN.matcher(playerText);
-            if (leftTeamPlayerMatcher.find()) {
-                String team = leftTeamPlayerMatcher.group(1).trim();
-                String playerName = leftTeamPlayerMatcher.group(2).trim();
-                playerTeamCache.put(playerName, team);
-                tourPlayers.add(new TourPlayer(playerName, team, null));
-            } else if (rightTeamPlayerMatcher.find()) {
-                String playerName = rightTeamPlayerMatcher.group(1).trim();
-                String team = rightTeamPlayerMatcher.group(2).trim();
-                tourPlayers.add(new TourPlayer(playerName, team, null));
-                playerTeamCache.put(playerName, team);
+        tourPlayers.add(extractLeftTourPlayer(players[0]));
+        tourPlayers.add(extractRightTourPlayer(players[1]));
+
+        return tourPlayers;
+    }
+
+    private TourPlayer extractLeftTourPlayer(String playerText) {
+        Matcher leftTeamPlayerMatcher = TEAM_PLAYER_LEFT_PATTERN.matcher(playerText);
+        Matcher rightTeamPlayerMatcher = TEAM_PLAYER_RIGHT_PATTERN.matcher(playerText);
+
+        if (leftTeamPlayerMatcher.find()) {
+            return extractLeftPlayer(leftTeamPlayerMatcher);
+        } else if (rightTeamPlayerMatcher.find()) {
+            // maybe text format is incorrect
+            return extractRightPlayer(rightTeamPlayerMatcher);
+        } else {
+            String playerName = playerText.trim();
+            if (playerTeamCache.containsKey(playerName)) {
+                return new TourPlayer(playerName.toLowerCase(), playerTeamCache.get(playerName), null);
             } else {
-                String playerName = playerText.trim();
-                if (playerTeamCache.containsKey(playerName)) {
-                    tourPlayers.add(new TourPlayer(playerName, playerTeamCache.get(playerName), null));
-                } else {
-                    log.warn("player {} has no team?", playerText);
-                    tourPlayers.add(new TourPlayer(playerText.trim(), null, null));
-                }
+                log.warn("player {} has no team?", playerText);
+                return new TourPlayer(playerText.trim().toLowerCase(), null, null);
             }
         }
-        return tourPlayers;
+    }
+
+    private TourPlayer extractRightTourPlayer(String playerText) {
+        Matcher leftTeamPlayerMatcher = TEAM_PLAYER_LEFT_PATTERN.matcher(playerText);
+        Matcher rightTeamPlayerMatcher = TEAM_PLAYER_RIGHT_PATTERN.matcher(playerText);
+
+        if (rightTeamPlayerMatcher.find()) {
+            return extractRightPlayer(rightTeamPlayerMatcher);
+        } else if (leftTeamPlayerMatcher.find()) {
+            // maybe text format is incorrect
+            return extractLeftPlayer(leftTeamPlayerMatcher);
+        } else {
+            String playerName = playerText.trim();
+            if (playerTeamCache.containsKey(playerName)) {
+                return new TourPlayer(playerName.toLowerCase(), playerTeamCache.get(playerName), null);
+            } else {
+                log.warn("player {} has no team?", playerText);
+                return new TourPlayer(playerText.trim().toLowerCase(), null, null);
+            }
+        }
+    }
+
+    private TourPlayer extractRightPlayer(Matcher rightTeamPlayerMatcher) {
+        String playerName = rightTeamPlayerMatcher.group(1).trim();
+        String team = rightTeamPlayerMatcher.group(2).trim();
+        playerTeamCache.put(playerName.toLowerCase(), team);
+        return new TourPlayer(playerName.toLowerCase(), team, null);
+    }
+
+    private TourPlayer extractLeftPlayer(Matcher leftTeamPlayerMatcher) {
+        String team = leftTeamPlayerMatcher.group(1).trim();
+        String playerName = leftTeamPlayerMatcher.group(2).trim();
+        playerTeamCache.put(playerName.toLowerCase(), team);
+        return new TourPlayer(playerName.toLowerCase(), team, null);
     }
 
     private boolean isTB(Element replayContent) {

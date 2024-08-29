@@ -7,7 +7,9 @@
 package com.mimosa.deeppokemon.entity.tour;
 
 import com.mimosa.deeppokemon.entity.BattleTeam;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document("tour_team")
 public class TourTeam extends BattleTeam {
     protected String tourId;
     protected String stage;

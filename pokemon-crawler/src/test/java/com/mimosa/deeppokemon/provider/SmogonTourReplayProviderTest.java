@@ -13,6 +13,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
@@ -38,6 +39,7 @@ class SmogonTourReplayProviderTest {
         try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
             Connection connection = Mockito.mock(Connection.class);
             mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
             Mockito.doReturn(document).when(connection).get();
 
              smogonTourReplayProvider =

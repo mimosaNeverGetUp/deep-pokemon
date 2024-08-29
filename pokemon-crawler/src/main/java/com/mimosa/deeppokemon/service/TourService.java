@@ -10,15 +10,25 @@ import com.mimosa.deeppokemon.crawler.ReplayBattleCrawler;
 import com.mimosa.deeppokemon.crawler.SmogonTourReplayBattleCrawler;
 import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.tour.Tour;
 import com.mimosa.deeppokemon.provider.SmogonTourReplayProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 @Service
 public class TourService {
+    private static final Logger log = LoggerFactory.getLogger(TourService.class);
+
     protected static final String GEN_9_OU = "gen9ou";
     protected static final String WCOP_2024_FULL_TOUR_NAME = "The World Cup of Pokémon 2024";
     protected static final String WCOP_2024_REPLAY_URL =
@@ -47,7 +57,40 @@ public class TourService {
                 forumsThreadSuffixStages);
         SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler, winPlayerExtractor);
         CompletableFuture<List<Battle>> future = battleService.crawBattle(provider, crawler, false);
-        return future.join();
+
+        List<Battle> battles = future.join();
+
+        if (!battles.isEmpty()) {
+            updateTour(tourName, format);
+            updatePlayerRecord(tourName, format);
+        } else {
+            log.error("craw empty battle of {}", tourName);
+        }
+
+        return battles;
+    }
+
+    private void updateTour(String tourName, String format) {
+        Tour tour = mongoTemplate.findById(tourName, Tour.class);
+        if (tour == null) {
+            tour = new Tour();
+            tour.setId(tourName);
+            tour.setTires(Collections.singletonList(format));
+            mongoTemplate.insert(tour);
+        } else {
+            Set<String> tiers = new HashSet<>(tour.getTires());
+            if (tiers.add(format)) {
+                // update new craw tier
+                tour.setTires(tiers.stream().toList());
+                mongoTemplate.save(tour);
+            }
+        }
+    }
+
+    private void updatePlayerRecord(String tourName, String format) {
+        Criteria criteria = Criteria.where("tourId").is(tourName)
+                .and("format").is(format);
+        new Query(criteria);
     }
 
     public List<Battle> crawWcop2024() {

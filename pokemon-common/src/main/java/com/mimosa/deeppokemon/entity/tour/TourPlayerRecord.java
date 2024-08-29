@@ -14,9 +14,9 @@ public class TourPlayerRecord {
     @MongoId
     protected String id;
     protected String name;
+    protected String format;
     protected String team;
     protected String tourId;
-    protected String format;
     protected int total;
     protected int win;
     protected int loss;

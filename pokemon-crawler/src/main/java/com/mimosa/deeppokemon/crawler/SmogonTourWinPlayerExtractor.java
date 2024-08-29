@@ -19,7 +19,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.server.ServerErrorException;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -62,7 +65,8 @@ public class SmogonTourWinPlayerExtractor {
         if (tourPlayers == null || tourPlayers.size() < 2) {
             throw new IllegalArgumentException("valid tour player list");
         }
-        BattleMatch battleMatch = new BattleMatch(tourPlayers.get(0).getName(), tourPlayers.get(1).getName());
+        BattleMatch battleMatch = new BattleMatch(tourPlayers.get(0).getName(),
+                tourPlayers.get(1).getName());
         if (!battleWinMap.containsKey(stage)) {
             log.info("can not find battle match for {}", stage);
             return null;
@@ -163,71 +167,31 @@ public class SmogonTourWinPlayerExtractor {
     }
 
     private Map<BattleMatch, String> getBattleWinner(Element matchDoc) {
-        List<BattleMatch> battleMatches = getBattleMatch(matchDoc);
-        if (battleMatches.isEmpty()) {
-            return Collections.emptyMap();
-        }
-
-        Elements boldElements = matchDoc.select("b");
-        List<String> boldStrings = new ArrayList<>();
-        for (Element boldElement : boldElements) {
-            boldStrings.add(boldElement.text());
-        }
-
         Map<BattleMatch, String> battleWinner = new HashMap<>();
-        int offset = 0;
-        for (int i = 0; i < battleMatches.size(); i++) {
-            BattleMatch battleMatch = battleMatches.get(i);
-            // get first match offset
-            int result = getFirstMatchOffset(battleMatch, boldStrings, offset);
-            if (result < 0) {
-                log.error("can no find first battle match {} winner", battleMatch);
-                // no match,maybe no game is not play
-                continue;
-            }
 
-            offset = result;
-            String player = boldStrings.get(offset);
-            if (!StringUtils.equals(battleMatch.firstPlayer(), player) &&
-                    !StringUtils.equals(battleMatch.secondPlayer(), player)) {
-                log.error("can no match battle match {} and winner {}", battleMatches, player);
-                throw new ServerErrorException("can no match battle match and winner", null);
-            }
-            battleWinner.put(battleMatch, player);
-        }
-        return battleWinner;
-    }
-
-    private int getFirstMatchOffset(BattleMatch battleMatch, List<String> boldStrings, int start) {
-        for (int i = start; i < boldStrings.size(); i++) {
-            String boldString = boldStrings.get(i);
-            if (StringUtils.equals(battleMatch.firstPlayer(), boldString) ||
-                    StringUtils.equals(battleMatch.secondPlayer(), boldString)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    private List<BattleMatch> getBattleMatch(Element matchDoc) {
         List<String> didNotPlayers = getDidNotPlay(matchDoc);
         Elements hrefs = matchDoc.select("a");
         String firstPlayerName = null;
-        Set<BattleMatch> battleMatches = new LinkedHashSet<>();
+        String winnerName = null;
         for (Element href : hrefs) {
             if (!isSmogonPlayerHref(href, didNotPlayers)) {
                 continue;
             }
 
-            String playerName = href.text();
+            String playerName = href.text().trim().toLowerCase();
+            if (!href.select("b").isEmpty()) {
+                // winner is bold text
+                winnerName = playerName;
+            }
             if (firstPlayerName == null) {
                 firstPlayerName = playerName;
             } else {
-                battleMatches.add(new BattleMatch(firstPlayerName, playerName));
+                BattleMatch battleMatch = new BattleMatch(firstPlayerName, playerName);
+                battleWinner.put(battleMatch, winnerName);
                 firstPlayerName = null;
             }
         }
-        return battleMatches.stream().toList();
+        return battleWinner;
     }
 
     private boolean isSmogonPlayerHref(Element href, List<String> didNotPlayers) {

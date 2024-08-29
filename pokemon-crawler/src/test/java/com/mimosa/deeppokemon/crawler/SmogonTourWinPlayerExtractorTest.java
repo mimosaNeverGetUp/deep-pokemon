@@ -13,6 +13,7 @@ import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
@@ -31,35 +32,117 @@ class SmogonTourWinPlayerExtractorTest {
     @Value("classpath:api/2024WcopSemifinalsPage4.html")
     private Resource semifinalsPage4Resource;
 
+    @Value("classpath:api/2024WcopQualifiers.html")
+    private Resource qualifiersResource;
+
+    @Value("classpath:api/2024WcopQualifiersPage11.html")
+    private Resource qualifiersPage11Resource;
+
+    @Value("classpath:api/2024WcopRound1.html")
+    private Resource round1Resource;
+
+    @Value("classpath:api/2024WcopRound1Page17.html")
+    private Resource round1Page17Resource;
+
+
     @Test
-    void getWinSmogonPlayer() throws IOException {
+    void getSemiWinSmogonPlayer() throws IOException {
         String tourForumsUrl = "http1s://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
         Document forumDoc = Jsoup.parse(forumsResource.getFile());
         Document semiFinalDoc = Jsoup.parse(semifinalsResource.getFile());
         Document semiFinalPage4Doc = Jsoup.parse(semifinalsPage4Resource.getFile());
         try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
             Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
             Mockito.when(connection.get()).thenReturn(forumDoc, semiFinalDoc, semiFinalPage4Doc);
 
-            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
             SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "The World Cup of Pokémon 2024",
                     List.of("Semifinals"));
 
-
-            assertWinner(extractor, "Semifinals", "DripLegend", "TheFranklin", "TheFranklin");
-            assertWinner(extractor, "Semifinals", "Lily", "kythr", "kythr");
-            assertWinner(extractor, "Semifinals", "Highv0ltag3", "S1nn0hC0nfirm3d", "Highv0ltag3");
-            assertWinner(extractor, "Semifinals", "Twixtry", "zioziotrip", "Twixtry");
-            assertWinner(extractor, "Semifinals", "Eeveeto", "oldspicemike", "Eeveeto");
-            assertWinner(extractor, "Semifinals", "ima", "zS", "zS");
-            assertWinner(extractor, "Semifinals", "shiloh", "Pais", "shiloh");
-            assertWinner(extractor, "Semifinals", "PZZ", "Kebab mlml", "Kebab mlml");
-            assertWinner(extractor, "Semifinals", "Niko", "Vert", "Vert");
-            assertWinner(extractor, "Semifinals TB", "Twixtry", "Tace", "Tace");
-            assertWinner(extractor, "Semifinals TB", "Luthier", "Larry", "Luthier");
+            assertWinner(extractor, "Semifinals", "driplegend", "thefranklin", "thefranklin");
+            assertWinner(extractor, "Semifinals", "lily", "kythr", "kythr");
+            assertWinner(extractor, "Semifinals", "highv0ltag3", "s1nn0hc0nfirm3d", "highv0ltag3");
+            assertWinner(extractor, "Semifinals", "twixtry", "zioziotrip", "twixtry");
+            assertWinner(extractor, "Semifinals", "eeveeto", "oldspicemike", "eeveeto");
+            assertWinner(extractor, "Semifinals", "ima", "zs", "zs");
+            assertWinner(extractor, "Semifinals", "shiloh", "pais", "shiloh");
+            assertWinner(extractor, "Semifinals", "pzz", "kebab mlml", "kebab mlml");
+            assertWinner(extractor, "Semifinals", "niko", "vert", "vert");
+            assertWinner(extractor, "Semifinals TB", "twixtry", "tace", "tace");
+            assertWinner(extractor, "Semifinals TB", "luthier", "larry", "luthier");
         }
     }
 
+    @Test
+    void getQualifiersWinSmogonPlayer() throws IOException {
+        String tourForumsUrl = "http1s://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
+        Document forumDoc = Jsoup.parse(forumsResource.getFile());
+        Document qualifiersDoc = Jsoup.parse(qualifiersResource.getFile());
+        Document qualifiersPage11Doc = Jsoup.parse(qualifiersPage11Resource.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(forumDoc, qualifiersDoc, qualifiersPage11Doc);
+
+            SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "The World Cup of Pokémon 2024",
+                    List.of("Qualifiers"));
+
+            assertWinner(extractor, "Qualifiers Round 2", "liones", "calambrito", "liones");
+            assertWinner(extractor, "Qualifiers Round 2", "feen", "crinchy costanza", "crinchy costanza");
+            assertWinner(extractor, "Qualifiers Round 2", "ferenia", "keshba54", "keshba54");
+            assertWinner(extractor, "Qualifiers Round 2", "gtcha", "l lawliet", "gtcha");
+            assertWinner(extractor, "Qualifiers", "yves stone", "cscl", "yves stone");
+            assertWinner(extractor, "Qualifiers", "zoyotte", "acr1", "acr1");
+            assertWinner(extractor, "Qualifiers", "leo", "lokifan", "leo");
+            assertWinner(extractor, "Qualifiers", "acr1", "devin", "devin");
+            assertWinner(extractor, "Qualifiers", "haxlolo", "chaos23333", "chaos23333");
+            assertWinner(extractor, "Qualifiers", "devin", "darkman64", "darkman64");
+            assertWinner(extractor, "Qualifiers", "mimikyu stardust", "sieeeffmon", "mimikyu stardust");
+            assertWinner(extractor, "Qualifiers", "dhrabb", "pan.", "dhrabb");
+            assertWinner(extractor, "Qualifiers", "potatochan", "glfgno7", "potatochan");
+            assertWinner(extractor, "Qualifiers", "mncmt", "skc44", "skc44");
+            assertWinner(extractor, "Qualifiers", "chaos23333", "mako", "chaos23333");
+            assertWinner(extractor, "Qualifiers", "bbeeaa", "ravenna", "bbeeaa");
+            assertWinner(extractor, "Qualifiers", "mashin sentai", "lityl", "mashin sentai");
+        }
+    }
+
+    @Test
+    void getRound1WinSmogonPlayer() throws IOException {
+        String tourForumsUrl = "http1s://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
+        Document forumDoc = Jsoup.parse(forumsResource.getFile());
+        Document r1Doc = Jsoup.parse(round1Resource.getFile());
+        Document r1Page17Doc = Jsoup.parse(round1Page17Resource.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(forumDoc, r1Doc, r1Page17Doc);
+
+            SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "The World Cup of Pokémon 2024",
+                    List.of("Round 1"));
+
+            assertWinner(extractor, "Round 1 TB", "raptor", "gxe", "raptor");
+            assertWinner(extractor, "Round 1 TB", "raptor", "lax", "raptor");
+            assertWinner(extractor, "Round 1 TB", "aesf", "lax", "lax");
+            assertWinner(extractor, "Round 1", "raceding", "uxilon", "raceding");
+            assertWinner(extractor, "Round 1", "uxilon", "mimikyu stardust", "uxilon");
+            assertWinner(extractor, "Round 1", "mimikyu stardust", "thiago nunes", "mimikyu stardust");
+            assertWinner(extractor, "Round 1", "trogba trogba", "ak", "trogba trogba");
+            assertWinner(extractor, "Round 1", "trosko", "lily", "lily");
+            assertWinner(extractor, "Round 1", "lily", "hellom", "hellom");
+            assertWinner(extractor, "Round 1", "mister mclovin", "maverick shooters", "maverick shooters");
+            assertWinner(extractor, "Round 1", "hi.naming is hard", "dhrabb", "hi.naming is hard");
+            assertWinner(extractor, "Round 1", "hi.naming is hard", "yves stone", "yves stone");
+            assertWinner(extractor, "Round 1", "soulwind", "ima", "soulwind");
+            assertWinner(extractor, "Round 1", "fant'sy beast", "kaif", "fant'sy beast");
+            assertWinner(extractor, "Round 1", "ahsan-219", "3d", "ahsan-219");
+            assertWinner(extractor, "Round 1", "drifting", "zioziotrip", "zioziotrip");
+            assertWinner(extractor, "Round 1", "soulwind", "insult", "insult");
+        }
+    }
 
     void assertWinner(SmogonTourWinPlayerExtractor extractor, String stage, String firstPlayer, String secondPlayer,
                       String winner) {

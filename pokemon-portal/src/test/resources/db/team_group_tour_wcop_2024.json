@@ -1,0 +1,1593 @@
+[{
+  "_id": {
+    "$binary": {
+      "base64": "MDE5OTAyMjcwNDcyMDQ5MTA5MzQwOTg0",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1716048000000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.5"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "0"
+  },
+  "pokemons": [
+    {
+      "name": "Gliscor"
+    },
+    {
+      "name": "Darkrai",
+      "teraType": "Poison"
+    },
+    {
+      "name": "Skarmory"
+    },
+    {
+      "name": "Great Tusk"
+    },
+    {
+      "name": "Slowking-Galar"
+    },
+    {
+      "name": "Garganacl"
+    }
+  ],
+  "tagSet": [
+    "STAFF",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-768638_0",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Qualifiers",
+      "player": {
+        "name": "juseth sepulveda",
+        "team": "VEN",
+        "id": "The World Cup of Pokémon 2024_gen9ou_juseth sepulveda"
+      },
+      "battleId": "smogtours-gen9ou-768638",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE5OTAyMjcwNDcyMDQ5MTA5MzQwOTg0",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1716048000000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "Juseth Sepulveda",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Gliscor",
+          "moves": [
+            "Facade",
+            "Swords Dance"
+          ],
+          "item": "Toxic Orb"
+        },
+        {
+          "name": "Darkrai",
+          "moves": [
+            "Dark Pulse",
+            "Knock Off",
+            "Sludge Bomb"
+          ],
+          "item": "Heavy-Duty Boots",
+          "teraType": "Poison"
+        },
+        {
+          "name": "Skarmory",
+          "moves": [
+            "Spikes",
+            "Iron Defense",
+            "Roost",
+            "Body Press"
+          ],
+          "item": "Rocky Helmet"
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Knock Off",
+            "Rapid Spin"
+          ],
+          "item": "Leftovers"
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": [
+            "Future Sight"
+          ],
+          "item": "Assault Vest"
+        },
+        {
+          "name": "Garganacl",
+          "moves": [
+            "Stealth Rock",
+            "Salt Cure",
+            "Recover"
+          ],
+          "item": "Leftovers"
+        }
+      ],
+      "tagSet": [
+        "STAFF",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_juseth sepulveda",
+        "name": "juseth sepulveda",
+        "format": "gen9ou",
+        "team": "VEN",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "2"
+        },
+        "win": {
+          "$numberInt": "1"
+        },
+        "loss": {
+          "$numberInt": "1"
+        },
+        "winDif": {
+          "$numberInt": "0"
+        },
+        "winRate": {
+          "$numberDouble": "0.5"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE0OTAzODYwNjQ1MDczMDA4MTUwOTgz",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1717257600000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "2"
+  },
+  "pokemons": [
+    {
+      "name": "Primarina"
+    },
+    {
+      "name": "Kingambit"
+    },
+    {
+      "name": "Deoxys-Speed"
+    },
+    {
+      "name": "Landorus-Therian"
+    },
+    {
+      "name": "Cinderace"
+    },
+    {
+      "name": "Dragonite",
+      "teraType": "Flying"
+    }
+  ],
+  "tagSet": [
+    "ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-771759_1",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Round 1",
+      "player": {
+        "name": "yovan33321",
+        "team": "AFR",
+        "id": "The World Cup of Pokémon 2024_gen9ou_yovan33321"
+      },
+      "battleId": "smogtours-gen9ou-771759",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0OTAzODYwNjQ1MDczMDA4MTUwOTgz",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1717257600000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "yovan33321",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Primarina",
+          "moves": [
+            "Surf"
+          ]
+        },
+        {
+          "name": "Kingambit",
+          "moves": [
+            "Iron Head"
+          ],
+          "item": "Air Balloon"
+        },
+        {
+          "name": "Deoxys-Speed",
+          "moves": [
+            "Ice Beam",
+            "Psycho Boost",
+            "Knock Off"
+          ],
+          "item": "Eject Pack"
+        },
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "U-turn",
+            "Stealth Rock",
+            "Earth Power"
+          ],
+          "item": "Rocky Helmet"
+        },
+        {
+          "name": "Cinderace",
+          "moves": [
+            "U-turn",
+            "Pyro Ball"
+          ]
+        },
+        {
+          "name": "Dragonite",
+          "moves": [
+            "Tera Blast"
+          ],
+          "teraType": "Flying"
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_yovan33321",
+        "name": "yovan33321",
+        "format": "gen9ou",
+        "team": "AFR",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "6"
+        },
+        "win": {
+          "$numberInt": "4"
+        },
+        "loss": {
+          "$numberInt": "2"
+        },
+        "winDif": {
+          "$numberInt": "2"
+        },
+        "winRate": {
+          "$numberDouble": "0.6666666865348816"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDQ5MTA2NDUwOTgzMDk5MDA5OTQxMDA1",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1714838400000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.5"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "0"
+  },
+  "pokemons": [
+    {
+      "name": "Landorus-Therian"
+    },
+    {
+      "name": "Darkrai"
+    },
+    {
+      "name": "Iron Treads"
+    },
+    {
+      "name": "Iron Moth"
+    },
+    {
+      "name": "Roaring Moon"
+    },
+    {
+      "name": "Kingambit",
+      "teraType": "Ghost"
+    }
+  ],
+  "tagSet": [
+    "BALANCE_ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-765469_1",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Qualifiers",
+      "player": {
+        "name": "luirromen",
+        "team": "LA",
+        "id": "The World Cup of Pokémon 2024_gen9ou_luirromen"
+      },
+      "battleId": "smogtours-gen9ou-765469",
+      "teamId": {
+        "$binary": {
+          "base64": "MDQ5MTA2NDUwOTgzMDk5MDA5OTQxMDA1",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1714838400000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "Luirromen",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "U-turn",
+            "Psychic"
+          ],
+          "item": "Rocky Helmet"
+        },
+        {
+          "name": "Darkrai",
+          "moves": [
+            "Ice Beam"
+          ]
+        },
+        {
+          "name": "Iron Treads",
+          "moves": [
+            "Earthquake",
+            "Rapid Spin"
+          ],
+          "item": "Booster Energy"
+        },
+        {
+          "name": "Iron Moth",
+          "moves": [],
+          "item": "Booster Energy"
+        },
+        {
+          "name": "Roaring Moon",
+          "moves": [],
+          "item": "Booster Energy"
+        },
+        {
+          "name": "Kingambit",
+          "moves": [
+            "Iron Head"
+          ],
+          "item": "Leftovers",
+          "teraType": "Ghost"
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_luirromen",
+        "name": "luirromen",
+        "format": "gen9ou",
+        "team": "LA",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "2"
+        },
+        "win": {
+          "$numberInt": "1"
+        },
+        "loss": {
+          "$numberInt": "1"
+        },
+        "winDif": {
+          "$numberInt": "0"
+        },
+        "winRate": {
+          "$numberDouble": "0.5"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDUwMzA3NDgwODIzMDkwNTA5MzQwOTg0",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1719504000000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.5"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "0"
+  },
+  "pokemons": [
+    {
+      "name": "Samurott-Hisui"
+    },
+    {
+      "name": "Toxapex"
+    },
+    {
+      "name": "Enamorus"
+    },
+    {
+      "name": "Great Tusk"
+    },
+    {
+      "name": "Garganacl",
+      "teraType": "Grass"
+    },
+    {
+      "name": "Corviknight"
+    }
+  ],
+  "tagSet": [
+    "UNPOPULAR",
+    "BALANCE"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-776966_1",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Quarterfinals",
+      "player": {
+        "name": "drifting",
+        "id": "The World Cup of Pokémon 2024_gen9ou_drifting"
+      },
+      "battleId": "smogtours-gen9ou-776966",
+      "teamId": {
+        "$binary": {
+          "base64": "MDUwMzA3NDgwODIzMDkwNTA5MzQwOTg0",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1719504000000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "OCN HOMELANDER",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Ceaseless Edge"
+          ],
+          "item": "Heavy-Duty Boots"
+        },
+        {
+          "name": "Toxapex",
+          "moves": [
+            "Surf",
+            "Sludge Bomb"
+          ]
+        },
+        {
+          "name": "Enamorus",
+          "moves": [
+            "Moonblast"
+          ],
+          "item": "Leftovers"
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Stealth Rock",
+            "Headlong Rush"
+          ],
+          "item": "Rocky Helmet"
+        },
+        {
+          "name": "Garganacl",
+          "moves": [
+            "Earthquake",
+            "Salt Cure",
+            "Recover"
+          ],
+          "item": "Leftovers",
+          "teraType": "Grass"
+        },
+        {
+          "name": "Corviknight",
+          "moves": [
+            "Bulk Up",
+            "Roost",
+            "Drill Peck"
+          ],
+          "item": "Leftovers"
+        }
+      ],
+      "tagSet": [
+        "UNPOPULAR",
+        "BALANCE"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_drifting",
+        "name": "drifting",
+        "format": "gen9ou",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "4"
+        },
+        "win": {
+          "$numberInt": "2"
+        },
+        "loss": {
+          "$numberInt": "2"
+        },
+        "winDif": {
+          "$numberInt": "0"
+        },
+        "winRate": {
+          "$numberDouble": "0.5"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE5OTA1MDMwNjQxMDg4OTA5ODQxMDAw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1717776000000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "-1"
+  },
+  "pokemons": [
+    {
+      "name": "Great Tusk"
+    },
+    {
+      "name": "Samurott-Hisui"
+    },
+    {
+      "name": "Zamazenta-*"
+    },
+    {
+      "name": "Tornadus-Therian"
+    },
+    {
+      "name": "Slowking-Galar"
+    },
+    {
+      "name": "Gholdengo",
+      "teraType": "Fairy"
+    }
+  ],
+  "tagSet": [
+    "UNPOPULAR",
+    "BALANCE"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-772693_0",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Round 1",
+      "player": {
+        "name": "trosko",
+        "team": "SPA",
+        "id": "The World Cup of Pokémon 2024_gen9ou_trosko"
+      },
+      "battleId": "smogtours-gen9ou-772693",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE5OTA1MDMwNjQxMDg4OTA5ODQxMDAw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1717776000000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "Trosko",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Ceaseless Edge"
+          ]
+        },
+        {
+          "name": "Zamazenta-*",
+          "moves": [
+            "Iron Defense"
+          ]
+        },
+        {
+          "name": "Tornadus-Therian",
+          "moves": [
+            "U-turn",
+            "Taunt",
+            "Bleakwind Storm",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": [
+            "Chilly Reception",
+            "Future Sight",
+            "Sludge Bomb"
+          ]
+        },
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Shadow Ball",
+            "Nasty Plot"
+          ],
+          "teraType": "Fairy"
+        }
+      ],
+      "tagSet": [
+        "UNPOPULAR",
+        "BALANCE"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_trosko",
+        "name": "trosko",
+        "format": "gen9ou",
+        "team": "SPA",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "3"
+        },
+        "win": {
+          "$numberInt": "1"
+        },
+        "loss": {
+          "$numberInt": "2"
+        },
+        "winDif": {
+          "$numberInt": "-1"
+        },
+        "winRate": {
+          "$numberDouble": "0.3333333432674408"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDM4MTA1MDMwNjQ1MDgxMjEwMDAxMDIw",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1717948800000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.0"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "-2"
+  },
+  "pokemons": [
+    {
+      "name": "Latios",
+      "teraType": "Steel"
+    },
+    {
+      "name": "Gholdengo"
+    },
+    {
+      "name": "Gouging Fire"
+    },
+    {
+      "name": "Samurott-Hisui"
+    },
+    {
+      "name": "Rillaboom"
+    },
+    {
+      "name": "Landorus-Therian"
+    }
+  ],
+  "tagSet": [
+    "BALANCE_ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-773488_0",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Round 1",
+      "player": {
+        "name": "plunder",
+        "team": "ASI",
+        "id": "The World Cup of Pokémon 2024_gen9ou_plunder"
+      },
+      "battleId": "smogtours-gen9ou-773488",
+      "teamId": {
+        "$binary": {
+          "base64": "MDM4MTA1MDMwNjQ1MDgxMjEwMDAxMDIw",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1717948800000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "plunder",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Latios",
+          "moves": [
+            "Aura Sphere",
+            "Draco Meteor",
+            "Recover",
+            "Psychic Noise"
+          ],
+          "teraType": "Steel"
+        },
+        {
+          "name": "Gholdengo",
+          "moves": [
+            "Trick",
+            "Make It Rain",
+            "Recover"
+          ],
+          "item": "Choice Scarf"
+        },
+        {
+          "name": "Gouging Fire",
+          "moves": [
+            "Dragon Dance",
+            "Flare Blitz",
+            "Morning Sun"
+          ],
+          "item": "Heavy-Duty Boots"
+        },
+        {
+          "name": "Samurott-Hisui",
+          "moves": [
+            "Ceaseless Edge",
+            "Knock Off"
+          ]
+        },
+        {
+          "name": "Rillaboom",
+          "moves": [
+            "High Horsepower"
+          ]
+        },
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "U-turn",
+            "Stealth Rock",
+            "Taunt"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_plunder",
+        "name": "plunder",
+        "format": "gen9ou",
+        "team": "ASI",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "2"
+        },
+        "win": {
+          "$numberInt": "0"
+        },
+        "loss": {
+          "$numberInt": "2"
+        },
+        "winDif": {
+          "$numberInt": "-2"
+        },
+        "winRate": {
+          "$numberDouble": "0.0"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDAzNjAxOTkwNDYxMDQ3MjA2NDYwODg5",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1718208000000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "1"
+  },
+  "pokemons": [
+    {
+      "name": "Kyurem"
+    },
+    {
+      "name": "Gliscor"
+    },
+    {
+      "name": "Slowking-Galar"
+    },
+    {
+      "name": "Zamazenta-*",
+      "teraType": "Fire"
+    },
+    {
+      "name": "Clefable"
+    },
+    {
+      "name": "Weavile"
+    }
+  ],
+  "tagSet": [
+    "UNPOPULAR",
+    "BALANCE"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-774074_1",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Round 1",
+      "player": {
+        "name": "antonazz",
+        "team": "FRA",
+        "id": "The World Cup of Pokémon 2024_gen9ou_antonazz"
+      },
+      "battleId": "smogtours-gen9ou-774074",
+      "teamId": {
+        "$binary": {
+          "base64": "MDAzNjAxOTkwNDYxMDQ3MjA2NDYwODg5",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1718208000000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "Antonazz",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Ice Beam"
+          ],
+          "item": "Heavy-Duty Boots"
+        },
+        {
+          "name": "Gliscor",
+          "moves": [
+            "Spikes",
+            "U-turn"
+          ],
+          "item": "Toxic Orb"
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": [
+            "Chilly Reception",
+            "Psyshock",
+            "Flamethrower"
+          ],
+          "item": "Heavy-Duty Boots"
+        },
+        {
+          "name": "Zamazenta-*",
+          "moves": [
+            "Crunch",
+            "Body Press"
+          ],
+          "item": "Leftovers",
+          "teraType": "Fire"
+        },
+        {
+          "name": "Clefable",
+          "moves": [],
+          "item": "Sticky Barb"
+        },
+        {
+          "name": "Weavile",
+          "moves": [
+            "Triple Axel",
+            "Knock Off"
+          ],
+          "item": "Heavy-Duty Boots"
+        }
+      ],
+      "tagSet": [
+        "UNPOPULAR",
+        "BALANCE"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_antonazz",
+        "name": "antonazz",
+        "format": "gen9ou",
+        "team": "FRA",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "3"
+        },
+        "win": {
+          "$numberInt": "2"
+        },
+        "loss": {
+          "$numberInt": "1"
+        },
+        "winDif": {
+          "$numberInt": "1"
+        },
+        "winRate": {
+          "$numberDouble": "0.6666666865348816"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDQ5MTA2NDUwNjQ2MDczMDEwMDAxMDIx",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1718553600000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "1"
+  },
+  "pokemons": [
+    {
+      "name": "Raging Bolt"
+    },
+    {
+      "name": "Kyurem",
+      "teraType": "Ice"
+    },
+    {
+      "name": "Landorus-Therian"
+    },
+    {
+      "name": "Gholdengo"
+    },
+    {
+      "name": "Primarina"
+    },
+    {
+      "name": "Darkrai"
+    }
+  ],
+  "tagSet": [
+    "ATTACK",
+    "UNPOPULAR"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-775027_1",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Round 1",
+      "player": {
+        "name": "kaif",
+        "team": "BAN",
+        "id": "The World Cup of Pokémon 2024_gen9ou_kaif"
+      },
+      "battleId": "smogtours-gen9ou-775027",
+      "teamId": {
+        "$binary": {
+          "base64": "MDQ5MTA2NDUwNjQ2MDczMDEwMDAxMDIx",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1718553600000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "Kaif☆彡Plays♗",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Raging Bolt",
+          "moves": [],
+          "item": "Booster Energy"
+        },
+        {
+          "name": "Kyurem",
+          "moves": [
+            "Ice Beam",
+            "Freeze-Dry"
+          ],
+          "teraType": "Ice"
+        },
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "Earth Power"
+          ]
+        },
+        {
+          "name": "Gholdengo",
+          "moves": [],
+          "item": "Air Balloon"
+        },
+        {
+          "name": "Primarina",
+          "moves": [
+            "Moonblast",
+            "Sparkling Aria"
+          ]
+        },
+        {
+          "name": "Darkrai",
+          "moves": [
+            "Sludge Bomb"
+          ]
+        }
+      ],
+      "tagSet": [
+        "ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_kaif",
+        "name": "kaif",
+        "format": "gen9ou",
+        "team": "BAN",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "5"
+        },
+        "win": {
+          "$numberInt": "3"
+        },
+        "loss": {
+          "$numberInt": "2"
+        },
+        "winDif": {
+          "$numberInt": "1"
+        },
+        "winRate": {
+          "$numberDouble": "0.6000000238418579"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDY0NTA3MjEwOTgzMDk4NDEwMDYxMDIx",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1717603200000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.25"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "-2"
+  },
+  "pokemons": [
+    {
+      "name": "Raging Bolt"
+    },
+    {
+      "name": "Landorus-Therian"
+    },
+    {
+      "name": "Great Tusk"
+    },
+    {
+      "name": "Volcanion"
+    },
+    {
+      "name": "Kingambit",
+      "teraType": "Flying"
+    },
+    {
+      "name": "Iron Valiant"
+    }
+  ],
+  "tagSet": [
+    "UNPOPULAR",
+    "ATTACK"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-772439_0",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Round 1",
+      "player": {
+        "name": "alhen",
+        "team": "EUR",
+        "id": "The World Cup of Pokémon 2024_gen9ou_alhen"
+      },
+      "battleId": "smogtours-gen9ou-772439",
+      "teamId": {
+        "$binary": {
+          "base64": "MDY0NTA3MjEwOTgzMDk4NDEwMDYxMDIx",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1717603200000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "alh3n",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Raging Bolt",
+          "moves": [
+            "Calm Mind",
+            "Dragon Pulse"
+          ]
+        },
+        {
+          "name": "Landorus-Therian",
+          "moves": [
+            "U-turn",
+            "Stealth Rock"
+          ]
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Ice Spinner",
+            "Rapid Spin"
+          ],
+          "item": "Booster Energy"
+        },
+        {
+          "name": "Volcanion",
+          "moves": [
+            "Flamethrower",
+            "Sludge Bomb"
+          ]
+        },
+        {
+          "name": "Kingambit",
+          "moves": [
+            "Kowtow Cleave",
+            "Swords Dance",
+            "Iron Head"
+          ],
+          "item": "Leftovers",
+          "teraType": "Flying"
+        },
+        {
+          "name": "Iron Valiant",
+          "moves": [
+            "Destiny Bond",
+            "Destiny Bond\n",
+            "Close Combat",
+            "Moonblast"
+          ],
+          "item": "Booster Energy"
+        }
+      ],
+      "tagSet": [
+        "BALANCE_ATTACK",
+        "UNPOPULAR"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_alhen",
+        "name": "alhen",
+        "format": "gen9ou",
+        "team": "EUR",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "4"
+        },
+        "win": {
+          "$numberInt": "1"
+        },
+        "loss": {
+          "$numberInt": "3"
+        },
+        "winDif": {
+          "$numberInt": "-2"
+        },
+        "winRate": {
+          "$numberDouble": "0.25"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "MDE0NTAxOTkwODg3MDkzNDA5ODMwOTg0",
+      "subType": "00"
+    }
+  },
+  "latestBattleDate": {
+    "$date": {
+      "$numberLong": "1717862400000"
+    }
+  },
+  "maxPlayerWinRate": {
+    "$numberDouble": "0.5"
+  },
+  "maxPlayerWinDif": {
+    "$numberInt": "0"
+  },
+  "pokemons": [
+    {
+      "name": "Kingambit"
+    },
+    {
+      "name": "Great Tusk"
+    },
+    {
+      "name": "Garganacl",
+      "teraType": "Water"
+    },
+    {
+      "name": "Dragapult"
+    },
+    {
+      "name": "Slowking-Galar"
+    },
+    {
+      "name": "Zapdos"
+    }
+  ],
+  "tagSet": [
+    "UNPOPULAR",
+    "BALANCE"
+  ],
+  "tier": "gen9ou",
+  "teams": [
+    {
+      "_id": "smogtours-gen9ou-773215_1",
+      "tourId": "The World Cup of Pokémon 2024",
+      "stage": "Round 1",
+      "player": {
+        "name": "finchinator",
+        "team": "USN",
+        "id": "The World Cup of Pokémon 2024_gen9ou_finchinator"
+      },
+      "battleId": "smogtours-gen9ou-773215",
+      "teamId": {
+        "$binary": {
+          "base64": "MDE0NTAxOTkwODg3MDkzNDA5ODMwOTg0",
+          "subType": "00"
+        }
+      },
+      "battleDate": {
+        "$date": {
+          "$numberLong": "1717862400000"
+        }
+      },
+      "battleType": [
+        "tour",
+        "The World Cup of Pokémon 2024"
+      ],
+      "rating": {
+        "$numberDouble": "0.0"
+      },
+      "playerName": "Finchinator",
+      "tier": "gen9ou",
+      "pokemons": [
+        {
+          "name": "Kingambit",
+          "moves": [
+            "Kowtow Cleave"
+          ],
+          "item": "Leftovers"
+        },
+        {
+          "name": "Great Tusk",
+          "moves": [
+            "Knock Off",
+            "Headlong Rush"
+          ],
+          "item": "Rocky Helmet"
+        },
+        {
+          "name": "Garganacl",
+          "moves": [
+            "Protect",
+            "Recover",
+            "Salt Cure"
+          ],
+          "item": "Leftovers",
+          "teraType": "Water"
+        },
+        {
+          "name": "Dragapult",
+          "moves": [
+            "Will-O-Wisp",
+            "U-turn",
+            "Hex",
+            "Draco Meteor"
+          ]
+        },
+        {
+          "name": "Slowking-Galar",
+          "moves": []
+        },
+        {
+          "name": "Zapdos",
+          "moves": [
+            "Volt Switch",
+            "Hurricane",
+            "Thunder Wave"
+          ],
+          "item": "Heavy-Duty Boots"
+        }
+      ],
+      "tagSet": [
+        "UNPOPULAR",
+        "BALANCE"
+      ],
+      "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam",
+      "playerRecord": {
+        "_id": "The World Cup of Pokémon 2024_gen9ou_finchinator",
+        "name": "finchinator",
+        "format": "gen9ou",
+        "tourId": "The World Cup of Pokémon 2024",
+        "total": {
+          "$numberInt": "4"
+        },
+        "win": {
+          "$numberInt": "2"
+        },
+        "loss": {
+          "$numberInt": "2"
+        },
+        "winDif": {
+          "$numberInt": "0"
+        },
+        "winRate": {
+          "$numberDouble": "0.5"
+        },
+        "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+      }
+    }
+  ],
+  "uniquePlayerNum": {
+    "$numberInt": "1"
+  },
+  "replayNum": {
+    "$numberInt": "1"
+  }
+}]

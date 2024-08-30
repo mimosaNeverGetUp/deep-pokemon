@@ -8,3 +8,4 @@ mongoimport --jsonArray --db test --collection monthly_stat_meta --file /docker-
 mongoimport --jsonArray --db test --collection monthly_stat_pokemon_moveset --file /docker-entrypoint-initdb.d/moveSet.json
 mongoimport --jsonArray --db test --collection monthly_stat_pokemon_usage --file /docker-entrypoint-initdb.d/usage.json
 mongoimport --jsonArray --db test --collection pokemon_set --file /docker-entrypoint-initdb.d/pokemonSet.json
+mongoimport --jsonArray --db test --collection team_group_tour_wcop_2024 --file /docker-entrypoint-initdb.d/team_group_tour_wcop_2024.json

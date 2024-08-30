@@ -67,7 +67,7 @@ public class TourService {
         List<Battle> battles = future.join();
 
         if (!battles.isEmpty()) {
-            updateTour(tourName, format);
+            updateTour(tourName, tourShortName, format);
             updatePlayerRecord(tourName, format);
             battleService.updateTeam(new TourTeamGroupDetail(String.format("team_group_tour_%s", tourShortName),
                     String.format("team_set_tour_%s", tourShortName), tourName, format));
@@ -79,7 +79,7 @@ public class TourService {
     }
 
     @RegisterReflectionForBinding(Tour.class)
-    public void updateTour(String tourName, String format) {
+    public void updateTour(String tourName, String tourShortName, String format) {
         Criteria criteria = Criteria.where(TOUR_ID).is(tourName)
                 .and(TIER).is(format);
         Tour tour = mongoTemplate.findById(tourName, Tour.class);
@@ -87,6 +87,7 @@ public class TourService {
         if (tour == null) {
             tour = new Tour();
             tour.setId(tourName);
+            tour.setShortName(tourShortName);
             tour.setTires(Collections.singletonList(format));
             tour.setTierPlayers(Collections.singletonMap(format, tierPlayers));
             mongoTemplate.insert(tour);
@@ -99,6 +100,7 @@ public class TourService {
                 tierplayersMap.putAll(tour.getTierPlayers());
             }
             tierplayersMap.put(format, tierPlayers);
+            tour.setShortName(tourShortName);
             tour.setTires(tiers.stream().toList());
             tour.setTierPlayers(tierplayersMap);
             mongoTemplate.save(tour);

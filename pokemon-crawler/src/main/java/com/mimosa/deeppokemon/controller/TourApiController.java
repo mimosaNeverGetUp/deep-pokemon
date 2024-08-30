@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/tour")
 public class TourApiController {
     protected static final String THE_WORLD_CUP_OF_POKEMON_2024 = "The World Cup of Pokémon 2024";
+    protected static final String WCOP_2024 = "wcop_2024";
     private final TourService tourService;
     private final BattleService battleService;
 
@@ -40,7 +41,7 @@ public class TourApiController {
 
     @PostMapping("/wcop2024/player/update")
     public boolean updateWcop2024TierPlayer(@RequestParam("format") String format) {
-        tourService.updateTour(THE_WORLD_CUP_OF_POKEMON_2024, format);
+        tourService.updateTour(THE_WORLD_CUP_OF_POKEMON_2024, WCOP_2024, format);
         return true;
     }
 

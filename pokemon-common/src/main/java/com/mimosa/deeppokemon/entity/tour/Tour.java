@@ -16,6 +16,7 @@ import java.util.Map;
 public class Tour {
     @MongoId
     protected String id;
+    protected String shortName;
     protected List<String> tires;
     protected List<String> teams;
     protected Map<String, List<String>> tierPlayers;
@@ -26,6 +27,14 @@ public class Tour {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 
     public List<String> getTires() {

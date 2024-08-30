@@ -6,3 +6,5 @@ mongoimport --jsonArray --db test --collection monthly_stat_meta --file /docker-
 mongoimport --jsonArray --db test --collection monthly_stat_pokemon_moveset --file /docker-entrypoint-initdb.d/moveSet.json
 mongoimport --jsonArray --db test --collection monthly_stat_pokemon_usage --file /docker-entrypoint-initdb.d/usage.json
 mongoimport --jsonArray --db test --collection pokemon_set --file /docker-entrypoint-initdb.d/pokemonSet.json
+mongoimport --jsonArray --db test --collection tour_team --file /docker-entrypoint-initdb.d/tour_team.json
+mongoimport --jsonArray --db test --collection tour_player_record --file /docker-entrypoint-initdb.d/tour_player_record.json

@@ -80,6 +80,7 @@ class SmogonTourReplayBattleCrawlerTest {
 
         assertNotNull(tourBattle);
         assertNotNull(tourBattle.getBattleID());
+        assertNotNull(tourBattle.getFormat());
         assertNotNull(tourBattle.getDate());
         assertEquals("a1", tourBattle.getWinner());
         assertEquals("log", tourBattle.getLog());

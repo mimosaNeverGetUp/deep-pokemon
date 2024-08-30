@@ -10,10 +10,7 @@ import com.mimosa.deeppokemon.crawler.ReplayBattleCrawler;
 import com.mimosa.deeppokemon.crawler.SmogonTourReplayBattleCrawler;
 import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.tour.Tour;
-import com.mimosa.deeppokemon.entity.tour.TourBattle;
-import com.mimosa.deeppokemon.entity.tour.TourPlayer;
-import com.mimosa.deeppokemon.entity.tour.TourPlayerRecord;
+import com.mimosa.deeppokemon.entity.tour.*;
 import com.mimosa.deeppokemon.provider.SmogonTourReplayProvider;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -45,6 +42,7 @@ public class TourService {
             List.of("Qualifiers", "Round 1", "Quarterfinals", "Semifinals", "Finals");
     protected static final List<String> WCOP_REPLAY_STAGES =
             List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Quarterfinals", "Semifinals", "Finals");
+    protected static final String TIER = "tier";
 
     private final BattleService battleService;
     private final MongoTemplate mongoTemplate;
@@ -77,19 +75,28 @@ public class TourService {
     }
     @RegisterReflectionForBinding(Tour.class)
     public void updateTour(String tourName, String format) {
+        Criteria criteria = Criteria.where(TOUR_ID).is(tourName)
+                .and(TIER).is(format);
         Tour tour = mongoTemplate.findById(tourName, Tour.class);
+        List<String> tierPlayers = mongoTemplate.findDistinct(new Query(criteria), "player.name", TourTeam.class, String.class);
         if (tour == null) {
             tour = new Tour();
             tour.setId(tourName);
             tour.setTires(Collections.singletonList(format));
+            tour.setTierPlayers(Collections.singletonMap(format, tierPlayers));
             mongoTemplate.insert(tour);
         } else {
             Set<String> tiers = new HashSet<>(tour.getTires());
-            if (tiers.add(format)) {
-                // update new craw tier
-                tour.setTires(tiers.stream().toList());
-                mongoTemplate.save(tour);
+            Map<String, List<String>> tierplayersMap = new HashMap<>();
+
+            tiers.add(format);
+            if (tour.getTierPlayers() != null) {
+                tierplayersMap.putAll(tour.getTierPlayers());
             }
+            tierplayersMap.put(format, tierPlayers);
+            tour.setTires(tiers.stream().toList());
+            tour.setTierPlayers(tierplayersMap);
+            mongoTemplate.save(tour);
         }
     }
 

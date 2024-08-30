@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.List;
+import java.util.Map;
 
 @Document("tour")
 public class Tour {
@@ -17,6 +18,7 @@ public class Tour {
     protected String id;
     protected List<String> tires;
     protected List<String> teams;
+    protected Map<String, List<String>> tierPlayers;
 
     public String getId() {
         return id;
@@ -40,5 +42,13 @@ public class Tour {
 
     public void setTeams(List<String> teams) {
         this.teams = teams;
+    }
+
+    public Map<String, List<String>> getTierPlayers() {
+        return tierPlayers;
+    }
+
+    public void setTierPlayers(Map<String, List<String>> tierPlayers) {
+        this.tierPlayers = tierPlayers;
     }
 }

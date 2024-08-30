@@ -39,6 +39,7 @@ class SmogonTourReplayBattleCrawlerTest {
         replay.setTourPlayers(List.of(a, b));
         Battle battle = new Battle();
         battle.setBattleID(TEST_123);
+        battle.setFormat("gen9ou");
         battle.setDate(LocalDate.now());
         battle.setPlayers(List.of("a1", "b1"));
         battle.setWinner("a1");

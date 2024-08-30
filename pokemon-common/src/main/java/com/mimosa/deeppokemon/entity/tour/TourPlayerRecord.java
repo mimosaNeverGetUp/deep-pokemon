@@ -9,8 +9,10 @@ package com.mimosa.deeppokemon.entity.tour;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.io.Serializable;
+
 @Document("tour_player_record")
-public class TourPlayerRecord {
+public class TourPlayerRecord implements Serializable {
     @MongoId
     protected String id;
     protected String name;

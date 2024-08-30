@@ -12,16 +12,22 @@ import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonMoveSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonUsage;
 import com.mimosa.deeppokemon.service.StatsService;
+import com.mimosa.deeppokemon.utils.HttpProxy;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.core.io.Resource;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
@@ -42,8 +48,15 @@ class MonthlyStatCrawlerTest {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    @SpyBean
+    private HttpProxy httpProxy;
+
+    @Value("classpath:api/stat/gen9ou.json")
+    Resource monthlyBattleStatResource;
+
     @Test
-    void craw() {
+    void craw() throws IOException {
+        Mockito.doReturn(monthlyBattleStatResource.getContentAsString(StandardCharsets.UTF_8)).when(httpProxy).get(Mockito.any());
         MonthlyBattleStatDto statDto = crawler.craw("gen9ou");
         assertNotNull(statDto);
         assertNotNull(statDto.date());
@@ -75,7 +88,7 @@ class MonthlyStatCrawlerTest {
         assertNotNull(tags);
         assertFalse(tags.isEmpty());
         MonthlyBattleStatDto mock = Mockito.spy(statDto);
-        Mockito.doReturn(LocalDate.of(2024,8,9)).when(mock).date();
+        Mockito.doReturn(LocalDate.of(2024, 8, 9)).when(mock).date();
         statsService.save("gen9ou", mock);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
         String statId = formatter.format(mock.date()) + "gen9ou";

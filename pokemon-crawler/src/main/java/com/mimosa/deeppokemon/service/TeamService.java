@@ -8,6 +8,7 @@ package com.mimosa.deeppokemon.service;
 
 import com.google.common.collect.Lists;
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.tour.TourTeam;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.bson.types.Binary;
 import org.slf4j.Logger;
@@ -46,7 +47,8 @@ public class TeamService {
         this.teamTagger = teamTagger;
     }
 
-    @RegisterReflectionForBinding({TeamGroup.class, TeamSet.class, PokemonBuildSet.class})
+    @RegisterReflectionForBinding({TeamGroup.class, BattleTeam.class, TourTeam.class, TeamSet.class,
+            PokemonBuildSet.class})
     public void updateTeamSet(TeamGroupDetail teamGroupDetail) {
         List<Binary> needUpdateTeamGroup = new ArrayList<>();
 
@@ -167,7 +169,7 @@ public class TeamService {
             }
 
             if (teamSet.replayNum() < teamGroup.replayNum()
-                    || teamSet.minReplayDate().isBefore(minReplayDate)) {
+                    || (minReplayDate != null && teamSet.minReplayDate().isBefore(minReplayDate))) {
                 needUpdateTeamGroup.add(new Binary(teamGroup.id()));
             }
         }

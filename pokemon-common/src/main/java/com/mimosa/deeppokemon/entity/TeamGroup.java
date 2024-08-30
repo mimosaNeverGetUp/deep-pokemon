@@ -15,7 +15,8 @@ import java.util.List;
 import java.util.Set;
 
 @Document("team_group")
-public record TeamGroup(@MongoId byte[] id, String tier, int uniquePlayerNum, Integer replayNum, int maxRating,
+public record TeamGroup(@MongoId byte[] id, String tier, Integer uniquePlayerNum, Integer replayNum, Integer maxRating,
+                        Float maxPlayerWinRate, Integer maxPlayerWinDif,
                         List<Pokemon> pokemons, Set<Tag> tagSet, LocalDate latestBattleDate,
                         List<BattleTeam> teams) implements Serializable {
 

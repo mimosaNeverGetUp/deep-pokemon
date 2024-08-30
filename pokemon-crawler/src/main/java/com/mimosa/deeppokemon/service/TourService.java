@@ -10,6 +10,7 @@ import com.mimosa.deeppokemon.crawler.ReplayBattleCrawler;
 import com.mimosa.deeppokemon.crawler.SmogonTourReplayBattleCrawler;
 import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.TourTeamGroupDetail;
 import com.mimosa.deeppokemon.entity.tour.*;
 import com.mimosa.deeppokemon.provider.SmogonTourReplayProvider;
 import org.apache.commons.lang.StringUtils;
@@ -43,6 +44,7 @@ public class TourService {
     protected static final List<String> WCOP_REPLAY_STAGES =
             List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Quarterfinals", "Semifinals", "Finals");
     protected static final String TIER = "tier";
+    protected static final String WCOP_2024 = "wcop_2024";
 
     private final BattleService battleService;
     private final MongoTemplate mongoTemplate;
@@ -54,8 +56,8 @@ public class TourService {
         this.replayBattleCrawler = replayBattleCrawler;
     }
 
-    public List<Battle> crawTour(String tourName, String format, String replayUrl, List<String> replayStages,
-                                 String forumsUrl, List<String> forumsThreadSuffixStages) {
+    public List<Battle> crawTour(String tourName, String tourShortName, String format, String replayUrl,
+                                 List<String> replayStages, String forumsUrl, List<String> forumsThreadSuffixStages) {
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(tourName, replayUrl, format, replayStages);
         SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(forumsUrl, tourName,
                 forumsThreadSuffixStages);
@@ -67,12 +69,15 @@ public class TourService {
         if (!battles.isEmpty()) {
             updateTour(tourName, format);
             updatePlayerRecord(tourName, format);
+            battleService.updateTeam(new TourTeamGroupDetail(String.format("team_group_tour_%s", tourShortName),
+                    String.format("team_set_tour_%s", tourShortName), tourName, format));
         } else {
             log.error("craw empty battle of {}", tourName);
         }
 
         return battles;
     }
+
     @RegisterReflectionForBinding(Tour.class)
     public void updateTour(String tourName, String format) {
         Criteria criteria = Criteria.where(TOUR_ID).is(tourName)
@@ -136,7 +141,7 @@ public class TourService {
     }
 
     public List<Battle> crawWcop2024() {
-        return crawTour(WCOP_2024_FULL_TOUR_NAME, GEN_9_OU, WCOP_2024_REPLAY_URL, WCOP_REPLAY_STAGES,
+        return crawTour(WCOP_2024_FULL_TOUR_NAME, WCOP_2024, GEN_9_OU, WCOP_2024_REPLAY_URL, WCOP_REPLAY_STAGES,
                 WCOP_FORUMS_URL, WCOP_FORUMS_THREAD_SUFFIX_STAGES);
     }
 }

@@ -70,19 +70,11 @@ public class BattleService {
     private static final Logger log = LoggerFactory.getLogger(BattleService.class);
     private static final String ID = "_id";
     private static final String BATTLE = "battle";
-    protected static final String TEAM_ID = "teamId";
     protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
-    protected static final String BATTLE_DATE = "battleDate";
-    protected static final String RATING = "rating";
-    protected static final String MAX_RATING = "maxRating";
-    protected static final String POKEMONS = "pokemons";
     protected static final String TAG_SET = "tagSet";
-    protected static final String TIER = "tier";
-    protected static final String PLAYER_NAME = "playerName";
     protected static final String PLAYER_SET = "playerSet";
     protected static final String TEAMS = "teams";
     protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
-    protected static final String BATTLE_TEAM = "battle_team";
     protected static final String REPLAY_NUM = "replayNum";
     protected static final String POKEMONS_NAME = "pokemons.name";
     protected static final String TOUR_BATTLE = "tour_battle";
@@ -327,21 +319,25 @@ public class BattleService {
 
     private void ensureTeamCollectionIndex(TeamGroupDetail teamGroupDetail) {
         createIndex(teamGroupDetail.teamGroupCollectionName(), LATEST_BATTLE_DATE, Sort.Direction.DESC);
-        createIndex(teamGroupDetail.teamGroupCollectionName(), MAX_RATING, Sort.Direction.DESC);
         createIndex(teamGroupDetail.teamGroupCollectionName(), UNIQUE_PLAYER_NUM, Sort.Direction.DESC);
         createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(TAG_SET, LATEST_BATTLE_DATE),
                 Sort.Direction.DESC);
         createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(TAG_SET, UNIQUE_PLAYER_NUM),
                 Sort.Direction.DESC);
-        createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(TAG_SET, MAX_RATING),
-                Sort.Direction.DESC);
+
         createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, LATEST_BATTLE_DATE),
                 Sort.Direction.DESC);
-        createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, MAX_RATING),
-                Sort.Direction.DESC);
+
         createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, UNIQUE_PLAYER_NUM),
                 Sort.Direction.DESC);
 
+        for (String needIndexField : teamGroupDetail.getIndexFiled()) {
+            createIndex(teamGroupDetail.teamGroupCollectionName(), needIndexField, Sort.Direction.DESC);
+            createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(TAG_SET, needIndexField),
+                    Sort.Direction.DESC);
+            createCompoundIndex(teamGroupDetail.teamGroupCollectionName(), List.of(POKEMONS_NAME, needIndexField),
+                    Sort.Direction.DESC);
+        }
         createIndex(teamGroupDetail.teamSetCollectionName(), "minReplayDate", Sort.Direction.DESC);
     }
 
@@ -364,49 +360,35 @@ public class BattleService {
     }
 
     private void updateTeamGroup(TeamGroupDetail teamGroupDetail) {
-        MatchOperation matchOperation = Aggregation.match(
-                Criteria.where(BATTLE_DATE).gte(teamGroupDetail.start()).lte(teamGroupDetail.end()));
-        GroupOperation groupOperation = Aggregation.group(TEAM_ID)
-                .max(BATTLE_DATE).as(LATEST_BATTLE_DATE)
-                .max(RATING).as(MAX_RATING)
-                .first(POKEMONS).as(POKEMONS)
-                .first(TAG_SET).as(TAG_SET)
-                .first(TIER).as(TIER)
-                .addToSet(PLAYER_NAME).as(PLAYER_SET)
-                .push("$$ROOT").as(TEAMS);
-
+        List<AggregationOperation> aggregationOperations = new ArrayList<>();
+        aggregationOperations.addAll(teamGroupDetail.buildTeamGroupAggregations());
         AddFieldsOperation addFieldsOperationBuilder = Aggregation.addFields()
                 .addFieldWithValue(UNIQUE_PLAYER_NUM, ArrayOperators.arrayOf(PLAYER_SET).length())
                 .addFieldWithValue(REPLAY_NUM, ArrayOperators.arrayOf(TEAMS).length())
                 .build();
-
+        aggregationOperations.add(addFieldsOperationBuilder);
+        aggregationOperations.add(Aggregation.stage("{ $project : { 'playerSet': 0, 'pokemons.moves': 0, 'pokemons.item': 0," +
+                " 'pokemons.ability': 0 } }"));
         MergeOperation mergeOperation = Aggregation.merge()
                 .intoCollection(teamGroupDetail.teamGroupCollectionName())
-                .whenDocumentsMatch(MergeOperation.WhenDocumentsMatch.updateWith(Aggregation.newAggregation(
-                        SetOperation.set(LATEST_BATTLE_DATE).toValue("$$new.latestBattleDate")
-                                .and().set(MAX_RATING).toValue("$$new.maxRating")
-                                .and().set(POKEMONS).toValue("$$new.pokemons")
-                                .and().set(TEAMS).toValue("$$new.teams")
-                                .and().set(UNIQUE_PLAYER_NUM).toValue("$$new.uniquePlayerNum")
-                                .and().set(REPLAY_NUM).toValue("$$new.replayNum")
-                )))
+                .whenDocumentsMatch(teamGroupDetail.getMergeMatchUpdateOperation())
                 .whenDocumentsDontMatch(MergeOperation.WhenDocumentsDontMatch.insertNewDocument())
                 .build();
+        aggregationOperations.add(mergeOperation);
 
-        Aggregation aggregation = Aggregation.newAggregation(matchOperation,
-                groupOperation,
-                addFieldsOperationBuilder,
-                Aggregation.stage("{ $project : { 'playerSet': 0, 'pokemons.moves': 0, 'pokemons.item': 0," +
-                        " 'pokemons.ability': 0 } }"),
-                mergeOperation);
+        Aggregation aggregation = Aggregation.newAggregation(aggregationOperations);
         AggregationOptions options = AggregationOptions.builder()
                 .allowDiskUse(true)
                 .skipOutput()
                 .build();
-        mongoTemplate.aggregate(aggregation.withOptions(options), BATTLE_TEAM,
+        mongoTemplate.aggregate(aggregation.withOptions(options), teamGroupDetail.getTeamCollectionName(),
                 TeamGroup.class);
-        Query query = new Query(Criteria.where(LATEST_BATTLE_DATE).lt(teamGroupDetail.start()));
-        mongoTemplate.remove(query, teamGroupDetail.teamGroupCollectionName());
+
+        if (teamGroupDetail.start() != null) {
+            // remove out date team group document
+            Query query = new Query(Criteria.where(LATEST_BATTLE_DATE).lt(teamGroupDetail.start()));
+            mongoTemplate.remove(query, teamGroupDetail.teamGroupCollectionName());
+        }
     }
 
     public void updateMonthTeam(LocalDate month) {

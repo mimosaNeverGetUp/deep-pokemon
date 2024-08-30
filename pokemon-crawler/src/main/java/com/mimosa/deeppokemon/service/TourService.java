@@ -115,8 +115,9 @@ public class TourService {
             }
 
             for (TourPlayer player : tourBattle.getSmogonPlayer()) {
+                String tourPlayerId = String.format("%s_%s_%s", tourName, format, player.getName());
                 TourPlayerRecord playerRecord = recordMap.computeIfAbsent(player.getName(),
-                        k -> new TourPlayerRecord(player.getName(), format, player.getTeam()));
+                        k -> new TourPlayerRecord(tourPlayerId, player.getName(), tourName, format, player.getTeam()));
 
                 playerRecord.setTotal(playerRecord.getTotal() + 1);
                 if (StringUtils.equals(player.getName(), tourBattle.getWinSmogonPlayerName())) {

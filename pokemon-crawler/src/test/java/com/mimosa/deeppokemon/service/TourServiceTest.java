@@ -55,6 +55,9 @@ class TourServiceTest {
         int total = exceptWin + exceptLose;
         float exceptWinRate = (float) exceptWin / (float) total;
         int exceptDif = exceptWin - exceptLose;
+        Assertions.assertNotNull(tourPlayerRecord.getId());
+        Assertions.assertNotNull(tourPlayerRecord.getFormat());
+        Assertions.assertNotNull(tourPlayerRecord.getTourId());
         Assertions.assertEquals(exceptWin, tourPlayerRecord.getWin());
         Assertions.assertEquals(exceptLose, tourPlayerRecord.getLoss());
         Assertions.assertEquals(exceptDif, tourPlayerRecord.getWinDif());

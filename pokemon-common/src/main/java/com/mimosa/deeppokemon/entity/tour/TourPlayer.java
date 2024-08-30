@@ -10,11 +10,19 @@ import java.io.Serializable;
 
 public class TourPlayer implements Serializable {
     protected String name;
+    protected String id;
     protected String team;
     protected String region;
 
+    public TourPlayer() {}
+
     public TourPlayer(String name, String team, String region) {
+        this(name, null, team, region);
+    }
+
+    public TourPlayer(String name, String id, String team, String region) {
         this.name = name;
+        this.id = id;
         this.team = team;
         this.region = region;
     }
@@ -41,5 +49,13 @@ public class TourPlayer implements Serializable {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -25,8 +25,10 @@ public class TourPlayerRecord {
 
     public TourPlayerRecord() {}
 
-    public TourPlayerRecord(String name, String format, String team) {
+    public TourPlayerRecord(String id, String name, String tourId, String format, String team) {
+        this.id = id;
         this.name = name;
+        this.tourId = tourId;
         this.format = format;
         this.team = team;
     }

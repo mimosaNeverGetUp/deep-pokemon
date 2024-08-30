@@ -42,6 +42,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
     protected static final String SUFFIX_TB = " TB";
     protected static final String THREAD_REPLAY_STAGE_CLASS = "div.bbWrapper";
     protected static final String GEN_9_OU = "gen9ou";
+    protected static final String PLAYER_ID_FORMAT = "%s_%s_%s";
 
     private boolean initialized = false;
     private final String tourName;
@@ -206,12 +207,13 @@ public class SmogonTourReplayProvider implements ReplayProvider {
             // maybe text format is incorrect
             return extractRightPlayer(rightTeamPlayerMatcher);
         } else {
-            String playerName = playerText.trim();
+            String playerName = playerText.trim().toLowerCase();
+            String tourPlayerId = String.format(PLAYER_ID_FORMAT, tourName, format, playerName);
             if (playerTeamCache.containsKey(playerName)) {
-                return new TourPlayer(playerName.toLowerCase(), playerTeamCache.get(playerName), null);
+                return new TourPlayer(playerName, tourPlayerId, playerTeamCache.get(playerName), null);
             } else {
                 log.warn("player {} has no team?", playerText);
-                return new TourPlayer(playerText.trim().toLowerCase(), null, null);
+                return new TourPlayer(playerText, tourPlayerId, null, null);
             }
         }
     }
@@ -226,28 +228,31 @@ public class SmogonTourReplayProvider implements ReplayProvider {
             // maybe text format is incorrect
             return extractLeftPlayer(leftTeamPlayerMatcher);
         } else {
-            String playerName = playerText.trim();
+            String playerName = playerText.trim().toLowerCase();
+            String tourPlayerId = String.format(PLAYER_ID_FORMAT, tourName, format, playerName);
             if (playerTeamCache.containsKey(playerName)) {
-                return new TourPlayer(playerName.toLowerCase(), playerTeamCache.get(playerName), null);
+                return new TourPlayer(playerName, tourPlayerId, playerTeamCache.get(playerName), null);
             } else {
                 log.warn("player {} has no team?", playerText);
-                return new TourPlayer(playerText.trim().toLowerCase(), null, null);
+                return new TourPlayer(playerText, tourPlayerId, null, null);
             }
         }
     }
 
     private TourPlayer extractRightPlayer(Matcher rightTeamPlayerMatcher) {
-        String playerName = rightTeamPlayerMatcher.group(1).trim();
+        String playerName = rightTeamPlayerMatcher.group(1).trim().toLowerCase();
+        String tourPlayerId = String.format(PLAYER_ID_FORMAT, tourName, format, playerName);
         String team = rightTeamPlayerMatcher.group(2).trim();
-        playerTeamCache.put(playerName.toLowerCase(), team);
-        return new TourPlayer(playerName.toLowerCase(), team, null);
+        playerTeamCache.put(playerName, team);
+        return new TourPlayer(playerName, tourPlayerId, team, null);
     }
 
     private TourPlayer extractLeftPlayer(Matcher leftTeamPlayerMatcher) {
-        String team = leftTeamPlayerMatcher.group(1).trim();
         String playerName = leftTeamPlayerMatcher.group(2).trim();
-        playerTeamCache.put(playerName.toLowerCase(), team);
-        return new TourPlayer(playerName.toLowerCase(), team, null);
+        String team = leftTeamPlayerMatcher.group(1).trim().toLowerCase();
+        String tourPlayerId = String.format(PLAYER_ID_FORMAT, tourName, format, playerName);
+        playerTeamCache.put(playerName, team);
+        return new TourPlayer(playerName, tourPlayerId, team, null);
     }
 
     private boolean isTB(Element replayContent) {

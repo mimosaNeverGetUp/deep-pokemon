@@ -6,15 +6,15 @@
 
 package com.mimosa.deeppokemon.matcher;
 
-import com.mimosa.deeppokemon.entity.Team;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 
-public class TeamMatcher extends TypeSafeMatcher<Team> {
+public class TeamMatcher extends TypeSafeMatcher<BattleTeam> {
     public static final TeamMatcher TEAM_MATCHER = new TeamMatcher();
 
     @Override
-    protected boolean matchesSafely(Team team) {
+    protected boolean matchesSafely(BattleTeam team) {
         if (team.getTier() == null) {
             return false;
         }

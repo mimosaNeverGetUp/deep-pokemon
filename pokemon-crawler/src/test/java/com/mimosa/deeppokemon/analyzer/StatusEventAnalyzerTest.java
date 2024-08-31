@@ -69,7 +69,7 @@ class StatusEventAnalyzerTest {
         Assertions.assertEquals("brn", status.name());
         Assertions.assertEquals(exceptTarget
                 , status.ofTarget());
-        Pokemon pokemon = battle.getTeams()[0].getPokemon(ursaluna);
+        Pokemon pokemon = battle.getBattleTeams().get(0).findPokemon(ursaluna);
         Assertions.assertNotNull(pokemon);
         Assertions.assertEquals("Flame Orb", pokemon.getItem());
     }

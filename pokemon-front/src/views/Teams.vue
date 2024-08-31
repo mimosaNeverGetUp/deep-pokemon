@@ -17,6 +17,7 @@ const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 const loading = ref(true);
 const loadFail = ref(false);
+const tour = ref(route.query.tour !== undefined);
 const teams = ref();
 const page = ref(0);
 const row = ref(7);
@@ -25,6 +26,10 @@ async function queryTeams(page, row) {
   let url = new URL(`${apiUrl}/api/v2/teams?page=${page}&row=${row}`);
   if (route.query.pokemons) {
     url.searchParams.set('pokemons', route.query.pokemons);
+  }
+
+  if (route.query.players) {
+    url.searchParams.set('players', route.query.players);
   }
 
   if (route.query.tags) {
@@ -63,6 +68,10 @@ function getSortFiled(sortMode) {
       return "uniquePlayerNum";
     case "date":
       return "latestBattleDate";
+    case "win rate":
+      return "maxPlayerWinRate";
+    case "win dif":
+      return "maxPlayerWinDif";
   }
 }
 
@@ -93,6 +102,14 @@ function getTeamGroupName(range) {
   return range;
 }
 
+function getSort() {
+  if (tour.value) {
+    return "playerRecord.winDif";
+  } else {
+    return "rating";
+  }
+}
+
 async function onPage(event) {
   loading.value = true;
   await queryTeams(event.page, event.rows);
@@ -116,20 +133,29 @@ queryTeams(page.value, row.value);
         </div>
       </template>
     </Column>
-    <Column field="uniquePlayerNum" header="use(unique)" :style="{ width:'10%'}"/>
-    <Column field="maxRating" header="maxRating" :style="{ width:'10%'}"/>
+    <Column field="uniquePlayerNum" header="use(unique)" :style="{ width:'5%'}"/>
+
+    <Column v-if="!tour" field="maxRating" header="maxRating" :style="{ width:'10%'}"/>
 
     <Column field="teams" header="" :style="{ width:'60%'}">
       <template #body="{data}">
-        <DataTable :value="data.teams" paginator :rows="10">
-          <Column field="playerName" header="playerName" :style="{ width:'10%'}">
+        <DataTable :value="data.teams" :sortField="getSort()" :sortOrder="-1" paginator :rows="10">
+          <Column v-if="tour" field="player.name" header="playerName" :style="{ width:'15%'}"/>
+          <Column v-else field="playerName" header="playerName" :style="{ width:'10%'}">
             <template #body="{data}">
               <router-link :to="`/player-record?name=${data.playerName}`" class="text-black">
                 {{ data.playerName }}
               </router-link>
             </template>
           </Column>
-          <Column field="rating" sortable header="rating" :style="{ width:'10%'}"/>
+          <Column v-if="tour" field="playerRecord.winDif" sortable header="record" :style="{ width:'10%'}">
+            <template #body="{data}">
+              <span>{{ data.playerRecord?.win +"-" +data.playerRecord?.loss }}</span>
+            </template>
+            </Column>
+          <Column v-if="tour" field="player.team" header="team" :style="{ width:'10%'}"/>
+          <Column v-if="tour" field="stage" header="stage" :style="{ width:'10%'}"/>
+          <Column v-else field="rating" sortable header="rating" :style="{ width:'10%'}"/>
           <Column field="battleDate" sortable header="date" :style="{ width:'10%'}"/>
           <Column field="battle-example" header="replay" :style="{ width:'20%'}">
             <template #body="{data}">

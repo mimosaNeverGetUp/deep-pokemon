@@ -36,46 +36,48 @@ import java.util.List;
 @Document(collection = "battle")
 public class Battle implements Serializable {
     @Id
-    private String battleID;
+    protected String battleID;
+    protected String format;
     // 简介
-    private String info;
+    protected String info;
     // 对局日期
-    private LocalDate date;
+    protected LocalDate date;
     // 对战玩家
-    private List<String> players;
+    protected List<String> players;
     // 胜方
-    private String winner;
+    protected String winner;
     // 排名
-    private float avageRating;
+    protected float avageRating;
     // 对局记录
-    private String log;
+    protected String log;
     //对局回合
-    private int turnCount;
+    protected int turnCount;
     //比赛类型
-    private List<String> type;
+    protected List<String> type;
 
     // 队伍
     @Transient
-    private Team[] teams;
+    protected transient List<BattleTeam> battleTeams;
 
     @Transient
-    private transient BattleStat battleStat;
+    protected transient BattleStat battleStat;
 
-    public Battle(Team[] teams) {
-        this.teams = teams;
+    public Battle(List<BattleTeam> battleTeams) {
+        this.battleTeams = battleTeams;
     }
 
-    public Battle(String battleID, String info, LocalDate date, String winner, float avageRating, Team[] teams) {
+    public Battle(String battleID, String info, LocalDate date, String winner, float avageRating,
+                  List<BattleTeam> battleTeams) {
         this.battleID = battleID;
         this.info = info;
         this.date = date;
         this.winner = winner;
         this.avageRating = avageRating;
-        this.teams = teams;
+        this.battleTeams = battleTeams;
     }
 
-    public Battle(Team[] teams, LocalDate date, String winner, float avageRating) {
-        this.teams = teams;
+    public Battle(List<BattleTeam> battleTeams, LocalDate date, String winner, float avageRating) {
+        this.battleTeams = battleTeams;
         this.date = date;
         this.winner = winner;
         this.avageRating = avageRating;
@@ -100,12 +102,12 @@ public class Battle implements Serializable {
         this.winner = winner;
     }
 
-    public Team[] getTeams() {
-        return teams;
+    public List<BattleTeam> getBattleTeams() {
+        return battleTeams;
     }
 
-    public void setTeams(Team[] teams) {
-        this.teams = teams;
+    public void setBattleTeams(List<BattleTeam> battleTeams) {
+        this.battleTeams = battleTeams;
     }
 
     public LocalDate getDate() {
@@ -172,6 +174,14 @@ public class Battle implements Serializable {
         this.battleStat = battleStat;
     }
 
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -190,7 +200,8 @@ public class Battle implements Serializable {
     @Override
     public String toString() {
         return ("Battle:\n" +
-                "   info:" + String.format("%s  vs %s", teams[0].getPlayerName(), teams[1].getPlayerName()) + "\n" +
+                "   info:" + String.format("%s  vs %s", battleTeams.get(0).getPlayerName(),
+                battleTeams.get(1).getPlayerName()) + "\n" +
                 "   battle id:" + battleID + "\n" +
                 "   date:" + date + "\n" +
                 "   winner:" + winner + "\n" +

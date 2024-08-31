@@ -82,7 +82,7 @@ class MoveEventAnalyzerTest {
 
         Assertions.assertTrue(moveEventAnalyzer.supportAnalyze(battleEvent));
         moveEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
-        Assertions.assertEquals("Rocky Helmet", battle.getTeams()[0].getPokemon("Amoonguss").getItem());
-        Assertions.assertEquals("Choice Scarf", battle.getTeams()[1].getPokemon("Gholdengo").getItem());
+        Assertions.assertEquals("Rocky Helmet", battle.getBattleTeams().get(0).findPokemon("Amoonguss").getItem());
+        Assertions.assertEquals("Choice Scarf", battle.getBattleTeams().get(1).findPokemon("Gholdengo").getItem());
     }
 }

@@ -97,8 +97,8 @@ public class PlayerReplayProvider implements ReplayProvider {
             List<Replay> replays = OBJECT_MAPPER.readValue(replayJsonStr, new TypeReference<>() {
             });
             return replays.stream()
-                    .filter(replay -> replay.uploadTime() > uploadTimeAfter)
-                    .filter(replay -> replay.rating() >= minRating)
+                    .filter(replay -> replay.getUploadTime() > uploadTimeAfter)
+                    .filter(replay -> replay.getRating() >= minRating)
                     .map(replay -> new ReplaySource(Collections.singletonList(LADDER), Collections.singletonList(replay)))
                     .toList();
         } catch (URISyntaxException e) {

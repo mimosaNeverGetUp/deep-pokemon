@@ -1,0 +1,4136 @@
+[{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_finchinator",
+  "name": "finchinator",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_i feel stabby",
+  "name": "i feel stabby",
+  "format": "gen9ou",
+  "team": "PRT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_quokkadayo",
+  "name": "quokkadayo",
+  "format": "gen9ou",
+  "team": "SKO",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_pan.",
+  "name": "pan.",
+  "format": "gen9ou",
+  "team": "SWI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_zoyotte",
+  "name": "zoyotte",
+  "format": "gen9ou",
+  "team": "AFR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_vert",
+  "name": "vert",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "4"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_hats",
+  "name": "hats",
+  "format": "gen9ou",
+  "team": "AFR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_thiago nunes",
+  "name": "thiago nunes",
+  "format": "gen9ou",
+  "team": "BRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "0.800000011920929"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_chlora",
+  "name": "chlora",
+  "format": "gen9ou",
+  "team": "PRT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_fant'sy beast",
+  "name": "fant'sy beast",
+  "format": "gen9ou",
+  "team": "BEL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_poseidonwrath",
+  "name": "poseidonwrath",
+  "format": "gen9ou",
+  "team": "NLD",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_zmisaka",
+  "name": "zmisaka",
+  "format": "gen9ou",
+  "team": "CHL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-3"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_highv0ltag3",
+  "name": "highv0ltag3",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mashin sentai",
+  "name": "mashin sentai",
+  "format": "gen9ou",
+  "team": "VEN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_hiko",
+  "name": "hiko",
+  "format": "gen9ou",
+  "team": "FRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_myjava",
+  "name": "myjava",
+  "format": "gen9ou",
+  "team": "IND",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "4"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_uxilon",
+  "name": "uxilon",
+  "format": "gen9ou",
+  "team": "BEL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_ahsan-219",
+  "name": "ahsan-219",
+  "format": "gen9ou",
+  "team": "UK",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_msousagamer",
+  "name": "msousagamer",
+  "format": "gen9ou",
+  "team": "PRT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_chloe",
+  "name": "chloe",
+  "format": "gen9ou",
+  "team": "OCE",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-3"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_antonazz",
+  "name": "antonazz",
+  "format": "gen9ou",
+  "team": "FRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_chaos23333",
+  "name": "chaos23333",
+  "format": "gen9ou",
+  "team": "CHN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_ferenia",
+  "name": "ferenia",
+  "format": "gen9ou",
+  "team": "LA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_sieeeffmon",
+  "name": "sieeeffmon",
+  "format": "gen9ou",
+  "team": "AUT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-3"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_fear",
+  "name": "fear",
+  "format": "gen9ou",
+  "team": "GRE",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_s1nn0hc0nfirm3d",
+  "name": "s1nn0hc0nfirm3d",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_yovan33321",
+  "name": "yovan33321",
+  "format": "gen9ou",
+  "team": "AFR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mada",
+  "name": "mada",
+  "format": "gen9ou",
+  "team": "BEL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mrbanana45",
+  "name": "mrbanana45",
+  "format": "gen9ou",
+  "team": "MEX",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_oldspicemike",
+  "name": "oldspicemike",
+  "format": "gen9ou",
+  "team": "USM",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "4"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_quinn",
+  "name": "quinn",
+  "format": "gen9ou",
+  "team": "NLD",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_ak",
+  "name": "ak",
+  "format": "gen9ou",
+  "team": "FRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_dugza",
+  "name": "dugza",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "4"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_maverick shooters",
+  "name": "maverick shooters",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.75"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_gomdol2",
+  "name": "gomdol2",
+  "format": "gen9ou",
+  "team": "SKO",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_eeveeto",
+  "name": "eeveeto",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_calambrito",
+  "name": "calambrito",
+  "format": "gen9ou",
+  "team": "BAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_leavers",
+  "name": "leavers",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_xdrudi.exe",
+  "name": "xdrudi.exe",
+  "format": "gen9ou",
+  "team": "GER",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_1ldk",
+  "name": "1ldk",
+  "format": "gen9ou",
+  "team": "CHL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_freezai",
+  "name": "freezai",
+  "format": "gen9ou",
+  "team": "IND",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "4"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_lazuli",
+  "name": "lazuli",
+  "format": "gen9ou",
+  "team": "CHL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_anan2004",
+  "name": "anan2004",
+  "format": "gen9ou",
+  "team": "GRE",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_zs",
+  "name": "zs",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_shiloh",
+  "name": "shiloh",
+  "format": "gen9ou",
+  "team": "USW",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "0.800000011920929"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mncmt",
+  "name": "mncmt",
+  "format": "gen9ou",
+  "team": "BRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.4000000059604645"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_solo laddering",
+  "name": "solo laddering",
+  "format": "gen9ou",
+  "team": "GRE",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_marilli",
+  "name": "marilli",
+  "format": "gen9ou",
+  "team": "SKO",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_yves stone",
+  "name": "yves stone",
+  "format": "gen9ou",
+  "team": "AFR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "5"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "4"
+  },
+  "winRate": {
+    "$numberDouble": "0.8333333134651184"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_rofna",
+  "name": "rofna",
+  "format": "gen9ou",
+  "team": "AUT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mimikyu stardust",
+  "name": "mimikyu stardust",
+  "format": "gen9ou",
+  "team": "ASI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.4000000059604645"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_wait2seconds",
+  "name": "wait2seconds",
+  "format": "gen9ou",
+  "team": "PRT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_sayyonara",
+  "name": "sayyonara",
+  "format": "gen9ou",
+  "team": "PRT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_maxisc23",
+  "name": "maxisc23",
+  "format": "gen9ou",
+  "team": "ARG",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_devin",
+  "name": "devin",
+  "format": "gen9ou",
+  "team": "ASI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_thefranklin",
+  "name": "thefranklin",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mind gaming",
+  "name": "mind gaming",
+  "format": "gen9ou",
+  "team": "GER",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_kythr",
+  "name": "kythr",
+  "format": "gen9ou",
+  "team": "USM",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_skc44",
+  "name": "skc44",
+  "format": "gen9ou",
+  "team": "BAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "0.800000011920929"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_azogue",
+  "name": "azogue",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_career ended",
+  "name": "career ended",
+  "format": "gen9ou",
+  "team": "CAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-3"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_march fires",
+  "name": "march fires",
+  "format": "gen9ou",
+  "team": "OCE",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_tr1x",
+  "name": "tr1x",
+  "format": "gen9ou",
+  "team": "AUT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_typical_bastard",
+  "name": "typical_bastard",
+  "format": "gen9ou",
+  "team": "ASI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-3"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_eddie1840",
+  "name": "eddie1840",
+  "format": "gen9ou",
+  "team": "MEX",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_stareal",
+  "name": "stareal",
+  "format": "gen9ou",
+  "team": "UK",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_fogbound lake",
+  "name": "fogbound lake",
+  "format": "gen9ou",
+  "team": "GER",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_aesf",
+  "name": "aesf",
+  "format": "gen9ou",
+  "team": "USS",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.75"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_heileone",
+  "name": "heileone",
+  "format": "gen9ou",
+  "team": "USM",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_leng loi",
+  "name": "leng loi",
+  "format": "gen9ou",
+  "team": "USS",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_luxanse",
+  "name": "luxanse",
+  "format": "gen9ou",
+  "team": "NLD",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_welli0u",
+  "name": "welli0u",
+  "format": "gen9ou",
+  "team": "FRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mrbanana21",
+  "name": "mrbanana21",
+  "format": "gen9ou",
+  "team": "MEX",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_star",
+  "name": "star",
+  "format": "gen9ou",
+  "team": "USN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_ash ketchumgamer",
+  "name": "ash ketchumgamer",
+  "format": "gen9ou",
+  "team": "BRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "5"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "5"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_soul king0",
+  "name": "soul king0",
+  "format": "gen9ou",
+  "team": "CHN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.25"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_garay oak",
+  "name": "garay oak",
+  "format": "gen9ou",
+  "team": "SPA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_jj09lie",
+  "name": "jj09lie",
+  "format": "gen9ou",
+  "team": "ASI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "0.800000011920929"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_trogba trogba",
+  "name": "trogba trogba",
+  "format": "gen9ou",
+  "team": "UK",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_niko",
+  "name": "niko",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "5"
+  },
+  "winDif": {
+    "$numberInt": "-4"
+  },
+  "winRate": {
+    "$numberDouble": "0.1666666716337204"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_gtcha",
+  "name": "gtcha",
+  "format": "gen9ou",
+  "team": "LA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_hypertonix",
+  "name": "hypertonix",
+  "format": "gen9ou",
+  "team": "CAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_gudwbs",
+  "name": "gudwbs",
+  "format": "gen9ou",
+  "team": "SKO",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_jyusaan",
+  "name": "jyusaan",
+  "format": "gen9ou",
+  "team": "SWI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_tpp",
+  "name": "tpp",
+  "format": "gen9ou",
+  "team": "USS",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_zerokitss",
+  "name": "zerokitss",
+  "format": "gen9ou",
+  "team": "MEX",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_ravenna",
+  "name": "ravenna",
+  "format": "gen9ou",
+  "team": "ARG",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_fakee",
+  "name": "fakee",
+  "format": "gen9ou",
+  "team": "LA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mister mclovin",
+  "name": "mister mclovin",
+  "format": "gen9ou",
+  "team": "CHL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_hashg skynyrd",
+  "name": "hashg skynyrd",
+  "format": "gen9ou",
+  "team": "VEN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_luirromen",
+  "name": "luirromen",
+  "format": "gen9ou",
+  "team": "LA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_insult",
+  "name": "insult",
+  "format": "gen9ou",
+  "team": "USN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_raceding",
+  "name": "raceding",
+  "format": "gen9ou",
+  "team": "CHN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "0.800000011920929"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_xavgb",
+  "name": "xavgb",
+  "format": "gen9ou",
+  "team": "UK",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_watashi",
+  "name": "watashi",
+  "format": "gen9ou",
+  "team": "CAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_avarice",
+  "name": "avarice",
+  "format": "gen9ou",
+  "team": "USM",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_cen344uu",
+  "name": "cen344uu",
+  "format": "gen9ou",
+  "team": "CHN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_raptor",
+  "name": "raptor",
+  "format": "gen9ou",
+  "team": "CHL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "7"
+  },
+  "win": {
+    "$numberInt": "5"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "0.7142857313156128"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_kebab mlml",
+  "name": "kebab mlml",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_eoward",
+  "name": "eoward",
+  "format": "gen9ou",
+  "team": "BEL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_acr1",
+  "name": "acr1",
+  "format": "gen9ou",
+  "team": "ARG",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_liones",
+  "name": "liones",
+  "format": "gen9ou",
+  "team": "AUT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_alhen",
+  "name": "alhen",
+  "format": "gen9ou",
+  "team": "EUR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.25"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_wadley",
+  "name": "wadley",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_3d",
+  "name": "3d",
+  "format": "gen9ou",
+  "team": "CAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.4000000059604645"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_hi.naming is hard",
+  "name": "hi.naming is hard",
+  "format": "gen9ou",
+  "team": "CHN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.4000000059604645"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_gxe",
+  "name": "gxe",
+  "format": "gen9ou",
+  "team": "USS",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.75"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_just one galatina",
+  "name": "just one galatina",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_ivar57",
+  "name": "ivar57",
+  "format": "gen9ou",
+  "team": "NLD",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_elodin",
+  "name": "elodin",
+  "format": "gen9ou",
+  "team": "BRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.4000000059604645"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_sugarhigh",
+  "name": "sugarhigh",
+  "format": "gen9ou",
+  "team": "ASI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_dhrabb",
+  "name": "dhrabb",
+  "format": "gen9ou",
+  "team": "BAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "4"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_baloor",
+  "name": "baloor",
+  "format": "gen9ou",
+  "team": "CAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.25"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_silent waltz",
+  "name": "silent waltz",
+  "format": "gen9ou",
+  "team": "AFR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_herzogin nelly",
+  "name": "herzogin nelly",
+  "format": "gen9ou",
+  "team": "SWI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_lax",
+  "name": "lax",
+  "format": "gen9ou",
+  "team": "USN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_gman",
+  "name": "gman",
+  "format": "gen9ou",
+  "team": "SWI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_storm zone",
+  "name": "storm zone",
+  "format": "gen9ou",
+  "team": "LA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_juseth sepulveda",
+  "name": "juseth sepulveda",
+  "format": "gen9ou",
+  "team": "VEN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_bausparvertrag",
+  "name": "bausparvertrag",
+  "format": "gen9ou",
+  "team": "AUT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_[k-12] the madchine",
+  "name": "[k-12] the madchine",
+  "format": "gen9ou",
+  "team": "SPA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_apollonas77",
+  "name": "apollonas77",
+  "format": "gen9ou",
+  "team": "GRE",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_trosko",
+  "name": "trosko",
+  "format": "gen9ou",
+  "team": "SPA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_carkoala",
+  "name": "carkoala",
+  "format": "gen9ou",
+  "team": "FRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_soulwind",
+  "name": "soulwind",
+  "format": "gen9ou",
+  "team": "SPA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_apacheromero",
+  "name": "apacheromero",
+  "format": "gen9ou",
+  "team": "VEN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_l lawliet",
+  "name": "l lawliet",
+  "format": "gen9ou",
+  "team": "AFR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_pzz",
+  "name": "pzz",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_drud",
+  "name": "drud",
+  "format": "gen9ou",
+  "team": "NLD",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_dasmer",
+  "name": "dasmer",
+  "format": "gen9ou",
+  "team": "SPA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-3"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_xrn",
+  "name": "xrn",
+  "format": "gen9ou",
+  "team": "USS",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_vk",
+  "name": "vk",
+  "format": "gen9ou",
+  "team": "IND",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.25"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_potatochan",
+  "name": "potatochan",
+  "format": "gen9ou",
+  "team": "CAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "4"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "0.800000011920929"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_frablz",
+  "name": "frablz",
+  "format": "gen9ou",
+  "team": "SWI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_tace",
+  "name": "tace",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_darkman64",
+  "name": "darkman64",
+  "format": "gen9ou",
+  "team": "CHL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_ima",
+  "name": "ima",
+  "format": "gen9ou",
+  "team": "USW",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_haxlolo",
+  "name": "haxlolo",
+  "format": "gen9ou",
+  "team": "ARG",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_piyush25",
+  "name": "piyush25",
+  "format": "gen9ou",
+  "team": "IND",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_conflict",
+  "name": "conflict",
+  "format": "gen9ou",
+  "team": "GER",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_holasoybalto",
+  "name": "holasoybalto",
+  "format": "gen9ou",
+  "team": "ARG",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_kaif",
+  "name": "kaif",
+  "format": "gen9ou",
+  "team": "BAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mushfiq",
+  "name": "mushfiq",
+  "format": "gen9ou",
+  "team": "BAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_baddy",
+  "name": "baddy",
+  "format": "gen9ou",
+  "team": "UK",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_lityl",
+  "name": "lityl",
+  "format": "gen9ou",
+  "team": "PRT",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_luigi",
+  "name": "luigi",
+  "format": "gen9ou",
+  "team": "BRA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_let's rumble shall we",
+  "name": "let's rumble shall we",
+  "format": "gen9ou",
+  "team": "BAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "5"
+  },
+  "winDif": {
+    "$numberInt": "-5"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_sunsets",
+  "name": "sunsets",
+  "format": "gen9ou",
+  "team": "CAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.4000000059604645"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_mako",
+  "name": "mako",
+  "format": "gen9ou",
+  "team": "CHL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "5"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "4"
+  },
+  "winRate": {
+    "$numberDouble": "0.8333333134651184"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_srita kaguya",
+  "name": "srita kaguya",
+  "format": "gen9ou",
+  "team": "MEX",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_glfgno7",
+  "name": "glfgno7",
+  "format": "gen9ou",
+  "team": "GRE",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_driplegend",
+  "name": "driplegend",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_zioziotrip",
+  "name": "zioziotrip",
+  "format": "gen9ou",
+  "team": "USM",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_bbeeaa",
+  "name": "bbeeaa",
+  "format": "gen9ou",
+  "team": "LA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_xiri",
+  "name": "xiri",
+  "format": "gen9ou",
+  "team": "ASI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_ckcake1",
+  "name": "ckcake1",
+  "format": "gen9ou",
+  "team": "SKO",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_calambrito48",
+  "name": "calambrito48",
+  "format": "gen9ou",
+  "team": "BAN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_cat",
+  "name": "cat",
+  "format": "gen9ou",
+  "team": "ASI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_disgusting",
+  "name": "disgusting",
+  "format": "gen9ou",
+  "team": "VEN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_tko",
+  "name": "tko",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_keshba54",
+  "name": "keshba54",
+  "format": "gen9ou",
+  "team": "AFR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_blunder",
+  "name": "blunder",
+  "format": "gen9ou",
+  "team": "USN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "4"
+  },
+  "winDif": {
+    "$numberInt": "-4"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_joeshh",
+  "name": "joeshh",
+  "format": "gen9ou",
+  "team": "UK",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_hellom",
+  "name": "hellom",
+  "format": "gen9ou",
+  "team": "USS",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_piyu",
+  "name": "piyu",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_drifting",
+  "name": "drifting",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_meru",
+  "name": "meru",
+  "format": "gen9ou",
+  "team": "USW",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_twixtry",
+  "name": "twixtry",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "3"
+  },
+  "winDif": {
+    "$numberInt": "0"
+  },
+  "winRate": {
+    "$numberDouble": "0.5"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_srn",
+  "name": "srn",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_pais",
+  "name": "pais",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "6"
+  },
+  "win": {
+    "$numberInt": "5"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "4"
+  },
+  "winRate": {
+    "$numberDouble": "0.8333333134651184"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_trickster7",
+  "name": "trickster7",
+  "format": "gen9ou",
+  "team": "GER",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_exotic64",
+  "name": "exotic64",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "1"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_lokifan",
+  "name": "lokifan",
+  "format": "gen9ou",
+  "team": "AFR",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "1"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-1"
+  },
+  "winRate": {
+    "$numberDouble": "0.3333333432674408"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_emforbes",
+  "name": "emforbes",
+  "format": "gen9ou",
+  "team": "USW",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "2"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6666666865348816"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_plunder",
+  "name": "plunder",
+  "format": "gen9ou",
+  "team": "ASI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_malekith",
+  "name": "malekith",
+  "format": "gen9ou",
+  "team": "SPA",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_rubyblood",
+  "name": "rubyblood",
+  "format": "gen9ou",
+  "team": "BEL",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "3"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "0"
+  },
+  "winDif": {
+    "$numberInt": "3"
+  },
+  "winRate": {
+    "$numberDouble": "1.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_cscl",
+  "name": "cscl",
+  "format": "gen9ou",
+  "team": "CHN",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_laroxyl",
+  "name": "laroxyl",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "4"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "1"
+  },
+  "winDif": {
+    "$numberInt": "2"
+  },
+  "winRate": {
+    "$numberDouble": "0.75"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_lily",
+  "name": "lily",
+  "format": "gen9ou",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "5"
+  },
+  "win": {
+    "$numberInt": "3"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "1"
+  },
+  "winRate": {
+    "$numberDouble": "0.6000000238418579"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+},
+{
+  "_id": "The World Cup of Pokémon 2024_gen9ou_basil103",
+  "name": "basil103",
+  "format": "gen9ou",
+  "team": "SWI",
+  "tourId": "The World Cup of Pokémon 2024",
+  "total": {
+    "$numberInt": "2"
+  },
+  "win": {
+    "$numberInt": "0"
+  },
+  "loss": {
+    "$numberInt": "2"
+  },
+  "winDif": {
+    "$numberInt": "-2"
+  },
+  "winRate": {
+    "$numberDouble": "0.0"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourPlayerRecord"
+}]

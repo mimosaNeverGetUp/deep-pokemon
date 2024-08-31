@@ -12,7 +12,7 @@ import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.LadderService;
-import com.mimosa.deeppokemon.task.entity.CrawAnalyzeBattleFuture;
+import com.mimosa.deeppokemon.task.entity.CrawBattleFuture;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -92,9 +92,8 @@ class LadderCrawlerTest {
         ladder.setLadderRankList(Collections.nCopies(5, new LadderRank("testUser", 0, 0, 0.0F)));
 
         List<Battle> battleList = Collections.nCopies(10, new Battle(null));
-        Mockito.doReturn(new CrawAnalyzeBattleFuture(CompletableFuture.completedFuture(battleList),
-                        CompletableFuture.completedFuture(Collections.emptyList())))
-                .when(battleSevice).crawBattleAndAnalyze(Mockito.any());
+        Mockito.doReturn(new CrawBattleFuture(CompletableFuture.completedFuture(battleList)))
+                .when(battleSevice).crawBattle(Mockito.any());
         List<Battle> result = ladderCrawler.crawLadderBattle(ladder).crawFuture().get();
         Assertions.assertEquals(50, result.size());
     }

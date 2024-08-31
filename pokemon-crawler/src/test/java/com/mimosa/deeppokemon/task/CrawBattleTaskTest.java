@@ -23,10 +23,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -36,41 +37,59 @@ class CrawBattleTaskTest {
     @Autowired
     BattleCrawler battleCrawler;
 
-    @MockBean
+    @SpyBean
     BattleService battleService;
 
     @Test
     void call() {
         Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
+        Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
+                Mockito.anyBoolean());
         long uploadTimeAfter = LocalDateTime.now().minusMonths(3).atZone(ZoneId.systemDefault()).toEpochSecond();
         List<Battle> battles =
-                new CrawBattleTask(new PlayerReplayProvider("Separation", "gen9ou", uploadTimeAfter), battleCrawler,
-                        battleService, false, 0).call();
+                new CrawBattleTask(new PlayerReplayProvider("Separation", "gen9ou", uploadTimeAfter),
+                        battleCrawler, null, battleService, false, 0).call();
         Assertions.assertFalse(battles.isEmpty());
         MatcherAssert.assertThat(battles, Matchers.everyItem(BattleMatcher.BATTLE_MATCHER));
     }
 
     @Test
     void crawReplayException() {
-        CrawBattleTask crawBattleTask = new CrawBattleTask(new MockExceptionReplayProvider(10), battleCrawler,
-                battleService, false, 0);
+        CrawBattleTask crawBattleTask = new CrawBattleTask(new MockExceptionReplayProvider(10), battleCrawler
+                , null, battleService, false, 0);
         Assertions.assertDoesNotThrow(crawBattleTask::call);
         // mock has next exception
-        crawBattleTask = new CrawBattleTask(new MockHasNextExceptionReplayProvider(10), battleCrawler,
-                battleService, false, 0);
+        crawBattleTask = new CrawBattleTask(new MockHasNextExceptionReplayProvider(10), battleCrawler
+                , null, battleService, false, 0);
         Assertions.assertDoesNotThrow(crawBattleTask::call);
     }
 
     @Test
     void crawReplayWithCrawPeriod() {
+        Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(List.of("test1", "test2", "test3")),
-                new NoOpBattleCrawler(),
-                battleService, false, CRAW_PERIOD);
+                new NoOpBattleCrawler(), null, battleService, false, CRAW_PERIOD);
         crawBattleTask.call();
         stopWatch.stop();
         Assertions.assertTrue(stopWatch.getTime() > 3 * CRAW_PERIOD);
+    }
+
+
+    @Test
+    void crawHugeReplay() {
+        Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
+        Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
+                Mockito.anyBoolean());
+        List<String> ids = new ArrayList<>();
+        for (int i = 0; i < 110; ++i) {
+            ids.add("test" + i);
+        }
+        CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(ids),
+                new NoOpBattleCrawler(), null, battleService, false, 0);
+        List<Battle> battles = crawBattleTask.call();
+        Assertions.assertEquals(110, battles.size());
     }
 
     private static class MockExceptionReplayProvider implements ReplayProvider {

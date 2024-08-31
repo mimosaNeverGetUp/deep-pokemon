@@ -26,8 +26,9 @@ package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleTeam;
-import com.mimosa.deeppokemon.entity.TeamGroup;
 import com.mimosa.deeppokemon.entity.stat.*;
+import com.mimosa.deeppokemon.entity.tour.TourPlayer;
+import com.mimosa.deeppokemon.entity.tour.TourPlayerRecord;
 import com.mimosa.pokemon.portal.dto.BattleDto;
 import com.mimosa.pokemon.portal.dto.TeamGroupDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
@@ -57,7 +58,7 @@ public class BattleService {
     protected static final String AVAGE_RATING = "avageRating";
     protected static final String WINNER = "winner";
     protected static final Set<String> VALIDATE_TEAM_GROUP_SORT = new HashSet<>(List.of("maxRating", "uniquePlayerNum"
-            , "latestBattleDate"));
+            , "latestBattleDate", "maxPlayerWinDif", "maxPlayerWinRate"));
     protected static final Set<String> MULTI_FORM_POKEMON = new HashSet<>(List.of("Urshifu", "Zamazenta"
             , "Greninja", "Dudunsparce"));
     protected static final String TEAM_SET = "team_set";
@@ -89,7 +90,7 @@ public class BattleService {
         Query statQuery = new Query(Criteria.where(BATTLE_ID).in(battles.stream().map(BattleDto::getId).toList()));
         List<BattleTeam> battleStats = mongoTemplate.find(statQuery, BattleTeam.class);
         Map<String, List<BattleTeam>> battleTeamsMap =
-                battleStats.stream().collect(Collectors.groupingBy(BattleTeam::battleId));
+                battleStats.stream().collect(Collectors.groupingBy(BattleTeam::getBattleId));
         for (BattleDto battleDto : battles) {
             battleDto.setTeams(battleTeamsMap.get(battleDto.getId()));
         }
@@ -108,18 +109,24 @@ public class BattleService {
     }
 
     @Cacheable("teamGroup")
-    @RegisterReflectionForBinding({TeamGroup.class, BattleTeam.class})
+    @RegisterReflectionForBinding({TeamGroupDto.class, BattleTeam.class, BattleDto.class, TourPlayer.class,
+            TourPlayerRecord.class})
     public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
-                                                String sort, String groupName) {
+                                                List<String> playerNames, String sort, String groupName) {
         if (!VALIDATE_TEAM_GROUP_SORT.contains(sort)) {
             throw new IllegalArgumentException("Invalid sort value: " + sort);
         }
 
         Criteria criteria = new Criteria();
 
+        if (CollectionUtils.hasNotNullObject(playerNames)) {
+            criteria.and("teams").elemMatch(new Criteria("player.name").in(playerNames));
+        }
+
         if (CollectionUtils.hasNotNullObject(tags)) {
             criteria.and("tagSet").in(tags);
         }
+
         if (CollectionUtils.hasNotNullObject(pokemonNames)) {
             List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
             criteria.and("pokemons.name").all(puzzlePokemonNames);

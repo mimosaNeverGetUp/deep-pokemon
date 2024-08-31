@@ -28,7 +28,6 @@ import com.mimosa.deeppokemon.config.MongodbTestConfig;
 import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.Tag;
-import com.mimosa.deeppokemon.entity.Team;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,14 +54,12 @@ class TeamAttackDefenceTagProviderTest {
     void tag() {
         List<BattleTeam> battleTeams = mongoTemplate.find(new Query().limit(20), BattleTeam.class);
         for (BattleTeam battleTeam : battleTeams) {
-            Team team = new Team(battleTeam.pokemons());
-            team.setPlayerName(battleTeam.playerName());
-            team.setTier(battleTeam.tier());
-            teamAttackDefenceTagProvider.tag(team, null);
-            Assertions.assertFalse(team.getTagSet() == null || team.getTagSet().isEmpty());
+            battleTeam.getTagSet().clear();
+            teamAttackDefenceTagProvider.tag(battleTeam, null);
+            Assertions.assertFalse(battleTeam.getTagSet() == null || battleTeam.getTagSet().isEmpty());
 
-            System.out.println("tag: " + team.getTagSet());
-            for (Pokemon pokemon : team.getPokemons()) {
+            System.out.println("tag: " + battleTeam.getTagSet());
+            for (Pokemon pokemon : battleTeam.getPokemons()) {
                 System.out.println(pokemon.getName());
             }
         }
@@ -78,13 +75,13 @@ class TeamAttackDefenceTagProviderTest {
     }
 
     public void assertTag(Tag tag, String... pokemons) {
-        Team team = build(pokemons);
+        BattleTeam team = build(pokemons);
         teamAttackDefenceTagProvider.tag(team, null);
         Assertions.assertTrue(team.getTagSet().contains(tag));
     }
 
-    public Team build(String... names) {
-        Team team = new Team();
+    public BattleTeam build(String... names) {
+        BattleTeam team = new BattleTeam();
         List<Pokemon> pokemons = new ArrayList<>();
         for (String name : names) {
             Pokemon pokemon = new Pokemon();

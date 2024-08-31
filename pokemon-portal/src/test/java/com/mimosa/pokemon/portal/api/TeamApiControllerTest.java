@@ -9,6 +9,7 @@ package com.mimosa.pokemon.portal.api;
 import com.mimosa.pokemon.portal.config.MongodbTestConfig;
 import com.mimosa.pokemon.portal.matcher.TeamMatcher;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,5 +89,26 @@ class TeamApiControllerTest {
                 .andExpect(status().is4xxClientError())
                 .andDo(print())
                 .andReturn();
+    }
+
+    @Test
+    void searchTourTeam() throws Exception {
+        mockMvc.perform(get("/api/v2/teams")
+                        .queryParam("page", "0")
+                        .queryParam("row", "7")
+                        .queryParam("groupName", "tour_wcop_2024"))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(jsonPath("$.page").value(0))
+                .andExpect(jsonPath("$.row").value(7))
+                .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
+                .andExpect(jsonPath("$.data").isNotEmpty())
+                .andExpect(jsonPath("$.data", Matchers.everyItem(Matchers.allOf(
+                        Matchers.hasEntry(Matchers.equalTo("maxPlayerWinRate"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("maxPlayerWinDif"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("uniquePlayerNum"), Matchers.not(0)),
+                        Matchers.hasEntry(Matchers.equalTo("pokemons"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.notNullValue()
+                        )))));
     }
 }

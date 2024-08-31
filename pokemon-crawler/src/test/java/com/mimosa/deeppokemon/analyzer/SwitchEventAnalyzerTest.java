@@ -125,7 +125,7 @@ class SwitchEventAnalyzerTest {
                 .addPokemonStat(1, SLOWKING_GALAR)
                 .build();
         analyzer.analyze(switchEvent, battleStat, battleContext);
-        Assertions.assertEquals("Heavy-Duty Boots", battle.getTeams()[0].getPokemon(SLOWKING_GALAR).getItem());
+        Assertions.assertEquals("Heavy-Duty Boots", battle.getBattleTeams().get(0).findPokemon(SLOWKING_GALAR).getItem());
     }
 
     @Test
@@ -147,7 +147,7 @@ class SwitchEventAnalyzerTest {
                 .addPokemonStat(1, SLOWKING_GALAR)
                 .build();
         analyzer.analyze(switchEvent, battleStat, battleContext);
-        Assertions.assertNull(battle.getTeams()[0].getPokemon(SLOWKING_GALAR).getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon(SLOWKING_GALAR).getItem());
     }
 
     @Test
@@ -169,7 +169,7 @@ class SwitchEventAnalyzerTest {
                 .addPokemonStat(1, SLOWKING_GALAR)
                 .build();
         analyzer.analyze(switchEvent, battleStat, battleContext);
-        Assertions.assertNull(battle.getTeams()[0].getPokemon(SLOWKING_GALAR).getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon(SLOWKING_GALAR).getItem());
     }
 
     @Test
@@ -190,7 +190,7 @@ class SwitchEventAnalyzerTest {
                 .addPokemonStat(1, "Clefable")
                 .build();
         analyzer.analyze(switchEvent, battleStat, battleContext);
-        Assertions.assertNull(battle.getTeams()[0].getPokemon("Clefable").getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon("Clefable").getItem());
     }
 
     @Test
@@ -211,7 +211,7 @@ class SwitchEventAnalyzerTest {
                 .addPokemonStat(1, "Skarmory")
                 .build();
         analyzer.analyze(switchEvent, battleStat, battleContext);
-        Assertions.assertNull(battle.getTeams()[0].getPokemon("Skarmory").getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon("Skarmory").getItem());
     }
 
     @Test
@@ -232,7 +232,7 @@ class SwitchEventAnalyzerTest {
                 .addPokemonStat(1, "Latias")
                 .build();
         analyzer.analyze(switchEvent, battleStat, battleContext);
-        Assertions.assertNull(battle.getTeams()[0].getPokemon("Latias").getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon("Latias").getItem());
     }
 
     @Test
@@ -253,6 +253,6 @@ class SwitchEventAnalyzerTest {
                 .addPokemonStat(1, "Clefable")
                 .build();
         analyzer.analyze(switchEvent, battleStat, battleContext);
-        Assertions.assertNull(battle.getTeams()[0].getPokemon("Clefable").getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon("Clefable").getItem());
     }
 }

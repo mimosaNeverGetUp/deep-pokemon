@@ -43,13 +43,13 @@ class RatingEventAnalyzerTest {
 
         assertTrue(ratingEventAnalyzer.supportAnalyze(battleEvent));
         ratingEventAnalyzer.analyze(battleEvent, null, battleContext);
-        assertEquals(1916, battleContext.getBattle().getTeams()[0].getRating());
-        assertEquals(1854, battleContext.getBattle().getTeams()[1].getRating());
+        assertEquals(1916, battleContext.getBattle().getBattleTeams().get(0).getRating());
+        assertEquals(1854, battleContext.getBattle().getBattleTeams().get(1).getRating());
 
         battleEvent = new BattleEvent("raw", List.of(
                 "LT114FP raincandy's rating: 1829 &rarr; <strong>1854</strong><br />(-25 for losing)"), null, null);
         ratingEventAnalyzer.analyze(battleEvent, null, battleContext);
-        assertEquals(1854, battleContext.getBattle().getTeams()[1].getRating());
-        assertEquals(1916, battleContext.getBattle().getTeams()[0].getRating());
+        assertEquals(1854, battleContext.getBattle().getBattleTeams().get(1).getRating());
+        assertEquals(1916, battleContext.getBattle().getBattleTeams().get(0).getRating());
     }
 }

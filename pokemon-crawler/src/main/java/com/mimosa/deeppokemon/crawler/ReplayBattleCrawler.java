@@ -46,7 +46,7 @@ public class ReplayBattleCrawler implements BattleCrawler {
     @Override
     @RegisterReflectionForBinding(BattleReplayData.class)
     public Battle craw(Replay replay) {
-        ClassicHttpRequest httpGet = initGet(replay.id());
+        ClassicHttpRequest httpGet = initGet(replay.getId());
         BattleReplayData battleReplay = HttpUtil.request(httpGet, BattleReplayData.class);
         return battleReplayExtractor.extract(battleReplay);
     }

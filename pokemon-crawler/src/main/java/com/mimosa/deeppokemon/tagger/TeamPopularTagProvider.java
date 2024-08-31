@@ -49,7 +49,7 @@ public class TeamPopularTagProvider implements TeamTagProvider {
 
     private static final Logger logger = LoggerFactory.getLogger(TeamPopularTagProvider.class);
     @Override
-    public void tag(Team team, TeamSet teamSet) {
+    public void tag(BattleTeam team, TeamSet teamSet) {
         Set<Tag> tags = team.getTagSet();
         float unpopularPokemonUse = 0;//使用冷门精灵的程度
         try {

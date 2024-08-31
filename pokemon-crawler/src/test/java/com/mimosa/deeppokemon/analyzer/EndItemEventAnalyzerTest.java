@@ -43,6 +43,6 @@ class EndItemEventAnalyzerTest {
                 .build();
         assertTrue(endItemEventAnalyzer.supportAnalyze(itemEvent));
         endItemEventAnalyzer.analyze(itemEvent, battleStat, battleContext);
-        assertEquals("Booster Energy", battle.getTeams()[1].getPokemon(roaringMoon).getItem());
+        assertEquals("Booster Energy", battle.getBattleTeams().get(1).findPokemon(roaringMoon).getItem());
     }
 }

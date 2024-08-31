@@ -64,7 +64,7 @@ public class ScheduledConfig {
     @Scheduled(cron = "0 0 1 * * ?")
     private void crawLadder() {
         log.info("start craw ladder");
-        battleCrawler.crawLadder(false).analyzeFuture().join();
+        battleCrawler.crawLadder(false).crawFuture().join();
         cacheService.clearRank();
         cacheService.clearPlayerBattle();
 

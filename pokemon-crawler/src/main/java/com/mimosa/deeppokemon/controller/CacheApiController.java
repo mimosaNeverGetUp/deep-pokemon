@@ -7,12 +7,10 @@
 package com.mimosa.deeppokemon.controller;
 
 import com.mimosa.deeppokemon.service.CacheService;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Validated
 @RestController
 @RequestMapping("/api/cache")
 public class CacheApiController {
@@ -38,6 +36,12 @@ public class CacheApiController {
     @PostMapping("/stat/delete")
     public boolean deleteStat() {
         cacheService.clearMonthlyStat();
+        return true;
+    }
+
+    @PostMapping("/tour/delete")
+    public boolean deleteTour() {
+        cacheService.clearTour();
         return true;
     }
 

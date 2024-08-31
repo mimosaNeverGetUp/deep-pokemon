@@ -63,7 +63,7 @@ public class CrawLadderRunner {
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());
         try {
-            ladderCrawler.crawLadder(true).analyzeFuture().join();
+            ladderCrawler.crawLadder(true).crawFuture().join();
             battleService.updateTeam();
         } catch (Exception e) {
             logger.error("craw ladder exception", e);

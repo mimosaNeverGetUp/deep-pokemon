@@ -7,31 +7,37 @@
 package com.mimosa.deeppokemon.analyzer.util;
 
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.Team;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BattleBuilder {
     private final Battle battle;
 
     public BattleBuilder() {
         battle = new Battle();
-        battle.setTeams(new Team[]{new Team(new ArrayList<>()), new Team(new ArrayList<>())});
+        BattleTeam battleTeam1 = new BattleTeam();
+        battleTeam1.setPokemons(new ArrayList<>());
+        BattleTeam battleTeam2 = new BattleTeam();
+        battleTeam2.setPokemons(new ArrayList<>());
+
+        battle.setBattleTeams(List.of(battleTeam1, battleTeam2));
     }
 
     public BattleBuilder addPokemon(int playerNumber, String pokemonName) {
-        battle.getTeams()[playerNumber - 1].addPokemon(new Pokemon(pokemonName));
+        battle.getBattleTeams().get(playerNumber - 1).getPokemons().add(new Pokemon(pokemonName));
         return this;
     }
 
     public BattleBuilder setPlayerName(int playerNumber, String playerName) {
-        battle.getTeams()[playerNumber - 1].setPlayerName(playerName);
+        battle.getBattleTeams().get(playerNumber - 1).setPlayerName(playerName);
         return this;
     }
 
     public BattleBuilder setRating(int playerNumber, float rating) {
-        battle.getTeams()[playerNumber - 1].setRating(rating);
+        battle.getBattleTeams().get(playerNumber - 1).setRating(rating);
         return this;
     }
 

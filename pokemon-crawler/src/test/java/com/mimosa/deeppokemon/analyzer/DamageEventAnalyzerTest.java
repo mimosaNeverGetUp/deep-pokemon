@@ -112,7 +112,7 @@ class DamageEventAnalyzerTest {
             Assertions.assertNotNull(damageEventStat.damageFrom());
         }
         Assertions.assertNotEquals(BigDecimal.valueOf(0.0), damageEventStat.healthDiff());
-        Pokemon opponentPokemon = status.getBattle().getTeams()[0].getPokemon(opponentTargetStat.getName());
+        Pokemon opponentPokemon = status.getBattle().getBattleTeams().get(0).findPokemon(opponentTargetStat.getName());
         Assertions.assertEquals("Rocky Helmet", opponentPokemon.getItem());
     }
 

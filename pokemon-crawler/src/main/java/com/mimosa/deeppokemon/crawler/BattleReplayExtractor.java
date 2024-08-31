@@ -155,11 +155,11 @@ public class BattleReplayExtractor {
     }
 
     private static String extractMoveName(String html, String pokemonName, int playerNumber) {
-        String regex = String.format("switch\\|p%da: ([^\\|]*)\\|%s", playerNumber, pokemonName);
+        String regex = String.format("(switch|drag)\\|p%da: ([^\\|]*)\\|%s", playerNumber, pokemonName);
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(html);
         if (matcher.find()) {
-            String pokemonMoveName = matcher.group(1).trim();
+            String pokemonMoveName = matcher.group(2).trim();
             logger.debug("match Move Name:{}", pokemonMoveName);
             return pokemonMoveName;
         }

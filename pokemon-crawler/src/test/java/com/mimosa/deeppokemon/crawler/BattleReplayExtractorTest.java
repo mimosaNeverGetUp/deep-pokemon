@@ -52,6 +52,9 @@ class BattleReplayExtractorTest {
     @Value("classpath:api/battleReplay_magic_bounce.json")
     Resource battleReplayWithMagicBounce;
 
+    @Value("classpath:api/battleReplay_drag.json")
+    Resource testReplay;
+
     @Autowired
     private final ObjectMapper OBJECT_MAPPER =
             new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -67,6 +70,24 @@ class BattleReplayExtractorTest {
             Assertions.assertNotEquals(0F, team.getRating());
         }
     }
+
+    @Test
+    void extractDragPokemonMove() throws IOException {
+        BattleReplayData battleReplayData =
+                OBJECT_MAPPER.readValue(testReplay.getContentAsString(StandardCharsets.UTF_8), BattleReplayData.class);
+        Battle battle = battleReplayExtractor.extract(battleReplayData);
+
+        MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
+        boolean hasIronCrown = false;
+        for (var pokemon : battle.getBattleTeams().get(1).getPokemons()) {
+            if (pokemon.getName().equals("Iron Crown")) {
+                hasIronCrown = true;
+                Assertions.assertFalse(pokemon.getMoves().isEmpty());
+            }
+        }
+        Assertions.assertTrue(hasIronCrown);
+    }
+
 
     @Test
     void extraBattleWithMagicBounce() throws IOException {

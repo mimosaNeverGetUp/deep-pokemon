@@ -5,7 +5,7 @@
   "player": {
     "name": "emforbes",
     "team": "USW",
-    "id": "The World Cup of Pokémon 2024_gen9ou_emforbes"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_emforbes"
   },
   "battleId": "smogtours-gen9ou-777684",
   "teamId": {
@@ -85,7 +85,7 @@
   "player": {
     "name": "lax",
     "team": "USN",
-    "id": "The World Cup of Pokémon 2024_gen9ou_lax"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_lax"
   },
   "battleId": "smogtours-gen9ou-777684",
   "teamId": {
@@ -165,7 +165,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "srn",
-    "id": "The World Cup of Pokémon 2024_gen9ou_srn"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_srn"
   },
   "battleId": "smogtours-gen9ou-777735",
   "teamId": {
@@ -241,7 +241,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "tko",
-    "id": "The World Cup of Pokémon 2024_gen9ou_tko"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_tko"
   },
   "battleId": "smogtours-gen9ou-777735",
   "teamId": {
@@ -320,7 +320,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "pzz",
-    "id": "The World Cup of Pokémon 2024_gen9ou_pzz"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_pzz"
   },
   "battleId": "smogtours-gen9ou-777656",
   "teamId": {
@@ -407,7 +407,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "finchinator",
-    "id": "The World Cup of Pokémon 2024_gen9ou_finchinator"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_finchinator"
   },
   "battleId": "smogtours-gen9ou-777656",
   "teamId": {
@@ -497,7 +497,7 @@
   "player": {
     "name": "blunder",
     "team": "USN",
-    "id": "The World Cup of Pokémon 2024_gen9ou_blunder"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_blunder"
   },
   "battleId": "smogtours-gen9ou-777283",
   "teamId": {
@@ -579,7 +579,7 @@
   "player": {
     "name": "shiloh",
     "team": "USW",
-    "id": "The World Cup of Pokémon 2024_gen9ou_shiloh"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_shiloh"
   },
   "battleId": "smogtours-gen9ou-777283",
   "teamId": {
@@ -663,7 +663,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "zs",
-    "id": "The World Cup of Pokémon 2024_gen9ou_zs"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_zs"
   },
   "battleId": "smogtours-gen9ou-776966",
   "teamId": {
@@ -750,7 +750,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "drifting",
-    "id": "The World Cup of Pokémon 2024_gen9ou_drifting"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_drifting"
   },
   "battleId": "smogtours-gen9ou-776966",
   "teamId": {
@@ -835,7 +835,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "exotic64",
-    "id": "The World Cup of Pokémon 2024_gen9ou_exotic64"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_exotic64"
   },
   "battleId": "smogtours-gen9ou-777519",
   "teamId": {
@@ -918,7 +918,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "kebab mlml",
-    "id": "The World Cup of Pokémon 2024_gen9ou_kebab mlml"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_kebab mlml"
   },
   "battleId": "smogtours-gen9ou-777519",
   "teamId": {
@@ -999,7 +999,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "wadley",
-    "id": "The World Cup of Pokémon 2024_gen9ou_wadley"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_wadley"
   },
   "battleId": "smogtours-gen9ou-777473",
   "teamId": {
@@ -1075,7 +1075,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "just one galatina",
-    "id": "The World Cup of Pokémon 2024_gen9ou_just one galatina"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_just one galatina"
   },
   "battleId": "smogtours-gen9ou-777473",
   "teamId": {
@@ -1152,7 +1152,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "niko",
-    "id": "The World Cup of Pokémon 2024_gen9ou_niko"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_niko"
   },
   "battleId": "smogtours-gen9ou-777157",
   "teamId": {
@@ -1235,7 +1235,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "dugza",
-    "id": "The World Cup of Pokémon 2024_gen9ou_dugza"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_dugza"
   },
   "battleId": "smogtours-gen9ou-777157",
   "teamId": {
@@ -1318,7 +1318,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "leavers",
-    "id": "The World Cup of Pokémon 2024_gen9ou_leavers"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_leavers"
   },
   "battleId": "smogtours-gen9ou-777171",
   "teamId": {
@@ -1395,7 +1395,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "pais",
-    "id": "The World Cup of Pokémon 2024_gen9ou_pais"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_pais"
   },
   "battleId": "smogtours-gen9ou-777171",
   "teamId": {
@@ -1472,7 +1472,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "piyu",
-    "id": "The World Cup of Pokémon 2024_gen9ou_piyu"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_piyu"
   },
   "battleId": "smogtours-gen9ou-777165",
   "teamId": {
@@ -1559,7 +1559,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "s1nn0hc0nfirm3d",
-    "id": "The World Cup of Pokémon 2024_gen9ou_s1nn0hc0nfirm3d"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_s1nn0hc0nfirm3d"
   },
   "battleId": "smogtours-gen9ou-777165",
   "teamId": {
@@ -1644,7 +1644,7 @@
   "player": {
     "name": "freezai",
     "team": "IND",
-    "id": "The World Cup of Pokémon 2024_gen9ou_freezai"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_freezai"
   },
   "battleId": "smogtours-gen9ou-777605",
   "teamId": {
@@ -1722,7 +1722,7 @@
   "player": {
     "name": "zioziotrip",
     "team": "USM",
-    "id": "The World Cup of Pokémon 2024_gen9ou_zioziotrip"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_zioziotrip"
   },
   "battleId": "smogtours-gen9ou-777605",
   "teamId": {
@@ -1796,7 +1796,7 @@
   "player": {
     "name": "vk",
     "team": "IND",
-    "id": "The World Cup of Pokémon 2024_gen9ou_vk"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_vk"
   },
   "battleId": "smogtours-gen9ou-777563",
   "teamId": {
@@ -1879,7 +1879,7 @@
   "player": {
     "name": "kythr",
     "team": "USM",
-    "id": "The World Cup of Pokémon 2024_gen9ou_kythr"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_kythr"
   },
   "battleId": "smogtours-gen9ou-777563",
   "teamId": {
@@ -1955,7 +1955,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "driplegend",
-    "id": "The World Cup of Pokémon 2024_gen9ou_driplegend"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_driplegend"
   },
   "battleId": "smogtours-gen9ou-777305",
   "teamId": {
@@ -2035,7 +2035,7 @@
   "stage": "Quarterfinals",
   "player": {
     "name": "maverick shooters",
-    "id": "The World Cup of Pokémon 2024_gen9ou_maverick shooters"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_maverick shooters"
   },
   "battleId": "smogtours-gen9ou-777305",
   "teamId": {
@@ -2121,7 +2121,7 @@
   "player": {
     "name": "myjava",
     "team": "IND",
-    "id": "The World Cup of Pokémon 2024_gen9ou_myjava"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_myjava"
   },
   "battleId": "smogtours-gen9ou-777232",
   "teamId": {
@@ -2208,7 +2208,7 @@
   "player": {
     "name": "oldspicemike",
     "team": "USM",
-    "id": "The World Cup of Pokémon 2024_gen9ou_oldspicemike"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_oldspicemike"
   },
   "battleId": "smogtours-gen9ou-777232",
   "teamId": {
@@ -2294,7 +2294,7 @@
   "stage": "Semifinals",
   "player": {
     "name": "driplegend",
-    "id": "The World Cup of Pokémon 2024_gen9ou_driplegend"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_driplegend"
   },
   "battleId": "smogtours-gen9ou-778872",
   "teamId": {
@@ -2376,7 +2376,7 @@
   "stage": "Semifinals",
   "player": {
     "name": "thefranklin",
-    "id": "The World Cup of Pokémon 2024_gen9ou_thefranklin"
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_thefranklin"
   },
   "battleId": "smogtours-gen9ou-778872",
   "teamId": {

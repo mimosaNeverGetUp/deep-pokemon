@@ -1,7 +1,7 @@
 version: "3"
 services:
   pokemon-crawler:
-    image: "mimosa1997/pokemon-crawler:1.1.14"
+    image: "mimosa1997/pokemon-crawler:1.1.15"
     ports:
       - "8081:8081"
     healthcheck:
@@ -19,7 +19,7 @@ services:
     secrets:
       - pwd
   pokemon-portal:
-    image: "mimosa1997/pokemon-portal:1.1.10"
+    image: "mimosa1997/pokemon-portal:1.1.11"
     ports:
       - "8080:8080"
     depends_on:

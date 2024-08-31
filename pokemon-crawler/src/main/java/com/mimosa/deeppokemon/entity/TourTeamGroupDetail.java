@@ -86,6 +86,6 @@ public class TourTeamGroupDetail extends TeamGroupDetail {
 
     @Override
     public List<String> getIndexFiled() {
-        return List.of(MAX_PLAYER_WIN_RATE, MAX_PLAYER_WIN_DIF);
+        return List.of(MAX_PLAYER_WIN_DIF, MAX_PLAYER_WIN_RATE);
     }
 }

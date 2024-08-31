@@ -248,8 +248,8 @@ public class SmogonTourReplayProvider implements ReplayProvider {
     }
 
     private TourPlayer extractLeftPlayer(Matcher leftTeamPlayerMatcher) {
-        String playerName = leftTeamPlayerMatcher.group(2).trim();
-        String team = leftTeamPlayerMatcher.group(1).trim().toLowerCase();
+        String playerName = leftTeamPlayerMatcher.group(2).trim().toLowerCase();
+        String team = leftTeamPlayerMatcher.group(1).trim();
         String tourPlayerId = String.format(PLAYER_ID_FORMAT, tourName, format, playerName);
         playerTeamCache.put(playerName, team);
         return new TourPlayer(playerName, tourPlayerId, team, null);

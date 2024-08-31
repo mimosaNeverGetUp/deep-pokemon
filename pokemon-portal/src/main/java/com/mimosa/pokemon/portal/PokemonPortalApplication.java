@@ -29,6 +29,8 @@ import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
 import com.mimosa.deeppokemon.entity.stat.monthly.Usage;
+import com.mimosa.deeppokemon.entity.tour.TourPlayer;
+import com.mimosa.deeppokemon.entity.tour.TourPlayerRecord;
 import com.mimosa.pokemon.portal.dto.*;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import org.bson.types.Binary;
@@ -96,6 +98,9 @@ public class PokemonPortalApplication {
                     .registerType(PokemonSet.class)
                     .registerType(Usage.class)
                     .registerType(PlayerRankDTO.class)
+                    .registerType(BattleTeamDto.class)
+                    .registerType(TourPlayer.class)
+                    .registerType(TourPlayerRecord.class)
                     .registerType(ArrayList.class)
                     .registerType(LinkedList.class)
                     .registerType(HashSet.class)

@@ -112,16 +112,21 @@ public class BattleService {
     @RegisterReflectionForBinding({TeamGroupDto.class, BattleTeam.class, BattleDto.class, TourPlayer.class,
             TourPlayerRecord.class})
     public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
-                                                String sort, String groupName) {
+                                                List<String> playerNames, String sort, String groupName) {
         if (!VALIDATE_TEAM_GROUP_SORT.contains(sort)) {
             throw new IllegalArgumentException("Invalid sort value: " + sort);
         }
 
         Criteria criteria = new Criteria();
 
+        if (CollectionUtils.hasNotNullObject(playerNames)) {
+            criteria.and("teams").elemMatch(new Criteria("player.name").in(playerNames));
+        }
+
         if (CollectionUtils.hasNotNullObject(tags)) {
             criteria.and("tagSet").in(tags);
         }
+
         if (CollectionUtils.hasNotNullObject(pokemonNames)) {
             List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
             criteria.and("pokemons.name").all(puzzlePokemonNames);

@@ -213,7 +213,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
                 return new TourPlayer(playerName, tourPlayerId, playerTeamCache.get(playerName), null);
             } else {
                 log.warn("player {} has no team?", playerText);
-                return new TourPlayer(playerText, tourPlayerId, null, null);
+                return new TourPlayer(playerName, tourPlayerId, null, null);
             }
         }
     }
@@ -234,7 +234,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
                 return new TourPlayer(playerName, tourPlayerId, playerTeamCache.get(playerName), null);
             } else {
                 log.warn("player {} has no team?", playerText);
-                return new TourPlayer(playerText, tourPlayerId, null, null);
+                return new TourPlayer(playerName, tourPlayerId, null, null);
             }
         }
     }

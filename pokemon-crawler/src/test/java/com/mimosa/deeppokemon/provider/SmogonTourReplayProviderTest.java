@@ -61,6 +61,7 @@ class SmogonTourReplayProviderTest {
                 for (var player : smogonTourReplay.getTourPlayers()) {
                     assertNotNull(player.getName());
                     assertNotNull(player.getTourPlayerId());
+                    assertEquals(player.getName(), player.getName().trim().toLowerCase());
                 }
             }
             ++i;

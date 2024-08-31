@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 public class TourPlayer implements Serializable {
     protected String name;
-    protected String id;
+    protected String tourPlayerId;
     protected String team;
     protected String region;
 
@@ -20,9 +20,9 @@ public class TourPlayer implements Serializable {
         this(name, null, team, region);
     }
 
-    public TourPlayer(String name, String id, String team, String region) {
+    public TourPlayer(String name, String tourPlayerId, String team, String region) {
         this.name = name;
-        this.id = id;
+        this.tourPlayerId = tourPlayerId;
         this.team = team;
         this.region = region;
     }
@@ -51,11 +51,11 @@ public class TourPlayer implements Serializable {
         this.region = region;
     }
 
-    public String getId() {
-        return id;
+    public String getTourPlayerId() {
+        return tourPlayerId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTourPlayerId(String tourPlayerId) {
+        this.tourPlayerId = tourPlayerId;
     }
 }

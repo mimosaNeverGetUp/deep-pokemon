@@ -16,7 +16,7 @@ public class TourTeamGroupDetail extends TeamGroupDetail {
     private static final String ID = "_id";
     protected static final String TOUR_ID = "tourId";
     protected static final String TOUR_PLAYER_RECORD = "tour_player_record";
-    protected static final String PLAYER_ID = "player.id";
+    protected static final String PLAYER_ID = "player.tourPlayerId";
     protected static final String MAX_PLAYER_WIN_RATE = "maxPlayerWinRate";
     protected static final String MAX_PLAYER_WIN_DIF = "maxPlayerWinDif";
     protected static final String PLAYER_RECORD_WIN_RATE = "playerRecord.winRate";

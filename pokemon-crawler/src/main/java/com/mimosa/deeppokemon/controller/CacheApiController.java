@@ -39,6 +39,12 @@ public class CacheApiController {
         return true;
     }
 
+    @PostMapping("/tour/delete")
+    public boolean deleteTour() {
+        cacheService.clearTour();
+        return true;
+    }
+
     @PostMapping("/deleteAll")
     public boolean deleteAll() {
         cacheService.clearAll();

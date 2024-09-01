@@ -64,20 +64,17 @@ public class CrawBattleTask implements Callable<List<Battle>> {
 
     @Override
     public List<Battle> call() {
-        List<Replay> replays = new ArrayList<>();
+        List<ReplaySource> replaySources = new ArrayList<>();
         try {
-            List<String> replayType = new ArrayList<>();
             while (replayProvider.hasNext()) {
-                ReplaySource replaySource = replayProvider.next();
-                replays.addAll(replaySource.replayList());
-                replayType = replaySource.replayType();
+                replaySources.add(replayProvider.next());
             }
 
             List<Battle> battles;
-            if (replays.size() > BATCH_SIZE) {
-                return batchCraw(replays, replayType);
+            if (replaySources.size() > BATCH_SIZE) {
+                return batchCraw(replaySources);
             } else {
-                battles = crawBattle(replays, replayType);
+                battles = crawBattle(replaySources);
             }
             log.debug("craw battle finished, battle size: {}, start save", battles.size());
             return save(battles);
@@ -105,11 +102,11 @@ public class CrawBattleTask implements Callable<List<Battle>> {
         return saveSuccessBattles;
     }
 
-    private List<Battle> batchCraw(List<Replay> replayList, List<String> replayTypes) {
-        List<List<Replay>> partition = Lists.partition(replayList, BATCH_SIZE);
+    private List<Battle> batchCraw(List<ReplaySource> replaySources) {
+        List<List<ReplaySource>> partition = Lists.partition(replaySources, BATCH_SIZE);
         List<CompletableFuture<List<Battle>>> futures = new ArrayList<>();
-        for (List<Replay> batch : partition) {
-            FixedReplayProvider fixedReplayProvider = new FixedReplayProvider(batch, replayTypes);
+        for (List<ReplaySource> batch : partition) {
+            FixedReplayProvider fixedReplayProvider = new FixedReplayProvider(batch);
             futures.add(battleService.crawBattle(fixedReplayProvider, battleCrawler, battleAnalyzer, true));
         }
         CompletableFuture<Void> allOf = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
@@ -117,50 +114,54 @@ public class CrawBattleTask implements Callable<List<Battle>> {
         return futures.stream().map(CompletableFuture::join).flatMap(List::stream).toList();
     }
 
-    private List<Battle> crawBattle(List<Replay> replays, List<String> replayType) {
-        List<Battle> battles = crawBattleFromReplay(replays);
-        battles.forEach(battle -> battle.setType(replayType));
-        return battles;
+    private List<Battle> crawBattle(List<ReplaySource> replaySources) {
+        return crawBattleFromReplay(replaySources);
     }
 
-    private List<Battle> crawBattleFromReplay(List<Replay> replays) {
-        List<Battle> battles = new ArrayList<>();
-        for (Replay replay : replays) {
+    private List<Battle> crawBattleFromReplay(List<ReplaySource> replaySources) {
+        List<Battle> allbattles = new ArrayList<>();
+        for (ReplaySource replaySource : replaySources) {
             try {
-                log.debug("check craw replay {} is need to craw", replay.getId());
-                if (!isNeedCraw(replay)) {
-                    log.debug("not need to craw{}", replay.getId());
+                log.debug("check craw replay {} is need to craw", replaySource.replayList());
+                if (!isNeedCraw(replaySource)) {
+                    log.debug("not need to craw{}", replaySource.replayList());
                     continue;
                 }
 
-                log.debug("start craw replay {}", replay.getId());
-                Battle battle = battleCrawler.craw(replay);
+                log.debug("start craw replay {}", replaySource.replayList());
+                List<Battle> battles = battleCrawler.craw(replaySource);
                 if (battleAnalyzer != null) {
-                    battleAnalyzer.analyze(Collections.singletonList(battle));
+                    battleAnalyzer.analyze(battles);
                 }
-                battles.add(battle);
+                allbattles.addAll(battles);
                 Thread.sleep(crawPeriod);
-                log.debug("end craw replay {}, sleep {} ms", replay.getId(), crawPeriod);
+                log.debug("end craw replay {}, sleep {} ms", replaySource.replayList(), crawPeriod);
             } catch (Exception e) {
-                log.error("craw battle {} fail", replay.getId(), e);
+                log.error("craw battle {} fail", replaySource.replayList(), e);
             }
         }
-        return battles;
+        return allbattles;
     }
 
-    private boolean isNeedCraw(Replay replay) {
-        // check replay is need to craw
-        if (replay.getId() == null) {
-            return false;
-        }
+    private boolean isNeedCraw(ReplaySource replaySource) {
+        for (Replay replay : replaySource.replayList()) {
+            if (replay.getId() == null) {
+                continue;
+            }
 
-        if (!CrawLock.tryLock(replay.getId())) {
-            // another thread is craw ,skip
-            log.debug("replay {} is locked, skip", replay.getId());
-            return false;
-        } else {
-            holdBattleLocks.add(replay.getId());
+            if (!update && battleService.getAllBattleIds().contains(replay.getId())) {
+                // battle is exist and not need to update
+                continue;
+            }
+
+            if (!CrawLock.tryLock(replay.getId())) {
+                // another thread is craw ,skip
+                log.debug("replay {} is locked, skip", replay.getId());
+            } else {
+                holdBattleLocks.add(replay.getId());
+                return true;
+            }
         }
-        return update || !battleService.getAllBattleIds().contains(replay.getId());
+        return false;
     }
 }

@@ -14,8 +14,8 @@ import java.util.*;
 public class FixedReplayProvider implements ReplayProvider {
     private final Queue<ReplaySource> replaySources = new LinkedList<>();
 
-    public FixedReplayProvider(List<Replay> replays,List<String> replayType) {
-        replaySources.add(new ReplaySource(replayType, replays));
+    public FixedReplayProvider(List<ReplaySource> replaySources) {
+        this.replaySources.addAll(replaySources);
     }
 
     public FixedReplayProvider(Collection<String> battleIds) {

@@ -27,11 +27,15 @@ package com.mimosa.deeppokemon.crawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleReplayData;
 import com.mimosa.deeppokemon.entity.Replay;
+import com.mimosa.deeppokemon.entity.ReplaySource;
 import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.apache.hc.core5.http.ClassicHttpRequest;
 import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ReplayBattleCrawler implements BattleCrawler {
@@ -45,10 +49,16 @@ public class ReplayBattleCrawler implements BattleCrawler {
 
     @Override
     @RegisterReflectionForBinding(BattleReplayData.class)
-    public Battle craw(Replay replay) {
-        ClassicHttpRequest httpGet = initGet(replay.getId());
-        BattleReplayData battleReplay = HttpUtil.request(httpGet, BattleReplayData.class);
-        return battleReplayExtractor.extract(battleReplay);
+    public List<Battle> craw(ReplaySource replaySource) {
+        List<Battle> battles = new ArrayList<>();
+        for (Replay replay : replaySource.replayList()) {
+            ClassicHttpRequest httpGet = initGet(replay.getId());
+            BattleReplayData battleReplay = HttpUtil.request(httpGet, BattleReplayData.class);
+            Battle battle = battleReplayExtractor.extract(battleReplay);
+            battle.setType(replaySource.replayType());
+            battles.add(battle);
+        }
+        return battles;
     }
 
     private ClassicHttpRequest initGet(String battleId) {

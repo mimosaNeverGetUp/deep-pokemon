@@ -21,7 +21,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -52,15 +54,17 @@ class SmogonTourReplayProviderTest {
                     "gen9ou", stageTitles, winPlayerExtractor);
             assertTrue(smogonTourReplayProvider.hasNext());
         }
-        int i = 0;
         List<String> exceptStageTitles = List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Round 1 TB",
                 "Quarterfinals", "Semifinals", "Semifinals TB", "Finals");
+        Map<String, Boolean> stageMap = new HashMap<>();
+        for(String exceptStageTitle : exceptStageTitles) {
+            stageMap.put(exceptStageTitle, false);
+        }
         while (smogonTourReplayProvider.hasNext()) {
-            String stage = exceptStageTitles.get(i);
             List<Replay> replays = smogonTourReplayProvider.next().replayList();
             for(Replay replay : replays) {
                 SmogonTourReplay smogonTourReplay = (SmogonTourReplay) replay;
-                assertEquals(stage, smogonTourReplay.getStage());
+                stageMap.put(smogonTourReplay.getStage(), true);
                 assertNotNull(smogonTourReplay.getTourName());
                 assertNotNull(smogonTourReplay.getTourPlayers());
                 assertNotNull(smogonTourReplay.getId());
@@ -73,5 +77,10 @@ class SmogonTourReplayProviderTest {
             }
             ++i;
         }
+        assertEquals(exceptStageTitles.size(), stageMap.size());
+        for (var entry : stageMap.entrySet()) {
+            assertTrue(entry.getValue());
+        }
     }
+
 }

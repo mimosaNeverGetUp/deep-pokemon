@@ -69,12 +69,12 @@ class SmogonTourReplayBattleCrawlerTest {
         teamB.setPokemons(Collections.singletonList(new Pokemon("2")));
         battle.setBattleTeams(List.of(teamA, teamB));
 
-        Mockito.doReturn(battle).when(replayBattleCrawler).craw(Mockito.any());
+        Mockito.doReturn(Collections.singletonList(battle)).when(replayBattleCrawler).craw(Mockito.any());
         TourBattle tourBattle;
         try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
             mockHttpUtil.when(() -> HttpUtil.request(Mockito.any())).thenReturn(null);
             SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler);
-            tourBattle = crawler.craw(replay);
+            tourBattle = (TourBattle) (crawler.craw(new ReplaySource(null, Collections.singletonList(replay))).get(0));
         }
 
         assertNotNull(tourBattle);

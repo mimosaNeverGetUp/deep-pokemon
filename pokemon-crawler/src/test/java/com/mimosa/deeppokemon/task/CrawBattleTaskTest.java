@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleReplayData;
-import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.ReplaySource;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
 import com.mimosa.deeppokemon.provider.FixedReplayProvider;
@@ -33,6 +32,7 @@ import org.springframework.core.io.Resource;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -142,8 +142,8 @@ class CrawBattleTaskTest {
 
     private static class NoOpBattleCrawler implements BattleCrawler {
         @Override
-        public Battle craw(Replay replay) {
-            return new Battle(null);
+        public List<Battle> craw(ReplaySource replay) {
+            return Collections.singletonList(new Battle(null));
         }
     }
 }

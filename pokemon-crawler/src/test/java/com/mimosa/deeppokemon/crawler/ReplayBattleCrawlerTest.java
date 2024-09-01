@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleReplayData;
 import com.mimosa.deeppokemon.entity.Replay;
+import com.mimosa.deeppokemon.entity.ReplaySource;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.utils.HttpUtil;
@@ -31,6 +32,7 @@ import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 
 @SpringBootTest
 class ReplayBattleCrawlerTest {
@@ -58,7 +60,7 @@ class ReplayBattleCrawlerTest {
 
             mockHttpUtil.when(() -> HttpUtil.request(Mockito.any(), Mockito.any(Class.class))).thenReturn(battleReplayData);
             Replay replay = new Replay(ID_GEN9, 0, null, 1790, new String[]{"PTLT508 jojo", "OU G Herbo"}, false);
-            Battle battle = crawler.craw(replay);
+            Battle battle = crawler.craw(new ReplaySource(null, Collections.singletonList(replay))).get(0);
             MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
             Assertions.assertNotEquals(0, battle.getAvageRating());
         }

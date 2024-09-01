@@ -116,8 +116,8 @@ public class SmogonTourReplayProvider implements ReplayProvider {
                         tourReplay.setWinPlayer(winPlayerExtractor.getWinSmogonPlayer(stageTitle,
                                 tourReplay.getTourPlayers()));
                     }
+                    replaySources.add(new ReplaySource(List.of(TOUR, tourName), Collections.singletonList(tourReplay)));
                 }
-                replaySources.add(new ReplaySource(List.of(TOUR, tourName), replays));
             }
         } catch (IOException e) {
             log.error("extract replay thread fail", e);

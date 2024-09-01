@@ -79,7 +79,6 @@ public class SmogonTourReplayProvider implements ReplayProvider {
     }
 
     private void extractFromReplayThread() {
-        Set<String> existBattleIds = new HashSet<>();
         try {
             Document doc = Jsoup.connect(replayThreadUrl).timeout(60000).get();
             Elements stages = doc.select(THREAD_REPLAY_STAGE_CLASS);
@@ -88,6 +87,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
 
             for (Element stage : stages) {
                 Elements aElements = stage.select("a");
+                Set<String> existBattleIds = new HashSet<>();
                 List<Replay> replays = extractReplays(aElements, existBattleIds);
                 if (replays.isEmpty()) {
                     continue;

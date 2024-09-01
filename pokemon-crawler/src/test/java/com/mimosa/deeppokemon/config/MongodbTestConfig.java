@@ -32,7 +32,7 @@ public class MongodbTestConfig {
                 .withCopyFileToContainer(MountableFile.forClasspathResource("db/"), "/docker-entrypoint-initdb.d")
                 .waitingFor(Wait.forLogMessage("(?i).*waiting for connections.*", 2))
                 .withStartupTimeout(Duration.ofSeconds(10))
-                .withReuse(false);
+                .withReuse(true);
     }
 
     public static class StandAloneMongoDBContainer extends MongoDBContainer {

@@ -6,15 +6,18 @@
 
 package com.mimosa.deeppokemon.task;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.BattleReplayData;
 import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.ReplaySource;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
 import com.mimosa.deeppokemon.provider.FixedReplayProvider;
-import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.service.BattleService;
+import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.apache.commons.lang.time.StopWatch;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -22,11 +25,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.core.io.Resource;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -40,17 +45,28 @@ class CrawBattleTaskTest {
     @SpyBean
     BattleService battleService;
 
+    @Value("classpath:api/battleReplay.json")
+    Resource battleReplay;
+
+    @Autowired
+    private final ObjectMapper OBJECT_MAPPER =
+            new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
     @Test
-    void call() {
+    void call() throws IOException {
+        BattleReplayData battleReplayData =
+                OBJECT_MAPPER.readValue(battleReplay.getContentAsString(StandardCharsets.UTF_8), BattleReplayData.class);
         Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
         Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
                 Mockito.anyBoolean());
-        long uploadTimeAfter = LocalDateTime.now().minusMonths(3).atZone(ZoneId.systemDefault()).toEpochSecond();
-        List<Battle> battles =
-                new CrawBattleTask(new PlayerReplayProvider("Separation", "gen9ou", uploadTimeAfter),
-                        battleCrawler, null, battleService, false, 0).call();
-        Assertions.assertFalse(battles.isEmpty());
-        MatcherAssert.assertThat(battles, Matchers.everyItem(BattleMatcher.BATTLE_MATCHER));
+        try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
+            mockHttpUtil.when(() -> HttpUtil.request(Mockito.any(), Mockito.any(Class.class))).thenReturn(battleReplayData);
+            List<Battle> battles =
+                    new CrawBattleTask(new FixedReplayProvider(List.of("test-1")),
+                            battleCrawler, null, battleService, false, 0).call();
+            Assertions.assertFalse(battles.isEmpty());
+            MatcherAssert.assertThat(battles, Matchers.everyItem(BattleMatcher.BATTLE_MATCHER));
+        }
     }
 
     @Test

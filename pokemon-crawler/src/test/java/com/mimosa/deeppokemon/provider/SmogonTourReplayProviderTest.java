@@ -6,8 +6,10 @@
 
 package com.mimosa.deeppokemon.provider;
 
+import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.SmogonTourReplay;
+import com.mimosa.deeppokemon.entity.tour.TourPlayer;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -36,14 +38,18 @@ class SmogonTourReplayProviderTest {
 
         Document document = Jsoup.parse(replayDocument.getFile());
         SmogonTourReplayProvider smogonTourReplayProvider;
+
         try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
             Connection connection = Mockito.mock(Connection.class);
             mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
             Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
             Mockito.doReturn(document).when(connection).get();
+            SmogonTourWinPlayerExtractor winPlayerExtractor = Mockito.mock(SmogonTourWinPlayerExtractor.class);
+            Mockito.doReturn(new TourPlayer("a", null, null)).when(winPlayerExtractor)
+                    .getWinSmogonPlayer(Mockito.any(), Mockito.anyList());
 
-             smogonTourReplayProvider =
-                    new SmogonTourReplayProvider("WCOP2024", replayThreadUrl, "gen9ou", stageTitles);
+            smogonTourReplayProvider = new SmogonTourReplayProvider("WCOP2024", replayThreadUrl,
+                    "gen9ou", stageTitles, winPlayerExtractor);
             assertTrue(smogonTourReplayProvider.hasNext());
         }
         int i = 0;
@@ -58,6 +64,7 @@ class SmogonTourReplayProviderTest {
                 assertNotNull(smogonTourReplay.getTourName());
                 assertNotNull(smogonTourReplay.getTourPlayers());
                 assertNotNull(smogonTourReplay.getId());
+                assertNotNull(smogonTourReplay.getWinPlayer());
                 for (var player : smogonTourReplay.getTourPlayers()) {
                     assertNotNull(player.getName());
                     assertNotNull(player.getTourPlayerId());

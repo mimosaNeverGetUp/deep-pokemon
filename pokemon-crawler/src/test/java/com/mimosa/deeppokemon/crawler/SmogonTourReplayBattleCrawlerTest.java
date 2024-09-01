@@ -28,7 +28,6 @@ class SmogonTourReplayBattleCrawlerTest {
 
     @Test
     void craw() {
-        SmogonTourWinPlayerExtractor smogonTourWinPlayerExtractor = Mockito.mock(SmogonTourWinPlayerExtractor.class);
         ReplayBattleCrawler replayBattleCrawler = Mockito.mock(ReplayBattleCrawler.class);
 
         SmogonTourReplay replay = new SmogonTourReplay(TEST_123);
@@ -37,6 +36,8 @@ class SmogonTourReplayBattleCrawlerTest {
         TourPlayer a = new TourPlayer("a", null, null);
         TourPlayer b = new TourPlayer("b", null, null);
         replay.setTourPlayers(List.of(a, b));
+        replay.setWinPlayer(new TourPlayer("a", null, null));
+
         Battle battle = new Battle();
         battle.setBattleID(TEST_123);
         battle.setFormat("gen9ou");
@@ -69,13 +70,10 @@ class SmogonTourReplayBattleCrawlerTest {
         battle.setBattleTeams(List.of(teamA, teamB));
 
         Mockito.doReturn(battle).when(replayBattleCrawler).craw(Mockito.any());
-        Mockito.doReturn(new TourPlayer("a", null, null)).when(smogonTourWinPlayerExtractor)
-                .getWinSmogonPlayer(Mockito.any(), Mockito.any());
         TourBattle tourBattle;
         try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
             mockHttpUtil.when(() -> HttpUtil.request(Mockito.any())).thenReturn(null);
-            SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler,
-                    smogonTourWinPlayerExtractor);
+            SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler);
             tourBattle = crawler.craw(replay);
         }
 

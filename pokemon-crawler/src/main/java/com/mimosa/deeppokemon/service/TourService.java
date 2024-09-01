@@ -58,10 +58,11 @@ public class TourService {
 
     public List<Battle> crawTour(String tourName, String tourShortName, String format, String replayUrl,
                                  List<String> replayStages, String forumsUrl, List<String> forumsThreadSuffixStages) {
-        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(tourName, replayUrl, format, replayStages);
         SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(forumsUrl, tourName,
                 forumsThreadSuffixStages);
-        SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler, winPlayerExtractor);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(tourName, replayUrl, format, replayStages,
+                winPlayerExtractor);
+        SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler);
         CompletableFuture<List<Battle>> future = battleService.crawBattle(provider, crawler, false);
 
         List<Battle> battles = future.join();

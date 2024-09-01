@@ -24,12 +24,9 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
     private static final Logger log = LoggerFactory.getLogger(SmogonTourReplayBattleCrawler.class);
 
     private final ReplayBattleCrawler replayBattleCrawler;
-    private final SmogonTourWinPlayerExtractor smogonTourWinPlayerExtractor;
 
-    public SmogonTourReplayBattleCrawler(ReplayBattleCrawler replayBattleCrawler,
-                                         SmogonTourWinPlayerExtractor smogonTourWinPlayerExtractor) {
+    public SmogonTourReplayBattleCrawler(ReplayBattleCrawler replayBattleCrawler) {
         this.replayBattleCrawler = replayBattleCrawler;
-        this.smogonTourWinPlayerExtractor = smogonTourWinPlayerExtractor;
     }
 
     @Override
@@ -58,8 +55,7 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
         tourBattle.setTourId(tourReplay.getTourName());
         tourBattle.setSmogonPlayer(tourReplay.getTourPlayers());
         tourBattle.setStage(tourReplay.getStage());
-        TourPlayer winPlayer = smogonTourWinPlayerExtractor.getWinSmogonPlayer(tourReplay.getStage(),
-                tourReplay.getTourPlayers());
+        TourPlayer winPlayer = tourReplay.getWinPlayer();
         TourPlayer losePlayer = null;
         if (winPlayer != null) {
             losePlayer = tourReplay.getTourPlayers().stream()

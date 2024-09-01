@@ -39,13 +39,13 @@ const tourNodes = [];
 let tourPlayers = [];
 
 
-const selectMonth = ref(new Date())
 const useMonthRange = ref(false)
 const maxMonth = ref(new Date())
 const minMonth = ref(new Date())
 maxMonth.value.setMonth(maxMonth.value.getMonth() - 1);
-minMonth.value.setMonth(9);
-maxMonth.value.setFullYear(2024);
+minMonth.value.setMonth(7);
+minMonth.value.setFullYear(2024);
+const selectMonth = ref(minMonth)
 
 async function queryAllTour() {
   let url = new URL(`${apiUrl}/api/tour/tours`);
@@ -144,8 +144,8 @@ queryAllTour();
     <SelectButton v-model="selectedSort" :options="sortModes" aria-labelledby="basic"/>
     <div v-if="!searchTour" class="mt-2">
       <span class="items-center text-center">Range</span>
-<!--      <i class="ml-2 pi pi-calendar cursor-pointer hover:bg-green-500" style="font-size: 1.5rem"-->
-<!--         @click="changeShowMode"></i>-->
+      <i class="ml-2 pi pi-calendar cursor-pointer hover:bg-green-500" style="font-size: 1.5rem"
+         @click="changeShowMode"></i>
     </div>
 
     <div class="mt-2">

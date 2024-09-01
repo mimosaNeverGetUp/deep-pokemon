@@ -49,7 +49,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.index.CompoundIndexDefinition;
 import org.springframework.data.mongodb.core.index.Index;
-import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
@@ -212,11 +211,6 @@ public class BattleService {
             stringBuilder.append(String.format("%04d", pokemonNumber));
         }
         return stringBuilder.toString().getBytes();
-    }
-
-    public List<Battle> find100BattleSortByDate() {
-        Query query = new BasicQuery("{}").with(Sort.by(Sort.Order.desc("date"))).limit(100);
-        return mongoTemplate.find(query, Battle.class, BATTLE);
     }
 
     public Set<String> getAllBattleIds() {

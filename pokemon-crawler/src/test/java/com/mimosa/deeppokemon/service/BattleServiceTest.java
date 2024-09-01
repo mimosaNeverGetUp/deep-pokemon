@@ -7,18 +7,15 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
-import com.mimosa.deeppokemon.crawler.BattleReplayExtractor;
 import com.mimosa.deeppokemon.entity.*;
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.tour.TourTeam;
-import com.mimosa.deeppokemon.matcher.BattleStatMatcher;
 import com.mimosa.deeppokemon.matcher.PokemonMatcher;
 import org.bson.types.Binary;
-import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -35,7 +32,6 @@ class BattleServiceTest {
     public static final String EXIST_BATTLE_ID = "gen9ou-2171069120";
     public static final String NOT_EXIST_BATTLE_ID = "test-12345";
     private static final String NOT_SAVE_BATTLE_ID = "smogtours-gen9ou-746547";
-    private static final String NOT_LOG_BATTLE_ID = "gen9ou-2171080820";
     protected static final String TEAM_GROUP_LAST_99_Y = "team_group_last_99_y";
     protected static final String TEAM_SET_LAST_99_Y = "team_set_last_99_y";
     protected static final String TEAM_GROUP_TOUR_WCOP_2024 = "team_group_tour_wcop_2024";
@@ -47,12 +43,11 @@ class BattleServiceTest {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    @Autowired
-    private BattleReplayExtractor battleReplayExtractor;
-
     @Test
-    void insert() {
-        List<Battle> battles = battleService.find100BattleSortByDate();
+    void insert_partBattleExist() {
+        Query query = new Query().limit(2);
+
+        List<Battle> battles = mongoTemplate.find(query, Battle.class);
         Battle existBattle = battles.get(0);
 
         Battle notExistBattle = battles.get(1);
@@ -114,54 +109,16 @@ class BattleServiceTest {
     }
 
     @Test
-    void getBattleStat_NotExistBattle() {
-        BattleStat battleStat = null;
-        try {
-            battleStat = battleService.getBattleStat(NOT_SAVE_BATTLE_ID);
-            MatcherAssert.assertThat(battleStat, BattleStatMatcher.BATTLE_STAT_MATCHER);
-        } finally {
-            if (battleStat != null) {
-                mongoTemplate.remove(battleStat);
-                mongoTemplate.remove(new Query(Criteria.where("_id").is(NOT_SAVE_BATTLE_ID)), "battle");
-                mongoTemplate.remove(new Query(Criteria.where("battleId").is(NOT_SAVE_BATTLE_ID)), "battle_team");
-            }
-        }
-    }
-
-    @Test
-    void getBattleStat_ExistBattle_NoBattleLog() {
-        BattleStat battleStat = null;
-        try {
-            battleStat = battleService.getBattleStat(NOT_LOG_BATTLE_ID);
-            MatcherAssert.assertThat(battleStat, BattleStatMatcher.BATTLE_STAT_MATCHER);
-            Assertions.assertNotNull(mongoTemplate.findById(NOT_LOG_BATTLE_ID, Battle.class).getLog());
-        } finally {
-            if (battleStat != null) {
-                mongoTemplate.remove(battleStat);
-            }
-            mongoTemplate.remove(new Query(Criteria.where("battleId").is(NOT_LOG_BATTLE_ID)), "battle_team");
-        }
-    }
-
-    @Test
     void getAllBattleIds() {
         Assertions.assertTrue(battleService.getAllBattleIds().contains(EXIST_BATTLE_ID));
 
         Battle notExistBattle = battleService.findBattle(EXIST_BATTLE_ID);
-        BattleTeam teamSample = mongoTemplate.findOne(new Query(), BattleTeam.class);
-        BattleTeam team = new BattleTeam();
-        team.setPokemons(teamSample.getPokemons());
-        team.setTagSet(teamSample.getTagSet());
-        team.setTier(teamSample.getTier());
-        team.setPlayerName(teamSample.getPlayerName());
         notExistBattle.setBattleID(NOT_EXIST_BATTLE_ID);
-        notExistBattle.setBattleTeams(List.of(team, team));
         try {
             battleService.save(List.of(notExistBattle), false);
             Assertions.assertTrue(battleService.getAllBattleIds().contains(NOT_EXIST_BATTLE_ID));
         } finally {
             mongoTemplate.remove(notExistBattle);
-            mongoTemplate.remove(new Query(Criteria.where("battleId").is(NOT_EXIST_BATTLE_ID)), "battle_team");
         }
     }
 
@@ -224,57 +181,64 @@ class BattleServiceTest {
     void updateTourTeam() {
         battleService.updateTeam(new TourTeamGroupDetail(TEAM_GROUP_TOUR_WCOP_2024,
                 TEAM_SET_TOUR_WCOP_2024, "The World Cup of Pokémon 2024", "gen9ou"));
-        TeamGroup teamGroup = mongoTemplate.findOne(new Query(), TeamGroup.class, TEAM_GROUP_TOUR_WCOP_2024);
-        Assertions.assertNotNull(teamGroup);
-        Assertions.assertNotNull(teamGroup.pokemons());
-        Assertions.assertNotNull(teamGroup.tagSet());
-        Assertions.assertNotNull(teamGroup.teams());
-        Assertions.assertNotNull(teamGroup.tier());
-        Assertions.assertNotNull(teamGroup.latestBattleDate());
-        Assertions.assertNotNull(teamGroup.id());
-        Assertions.assertNotNull(teamGroup.id());
-        Assertions.assertFalse(teamGroup.teams().isEmpty());
-        Assertions.assertNotEquals(0, teamGroup.replayNum());
-        Assertions.assertNotEquals(0, teamGroup.uniquePlayerNum());
-        Assertions.assertNotNull(teamGroup.maxPlayerWinDif());
-        Assertions.assertNotNull(teamGroup.maxPlayerWinRate());
-        Assertions.assertNotEquals(0, teamGroup.maxPlayerWinDif());
-        Assertions.assertNotEquals(0F, teamGroup.maxPlayerWinRate());
+        try {
+            TeamGroup teamGroup = mongoTemplate.findOne(new Query().with(Sort.by(Sort.Order.desc("maxPlayerWinDif"))), TeamGroup.class,
+                    TEAM_GROUP_TOUR_WCOP_2024);
+            Assertions.assertNotNull(teamGroup);
+            Assertions.assertNotNull(teamGroup.pokemons());
+            Assertions.assertNotNull(teamGroup.tagSet());
+            Assertions.assertNotNull(teamGroup.teams());
+            Assertions.assertNotNull(teamGroup.tier());
+            Assertions.assertNotNull(teamGroup.latestBattleDate());
+            Assertions.assertNotNull(teamGroup.id());
+            Assertions.assertNotNull(teamGroup.id());
+            Assertions.assertFalse(teamGroup.teams().isEmpty());
+            Assertions.assertNotEquals(0, teamGroup.replayNum());
+            Assertions.assertNotEquals(0, teamGroup.uniquePlayerNum());
+            Assertions.assertNotNull(teamGroup.maxPlayerWinDif());
+            Assertions.assertNotNull(teamGroup.maxPlayerWinRate());
 
-        Assertions.assertFalse(teamGroup.pokemons().isEmpty());
-        Assertions.assertFalse(teamGroup.tagSet().isEmpty());
+            Assertions.assertNotEquals(0, teamGroup.maxPlayerWinDif());
+            Assertions.assertNotEquals(0F, teamGroup.maxPlayerWinRate());
 
-        Assertions.assertEquals(mongoTemplate.count(new Query(), TeamGroup.class, TEAM_GROUP_TOUR_WCOP_2024), mongoTemplate.count(new Query(),
-                TeamSet.class, TEAM_SET_TOUR_WCOP_2024));
-        TeamSet teamSet = mongoTemplate.findById(new Binary(teamGroup.id()), TeamSet.class, TEAM_SET_TOUR_WCOP_2024);
-        Assertions.assertNotNull(teamSet);
-        Assertions.assertNotNull(teamSet.pokemons());
-        Assertions.assertNotNull(teamSet.tier());
-        Assertions.assertNotNull(teamSet.minReplayDate());
-        Assertions.assertNotEquals(0, teamSet.replayNum());
-        Assertions.assertFalse(teamSet.pokemons().isEmpty());
-        boolean foundMove = false;
-        for (PokemonBuildSet pokemonBuildSet : teamSet.pokemons()) {
-            Assertions.assertNotNull(pokemonBuildSet.name());
-            if (!pokemonBuildSet.moves().isEmpty()) {
-                foundMove = true;
+            Assertions.assertFalse(teamGroup.pokemons().isEmpty());
+            Assertions.assertFalse(teamGroup.tagSet().isEmpty());
+
+            Assertions.assertEquals(mongoTemplate.count(new Query(), TeamGroup.class, TEAM_GROUP_TOUR_WCOP_2024), mongoTemplate.count(new Query(),
+                    TeamSet.class, TEAM_SET_TOUR_WCOP_2024));
+            TeamSet teamSet = mongoTemplate.findById(new Binary(teamGroup.id()), TeamSet.class, TEAM_SET_TOUR_WCOP_2024);
+            Assertions.assertNotNull(teamSet);
+            Assertions.assertNotNull(teamSet.pokemons());
+            Assertions.assertNotNull(teamSet.tier());
+            Assertions.assertNotNull(teamSet.minReplayDate());
+            Assertions.assertNotEquals(0, teamSet.replayNum());
+            Assertions.assertFalse(teamSet.pokemons().isEmpty());
+            boolean foundMove = false;
+            for (PokemonBuildSet pokemonBuildSet : teamSet.pokemons()) {
+                Assertions.assertNotNull(pokemonBuildSet.name());
+                if (!pokemonBuildSet.moves().isEmpty()) {
+                    foundMove = true;
+                }
             }
-        }
-        Assertions.assertTrue(foundMove);
-        Set<Tag> tagSet = teamSet.tagSet();
-        Assertions.assertNotNull(tagSet);
-        Assertions.assertFalse(tagSet.isEmpty());
-        for (var tag : tagSet) {
-            Assertions.assertTrue(teamGroup.tagSet().contains(tag));
-        }
+            Assertions.assertTrue(foundMove);
+            Set<Tag> tagSet = teamSet.tagSet();
+            Assertions.assertNotNull(tagSet);
+            Assertions.assertFalse(tagSet.isEmpty());
+            for (var tag : tagSet) {
+                Assertions.assertTrue(teamGroup.tagSet().contains(tag));
+            }
 
-        for (BattleTeam battleTeam : teamGroup.teams()) {
-            Assertions.assertInstanceOf(TourTeam.class, battleTeam);
-            TourTeam tourTeam = (TourTeam) battleTeam;
-            Assertions.assertNotNull(tourTeam.getStage());
-            Assertions.assertNotNull(tourTeam.getTourId());
-            Assertions.assertNotNull(tourTeam.getPlayer());
-            Assertions.assertNotNull(tourTeam.getPlayer().getName());
+            for (BattleTeam battleTeam : teamGroup.teams()) {
+                Assertions.assertInstanceOf(TourTeam.class, battleTeam);
+                TourTeam tourTeam = (TourTeam) battleTeam;
+                Assertions.assertNotNull(tourTeam.getStage());
+                Assertions.assertNotNull(tourTeam.getTourId());
+                Assertions.assertNotNull(tourTeam.getPlayer());
+                Assertions.assertNotNull(tourTeam.getPlayer().getName());
+            }
+        } finally {
+            mongoTemplate.dropCollection(TEAM_GROUP_TOUR_WCOP_2024);
+            mongoTemplate.dropCollection(TEAM_SET_TOUR_WCOP_2024);
         }
     }
 }

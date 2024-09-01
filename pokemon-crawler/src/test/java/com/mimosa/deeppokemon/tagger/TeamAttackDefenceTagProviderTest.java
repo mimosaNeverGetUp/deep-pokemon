@@ -57,11 +57,6 @@ class TeamAttackDefenceTagProviderTest {
             battleTeam.getTagSet().clear();
             teamAttackDefenceTagProvider.tag(battleTeam, null);
             Assertions.assertFalse(battleTeam.getTagSet() == null || battleTeam.getTagSet().isEmpty());
-
-            System.out.println("tag: " + battleTeam.getTagSet());
-            for (Pokemon pokemon : battleTeam.getPokemons()) {
-                System.out.println(pokemon.getName());
-            }
         }
     }
 

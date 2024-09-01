@@ -12,33 +12,55 @@
 
 package com.mimosa.deeppokemon.crawler;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.BattleReplayData;
 import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
 import com.mimosa.deeppokemon.service.BattleService;
+import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.Resource;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @SpringBootTest
 class ReplayBattleCrawlerTest {
-    final private String URL_GEN9 = "gen9ou-2159383579";
+    final private String ID_GEN9 = "test123";
 
     @Autowired
     private ReplayBattleCrawler crawler;
 
+    @Value("classpath:api/battleReplay.json")
+    Resource battleReplay;
+
     @Autowired
     BattleService battleSevice;
 
-    @ParameterizedTest
-    @ValueSource(strings = {URL_GEN9})
-    void crawler(String id) {
-        Replay replay = new Replay(id, 0, null, 1790, new String[]{"PTLT508 jojo", "OU G Herbo"}, false);
-        Battle battle = crawler.craw(replay);
-        MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
-        Assertions.assertNotEquals(0, battle.getAvageRating());
+    @Autowired
+    private final ObjectMapper OBJECT_MAPPER =
+            new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+
+    @Test
+    void crawler() throws IOException {
+        try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
+            BattleReplayData battleReplayData =
+                    OBJECT_MAPPER.readValue(battleReplay.getContentAsString(StandardCharsets.UTF_8), BattleReplayData.class);
+
+            mockHttpUtil.when(() -> HttpUtil.request(Mockito.any(), Mockito.any(Class.class))).thenReturn(battleReplayData);
+            Replay replay = new Replay(ID_GEN9, 0, null, 1790, new String[]{"PTLT508 jojo", "OU G Herbo"}, false);
+            Battle battle = crawler.craw(replay);
+            MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
+            Assertions.assertNotEquals(0, battle.getAvageRating());
+        }
     }
 }

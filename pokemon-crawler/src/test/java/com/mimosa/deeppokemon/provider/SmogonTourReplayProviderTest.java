@@ -75,7 +75,6 @@ class SmogonTourReplayProviderTest {
                     assertEquals(player.getName(), player.getName().trim().toLowerCase());
                 }
             }
-            ++i;
         }
         assertEquals(exceptStageTitles.size(), stageMap.size());
         for (var entry : stageMap.entrySet()) {

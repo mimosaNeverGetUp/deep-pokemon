@@ -14,12 +14,11 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class SmogonTourReplayBattleCrawler implements BattleCrawler {
     private static final Logger log = LoggerFactory.getLogger(SmogonTourReplayBattleCrawler.class);
+    protected static final int SERIES_BATTLE_SIZE = 3;
 
     private final ReplayBattleCrawler replayBattleCrawler;
 
@@ -29,7 +28,7 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
 
     @Override
     public List<Battle> craw(ReplaySource replaySource) {
-        List<Battle> battles = new ArrayList<>();
+        List<TourBattle> battles = new ArrayList<>();
         for (Replay replay : replaySource.replayList()) {
             if (!(replay instanceof SmogonTourReplay)) {
                 throw new IllegalArgumentException("Replay is not a SmogonTourReplay");
@@ -95,6 +94,55 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
             tourBattle.setBattleTeams(tourTeams);
             battles.add(tourBattle);
         }
-        return battles;
+
+        if (battles.size() >= SERIES_BATTLE_SIZE) {
+            setSeriesBattlesWin(battles);
+        }
+        return new ArrayList<>(battles);
+    }
+
+    private void setSeriesBattlesWin(List<TourBattle> battles) {
+        String winSeriesSmogonPlayerName = battles.get(0).getWinSmogonPlayerName();
+        String winSeriesPlayerName = getSeriesPlayerName(battles);
+        TourPlayer winTourPlayer = battles.get(0).getSmogonPlayer().stream()
+                .filter(player -> StringUtils.equals(winSeriesSmogonPlayerName, player.getName()))
+                .findFirst()
+                .orElse(null);
+        TourPlayer lostTourPlayer = battles.get(0).getSmogonPlayer().stream()
+                .filter(player -> !StringUtils.equals(winSeriesSmogonPlayerName, player.getName()))
+                .findFirst()
+                .orElse(null);
+        if (winTourPlayer == null || lostTourPlayer == null) {
+            log.error("can not get win smogon player or lost tour player in series battle {},tour {},stage {}",
+                    battles.get(0).getBattleID(), battles.get(0).getTourId(), battles.get(0).getStage());
+            return;
+        }
+
+        for (TourBattle battle : battles) {
+            if (StringUtils.equals(winSeriesPlayerName, battle.getWinner())) {
+                battle.setWinSmogonPlayerName(winSeriesSmogonPlayerName);
+            } else {
+                battle.setWinSmogonPlayerName(lostTourPlayer.getName());
+            }
+
+            for (BattleTeam battleTeam : battle.getBattleTeams()) {
+                TourTeam tourTeam = (TourTeam) battleTeam;
+                tourTeam.setPlayer(tourTeam.getPlayerName().equals(winSeriesPlayerName) ? winTourPlayer : lostTourPlayer);
+            }
+        }
+    }
+
+    private String getSeriesPlayerName(List<TourBattle> battles) {
+        Map<String, Integer> winCountMap = new HashMap<>();
+        int maxWinCount = 0;
+        String winPlayer = null;
+        for (TourBattle battle : battles) {
+            Integer winCount = winCountMap.merge(battle.getWinner(), 1, Integer::sum);
+            if (winCount > maxWinCount) {
+                maxWinCount = winCount;
+                winPlayer = battle.getWinner();
+            }
+        }
+        return winPlayer;
     }
 }

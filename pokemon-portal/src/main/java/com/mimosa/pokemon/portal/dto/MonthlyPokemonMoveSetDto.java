@@ -20,6 +20,7 @@ public final class MonthlyPokemonMoveSetDto implements Serializable {
     private Map<String, Double> items;
     private Map<String, Double> spreads;
     private Map<String, Double> moves;
+    private Map<String, Double> teraTypes;
     private Map<String, Double> teammates;
     private MonthlyPokemonMoveSetDto lastMonthMoveSet;
 
@@ -85,6 +86,14 @@ public final class MonthlyPokemonMoveSetDto implements Serializable {
 
     public void setMoves(Map<String, Double> moves) {
         this.moves = moves;
+    }
+
+    public Map<String, Double> getTeraTypes() {
+        return teraTypes;
+    }
+
+    public void setTeraTypes(Map<String, Double> teraTypes) {
+        this.teraTypes = teraTypes;
     }
 
     public Map<String, Double> getTeammates() {

@@ -17,6 +17,6 @@ import java.util.List;
 public record MonthlyPokemonMoveSet(@MongoId String id, String name, String format, LocalDate date, String statId,
                                     LinkedHashMap<String, Double> abilities, LinkedHashMap<String, Double> items,
                                     LinkedHashMap<String, Double> spreads, LinkedHashMap<String, Double> moves,
-                                    LinkedHashMap<String, Double> teammates, LinkedHashMap<String, Double> happinesses,
-                                    List<Counter> counters) {
+                                    LinkedHashMap<String, Double> teraTypes, LinkedHashMap<String, Double> teammates,
+                                    LinkedHashMap<String, Double> happinesses, List<Counter> counters) {
 }

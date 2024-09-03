@@ -31,14 +31,13 @@ import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @SpringBootTest
 class CrawBattleTaskTest {
+    private static final String EXIST_BATTLE_ID = "gen9ou-2171069120";
     protected static final int CRAW_PERIOD = 100;
+
     @Autowired
     BattleCrawler battleCrawler;
 
@@ -78,6 +77,16 @@ class CrawBattleTaskTest {
         crawBattleTask = new CrawBattleTask(new MockHasNextExceptionReplayProvider(10), battleCrawler
                 , null, battleService, false, 0);
         Assertions.assertDoesNotThrow(crawBattleTask::call);
+    }
+
+    @Test
+    void crawExistReplay() {
+        Mockito.doReturn(Set.of(EXIST_BATTLE_ID)).when(battleService).getAllBattleIds();
+
+        CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(List.of(EXIST_BATTLE_ID)),
+                battleCrawler, null, battleService, false, 0);
+        List<Battle> battles = crawBattleTask.call();
+        Assertions.assertTrue(battles.isEmpty());
     }
 
     @Test

@@ -123,8 +123,8 @@ public class StatsService {
             pokemonUsages.add(new MonthlyPokemonUsage(null, name, format, date, statId, pokemonStatDto.count(),
                     new Usage(usage.raw(), usage.real(), usage.weighted())));
             pokemonMoveSets.add(new MonthlyPokemonMoveSet(null, name, format, date, statId, pokemonStatDto.abilities(),
-                    pokemonStatDto.items(), pokemonStatDto.spreads(), pokemonStatDto.moves(), pokemonStatDto.teammates()
-                    , pokemonStatDto.happinesses(), convertCounter(pokemonStatDto.counters())));
+                    pokemonStatDto.items(), pokemonStatDto.spreads(), pokemonStatDto.moves(), pokemonStatDto.teraTypes(),
+                    pokemonStatDto.teammates(), pokemonStatDto.happinesses(), convertCounter(pokemonStatDto.counters())));
         }
         mongoTemplate.insert(monthlyMetaStat);
         mongoTemplate.insertAll(pokemonUsages);

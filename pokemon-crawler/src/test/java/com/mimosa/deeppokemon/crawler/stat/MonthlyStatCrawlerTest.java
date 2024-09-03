@@ -71,6 +71,7 @@ class MonthlyStatCrawlerTest {
             assertNotNull(pokemonStatDto.items());
             assertNotNull(pokemonStatDto.spreads());
             assertNotNull(pokemonStatDto.moves());
+            assertNotNull(pokemonStatDto.teraTypes());
             Usage usage = pokemonStatDto.usage();
             assertNotNull(usage);
             assertNotEquals(0.0, usage.raw());

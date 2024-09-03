@@ -8,5 +8,5 @@ import Battles from "@/components/Battles.vue";
   <Header></Header>
 
   <PlayerBar :name="$route.query.name"></PlayerBar>
-  <Battles :playerName="$route.query.name"></Battles>
+  <Battles :playerName="$route.query.name" :tourPlayer="$route.query.tourPlayer"></Battles>
 </template>

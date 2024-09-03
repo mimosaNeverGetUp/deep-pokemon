@@ -140,7 +140,13 @@ queryTeams(page.value, row.value);
     <Column field="teams" header="" :style="{ width:'60%'}">
       <template #body="{data}">
         <DataTable :value="data.teams" :sortField="getSort()" :sortOrder="-1" paginator :rows="10">
-          <Column v-if="tour" field="player.name" header="playerName" :style="{ width:'15%'}"/>
+          <Column v-if="tour" field="player.name" header="playerName" :style="{ width:'15%'}">
+            <template #body="{data}">
+              <router-link :to="`/player-record?name=${data.player.name}&tourPlayer=true`" class="text-black">
+                {{ data.player.name }}
+              </router-link>
+            </template>
+          </Column>
           <Column v-else field="playerName" header="playerName" :style="{ width:'10%'}">
             <template #body="{data}">
               <router-link :to="`/player-record?name=${data.playerName}`" class="text-black">

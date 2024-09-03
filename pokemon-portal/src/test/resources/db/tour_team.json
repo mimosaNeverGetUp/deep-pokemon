@@ -1,0 +1,155 @@
+[{
+  "_id": "smogtours-gen9ou-777735_0",
+  "tourId": "The World Cup of Pokémon 2024",
+  "stage": "Quarterfinals",
+  "player": {
+    "name": "srn",
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_srn"
+  },
+  "battleId": "smogtours-gen9ou-777735",
+  "teamId": {
+    "$binary": {
+      "base64": "MDAwMzAzMjQwNDg1MDk4NDA5ODgxMDA5",
+      "subType": "00"
+    }
+  },
+  "battleDate": {
+    "$date": {
+      "$numberLong": "1719763200000"
+    }
+  },
+  "battleType": [
+    "tour",
+    "The World Cup of Pokémon 2024"
+  ],
+  "rating": {
+    "$numberDouble": "0.0"
+  },
+  "playerName": "Srn",
+  "tier": "gen9ou",
+  "pokemons": [
+    {
+      "name": "Torkoal",
+      "moves": [
+        "Earthquake"
+      ]
+    },
+    {
+      "name": "Great Tusk",
+      "moves": [
+        "Earthquake",
+        "Rapid Spin"
+      ],
+      "item": "Leftovers"
+    },
+    {
+      "name": "Slither Wing",
+      "moves": [
+        "U-turn",
+        "First Impression",
+        "Low Kick"
+      ]
+    },
+    {
+      "name": "Venusaur",
+      "moves": [
+        "Weather Ball"
+      ],
+      "item": "Life Orb"
+    },
+    {
+      "name": "Walking Wake",
+      "moves": [
+        "Hydro Steam"
+      ]
+    },
+    {
+      "name": "Heatran",
+      "moves": []
+    }
+  ],
+  "tagSet": [
+    "ATTACK",
+    "UNPOPULAR"
+  ],
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam"
+},
+{
+  "_id": "smogtours-gen9ou-777735_1",
+  "tourId": "The World Cup of Pokémon 2024",
+  "stage": "Quarterfinals",
+  "player": {
+    "name": "tko",
+    "tourPlayerId": "The World Cup of Pokémon 2024_gen9ou_tko"
+  },
+  "battleId": "smogtours-gen9ou-777735",
+  "teamId": {
+    "$binary": {
+      "base64": "MDI3OTA5MDQwOTE0MDk4MzA5OTAxMDIx",
+      "subType": "00"
+    }
+  },
+  "battleDate": {
+    "$date": {
+      "$numberLong": "1719763200000"
+    }
+  },
+  "battleType": [
+    "tour",
+    "The World Cup of Pokémon 2024"
+  ],
+  "rating": {
+    "$numberDouble": "0.0"
+  },
+  "playerName": "llegamos al centro",
+  "tier": "gen9ou",
+  "pokemons": [
+    {
+      "name": "Pelipper",
+      "moves": [
+        "U-turn"
+      ]
+    },
+    {
+      "name": "Overqwil",
+      "moves": [
+        "Gunk Shot"
+      ],
+      "item": "Life Orb"
+    },
+    {
+      "name": "Raging Bolt",
+      "moves": [
+        "Calm Mind",
+        "Dragon Pulse",
+        "Tera Blast"
+      ],
+      "teraType": "Ghost"
+    },
+    {
+      "name": "Kingambit",
+      "moves": [
+        "Kowtow Cleave"
+      ],
+      "item": "Leftovers"
+    },
+    {
+      "name": "Iron Treads",
+      "moves": [
+        "Stealth Rock"
+      ],
+      "item": "Booster Energy"
+    },
+    {
+      "name": "Quaquaval",
+      "moves": [
+        "Close Combat"
+      ]
+    }
+  ],
+  "tagSet": [
+    "BALANCE_ATTACK",
+    "UNPOPULAR"
+  ],
+  "_class": "com.mimosa.deeppokemon.entity.tour.TourTeam"
+}]

@@ -80,7 +80,7 @@ public class OltTourReplayProvider implements ReplayProvider {
             }
             replaySources.addAll(extractReplaySources(replayComment));
         } catch (IOException e) {
-            throw new ServerErrorException("request smogon fail",e);
+            throw new ServerErrorException("request smogon fail", e);
         }
     }
 
@@ -141,6 +141,8 @@ public class OltTourReplayProvider implements ReplayProvider {
 
     private void addSeriesToReplaySources(List<ReplaySource> replaySources, String currentStage, List<Replay> seriesReplays, List<String> playerNames) {
         if (seriesReplays.isEmpty()) {
+            // series may be is not finish,continue
+            playerNames.clear();
             return;
         }
 

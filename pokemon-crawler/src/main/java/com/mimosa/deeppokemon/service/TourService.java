@@ -12,6 +12,7 @@ import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.TourTeamGroupDetail;
 import com.mimosa.deeppokemon.entity.tour.*;
+import com.mimosa.deeppokemon.provider.OltTourReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.provider.SmogonTourReplayProvider;
 import org.apache.commons.lang.StringUtils;
@@ -162,8 +163,8 @@ public class TourService {
     public List<Battle> crawOltXI() {
         SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(OLT_FORUMS_URL,
                 OLT_XI_FULL_TOUR_NAME, OLT_STAGES);
-        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(OLT_XI_FULL_TOUR_NAME, OLT_XI_REPLAY_URL,
-                GEN_9_OU, OLT_STAGES, winPlayerExtractor);
+        OltTourReplayProvider provider = new OltTourReplayProvider(OLT_XI_FULL_TOUR_NAME, OLT_XI_REPLAY_URL,
+                GEN_9_OU, new HashSet<>(OLT_STAGES), winPlayerExtractor);
         return crawTour(OLT_XI_FULL_TOUR_NAME, OLT_XI, GEN_9_OU, provider);
     }
 }

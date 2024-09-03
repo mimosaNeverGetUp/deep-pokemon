@@ -36,8 +36,18 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
             SmogonTourReplay tourReplay = (SmogonTourReplay) replay;
             log.info("start to crawl tour {}, stage {}, id {}", tourReplay.getTourName(), tourReplay.getStage(),
                     tourReplay.getId());
-            Battle battle = replayBattleCrawler.craw(new ReplaySource(replaySource.replayType(),
-                    Collections.singletonList(replay))).get(0);
+            Battle battle;
+            try {
+                battle = replayBattleCrawler.craw(new ReplaySource(replaySource.replayType(),
+                        Collections.singletonList(replay))).get(0);
+            } catch (Exception e) {
+                if (replaySource.replayList().size() > 1) {
+                    log.warn("craw battle {} fail,try craw other series battle", replay.getId());
+                    // tie or another fake replay, continue craw other series battle
+                    continue;
+                }
+                throw e;
+            }
 
             TourBattle tourBattle = new TourBattle();
             tourBattle.setBattleID(battle.getBattleID());

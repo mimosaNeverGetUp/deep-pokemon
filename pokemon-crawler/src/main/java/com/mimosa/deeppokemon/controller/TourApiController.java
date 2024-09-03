@@ -28,8 +28,14 @@ public class TourApiController {
     }
 
     @PostMapping("/wcop2024/battle")
-    public boolean crawlTour() {
+    public boolean crawWcopTour() {
         tourService.crawWcop2024();
+        return true;
+    }
+
+    @PostMapping("/wcopOltXi/battle")
+    public boolean crawOltXiTour() {
+        tourService.crawOltXI();
         return true;
     }
 

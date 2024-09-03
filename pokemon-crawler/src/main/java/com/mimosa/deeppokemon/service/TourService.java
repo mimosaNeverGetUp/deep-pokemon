@@ -12,6 +12,7 @@ import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.TourTeamGroupDetail;
 import com.mimosa.deeppokemon.entity.tour.*;
+import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.provider.SmogonTourReplayProvider;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -34,8 +35,10 @@ public class TourService {
     protected static final String TURN_COUNT = "turnCount";
     protected static final String TOUR_ID = "tourId";
     protected static final String FORMAT = "format";
-
+    protected static final String TIER = "tier";
     protected static final String GEN_9_OU = "gen9ou";
+
+    protected static final String WCOP_2024 = "wcop_2024";
     protected static final String WCOP_2024_FULL_TOUR_NAME = "The World Cup of Pokémon 2024";
     protected static final String WCOP_2024_REPLAY_URL = "https://www.smogon.com/forums/threads/the-world-cup-of-pok%C3%A9mon-2024-replays.3742226/";
     protected static final String WCOP_FORUMS_URL = "https://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
@@ -43,8 +46,18 @@ public class TourService {
             List.of("Qualifiers", "Round 1", "Quarterfinals", "Semifinals", "Finals");
     protected static final List<String> WCOP_REPLAY_STAGES =
             List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Quarterfinals", "Semifinals", "Finals");
-    protected static final String TIER = "tier";
-    protected static final String WCOP_2024 = "wcop_2024";
+
+
+    protected static final String OLT_XI = "olt_xi";
+    protected static final String OLT_XI_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XI";
+    protected static final String OLT_FORUMS_URL =
+            "https://www.smogon.com/forums/forums/official-ladder-tournament.465/";
+    protected static final String OLT_XI_REPLAY_URL =
+            "https://www.smogon.com/forums/threads/smogons-official-ladder-tournament-xi-replay-thread.3750361//";
+    protected static final List<String> OLT_STAGES =
+            List.of("Round 1", "Round 2", "Round 3", "Round 4", "Round 5", "Top 16",
+                    "Quarterfinals", "Semifinals", "Finals");
+
 
     private final BattleService battleService;
     private final MongoTemplate mongoTemplate;
@@ -56,14 +69,9 @@ public class TourService {
         this.replayBattleCrawler = replayBattleCrawler;
     }
 
-    public List<Battle> crawTour(String tourName, String tourShortName, String format, String replayUrl,
-                                 List<String> replayStages, String forumsUrl, List<String> forumsThreadSuffixStages) {
-        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(forumsUrl, tourName,
-                forumsThreadSuffixStages);
-        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(tourName, replayUrl, format, replayStages,
-                winPlayerExtractor);
+    public List<Battle> crawTour(String tourName, String tourShortName, String format, ReplayProvider replayProvider) {
         SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler);
-        CompletableFuture<List<Battle>> future = battleService.crawBattle(provider, crawler, false);
+        CompletableFuture<List<Battle>> future = battleService.crawBattle(replayProvider, crawler, false);
 
         List<Battle> battles = future.join();
 
@@ -144,7 +152,18 @@ public class TourService {
     }
 
     public List<Battle> crawWcop2024() {
-        return crawTour(WCOP_2024_FULL_TOUR_NAME, WCOP_2024, GEN_9_OU, WCOP_2024_REPLAY_URL, WCOP_REPLAY_STAGES,
-                WCOP_FORUMS_URL, WCOP_FORUMS_THREAD_SUFFIX_STAGES);
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(WCOP_FORUMS_URL,
+                WCOP_2024_FULL_TOUR_NAME, WCOP_FORUMS_THREAD_SUFFIX_STAGES);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(WCOP_2024_FULL_TOUR_NAME, WCOP_2024_REPLAY_URL,
+                GEN_9_OU, WCOP_REPLAY_STAGES, winPlayerExtractor);
+        return crawTour(WCOP_2024_FULL_TOUR_NAME, WCOP_2024, GEN_9_OU, provider);
+    }
+
+    public List<Battle> crawOltXI() {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(OLT_FORUMS_URL,
+                OLT_XI_FULL_TOUR_NAME, OLT_STAGES);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(OLT_XI_FULL_TOUR_NAME, OLT_XI_REPLAY_URL,
+                GEN_9_OU, OLT_STAGES, winPlayerExtractor);
+        return crawTour(OLT_XI_FULL_TOUR_NAME, OLT_XI, GEN_9_OU, provider);
     }
 }

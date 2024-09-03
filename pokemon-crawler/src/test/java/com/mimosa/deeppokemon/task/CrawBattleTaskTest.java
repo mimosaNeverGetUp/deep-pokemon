@@ -58,6 +58,8 @@ class CrawBattleTaskTest {
         Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
         Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
                 Mockito.anyBoolean());
+        Mockito.doNothing().when(battleService).insertTeam(Mockito.any());
+        Mockito.doReturn(Collections.emptyList()).when(battleService).insertBattleStat(Mockito.any());
         try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
             mockHttpUtil.when(() -> HttpUtil.request(Mockito.any(), Mockito.any(Class.class))).thenReturn(battleReplayData);
             List<Battle> battles =
@@ -82,7 +84,10 @@ class CrawBattleTaskTest {
     @Test
     void crawExistReplay() {
         Mockito.doReturn(Set.of(EXIST_BATTLE_ID)).when(battleService).getAllBattleIds();
-
+        Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
+                Mockito.anyBoolean());
+        Mockito.doNothing().when(battleService).insertTeam(Mockito.any());
+        Mockito.doReturn(Collections.emptyList()).when(battleService).insertBattleStat(Mockito.any());
         CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(List.of(EXIST_BATTLE_ID)),
                 battleCrawler, null, battleService, false, 0);
         List<Battle> battles = crawBattleTask.call();
@@ -94,6 +99,10 @@ class CrawBattleTaskTest {
         Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
+        Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
+                Mockito.anyBoolean());
+        Mockito.doNothing().when(battleService).insertTeam(Mockito.any());
+        Mockito.doReturn(Collections.emptyList()).when(battleService).insertBattleStat(Mockito.any());
         CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(List.of("test1", "test2", "test3")),
                 new NoOpBattleCrawler(), null, battleService, false, CRAW_PERIOD);
         crawBattleTask.call();
@@ -107,6 +116,8 @@ class CrawBattleTaskTest {
         Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
         Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
                 Mockito.anyBoolean());
+        Mockito.doNothing().when(battleService).insertTeam(Mockito.any());
+        Mockito.doReturn(Collections.emptyList()).when(battleService).insertBattleStat(Mockito.any());
         List<String> ids = new ArrayList<>();
         for (int i = 0; i < 110; ++i) {
             ids.add("test" + i);

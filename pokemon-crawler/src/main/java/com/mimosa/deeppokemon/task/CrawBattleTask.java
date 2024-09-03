@@ -146,22 +146,22 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     private boolean isNeedCraw(ReplaySource replaySource) {
         for (Replay replay : replaySource.replayList()) {
             if (replay.getId() == null) {
-                continue;
+                return false;
             }
 
             if (!update && battleService.getAllBattleIds().contains(replay.getId())) {
                 // battle is exist and not need to update
-                continue;
+                return false;
             }
 
             if (!CrawLock.tryLock(replay.getId())) {
                 // another thread is craw ,skip
                 log.debug("replay {} is locked, skip", replay.getId());
+                return false;
             } else {
                 holdBattleLocks.add(replay.getId());
-                return true;
             }
         }
-        return false;
+        return true;
     }
 }

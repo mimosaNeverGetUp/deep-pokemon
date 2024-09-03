@@ -143,7 +143,7 @@ async function queryPokemonSet(format, pokemon) {
     try {
       let result = await res.json();
       sets.value = result.sets;
-    } catch (e){
+    } catch (e) {
       console.log("response is empty or invalid")
     }
   }
@@ -180,7 +180,8 @@ async function queryPokemonSet(format, pokemon) {
     <Divider type="solid"/>
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">abilities</p>
-      <div class="flex justify-start items-center gap-2 mb-1" v-for=" [ability, value] in Object.entries(moveset.abilities)">
+      <div class="flex justify-start items-center gap-2 mb-1"
+           v-for=" [ability, value] in Object.entries(moveset.abilities)">
         <span class="w-44">{{ ability }}</span>
         <div class="flex gap-5 w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
@@ -205,9 +206,23 @@ async function queryPokemonSet(format, pokemon) {
       </div>
     </div>
     <Divider type="solid"/>
+    <div v-if="props.format.includes('gen9') && moveset.teraTypes" class="ml-5 my-3">
+      <p class="text-xl text-gray-500">teraTypes</p>
+      <div class="flex justify-start gap-2 mb-1" v-for=" [tera, value] in filterPopularSet(moveset.teraTypes,0.01)">
+        <div class="w-44 items-center">
+          <img :src="`/types/${tera}.png`" :alt="tera"/>
+          <span>{{ tera }}</span>
+        </div>
+        <div class="flex gap-5 w-44 items-center">
+          <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
+        </div>
+      </div>
+    </div>
+    <Divider type="solid"/>
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">moves</p>
-      <div class="flex justify-start items-center gap-2 mb-1" v-for=" [move, value] in filterPopularSet(moveset.moves,0.01)">
+      <div class="flex justify-start items-center gap-2 mb-1"
+           v-for=" [move, value] in filterPopularSet(moveset.moves,0.01)">
         <span class="w-44">{{ move }}</span>
         <div class="flex gap-5 w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
@@ -259,7 +274,7 @@ async function queryPokemonSet(format, pokemon) {
       <p class="text-xl text-gray-500">sets</p>
       <div class="mt-3 mb-10" v-for=" [setName, set] in Object.entries(sets)">
         <p class="font-bold">{{ setName }}</p>
-        <pre >{{set}}</pre>
+        <pre>{{ set }}</pre>
       </div>
     </div>
     <Divider type="solid"/>

@@ -144,7 +144,7 @@ public class BattleReplayExtractor {
     }
 
     private static String extractWinner(String html) {
-        Pattern pattern = Pattern.compile("win\\|(.*)");
+        Pattern pattern = Pattern.compile(Pattern.quote("|") + "win\\|(.*)");
         Matcher matcher = pattern.matcher(html);
         if (matcher.find()) {
             String winPlayerName = matcher.group(1).trim();

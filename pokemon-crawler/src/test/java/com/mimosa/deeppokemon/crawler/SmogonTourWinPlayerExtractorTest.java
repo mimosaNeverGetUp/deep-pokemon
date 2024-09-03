@@ -41,6 +41,12 @@ class SmogonTourWinPlayerExtractorTest {
     @Value("classpath:api/2024WcopRound1.html")
     private Resource round1Resource;
 
+    @Value("classpath:api/OltForum.html")
+    private Resource oltForumsResource;
+
+    @Value("classpath:api/OltXIRound1.html")
+    private Resource oltRound1Resource;
+
     @Value("classpath:api/2024WcopRound1Page17.html")
     private Resource round1Page17Resource;
 
@@ -152,4 +158,36 @@ class SmogonTourWinPlayerExtractorTest {
         Assertions.assertNotNull(winSmogonPlayer);
         Assertions.assertEquals(winner, winSmogonPlayer.getName());
     }
+
+    @Test
+    void getOltRound1WinSmogonPlayer() throws IOException {
+        String tourForumsUrl = "https1://www.smogon.com/forums/forums/official-ladder-tournament.465/";
+        Document forumDoc = Jsoup.parse(oltForumsResource.getFile());
+        Document oltRound1Doc = Jsoup.parse(oltRound1Resource.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(forumDoc, oltRound1Doc);
+
+            SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "Smogon's Official Ladder Tournament XI",
+                    List.of("Round 1"));
+
+            assertWinner(extractor, "Round 1", "twixtry", "empo", "empo");
+            assertWinner(extractor, "Round 1", "supagmoney", "vert", "vert");
+            assertWinner(extractor, "Round 1", "mako", "3d", "3d");
+            assertWinner(extractor, "Round 1", "xavgb", "rewer", "xavgb");
+            assertWinner(extractor, "Round 1", "santu", "xdrudi.exe", "santu");
+            assertWinner(extractor, "Round 1", "oldspicemike", "yovan33321", "oldspicemike");
+            assertWinner(extractor, "Round 1", "alhen", "spookyz", "spookyz");
+            assertWinner(extractor, "Round 1", "tace", "crying", "crying");
+            assertWinner(extractor, "Round 1", "ahsan-219", "ewin", "ahsan-219");
+            assertWinner(extractor, "Round 1", "welli0u", "storm zone", "welli0u");
+            assertWinner(extractor, "Round 1", "insult", "dasmer", "dasmer");
+            assertWinner(extractor, "Round 1", "tdnt", "mimilimi", "mimilimi");
+            assertWinner(extractor, "Round 1", "emforbes", "bbeeaa", "emforbes");
+            assertWinner(extractor, "Round 1", "chansey and lulu", "soulwind", "soulwind");
+        }
+    }
+
 }

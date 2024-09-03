@@ -6,6 +6,7 @@
 
 package com.mimosa.deeppokemon.provider;
 
+import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.BattleMatch;
 import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.ReplaySource;
@@ -49,15 +50,18 @@ public class SmogonTourReplayProvider implements ReplayProvider {
     private final String replayThreadUrl;
     private final String format;
     private final List<String> stageTitles;
-    private final Deque<ReplaySource> replaySources;
+    private final SmogonTourWinPlayerExtractor winPlayerExtractor;
+
+    private final Deque<ReplaySource> replaySources = new LinkedList<>();
     private final Map<String, String> playerTeamCache = new HashMap<>();
 
-    public SmogonTourReplayProvider(String tourName, String replayThreadUrl, String format, List<String> stageTitles) {
+    public SmogonTourReplayProvider(String tourName, String replayThreadUrl, String format, List<String> stageTitles
+            , SmogonTourWinPlayerExtractor winPlayerExtractor) {
         this.tourName = tourName;
         this.replayThreadUrl = replayThreadUrl;
-        this.replaySources = new LinkedList<>();
         this.format = format;
         this.stageTitles = stageTitles;
+        this.winPlayerExtractor = winPlayerExtractor;
     }
 
     @Override
@@ -106,9 +110,14 @@ public class SmogonTourReplayProvider implements ReplayProvider {
                 }
 
                 for (Replay replay : replays) {
-                    ((SmogonTourReplay) replay).setStage(stageTitle);
+                    SmogonTourReplay tourReplay = (SmogonTourReplay) replay;
+                    tourReplay.setStage(stageTitle);
+                    if (winPlayerExtractor != null) {
+                        tourReplay.setWinPlayer(winPlayerExtractor.getWinSmogonPlayer(stageTitle,
+                                tourReplay.getTourPlayers()));
+                    }
+                    replaySources.add(new ReplaySource(List.of(TOUR, tourName), Collections.singletonList(tourReplay)));
                 }
-                replaySources.add(new ReplaySource(List.of(TOUR, tourName), replays));
             }
         } catch (IOException e) {
             log.error("extract replay thread fail", e);

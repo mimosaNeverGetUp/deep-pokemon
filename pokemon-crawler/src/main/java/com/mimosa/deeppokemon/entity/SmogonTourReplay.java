@@ -14,6 +14,7 @@ public class SmogonTourReplay extends Replay{
     protected String tourName;
     protected String stage;
     protected List<TourPlayer> tourPlayers;
+    protected TourPlayer winPlayer;
 
     public SmogonTourReplay() {
         super();
@@ -45,5 +46,13 @@ public class SmogonTourReplay extends Replay{
 
     public void setTourPlayers(List<TourPlayer> tourPlayers) {
         this.tourPlayers = tourPlayers;
+    }
+
+    public TourPlayer getWinPlayer() {
+        return winPlayer;
+    }
+
+    public void setWinPlayer(TourPlayer winPlayer) {
+        this.winPlayer = winPlayer;
     }
 }

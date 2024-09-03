@@ -25,8 +25,10 @@
 package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.Replay;
+import com.mimosa.deeppokemon.entity.ReplaySource;
+
+import java.util.List;
 
 public interface BattleCrawler{
-    Battle craw(Replay replay);
+    List<Battle> craw(ReplaySource replaySource);
 }

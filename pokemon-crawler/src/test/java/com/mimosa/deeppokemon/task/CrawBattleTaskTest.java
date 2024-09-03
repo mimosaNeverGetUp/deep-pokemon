@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimosa.deeppokemon.crawler.BattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleReplayData;
-import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.ReplaySource;
 import com.mimosa.deeppokemon.matcher.BattleMatcher;
 import com.mimosa.deeppokemon.provider.FixedReplayProvider;
@@ -32,13 +31,13 @@ import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @SpringBootTest
 class CrawBattleTaskTest {
+    private static final String EXIST_BATTLE_ID = "gen9ou-2171069120";
     protected static final int CRAW_PERIOD = 100;
+
     @Autowired
     BattleCrawler battleCrawler;
 
@@ -59,6 +58,8 @@ class CrawBattleTaskTest {
         Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
         Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
                 Mockito.anyBoolean());
+        Mockito.doNothing().when(battleService).insertTeam(Mockito.any());
+        Mockito.doReturn(Collections.emptyList()).when(battleService).insertBattleStat(Mockito.any());
         try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
             mockHttpUtil.when(() -> HttpUtil.request(Mockito.any(), Mockito.any(Class.class))).thenReturn(battleReplayData);
             List<Battle> battles =
@@ -81,10 +82,27 @@ class CrawBattleTaskTest {
     }
 
     @Test
+    void crawExistReplay() {
+        Mockito.doReturn(Set.of(EXIST_BATTLE_ID)).when(battleService).getAllBattleIds();
+        Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
+                Mockito.anyBoolean());
+        Mockito.doNothing().when(battleService).insertTeam(Mockito.any());
+        Mockito.doReturn(Collections.emptyList()).when(battleService).insertBattleStat(Mockito.any());
+        CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(List.of(EXIST_BATTLE_ID)),
+                battleCrawler, null, battleService, false, 0);
+        List<Battle> battles = crawBattleTask.call();
+        Assertions.assertTrue(battles.isEmpty());
+    }
+
+    @Test
     void crawReplayWithCrawPeriod() {
         Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
+        Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
+                Mockito.anyBoolean());
+        Mockito.doNothing().when(battleService).insertTeam(Mockito.any());
+        Mockito.doReturn(Collections.emptyList()).when(battleService).insertBattleStat(Mockito.any());
         CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(List.of("test1", "test2", "test3")),
                 new NoOpBattleCrawler(), null, battleService, false, CRAW_PERIOD);
         crawBattleTask.call();
@@ -98,6 +116,8 @@ class CrawBattleTaskTest {
         Mockito.doReturn(new HashSet<>()).when(battleService).getAllBattleIds();
         Mockito.doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(battleService).save(Mockito.any(),
                 Mockito.anyBoolean());
+        Mockito.doNothing().when(battleService).insertTeam(Mockito.any());
+        Mockito.doReturn(Collections.emptyList()).when(battleService).insertBattleStat(Mockito.any());
         List<String> ids = new ArrayList<>();
         for (int i = 0; i < 110; ++i) {
             ids.add("test" + i);
@@ -142,8 +162,8 @@ class CrawBattleTaskTest {
 
     private static class NoOpBattleCrawler implements BattleCrawler {
         @Override
-        public Battle craw(Replay replay) {
-            return new Battle(null);
+        public List<Battle> craw(ReplaySource replay) {
+            return Collections.singletonList(new Battle(null));
         }
     }
 }

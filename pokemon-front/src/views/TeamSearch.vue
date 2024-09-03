@@ -36,7 +36,8 @@ const tourShortName = ref()
 const tourPlaceHolder = ref("loading...");
 const tourSortModes = ref(["win dif", "popularity", "date"])
 const tourNodes = [];
-let tourPlayers = [];
+const tourPlayers = ref([])
+let tourPlayersMap = {}
 
 
 const useMonthRange = ref(false)
@@ -67,7 +68,8 @@ async function queryAllTour() {
 
         try {
           for (let tier in tour.tierPlayers) {
-            tourPlayers =tour.tierPlayers[tier];
+            let key = tour.shortName + "_" + tier;
+            tourPlayersMap[key] =tour.tierPlayers[tier]
           }
         } catch (e){
           console.log("init tour players fail")
@@ -102,6 +104,8 @@ function changeBattleType(event) {
 
 function onNodeSelect(event) {
   tourShortName.value = event.key;
+  let key = event.key + "_" + "gen9ou";
+  tourPlayers.value = tourPlayersMap[key]
 }
 
 function getTeamSearchUrl(pokemons, tags, range, month, sort) {

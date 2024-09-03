@@ -7,6 +7,7 @@
 package com.mimosa.pokemon.portal.dto;
 
 import com.mimosa.deeppokemon.entity.BattleTeam;
+import com.mimosa.deeppokemon.entity.tour.TourPlayer;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -19,6 +20,10 @@ public final class BattleDto implements Serializable {
     private List<String> type;
     private String winner;
     private List<BattleTeam> teams;
+    private String tourId;
+    private String stage;
+    private List<TourPlayer> smogonPlayer;
+    private String winSmogonPlayerName;
 
     public String getId() {
         return id;
@@ -66,5 +71,37 @@ public final class BattleDto implements Serializable {
 
     public void setTeams(List<BattleTeam> teams) {
         this.teams = teams;
+    }
+
+    public String getTourId() {
+        return tourId;
+    }
+
+    public void setTourId(String tourId) {
+        this.tourId = tourId;
+    }
+
+    public String getStage() {
+        return stage;
+    }
+
+    public void setStage(String stage) {
+        this.stage = stage;
+    }
+
+    public List<TourPlayer> getSmogonPlayer() {
+        return smogonPlayer;
+    }
+
+    public void setSmogonPlayer(List<TourPlayer> smogonPlayer) {
+        this.smogonPlayer = smogonPlayer;
+    }
+
+    public String getWinSmogonPlayerName() {
+        return winSmogonPlayerName;
+    }
+
+    public void setWinSmogonPlayerName(String winSmogonPlayerName) {
+        this.winSmogonPlayerName = winSmogonPlayerName;
     }
 }

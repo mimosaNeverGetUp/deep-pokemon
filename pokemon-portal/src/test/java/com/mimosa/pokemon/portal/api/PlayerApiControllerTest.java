@@ -88,4 +88,33 @@ class PlayerApiControllerTest {
                 .andDo(print());
 
     }
+
+    @Test
+    void getTourPlayerBattleRecord() throws Exception {
+        mockMvc.perform(get(String.format("/api/tour/player/%s/battle", "srn"))
+                        .queryParam("page", "0")
+                        .queryParam("row", "15"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.page").value(0))
+                .andExpect(jsonPath("$.row").value(15))
+                .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
+                .andExpect(jsonPath("$.data").isNotEmpty())
+                .andExpect(jsonPath("$.data",
+                        Matchers.everyItem(Matchers.allOf(
+                                Matchers.hasEntry(Matchers.equalTo("id"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("date"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("avageRating"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("tourId"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("stage"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("winSmogonPlayerName"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.iterableWithSize(2)),
+                                Matchers.hasEntry(Matchers.equalTo("winner"), Matchers.notNullValue())
+                        ))))
+                .andExpect(jsonPath("$.data",
+                        Matchers.everyItem(Matchers.allOf(
+                                Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.everyItem(TeamMatcher.isValidTeam())
+                                )))))
+                .andDo(print());
+
+    }
 }

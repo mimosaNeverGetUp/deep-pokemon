@@ -59,4 +59,10 @@ public class PlayerApiController {
                                                          @Min(0) int page, @Min(1) int row) {
         return battleService.listBattleByName(name, page, row);
     }
+
+    @GetMapping("/tour/player/{username}/battle")
+    public PageResponse<BattleDto> getTourPlayerBattleRecord(@PathVariable("username") @NotNull String name,
+                                                         @Min(0) int page, @Min(1) int row) {
+        return battleService.listTourBattle(name, page, row);
+    }
 }

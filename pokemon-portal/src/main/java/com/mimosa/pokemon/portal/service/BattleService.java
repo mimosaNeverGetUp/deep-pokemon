@@ -27,6 +27,7 @@ package com.mimosa.pokemon.portal.service;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.stat.*;
+import com.mimosa.deeppokemon.entity.tour.TourBattle;
 import com.mimosa.deeppokemon.entity.tour.TourPlayer;
 import com.mimosa.deeppokemon.entity.tour.TourPlayerRecord;
 import com.mimosa.pokemon.portal.dto.BattleDto;
@@ -64,6 +65,14 @@ public class BattleService {
     protected static final String TEAM_SET = "team_set";
     protected static final String SET = "set";
     protected static final String TEAM_GROUP = "team_group";
+    protected static final String TOUR_BATTLE = "tour_battle";
+    protected static final String TOUR_TEAM = "tour_team";
+    protected static final String TEAMS = "teams";
+    protected static final String TOUR_ID = "tourId";
+    protected static final String STAGE = "stage";
+    protected static final String WIN_SMOGON_PLAYER_NAME = "winSmogonPlayerName";
+    protected static final String SMOGON_PLAYER = "smogonPlayer";
+    protected static final String SMOGON_PLAYER_NAME = "smogonPlayer.name";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -98,6 +107,36 @@ public class BattleService {
         return new PageResponse<>(count, page, row, battles);
     }
 
+    @Cacheable("tourPlayerBattle")
+    public PageResponse<BattleDto> listTourBattle(String playerName, int page, int row) {
+        Criteria criteria = Criteria.where(SMOGON_PLAYER_NAME).in(playerName);
+        long count = mongoTemplate.count(new Query(criteria), TourBattle.class);
+        if (count == 0) {
+            return new PageResponse<>(count, page, row, Collections.emptyList());
+        }
+
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC, DATE);
+        ProjectionOperation projectionOperation = Aggregation.project(ID, TYPE, AVAGE_RATING, WINNER, DATE,
+                TOUR_ID, STAGE, WIN_SMOGON_PLAYER_NAME, SMOGON_PLAYER);
+        LookupOperation lookupOperation = LookupOperation.newLookup()
+                .from(TOUR_TEAM)
+                .localField(ID)
+                .foreignField(BATTLE_ID)
+                .as(TEAMS);
+        Aggregation aggregation = Aggregation.newAggregation(
+                matchOperation,
+                sortOperation,
+                projectionOperation,
+                Aggregation.skip((long) (page) * row),
+                Aggregation.limit(row),
+                lookupOperation
+        );
+
+        List<BattleDto> battles = mongoTemplate.aggregate(aggregation, TOUR_BATTLE, BattleDto.class).getMappedResults();
+        return new PageResponse<>(count, page, row, battles);
+    }
+
     public List<BattleTeam> listRecentTeam(String playerName) {
         Criteria criteria = Criteria.where("playerName").is(playerName)
                 .andOperator(Criteria.where("tier").in("gen9ou", "[Gen 9] OU"));
@@ -120,7 +159,7 @@ public class BattleService {
         Criteria criteria = new Criteria();
 
         if (CollectionUtils.hasNotNullObject(playerNames)) {
-            criteria.and("teams").elemMatch(new Criteria("player.name").in(playerNames));
+            criteria.and(TEAMS).elemMatch(new Criteria("player.name").in(playerNames));
         }
 
         if (CollectionUtils.hasNotNullObject(tags)) {

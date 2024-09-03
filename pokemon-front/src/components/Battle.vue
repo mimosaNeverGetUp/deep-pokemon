@@ -7,6 +7,11 @@ import BattleStat from "@/components/BattleStat.vue";
 const props = defineProps({
   playerName: String,
   data: Object,
+  tourPlayer: {
+    type: Boolean,
+    required: false,
+    default: false
+  }
 })
 const battleChartVisibility = ref(false);
 
@@ -23,12 +28,11 @@ function battleButtonIcon() {
 <template>
   <div :class="data.winner===props.playerName ? 'deco-winner': 'deco-loser' "></div>
   <div class="battle-table text-lg">
+    <p v-if="props.tourPlayer" class="font-sans font-bold">{{ data.tourId + ' ' + data.stage }}</p>
     <a style="display:block" target="_blank" :href="`https://replay.pokemonshowdown.com/${data.id}`" class="text-black">
       {{ data.id }}
     </a>
-    <span>
-          {{ data.date }}
-    </span>
+    <p>{{ data.date }}</p>
     <div class="team-match">
       <div class="team-info" v-for="team in data.teams">
               <span>
@@ -40,9 +44,8 @@ function battleButtonIcon() {
         <Team :team="team"></Team>
       </div>
     </div>
-    <Button :icon="battleButtonIcon()" severity="secondary"
-            @click="toggleBattleStatVisibility()" rounded text/>
-    <BattleStat :data=data :player-name="playerName" v-if="battleChartVisibility"/>
+    <Button :icon="battleButtonIcon()" severity="secondary" @click="toggleBattleStatVisibility()" rounded text/>
+    <BattleStat :data=data :player-name="data.winner" v-if="battleChartVisibility"/>
   </div>
 </template>
 

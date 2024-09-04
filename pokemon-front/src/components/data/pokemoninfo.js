@@ -1,5 +1,5 @@
 export const pokemoninfo = {
-    "bulbasaur": {
+    "Bulbasaur": {
         "num": 1,
         "name": "Bulbasaur",
         "types": [
@@ -33,7 +33,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "ivysaur": {
+    "Ivysaur": {
         "num": 2,
         "name": "Ivysaur",
         "types": [
@@ -69,7 +69,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "venusaur": {
+    "Venusaur": {
         "num": 3,
         "name": "Venusaur",
         "types": [
@@ -110,7 +110,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Vine Lash"
     },
-    "venusaurmega": {
+    "Venusaur-Mega": {
         "num": 3,
         "name": "Venusaur-Mega",
         "baseSpecies": "Venusaur",
@@ -143,7 +143,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Venusaurite"
     },
-    "venusaurgmax": {
+    "Venusaur-Gmax": {
         "num": 3,
         "name": "Venusaur-Gmax",
         "baseSpecies": "Venusaur",
@@ -177,7 +177,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Venusaur"
     },
-    "charmander": {
+    "Charmander": {
         "num": 4,
         "name": "Charmander",
         "types": [
@@ -210,7 +210,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "charmeleon": {
+    "Charmeleon": {
         "num": 5,
         "name": "Charmeleon",
         "types": [
@@ -245,7 +245,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "charizard": {
+    "Charizard": {
         "num": 6,
         "name": "Charizard",
         "types": [
@@ -288,7 +288,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Wildfire"
     },
-    "charizardmegax": {
+    "Charizard-Mega-X": {
         "num": 6,
         "name": "Charizard-Mega-X",
         "baseSpecies": "Charizard",
@@ -321,7 +321,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Charizardite X"
     },
-    "charizardmegay": {
+    "Charizard-Mega-Y": {
         "num": 6,
         "name": "Charizard-Mega-Y",
         "baseSpecies": "Charizard",
@@ -354,7 +354,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Charizardite Y"
     },
-    "charizardgmax": {
+    "Charizard-Gmax": {
         "num": 6,
         "name": "Charizard-Gmax",
         "baseSpecies": "Charizard",
@@ -388,7 +388,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Charizard"
     },
-    "squirtle": {
+    "Squirtle": {
         "num": 7,
         "name": "Squirtle",
         "types": [
@@ -421,7 +421,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "wartortle": {
+    "Wartortle": {
         "num": 8,
         "name": "Wartortle",
         "types": [
@@ -456,7 +456,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "blastoise": {
+    "Blastoise": {
         "num": 9,
         "name": "Blastoise",
         "types": [
@@ -496,7 +496,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Cannonade"
     },
-    "blastoisemega": {
+    "Blastoise-Mega": {
         "num": 9,
         "name": "Blastoise-Mega",
         "baseSpecies": "Blastoise",
@@ -528,7 +528,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Blastoisinite"
     },
-    "blastoisegmax": {
+    "Blastoise-Gmax": {
         "num": 9,
         "name": "Blastoise-Gmax",
         "baseSpecies": "Blastoise",
@@ -561,7 +561,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Blastoise"
     },
-    "caterpie": {
+    "Caterpie": {
         "num": 10,
         "name": "Caterpie",
         "types": [
@@ -589,7 +589,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "metapod": {
+    "Metapod": {
         "num": 11,
         "name": "Metapod",
         "types": [
@@ -618,7 +618,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "butterfree": {
+    "Butterfree": {
         "num": 12,
         "name": "Butterfree",
         "types": [
@@ -647,7 +647,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Befuddle"
     },
-    "butterfreegmax": {
+    "Butterfree-Gmax": {
         "num": 12,
         "name": "Butterfree-Gmax",
         "baseSpecies": "Butterfree",
@@ -676,7 +676,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Butterfree"
     },
-    "weedle": {
+    "Weedle": {
         "num": 13,
         "name": "Weedle",
         "types": [
@@ -705,7 +705,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "kakuna": {
+    "Kakuna": {
         "num": 14,
         "name": "Kakuna",
         "types": [
@@ -735,7 +735,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "beedrill": {
+    "Beedrill": {
         "num": 15,
         "name": "Beedrill",
         "types": [
@@ -770,7 +770,7 @@ export const pokemoninfo = {
             "Beedrill-Mega"
         ]
     },
-    "beedrillmega": {
+    "Beedrill-Mega": {
         "num": 15,
         "name": "Beedrill-Mega",
         "baseSpecies": "Beedrill",
@@ -798,7 +798,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Beedrillite"
     },
-    "pidgey": {
+    "Pidgey": {
         "num": 16,
         "name": "Pidgey",
         "types": [
@@ -828,7 +828,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "pidgeotto": {
+    "Pidgeotto": {
         "num": 17,
         "name": "Pidgeotto",
         "types": [
@@ -860,7 +860,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "pidgeot": {
+    "Pidgeot": {
         "num": 18,
         "name": "Pidgeot",
         "types": [
@@ -896,7 +896,7 @@ export const pokemoninfo = {
             "Pidgeot-Mega"
         ]
     },
-    "pidgeotmega": {
+    "Pidgeot-Mega": {
         "num": 18,
         "name": "Pidgeot-Mega",
         "baseSpecies": "Pidgeot",
@@ -924,7 +924,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Pidgeotite"
     },
-    "rattata": {
+    "Rattata": {
         "num": 19,
         "name": "Rattata",
         "types": [
@@ -960,7 +960,7 @@ export const pokemoninfo = {
             "Rattata-Alola"
         ]
     },
-    "rattataalola": {
+    "Rattata-Alola": {
         "num": 19,
         "name": "Rattata-Alola",
         "baseSpecies": "Rattata",
@@ -992,7 +992,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "raticate": {
+    "Raticate": {
         "num": 20,
         "name": "Raticate",
         "types": [
@@ -1029,7 +1029,7 @@ export const pokemoninfo = {
             "Raticate-Alola-Totem"
         ]
     },
-    "raticatealola": {
+    "Raticate-Alola": {
         "num": 20,
         "name": "Raticate-Alola",
         "baseSpecies": "Raticate",
@@ -1061,7 +1061,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "raticatealolatotem": {
+    "Raticate-Alola-Totem": {
         "num": 20,
         "name": "Raticate-Alola-Totem",
         "baseSpecies": "Raticate",
@@ -1088,7 +1088,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "spearow": {
+    "Spearow": {
         "num": 21,
         "name": "Spearow",
         "types": [
@@ -1117,7 +1117,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "fearow": {
+    "Fearow": {
         "num": 22,
         "name": "Fearow",
         "types": [
@@ -1145,7 +1145,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "ekans": {
+    "Ekans": {
         "num": 23,
         "name": "Ekans",
         "types": [
@@ -1175,7 +1175,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "arbok": {
+    "Arbok": {
         "num": 24,
         "name": "Arbok",
         "types": [
@@ -1204,7 +1204,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "pikachu": {
+    "Pikachu": {
         "num": 25,
         "name": "Pikachu",
         "types": [
@@ -1272,7 +1272,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Volt Crash"
     },
-    "pikachucosplay": {
+    "Pikachu-Cosplay": {
         "num": 25,
         "name": "Pikachu-Cosplay",
         "baseSpecies": "Pikachu",
@@ -1300,7 +1300,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "pikachurockstar": {
+    "Pikachu-Rock-Star": {
         "num": 25,
         "name": "Pikachu-Rock-Star",
         "baseSpecies": "Pikachu",
@@ -1329,7 +1329,7 @@ export const pokemoninfo = {
         "changesFrom": "Pikachu-Cosplay",
         "gen": 6
     },
-    "pikachubelle": {
+    "Pikachu-Belle": {
         "num": 25,
         "name": "Pikachu-Belle",
         "baseSpecies": "Pikachu",
@@ -1358,7 +1358,7 @@ export const pokemoninfo = {
         "changesFrom": "Pikachu-Cosplay",
         "gen": 6
     },
-    "pikachupopstar": {
+    "Pikachu-Pop-Star": {
         "num": 25,
         "name": "Pikachu-Pop-Star",
         "baseSpecies": "Pikachu",
@@ -1387,7 +1387,7 @@ export const pokemoninfo = {
         "changesFrom": "Pikachu-Cosplay",
         "gen": 6
     },
-    "pikachuphd": {
+    "Pikachu-PhD": {
         "num": 25,
         "name": "Pikachu-PhD",
         "baseSpecies": "Pikachu",
@@ -1416,7 +1416,7 @@ export const pokemoninfo = {
         "changesFrom": "Pikachu-Cosplay",
         "gen": 6
     },
-    "pikachulibre": {
+    "Pikachu-Libre": {
         "num": 25,
         "name": "Pikachu-Libre",
         "baseSpecies": "Pikachu",
@@ -1445,7 +1445,7 @@ export const pokemoninfo = {
         "changesFrom": "Pikachu-Cosplay",
         "gen": 6
     },
-    "pikachuoriginal": {
+    "Pikachu-Original": {
         "num": 25,
         "name": "Pikachu-Original",
         "baseSpecies": "Pikachu",
@@ -1474,7 +1474,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "pikachuhoenn": {
+    "Pikachu-Hoenn": {
         "num": 25,
         "name": "Pikachu-Hoenn",
         "baseSpecies": "Pikachu",
@@ -1503,7 +1503,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "pikachusinnoh": {
+    "Pikachu-Sinnoh": {
         "num": 25,
         "name": "Pikachu-Sinnoh",
         "baseSpecies": "Pikachu",
@@ -1532,7 +1532,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "pikachuunova": {
+    "Pikachu-Unova": {
         "num": 25,
         "name": "Pikachu-Unova",
         "baseSpecies": "Pikachu",
@@ -1561,7 +1561,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "pikachukalos": {
+    "Pikachu-Kalos": {
         "num": 25,
         "name": "Pikachu-Kalos",
         "baseSpecies": "Pikachu",
@@ -1590,7 +1590,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "pikachualola": {
+    "Pikachu-Alola": {
         "num": 25,
         "name": "Pikachu-Alola",
         "baseSpecies": "Pikachu",
@@ -1619,7 +1619,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "pikachupartner": {
+    "Pikachu-Partner": {
         "num": 25,
         "name": "Pikachu-Partner",
         "baseSpecies": "Pikachu",
@@ -1648,7 +1648,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "pikachustarter": {
+    "Pikachu-Starter": {
         "num": 25,
         "name": "Pikachu-Starter",
         "baseSpecies": "Pikachu",
@@ -1675,7 +1675,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "pikachugmax": {
+    "Pikachu-Gmax": {
         "num": 25,
         "name": "Pikachu-Gmax",
         "baseSpecies": "Pikachu",
@@ -1704,7 +1704,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Pikachu"
     },
-    "pikachuworld": {
+    "Pikachu-World": {
         "num": 25,
         "name": "Pikachu-World",
         "baseSpecies": "Pikachu",
@@ -1733,7 +1733,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "raichu": {
+    "Raichu": {
         "num": 26,
         "name": "Raichu",
         "types": [
@@ -1769,7 +1769,7 @@ export const pokemoninfo = {
             "Raichu-Alola"
         ]
     },
-    "raichualola": {
+    "Raichu-Alola": {
         "num": 26,
         "name": "Raichu-Alola",
         "baseSpecies": "Raichu",
@@ -1801,7 +1801,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "sandshrew": {
+    "Sandshrew": {
         "num": 27,
         "name": "Sandshrew",
         "types": [
@@ -1836,7 +1836,7 @@ export const pokemoninfo = {
             "Sandshrew-Alola"
         ]
     },
-    "sandshrewalola": {
+    "Sandshrew-Alola": {
         "num": 27,
         "name": "Sandshrew-Alola",
         "baseSpecies": "Sandshrew",
@@ -1867,7 +1867,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "sandslash": {
+    "Sandslash": {
         "num": 28,
         "name": "Sandslash",
         "types": [
@@ -1901,7 +1901,7 @@ export const pokemoninfo = {
             "Sandslash-Alola"
         ]
     },
-    "sandslashalola": {
+    "Sandslash-Alola": {
         "num": 28,
         "name": "Sandslash-Alola",
         "baseSpecies": "Sandslash",
@@ -1932,7 +1932,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "nidoranf": {
+    "Nidoran-F": {
         "num": 29,
         "name": "Nidoran-F",
         "types": [
@@ -1963,7 +1963,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "nidorina": {
+    "Nidorina": {
         "num": 30,
         "name": "Nidorina",
         "types": [
@@ -1995,7 +1995,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "nidoqueen": {
+    "Nidoqueen": {
         "num": 31,
         "name": "Nidoqueen",
         "types": [
@@ -2026,7 +2026,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "nidoranm": {
+    "Nidoran-M": {
         "num": 32,
         "name": "Nidoran-M",
         "types": [
@@ -2057,7 +2057,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "nidorino": {
+    "Nidorino": {
         "num": 33,
         "name": "Nidorino",
         "types": [
@@ -2090,7 +2090,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "nidoking": {
+    "Nidoking": {
         "num": 34,
         "name": "Nidoking",
         "types": [
@@ -2122,7 +2122,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "clefairy": {
+    "Clefairy": {
         "num": 35,
         "name": "Clefairy",
         "types": [
@@ -2157,7 +2157,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "clefable": {
+    "Clefable": {
         "num": 36,
         "name": "Clefable",
         "types": [
@@ -2190,7 +2190,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "vulpix": {
+    "Vulpix": {
         "num": 37,
         "name": "Vulpix",
         "types": [
@@ -2229,7 +2229,7 @@ export const pokemoninfo = {
             "Vulpix-Alola"
         ]
     },
-    "vulpixalola": {
+    "Vulpix-Alola": {
         "num": 37,
         "name": "Vulpix-Alola",
         "baseSpecies": "Vulpix",
@@ -2263,7 +2263,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "ninetales": {
+    "Ninetales": {
         "num": 38,
         "name": "Ninetales",
         "types": [
@@ -2302,7 +2302,7 @@ export const pokemoninfo = {
             "Ninetales-Alola"
         ]
     },
-    "ninetalesalola": {
+    "Ninetales-Alola": {
         "num": 38,
         "name": "Ninetales-Alola",
         "baseSpecies": "Ninetales",
@@ -2337,7 +2337,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "jigglypuff": {
+    "Jigglypuff": {
         "num": 39,
         "name": "Jigglypuff",
         "types": [
@@ -2373,7 +2373,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "wigglytuff": {
+    "Wigglytuff": {
         "num": 40,
         "name": "Wigglytuff",
         "types": [
@@ -2407,7 +2407,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "zubat": {
+    "Zubat": {
         "num": 41,
         "name": "Zubat",
         "types": [
@@ -2436,7 +2436,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "golbat": {
+    "Golbat": {
         "num": 42,
         "name": "Golbat",
         "types": [
@@ -2467,7 +2467,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "oddish": {
+    "Oddish": {
         "num": 43,
         "name": "Oddish",
         "types": [
@@ -2496,7 +2496,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "gloom": {
+    "Gloom": {
         "num": 44,
         "name": "Gloom",
         "types": [
@@ -2528,7 +2528,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "vileplume": {
+    "Vileplume": {
         "num": 45,
         "name": "Vileplume",
         "types": [
@@ -2557,7 +2557,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "paras": {
+    "Paras": {
         "num": 46,
         "name": "Paras",
         "types": [
@@ -2588,7 +2588,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "parasect": {
+    "Parasect": {
         "num": 47,
         "name": "Parasect",
         "types": [
@@ -2618,7 +2618,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "venonat": {
+    "Venonat": {
         "num": 48,
         "name": "Venonat",
         "types": [
@@ -2648,7 +2648,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "venomoth": {
+    "Venomoth": {
         "num": 49,
         "name": "Venomoth",
         "types": [
@@ -2677,7 +2677,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "diglett": {
+    "Diglett": {
         "num": 50,
         "name": "Diglett",
         "types": [
@@ -2713,7 +2713,7 @@ export const pokemoninfo = {
             "Diglett-Alola"
         ]
     },
-    "diglettalola": {
+    "Diglett-Alola": {
         "num": 50,
         "name": "Diglett-Alola",
         "baseSpecies": "Diglett",
@@ -2745,7 +2745,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "dugtrio": {
+    "Dugtrio": {
         "num": 51,
         "name": "Dugtrio",
         "types": [
@@ -2780,7 +2780,7 @@ export const pokemoninfo = {
             "Dugtrio-Alola"
         ]
     },
-    "dugtrioalola": {
+    "Dugtrio-Alola": {
         "num": 51,
         "name": "Dugtrio-Alola",
         "baseSpecies": "Dugtrio",
@@ -2811,7 +2811,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "meowth": {
+    "Meowth": {
         "num": 52,
         "name": "Meowth",
         "types": [
@@ -2850,7 +2850,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Gold Rush"
     },
-    "meowthalola": {
+    "Meowth-Alola": {
         "num": 52,
         "name": "Meowth-Alola",
         "baseSpecies": "Meowth",
@@ -2881,7 +2881,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "meowthgalar": {
+    "Meowth-Galar": {
         "num": 52,
         "name": "Meowth-Galar",
         "baseSpecies": "Meowth",
@@ -2912,7 +2912,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "meowthgmax": {
+    "Meowth-Gmax": {
         "num": 52,
         "name": "Meowth-Gmax",
         "baseSpecies": "Meowth",
@@ -2941,7 +2941,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Meowth"
     },
-    "persian": {
+    "Persian": {
         "num": 53,
         "name": "Persian",
         "types": [
@@ -2976,7 +2976,7 @@ export const pokemoninfo = {
             "Persian-Alola"
         ]
     },
-    "persianalola": {
+    "Persian-Alola": {
         "num": 53,
         "name": "Persian-Alola",
         "baseSpecies": "Persian",
@@ -3006,7 +3006,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "psyduck": {
+    "Psyduck": {
         "num": 54,
         "name": "Psyduck",
         "types": [
@@ -3036,7 +3036,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "golduck": {
+    "Golduck": {
         "num": 55,
         "name": "Golduck",
         "types": [
@@ -3065,7 +3065,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "mankey": {
+    "Mankey": {
         "num": 56,
         "name": "Mankey",
         "types": [
@@ -3094,7 +3094,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "primeape": {
+    "Primeape": {
         "num": 57,
         "name": "Primeape",
         "types": [
@@ -3125,7 +3125,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "growlithe": {
+    "Growlithe": {
         "num": 58,
         "name": "Growlithe",
         "types": [
@@ -3165,7 +3165,7 @@ export const pokemoninfo = {
             "Growlithe-Hisui"
         ]
     },
-    "growlithehisui": {
+    "Growlithe-Hisui": {
         "num": 58,
         "name": "Growlithe-Hisui",
         "baseSpecies": "Growlithe",
@@ -3201,7 +3201,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "arcanine": {
+    "Arcanine": {
         "num": 59,
         "name": "Arcanine",
         "types": [
@@ -3241,7 +3241,7 @@ export const pokemoninfo = {
             "Arcanine-Hisui"
         ]
     },
-    "arcaninehisui": {
+    "Arcanine-Hisui": {
         "num": 59,
         "name": "Arcanine-Hisui",
         "baseSpecies": "Arcanine",
@@ -3277,7 +3277,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "poliwag": {
+    "Poliwag": {
         "num": 60,
         "name": "Poliwag",
         "types": [
@@ -3306,7 +3306,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "poliwhirl": {
+    "Poliwhirl": {
         "num": 61,
         "name": "Poliwhirl",
         "types": [
@@ -3338,7 +3338,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "poliwrath": {
+    "Poliwrath": {
         "num": 62,
         "name": "Poliwrath",
         "types": [
@@ -3368,7 +3368,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "abra": {
+    "Abra": {
         "num": 63,
         "name": "Abra",
         "types": [
@@ -3401,7 +3401,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "kadabra": {
+    "Kadabra": {
         "num": 64,
         "name": "Kadabra",
         "types": [
@@ -3436,7 +3436,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "alakazam": {
+    "Alakazam": {
         "num": 65,
         "name": "Alakazam",
         "types": [
@@ -3475,7 +3475,7 @@ export const pokemoninfo = {
             "Alakazam-Mega"
         ]
     },
-    "alakazammega": {
+    "Alakazam-Mega": {
         "num": 65,
         "name": "Alakazam-Mega",
         "baseSpecies": "Alakazam",
@@ -3506,7 +3506,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Alakazite"
     },
-    "machop": {
+    "Machop": {
         "num": 66,
         "name": "Machop",
         "types": [
@@ -3539,7 +3539,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "machoke": {
+    "Machoke": {
         "num": 67,
         "name": "Machoke",
         "types": [
@@ -3574,7 +3574,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "machamp": {
+    "Machamp": {
         "num": 68,
         "name": "Machamp",
         "types": [
@@ -3607,7 +3607,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Chi Strike"
     },
-    "machampgmax": {
+    "Machamp-Gmax": {
         "num": 68,
         "name": "Machamp-Gmax",
         "baseSpecies": "Machamp",
@@ -3640,7 +3640,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Machamp"
     },
-    "bellsprout": {
+    "Bellsprout": {
         "num": 69,
         "name": "Bellsprout",
         "types": [
@@ -3669,7 +3669,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "weepinbell": {
+    "Weepinbell": {
         "num": 70,
         "name": "Weepinbell",
         "types": [
@@ -3700,7 +3700,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "victreebel": {
+    "Victreebel": {
         "num": 71,
         "name": "Victreebel",
         "types": [
@@ -3729,7 +3729,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "tentacool": {
+    "Tentacool": {
         "num": 72,
         "name": "Tentacool",
         "types": [
@@ -3759,7 +3759,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "tentacruel": {
+    "Tentacruel": {
         "num": 73,
         "name": "Tentacruel",
         "types": [
@@ -3788,7 +3788,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "geodude": {
+    "Geodude": {
         "num": 74,
         "name": "Geodude",
         "types": [
@@ -3825,7 +3825,7 @@ export const pokemoninfo = {
             "Geodude-Alola"
         ]
     },
-    "geodudealola": {
+    "Geodude-Alola": {
         "num": 74,
         "name": "Geodude-Alola",
         "baseSpecies": "Geodude",
@@ -3857,7 +3857,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "graveler": {
+    "Graveler": {
         "num": 75,
         "name": "Graveler",
         "types": [
@@ -3896,7 +3896,7 @@ export const pokemoninfo = {
             "Graveler-Alola"
         ]
     },
-    "graveleralola": {
+    "Graveler-Alola": {
         "num": 75,
         "name": "Graveler-Alola",
         "baseSpecies": "Graveler",
@@ -3930,7 +3930,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "golem": {
+    "Golem": {
         "num": 76,
         "name": "Golem",
         "types": [
@@ -3966,7 +3966,7 @@ export const pokemoninfo = {
             "Golem-Alola"
         ]
     },
-    "golemalola": {
+    "Golem-Alola": {
         "num": 76,
         "name": "Golem-Alola",
         "baseSpecies": "Golem",
@@ -3997,7 +3997,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "ponyta": {
+    "Ponyta": {
         "num": 77,
         "name": "Ponyta",
         "types": [
@@ -4033,7 +4033,7 @@ export const pokemoninfo = {
             "Ponyta-Galar"
         ]
     },
-    "ponytagalar": {
+    "Ponyta-Galar": {
         "num": 77,
         "name": "Ponyta-Galar",
         "baseSpecies": "Ponyta",
@@ -4064,7 +4064,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "rapidash": {
+    "Rapidash": {
         "num": 78,
         "name": "Rapidash",
         "types": [
@@ -4099,7 +4099,7 @@ export const pokemoninfo = {
             "Rapidash-Galar"
         ]
     },
-    "rapidashgalar": {
+    "Rapidash-Galar": {
         "num": 78,
         "name": "Rapidash-Galar",
         "baseSpecies": "Rapidash",
@@ -4130,7 +4130,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "slowpoke": {
+    "Slowpoke": {
         "num": 79,
         "name": "Slowpoke",
         "types": [
@@ -4169,7 +4169,7 @@ export const pokemoninfo = {
             "Slowpoke-Galar"
         ]
     },
-    "slowpokegalar": {
+    "Slowpoke-Galar": {
         "num": 79,
         "name": "Slowpoke-Galar",
         "baseSpecies": "Slowpoke",
@@ -4202,7 +4202,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "slowbro": {
+    "Slowbro": {
         "num": 80,
         "name": "Slowbro",
         "types": [
@@ -4241,7 +4241,7 @@ export const pokemoninfo = {
             "Slowbro-Galar"
         ]
     },
-    "slowbromega": {
+    "Slowbro-Mega": {
         "num": 80,
         "name": "Slowbro-Mega",
         "baseSpecies": "Slowbro",
@@ -4270,7 +4270,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Slowbronite"
     },
-    "slowbrogalar": {
+    "Slowbro-Galar": {
         "num": 80,
         "name": "Slowbro-Galar",
         "baseSpecies": "Slowbro",
@@ -4303,7 +4303,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "magnemite": {
+    "Magnemite": {
         "num": 81,
         "name": "Magnemite",
         "types": [
@@ -4334,7 +4334,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "magneton": {
+    "Magneton": {
         "num": 82,
         "name": "Magneton",
         "types": [
@@ -4367,7 +4367,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "farfetchd": {
+    "Farfetch’d": {
         "num": 83,
         "name": "Farfetch’d",
         "types": [
@@ -4402,7 +4402,7 @@ export const pokemoninfo = {
             "Farfetch’d-Galar"
         ]
     },
-    "farfetchdgalar": {
+    "Farfetch’d-Galar": {
         "num": 83,
         "name": "Farfetch’d-Galar",
         "baseSpecies": "Farfetch’d",
@@ -4433,7 +4433,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "doduo": {
+    "Doduo": {
         "num": 84,
         "name": "Doduo",
         "types": [
@@ -4463,7 +4463,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "dodrio": {
+    "Dodrio": {
         "num": 85,
         "name": "Dodrio",
         "types": [
@@ -4492,7 +4492,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "seel": {
+    "Seel": {
         "num": 86,
         "name": "Seel",
         "types": [
@@ -4522,7 +4522,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "dewgong": {
+    "Dewgong": {
         "num": 87,
         "name": "Dewgong",
         "types": [
@@ -4552,7 +4552,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "grimer": {
+    "Grimer": {
         "num": 88,
         "name": "Grimer",
         "types": [
@@ -4588,7 +4588,7 @@ export const pokemoninfo = {
             "Grimer-Alola"
         ]
     },
-    "grimeralola": {
+    "Grimer-Alola": {
         "num": 88,
         "name": "Grimer-Alola",
         "baseSpecies": "Grimer",
@@ -4620,7 +4620,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "muk": {
+    "Muk": {
         "num": 89,
         "name": "Muk",
         "types": [
@@ -4655,7 +4655,7 @@ export const pokemoninfo = {
             "Muk-Alola"
         ]
     },
-    "mukalola": {
+    "Muk-Alola": {
         "num": 89,
         "name": "Muk-Alola",
         "baseSpecies": "Muk",
@@ -4686,7 +4686,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "shellder": {
+    "Shellder": {
         "num": 90,
         "name": "Shellder",
         "types": [
@@ -4715,7 +4715,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "cloyster": {
+    "Cloyster": {
         "num": 91,
         "name": "Cloyster",
         "types": [
@@ -4745,7 +4745,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "gastly": {
+    "Gastly": {
         "num": 92,
         "name": "Gastly",
         "types": [
@@ -4773,7 +4773,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "haunter": {
+    "Haunter": {
         "num": 93,
         "name": "Haunter",
         "types": [
@@ -4803,7 +4803,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "gengar": {
+    "Gengar": {
         "num": 94,
         "name": "Gengar",
         "types": [
@@ -4838,7 +4838,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Terror"
     },
-    "gengarmega": {
+    "Gengar-Mega": {
         "num": 94,
         "name": "Gengar-Mega",
         "baseSpecies": "Gengar",
@@ -4866,7 +4866,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Gengarite"
     },
-    "gengargmax": {
+    "Gengar-Gmax": {
         "num": 94,
         "name": "Gengar-Gmax",
         "baseSpecies": "Gengar",
@@ -4894,7 +4894,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Gengar"
     },
-    "onix": {
+    "Onix": {
         "num": 95,
         "name": "Onix",
         "types": [
@@ -4924,7 +4924,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "drowzee": {
+    "Drowzee": {
         "num": 96,
         "name": "Drowzee",
         "types": [
@@ -4953,7 +4953,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "hypno": {
+    "Hypno": {
         "num": 97,
         "name": "Hypno",
         "types": [
@@ -4981,7 +4981,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "krabby": {
+    "Krabby": {
         "num": 98,
         "name": "Krabby",
         "types": [
@@ -5010,7 +5010,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "kingler": {
+    "Kingler": {
         "num": 99,
         "name": "Kingler",
         "types": [
@@ -5039,7 +5039,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Foam Burst"
     },
-    "kinglergmax": {
+    "Kingler-Gmax": {
         "num": 99,
         "name": "Kingler-Gmax",
         "baseSpecies": "Kingler",
@@ -5068,7 +5068,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Kingler"
     },
-    "voltorb": {
+    "Voltorb": {
         "num": 100,
         "name": "Voltorb",
         "types": [
@@ -5105,7 +5105,7 @@ export const pokemoninfo = {
             "Voltorb-Hisui"
         ]
     },
-    "voltorbhisui": {
+    "Voltorb-Hisui": {
         "num": 100,
         "name": "Voltorb-Hisui",
         "baseSpecies": "Voltorb",
@@ -5138,7 +5138,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "electrode": {
+    "Electrode": {
         "num": 101,
         "name": "Electrode",
         "types": [
@@ -5174,7 +5174,7 @@ export const pokemoninfo = {
             "Electrode-Hisui"
         ]
     },
-    "electrodehisui": {
+    "Electrode-Hisui": {
         "num": 101,
         "name": "Electrode-Hisui",
         "baseSpecies": "Electrode",
@@ -5207,7 +5207,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "exeggcute": {
+    "Exeggcute": {
         "num": 102,
         "name": "Exeggcute",
         "types": [
@@ -5237,7 +5237,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "exeggutor": {
+    "Exeggutor": {
         "num": 103,
         "name": "Exeggutor",
         "types": [
@@ -5273,7 +5273,7 @@ export const pokemoninfo = {
             "Exeggutor-Alola"
         ]
     },
-    "exeggutoralola": {
+    "Exeggutor-Alola": {
         "num": 103,
         "name": "Exeggutor-Alola",
         "baseSpecies": "Exeggutor",
@@ -5305,7 +5305,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "cubone": {
+    "Cubone": {
         "num": 104,
         "name": "Cubone",
         "types": [
@@ -5335,7 +5335,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "marowak": {
+    "Marowak": {
         "num": 105,
         "name": "Marowak",
         "types": [
@@ -5372,7 +5372,7 @@ export const pokemoninfo = {
             "Marowak-Alola-Totem"
         ]
     },
-    "marowakalola": {
+    "Marowak-Alola": {
         "num": 105,
         "name": "Marowak-Alola",
         "baseSpecies": "Marowak",
@@ -5405,7 +5405,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "marowakalolatotem": {
+    "Marowak-Alola-Totem": {
         "num": 105,
         "name": "Marowak-Alola-Totem",
         "baseSpecies": "Marowak",
@@ -5432,7 +5432,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "hitmonlee": {
+    "Hitmonlee": {
         "num": 106,
         "name": "Hitmonlee",
         "types": [
@@ -5462,7 +5462,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "hitmonchan": {
+    "Hitmonchan": {
         "num": 107,
         "name": "Hitmonchan",
         "types": [
@@ -5492,7 +5492,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "lickitung": {
+    "Lickitung": {
         "num": 108,
         "name": "Lickitung",
         "types": [
@@ -5521,7 +5521,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "koffing": {
+    "Koffing": {
         "num": 109,
         "name": "Koffing",
         "types": [
@@ -5551,7 +5551,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "weezing": {
+    "Weezing": {
         "num": 110,
         "name": "Weezing",
         "types": [
@@ -5586,7 +5586,7 @@ export const pokemoninfo = {
             "Weezing-Galar"
         ]
     },
-    "weezinggalar": {
+    "Weezing-Galar": {
         "num": 110,
         "name": "Weezing-Galar",
         "baseSpecies": "Weezing",
@@ -5618,7 +5618,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "rhyhorn": {
+    "Rhyhorn": {
         "num": 111,
         "name": "Rhyhorn",
         "types": [
@@ -5649,7 +5649,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "rhydon": {
+    "Rhydon": {
         "num": 112,
         "name": "Rhydon",
         "types": [
@@ -5682,7 +5682,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "chansey": {
+    "Chansey": {
         "num": 113,
         "name": "Chansey",
         "types": [
@@ -5717,7 +5717,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "tangela": {
+    "Tangela": {
         "num": 114,
         "name": "Tangela",
         "types": [
@@ -5746,7 +5746,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "kangaskhan": {
+    "Kangaskhan": {
         "num": 115,
         "name": "Kangaskhan",
         "types": [
@@ -5780,7 +5780,7 @@ export const pokemoninfo = {
             "Kangaskhan-Mega"
         ]
     },
-    "kangaskhanmega": {
+    "Kangaskhan-Mega": {
         "num": 115,
         "name": "Kangaskhan-Mega",
         "baseSpecies": "Kangaskhan",
@@ -5808,7 +5808,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Kangaskhanite"
     },
-    "horsea": {
+    "Horsea": {
         "num": 116,
         "name": "Horsea",
         "types": [
@@ -5838,7 +5838,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "seadra": {
+    "Seadra": {
         "num": 117,
         "name": "Seadra",
         "types": [
@@ -5870,7 +5870,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "goldeen": {
+    "Goldeen": {
         "num": 118,
         "name": "Goldeen",
         "types": [
@@ -5899,7 +5899,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "seaking": {
+    "Seaking": {
         "num": 119,
         "name": "Seaking",
         "types": [
@@ -5927,7 +5927,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "staryu": {
+    "Staryu": {
         "num": 120,
         "name": "Staryu",
         "types": [
@@ -5957,7 +5957,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "starmie": {
+    "Starmie": {
         "num": 121,
         "name": "Starmie",
         "types": [
@@ -5988,7 +5988,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "mrmime": {
+    "Mr. Mime": {
         "num": 122,
         "name": "Mr. Mime",
         "types": [
@@ -6026,7 +6026,7 @@ export const pokemoninfo = {
             "Mr. Mime-Galar"
         ]
     },
-    "mrmimegalar": {
+    "Mr. Mime-Galar": {
         "num": 122,
         "name": "Mr. Mime-Galar",
         "baseSpecies": "Mr. Mime",
@@ -6063,7 +6063,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "scyther": {
+    "Scyther": {
         "num": 123,
         "name": "Scyther",
         "types": [
@@ -6094,7 +6094,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "jynx": {
+    "Jynx": {
         "num": 124,
         "name": "Jynx",
         "types": [
@@ -6124,7 +6124,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "electabuzz": {
+    "Electabuzz": {
         "num": 125,
         "name": "Electabuzz",
         "types": [
@@ -6158,7 +6158,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "magmar": {
+    "Magmar": {
         "num": 126,
         "name": "Magmar",
         "types": [
@@ -6192,7 +6192,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "pinsir": {
+    "Pinsir": {
         "num": 127,
         "name": "Pinsir",
         "types": [
@@ -6225,7 +6225,7 @@ export const pokemoninfo = {
             "Pinsir-Mega"
         ]
     },
-    "pinsirmega": {
+    "Pinsir-Mega": {
         "num": 127,
         "name": "Pinsir-Mega",
         "baseSpecies": "Pinsir",
@@ -6253,7 +6253,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Pinsirite"
     },
-    "tauros": {
+    "Tauros": {
         "num": 128,
         "name": "Tauros",
         "types": [
@@ -6291,7 +6291,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "taurospaldeacombat": {
+    "Tauros-Paldea-Combat": {
         "num": 128,
         "name": "Tauros-Paldea-Combat",
         "baseSpecies": "Tauros",
@@ -6320,7 +6320,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "taurospaldeablaze": {
+    "Tauros-Paldea-Blaze": {
         "num": 128,
         "name": "Tauros-Paldea-Blaze",
         "baseSpecies": "Tauros",
@@ -6350,7 +6350,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "taurospaldeaaqua": {
+    "Tauros-Paldea-Aqua": {
         "num": 128,
         "name": "Tauros-Paldea-Aqua",
         "baseSpecies": "Tauros",
@@ -6380,7 +6380,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "magikarp": {
+    "Magikarp": {
         "num": 129,
         "name": "Magikarp",
         "types": [
@@ -6409,7 +6409,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "gyarados": {
+    "Gyarados": {
         "num": 130,
         "name": "Gyarados",
         "types": [
@@ -6445,7 +6445,7 @@ export const pokemoninfo = {
             "Gyarados-Mega"
         ]
     },
-    "gyaradosmega": {
+    "Gyarados-Mega": {
         "num": 130,
         "name": "Gyarados-Mega",
         "baseSpecies": "Gyarados",
@@ -6474,7 +6474,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Gyaradosite"
     },
-    "lapras": {
+    "Lapras": {
         "num": 131,
         "name": "Lapras",
         "types": [
@@ -6503,7 +6503,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Resonance"
     },
-    "laprasgmax": {
+    "Lapras-Gmax": {
         "num": 131,
         "name": "Lapras-Gmax",
         "baseSpecies": "Lapras",
@@ -6534,7 +6534,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Lapras"
     },
-    "ditto": {
+    "Ditto": {
         "num": 132,
         "name": "Ditto",
         "types": [
@@ -6560,7 +6560,7 @@ export const pokemoninfo = {
             "Ditto"
         ]
     },
-    "eevee": {
+    "Eevee": {
         "num": 133,
         "name": "Eevee",
         "types": [
@@ -6608,7 +6608,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Cuddle"
     },
-    "eeveestarter": {
+    "Eevee-Starter": {
         "num": 133,
         "name": "Eevee-Starter",
         "baseSpecies": "Eevee",
@@ -6640,7 +6640,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "eeveegmax": {
+    "Eevee-Gmax": {
         "num": 133,
         "name": "Eevee-Gmax",
         "baseSpecies": "Eevee",
@@ -6673,7 +6673,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Eevee"
     },
-    "vaporeon": {
+    "Vaporeon": {
         "num": 134,
         "name": "Vaporeon",
         "types": [
@@ -6705,7 +6705,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "jolteon": {
+    "Jolteon": {
         "num": 135,
         "name": "Jolteon",
         "types": [
@@ -6737,7 +6737,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "flareon": {
+    "Flareon": {
         "num": 136,
         "name": "Flareon",
         "types": [
@@ -6769,7 +6769,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "porygon": {
+    "Porygon": {
         "num": 137,
         "name": "Porygon",
         "types": [
@@ -6799,7 +6799,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "omanyte": {
+    "Omanyte": {
         "num": 138,
         "name": "Omanyte",
         "types": [
@@ -6834,7 +6834,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "omastar": {
+    "Omastar": {
         "num": 139,
         "name": "Omastar",
         "types": [
@@ -6868,7 +6868,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "kabuto": {
+    "Kabuto": {
         "num": 140,
         "name": "Kabuto",
         "types": [
@@ -6903,7 +6903,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "kabutops": {
+    "Kabutops": {
         "num": 141,
         "name": "Kabutops",
         "types": [
@@ -6937,7 +6937,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "aerodactyl": {
+    "Aerodactyl": {
         "num": 142,
         "name": "Aerodactyl",
         "types": [
@@ -6975,7 +6975,7 @@ export const pokemoninfo = {
             "Aerodactyl-Mega"
         ]
     },
-    "aerodactylmega": {
+    "Aerodactyl-Mega": {
         "num": 142,
         "name": "Aerodactyl-Mega",
         "baseSpecies": "Aerodactyl",
@@ -7007,7 +7007,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Aerodactylite"
     },
-    "snorlax": {
+    "Snorlax": {
         "num": 143,
         "name": "Snorlax",
         "types": [
@@ -7041,7 +7041,7 @@ export const pokemoninfo = {
         "canHatch": true,
         "canGigantamax": "G-Max Replenish"
     },
-    "snorlaxgmax": {
+    "Snorlax-Gmax": {
         "num": 143,
         "name": "Snorlax-Gmax",
         "baseSpecies": "Snorlax",
@@ -7074,7 +7074,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Snorlax"
     },
-    "articuno": {
+    "Articuno": {
         "num": 144,
         "name": "Articuno",
         "types": [
@@ -7111,7 +7111,7 @@ export const pokemoninfo = {
             "Articuno-Galar"
         ]
     },
-    "articunogalar": {
+    "Articuno-Galar": {
         "num": 144,
         "name": "Articuno-Galar",
         "baseSpecies": "Articuno",
@@ -7139,7 +7139,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "zapdos": {
+    "Zapdos": {
         "num": 145,
         "name": "Zapdos",
         "types": [
@@ -7176,7 +7176,7 @@ export const pokemoninfo = {
             "Zapdos-Galar"
         ]
     },
-    "zapdosgalar": {
+    "Zapdos-Galar": {
         "num": 145,
         "name": "Zapdos-Galar",
         "baseSpecies": "Zapdos",
@@ -7204,7 +7204,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "moltres": {
+    "Moltres": {
         "num": 146,
         "name": "Moltres",
         "types": [
@@ -7241,7 +7241,7 @@ export const pokemoninfo = {
             "Moltres-Galar"
         ]
     },
-    "moltresgalar": {
+    "Moltres-Galar": {
         "num": 146,
         "name": "Moltres-Galar",
         "baseSpecies": "Moltres",
@@ -7269,7 +7269,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "dratini": {
+    "Dratini": {
         "num": 147,
         "name": "Dratini",
         "types": [
@@ -7298,7 +7298,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "dragonair": {
+    "Dragonair": {
         "num": 148,
         "name": "Dragonair",
         "types": [
@@ -7329,7 +7329,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "dragonite": {
+    "Dragonite": {
         "num": 149,
         "name": "Dragonite",
         "types": [
@@ -7358,7 +7358,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "mewtwo": {
+    "Mewtwo": {
         "num": 150,
         "name": "Mewtwo",
         "types": [
@@ -7396,7 +7396,7 @@ export const pokemoninfo = {
             "Mewtwo-Mega-Y"
         ]
     },
-    "mewtwomegax": {
+    "Mewtwo-Mega-X": {
         "num": 150,
         "name": "Mewtwo-Mega-X",
         "baseSpecies": "Mewtwo",
@@ -7425,7 +7425,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Mewtwonite X"
     },
-    "mewtwomegay": {
+    "Mewtwo-Mega-Y": {
         "num": 150,
         "name": "Mewtwo-Mega-Y",
         "baseSpecies": "Mewtwo",
@@ -7453,7 +7453,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Mewtwonite Y"
     },
-    "mew": {
+    "Mew": {
         "num": 151,
         "name": "Mew",
         "types": [
@@ -7481,7 +7481,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "chikorita": {
+    "Chikorita": {
         "num": 152,
         "name": "Chikorita",
         "types": [
@@ -7514,7 +7514,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "bayleef": {
+    "Bayleef": {
         "num": 153,
         "name": "Bayleef",
         "types": [
@@ -7549,7 +7549,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "meganium": {
+    "Meganium": {
         "num": 154,
         "name": "Meganium",
         "types": [
@@ -7581,7 +7581,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "cyndaquil": {
+    "Cyndaquil": {
         "num": 155,
         "name": "Cyndaquil",
         "types": [
@@ -7613,7 +7613,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "quilava": {
+    "Quilava": {
         "num": 156,
         "name": "Quilava",
         "types": [
@@ -7648,7 +7648,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "typhlosion": {
+    "Typhlosion": {
         "num": 157,
         "name": "Typhlosion",
         "types": [
@@ -7686,7 +7686,7 @@ export const pokemoninfo = {
             "Typhlosion-Hisui"
         ]
     },
-    "typhlosionhisui": {
+    "Typhlosion-Hisui": {
         "num": 157,
         "name": "Typhlosion-Hisui",
         "baseSpecies": "Typhlosion",
@@ -7720,7 +7720,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "totodile": {
+    "Totodile": {
         "num": 158,
         "name": "Totodile",
         "types": [
@@ -7753,7 +7753,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "croconaw": {
+    "Croconaw": {
         "num": 159,
         "name": "Croconaw",
         "types": [
@@ -7788,7 +7788,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "feraligatr": {
+    "Feraligatr": {
         "num": 160,
         "name": "Feraligatr",
         "types": [
@@ -7820,7 +7820,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "sentret": {
+    "Sentret": {
         "num": 161,
         "name": "Sentret",
         "types": [
@@ -7849,7 +7849,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "furret": {
+    "Furret": {
         "num": 162,
         "name": "Furret",
         "types": [
@@ -7877,7 +7877,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "hoothoot": {
+    "Hoothoot": {
         "num": 163,
         "name": "Hoothoot",
         "types": [
@@ -7907,7 +7907,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "noctowl": {
+    "Noctowl": {
         "num": 164,
         "name": "Noctowl",
         "types": [
@@ -7936,7 +7936,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "ledyba": {
+    "Ledyba": {
         "num": 165,
         "name": "Ledyba",
         "types": [
@@ -7966,7 +7966,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "ledian": {
+    "Ledian": {
         "num": 166,
         "name": "Ledian",
         "types": [
@@ -7995,7 +7995,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "spinarak": {
+    "Spinarak": {
         "num": 167,
         "name": "Spinarak",
         "types": [
@@ -8025,7 +8025,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "ariados": {
+    "Ariados": {
         "num": 168,
         "name": "Ariados",
         "types": [
@@ -8054,7 +8054,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "crobat": {
+    "Crobat": {
         "num": 169,
         "name": "Crobat",
         "types": [
@@ -8082,7 +8082,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "chinchou": {
+    "Chinchou": {
         "num": 170,
         "name": "Chinchou",
         "types": [
@@ -8112,7 +8112,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "lanturn": {
+    "Lanturn": {
         "num": 171,
         "name": "Lanturn",
         "types": [
@@ -8141,7 +8141,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "pichu": {
+    "Pichu": {
         "num": 172,
         "name": "Pichu",
         "types": [
@@ -8177,7 +8177,7 @@ export const pokemoninfo = {
             "Pichu-Spiky-eared"
         ]
     },
-    "pichuspikyeared": {
+    "Pichu-Spiky-eared": {
         "num": 172,
         "name": "Pichu-Spiky-eared",
         "baseSpecies": "Pichu",
@@ -8204,7 +8204,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "cleffa": {
+    "Cleffa": {
         "num": 173,
         "name": "Cleffa",
         "types": [
@@ -8238,7 +8238,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "igglybuff": {
+    "Igglybuff": {
         "num": 174,
         "name": "Igglybuff",
         "types": [
@@ -8273,7 +8273,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "togepi": {
+    "Togepi": {
         "num": 175,
         "name": "Togepi",
         "types": [
@@ -8307,7 +8307,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "togetic": {
+    "Togetic": {
         "num": 176,
         "name": "Togetic",
         "types": [
@@ -8344,7 +8344,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "natu": {
+    "Natu": {
         "num": 177,
         "name": "Natu",
         "types": [
@@ -8374,7 +8374,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "xatu": {
+    "Xatu": {
         "num": 178,
         "name": "Xatu",
         "types": [
@@ -8403,7 +8403,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "mareep": {
+    "Mareep": {
         "num": 179,
         "name": "Mareep",
         "types": [
@@ -8432,7 +8432,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "flaaffy": {
+    "Flaaffy": {
         "num": 180,
         "name": "Flaaffy",
         "types": [
@@ -8463,7 +8463,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "ampharos": {
+    "Ampharos": {
         "num": 181,
         "name": "Ampharos",
         "types": [
@@ -8498,7 +8498,7 @@ export const pokemoninfo = {
             "Ampharos-Mega"
         ]
     },
-    "ampharosmega": {
+    "Ampharos-Mega": {
         "num": 181,
         "name": "Ampharos-Mega",
         "baseSpecies": "Ampharos",
@@ -8527,7 +8527,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Ampharosite"
     },
-    "bellossom": {
+    "Bellossom": {
         "num": 182,
         "name": "Bellossom",
         "types": [
@@ -8555,7 +8555,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "marill": {
+    "Marill": {
         "num": 183,
         "name": "Marill",
         "types": [
@@ -8589,7 +8589,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "azumarill": {
+    "Azumarill": {
         "num": 184,
         "name": "Azumarill",
         "types": [
@@ -8619,7 +8619,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "sudowoodo": {
+    "Sudowoodo": {
         "num": 185,
         "name": "Sudowoodo",
         "types": [
@@ -8649,7 +8649,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "politoed": {
+    "Politoed": {
         "num": 186,
         "name": "Politoed",
         "types": [
@@ -8678,7 +8678,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "hoppip": {
+    "Hoppip": {
         "num": 187,
         "name": "Hoppip",
         "types": [
@@ -8709,7 +8709,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "skiploom": {
+    "Skiploom": {
         "num": 188,
         "name": "Skiploom",
         "types": [
@@ -8742,7 +8742,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "jumpluff": {
+    "Jumpluff": {
         "num": 189,
         "name": "Jumpluff",
         "types": [
@@ -8772,7 +8772,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "aipom": {
+    "Aipom": {
         "num": 190,
         "name": "Aipom",
         "types": [
@@ -8801,7 +8801,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "sunkern": {
+    "Sunkern": {
         "num": 191,
         "name": "Sunkern",
         "types": [
@@ -8830,7 +8830,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "sunflora": {
+    "Sunflora": {
         "num": 192,
         "name": "Sunflora",
         "types": [
@@ -8859,7 +8859,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "yanma": {
+    "Yanma": {
         "num": 193,
         "name": "Yanma",
         "types": [
@@ -8889,7 +8889,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "wooper": {
+    "Wooper": {
         "num": 194,
         "name": "Wooper",
         "types": [
@@ -8927,7 +8927,7 @@ export const pokemoninfo = {
             "Wooper-Paldea"
         ]
     },
-    "wooperpaldea": {
+    "Wooper-Paldea": {
         "num": 194,
         "name": "Wooper-Paldea",
         "baseSpecies": "Wooper",
@@ -8960,7 +8960,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "quagsire": {
+    "Quagsire": {
         "num": 195,
         "name": "Quagsire",
         "types": [
@@ -8990,7 +8990,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "espeon": {
+    "Espeon": {
         "num": 196,
         "name": "Espeon",
         "types": [
@@ -9022,7 +9022,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "umbreon": {
+    "Umbreon": {
         "num": 197,
         "name": "Umbreon",
         "types": [
@@ -9054,7 +9054,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "murkrow": {
+    "Murkrow": {
         "num": 198,
         "name": "Murkrow",
         "types": [
@@ -9084,7 +9084,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "slowking": {
+    "Slowking": {
         "num": 199,
         "name": "Slowking",
         "types": [
@@ -9122,7 +9122,7 @@ export const pokemoninfo = {
             "Slowking-Galar"
         ]
     },
-    "slowkinggalar": {
+    "Slowking-Galar": {
         "num": 199,
         "name": "Slowking-Galar",
         "baseSpecies": "Slowking",
@@ -9155,7 +9155,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "misdreavus": {
+    "Misdreavus": {
         "num": 200,
         "name": "Misdreavus",
         "types": [
@@ -9182,7 +9182,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "unown": {
+    "Unown": {
         "num": 201,
         "name": "Unown",
         "baseForme": "A",
@@ -9267,7 +9267,7 @@ export const pokemoninfo = {
             "Unown-Question"
         ]
     },
-    "wobbuffet": {
+    "Wobbuffet": {
         "num": 202,
         "name": "Wobbuffet",
         "types": [
@@ -9295,7 +9295,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "girafarig": {
+    "Girafarig": {
         "num": 203,
         "name": "Girafarig",
         "types": [
@@ -9325,7 +9325,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pineco": {
+    "Pineco": {
         "num": 204,
         "name": "Pineco",
         "types": [
@@ -9353,7 +9353,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "forretress": {
+    "Forretress": {
         "num": 205,
         "name": "Forretress",
         "types": [
@@ -9381,7 +9381,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "dunsparce": {
+    "Dunsparce": {
         "num": 206,
         "name": "Dunsparce",
         "types": [
@@ -9411,7 +9411,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "gligar": {
+    "Gligar": {
         "num": 207,
         "name": "Gligar",
         "types": [
@@ -9441,7 +9441,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "steelix": {
+    "Steelix": {
         "num": 208,
         "name": "Steelix",
         "types": [
@@ -9478,7 +9478,7 @@ export const pokemoninfo = {
             "Steelix-Mega"
         ]
     },
-    "steelixmega": {
+    "Steelix-Mega": {
         "num": 208,
         "name": "Steelix-Mega",
         "baseSpecies": "Steelix",
@@ -9506,7 +9506,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Steelixite"
     },
-    "snubbull": {
+    "Snubbull": {
         "num": 209,
         "name": "Snubbull",
         "types": [
@@ -9540,7 +9540,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "granbull": {
+    "Granbull": {
         "num": 210,
         "name": "Granbull",
         "types": [
@@ -9573,7 +9573,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "qwilfish": {
+    "Qwilfish": {
         "num": 211,
         "name": "Qwilfish",
         "types": [
@@ -9607,7 +9607,7 @@ export const pokemoninfo = {
             "Qwilfish-Hisui"
         ]
     },
-    "qwilfishhisui": {
+    "Qwilfish-Hisui": {
         "num": 211,
         "name": "Qwilfish-Hisui",
         "baseSpecies": "Qwilfish",
@@ -9639,7 +9639,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "scizor": {
+    "Scizor": {
         "num": 212,
         "name": "Scizor",
         "types": [
@@ -9676,7 +9676,7 @@ export const pokemoninfo = {
             "Scizor-Mega"
         ]
     },
-    "scizormega": {
+    "Scizor-Mega": {
         "num": 212,
         "name": "Scizor-Mega",
         "baseSpecies": "Scizor",
@@ -9704,7 +9704,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Scizorite"
     },
-    "shuckle": {
+    "Shuckle": {
         "num": 213,
         "name": "Shuckle",
         "types": [
@@ -9731,7 +9731,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "heracross": {
+    "Heracross": {
         "num": 214,
         "name": "Heracross",
         "types": [
@@ -9765,7 +9765,7 @@ export const pokemoninfo = {
             "Heracross-Mega"
         ]
     },
-    "heracrossmega": {
+    "Heracross-Mega": {
         "num": 214,
         "name": "Heracross-Mega",
         "baseSpecies": "Heracross",
@@ -9793,7 +9793,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Heracronite"
     },
-    "sneasel": {
+    "Sneasel": {
         "num": 215,
         "name": "Sneasel",
         "types": [
@@ -9830,7 +9830,7 @@ export const pokemoninfo = {
             "Sneasel-Hisui"
         ]
     },
-    "sneaselhisui": {
+    "Sneasel-Hisui": {
         "num": 215,
         "name": "Sneasel-Hisui",
         "baseSpecies": "Sneasel",
@@ -9862,7 +9862,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "teddiursa": {
+    "Teddiursa": {
         "num": 216,
         "name": "Teddiursa",
         "types": [
@@ -9891,7 +9891,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "ursaring": {
+    "Ursaring": {
         "num": 217,
         "name": "Ursaring",
         "types": [
@@ -9922,7 +9922,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "slugma": {
+    "Slugma": {
         "num": 218,
         "name": "Slugma",
         "types": [
@@ -9951,7 +9951,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "magcargo": {
+    "Magcargo": {
         "num": 219,
         "name": "Magcargo",
         "types": [
@@ -9980,7 +9980,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "swinub": {
+    "Swinub": {
         "num": 220,
         "name": "Swinub",
         "types": [
@@ -10010,7 +10010,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "piloswine": {
+    "Piloswine": {
         "num": 221,
         "name": "Piloswine",
         "types": [
@@ -10042,7 +10042,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "corsola": {
+    "Corsola": {
         "num": 222,
         "name": "Corsola",
         "types": [
@@ -10081,7 +10081,7 @@ export const pokemoninfo = {
             "Corsola-Galar"
         ]
     },
-    "corsolagalar": {
+    "Corsola-Galar": {
         "num": 222,
         "name": "Corsola-Galar",
         "baseSpecies": "Corsola",
@@ -10116,7 +10116,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "remoraid": {
+    "Remoraid": {
         "num": 223,
         "name": "Remoraid",
         "types": [
@@ -10146,7 +10146,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "octillery": {
+    "Octillery": {
         "num": 224,
         "name": "Octillery",
         "types": [
@@ -10175,7 +10175,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "delibird": {
+    "Delibird": {
         "num": 225,
         "name": "Delibird",
         "types": [
@@ -10203,7 +10203,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "mantine": {
+    "Mantine": {
         "num": 226,
         "name": "Mantine",
         "types": [
@@ -10234,7 +10234,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "skarmory": {
+    "Skarmory": {
         "num": 227,
         "name": "Skarmory",
         "types": [
@@ -10261,7 +10261,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "houndour": {
+    "Houndour": {
         "num": 228,
         "name": "Houndour",
         "types": [
@@ -10291,7 +10291,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "houndoom": {
+    "Houndoom": {
         "num": 229,
         "name": "Houndoom",
         "types": [
@@ -10327,7 +10327,7 @@ export const pokemoninfo = {
             "Houndoom-Mega"
         ]
     },
-    "houndoommega": {
+    "Houndoom-Mega": {
         "num": 229,
         "name": "Houndoom-Mega",
         "baseSpecies": "Houndoom",
@@ -10355,7 +10355,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Houndoominite"
     },
-    "kingdra": {
+    "Kingdra": {
         "num": 230,
         "name": "Kingdra",
         "types": [
@@ -10386,7 +10386,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "phanpy": {
+    "Phanpy": {
         "num": 231,
         "name": "Phanpy",
         "types": [
@@ -10414,7 +10414,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "donphan": {
+    "Donphan": {
         "num": 232,
         "name": "Donphan",
         "types": [
@@ -10441,7 +10441,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "porygon2": {
+    "Porygon2": {
         "num": 233,
         "name": "Porygon2",
         "types": [
@@ -10474,7 +10474,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "stantler": {
+    "Stantler": {
         "num": 234,
         "name": "Stantler",
         "types": [
@@ -10503,7 +10503,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "smeargle": {
+    "Smeargle": {
         "num": 235,
         "name": "Smeargle",
         "types": [
@@ -10529,7 +10529,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "tyrogue": {
+    "Tyrogue": {
         "num": 236,
         "name": "Tyrogue",
         "types": [
@@ -10562,7 +10562,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "hitmontop": {
+    "Hitmontop": {
         "num": 237,
         "name": "Hitmontop",
         "types": [
@@ -10592,7 +10592,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "smoochum": {
+    "Smoochum": {
         "num": 238,
         "name": "Smoochum",
         "types": [
@@ -10624,7 +10624,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "elekid": {
+    "Elekid": {
         "num": 239,
         "name": "Elekid",
         "types": [
@@ -10657,7 +10657,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "magby": {
+    "Magby": {
         "num": 240,
         "name": "Magby",
         "types": [
@@ -10690,7 +10690,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "miltank": {
+    "Miltank": {
         "num": 241,
         "name": "Miltank",
         "types": [
@@ -10717,7 +10717,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "blissey": {
+    "Blissey": {
         "num": 242,
         "name": "Blissey",
         "types": [
@@ -10746,7 +10746,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "raikou": {
+    "Raikou": {
         "num": 243,
         "name": "Raikou",
         "types": [
@@ -10775,7 +10775,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "entei": {
+    "Entei": {
         "num": 244,
         "name": "Entei",
         "types": [
@@ -10804,7 +10804,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "suicune": {
+    "Suicune": {
         "num": 245,
         "name": "Suicune",
         "types": [
@@ -10833,7 +10833,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "larvitar": {
+    "Larvitar": {
         "num": 246,
         "name": "Larvitar",
         "types": [
@@ -10862,7 +10862,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "pupitar": {
+    "Pupitar": {
         "num": 247,
         "name": "Pupitar",
         "types": [
@@ -10892,7 +10892,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "tyranitar": {
+    "Tyranitar": {
         "num": 248,
         "name": "Tyranitar",
         "types": [
@@ -10927,7 +10927,7 @@ export const pokemoninfo = {
             "Tyranitar-Mega"
         ]
     },
-    "tyranitarmega": {
+    "Tyranitar-Mega": {
         "num": 248,
         "name": "Tyranitar-Mega",
         "baseSpecies": "Tyranitar",
@@ -10955,7 +10955,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Tyranitarite"
     },
-    "lugia": {
+    "Lugia": {
         "num": 249,
         "name": "Lugia",
         "types": [
@@ -10985,7 +10985,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "hooh": {
+    "Ho-Oh": {
         "num": 250,
         "name": "Ho-Oh",
         "types": [
@@ -11015,7 +11015,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "celebi": {
+    "Celebi": {
         "num": 251,
         "name": "Celebi",
         "types": [
@@ -11044,7 +11044,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "treecko": {
+    "Treecko": {
         "num": 252,
         "name": "Treecko",
         "types": [
@@ -11077,7 +11077,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "grovyle": {
+    "Grovyle": {
         "num": 253,
         "name": "Grovyle",
         "types": [
@@ -11112,7 +11112,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "sceptile": {
+    "Sceptile": {
         "num": 254,
         "name": "Sceptile",
         "types": [
@@ -11151,7 +11151,7 @@ export const pokemoninfo = {
             "Sceptile-Mega"
         ]
     },
-    "sceptilemega": {
+    "Sceptile-Mega": {
         "num": 254,
         "name": "Sceptile-Mega",
         "baseSpecies": "Sceptile",
@@ -11184,7 +11184,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Sceptilite"
     },
-    "torchic": {
+    "Torchic": {
         "num": 255,
         "name": "Torchic",
         "types": [
@@ -11216,7 +11216,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "combusken": {
+    "Combusken": {
         "num": 256,
         "name": "Combusken",
         "types": [
@@ -11251,7 +11251,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "blaziken": {
+    "Blaziken": {
         "num": 257,
         "name": "Blaziken",
         "types": [
@@ -11290,7 +11290,7 @@ export const pokemoninfo = {
             "Blaziken-Mega"
         ]
     },
-    "blazikenmega": {
+    "Blaziken-Mega": {
         "num": 257,
         "name": "Blaziken-Mega",
         "baseSpecies": "Blaziken",
@@ -11322,7 +11322,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Blazikenite"
     },
-    "mudkip": {
+    "Mudkip": {
         "num": 258,
         "name": "Mudkip",
         "types": [
@@ -11355,7 +11355,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "marshtomp": {
+    "Marshtomp": {
         "num": 259,
         "name": "Marshtomp",
         "types": [
@@ -11391,7 +11391,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "swampert": {
+    "Swampert": {
         "num": 260,
         "name": "Swampert",
         "types": [
@@ -11431,7 +11431,7 @@ export const pokemoninfo = {
             "Swampert-Mega"
         ]
     },
-    "swampertmega": {
+    "Swampert-Mega": {
         "num": 260,
         "name": "Swampert-Mega",
         "baseSpecies": "Swampert",
@@ -11464,7 +11464,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Swampertite"
     },
-    "poochyena": {
+    "Poochyena": {
         "num": 261,
         "name": "Poochyena",
         "types": [
@@ -11493,7 +11493,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "mightyena": {
+    "Mightyena": {
         "num": 262,
         "name": "Mightyena",
         "types": [
@@ -11521,7 +11521,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "zigzagoon": {
+    "Zigzagoon": {
         "num": 263,
         "name": "Zigzagoon",
         "types": [
@@ -11557,7 +11557,7 @@ export const pokemoninfo = {
             "Zigzagoon-Galar"
         ]
     },
-    "zigzagoongalar": {
+    "Zigzagoon-Galar": {
         "num": 263,
         "name": "Zigzagoon-Galar",
         "baseSpecies": "Zigzagoon",
@@ -11589,7 +11589,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "linoone": {
+    "Linoone": {
         "num": 264,
         "name": "Linoone",
         "types": [
@@ -11624,7 +11624,7 @@ export const pokemoninfo = {
             "Linoone-Galar"
         ]
     },
-    "linoonegalar": {
+    "Linoone-Galar": {
         "num": 264,
         "name": "Linoone-Galar",
         "baseSpecies": "Linoone",
@@ -11658,7 +11658,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "wurmple": {
+    "Wurmple": {
         "num": 265,
         "name": "Wurmple",
         "types": [
@@ -11687,7 +11687,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "silcoon": {
+    "Silcoon": {
         "num": 266,
         "name": "Silcoon",
         "types": [
@@ -11716,7 +11716,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "beautifly": {
+    "Beautifly": {
         "num": 267,
         "name": "Beautifly",
         "types": [
@@ -11744,7 +11744,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "cascoon": {
+    "Cascoon": {
         "num": 268,
         "name": "Cascoon",
         "types": [
@@ -11773,7 +11773,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "dustox": {
+    "Dustox": {
         "num": 269,
         "name": "Dustox",
         "types": [
@@ -11801,7 +11801,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "lotad": {
+    "Lotad": {
         "num": 270,
         "name": "Lotad",
         "types": [
@@ -11832,7 +11832,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "lombre": {
+    "Lombre": {
         "num": 271,
         "name": "Lombre",
         "types": [
@@ -11865,7 +11865,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "ludicolo": {
+    "Ludicolo": {
         "num": 272,
         "name": "Ludicolo",
         "types": [
@@ -11896,7 +11896,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "seedot": {
+    "Seedot": {
         "num": 273,
         "name": "Seedot",
         "types": [
@@ -11926,7 +11926,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "nuzleaf": {
+    "Nuzleaf": {
         "num": 274,
         "name": "Nuzleaf",
         "types": [
@@ -11959,7 +11959,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "shiftry": {
+    "Shiftry": {
         "num": 275,
         "name": "Shiftry",
         "types": [
@@ -11990,7 +11990,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "taillow": {
+    "Taillow": {
         "num": 276,
         "name": "Taillow",
         "types": [
@@ -12019,7 +12019,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "swellow": {
+    "Swellow": {
         "num": 277,
         "name": "Swellow",
         "types": [
@@ -12047,7 +12047,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "wingull": {
+    "Wingull": {
         "num": 278,
         "name": "Wingull",
         "types": [
@@ -12078,7 +12078,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "pelipper": {
+    "Pelipper": {
         "num": 279,
         "name": "Pelipper",
         "types": [
@@ -12108,7 +12108,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "ralts": {
+    "Ralts": {
         "num": 280,
         "name": "Ralts",
         "types": [
@@ -12139,7 +12139,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "kirlia": {
+    "Kirlia": {
         "num": 281,
         "name": "Kirlia",
         "types": [
@@ -12173,7 +12173,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "gardevoir": {
+    "Gardevoir": {
         "num": 282,
         "name": "Gardevoir",
         "types": [
@@ -12210,7 +12210,7 @@ export const pokemoninfo = {
             "Gardevoir-Mega"
         ]
     },
-    "gardevoirmega": {
+    "Gardevoir-Mega": {
         "num": 282,
         "name": "Gardevoir-Mega",
         "baseSpecies": "Gardevoir",
@@ -12238,7 +12238,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Gardevoirite"
     },
-    "surskit": {
+    "Surskit": {
         "num": 283,
         "name": "Surskit",
         "types": [
@@ -12268,7 +12268,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "masquerain": {
+    "Masquerain": {
         "num": 284,
         "name": "Masquerain",
         "types": [
@@ -12297,7 +12297,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "shroomish": {
+    "Shroomish": {
         "num": 285,
         "name": "Shroomish",
         "types": [
@@ -12327,7 +12327,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "breloom": {
+    "Breloom": {
         "num": 286,
         "name": "Breloom",
         "types": [
@@ -12357,7 +12357,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "slakoth": {
+    "Slakoth": {
         "num": 287,
         "name": "Slakoth",
         "types": [
@@ -12384,7 +12384,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "vigoroth": {
+    "Vigoroth": {
         "num": 288,
         "name": "Vigoroth",
         "types": [
@@ -12413,7 +12413,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "slaking": {
+    "Slaking": {
         "num": 289,
         "name": "Slaking",
         "types": [
@@ -12439,7 +12439,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "nincada": {
+    "Nincada": {
         "num": 290,
         "name": "Nincada",
         "types": [
@@ -12469,7 +12469,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "ninjask": {
+    "Ninjask": {
         "num": 291,
         "name": "Ninjask",
         "types": [
@@ -12497,7 +12497,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "shedinja": {
+    "Shedinja": {
         "num": 292,
         "name": "Shedinja",
         "types": [
@@ -12526,7 +12526,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "whismur": {
+    "Whismur": {
         "num": 293,
         "name": "Whismur",
         "types": [
@@ -12555,7 +12555,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "loudred": {
+    "Loudred": {
         "num": 294,
         "name": "Loudred",
         "types": [
@@ -12586,7 +12586,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "exploud": {
+    "Exploud": {
         "num": 295,
         "name": "Exploud",
         "types": [
@@ -12614,7 +12614,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "makuhita": {
+    "Makuhita": {
         "num": 296,
         "name": "Makuhita",
         "types": [
@@ -12647,7 +12647,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "hariyama": {
+    "Hariyama": {
         "num": 297,
         "name": "Hariyama",
         "types": [
@@ -12679,7 +12679,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "azurill": {
+    "Azurill": {
         "num": 298,
         "name": "Azurill",
         "types": [
@@ -12714,7 +12714,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "nosepass": {
+    "Nosepass": {
         "num": 299,
         "name": "Nosepass",
         "types": [
@@ -12743,7 +12743,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "skitty": {
+    "Skitty": {
         "num": 300,
         "name": "Skitty",
         "types": [
@@ -12777,7 +12777,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "delcatty": {
+    "Delcatty": {
         "num": 301,
         "name": "Delcatty",
         "types": [
@@ -12811,7 +12811,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "sableye": {
+    "Sableye": {
         "num": 302,
         "name": "Sableye",
         "types": [
@@ -12845,7 +12845,7 @@ export const pokemoninfo = {
             "Sableye-Mega"
         ]
     },
-    "sableyemega": {
+    "Sableye-Mega": {
         "num": 302,
         "name": "Sableye-Mega",
         "baseSpecies": "Sableye",
@@ -12873,7 +12873,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Sablenite"
     },
-    "mawile": {
+    "Mawile": {
         "num": 303,
         "name": "Mawile",
         "types": [
@@ -12908,7 +12908,7 @@ export const pokemoninfo = {
             "Mawile-Mega"
         ]
     },
-    "mawilemega": {
+    "Mawile-Mega": {
         "num": 303,
         "name": "Mawile-Mega",
         "baseSpecies": "Mawile",
@@ -12937,7 +12937,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Mawilite"
     },
-    "aron": {
+    "Aron": {
         "num": 304,
         "name": "Aron",
         "types": [
@@ -12967,7 +12967,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "lairon": {
+    "Lairon": {
         "num": 305,
         "name": "Lairon",
         "types": [
@@ -12999,7 +12999,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "aggron": {
+    "Aggron": {
         "num": 306,
         "name": "Aggron",
         "types": [
@@ -13035,7 +13035,7 @@ export const pokemoninfo = {
             "Aggron-Mega"
         ]
     },
-    "aggronmega": {
+    "Aggron-Mega": {
         "num": 306,
         "name": "Aggron-Mega",
         "baseSpecies": "Aggron",
@@ -13062,7 +13062,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Aggronite"
     },
-    "meditite": {
+    "Meditite": {
         "num": 307,
         "name": "Meditite",
         "types": [
@@ -13091,7 +13091,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "medicham": {
+    "Medicham": {
         "num": 308,
         "name": "Medicham",
         "types": [
@@ -13126,7 +13126,7 @@ export const pokemoninfo = {
             "Medicham-Mega"
         ]
     },
-    "medichammega": {
+    "Medicham-Mega": {
         "num": 308,
         "name": "Medicham-Mega",
         "baseSpecies": "Medicham",
@@ -13154,7 +13154,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Medichamite"
     },
-    "electrike": {
+    "Electrike": {
         "num": 309,
         "name": "Electrike",
         "types": [
@@ -13183,7 +13183,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "manectric": {
+    "Manectric": {
         "num": 310,
         "name": "Manectric",
         "types": [
@@ -13218,7 +13218,7 @@ export const pokemoninfo = {
             "Manectric-Mega"
         ]
     },
-    "manectricmega": {
+    "Manectric-Mega": {
         "num": 310,
         "name": "Manectric-Mega",
         "baseSpecies": "Manectric",
@@ -13245,7 +13245,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Manectite"
     },
-    "plusle": {
+    "Plusle": {
         "num": 311,
         "name": "Plusle",
         "types": [
@@ -13270,7 +13270,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "minun": {
+    "Minun": {
         "num": 312,
         "name": "Minun",
         "types": [
@@ -13295,7 +13295,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "volbeat": {
+    "Volbeat": {
         "num": 313,
         "name": "Volbeat",
         "types": [
@@ -13323,7 +13323,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "illumise": {
+    "Illumise": {
         "num": 314,
         "name": "Illumise",
         "types": [
@@ -13351,7 +13351,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "roselia": {
+    "Roselia": {
         "num": 315,
         "name": "Roselia",
         "types": [
@@ -13386,7 +13386,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "gulpin": {
+    "Gulpin": {
         "num": 316,
         "name": "Gulpin",
         "types": [
@@ -13415,7 +13415,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "swalot": {
+    "Swalot": {
         "num": 317,
         "name": "Swalot",
         "types": [
@@ -13443,7 +13443,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "carvanha": {
+    "Carvanha": {
         "num": 318,
         "name": "Carvanha",
         "types": [
@@ -13472,7 +13472,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "sharpedo": {
+    "Sharpedo": {
         "num": 319,
         "name": "Sharpedo",
         "types": [
@@ -13507,7 +13507,7 @@ export const pokemoninfo = {
             "Sharpedo-Mega"
         ]
     },
-    "sharpedomega": {
+    "Sharpedo-Mega": {
         "num": 319,
         "name": "Sharpedo-Mega",
         "baseSpecies": "Sharpedo",
@@ -13535,7 +13535,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Sharpedonite"
     },
-    "wailmer": {
+    "Wailmer": {
         "num": 320,
         "name": "Wailmer",
         "types": [
@@ -13565,7 +13565,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "wailord": {
+    "Wailord": {
         "num": 321,
         "name": "Wailord",
         "types": [
@@ -13594,7 +13594,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "numel": {
+    "Numel": {
         "num": 322,
         "name": "Numel",
         "types": [
@@ -13624,7 +13624,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "camerupt": {
+    "Camerupt": {
         "num": 323,
         "name": "Camerupt",
         "types": [
@@ -13660,7 +13660,7 @@ export const pokemoninfo = {
             "Camerupt-Mega"
         ]
     },
-    "cameruptmega": {
+    "Camerupt-Mega": {
         "num": 323,
         "name": "Camerupt-Mega",
         "baseSpecies": "Camerupt",
@@ -13688,7 +13688,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Cameruptite"
     },
-    "torkoal": {
+    "Torkoal": {
         "num": 324,
         "name": "Torkoal",
         "types": [
@@ -13714,7 +13714,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "spoink": {
+    "Spoink": {
         "num": 325,
         "name": "Spoink",
         "types": [
@@ -13743,7 +13743,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "grumpig": {
+    "Grumpig": {
         "num": 326,
         "name": "Grumpig",
         "types": [
@@ -13771,7 +13771,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "spinda": {
+    "Spinda": {
         "num": 327,
         "name": "Spinda",
         "types": [
@@ -13798,7 +13798,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "trapinch": {
+    "Trapinch": {
         "num": 328,
         "name": "Trapinch",
         "types": [
@@ -13828,7 +13828,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "vibrava": {
+    "Vibrava": {
         "num": 329,
         "name": "Vibrava",
         "types": [
@@ -13859,7 +13859,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "flygon": {
+    "Flygon": {
         "num": 330,
         "name": "Flygon",
         "types": [
@@ -13887,7 +13887,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "cacnea": {
+    "Cacnea": {
         "num": 331,
         "name": "Cacnea",
         "types": [
@@ -13916,7 +13916,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "cacturne": {
+    "Cacturne": {
         "num": 332,
         "name": "Cacturne",
         "types": [
@@ -13945,7 +13945,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "swablu": {
+    "Swablu": {
         "num": 333,
         "name": "Swablu",
         "types": [
@@ -13975,7 +13975,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "altaria": {
+    "Altaria": {
         "num": 334,
         "name": "Altaria",
         "types": [
@@ -14011,7 +14011,7 @@ export const pokemoninfo = {
             "Altaria-Mega"
         ]
     },
-    "altariamega": {
+    "Altaria-Mega": {
         "num": 334,
         "name": "Altaria-Mega",
         "baseSpecies": "Altaria",
@@ -14040,7 +14040,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Altarianite"
     },
-    "zangoose": {
+    "Zangoose": {
         "num": 335,
         "name": "Zangoose",
         "types": [
@@ -14065,7 +14065,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "seviper": {
+    "Seviper": {
         "num": 336,
         "name": "Seviper",
         "types": [
@@ -14091,7 +14091,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "lunatone": {
+    "Lunatone": {
         "num": 337,
         "name": "Lunatone",
         "types": [
@@ -14117,7 +14117,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "solrock": {
+    "Solrock": {
         "num": 338,
         "name": "Solrock",
         "types": [
@@ -14143,7 +14143,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "barboach": {
+    "Barboach": {
         "num": 339,
         "name": "Barboach",
         "types": [
@@ -14173,7 +14173,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "whiscash": {
+    "Whiscash": {
         "num": 340,
         "name": "Whiscash",
         "types": [
@@ -14202,7 +14202,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "corphish": {
+    "Corphish": {
         "num": 341,
         "name": "Corphish",
         "types": [
@@ -14232,7 +14232,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "crawdaunt": {
+    "Crawdaunt": {
         "num": 342,
         "name": "Crawdaunt",
         "types": [
@@ -14262,7 +14262,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "baltoy": {
+    "Baltoy": {
         "num": 343,
         "name": "Baltoy",
         "types": [
@@ -14291,7 +14291,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "claydol": {
+    "Claydol": {
         "num": 344,
         "name": "Claydol",
         "types": [
@@ -14319,7 +14319,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "lileep": {
+    "Lileep": {
         "num": 345,
         "name": "Lileep",
         "types": [
@@ -14352,7 +14352,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "cradily": {
+    "Cradily": {
         "num": 346,
         "name": "Cradily",
         "types": [
@@ -14384,7 +14384,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "anorith": {
+    "Anorith": {
         "num": 347,
         "name": "Anorith",
         "types": [
@@ -14417,7 +14417,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "armaldo": {
+    "Armaldo": {
         "num": 348,
         "name": "Armaldo",
         "types": [
@@ -14449,7 +14449,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "feebas": {
+    "Feebas": {
         "num": 349,
         "name": "Feebas",
         "types": [
@@ -14479,7 +14479,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "milotic": {
+    "Milotic": {
         "num": 350,
         "name": "Milotic",
         "types": [
@@ -14509,7 +14509,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "castform": {
+    "Castform": {
         "num": 351,
         "name": "Castform",
         "types": [
@@ -14545,7 +14545,7 @@ export const pokemoninfo = {
             "Castform-Snowy"
         ]
     },
-    "castformsunny": {
+    "Castform-Sunny": {
         "num": 351,
         "name": "Castform-Sunny",
         "baseSpecies": "Castform",
@@ -14574,7 +14574,7 @@ export const pokemoninfo = {
         "requiredAbility": "Forecast",
         "battleOnly": "Castform"
     },
-    "castformrainy": {
+    "Castform-Rainy": {
         "num": 351,
         "name": "Castform-Rainy",
         "baseSpecies": "Castform",
@@ -14603,7 +14603,7 @@ export const pokemoninfo = {
         "requiredAbility": "Forecast",
         "battleOnly": "Castform"
     },
-    "castformsnowy": {
+    "Castform-Snowy": {
         "num": 351,
         "name": "Castform-Snowy",
         "baseSpecies": "Castform",
@@ -14632,7 +14632,7 @@ export const pokemoninfo = {
         "requiredAbility": "Forecast",
         "battleOnly": "Castform"
     },
-    "kecleon": {
+    "Kecleon": {
         "num": 352,
         "name": "Kecleon",
         "types": [
@@ -14657,7 +14657,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "shuppet": {
+    "Shuppet": {
         "num": 353,
         "name": "Shuppet",
         "types": [
@@ -14686,7 +14686,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "banette": {
+    "Banette": {
         "num": 354,
         "name": "Banette",
         "types": [
@@ -14721,7 +14721,7 @@ export const pokemoninfo = {
             "Banette-Mega"
         ]
     },
-    "banettemega": {
+    "Banette-Mega": {
         "num": 354,
         "name": "Banette-Mega",
         "baseSpecies": "Banette",
@@ -14748,7 +14748,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Banettite"
     },
-    "duskull": {
+    "Duskull": {
         "num": 355,
         "name": "Duskull",
         "types": [
@@ -14776,7 +14776,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "dusclops": {
+    "Dusclops": {
         "num": 356,
         "name": "Dusclops",
         "types": [
@@ -14806,7 +14806,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "tropius": {
+    "Tropius": {
         "num": 357,
         "name": "Tropius",
         "types": [
@@ -14834,7 +14834,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "chimecho": {
+    "Chimecho": {
         "num": 358,
         "name": "Chimecho",
         "types": [
@@ -14862,7 +14862,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "absol": {
+    "Absol": {
         "num": 359,
         "name": "Absol",
         "types": [
@@ -14895,7 +14895,7 @@ export const pokemoninfo = {
             "Absol-Mega"
         ]
     },
-    "absolmega": {
+    "Absol-Mega": {
         "num": 359,
         "name": "Absol-Mega",
         "baseSpecies": "Absol",
@@ -14922,7 +14922,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Absolite"
     },
-    "wynaut": {
+    "Wynaut": {
         "num": 360,
         "name": "Wynaut",
         "types": [
@@ -14951,7 +14951,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "snorunt": {
+    "Snorunt": {
         "num": 361,
         "name": "Snorunt",
         "types": [
@@ -14982,7 +14982,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "glalie": {
+    "Glalie": {
         "num": 362,
         "name": "Glalie",
         "types": [
@@ -15018,7 +15018,7 @@ export const pokemoninfo = {
             "Glalie-Mega"
         ]
     },
-    "glaliemega": {
+    "Glalie-Mega": {
         "num": 362,
         "name": "Glalie-Mega",
         "baseSpecies": "Glalie",
@@ -15046,7 +15046,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Glalitite"
     },
-    "spheal": {
+    "Spheal": {
         "num": 363,
         "name": "Spheal",
         "types": [
@@ -15077,7 +15077,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "sealeo": {
+    "Sealeo": {
         "num": 364,
         "name": "Sealeo",
         "types": [
@@ -15110,7 +15110,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "walrein": {
+    "Walrein": {
         "num": 365,
         "name": "Walrein",
         "types": [
@@ -15140,7 +15140,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "clamperl": {
+    "Clamperl": {
         "num": 366,
         "name": "Clamperl",
         "types": [
@@ -15169,7 +15169,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "huntail": {
+    "Huntail": {
         "num": 367,
         "name": "Huntail",
         "types": [
@@ -15197,7 +15197,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "gorebyss": {
+    "Gorebyss": {
         "num": 368,
         "name": "Gorebyss",
         "types": [
@@ -15225,7 +15225,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "relicanth": {
+    "Relicanth": {
         "num": 369,
         "name": "Relicanth",
         "types": [
@@ -15257,7 +15257,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "luvdisc": {
+    "Luvdisc": {
         "num": 370,
         "name": "Luvdisc",
         "types": [
@@ -15286,7 +15286,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "bagon": {
+    "Bagon": {
         "num": 371,
         "name": "Bagon",
         "types": [
@@ -15314,7 +15314,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "shelgon": {
+    "Shelgon": {
         "num": 372,
         "name": "Shelgon",
         "types": [
@@ -15344,7 +15344,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "salamence": {
+    "Salamence": {
         "num": 373,
         "name": "Salamence",
         "types": [
@@ -15379,7 +15379,7 @@ export const pokemoninfo = {
             "Salamence-Mega"
         ]
     },
-    "salamencemega": {
+    "Salamence-Mega": {
         "num": 373,
         "name": "Salamence-Mega",
         "baseSpecies": "Salamence",
@@ -15407,7 +15407,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Salamencite"
     },
-    "beldum": {
+    "Beldum": {
         "num": 374,
         "name": "Beldum",
         "types": [
@@ -15437,7 +15437,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "metang": {
+    "Metang": {
         "num": 375,
         "name": "Metang",
         "types": [
@@ -15469,7 +15469,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "metagross": {
+    "Metagross": {
         "num": 376,
         "name": "Metagross",
         "types": [
@@ -15505,7 +15505,7 @@ export const pokemoninfo = {
             "Metagross-Mega"
         ]
     },
-    "metagrossmega": {
+    "Metagross-Mega": {
         "num": 376,
         "name": "Metagross-Mega",
         "baseSpecies": "Metagross",
@@ -15534,7 +15534,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Metagrossite"
     },
-    "regirock": {
+    "Regirock": {
         "num": 377,
         "name": "Regirock",
         "types": [
@@ -15563,7 +15563,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "regice": {
+    "Regice": {
         "num": 378,
         "name": "Regice",
         "types": [
@@ -15592,7 +15592,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "registeel": {
+    "Registeel": {
         "num": 379,
         "name": "Registeel",
         "types": [
@@ -15621,7 +15621,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "latias": {
+    "Latias": {
         "num": 380,
         "name": "Latias",
         "types": [
@@ -15657,7 +15657,7 @@ export const pokemoninfo = {
             "Latias-Mega"
         ]
     },
-    "latiasmega": {
+    "Latias-Mega": {
         "num": 380,
         "name": "Latias-Mega",
         "baseSpecies": "Latias",
@@ -15686,7 +15686,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Latiasite"
     },
-    "latios": {
+    "Latios": {
         "num": 381,
         "name": "Latios",
         "types": [
@@ -15722,7 +15722,7 @@ export const pokemoninfo = {
             "Latios-Mega"
         ]
     },
-    "latiosmega": {
+    "Latios-Mega": {
         "num": 381,
         "name": "Latios-Mega",
         "baseSpecies": "Latios",
@@ -15751,7 +15751,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Latiosite"
     },
-    "kyogre": {
+    "Kyogre": {
         "num": 382,
         "name": "Kyogre",
         "types": [
@@ -15786,7 +15786,7 @@ export const pokemoninfo = {
             "Kyogre-Primal"
         ]
     },
-    "kyogreprimal": {
+    "Kyogre-Primal": {
         "num": 382,
         "name": "Kyogre-Primal",
         "baseSpecies": "Kyogre",
@@ -15814,7 +15814,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Blue Orb"
     },
-    "groudon": {
+    "Groudon": {
         "num": 383,
         "name": "Groudon",
         "types": [
@@ -15849,7 +15849,7 @@ export const pokemoninfo = {
             "Groudon-Primal"
         ]
     },
-    "groudonprimal": {
+    "Groudon-Primal": {
         "num": 383,
         "name": "Groudon-Primal",
         "baseSpecies": "Groudon",
@@ -15878,7 +15878,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Red Orb"
     },
-    "rayquaza": {
+    "Rayquaza": {
         "num": 384,
         "name": "Rayquaza",
         "types": [
@@ -15914,7 +15914,7 @@ export const pokemoninfo = {
             "Rayquaza-Mega"
         ]
     },
-    "rayquazamega": {
+    "Rayquaza-Mega": {
         "num": 384,
         "name": "Rayquaza-Mega",
         "baseSpecies": "Rayquaza",
@@ -15943,7 +15943,7 @@ export const pokemoninfo = {
         ],
         "requiredMove": "Dragon Ascent"
     },
-    "jirachi": {
+    "Jirachi": {
         "num": 385,
         "name": "Jirachi",
         "types": [
@@ -15972,7 +15972,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "deoxys": {
+    "Deoxys": {
         "num": 386,
         "name": "Deoxys",
         "baseForme": "Normal",
@@ -16012,7 +16012,7 @@ export const pokemoninfo = {
             "Deoxys-Speed"
         ]
     },
-    "deoxysattack": {
+    "Deoxys-Attack": {
         "num": 386,
         "name": "Deoxys-Attack",
         "baseSpecies": "Deoxys",
@@ -16040,7 +16040,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Deoxys"
     },
-    "deoxysdefense": {
+    "Deoxys-Defense": {
         "num": 386,
         "name": "Deoxys-Defense",
         "baseSpecies": "Deoxys",
@@ -16068,7 +16068,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Deoxys"
     },
-    "deoxysspeed": {
+    "Deoxys-Speed": {
         "num": 386,
         "name": "Deoxys-Speed",
         "baseSpecies": "Deoxys",
@@ -16096,7 +16096,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Deoxys"
     },
-    "turtwig": {
+    "Turtwig": {
         "num": 387,
         "name": "Turtwig",
         "types": [
@@ -16129,7 +16129,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "grotle": {
+    "Grotle": {
         "num": 388,
         "name": "Grotle",
         "types": [
@@ -16164,7 +16164,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "torterra": {
+    "Torterra": {
         "num": 389,
         "name": "Torterra",
         "types": [
@@ -16197,7 +16197,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "chimchar": {
+    "Chimchar": {
         "num": 390,
         "name": "Chimchar",
         "types": [
@@ -16230,7 +16230,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "monferno": {
+    "Monferno": {
         "num": 391,
         "name": "Monferno",
         "types": [
@@ -16266,7 +16266,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "infernape": {
+    "Infernape": {
         "num": 392,
         "name": "Infernape",
         "types": [
@@ -16299,7 +16299,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "piplup": {
+    "Piplup": {
         "num": 393,
         "name": "Piplup",
         "types": [
@@ -16332,7 +16332,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "prinplup": {
+    "Prinplup": {
         "num": 394,
         "name": "Prinplup",
         "types": [
@@ -16367,7 +16367,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "empoleon": {
+    "Empoleon": {
         "num": 395,
         "name": "Empoleon",
         "types": [
@@ -16400,7 +16400,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "starly": {
+    "Starly": {
         "num": 396,
         "name": "Starly",
         "types": [
@@ -16429,7 +16429,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "staravia": {
+    "Staravia": {
         "num": 397,
         "name": "Staravia",
         "types": [
@@ -16460,7 +16460,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "staraptor": {
+    "Staraptor": {
         "num": 398,
         "name": "Staraptor",
         "types": [
@@ -16488,7 +16488,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "bidoof": {
+    "Bidoof": {
         "num": 399,
         "name": "Bidoof",
         "types": [
@@ -16518,7 +16518,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "bibarel": {
+    "Bibarel": {
         "num": 400,
         "name": "Bibarel",
         "types": [
@@ -16548,7 +16548,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "kricketot": {
+    "Kricketot": {
         "num": 401,
         "name": "Kricketot",
         "types": [
@@ -16576,7 +16576,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "kricketune": {
+    "Kricketune": {
         "num": 402,
         "name": "Kricketune",
         "types": [
@@ -16603,7 +16603,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "shinx": {
+    "Shinx": {
         "num": 403,
         "name": "Shinx",
         "types": [
@@ -16632,7 +16632,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "luxio": {
+    "Luxio": {
         "num": 404,
         "name": "Luxio",
         "types": [
@@ -16663,7 +16663,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "luxray": {
+    "Luxray": {
         "num": 405,
         "name": "Luxray",
         "types": [
@@ -16691,7 +16691,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "budew": {
+    "Budew": {
         "num": 406,
         "name": "Budew",
         "types": [
@@ -16722,7 +16722,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "roserade": {
+    "Roserade": {
         "num": 407,
         "name": "Roserade",
         "types": [
@@ -16753,7 +16753,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "cranidos": {
+    "Cranidos": {
         "num": 408,
         "name": "Cranidos",
         "types": [
@@ -16785,7 +16785,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "rampardos": {
+    "Rampardos": {
         "num": 409,
         "name": "Rampardos",
         "types": [
@@ -16816,7 +16816,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "shieldon": {
+    "Shieldon": {
         "num": 410,
         "name": "Shieldon",
         "types": [
@@ -16849,7 +16849,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "bastiodon": {
+    "Bastiodon": {
         "num": 411,
         "name": "Bastiodon",
         "types": [
@@ -16881,7 +16881,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "burmy": {
+    "Burmy": {
         "num": 412,
         "name": "Burmy",
         "baseForme": "Plant",
@@ -16922,7 +16922,7 @@ export const pokemoninfo = {
             "Burmy-Trash"
         ]
     },
-    "wormadam": {
+    "Wormadam": {
         "num": 413,
         "name": "Wormadam",
         "baseForme": "Plant",
@@ -16961,7 +16961,7 @@ export const pokemoninfo = {
             "Wormadam-Trash"
         ]
     },
-    "wormadamsandy": {
+    "Wormadam-Sandy": {
         "num": 413,
         "name": "Wormadam-Sandy",
         "baseSpecies": "Wormadam",
@@ -16992,7 +16992,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "wormadamtrash": {
+    "Wormadam-Trash": {
         "num": 413,
         "name": "Wormadam-Trash",
         "baseSpecies": "Wormadam",
@@ -17023,7 +17023,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "mothim": {
+    "Mothim": {
         "num": 414,
         "name": "Mothim",
         "types": [
@@ -17052,7 +17052,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "combee": {
+    "Combee": {
         "num": 415,
         "name": "Combee",
         "types": [
@@ -17085,7 +17085,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "vespiquen": {
+    "Vespiquen": {
         "num": 416,
         "name": "Vespiquen",
         "types": [
@@ -17114,7 +17114,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "pachirisu": {
+    "Pachirisu": {
         "num": 417,
         "name": "Pachirisu",
         "types": [
@@ -17141,7 +17141,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "buizel": {
+    "Buizel": {
         "num": 418,
         "name": "Buizel",
         "types": [
@@ -17170,7 +17170,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "floatzel": {
+    "Floatzel": {
         "num": 419,
         "name": "Floatzel",
         "types": [
@@ -17198,7 +17198,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "cherubi": {
+    "Cherubi": {
         "num": 420,
         "name": "Cherubi",
         "types": [
@@ -17226,7 +17226,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "cherrim": {
+    "Cherrim": {
         "num": 421,
         "name": "Cherrim",
         "baseForme": "Overcast",
@@ -17261,7 +17261,7 @@ export const pokemoninfo = {
             "Cherrim-Sunshine"
         ]
     },
-    "cherrimsunshine": {
+    "Cherrim-Sunshine": {
         "num": 421,
         "name": "Cherrim-Sunshine",
         "baseSpecies": "Cherrim",
@@ -17290,7 +17290,7 @@ export const pokemoninfo = {
         "requiredAbility": "Flower Gift",
         "battleOnly": "Cherrim"
     },
-    "shellos": {
+    "Shellos": {
         "num": 422,
         "name": "Shellos",
         "baseForme": "West",
@@ -17328,7 +17328,7 @@ export const pokemoninfo = {
             "Shellos-East"
         ]
     },
-    "gastrodon": {
+    "Gastrodon": {
         "num": 423,
         "name": "Gastrodon",
         "baseForme": "West",
@@ -17366,7 +17366,7 @@ export const pokemoninfo = {
             "Gastrodon-East"
         ]
     },
-    "ambipom": {
+    "Ambipom": {
         "num": 424,
         "name": "Ambipom",
         "types": [
@@ -17395,7 +17395,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "drifloon": {
+    "Drifloon": {
         "num": 425,
         "name": "Drifloon",
         "types": [
@@ -17425,7 +17425,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "drifblim": {
+    "Drifblim": {
         "num": 426,
         "name": "Drifblim",
         "types": [
@@ -17454,7 +17454,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "buneary": {
+    "Buneary": {
         "num": 427,
         "name": "Buneary",
         "types": [
@@ -17484,7 +17484,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "lopunny": {
+    "Lopunny": {
         "num": 428,
         "name": "Lopunny",
         "types": [
@@ -17520,7 +17520,7 @@ export const pokemoninfo = {
             "Lopunny-Mega"
         ]
     },
-    "lopunnymega": {
+    "Lopunny-Mega": {
         "num": 428,
         "name": "Lopunny-Mega",
         "baseSpecies": "Lopunny",
@@ -17549,7 +17549,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Lopunnite"
     },
-    "mismagius": {
+    "Mismagius": {
         "num": 429,
         "name": "Mismagius",
         "types": [
@@ -17576,7 +17576,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "honchkrow": {
+    "Honchkrow": {
         "num": 430,
         "name": "Honchkrow",
         "types": [
@@ -17606,7 +17606,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "glameow": {
+    "Glameow": {
         "num": 431,
         "name": "Glameow",
         "types": [
@@ -17639,7 +17639,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "purugly": {
+    "Purugly": {
         "num": 432,
         "name": "Purugly",
         "types": [
@@ -17671,7 +17671,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "chingling": {
+    "Chingling": {
         "num": 433,
         "name": "Chingling",
         "types": [
@@ -17699,7 +17699,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "stunky": {
+    "Stunky": {
         "num": 434,
         "name": "Stunky",
         "types": [
@@ -17729,7 +17729,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "skuntank": {
+    "Skuntank": {
         "num": 435,
         "name": "Skuntank",
         "types": [
@@ -17758,7 +17758,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "bronzor": {
+    "Bronzor": {
         "num": 436,
         "name": "Bronzor",
         "types": [
@@ -17789,7 +17789,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "bronzong": {
+    "Bronzong": {
         "num": 437,
         "name": "Bronzong",
         "types": [
@@ -17819,7 +17819,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "bonsly": {
+    "Bonsly": {
         "num": 438,
         "name": "Bonsly",
         "types": [
@@ -17849,7 +17849,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "mimejr": {
+    "Mime Jr.": {
         "num": 439,
         "name": "Mime Jr.",
         "types": [
@@ -17881,7 +17881,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "happiny": {
+    "Happiny": {
         "num": 440,
         "name": "Happiny",
         "types": [
@@ -17912,7 +17912,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "chatot": {
+    "Chatot": {
         "num": 441,
         "name": "Chatot",
         "types": [
@@ -17939,7 +17939,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "spiritomb": {
+    "Spiritomb": {
         "num": 442,
         "name": "Spiritomb",
         "types": [
@@ -17965,7 +17965,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "gible": {
+    "Gible": {
         "num": 443,
         "name": "Gible",
         "types": [
@@ -17995,7 +17995,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "gabite": {
+    "Gabite": {
         "num": 444,
         "name": "Gabite",
         "types": [
@@ -18027,7 +18027,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "garchomp": {
+    "Garchomp": {
         "num": 445,
         "name": "Garchomp",
         "types": [
@@ -18063,7 +18063,7 @@ export const pokemoninfo = {
             "Garchomp-Mega"
         ]
     },
-    "garchompmega": {
+    "Garchomp-Mega": {
         "num": 445,
         "name": "Garchomp-Mega",
         "baseSpecies": "Garchomp",
@@ -18092,7 +18092,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Garchompite"
     },
-    "munchlax": {
+    "Munchlax": {
         "num": 446,
         "name": "Munchlax",
         "types": [
@@ -18126,7 +18126,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "riolu": {
+    "Riolu": {
         "num": 447,
         "name": "Riolu",
         "types": [
@@ -18160,7 +18160,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "lucario": {
+    "Lucario": {
         "num": 448,
         "name": "Lucario",
         "types": [
@@ -18202,7 +18202,7 @@ export const pokemoninfo = {
             "Lucario-Mega"
         ]
     },
-    "lucariomega": {
+    "Lucario-Mega": {
         "num": 448,
         "name": "Lucario-Mega",
         "baseSpecies": "Lucario",
@@ -18235,7 +18235,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Lucarionite"
     },
-    "hippopotas": {
+    "Hippopotas": {
         "num": 449,
         "name": "Hippopotas",
         "types": [
@@ -18263,7 +18263,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "hippowdon": {
+    "Hippowdon": {
         "num": 450,
         "name": "Hippowdon",
         "types": [
@@ -18290,7 +18290,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "skorupi": {
+    "Skorupi": {
         "num": 451,
         "name": "Skorupi",
         "types": [
@@ -18321,7 +18321,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "drapion": {
+    "Drapion": {
         "num": 452,
         "name": "Drapion",
         "types": [
@@ -18351,7 +18351,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "croagunk": {
+    "Croagunk": {
         "num": 453,
         "name": "Croagunk",
         "types": [
@@ -18381,7 +18381,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "toxicroak": {
+    "Toxicroak": {
         "num": 454,
         "name": "Toxicroak",
         "types": [
@@ -18410,7 +18410,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "carnivine": {
+    "Carnivine": {
         "num": 455,
         "name": "Carnivine",
         "types": [
@@ -18434,7 +18434,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "finneon": {
+    "Finneon": {
         "num": 456,
         "name": "Finneon",
         "types": [
@@ -18463,7 +18463,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "lumineon": {
+    "Lumineon": {
         "num": 457,
         "name": "Lumineon",
         "types": [
@@ -18491,7 +18491,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "mantyke": {
+    "Mantyke": {
         "num": 458,
         "name": "Mantyke",
         "types": [
@@ -18522,7 +18522,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "snover": {
+    "Snover": {
         "num": 459,
         "name": "Snover",
         "types": [
@@ -18552,7 +18552,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "abomasnow": {
+    "Abomasnow": {
         "num": 460,
         "name": "Abomasnow",
         "types": [
@@ -18588,7 +18588,7 @@ export const pokemoninfo = {
             "Abomasnow-Mega"
         ]
     },
-    "abomasnowmega": {
+    "Abomasnow-Mega": {
         "num": 460,
         "name": "Abomasnow-Mega",
         "baseSpecies": "Abomasnow",
@@ -18617,7 +18617,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Abomasite"
     },
-    "weavile": {
+    "Weavile": {
         "num": 461,
         "name": "Weavile",
         "types": [
@@ -18647,7 +18647,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "magnezone": {
+    "Magnezone": {
         "num": 462,
         "name": "Magnezone",
         "types": [
@@ -18678,7 +18678,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "lickilicky": {
+    "Lickilicky": {
         "num": 463,
         "name": "Lickilicky",
         "types": [
@@ -18707,7 +18707,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "rhyperior": {
+    "Rhyperior": {
         "num": 464,
         "name": "Rhyperior",
         "types": [
@@ -18738,7 +18738,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "tangrowth": {
+    "Tangrowth": {
         "num": 465,
         "name": "Tangrowth",
         "types": [
@@ -18767,7 +18767,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "electivire": {
+    "Electivire": {
         "num": 466,
         "name": "Electivire",
         "types": [
@@ -18799,7 +18799,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "magmortar": {
+    "Magmortar": {
         "num": 467,
         "name": "Magmortar",
         "types": [
@@ -18831,7 +18831,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "togekiss": {
+    "Togekiss": {
         "num": 468,
         "name": "Togekiss",
         "types": [
@@ -18866,7 +18866,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "yanmega": {
+    "Yanmega": {
         "num": 469,
         "name": "Yanmega",
         "types": [
@@ -18896,7 +18896,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "leafeon": {
+    "Leafeon": {
         "num": 470,
         "name": "Leafeon",
         "types": [
@@ -18928,7 +18928,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "glaceon": {
+    "Glaceon": {
         "num": 471,
         "name": "Glaceon",
         "types": [
@@ -18960,7 +18960,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "gliscor": {
+    "Gliscor": {
         "num": 472,
         "name": "Gliscor",
         "types": [
@@ -18991,7 +18991,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "mamoswine": {
+    "Mamoswine": {
         "num": 473,
         "name": "Mamoswine",
         "types": [
@@ -19021,7 +19021,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "porygonz": {
+    "Porygon-Z": {
         "num": 474,
         "name": "Porygon-Z",
         "types": [
@@ -19051,7 +19051,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "gallade": {
+    "Gallade": {
         "num": 475,
         "name": "Gallade",
         "types": [
@@ -19090,7 +19090,7 @@ export const pokemoninfo = {
             "Gallade-Mega"
         ]
     },
-    "gallademega": {
+    "Gallade-Mega": {
         "num": 475,
         "name": "Gallade-Mega",
         "baseSpecies": "Gallade",
@@ -19119,7 +19119,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Galladite"
     },
-    "probopass": {
+    "Probopass": {
         "num": 476,
         "name": "Probopass",
         "types": [
@@ -19149,7 +19149,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "dusknoir": {
+    "Dusknoir": {
         "num": 477,
         "name": "Dusknoir",
         "types": [
@@ -19177,7 +19177,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "froslass": {
+    "Froslass": {
         "num": 478,
         "name": "Froslass",
         "types": [
@@ -19208,7 +19208,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "rotom": {
+    "Rotom": {
         "num": 479,
         "name": "Rotom",
         "types": [
@@ -19249,7 +19249,7 @@ export const pokemoninfo = {
             "Rotom-Mow"
         ]
     },
-    "rotomheat": {
+    "Rotom-Heat": {
         "num": 479,
         "name": "Rotom-Heat",
         "baseSpecies": "Rotom",
@@ -19278,7 +19278,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Rotom"
     },
-    "rotomwash": {
+    "Rotom-Wash": {
         "num": 479,
         "name": "Rotom-Wash",
         "baseSpecies": "Rotom",
@@ -19307,7 +19307,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Rotom"
     },
-    "rotomfrost": {
+    "Rotom-Frost": {
         "num": 479,
         "name": "Rotom-Frost",
         "baseSpecies": "Rotom",
@@ -19336,7 +19336,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Rotom"
     },
-    "rotomfan": {
+    "Rotom-Fan": {
         "num": 479,
         "name": "Rotom-Fan",
         "baseSpecies": "Rotom",
@@ -19365,7 +19365,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Rotom"
     },
-    "rotommow": {
+    "Rotom-Mow": {
         "num": 479,
         "name": "Rotom-Mow",
         "baseSpecies": "Rotom",
@@ -19394,7 +19394,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Rotom"
     },
-    "uxie": {
+    "Uxie": {
         "num": 480,
         "name": "Uxie",
         "types": [
@@ -19422,7 +19422,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "mesprit": {
+    "Mesprit": {
         "num": 481,
         "name": "Mesprit",
         "types": [
@@ -19450,7 +19450,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "azelf": {
+    "Azelf": {
         "num": 482,
         "name": "Azelf",
         "types": [
@@ -19478,7 +19478,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "dialga": {
+    "Dialga": {
         "num": 483,
         "name": "Dialga",
         "types": [
@@ -19515,7 +19515,7 @@ export const pokemoninfo = {
             "Dialga-Origin"
         ]
     },
-    "dialgaorigin": {
+    "Dialga-Origin": {
         "num": 483,
         "name": "Dialga-Origin",
         "baseSpecies": "Dialga",
@@ -19547,7 +19547,7 @@ export const pokemoninfo = {
         "changesFrom": "Dialga",
         "gen": 8
     },
-    "palkia": {
+    "Palkia": {
         "num": 484,
         "name": "Palkia",
         "types": [
@@ -19584,7 +19584,7 @@ export const pokemoninfo = {
             "Palkia-Origin"
         ]
     },
-    "palkiaorigin": {
+    "Palkia-Origin": {
         "num": 484,
         "name": "Palkia-Origin",
         "baseSpecies": "Palkia",
@@ -19616,7 +19616,7 @@ export const pokemoninfo = {
         "changesFrom": "Palkia",
         "gen": 8
     },
-    "heatran": {
+    "Heatran": {
         "num": 485,
         "name": "Heatran",
         "types": [
@@ -19645,7 +19645,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "regigigas": {
+    "Regigigas": {
         "num": 486,
         "name": "Regigigas",
         "types": [
@@ -19673,7 +19673,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "giratina": {
+    "Giratina": {
         "num": 487,
         "name": "Giratina",
         "baseForme": "Altered",
@@ -19711,7 +19711,7 @@ export const pokemoninfo = {
             "Giratina-Origin"
         ]
     },
-    "giratinaorigin": {
+    "Giratina-Origin": {
         "num": 487,
         "name": "Giratina-Origin",
         "baseSpecies": "Giratina",
@@ -19741,7 +19741,7 @@ export const pokemoninfo = {
         "requiredItem": "Griseous Core",
         "changesFrom": "Giratina"
     },
-    "cresselia": {
+    "Cresselia": {
         "num": 488,
         "name": "Cresselia",
         "types": [
@@ -19769,7 +19769,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "phione": {
+    "Phione": {
         "num": 489,
         "name": "Phione",
         "types": [
@@ -19798,7 +19798,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "manaphy": {
+    "Manaphy": {
         "num": 490,
         "name": "Manaphy",
         "types": [
@@ -19827,7 +19827,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "darkrai": {
+    "Darkrai": {
         "num": 491,
         "name": "Darkrai",
         "types": [
@@ -19855,7 +19855,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "shaymin": {
+    "Shaymin": {
         "num": 492,
         "name": "Shaymin",
         "baseForme": "Land",
@@ -19891,7 +19891,7 @@ export const pokemoninfo = {
             "Shaymin-Sky"
         ]
     },
-    "shayminsky": {
+    "Shaymin-Sky": {
         "num": 492,
         "name": "Shaymin-Sky",
         "baseSpecies": "Shaymin",
@@ -19920,7 +19920,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Shaymin"
     },
-    "arceus": {
+    "Arceus": {
         "num": 493,
         "name": "Arceus",
         "baseForme": "Normal",
@@ -19988,7 +19988,7 @@ export const pokemoninfo = {
             "Arceus-Fairy"
         ]
     },
-    "arceusbug": {
+    "Arceus-Bug": {
         "num": 493,
         "name": "Arceus-Bug",
         "baseSpecies": "Arceus",
@@ -20020,7 +20020,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusdark": {
+    "Arceus-Dark": {
         "num": 493,
         "name": "Arceus-Dark",
         "baseSpecies": "Arceus",
@@ -20052,7 +20052,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusdragon": {
+    "Arceus-Dragon": {
         "num": 493,
         "name": "Arceus-Dragon",
         "baseSpecies": "Arceus",
@@ -20084,7 +20084,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceuselectric": {
+    "Arceus-Electric": {
         "num": 493,
         "name": "Arceus-Electric",
         "baseSpecies": "Arceus",
@@ -20116,7 +20116,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusfairy": {
+    "Arceus-Fairy": {
         "num": 493,
         "name": "Arceus-Fairy",
         "baseSpecies": "Arceus",
@@ -20149,7 +20149,7 @@ export const pokemoninfo = {
         "changesFrom": "Arceus",
         "gen": 6
     },
-    "arceusfighting": {
+    "Arceus-Fighting": {
         "num": 493,
         "name": "Arceus-Fighting",
         "baseSpecies": "Arceus",
@@ -20181,7 +20181,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusfire": {
+    "Arceus-Fire": {
         "num": 493,
         "name": "Arceus-Fire",
         "baseSpecies": "Arceus",
@@ -20213,7 +20213,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusflying": {
+    "Arceus-Flying": {
         "num": 493,
         "name": "Arceus-Flying",
         "baseSpecies": "Arceus",
@@ -20245,7 +20245,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusghost": {
+    "Arceus-Ghost": {
         "num": 493,
         "name": "Arceus-Ghost",
         "baseSpecies": "Arceus",
@@ -20277,7 +20277,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusgrass": {
+    "Arceus-Grass": {
         "num": 493,
         "name": "Arceus-Grass",
         "baseSpecies": "Arceus",
@@ -20309,7 +20309,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusground": {
+    "Arceus-Ground": {
         "num": 493,
         "name": "Arceus-Ground",
         "baseSpecies": "Arceus",
@@ -20341,7 +20341,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusice": {
+    "Arceus-Ice": {
         "num": 493,
         "name": "Arceus-Ice",
         "baseSpecies": "Arceus",
@@ -20373,7 +20373,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceuspoison": {
+    "Arceus-Poison": {
         "num": 493,
         "name": "Arceus-Poison",
         "baseSpecies": "Arceus",
@@ -20405,7 +20405,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceuspsychic": {
+    "Arceus-Psychic": {
         "num": 493,
         "name": "Arceus-Psychic",
         "baseSpecies": "Arceus",
@@ -20437,7 +20437,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceusrock": {
+    "Arceus-Rock": {
         "num": 493,
         "name": "Arceus-Rock",
         "baseSpecies": "Arceus",
@@ -20469,7 +20469,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceussteel": {
+    "Arceus-Steel": {
         "num": 493,
         "name": "Arceus-Steel",
         "baseSpecies": "Arceus",
@@ -20501,7 +20501,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "arceuswater": {
+    "Arceus-Water": {
         "num": 493,
         "name": "Arceus-Water",
         "baseSpecies": "Arceus",
@@ -20533,7 +20533,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Arceus"
     },
-    "victini": {
+    "Victini": {
         "num": 494,
         "name": "Victini",
         "types": [
@@ -20562,7 +20562,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "snivy": {
+    "Snivy": {
         "num": 495,
         "name": "Snivy",
         "types": [
@@ -20595,7 +20595,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "servine": {
+    "Servine": {
         "num": 496,
         "name": "Servine",
         "types": [
@@ -20630,7 +20630,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "serperior": {
+    "Serperior": {
         "num": 497,
         "name": "Serperior",
         "types": [
@@ -20662,7 +20662,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "tepig": {
+    "Tepig": {
         "num": 498,
         "name": "Tepig",
         "types": [
@@ -20694,7 +20694,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pignite": {
+    "Pignite": {
         "num": 499,
         "name": "Pignite",
         "types": [
@@ -20729,7 +20729,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "emboar": {
+    "Emboar": {
         "num": 500,
         "name": "Emboar",
         "types": [
@@ -20761,7 +20761,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "oshawott": {
+    "Oshawott": {
         "num": 501,
         "name": "Oshawott",
         "types": [
@@ -20793,7 +20793,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "dewott": {
+    "Dewott": {
         "num": 502,
         "name": "Dewott",
         "types": [
@@ -20828,7 +20828,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "samurott": {
+    "Samurott": {
         "num": 503,
         "name": "Samurott",
         "types": [
@@ -20866,7 +20866,7 @@ export const pokemoninfo = {
             "Samurott-Hisui"
         ]
     },
-    "samurotthisui": {
+    "Samurott-Hisui": {
         "num": 503,
         "name": "Samurott-Hisui",
         "baseSpecies": "Samurott",
@@ -20900,7 +20900,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "patrat": {
+    "Patrat": {
         "num": 504,
         "name": "Patrat",
         "types": [
@@ -20929,7 +20929,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "watchog": {
+    "Watchog": {
         "num": 505,
         "name": "Watchog",
         "types": [
@@ -20957,7 +20957,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "lillipup": {
+    "Lillipup": {
         "num": 506,
         "name": "Lillipup",
         "types": [
@@ -20986,7 +20986,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "herdier": {
+    "Herdier": {
         "num": 507,
         "name": "Herdier",
         "types": [
@@ -21017,7 +21017,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "stoutland": {
+    "Stoutland": {
         "num": 508,
         "name": "Stoutland",
         "types": [
@@ -21045,7 +21045,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "purrloin": {
+    "Purrloin": {
         "num": 509,
         "name": "Purrloin",
         "types": [
@@ -21074,7 +21074,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "liepard": {
+    "Liepard": {
         "num": 510,
         "name": "Liepard",
         "types": [
@@ -21102,7 +21102,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pansage": {
+    "Pansage": {
         "num": 511,
         "name": "Pansage",
         "types": [
@@ -21134,7 +21134,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "simisage": {
+    "Simisage": {
         "num": 512,
         "name": "Simisage",
         "types": [
@@ -21166,7 +21166,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pansear": {
+    "Pansear": {
         "num": 513,
         "name": "Pansear",
         "types": [
@@ -21198,7 +21198,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "simisear": {
+    "Simisear": {
         "num": 514,
         "name": "Simisear",
         "types": [
@@ -21230,7 +21230,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "panpour": {
+    "Panpour": {
         "num": 515,
         "name": "Panpour",
         "types": [
@@ -21262,7 +21262,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "simipour": {
+    "Simipour": {
         "num": 516,
         "name": "Simipour",
         "types": [
@@ -21294,7 +21294,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "munna": {
+    "Munna": {
         "num": 517,
         "name": "Munna",
         "types": [
@@ -21323,7 +21323,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "musharna": {
+    "Musharna": {
         "num": 518,
         "name": "Musharna",
         "types": [
@@ -21352,7 +21352,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pidove": {
+    "Pidove": {
         "num": 519,
         "name": "Pidove",
         "types": [
@@ -21382,7 +21382,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "tranquill": {
+    "Tranquill": {
         "num": 520,
         "name": "Tranquill",
         "types": [
@@ -21414,7 +21414,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "unfezant": {
+    "Unfezant": {
         "num": 521,
         "name": "Unfezant",
         "types": [
@@ -21443,7 +21443,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "blitzle": {
+    "Blitzle": {
         "num": 522,
         "name": "Blitzle",
         "types": [
@@ -21472,7 +21472,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "zebstrika": {
+    "Zebstrika": {
         "num": 523,
         "name": "Zebstrika",
         "types": [
@@ -21500,7 +21500,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "roggenrola": {
+    "Roggenrola": {
         "num": 524,
         "name": "Roggenrola",
         "types": [
@@ -21529,7 +21529,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "boldore": {
+    "Boldore": {
         "num": 525,
         "name": "Boldore",
         "types": [
@@ -21560,7 +21560,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "gigalith": {
+    "Gigalith": {
         "num": 526,
         "name": "Gigalith",
         "types": [
@@ -21588,7 +21588,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "woobat": {
+    "Woobat": {
         "num": 527,
         "name": "Woobat",
         "types": [
@@ -21619,7 +21619,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "swoobat": {
+    "Swoobat": {
         "num": 528,
         "name": "Swoobat",
         "types": [
@@ -21649,7 +21649,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "drilbur": {
+    "Drilbur": {
         "num": 529,
         "name": "Drilbur",
         "types": [
@@ -21678,7 +21678,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "excadrill": {
+    "Excadrill": {
         "num": 530,
         "name": "Excadrill",
         "types": [
@@ -21707,7 +21707,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "audino": {
+    "Audino": {
         "num": 531,
         "name": "Audino",
         "types": [
@@ -21740,7 +21740,7 @@ export const pokemoninfo = {
             "Audino-Mega"
         ]
     },
-    "audinomega": {
+    "Audino-Mega": {
         "num": 531,
         "name": "Audino-Mega",
         "baseSpecies": "Audino",
@@ -21768,7 +21768,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Audinite"
     },
-    "timburr": {
+    "Timburr": {
         "num": 532,
         "name": "Timburr",
         "types": [
@@ -21801,7 +21801,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "gurdurr": {
+    "Gurdurr": {
         "num": 533,
         "name": "Gurdurr",
         "types": [
@@ -21836,7 +21836,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "conkeldurr": {
+    "Conkeldurr": {
         "num": 534,
         "name": "Conkeldurr",
         "types": [
@@ -21868,7 +21868,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "tympole": {
+    "Tympole": {
         "num": 535,
         "name": "Tympole",
         "types": [
@@ -21897,7 +21897,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "palpitoad": {
+    "Palpitoad": {
         "num": 536,
         "name": "Palpitoad",
         "types": [
@@ -21929,7 +21929,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "seismitoad": {
+    "Seismitoad": {
         "num": 537,
         "name": "Seismitoad",
         "types": [
@@ -21958,7 +21958,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "throh": {
+    "Throh": {
         "num": 538,
         "name": "Throh",
         "types": [
@@ -21985,7 +21985,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "sawk": {
+    "Sawk": {
         "num": 539,
         "name": "Sawk",
         "types": [
@@ -22012,7 +22012,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "sewaddle": {
+    "Sewaddle": {
         "num": 540,
         "name": "Sewaddle",
         "types": [
@@ -22042,7 +22042,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "swadloon": {
+    "Swadloon": {
         "num": 541,
         "name": "Swadloon",
         "types": [
@@ -22074,7 +22074,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "leavanny": {
+    "Leavanny": {
         "num": 542,
         "name": "Leavanny",
         "types": [
@@ -22103,7 +22103,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "venipede": {
+    "Venipede": {
         "num": 543,
         "name": "Venipede",
         "types": [
@@ -22133,7 +22133,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "whirlipede": {
+    "Whirlipede": {
         "num": 544,
         "name": "Whirlipede",
         "types": [
@@ -22165,7 +22165,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "scolipede": {
+    "Scolipede": {
         "num": 545,
         "name": "Scolipede",
         "types": [
@@ -22194,7 +22194,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "cottonee": {
+    "Cottonee": {
         "num": 546,
         "name": "Cottonee",
         "types": [
@@ -22225,7 +22225,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "whimsicott": {
+    "Whimsicott": {
         "num": 547,
         "name": "Whimsicott",
         "types": [
@@ -22256,7 +22256,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "petilil": {
+    "Petilil": {
         "num": 548,
         "name": "Petilil",
         "types": [
@@ -22287,7 +22287,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "lilligant": {
+    "Lilligant": {
         "num": 549,
         "name": "Lilligant",
         "types": [
@@ -22324,7 +22324,7 @@ export const pokemoninfo = {
             "Lilligant-Hisui"
         ]
     },
-    "lilliganthisui": {
+    "Lilligant-Hisui": {
         "num": 549,
         "name": "Lilligant-Hisui",
         "baseSpecies": "Lilligant",
@@ -22357,7 +22357,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "basculin": {
+    "Basculin": {
         "num": 550,
         "name": "Basculin",
         "baseForme": "Red-Striped",
@@ -22393,7 +22393,7 @@ export const pokemoninfo = {
             "Basculin-White-Striped"
         ]
     },
-    "basculinbluestriped": {
+    "Basculin-Blue-Striped": {
         "num": 550,
         "name": "Basculin-Blue-Striped",
         "baseSpecies": "Basculin",
@@ -22421,7 +22421,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "basculinwhitestriped": {
+    "Basculin-White-Striped": {
         "num": 550,
         "name": "Basculin-White-Striped",
         "baseSpecies": "Basculin",
@@ -22454,7 +22454,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "sandile": {
+    "Sandile": {
         "num": 551,
         "name": "Sandile",
         "types": [
@@ -22484,7 +22484,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "krokorok": {
+    "Krokorok": {
         "num": 552,
         "name": "Krokorok",
         "types": [
@@ -22516,7 +22516,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "krookodile": {
+    "Krookodile": {
         "num": 553,
         "name": "Krookodile",
         "types": [
@@ -22545,7 +22545,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "darumaka": {
+    "Darumaka": {
         "num": 554,
         "name": "Darumaka",
         "types": [
@@ -22580,7 +22580,7 @@ export const pokemoninfo = {
             "Darumaka-Galar"
         ]
     },
-    "darumakagalar": {
+    "Darumaka-Galar": {
         "num": 554,
         "name": "Darumaka-Galar",
         "baseSpecies": "Darumaka",
@@ -22610,7 +22610,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "darmanitan": {
+    "Darmanitan": {
         "num": 555,
         "name": "Darmanitan",
         "baseForme": "Standard",
@@ -22649,7 +22649,7 @@ export const pokemoninfo = {
             "Darmanitan-Galar-Zen"
         ]
     },
-    "darmanitanzen": {
+    "Darmanitan-Zen": {
         "num": 555,
         "name": "Darmanitan-Zen",
         "baseSpecies": "Darmanitan",
@@ -22678,7 +22678,7 @@ export const pokemoninfo = {
         "requiredAbility": "Zen Mode",
         "battleOnly": "Darmanitan"
     },
-    "darmanitangalar": {
+    "Darmanitan-Galar": {
         "num": 555,
         "name": "Darmanitan-Galar",
         "baseSpecies": "Darmanitan",
@@ -22708,7 +22708,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "darmanitangalarzen": {
+    "Darmanitan-Galar-Zen": {
         "num": 555,
         "name": "Darmanitan-Galar-Zen",
         "baseSpecies": "Darmanitan",
@@ -22737,7 +22737,7 @@ export const pokemoninfo = {
         "requiredAbility": "Zen Mode",
         "battleOnly": "Darmanitan-Galar"
     },
-    "maractus": {
+    "Maractus": {
         "num": 556,
         "name": "Maractus",
         "types": [
@@ -22763,7 +22763,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "dwebble": {
+    "Dwebble": {
         "num": 557,
         "name": "Dwebble",
         "types": [
@@ -22794,7 +22794,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "crustle": {
+    "Crustle": {
         "num": 558,
         "name": "Crustle",
         "types": [
@@ -22824,7 +22824,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "scraggy": {
+    "Scraggy": {
         "num": 559,
         "name": "Scraggy",
         "types": [
@@ -22855,7 +22855,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "scrafty": {
+    "Scrafty": {
         "num": 560,
         "name": "Scrafty",
         "types": [
@@ -22885,7 +22885,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "sigilyph": {
+    "Sigilyph": {
         "num": 561,
         "name": "Sigilyph",
         "types": [
@@ -22912,7 +22912,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "yamask": {
+    "Yamask": {
         "num": 562,
         "name": "Yamask",
         "types": [
@@ -22947,7 +22947,7 @@ export const pokemoninfo = {
             "Yamask-Galar"
         ]
     },
-    "yamaskgalar": {
+    "Yamask-Galar": {
         "num": 562,
         "name": "Yamask-Galar",
         "baseSpecies": "Yamask",
@@ -22978,7 +22978,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "cofagrigus": {
+    "Cofagrigus": {
         "num": 563,
         "name": "Cofagrigus",
         "types": [
@@ -23005,7 +23005,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "tirtouga": {
+    "Tirtouga": {
         "num": 564,
         "name": "Tirtouga",
         "types": [
@@ -23040,7 +23040,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "carracosta": {
+    "Carracosta": {
         "num": 565,
         "name": "Carracosta",
         "types": [
@@ -23074,7 +23074,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "archen": {
+    "Archen": {
         "num": 566,
         "name": "Archen",
         "types": [
@@ -23107,7 +23107,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "archeops": {
+    "Archeops": {
         "num": 567,
         "name": "Archeops",
         "types": [
@@ -23139,7 +23139,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "trubbish": {
+    "Trubbish": {
         "num": 568,
         "name": "Trubbish",
         "types": [
@@ -23168,7 +23168,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "garbodor": {
+    "Garbodor": {
         "num": 569,
         "name": "Garbodor",
         "types": [
@@ -23197,7 +23197,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Malodor"
     },
-    "garbodorgmax": {
+    "Garbodor-Gmax": {
         "num": 569,
         "name": "Garbodor-Gmax",
         "baseSpecies": "Garbodor",
@@ -23226,7 +23226,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Garbodor"
     },
-    "zorua": {
+    "Zorua": {
         "num": 570,
         "name": "Zorua",
         "types": [
@@ -23264,7 +23264,7 @@ export const pokemoninfo = {
             "Zorua-Hisui"
         ]
     },
-    "zoruahisui": {
+    "Zorua-Hisui": {
         "num": 570,
         "name": "Zorua-Hisui",
         "baseSpecies": "Zorua",
@@ -23298,7 +23298,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "zoroark": {
+    "Zoroark": {
         "num": 571,
         "name": "Zoroark",
         "types": [
@@ -23335,7 +23335,7 @@ export const pokemoninfo = {
             "Zoroark-Hisui"
         ]
     },
-    "zoroarkhisui": {
+    "Zoroark-Hisui": {
         "num": 571,
         "name": "Zoroark-Hisui",
         "baseSpecies": "Zoroark",
@@ -23368,7 +23368,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "minccino": {
+    "Minccino": {
         "num": 572,
         "name": "Minccino",
         "types": [
@@ -23401,7 +23401,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "cinccino": {
+    "Cinccino": {
         "num": 573,
         "name": "Cinccino",
         "types": [
@@ -23434,7 +23434,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "gothita": {
+    "Gothita": {
         "num": 574,
         "name": "Gothita",
         "types": [
@@ -23467,7 +23467,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "gothorita": {
+    "Gothorita": {
         "num": 575,
         "name": "Gothorita",
         "types": [
@@ -23502,7 +23502,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "gothitelle": {
+    "Gothitelle": {
         "num": 576,
         "name": "Gothitelle",
         "types": [
@@ -23534,7 +23534,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "solosis": {
+    "Solosis": {
         "num": 577,
         "name": "Solosis",
         "types": [
@@ -23563,7 +23563,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "duosion": {
+    "Duosion": {
         "num": 578,
         "name": "Duosion",
         "types": [
@@ -23594,7 +23594,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "reuniclus": {
+    "Reuniclus": {
         "num": 579,
         "name": "Reuniclus",
         "types": [
@@ -23622,7 +23622,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "ducklett": {
+    "Ducklett": {
         "num": 580,
         "name": "Ducklett",
         "types": [
@@ -23653,7 +23653,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "swanna": {
+    "Swanna": {
         "num": 581,
         "name": "Swanna",
         "types": [
@@ -23683,7 +23683,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "vanillite": {
+    "Vanillite": {
         "num": 582,
         "name": "Vanillite",
         "types": [
@@ -23712,7 +23712,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "vanillish": {
+    "Vanillish": {
         "num": 583,
         "name": "Vanillish",
         "types": [
@@ -23743,7 +23743,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "vanilluxe": {
+    "Vanilluxe": {
         "num": 584,
         "name": "Vanilluxe",
         "types": [
@@ -23771,7 +23771,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "deerling": {
+    "Deerling": {
         "num": 585,
         "name": "Deerling",
         "baseForme": "Spring",
@@ -23813,7 +23813,7 @@ export const pokemoninfo = {
             "Deerling-Winter"
         ]
     },
-    "sawsbuck": {
+    "Sawsbuck": {
         "num": 586,
         "name": "Sawsbuck",
         "baseForme": "Spring",
@@ -23854,7 +23854,7 @@ export const pokemoninfo = {
             "Sawsbuck-Winter"
         ]
     },
-    "emolga": {
+    "Emolga": {
         "num": 587,
         "name": "Emolga",
         "types": [
@@ -23880,7 +23880,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "karrablast": {
+    "Karrablast": {
         "num": 588,
         "name": "Karrablast",
         "types": [
@@ -23909,7 +23909,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "escavalier": {
+    "Escavalier": {
         "num": 589,
         "name": "Escavalier",
         "types": [
@@ -23939,7 +23939,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "foongus": {
+    "Foongus": {
         "num": 590,
         "name": "Foongus",
         "types": [
@@ -23968,7 +23968,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "amoonguss": {
+    "Amoonguss": {
         "num": 591,
         "name": "Amoonguss",
         "types": [
@@ -23996,7 +23996,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "frillish": {
+    "Frillish": {
         "num": 592,
         "name": "Frillish",
         "types": [
@@ -24026,7 +24026,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "jellicent": {
+    "Jellicent": {
         "num": 593,
         "name": "Jellicent",
         "types": [
@@ -24055,7 +24055,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "alomomola": {
+    "Alomomola": {
         "num": 594,
         "name": "Alomomola",
         "types": [
@@ -24082,7 +24082,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "joltik": {
+    "Joltik": {
         "num": 595,
         "name": "Joltik",
         "types": [
@@ -24112,7 +24112,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "galvantula": {
+    "Galvantula": {
         "num": 596,
         "name": "Galvantula",
         "types": [
@@ -24141,7 +24141,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "ferroseed": {
+    "Ferroseed": {
         "num": 597,
         "name": "Ferroseed",
         "types": [
@@ -24170,7 +24170,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "ferrothorn": {
+    "Ferrothorn": {
         "num": 598,
         "name": "Ferrothorn",
         "types": [
@@ -24199,7 +24199,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "klink": {
+    "Klink": {
         "num": 599,
         "name": "Klink",
         "types": [
@@ -24229,7 +24229,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "klang": {
+    "Klang": {
         "num": 600,
         "name": "Klang",
         "types": [
@@ -24261,7 +24261,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "klinklang": {
+    "Klinklang": {
         "num": 601,
         "name": "Klinklang",
         "types": [
@@ -24290,7 +24290,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "tynamo": {
+    "Tynamo": {
         "num": 602,
         "name": "Tynamo",
         "types": [
@@ -24317,7 +24317,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "eelektrik": {
+    "Eelektrik": {
         "num": 603,
         "name": "Eelektrik",
         "types": [
@@ -24346,7 +24346,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "eelektross": {
+    "Eelektross": {
         "num": 604,
         "name": "Eelektross",
         "types": [
@@ -24373,7 +24373,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "elgyem": {
+    "Elgyem": {
         "num": 605,
         "name": "Elgyem",
         "types": [
@@ -24402,7 +24402,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "beheeyem": {
+    "Beheeyem": {
         "num": 606,
         "name": "Beheeyem",
         "types": [
@@ -24430,7 +24430,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "litwick": {
+    "Litwick": {
         "num": 607,
         "name": "Litwick",
         "types": [
@@ -24460,7 +24460,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "lampent": {
+    "Lampent": {
         "num": 608,
         "name": "Lampent",
         "types": [
@@ -24492,7 +24492,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "chandelure": {
+    "Chandelure": {
         "num": 609,
         "name": "Chandelure",
         "types": [
@@ -24522,7 +24522,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "axew": {
+    "Axew": {
         "num": 610,
         "name": "Axew",
         "types": [
@@ -24552,7 +24552,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "fraxure": {
+    "Fraxure": {
         "num": 611,
         "name": "Fraxure",
         "types": [
@@ -24584,7 +24584,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "haxorus": {
+    "Haxorus": {
         "num": 612,
         "name": "Haxorus",
         "types": [
@@ -24613,7 +24613,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "cubchoo": {
+    "Cubchoo": {
         "num": 613,
         "name": "Cubchoo",
         "types": [
@@ -24642,7 +24642,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "beartic": {
+    "Beartic": {
         "num": 614,
         "name": "Beartic",
         "types": [
@@ -24670,7 +24670,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "cryogonal": {
+    "Cryogonal": {
         "num": 615,
         "name": "Cryogonal",
         "types": [
@@ -24695,7 +24695,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "shelmet": {
+    "Shelmet": {
         "num": 616,
         "name": "Shelmet",
         "types": [
@@ -24724,7 +24724,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "accelgor": {
+    "Accelgor": {
         "num": 617,
         "name": "Accelgor",
         "types": [
@@ -24753,7 +24753,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "stunfisk": {
+    "Stunfisk": {
         "num": 618,
         "name": "Stunfisk",
         "types": [
@@ -24788,7 +24788,7 @@ export const pokemoninfo = {
             "Stunfisk-Galar"
         ]
     },
-    "stunfiskgalar": {
+    "Stunfisk-Galar": {
         "num": 618,
         "name": "Stunfisk-Galar",
         "baseSpecies": "Stunfisk",
@@ -24816,7 +24816,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "mienfoo": {
+    "Mienfoo": {
         "num": 619,
         "name": "Mienfoo",
         "types": [
@@ -24846,7 +24846,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "mienshao": {
+    "Mienshao": {
         "num": 620,
         "name": "Mienshao",
         "types": [
@@ -24875,7 +24875,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "druddigon": {
+    "Druddigon": {
         "num": 621,
         "name": "Druddigon",
         "types": [
@@ -24902,7 +24902,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "golett": {
+    "Golett": {
         "num": 622,
         "name": "Golett",
         "types": [
@@ -24933,7 +24933,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "golurk": {
+    "Golurk": {
         "num": 623,
         "name": "Golurk",
         "types": [
@@ -24963,7 +24963,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "pawniard": {
+    "Pawniard": {
         "num": 624,
         "name": "Pawniard",
         "types": [
@@ -24993,7 +24993,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "bisharp": {
+    "Bisharp": {
         "num": 625,
         "name": "Bisharp",
         "types": [
@@ -25025,7 +25025,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "bouffalant": {
+    "Bouffalant": {
         "num": 626,
         "name": "Bouffalant",
         "types": [
@@ -25051,7 +25051,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "rufflet": {
+    "Rufflet": {
         "num": 627,
         "name": "Rufflet",
         "types": [
@@ -25083,7 +25083,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "braviary": {
+    "Braviary": {
         "num": 628,
         "name": "Braviary",
         "types": [
@@ -25120,7 +25120,7 @@ export const pokemoninfo = {
             "Braviary-Hisui"
         ]
     },
-    "braviaryhisui": {
+    "Braviary-Hisui": {
         "num": 628,
         "name": "Braviary-Hisui",
         "baseSpecies": "Braviary",
@@ -25152,7 +25152,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "vullaby": {
+    "Vullaby": {
         "num": 629,
         "name": "Vullaby",
         "types": [
@@ -25183,7 +25183,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "mandibuzz": {
+    "Mandibuzz": {
         "num": 630,
         "name": "Mandibuzz",
         "types": [
@@ -25213,7 +25213,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "heatmor": {
+    "Heatmor": {
         "num": 631,
         "name": "Heatmor",
         "types": [
@@ -25239,7 +25239,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "durant": {
+    "Durant": {
         "num": 632,
         "name": "Durant",
         "types": [
@@ -25266,7 +25266,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "deino": {
+    "Deino": {
         "num": 633,
         "name": "Deino",
         "types": [
@@ -25294,7 +25294,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "zweilous": {
+    "Zweilous": {
         "num": 634,
         "name": "Zweilous",
         "types": [
@@ -25324,7 +25324,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "hydreigon": {
+    "Hydreigon": {
         "num": 635,
         "name": "Hydreigon",
         "types": [
@@ -25351,7 +25351,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "larvesta": {
+    "Larvesta": {
         "num": 636,
         "name": "Larvesta",
         "types": [
@@ -25380,7 +25380,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "volcarona": {
+    "Volcarona": {
         "num": 637,
         "name": "Volcarona",
         "types": [
@@ -25408,7 +25408,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "cobalion": {
+    "Cobalion": {
         "num": 638,
         "name": "Cobalion",
         "types": [
@@ -25437,7 +25437,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "terrakion": {
+    "Terrakion": {
         "num": 639,
         "name": "Terrakion",
         "types": [
@@ -25466,7 +25466,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "virizion": {
+    "Virizion": {
         "num": 640,
         "name": "Virizion",
         "types": [
@@ -25495,7 +25495,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "tornadus": {
+    "Tornadus": {
         "num": 641,
         "name": "Tornadus",
         "baseForme": "Incarnate",
@@ -25532,7 +25532,7 @@ export const pokemoninfo = {
             "Tornadus-Therian"
         ]
     },
-    "tornadustherian": {
+    "Tornadus-Therian": {
         "num": 641,
         "name": "Tornadus-Therian",
         "baseSpecies": "Tornadus",
@@ -25560,7 +25560,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Tornadus"
     },
-    "thundurus": {
+    "Thundurus": {
         "num": 642,
         "name": "Thundurus",
         "baseForme": "Incarnate",
@@ -25598,7 +25598,7 @@ export const pokemoninfo = {
             "Thundurus-Therian"
         ]
     },
-    "thundurustherian": {
+    "Thundurus-Therian": {
         "num": 642,
         "name": "Thundurus-Therian",
         "baseSpecies": "Thundurus",
@@ -25627,7 +25627,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Thundurus"
     },
-    "reshiram": {
+    "Reshiram": {
         "num": 643,
         "name": "Reshiram",
         "types": [
@@ -25656,7 +25656,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "zekrom": {
+    "Zekrom": {
         "num": 644,
         "name": "Zekrom",
         "types": [
@@ -25685,7 +25685,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "landorus": {
+    "Landorus": {
         "num": 645,
         "name": "Landorus",
         "baseForme": "Incarnate",
@@ -25723,7 +25723,7 @@ export const pokemoninfo = {
             "Landorus-Therian"
         ]
     },
-    "landorustherian": {
+    "Landorus-Therian": {
         "num": 645,
         "name": "Landorus-Therian",
         "baseSpecies": "Landorus",
@@ -25752,7 +25752,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Landorus"
     },
-    "kyurem": {
+    "Kyurem": {
         "num": 646,
         "name": "Kyurem",
         "types": [
@@ -25790,7 +25790,7 @@ export const pokemoninfo = {
             "Kyurem-Black"
         ]
     },
-    "kyuremblack": {
+    "Kyurem-Black": {
         "num": 646,
         "name": "Kyurem-Black",
         "baseSpecies": "Kyurem",
@@ -25819,7 +25819,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Kyurem"
     },
-    "kyuremwhite": {
+    "Kyurem-White": {
         "num": 646,
         "name": "Kyurem-White",
         "baseSpecies": "Kyurem",
@@ -25848,7 +25848,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Kyurem"
     },
-    "keldeo": {
+    "Keldeo": {
         "num": 647,
         "name": "Keldeo",
         "baseForme": "Ordinary",
@@ -25885,7 +25885,7 @@ export const pokemoninfo = {
             "Keldeo-Resolute"
         ]
     },
-    "keldeoresolute": {
+    "Keldeo-Resolute": {
         "num": 647,
         "name": "Keldeo-Resolute",
         "baseSpecies": "Keldeo",
@@ -25915,7 +25915,7 @@ export const pokemoninfo = {
         "requiredMove": "Secret Sword",
         "changesFrom": "Keldeo"
     },
-    "meloetta": {
+    "Meloetta": {
         "num": 648,
         "name": "Meloetta",
         "baseForme": "Aria",
@@ -25952,7 +25952,7 @@ export const pokemoninfo = {
             "Meloetta-Pirouette"
         ]
     },
-    "meloettapirouette": {
+    "Meloetta-Pirouette": {
         "num": 648,
         "name": "Meloetta-Pirouette",
         "baseSpecies": "Meloetta",
@@ -25982,7 +25982,7 @@ export const pokemoninfo = {
         "requiredMove": "Relic Song",
         "battleOnly": "Meloetta"
     },
-    "genesect": {
+    "Genesect": {
         "num": 649,
         "name": "Genesect",
         "types": [
@@ -26024,7 +26024,7 @@ export const pokemoninfo = {
             "Genesect-Chill"
         ]
     },
-    "genesectdouse": {
+    "Genesect-Douse": {
         "num": 649,
         "name": "Genesect-Douse",
         "baseSpecies": "Genesect",
@@ -26054,7 +26054,7 @@ export const pokemoninfo = {
         "requiredItem": "Douse Drive",
         "changesFrom": "Genesect"
     },
-    "genesectshock": {
+    "Genesect-Shock": {
         "num": 649,
         "name": "Genesect-Shock",
         "baseSpecies": "Genesect",
@@ -26084,7 +26084,7 @@ export const pokemoninfo = {
         "requiredItem": "Shock Drive",
         "changesFrom": "Genesect"
     },
-    "genesectburn": {
+    "Genesect-Burn": {
         "num": 649,
         "name": "Genesect-Burn",
         "baseSpecies": "Genesect",
@@ -26114,7 +26114,7 @@ export const pokemoninfo = {
         "requiredItem": "Burn Drive",
         "changesFrom": "Genesect"
     },
-    "genesectchill": {
+    "Genesect-Chill": {
         "num": 649,
         "name": "Genesect-Chill",
         "baseSpecies": "Genesect",
@@ -26144,7 +26144,7 @@ export const pokemoninfo = {
         "requiredItem": "Chill Drive",
         "changesFrom": "Genesect"
     },
-    "chespin": {
+    "Chespin": {
         "num": 650,
         "name": "Chespin",
         "types": [
@@ -26176,7 +26176,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "quilladin": {
+    "Quilladin": {
         "num": 651,
         "name": "Quilladin",
         "types": [
@@ -26210,7 +26210,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "chesnaught": {
+    "Chesnaught": {
         "num": 652,
         "name": "Chesnaught",
         "types": [
@@ -26242,7 +26242,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "fennekin": {
+    "Fennekin": {
         "num": 653,
         "name": "Fennekin",
         "types": [
@@ -26274,7 +26274,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "braixen": {
+    "Braixen": {
         "num": 654,
         "name": "Braixen",
         "types": [
@@ -26308,7 +26308,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "delphox": {
+    "Delphox": {
         "num": 655,
         "name": "Delphox",
         "types": [
@@ -26340,7 +26340,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "froakie": {
+    "Froakie": {
         "num": 656,
         "name": "Froakie",
         "types": [
@@ -26372,7 +26372,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "frogadier": {
+    "Frogadier": {
         "num": 657,
         "name": "Frogadier",
         "types": [
@@ -26406,7 +26406,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "greninja": {
+    "Greninja": {
         "num": 658,
         "name": "Greninja",
         "types": [
@@ -26448,7 +26448,7 @@ export const pokemoninfo = {
             "Greninja-Ash"
         ]
     },
-    "greninjabond": {
+    "Greninja-Bond": {
         "num": 658,
         "name": "Greninja-Bond",
         "baseSpecies": "Greninja",
@@ -26477,7 +26477,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "greninjaash": {
+    "Greninja-Ash": {
         "num": 658,
         "name": "Greninja-Ash",
         "baseSpecies": "Greninja",
@@ -26508,7 +26508,7 @@ export const pokemoninfo = {
         "battleOnly": "Greninja-Bond",
         "gen": 7
     },
-    "bunnelby": {
+    "Bunnelby": {
         "num": 659,
         "name": "Bunnelby",
         "types": [
@@ -26537,7 +26537,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "diggersby": {
+    "Diggersby": {
         "num": 660,
         "name": "Diggersby",
         "types": [
@@ -26566,7 +26566,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "fletchling": {
+    "Fletchling": {
         "num": 661,
         "name": "Fletchling",
         "types": [
@@ -26595,7 +26595,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "fletchinder": {
+    "Fletchinder": {
         "num": 662,
         "name": "Fletchinder",
         "types": [
@@ -26626,7 +26626,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "talonflame": {
+    "Talonflame": {
         "num": 663,
         "name": "Talonflame",
         "types": [
@@ -26654,7 +26654,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "scatterbug": {
+    "Scatterbug": {
         "num": 664,
         "name": "Scatterbug",
         "types": [
@@ -26683,7 +26683,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "spewpa": {
+    "Spewpa": {
         "num": 665,
         "name": "Spewpa",
         "types": [
@@ -26714,7 +26714,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "vivillon": {
+    "Vivillon": {
         "num": 666,
         "name": "Vivillon",
         "baseForme": "Meadow",
@@ -26789,7 +26789,7 @@ export const pokemoninfo = {
             "Vivillon-Pokeball"
         ]
     },
-    "vivillonfancy": {
+    "Vivillon-Fancy": {
         "num": 666,
         "name": "Vivillon-Fancy",
         "baseSpecies": "Vivillon",
@@ -26820,7 +26820,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "vivillonpokeball": {
+    "Vivillon-Pokeball": {
         "num": 666,
         "name": "Vivillon-Pokeball",
         "baseSpecies": "Vivillon",
@@ -26849,7 +26849,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "litleo": {
+    "Litleo": {
         "num": 667,
         "name": "Litleo",
         "types": [
@@ -26883,7 +26883,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pyroar": {
+    "Pyroar": {
         "num": 668,
         "name": "Pyroar",
         "types": [
@@ -26916,7 +26916,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "flabebe": {
+    "Flabébé": {
         "num": 669,
         "name": "Flabébé",
         "baseForme": "Red",
@@ -26959,7 +26959,7 @@ export const pokemoninfo = {
             "Flabébé-Yellow"
         ]
     },
-    "floette": {
+    "Floette": {
         "num": 670,
         "name": "Floette",
         "baseForme": "Red",
@@ -27008,7 +27008,7 @@ export const pokemoninfo = {
             "Floette-Eternal"
         ]
     },
-    "floetteeternal": {
+    "Floette-Eternal": {
         "num": 670,
         "name": "Floette-Eternal",
         "baseSpecies": "Floette",
@@ -27035,7 +27035,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "florges": {
+    "Florges": {
         "num": 671,
         "name": "Florges",
         "baseForme": "Red",
@@ -27078,7 +27078,7 @@ export const pokemoninfo = {
             "Florges-Yellow"
         ]
     },
-    "skiddo": {
+    "Skiddo": {
         "num": 672,
         "name": "Skiddo",
         "types": [
@@ -27106,7 +27106,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "gogoat": {
+    "Gogoat": {
         "num": 673,
         "name": "Gogoat",
         "types": [
@@ -27133,7 +27133,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pancham": {
+    "Pancham": {
         "num": 674,
         "name": "Pancham",
         "types": [
@@ -27163,7 +27163,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "pangoro": {
+    "Pangoro": {
         "num": 675,
         "name": "Pangoro",
         "types": [
@@ -27194,7 +27194,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "furfrou": {
+    "Furfrou": {
         "num": 676,
         "name": "Furfrou",
         "baseForme": "Natural",
@@ -27242,7 +27242,7 @@ export const pokemoninfo = {
             "Furfrou-Pharaoh"
         ]
     },
-    "espurr": {
+    "Espurr": {
         "num": 677,
         "name": "Espurr",
         "types": [
@@ -27272,7 +27272,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "meowstic": {
+    "Meowstic": {
         "num": 678,
         "name": "Meowstic",
         "baseForme": "M",
@@ -27309,7 +27309,7 @@ export const pokemoninfo = {
             "Meowstic-F"
         ]
     },
-    "meowsticf": {
+    "Meowstic-F": {
         "num": 678,
         "name": "Meowstic-F",
         "baseSpecies": "Meowstic",
@@ -27340,7 +27340,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "honedge": {
+    "Honedge": {
         "num": 679,
         "name": "Honedge",
         "types": [
@@ -27368,7 +27368,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "doublade": {
+    "Doublade": {
         "num": 680,
         "name": "Doublade",
         "types": [
@@ -27398,7 +27398,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "aegislash": {
+    "Aegislash": {
         "num": 681,
         "name": "Aegislash",
         "baseForme": "Shield",
@@ -27434,7 +27434,7 @@ export const pokemoninfo = {
             "Aegislash-Blade"
         ]
     },
-    "aegislashblade": {
+    "Aegislash-Blade": {
         "num": 681,
         "name": "Aegislash-Blade",
         "baseSpecies": "Aegislash",
@@ -27463,7 +27463,7 @@ export const pokemoninfo = {
         "requiredAbility": "Stance Change",
         "battleOnly": "Aegislash"
     },
-    "spritzee": {
+    "Spritzee": {
         "num": 682,
         "name": "Spritzee",
         "types": [
@@ -27491,7 +27491,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "aromatisse": {
+    "Aromatisse": {
         "num": 683,
         "name": "Aromatisse",
         "types": [
@@ -27519,7 +27519,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "swirlix": {
+    "Swirlix": {
         "num": 684,
         "name": "Swirlix",
         "types": [
@@ -27547,7 +27547,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "slurpuff": {
+    "Slurpuff": {
         "num": 685,
         "name": "Slurpuff",
         "types": [
@@ -27575,7 +27575,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "inkay": {
+    "Inkay": {
         "num": 686,
         "name": "Inkay",
         "types": [
@@ -27606,7 +27606,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "malamar": {
+    "Malamar": {
         "num": 687,
         "name": "Malamar",
         "types": [
@@ -27637,7 +27637,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "binacle": {
+    "Binacle": {
         "num": 688,
         "name": "Binacle",
         "types": [
@@ -27667,7 +27667,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "barbaracle": {
+    "Barbaracle": {
         "num": 689,
         "name": "Barbaracle",
         "types": [
@@ -27696,7 +27696,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "skrelp": {
+    "Skrelp": {
         "num": 690,
         "name": "Skrelp",
         "types": [
@@ -27727,7 +27727,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "dragalge": {
+    "Dragalge": {
         "num": 691,
         "name": "Dragalge",
         "types": [
@@ -27757,7 +27757,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "clauncher": {
+    "Clauncher": {
         "num": 692,
         "name": "Clauncher",
         "types": [
@@ -27785,7 +27785,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "clawitzer": {
+    "Clawitzer": {
         "num": 693,
         "name": "Clawitzer",
         "types": [
@@ -27812,7 +27812,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "helioptile": {
+    "Helioptile": {
         "num": 694,
         "name": "Helioptile",
         "types": [
@@ -27843,7 +27843,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "heliolisk": {
+    "Heliolisk": {
         "num": 695,
         "name": "Heliolisk",
         "types": [
@@ -27874,7 +27874,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "tyrunt": {
+    "Tyrunt": {
         "num": 696,
         "name": "Tyrunt",
         "types": [
@@ -27908,7 +27908,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "tyrantrum": {
+    "Tyrantrum": {
         "num": 697,
         "name": "Tyrantrum",
         "types": [
@@ -27942,7 +27942,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "amaura": {
+    "Amaura": {
         "num": 698,
         "name": "Amaura",
         "types": [
@@ -27975,7 +27975,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "aurorus": {
+    "Aurorus": {
         "num": 699,
         "name": "Aurorus",
         "types": [
@@ -28008,7 +28008,7 @@ export const pokemoninfo = {
             "Monster"
         ]
     },
-    "sylveon": {
+    "Sylveon": {
         "num": 700,
         "name": "Sylveon",
         "types": [
@@ -28040,7 +28040,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "hawlucha": {
+    "Hawlucha": {
         "num": 701,
         "name": "Hawlucha",
         "types": [
@@ -28068,7 +28068,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "dedenne": {
+    "Dedenne": {
         "num": 702,
         "name": "Dedenne",
         "types": [
@@ -28096,7 +28096,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "carbink": {
+    "Carbink": {
         "num": 703,
         "name": "Carbink",
         "types": [
@@ -28124,7 +28124,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "goomy": {
+    "Goomy": {
         "num": 704,
         "name": "Goomy",
         "types": [
@@ -28154,7 +28154,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "sliggoo": {
+    "Sliggoo": {
         "num": 705,
         "name": "Sliggoo",
         "types": [
@@ -28192,7 +28192,7 @@ export const pokemoninfo = {
             "Sliggoo-Hisui"
         ]
     },
-    "sliggoohisui": {
+    "Sliggoo-Hisui": {
         "num": 705,
         "name": "Sliggoo-Hisui",
         "baseSpecies": "Sliggoo",
@@ -28226,7 +28226,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "goodra": {
+    "Goodra": {
         "num": 706,
         "name": "Goodra",
         "types": [
@@ -28261,7 +28261,7 @@ export const pokemoninfo = {
             "Goodra-Hisui"
         ]
     },
-    "goodrahisui": {
+    "Goodra-Hisui": {
         "num": 706,
         "name": "Goodra-Hisui",
         "baseSpecies": "Goodra",
@@ -28292,7 +28292,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "klefki": {
+    "Klefki": {
         "num": 707,
         "name": "Klefki",
         "types": [
@@ -28318,7 +28318,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "phantump": {
+    "Phantump": {
         "num": 708,
         "name": "Phantump",
         "types": [
@@ -28349,7 +28349,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "trevenant": {
+    "Trevenant": {
         "num": 709,
         "name": "Trevenant",
         "types": [
@@ -28379,7 +28379,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "pumpkaboo": {
+    "Pumpkaboo": {
         "num": 710,
         "name": "Pumpkaboo",
         "baseForme": "Average",
@@ -28421,7 +28421,7 @@ export const pokemoninfo = {
             "Pumpkaboo-Super"
         ]
     },
-    "pumpkaboosmall": {
+    "Pumpkaboo-Small": {
         "num": 710,
         "name": "Pumpkaboo-Small",
         "baseSpecies": "Pumpkaboo",
@@ -28453,7 +28453,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "pumpkaboolarge": {
+    "Pumpkaboo-Large": {
         "num": 710,
         "name": "Pumpkaboo-Large",
         "baseSpecies": "Pumpkaboo",
@@ -28485,7 +28485,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "pumpkaboosuper": {
+    "Pumpkaboo-Super": {
         "num": 710,
         "name": "Pumpkaboo-Super",
         "baseSpecies": "Pumpkaboo",
@@ -28517,7 +28517,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "gourgeist": {
+    "Gourgeist": {
         "num": 711,
         "name": "Gourgeist",
         "baseForme": "Average",
@@ -28558,7 +28558,7 @@ export const pokemoninfo = {
             "Gourgeist-Super"
         ]
     },
-    "gourgeistsmall": {
+    "Gourgeist-Small": {
         "num": 711,
         "name": "Gourgeist-Small",
         "baseSpecies": "Gourgeist",
@@ -28589,7 +28589,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "gourgeistlarge": {
+    "Gourgeist-Large": {
         "num": 711,
         "name": "Gourgeist-Large",
         "baseSpecies": "Gourgeist",
@@ -28620,7 +28620,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "gourgeistsuper": {
+    "Gourgeist-Super": {
         "num": 711,
         "name": "Gourgeist-Super",
         "baseSpecies": "Gourgeist",
@@ -28651,7 +28651,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "bergmite": {
+    "Bergmite": {
         "num": 712,
         "name": "Bergmite",
         "types": [
@@ -28682,7 +28682,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "avalugg": {
+    "Avalugg": {
         "num": 713,
         "name": "Avalugg",
         "types": [
@@ -28718,7 +28718,7 @@ export const pokemoninfo = {
             "Avalugg-Hisui"
         ]
     },
-    "avalugghisui": {
+    "Avalugg-Hisui": {
         "num": 713,
         "name": "Avalugg-Hisui",
         "baseSpecies": "Avalugg",
@@ -28750,7 +28750,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "noibat": {
+    "Noibat": {
         "num": 714,
         "name": "Noibat",
         "types": [
@@ -28781,7 +28781,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "noivern": {
+    "Noivern": {
         "num": 715,
         "name": "Noivern",
         "types": [
@@ -28811,7 +28811,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "xerneas": {
+    "Xerneas": {
         "num": 716,
         "name": "Xerneas",
         "baseForme": "Active",
@@ -28847,7 +28847,7 @@ export const pokemoninfo = {
             "Xerneas"
         ]
     },
-    "xerneasneutral": {
+    "Xerneas-Neutral": {
         "num": 716,
         "name": "Xerneas-Neutral",
         "baseSpecies": "Xerneas",
@@ -28874,7 +28874,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "yveltal": {
+    "Yveltal": {
         "num": 717,
         "name": "Yveltal",
         "types": [
@@ -28903,7 +28903,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "zygarde": {
+    "Zygarde": {
         "num": 718,
         "name": "Zygarde",
         "baseForme": "50%",
@@ -28945,7 +28945,7 @@ export const pokemoninfo = {
             "Zygarde-Complete"
         ]
     },
-    "zygarde10": {
+    "Zygarde-10%": {
         "num": 718,
         "name": "Zygarde-10%",
         "baseSpecies": "Zygarde",
@@ -28976,7 +28976,7 @@ export const pokemoninfo = {
         "changesFrom": "Zygarde",
         "gen": 7
     },
-    "zygardecomplete": {
+    "Zygarde-Complete": {
         "num": 718,
         "name": "Zygarde-Complete",
         "baseSpecies": "Zygarde",
@@ -29010,7 +29010,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "diancie": {
+    "Diancie": {
         "num": 719,
         "name": "Diancie",
         "types": [
@@ -29046,7 +29046,7 @@ export const pokemoninfo = {
             "Diancie-Mega"
         ]
     },
-    "dianciemega": {
+    "Diancie-Mega": {
         "num": 719,
         "name": "Diancie-Mega",
         "baseSpecies": "Diancie",
@@ -29075,7 +29075,7 @@ export const pokemoninfo = {
         ],
         "requiredItem": "Diancite"
     },
-    "hoopa": {
+    "Hoopa": {
         "num": 720,
         "name": "Hoopa",
         "baseForme": "Confined",
@@ -29112,7 +29112,7 @@ export const pokemoninfo = {
             "Hoopa-Unbound"
         ]
     },
-    "hoopaunbound": {
+    "Hoopa-Unbound": {
         "num": 720,
         "name": "Hoopa-Unbound",
         "baseSpecies": "Hoopa",
@@ -29141,7 +29141,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Hoopa"
     },
-    "volcanion": {
+    "Volcanion": {
         "num": 721,
         "name": "Volcanion",
         "types": [
@@ -29170,7 +29170,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "rowlet": {
+    "Rowlet": {
         "num": 722,
         "name": "Rowlet",
         "types": [
@@ -29203,7 +29203,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "dartrix": {
+    "Dartrix": {
         "num": 723,
         "name": "Dartrix",
         "types": [
@@ -29239,7 +29239,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "decidueye": {
+    "Decidueye": {
         "num": 724,
         "name": "Decidueye",
         "types": [
@@ -29278,7 +29278,7 @@ export const pokemoninfo = {
             "Decidueye-Hisui"
         ]
     },
-    "decidueyehisui": {
+    "Decidueye-Hisui": {
         "num": 724,
         "name": "Decidueye-Hisui",
         "baseSpecies": "Decidueye",
@@ -29312,7 +29312,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "litten": {
+    "Litten": {
         "num": 725,
         "name": "Litten",
         "types": [
@@ -29344,7 +29344,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "torracat": {
+    "Torracat": {
         "num": 726,
         "name": "Torracat",
         "types": [
@@ -29378,7 +29378,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "incineroar": {
+    "Incineroar": {
         "num": 727,
         "name": "Incineroar",
         "types": [
@@ -29410,7 +29410,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "popplio": {
+    "Popplio": {
         "num": 728,
         "name": "Popplio",
         "types": [
@@ -29443,7 +29443,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "brionne": {
+    "Brionne": {
         "num": 729,
         "name": "Brionne",
         "types": [
@@ -29478,7 +29478,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "primarina": {
+    "Primarina": {
         "num": 730,
         "name": "Primarina",
         "types": [
@@ -29511,7 +29511,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pikipek": {
+    "Pikipek": {
         "num": 731,
         "name": "Pikipek",
         "types": [
@@ -29541,7 +29541,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "trumbeak": {
+    "Trumbeak": {
         "num": 732,
         "name": "Trumbeak",
         "types": [
@@ -29573,7 +29573,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "toucannon": {
+    "Toucannon": {
         "num": 733,
         "name": "Toucannon",
         "types": [
@@ -29602,7 +29602,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "yungoos": {
+    "Yungoos": {
         "num": 734,
         "name": "Yungoos",
         "types": [
@@ -29631,7 +29631,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "gumshoos": {
+    "Gumshoos": {
         "num": 735,
         "name": "Gumshoos",
         "types": [
@@ -29667,7 +29667,7 @@ export const pokemoninfo = {
             "Gumshoos-Totem"
         ]
     },
-    "gumshoostotem": {
+    "Gumshoos-Totem": {
         "num": 735,
         "name": "Gumshoos-Totem",
         "baseSpecies": "Gumshoos",
@@ -29693,7 +29693,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "grubbin": {
+    "Grubbin": {
         "num": 736,
         "name": "Grubbin",
         "types": [
@@ -29720,7 +29720,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "charjabug": {
+    "Charjabug": {
         "num": 737,
         "name": "Charjabug",
         "types": [
@@ -29750,7 +29750,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "vikavolt": {
+    "Vikavolt": {
         "num": 738,
         "name": "Vikavolt",
         "types": [
@@ -29785,7 +29785,7 @@ export const pokemoninfo = {
             "Vikavolt-Totem"
         ]
     },
-    "vikavolttotem": {
+    "Vikavolt-Totem": {
         "num": 738,
         "name": "Vikavolt-Totem",
         "baseSpecies": "Vikavolt",
@@ -29812,7 +29812,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "crabrawler": {
+    "Crabrawler": {
         "num": 739,
         "name": "Crabrawler",
         "types": [
@@ -29841,7 +29841,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "crabominable": {
+    "Crabominable": {
         "num": 740,
         "name": "Crabominable",
         "types": [
@@ -29871,7 +29871,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "oricorio": {
+    "Oricorio": {
         "num": 741,
         "name": "Oricorio",
         "baseForme": "Baile",
@@ -29912,7 +29912,7 @@ export const pokemoninfo = {
             "Oricorio-Sensu"
         ]
     },
-    "oricoriopompom": {
+    "Oricorio-Pom-Pom": {
         "num": 741,
         "name": "Oricorio-Pom-Pom",
         "baseSpecies": "Oricorio",
@@ -29944,7 +29944,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Oricorio"
     },
-    "oricoriopau": {
+    "Oricorio-Pa'u": {
         "num": 741,
         "name": "Oricorio-Pa'u",
         "baseSpecies": "Oricorio",
@@ -29976,7 +29976,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Oricorio"
     },
-    "oricoriosensu": {
+    "Oricorio-Sensu": {
         "num": 741,
         "name": "Oricorio-Sensu",
         "baseSpecies": "Oricorio",
@@ -30008,7 +30008,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Oricorio"
     },
-    "cutiefly": {
+    "Cutiefly": {
         "num": 742,
         "name": "Cutiefly",
         "types": [
@@ -30039,7 +30039,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "ribombee": {
+    "Ribombee": {
         "num": 743,
         "name": "Ribombee",
         "types": [
@@ -30076,7 +30076,7 @@ export const pokemoninfo = {
             "Ribombee-Totem"
         ]
     },
-    "ribombeetotem": {
+    "Ribombee-Totem": {
         "num": 743,
         "name": "Ribombee-Totem",
         "baseSpecies": "Ribombee",
@@ -30104,7 +30104,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "rockruff": {
+    "Rockruff": {
         "num": 744,
         "name": "Rockruff",
         "baseForme": "Midday",
@@ -30141,7 +30141,7 @@ export const pokemoninfo = {
             "Rockruff"
         ]
     },
-    "lycanroc": {
+    "Lycanroc": {
         "num": 745,
         "name": "Lycanroc",
         "baseForme": "Midday",
@@ -30180,7 +30180,7 @@ export const pokemoninfo = {
             "Lycanroc-Dusk"
         ]
     },
-    "lycanrocmidnight": {
+    "Lycanroc-Midnight": {
         "num": 745,
         "name": "Lycanroc-Midnight",
         "baseSpecies": "Lycanroc",
@@ -30211,7 +30211,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "lycanrocdusk": {
+    "Lycanroc-Dusk": {
         "num": 745,
         "name": "Lycanroc-Dusk",
         "baseSpecies": "Lycanroc",
@@ -30240,7 +30240,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "wishiwashi": {
+    "Wishiwashi": {
         "num": 746,
         "name": "Wishiwashi",
         "baseForme": "Solo",
@@ -30272,7 +30272,7 @@ export const pokemoninfo = {
             "Wishiwashi-School"
         ]
     },
-    "wishiwashischool": {
+    "Wishiwashi-School": {
         "num": 746,
         "name": "Wishiwashi-School",
         "baseSpecies": "Wishiwashi",
@@ -30300,7 +30300,7 @@ export const pokemoninfo = {
         "requiredAbility": "Schooling",
         "battleOnly": "Wishiwashi"
     },
-    "mareanie": {
+    "Mareanie": {
         "num": 747,
         "name": "Mareanie",
         "types": [
@@ -30330,7 +30330,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "toxapex": {
+    "Toxapex": {
         "num": 748,
         "name": "Toxapex",
         "types": [
@@ -30359,7 +30359,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "mudbray": {
+    "Mudbray": {
         "num": 749,
         "name": "Mudbray",
         "types": [
@@ -30388,7 +30388,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "mudsdale": {
+    "Mudsdale": {
         "num": 750,
         "name": "Mudsdale",
         "types": [
@@ -30416,7 +30416,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "dewpider": {
+    "Dewpider": {
         "num": 751,
         "name": "Dewpider",
         "types": [
@@ -30446,7 +30446,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "araquanid": {
+    "Araquanid": {
         "num": 752,
         "name": "Araquanid",
         "types": [
@@ -30482,7 +30482,7 @@ export const pokemoninfo = {
             "Araquanid-Totem"
         ]
     },
-    "araquanidtotem": {
+    "Araquanid-Totem": {
         "num": 752,
         "name": "Araquanid-Totem",
         "baseSpecies": "Araquanid",
@@ -30510,7 +30510,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "fomantis": {
+    "Fomantis": {
         "num": 753,
         "name": "Fomantis",
         "types": [
@@ -30538,7 +30538,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "lurantis": {
+    "Lurantis": {
         "num": 754,
         "name": "Lurantis",
         "types": [
@@ -30573,7 +30573,7 @@ export const pokemoninfo = {
             "Lurantis-Totem"
         ]
     },
-    "lurantistotem": {
+    "Lurantis-Totem": {
         "num": 754,
         "name": "Lurantis-Totem",
         "baseSpecies": "Lurantis",
@@ -30599,7 +30599,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "morelull": {
+    "Morelull": {
         "num": 755,
         "name": "Morelull",
         "types": [
@@ -30629,7 +30629,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "shiinotic": {
+    "Shiinotic": {
         "num": 756,
         "name": "Shiinotic",
         "types": [
@@ -30658,7 +30658,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "salandit": {
+    "Salandit": {
         "num": 757,
         "name": "Salandit",
         "types": [
@@ -30692,7 +30692,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "salazzle": {
+    "Salazzle": {
         "num": 758,
         "name": "Salazzle",
         "types": [
@@ -30729,7 +30729,7 @@ export const pokemoninfo = {
             "Salazzle-Totem"
         ]
     },
-    "salazzletotem": {
+    "Salazzle-Totem": {
         "num": 758,
         "name": "Salazzle-Totem",
         "baseSpecies": "Salazzle",
@@ -30758,7 +30758,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "stufful": {
+    "Stufful": {
         "num": 759,
         "name": "Stufful",
         "types": [
@@ -30788,7 +30788,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "bewear": {
+    "Bewear": {
         "num": 760,
         "name": "Bewear",
         "types": [
@@ -30817,7 +30817,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "bounsweet": {
+    "Bounsweet": {
         "num": 761,
         "name": "Bounsweet",
         "types": [
@@ -30847,7 +30847,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "steenee": {
+    "Steenee": {
         "num": 762,
         "name": "Steenee",
         "types": [
@@ -30879,7 +30879,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "tsareena": {
+    "Tsareena": {
         "num": 763,
         "name": "Tsareena",
         "types": [
@@ -30909,7 +30909,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "comfey": {
+    "Comfey": {
         "num": 764,
         "name": "Comfey",
         "types": [
@@ -30939,7 +30939,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "oranguru": {
+    "Oranguru": {
         "num": 765,
         "name": "Oranguru",
         "types": [
@@ -30966,7 +30966,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "passimian": {
+    "Passimian": {
         "num": 766,
         "name": "Passimian",
         "types": [
@@ -30991,7 +30991,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "wimpod": {
+    "Wimpod": {
         "num": 767,
         "name": "Wimpod",
         "types": [
@@ -31020,7 +31020,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "golisopod": {
+    "Golisopod": {
         "num": 768,
         "name": "Golisopod",
         "types": [
@@ -31048,7 +31048,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "sandygast": {
+    "Sandygast": {
         "num": 769,
         "name": "Sandygast",
         "types": [
@@ -31077,7 +31077,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "palossand": {
+    "Palossand": {
         "num": 770,
         "name": "Palossand",
         "types": [
@@ -31105,7 +31105,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "pyukumuku": {
+    "Pyukumuku": {
         "num": 771,
         "name": "Pyukumuku",
         "types": [
@@ -31130,7 +31130,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "typenull": {
+    "Type: Null": {
         "num": 772,
         "name": "Type: Null",
         "types": [
@@ -31161,7 +31161,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "silvally": {
+    "Silvally": {
         "num": 773,
         "name": "Silvally",
         "types": [
@@ -31230,7 +31230,7 @@ export const pokemoninfo = {
             "Silvally-Fairy"
         ]
     },
-    "silvallybug": {
+    "Silvally-Bug": {
         "num": 773,
         "name": "Silvally-Bug",
         "baseSpecies": "Silvally",
@@ -31259,7 +31259,7 @@ export const pokemoninfo = {
         "requiredItem": "Bug Memory",
         "changesFrom": "Silvally"
     },
-    "silvallydark": {
+    "Silvally-Dark": {
         "num": 773,
         "name": "Silvally-Dark",
         "baseSpecies": "Silvally",
@@ -31288,7 +31288,7 @@ export const pokemoninfo = {
         "requiredItem": "Dark Memory",
         "changesFrom": "Silvally"
     },
-    "silvallydragon": {
+    "Silvally-Dragon": {
         "num": 773,
         "name": "Silvally-Dragon",
         "baseSpecies": "Silvally",
@@ -31317,7 +31317,7 @@ export const pokemoninfo = {
         "requiredItem": "Dragon Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyelectric": {
+    "Silvally-Electric": {
         "num": 773,
         "name": "Silvally-Electric",
         "baseSpecies": "Silvally",
@@ -31346,7 +31346,7 @@ export const pokemoninfo = {
         "requiredItem": "Electric Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyfairy": {
+    "Silvally-Fairy": {
         "num": 773,
         "name": "Silvally-Fairy",
         "baseSpecies": "Silvally",
@@ -31375,7 +31375,7 @@ export const pokemoninfo = {
         "requiredItem": "Fairy Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyfighting": {
+    "Silvally-Fighting": {
         "num": 773,
         "name": "Silvally-Fighting",
         "baseSpecies": "Silvally",
@@ -31404,7 +31404,7 @@ export const pokemoninfo = {
         "requiredItem": "Fighting Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyfire": {
+    "Silvally-Fire": {
         "num": 773,
         "name": "Silvally-Fire",
         "baseSpecies": "Silvally",
@@ -31433,7 +31433,7 @@ export const pokemoninfo = {
         "requiredItem": "Fire Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyflying": {
+    "Silvally-Flying": {
         "num": 773,
         "name": "Silvally-Flying",
         "baseSpecies": "Silvally",
@@ -31462,7 +31462,7 @@ export const pokemoninfo = {
         "requiredItem": "Flying Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyghost": {
+    "Silvally-Ghost": {
         "num": 773,
         "name": "Silvally-Ghost",
         "baseSpecies": "Silvally",
@@ -31491,7 +31491,7 @@ export const pokemoninfo = {
         "requiredItem": "Ghost Memory",
         "changesFrom": "Silvally"
     },
-    "silvallygrass": {
+    "Silvally-Grass": {
         "num": 773,
         "name": "Silvally-Grass",
         "baseSpecies": "Silvally",
@@ -31520,7 +31520,7 @@ export const pokemoninfo = {
         "requiredItem": "Grass Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyground": {
+    "Silvally-Ground": {
         "num": 773,
         "name": "Silvally-Ground",
         "baseSpecies": "Silvally",
@@ -31549,7 +31549,7 @@ export const pokemoninfo = {
         "requiredItem": "Ground Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyice": {
+    "Silvally-Ice": {
         "num": 773,
         "name": "Silvally-Ice",
         "baseSpecies": "Silvally",
@@ -31578,7 +31578,7 @@ export const pokemoninfo = {
         "requiredItem": "Ice Memory",
         "changesFrom": "Silvally"
     },
-    "silvallypoison": {
+    "Silvally-Poison": {
         "num": 773,
         "name": "Silvally-Poison",
         "baseSpecies": "Silvally",
@@ -31607,7 +31607,7 @@ export const pokemoninfo = {
         "requiredItem": "Poison Memory",
         "changesFrom": "Silvally"
     },
-    "silvallypsychic": {
+    "Silvally-Psychic": {
         "num": 773,
         "name": "Silvally-Psychic",
         "baseSpecies": "Silvally",
@@ -31636,7 +31636,7 @@ export const pokemoninfo = {
         "requiredItem": "Psychic Memory",
         "changesFrom": "Silvally"
     },
-    "silvallyrock": {
+    "Silvally-Rock": {
         "num": 773,
         "name": "Silvally-Rock",
         "baseSpecies": "Silvally",
@@ -31665,7 +31665,7 @@ export const pokemoninfo = {
         "requiredItem": "Rock Memory",
         "changesFrom": "Silvally"
     },
-    "silvallysteel": {
+    "Silvally-Steel": {
         "num": 773,
         "name": "Silvally-Steel",
         "baseSpecies": "Silvally",
@@ -31694,7 +31694,7 @@ export const pokemoninfo = {
         "requiredItem": "Steel Memory",
         "changesFrom": "Silvally"
     },
-    "silvallywater": {
+    "Silvally-Water": {
         "num": 773,
         "name": "Silvally-Water",
         "baseSpecies": "Silvally",
@@ -31723,7 +31723,7 @@ export const pokemoninfo = {
         "requiredItem": "Water Memory",
         "changesFrom": "Silvally"
     },
-    "minior": {
+    "Minior": {
         "num": 774,
         "name": "Minior",
         "baseForme": "Red",
@@ -31777,7 +31777,7 @@ export const pokemoninfo = {
             "Minior-Violet"
         ]
     },
-    "miniormeteor": {
+    "Minior-Meteor": {
         "num": 774,
         "name": "Minior-Meteor",
         "baseSpecies": "Minior",
@@ -31807,7 +31807,7 @@ export const pokemoninfo = {
         "requiredAbility": "Shields Down",
         "battleOnly": "Minior"
     },
-    "komala": {
+    "Komala": {
         "num": 775,
         "name": "Komala",
         "types": [
@@ -31831,7 +31831,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "turtonator": {
+    "Turtonator": {
         "num": 776,
         "name": "Turtonator",
         "types": [
@@ -31857,7 +31857,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "togedemaru": {
+    "Togedemaru": {
         "num": 777,
         "name": "Togedemaru",
         "types": [
@@ -31892,7 +31892,7 @@ export const pokemoninfo = {
             "Togedemaru-Totem"
         ]
     },
-    "togedemarutotem": {
+    "Togedemaru-Totem": {
         "num": 777,
         "name": "Togedemaru-Totem",
         "baseSpecies": "Togedemaru",
@@ -31920,7 +31920,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "mimikyu": {
+    "Mimikyu": {
         "num": 778,
         "name": "Mimikyu",
         "baseForme": "Disguised",
@@ -31957,7 +31957,7 @@ export const pokemoninfo = {
             "Mimikyu-Busted-Totem"
         ]
     },
-    "mimikyubusted": {
+    "Mimikyu-Busted": {
         "num": 778,
         "name": "Mimikyu-Busted",
         "baseSpecies": "Mimikyu",
@@ -31986,7 +31986,7 @@ export const pokemoninfo = {
         "requiredAbility": "Disguise",
         "battleOnly": "Mimikyu"
     },
-    "mimikyutotem": {
+    "Mimikyu-Totem": {
         "num": 778,
         "name": "Mimikyu-Totem",
         "baseSpecies": "Mimikyu",
@@ -32013,7 +32013,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "mimikyubustedtotem": {
+    "Mimikyu-Busted-Totem": {
         "num": 778,
         "name": "Mimikyu-Busted-Totem",
         "baseSpecies": "Mimikyu",
@@ -32042,7 +32042,7 @@ export const pokemoninfo = {
         "requiredAbility": "Disguise",
         "battleOnly": "Mimikyu-Totem"
     },
-    "bruxish": {
+    "Bruxish": {
         "num": 779,
         "name": "Bruxish",
         "types": [
@@ -32069,7 +32069,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "drampa": {
+    "Drampa": {
         "num": 780,
         "name": "Drampa",
         "types": [
@@ -32097,7 +32097,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "dhelmise": {
+    "Dhelmise": {
         "num": 781,
         "name": "Dhelmise",
         "types": [
@@ -32123,7 +32123,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "jangmoo": {
+    "Jangmo-o": {
         "num": 782,
         "name": "Jangmo-o",
         "types": [
@@ -32152,7 +32152,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "hakamoo": {
+    "Hakamo-o": {
         "num": 783,
         "name": "Hakamo-o",
         "types": [
@@ -32184,7 +32184,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "kommoo": {
+    "Kommo-o": {
         "num": 784,
         "name": "Kommo-o",
         "types": [
@@ -32220,7 +32220,7 @@ export const pokemoninfo = {
             "Kommo-o-Totem"
         ]
     },
-    "kommoototem": {
+    "Kommo-o-Totem": {
         "num": 784,
         "name": "Kommo-o-Totem",
         "baseSpecies": "Kommo-o",
@@ -32247,7 +32247,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "tapukoko": {
+    "Tapu Koko": {
         "num": 785,
         "name": "Tapu Koko",
         "types": [
@@ -32277,7 +32277,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "tapulele": {
+    "Tapu Lele": {
         "num": 786,
         "name": "Tapu Lele",
         "types": [
@@ -32307,7 +32307,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "tapubulu": {
+    "Tapu Bulu": {
         "num": 787,
         "name": "Tapu Bulu",
         "types": [
@@ -32337,7 +32337,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "tapufini": {
+    "Tapu Fini": {
         "num": 788,
         "name": "Tapu Fini",
         "types": [
@@ -32367,7 +32367,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "cosmog": {
+    "Cosmog": {
         "num": 789,
         "name": "Cosmog",
         "types": [
@@ -32398,7 +32398,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "cosmoem": {
+    "Cosmoem": {
         "num": 790,
         "name": "Cosmoem",
         "types": [
@@ -32432,7 +32432,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "solgaleo": {
+    "Solgaleo": {
         "num": 791,
         "name": "Solgaleo",
         "types": [
@@ -32463,7 +32463,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "lunala": {
+    "Lunala": {
         "num": 792,
         "name": "Lunala",
         "types": [
@@ -32494,7 +32494,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "nihilego": {
+    "Nihilego": {
         "num": 793,
         "name": "Nihilego",
         "types": [
@@ -32523,7 +32523,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "buzzwole": {
+    "Buzzwole": {
         "num": 794,
         "name": "Buzzwole",
         "types": [
@@ -32552,7 +32552,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "pheromosa": {
+    "Pheromosa": {
         "num": 795,
         "name": "Pheromosa",
         "types": [
@@ -32581,7 +32581,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "xurkitree": {
+    "Xurkitree": {
         "num": 796,
         "name": "Xurkitree",
         "types": [
@@ -32609,7 +32609,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "celesteela": {
+    "Celesteela": {
         "num": 797,
         "name": "Celesteela",
         "types": [
@@ -32638,7 +32638,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "kartana": {
+    "Kartana": {
         "num": 798,
         "name": "Kartana",
         "types": [
@@ -32667,7 +32667,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "guzzlord": {
+    "Guzzlord": {
         "num": 799,
         "name": "Guzzlord",
         "types": [
@@ -32696,7 +32696,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "necrozma": {
+    "Necrozma": {
         "num": 800,
         "name": "Necrozma",
         "types": [
@@ -32735,7 +32735,7 @@ export const pokemoninfo = {
             "Necrozma-Ultra"
         ]
     },
-    "necrozmaduskmane": {
+    "Necrozma-Dusk-Mane": {
         "num": 800,
         "name": "Necrozma-Dusk-Mane",
         "baseSpecies": "Necrozma",
@@ -32764,7 +32764,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Necrozma"
     },
-    "necrozmadawnwings": {
+    "Necrozma-Dawn-Wings": {
         "num": 800,
         "name": "Necrozma-Dawn-Wings",
         "baseSpecies": "Necrozma",
@@ -32793,7 +32793,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Necrozma"
     },
-    "necrozmaultra": {
+    "Necrozma-Ultra": {
         "num": 800,
         "name": "Necrozma-Ultra",
         "baseSpecies": "Necrozma",
@@ -32826,7 +32826,7 @@ export const pokemoninfo = {
             "Necrozma-Dusk-Mane"
         ]
     },
-    "magearna": {
+    "Magearna": {
         "num": 801,
         "name": "Magearna",
         "types": [
@@ -32862,7 +32862,7 @@ export const pokemoninfo = {
             "Magearna-Original"
         ]
     },
-    "magearnaoriginal": {
+    "Magearna-Original": {
         "num": 801,
         "name": "Magearna-Original",
         "baseSpecies": "Magearna",
@@ -32890,7 +32890,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "marshadow": {
+    "Marshadow": {
         "num": 802,
         "name": "Marshadow",
         "types": [
@@ -32919,7 +32919,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "poipole": {
+    "Poipole": {
         "num": 803,
         "name": "Poipole",
         "types": [
@@ -32950,7 +32950,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "naganadel": {
+    "Naganadel": {
         "num": 804,
         "name": "Naganadel",
         "types": [
@@ -32982,7 +32982,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "stakataka": {
+    "Stakataka": {
         "num": 805,
         "name": "Stakataka",
         "types": [
@@ -33011,7 +33011,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "blacephalon": {
+    "Blacephalon": {
         "num": 806,
         "name": "Blacephalon",
         "types": [
@@ -33040,7 +33040,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "zeraora": {
+    "Zeraora": {
         "num": 807,
         "name": "Zeraora",
         "types": [
@@ -33068,7 +33068,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "meltan": {
+    "Meltan": {
         "num": 808,
         "name": "Meltan",
         "types": [
@@ -33096,7 +33096,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "melmetal": {
+    "Melmetal": {
         "num": 809,
         "name": "Melmetal",
         "types": [
@@ -33125,7 +33125,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Meltdown"
     },
-    "melmetalgmax": {
+    "Melmetal-Gmax": {
         "num": 809,
         "name": "Melmetal-Gmax",
         "baseSpecies": "Melmetal",
@@ -33153,7 +33153,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Melmetal"
     },
-    "grookey": {
+    "Grookey": {
         "num": 810,
         "name": "Grookey",
         "types": [
@@ -33186,7 +33186,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "thwackey": {
+    "Thwackey": {
         "num": 811,
         "name": "Thwackey",
         "types": [
@@ -33221,7 +33221,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "rillaboom": {
+    "Rillaboom": {
         "num": 812,
         "name": "Rillaboom",
         "types": [
@@ -33254,7 +33254,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Drum Solo"
     },
-    "rillaboomgmax": {
+    "Rillaboom-Gmax": {
         "num": 812,
         "name": "Rillaboom-Gmax",
         "baseSpecies": "Rillaboom",
@@ -33287,7 +33287,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Rillaboom"
     },
-    "scorbunny": {
+    "Scorbunny": {
         "num": 813,
         "name": "Scorbunny",
         "types": [
@@ -33320,7 +33320,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "raboot": {
+    "Raboot": {
         "num": 814,
         "name": "Raboot",
         "types": [
@@ -33355,7 +33355,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "cinderace": {
+    "Cinderace": {
         "num": 815,
         "name": "Cinderace",
         "types": [
@@ -33388,7 +33388,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Fireball"
     },
-    "cinderacegmax": {
+    "Cinderace-Gmax": {
         "num": 815,
         "name": "Cinderace-Gmax",
         "baseSpecies": "Cinderace",
@@ -33421,7 +33421,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Cinderace"
     },
-    "sobble": {
+    "Sobble": {
         "num": 816,
         "name": "Sobble",
         "types": [
@@ -33454,7 +33454,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "drizzile": {
+    "Drizzile": {
         "num": 817,
         "name": "Drizzile",
         "types": [
@@ -33489,7 +33489,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "inteleon": {
+    "Inteleon": {
         "num": 818,
         "name": "Inteleon",
         "types": [
@@ -33522,7 +33522,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Hydrosnipe"
     },
-    "inteleongmax": {
+    "Inteleon-Gmax": {
         "num": 818,
         "name": "Inteleon-Gmax",
         "baseSpecies": "Inteleon",
@@ -33555,7 +33555,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Inteleon"
     },
-    "skwovet": {
+    "Skwovet": {
         "num": 819,
         "name": "Skwovet",
         "types": [
@@ -33583,7 +33583,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "greedent": {
+    "Greedent": {
         "num": 820,
         "name": "Greedent",
         "types": [
@@ -33610,7 +33610,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "rookidee": {
+    "Rookidee": {
         "num": 821,
         "name": "Rookidee",
         "types": [
@@ -33639,7 +33639,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "corvisquire": {
+    "Corvisquire": {
         "num": 822,
         "name": "Corvisquire",
         "types": [
@@ -33670,7 +33670,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "corviknight": {
+    "Corviknight": {
         "num": 823,
         "name": "Corviknight",
         "types": [
@@ -33700,7 +33700,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Wind Rage"
     },
-    "corviknightgmax": {
+    "Corviknight-Gmax": {
         "num": 823,
         "name": "Corviknight-Gmax",
         "baseSpecies": "Corviknight",
@@ -33730,7 +33730,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Corviknight"
     },
-    "blipbug": {
+    "Blipbug": {
         "num": 824,
         "name": "Blipbug",
         "types": [
@@ -33759,7 +33759,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "dottler": {
+    "Dottler": {
         "num": 825,
         "name": "Dottler",
         "types": [
@@ -33791,7 +33791,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "orbeetle": {
+    "Orbeetle": {
         "num": 826,
         "name": "Orbeetle",
         "types": [
@@ -33821,7 +33821,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Gravitas"
     },
-    "orbeetlegmax": {
+    "Orbeetle-Gmax": {
         "num": 826,
         "name": "Orbeetle-Gmax",
         "baseSpecies": "Orbeetle",
@@ -33851,7 +33851,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Orbeetle"
     },
-    "nickit": {
+    "Nickit": {
         "num": 827,
         "name": "Nickit",
         "types": [
@@ -33880,7 +33880,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "thievul": {
+    "Thievul": {
         "num": 828,
         "name": "Thievul",
         "types": [
@@ -33908,7 +33908,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "gossifleur": {
+    "Gossifleur": {
         "num": 829,
         "name": "Gossifleur",
         "types": [
@@ -33937,7 +33937,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "eldegoss": {
+    "Eldegoss": {
         "num": 830,
         "name": "Eldegoss",
         "types": [
@@ -33965,7 +33965,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "wooloo": {
+    "Wooloo": {
         "num": 831,
         "name": "Wooloo",
         "types": [
@@ -33994,7 +33994,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "dubwool": {
+    "Dubwool": {
         "num": 832,
         "name": "Dubwool",
         "types": [
@@ -34022,7 +34022,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "chewtle": {
+    "Chewtle": {
         "num": 833,
         "name": "Chewtle",
         "types": [
@@ -34052,7 +34052,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "drednaw": {
+    "Drednaw": {
         "num": 834,
         "name": "Drednaw",
         "types": [
@@ -34083,7 +34083,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Stonesurge"
     },
-    "drednawgmax": {
+    "Drednaw-Gmax": {
         "num": 834,
         "name": "Drednaw-Gmax",
         "baseSpecies": "Drednaw",
@@ -34114,7 +34114,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Drednaw"
     },
-    "yamper": {
+    "Yamper": {
         "num": 835,
         "name": "Yamper",
         "types": [
@@ -34142,7 +34142,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "boltund": {
+    "Boltund": {
         "num": 836,
         "name": "Boltund",
         "types": [
@@ -34169,7 +34169,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "rolycoly": {
+    "Rolycoly": {
         "num": 837,
         "name": "Rolycoly",
         "types": [
@@ -34198,7 +34198,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "carkol": {
+    "Carkol": {
         "num": 838,
         "name": "Carkol",
         "types": [
@@ -34230,7 +34230,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "coalossal": {
+    "Coalossal": {
         "num": 839,
         "name": "Coalossal",
         "types": [
@@ -34260,7 +34260,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Volcalith"
     },
-    "coalossalgmax": {
+    "Coalossal-Gmax": {
         "num": 839,
         "name": "Coalossal-Gmax",
         "baseSpecies": "Coalossal",
@@ -34290,7 +34290,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Coalossal"
     },
-    "applin": {
+    "Applin": {
         "num": 840,
         "name": "Applin",
         "types": [
@@ -34323,7 +34323,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "flapple": {
+    "Flapple": {
         "num": 841,
         "name": "Flapple",
         "types": [
@@ -34355,7 +34355,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Tartness"
     },
-    "flapplegmax": {
+    "Flapple-Gmax": {
         "num": 841,
         "name": "Flapple-Gmax",
         "baseSpecies": "Flapple",
@@ -34386,7 +34386,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Flapple"
     },
-    "appletun": {
+    "Appletun": {
         "num": 842,
         "name": "Appletun",
         "types": [
@@ -34418,7 +34418,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Sweetness"
     },
-    "appletungmax": {
+    "Appletun-Gmax": {
         "num": 842,
         "name": "Appletun-Gmax",
         "baseSpecies": "Appletun",
@@ -34449,7 +34449,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Appletun"
     },
-    "silicobra": {
+    "Silicobra": {
         "num": 843,
         "name": "Silicobra",
         "types": [
@@ -34479,7 +34479,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "sandaconda": {
+    "Sandaconda": {
         "num": 844,
         "name": "Sandaconda",
         "types": [
@@ -34509,7 +34509,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Sandblast"
     },
-    "sandacondagmax": {
+    "Sandaconda-Gmax": {
         "num": 844,
         "name": "Sandaconda-Gmax",
         "baseSpecies": "Sandaconda",
@@ -34539,7 +34539,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Sandaconda"
     },
-    "cramorant": {
+    "Cramorant": {
         "num": 845,
         "name": "Cramorant",
         "types": [
@@ -34574,7 +34574,7 @@ export const pokemoninfo = {
             "Cramorant-Gorging"
         ]
     },
-    "cramorantgulping": {
+    "Cramorant-Gulping": {
         "num": 845,
         "name": "Cramorant-Gulping",
         "baseSpecies": "Cramorant",
@@ -34604,7 +34604,7 @@ export const pokemoninfo = {
         "requiredAbility": "Gulp Missile",
         "battleOnly": "Cramorant"
     },
-    "cramorantgorging": {
+    "Cramorant-Gorging": {
         "num": 845,
         "name": "Cramorant-Gorging",
         "baseSpecies": "Cramorant",
@@ -34634,7 +34634,7 @@ export const pokemoninfo = {
         "requiredAbility": "Gulp Missile",
         "battleOnly": "Cramorant"
     },
-    "arrokuda": {
+    "Arrokuda": {
         "num": 846,
         "name": "Arrokuda",
         "types": [
@@ -34662,7 +34662,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "barraskewda": {
+    "Barraskewda": {
         "num": 847,
         "name": "Barraskewda",
         "types": [
@@ -34689,7 +34689,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "toxel": {
+    "Toxel": {
         "num": 848,
         "name": "Toxel",
         "types": [
@@ -34721,7 +34721,7 @@ export const pokemoninfo = {
         ],
         "canHatch": true
     },
-    "toxtricity": {
+    "Toxtricity": {
         "num": 849,
         "name": "Toxtricity",
         "baseForme": "Amped",
@@ -34759,7 +34759,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Stun Shock"
     },
-    "toxtricitylowkey": {
+    "Toxtricity-Low-Key": {
         "num": 849,
         "name": "Toxtricity-Low-Key",
         "baseSpecies": "Toxtricity",
@@ -34791,7 +34791,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Stun Shock"
     },
-    "toxtricitygmax": {
+    "Toxtricity-Gmax": {
         "num": 849,
         "name": "Toxtricity-Gmax",
         "baseSpecies": "Toxtricity",
@@ -34821,7 +34821,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Toxtricity"
     },
-    "toxtricitylowkeygmax": {
+    "Toxtricity-Low-Key-Gmax": {
         "num": 849,
         "name": "Toxtricity-Low-Key-Gmax",
         "baseSpecies": "Toxtricity",
@@ -34852,7 +34852,7 @@ export const pokemoninfo = {
         "battleOnly": "Toxtricity-Low-Key",
         "changesFrom": "Toxtricity-Low-Key"
     },
-    "sizzlipede": {
+    "Sizzlipede": {
         "num": 850,
         "name": "Sizzlipede",
         "types": [
@@ -34882,7 +34882,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "centiskorch": {
+    "Centiskorch": {
         "num": 851,
         "name": "Centiskorch",
         "types": [
@@ -34912,7 +34912,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Centiferno"
     },
-    "centiskorchgmax": {
+    "Centiskorch-Gmax": {
         "num": 851,
         "name": "Centiskorch-Gmax",
         "baseSpecies": "Centiskorch",
@@ -34942,7 +34942,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Centiskorch"
     },
-    "clobbopus": {
+    "Clobbopus": {
         "num": 852,
         "name": "Clobbopus",
         "types": [
@@ -34971,7 +34971,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "grapploct": {
+    "Grapploct": {
         "num": 853,
         "name": "Grapploct",
         "types": [
@@ -35000,7 +35000,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "sinistea": {
+    "Sinistea": {
         "num": 854,
         "name": "Sinistea",
         "baseForme": "Phony",
@@ -35038,7 +35038,7 @@ export const pokemoninfo = {
             "Sinistea-Antique"
         ]
     },
-    "sinisteaantique": {
+    "Sinistea-Antique": {
         "num": 854,
         "name": "Sinistea-Antique",
         "baseSpecies": "Sinistea",
@@ -35069,7 +35069,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "polteageist": {
+    "Polteageist": {
         "num": 855,
         "name": "Polteageist",
         "baseForme": "Phony",
@@ -35107,7 +35107,7 @@ export const pokemoninfo = {
             "Polteageist-Antique"
         ]
     },
-    "polteageistantique": {
+    "Polteageist-Antique": {
         "num": 855,
         "name": "Polteageist-Antique",
         "baseSpecies": "Polteageist",
@@ -35138,7 +35138,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "hatenna": {
+    "Hatenna": {
         "num": 856,
         "name": "Hatenna",
         "types": [
@@ -35168,7 +35168,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "hattrem": {
+    "Hattrem": {
         "num": 857,
         "name": "Hattrem",
         "types": [
@@ -35200,7 +35200,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "hatterene": {
+    "Hatterene": {
         "num": 858,
         "name": "Hatterene",
         "types": [
@@ -35231,7 +35231,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Smite"
     },
-    "hatterenegmax": {
+    "Hatterene-Gmax": {
         "num": 858,
         "name": "Hatterene-Gmax",
         "baseSpecies": "Hatterene",
@@ -35262,7 +35262,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Hatterene"
     },
-    "impidimp": {
+    "Impidimp": {
         "num": 859,
         "name": "Impidimp",
         "types": [
@@ -35294,7 +35294,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "morgrem": {
+    "Morgrem": {
         "num": 860,
         "name": "Morgrem",
         "types": [
@@ -35328,7 +35328,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "grimmsnarl": {
+    "Grimmsnarl": {
         "num": 861,
         "name": "Grimmsnarl",
         "types": [
@@ -35360,7 +35360,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Snooze"
     },
-    "grimmsnarlgmax": {
+    "Grimmsnarl-Gmax": {
         "num": 861,
         "name": "Grimmsnarl-Gmax",
         "baseSpecies": "Grimmsnarl",
@@ -35392,7 +35392,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Grimmsnarl"
     },
-    "obstagoon": {
+    "Obstagoon": {
         "num": 862,
         "name": "Obstagoon",
         "types": [
@@ -35422,7 +35422,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "perrserker": {
+    "Perrserker": {
         "num": 863,
         "name": "Perrserker",
         "types": [
@@ -35450,7 +35450,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "cursola": {
+    "Cursola": {
         "num": 864,
         "name": "Cursola",
         "types": [
@@ -35482,7 +35482,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "sirfetchd": {
+    "Sirfetch’d": {
         "num": 865,
         "name": "Sirfetch’d",
         "types": [
@@ -35511,7 +35511,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "mrrime": {
+    "Mr. Rime": {
         "num": 866,
         "name": "Mr. Rime",
         "types": [
@@ -35540,7 +35540,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "runerigus": {
+    "Runerigus": {
         "num": 867,
         "name": "Runerigus",
         "types": [
@@ -35569,7 +35569,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "milcery": {
+    "Milcery": {
         "num": 868,
         "name": "Milcery",
         "types": [
@@ -35599,7 +35599,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "alcremie": {
+    "Alcremie": {
         "num": 869,
         "name": "Alcremie",
         "baseForme": "Vanilla Cream",
@@ -35652,7 +35652,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Finale"
     },
-    "alcremiegmax": {
+    "Alcremie-Gmax": {
         "num": 869,
         "name": "Alcremie-Gmax",
         "baseSpecies": "Alcremie",
@@ -35682,7 +35682,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Alcremie"
     },
-    "falinks": {
+    "Falinks": {
         "num": 870,
         "name": "Falinks",
         "types": [
@@ -35709,7 +35709,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "pincurchin": {
+    "Pincurchin": {
         "num": 871,
         "name": "Pincurchin",
         "types": [
@@ -35735,7 +35735,7 @@ export const pokemoninfo = {
             "Amorphous"
         ]
     },
-    "snom": {
+    "Snom": {
         "num": 872,
         "name": "Snom",
         "types": [
@@ -35764,7 +35764,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "frosmoth": {
+    "Frosmoth": {
         "num": 873,
         "name": "Frosmoth",
         "types": [
@@ -35793,7 +35793,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "stonjourner": {
+    "Stonjourner": {
         "num": 874,
         "name": "Stonjourner",
         "types": [
@@ -35817,7 +35817,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "eiscue": {
+    "Eiscue": {
         "num": 875,
         "name": "Eiscue",
         "types": [
@@ -35849,7 +35849,7 @@ export const pokemoninfo = {
             "Eiscue-Noice"
         ]
     },
-    "eiscuenoice": {
+    "Eiscue-Noice": {
         "num": 875,
         "name": "Eiscue-Noice",
         "baseSpecies": "Eiscue",
@@ -35878,7 +35878,7 @@ export const pokemoninfo = {
         "requiredAbility": "Ice Face",
         "battleOnly": "Eiscue"
     },
-    "indeedee": {
+    "Indeedee": {
         "num": 876,
         "name": "Indeedee",
         "baseForme": "M",
@@ -35914,7 +35914,7 @@ export const pokemoninfo = {
             "Indeedee-F"
         ]
     },
-    "indeedeef": {
+    "Indeedee-F": {
         "num": 876,
         "name": "Indeedee-F",
         "baseSpecies": "Indeedee",
@@ -35944,7 +35944,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "morpeko": {
+    "Morpeko": {
         "num": 877,
         "name": "Morpeko",
         "types": [
@@ -35977,7 +35977,7 @@ export const pokemoninfo = {
             "Morpeko-Hangry"
         ]
     },
-    "morpekohangry": {
+    "Morpeko-Hangry": {
         "num": 877,
         "name": "Morpeko-Hangry",
         "baseSpecies": "Morpeko",
@@ -36007,7 +36007,7 @@ export const pokemoninfo = {
         "requiredAbility": "Hunger Switch",
         "battleOnly": "Morpeko"
     },
-    "cufant": {
+    "Cufant": {
         "num": 878,
         "name": "Cufant",
         "types": [
@@ -36036,7 +36036,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "copperajah": {
+    "Copperajah": {
         "num": 879,
         "name": "Copperajah",
         "types": [
@@ -36065,7 +36065,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Steelsurge"
     },
-    "copperajahgmax": {
+    "Copperajah-Gmax": {
         "num": 879,
         "name": "Copperajah-Gmax",
         "baseSpecies": "Copperajah",
@@ -36094,7 +36094,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Copperajah"
     },
-    "dracozolt": {
+    "Dracozolt": {
         "num": 880,
         "name": "Dracozolt",
         "types": [
@@ -36122,7 +36122,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "arctozolt": {
+    "Arctozolt": {
         "num": 881,
         "name": "Arctozolt",
         "types": [
@@ -36150,7 +36150,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "dracovish": {
+    "Dracovish": {
         "num": 882,
         "name": "Dracovish",
         "types": [
@@ -36178,7 +36178,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "arctovish": {
+    "Arctovish": {
         "num": 883,
         "name": "Arctovish",
         "types": [
@@ -36206,7 +36206,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "duraludon": {
+    "Duraludon": {
         "num": 884,
         "name": "Duraludon",
         "types": [
@@ -36238,7 +36238,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Depletion"
     },
-    "duraludongmax": {
+    "Duraludon-Gmax": {
         "num": 884,
         "name": "Duraludon-Gmax",
         "baseSpecies": "Duraludon",
@@ -36269,7 +36269,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Duraludon"
     },
-    "dreepy": {
+    "Dreepy": {
         "num": 885,
         "name": "Dreepy",
         "types": [
@@ -36300,7 +36300,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "drakloak": {
+    "Drakloak": {
         "num": 886,
         "name": "Drakloak",
         "types": [
@@ -36333,7 +36333,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "dragapult": {
+    "Dragapult": {
         "num": 887,
         "name": "Dragapult",
         "types": [
@@ -36363,7 +36363,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "zacian": {
+    "Zacian": {
         "num": 888,
         "name": "Zacian",
         "baseForme": "Hero",
@@ -36400,7 +36400,7 @@ export const pokemoninfo = {
         ],
         "cannotDynamax": true
     },
-    "zaciancrowned": {
+    "Zacian-Crowned": {
         "num": 888,
         "name": "Zacian-Crowned",
         "baseSpecies": "Zacian",
@@ -36431,7 +36431,7 @@ export const pokemoninfo = {
         "battleOnly": "Zacian",
         "cannotDynamax": true
     },
-    "zamazenta": {
+    "Zamazenta": {
         "num": 889,
         "name": "Zamazenta",
         "baseForme": "Hero",
@@ -36468,7 +36468,7 @@ export const pokemoninfo = {
         ],
         "cannotDynamax": true
     },
-    "zamazentacrowned": {
+    "Zamazenta-Crowned": {
         "num": 889,
         "name": "Zamazenta-Crowned",
         "baseSpecies": "Zamazenta",
@@ -36499,7 +36499,7 @@ export const pokemoninfo = {
         "battleOnly": "Zamazenta",
         "cannotDynamax": true
     },
-    "eternatus": {
+    "Eternatus": {
         "num": 890,
         "name": "Eternatus",
         "types": [
@@ -36536,7 +36536,7 @@ export const pokemoninfo = {
         ],
         "cannotDynamax": true
     },
-    "eternatuseternamax": {
+    "Eternatus-Eternamax": {
         "num": 890,
         "name": "Eternatus-Eternamax",
         "baseSpecies": "Eternatus",
@@ -36565,7 +36565,7 @@ export const pokemoninfo = {
         ],
         "cannotDynamax": true
     },
-    "kubfu": {
+    "Kubfu": {
         "num": 891,
         "name": "Kubfu",
         "types": [
@@ -36600,7 +36600,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "urshifu": {
+    "Urshifu": {
         "num": 892,
         "name": "Urshifu",
         "baseForme": "Single-Strike",
@@ -36644,7 +36644,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max One Blow"
     },
-    "urshifurapidstrike": {
+    "Urshifu-Rapid-Strike": {
         "num": 892,
         "name": "Urshifu-Rapid-Strike",
         "baseSpecies": "Urshifu",
@@ -36679,7 +36679,7 @@ export const pokemoninfo = {
         ],
         "canGigantamax": "G-Max Rapid Flow"
     },
-    "urshifugmax": {
+    "Urshifu-Gmax": {
         "num": 892,
         "name": "Urshifu-Gmax",
         "baseSpecies": "Urshifu",
@@ -36711,7 +36711,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Urshifu"
     },
-    "urshifurapidstrikegmax": {
+    "Urshifu-Rapid-Strike-Gmax": {
         "num": 892,
         "name": "Urshifu-Rapid-Strike-Gmax",
         "baseSpecies": "Urshifu",
@@ -36744,7 +36744,7 @@ export const pokemoninfo = {
         "battleOnly": "Urshifu-Rapid-Strike",
         "changesFrom": "Urshifu-Rapid-Strike"
     },
-    "zarude": {
+    "Zarude": {
         "num": 893,
         "name": "Zarude",
         "types": [
@@ -36780,7 +36780,7 @@ export const pokemoninfo = {
             "Zarude-Dada"
         ]
     },
-    "zarudedada": {
+    "Zarude-Dada": {
         "num": 893,
         "name": "Zarude-Dada",
         "baseSpecies": "Zarude",
@@ -36808,7 +36808,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "regieleki": {
+    "Regieleki": {
         "num": 894,
         "name": "Regieleki",
         "types": [
@@ -36836,7 +36836,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "regidrago": {
+    "Regidrago": {
         "num": 895,
         "name": "Regidrago",
         "types": [
@@ -36864,7 +36864,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "glastrier": {
+    "Glastrier": {
         "num": 896,
         "name": "Glastrier",
         "types": [
@@ -36892,7 +36892,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "spectrier": {
+    "Spectrier": {
         "num": 897,
         "name": "Spectrier",
         "types": [
@@ -36920,7 +36920,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "calyrex": {
+    "Calyrex": {
         "num": 898,
         "name": "Calyrex",
         "types": [
@@ -36958,7 +36958,7 @@ export const pokemoninfo = {
             "Calyrex-Shadow"
         ]
     },
-    "calyrexice": {
+    "Calyrex-Ice": {
         "num": 898,
         "name": "Calyrex-Ice",
         "baseSpecies": "Calyrex",
@@ -36987,7 +36987,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Calyrex"
     },
-    "calyrexshadow": {
+    "Calyrex-Shadow": {
         "num": 898,
         "name": "Calyrex-Shadow",
         "baseSpecies": "Calyrex",
@@ -37016,7 +37016,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Calyrex"
     },
-    "wyrdeer": {
+    "Wyrdeer": {
         "num": 899,
         "name": "Wyrdeer",
         "types": [
@@ -37046,7 +37046,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "kleavor": {
+    "Kleavor": {
         "num": 900,
         "name": "Kleavor",
         "types": [
@@ -37076,7 +37076,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "ursaluna": {
+    "Ursaluna": {
         "num": 901,
         "name": "Ursaluna",
         "types": [
@@ -37113,7 +37113,7 @@ export const pokemoninfo = {
             "Ursaluna-Bloodmoon"
         ]
     },
-    "ursalunabloodmoon": {
+    "Ursaluna-Bloodmoon": {
         "num": 901,
         "name": "Ursaluna-Bloodmoon",
         "baseSpecies": "Ursaluna",
@@ -37142,7 +37142,7 @@ export const pokemoninfo = {
         ],
         "gen": 9
     },
-    "basculegion": {
+    "Basculegion": {
         "num": 902,
         "name": "Basculegion",
         "baseForme": "M",
@@ -37181,7 +37181,7 @@ export const pokemoninfo = {
             "Basculegion-F"
         ]
     },
-    "basculegionf": {
+    "Basculegion-F": {
         "num": 902,
         "name": "Basculegion-F",
         "baseSpecies": "Basculegion",
@@ -37214,7 +37214,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "sneasler": {
+    "Sneasler": {
         "num": 903,
         "name": "Sneasler",
         "types": [
@@ -37245,7 +37245,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "overqwil": {
+    "Overqwil": {
         "num": 904,
         "name": "Overqwil",
         "types": [
@@ -37275,7 +37275,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "enamorus": {
+    "Enamorus": {
         "num": 905,
         "name": "Enamorus",
         "baseForme": "Incarnate",
@@ -37313,7 +37313,7 @@ export const pokemoninfo = {
             "Enamorus-Therian"
         ]
     },
-    "enamorustherian": {
+    "Enamorus-Therian": {
         "num": 905,
         "name": "Enamorus-Therian",
         "baseSpecies": "Enamorus",
@@ -37342,7 +37342,7 @@ export const pokemoninfo = {
         ],
         "changesFrom": "Enamorus"
     },
-    "sprigatito": {
+    "Sprigatito": {
         "num": 906,
         "name": "Sprigatito",
         "types": [
@@ -37375,7 +37375,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "floragato": {
+    "Floragato": {
         "num": 907,
         "name": "Floragato",
         "types": [
@@ -37410,7 +37410,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "meowscarada": {
+    "Meowscarada": {
         "num": 908,
         "name": "Meowscarada",
         "types": [
@@ -37443,7 +37443,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "fuecoco": {
+    "Fuecoco": {
         "num": 909,
         "name": "Fuecoco",
         "types": [
@@ -37475,7 +37475,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "crocalor": {
+    "Crocalor": {
         "num": 910,
         "name": "Crocalor",
         "types": [
@@ -37509,7 +37509,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "skeledirge": {
+    "Skeledirge": {
         "num": 911,
         "name": "Skeledirge",
         "types": [
@@ -37541,7 +37541,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "quaxly": {
+    "Quaxly": {
         "num": 912,
         "name": "Quaxly",
         "types": [
@@ -37574,7 +37574,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "quaxwell": {
+    "Quaxwell": {
         "num": 913,
         "name": "Quaxwell",
         "types": [
@@ -37609,7 +37609,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "quaquaval": {
+    "Quaquaval": {
         "num": 914,
         "name": "Quaquaval",
         "types": [
@@ -37642,7 +37642,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "lechonk": {
+    "Lechonk": {
         "num": 915,
         "name": "Lechonk",
         "types": [
@@ -37672,7 +37672,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "oinkologne": {
+    "Oinkologne": {
         "num": 916,
         "name": "Oinkologne",
         "baseForme": "M",
@@ -37709,7 +37709,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "oinkolognef": {
+    "Oinkologne-F": {
         "num": 916,
         "name": "Oinkologne-F",
         "baseSpecies": "Oinkologne",
@@ -37740,7 +37740,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "tarountula": {
+    "Tarountula": {
         "num": 917,
         "name": "Tarountula",
         "types": [
@@ -37768,7 +37768,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "spidops": {
+    "Spidops": {
         "num": 918,
         "name": "Spidops",
         "types": [
@@ -37795,7 +37795,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "nymble": {
+    "Nymble": {
         "num": 919,
         "name": "Nymble",
         "types": [
@@ -37823,7 +37823,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "lokix": {
+    "Lokix": {
         "num": 920,
         "name": "Lokix",
         "types": [
@@ -37851,7 +37851,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "pawmi": {
+    "Pawmi": {
         "num": 921,
         "name": "Pawmi",
         "types": [
@@ -37880,7 +37880,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pawmo": {
+    "Pawmo": {
         "num": 922,
         "name": "Pawmo",
         "types": [
@@ -37912,7 +37912,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "pawmot": {
+    "Pawmot": {
         "num": 923,
         "name": "Pawmot",
         "types": [
@@ -37942,7 +37942,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "tandemaus": {
+    "Tandemaus": {
         "num": 924,
         "name": "Tandemaus",
         "types": [
@@ -37974,7 +37974,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "maushold": {
+    "Maushold": {
         "num": 925,
         "name": "Maushold",
         "baseForme": "Three",
@@ -38012,7 +38012,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "mausholdfour": {
+    "Maushold-Four": {
         "num": 925,
         "name": "Maushold-Four",
         "baseSpecies": "Maushold",
@@ -38044,7 +38044,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "fidough": {
+    "Fidough": {
         "num": 926,
         "name": "Fidough",
         "types": [
@@ -38073,7 +38073,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "dachsbun": {
+    "Dachsbun": {
         "num": 927,
         "name": "Dachsbun",
         "types": [
@@ -38101,7 +38101,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "smoliv": {
+    "Smoliv": {
         "num": 928,
         "name": "Smoliv",
         "types": [
@@ -38130,7 +38130,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "dolliv": {
+    "Dolliv": {
         "num": 929,
         "name": "Dolliv",
         "types": [
@@ -38161,7 +38161,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "arboliva": {
+    "Arboliva": {
         "num": 930,
         "name": "Arboliva",
         "types": [
@@ -38189,7 +38189,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "squawkabilly": {
+    "Squawkabilly": {
         "num": 931,
         "name": "Squawkabilly",
         "baseForme": "Green",
@@ -38228,7 +38228,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "squawkabillyblue": {
+    "Squawkabilly-Blue": {
         "num": 931,
         "name": "Squawkabilly-Blue",
         "baseSpecies": "Squawkabilly",
@@ -38257,7 +38257,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "squawkabillyyellow": {
+    "Squawkabilly-Yellow": {
         "num": 931,
         "name": "Squawkabilly-Yellow",
         "baseSpecies": "Squawkabilly",
@@ -38286,7 +38286,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "squawkabillywhite": {
+    "Squawkabilly-White": {
         "num": 931,
         "name": "Squawkabilly-White",
         "baseSpecies": "Squawkabilly",
@@ -38315,7 +38315,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "nacli": {
+    "Nacli": {
         "num": 932,
         "name": "Nacli",
         "types": [
@@ -38344,7 +38344,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "naclstack": {
+    "Naclstack": {
         "num": 933,
         "name": "Naclstack",
         "types": [
@@ -38375,7 +38375,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "garganacl": {
+    "Garganacl": {
         "num": 934,
         "name": "Garganacl",
         "types": [
@@ -38403,7 +38403,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "charcadet": {
+    "Charcadet": {
         "num": 935,
         "name": "Charcadet",
         "types": [
@@ -38432,7 +38432,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "armarouge": {
+    "Armarouge": {
         "num": 936,
         "name": "Armarouge",
         "types": [
@@ -38461,7 +38461,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "ceruledge": {
+    "Ceruledge": {
         "num": 937,
         "name": "Ceruledge",
         "types": [
@@ -38490,7 +38490,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "tadbulb": {
+    "Tadbulb": {
         "num": 938,
         "name": "Tadbulb",
         "types": [
@@ -38519,7 +38519,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "bellibolt": {
+    "Bellibolt": {
         "num": 939,
         "name": "Bellibolt",
         "types": [
@@ -38548,7 +38548,7 @@ export const pokemoninfo = {
             "Water 1"
         ]
     },
-    "wattrel": {
+    "Wattrel": {
         "num": 940,
         "name": "Wattrel",
         "types": [
@@ -38579,7 +38579,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "kilowattrel": {
+    "Kilowattrel": {
         "num": 941,
         "name": "Kilowattrel",
         "types": [
@@ -38609,7 +38609,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "maschiff": {
+    "Maschiff": {
         "num": 942,
         "name": "Maschiff",
         "types": [
@@ -38638,7 +38638,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "mabosstiff": {
+    "Mabosstiff": {
         "num": 943,
         "name": "Mabosstiff",
         "types": [
@@ -38666,7 +38666,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "shroodle": {
+    "Shroodle": {
         "num": 944,
         "name": "Shroodle",
         "types": [
@@ -38696,7 +38696,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "grafaiai": {
+    "Grafaiai": {
         "num": 945,
         "name": "Grafaiai",
         "types": [
@@ -38725,7 +38725,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "bramblin": {
+    "Bramblin": {
         "num": 946,
         "name": "Bramblin",
         "types": [
@@ -38754,7 +38754,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "brambleghast": {
+    "Brambleghast": {
         "num": 947,
         "name": "Brambleghast",
         "types": [
@@ -38783,7 +38783,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "toedscool": {
+    "Toedscool": {
         "num": 948,
         "name": "Toedscool",
         "types": [
@@ -38811,7 +38811,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "toedscruel": {
+    "Toedscruel": {
         "num": 949,
         "name": "Toedscruel",
         "types": [
@@ -38838,7 +38838,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "klawf": {
+    "Klawf": {
         "num": 950,
         "name": "Klawf",
         "types": [
@@ -38864,7 +38864,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "capsakid": {
+    "Capsakid": {
         "num": 951,
         "name": "Capsakid",
         "types": [
@@ -38893,7 +38893,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "scovillain": {
+    "Scovillain": {
         "num": 952,
         "name": "Scovillain",
         "types": [
@@ -38923,7 +38923,7 @@ export const pokemoninfo = {
             "Grass"
         ]
     },
-    "rellor": {
+    "Rellor": {
         "num": 953,
         "name": "Rellor",
         "types": [
@@ -38951,7 +38951,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "rabsca": {
+    "Rabsca": {
         "num": 954,
         "name": "Rabsca",
         "types": [
@@ -38980,7 +38980,7 @@ export const pokemoninfo = {
             "Bug"
         ]
     },
-    "flittle": {
+    "Flittle": {
         "num": 955,
         "name": "Flittle",
         "types": [
@@ -39009,7 +39009,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "espathra": {
+    "Espathra": {
         "num": 956,
         "name": "Espathra",
         "types": [
@@ -39037,7 +39037,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "tinkatink": {
+    "Tinkatink": {
         "num": 957,
         "name": "Tinkatink",
         "types": [
@@ -39068,7 +39068,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "tinkatuff": {
+    "Tinkatuff": {
         "num": 958,
         "name": "Tinkatuff",
         "types": [
@@ -39101,7 +39101,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "tinkaton": {
+    "Tinkaton": {
         "num": 959,
         "name": "Tinkaton",
         "types": [
@@ -39131,7 +39131,7 @@ export const pokemoninfo = {
             "Fairy"
         ]
     },
-    "wiglett": {
+    "Wiglett": {
         "num": 960,
         "name": "Wiglett",
         "types": [
@@ -39160,7 +39160,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "wugtrio": {
+    "Wugtrio": {
         "num": 961,
         "name": "Wugtrio",
         "types": [
@@ -39188,7 +39188,7 @@ export const pokemoninfo = {
             "Water 3"
         ]
     },
-    "bombirdier": {
+    "Bombirdier": {
         "num": 962,
         "name": "Bombirdier",
         "types": [
@@ -39215,7 +39215,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "finizen": {
+    "Finizen": {
         "num": 963,
         "name": "Finizen",
         "types": [
@@ -39243,7 +39243,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "palafin": {
+    "Palafin": {
         "num": 964,
         "name": "Palafin",
         "baseForme": "Zero",
@@ -39278,7 +39278,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "palafinhero": {
+    "Palafin-Hero": {
         "num": 964,
         "name": "Palafin-Hero",
         "baseSpecies": "Palafin",
@@ -39307,7 +39307,7 @@ export const pokemoninfo = {
         "requiredAbility": "Zero to Hero",
         "battleOnly": "Palafin"
     },
-    "varoom": {
+    "Varoom": {
         "num": 965,
         "name": "Varoom",
         "types": [
@@ -39336,7 +39336,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "revavroom": {
+    "Revavroom": {
         "num": 966,
         "name": "Revavroom",
         "types": [
@@ -39364,7 +39364,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "cyclizar": {
+    "Cyclizar": {
         "num": 967,
         "name": "Cyclizar",
         "types": [
@@ -39390,7 +39390,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "orthworm": {
+    "Orthworm": {
         "num": 968,
         "name": "Orthworm",
         "types": [
@@ -39415,7 +39415,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "glimmet": {
+    "Glimmet": {
         "num": 969,
         "name": "Glimmet",
         "types": [
@@ -39444,7 +39444,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "glimmora": {
+    "Glimmora": {
         "num": 970,
         "name": "Glimmora",
         "types": [
@@ -39472,7 +39472,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "greavard": {
+    "Greavard": {
         "num": 971,
         "name": "Greavard",
         "types": [
@@ -39500,7 +39500,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "houndstone": {
+    "Houndstone": {
         "num": 972,
         "name": "Houndstone",
         "types": [
@@ -39528,7 +39528,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "flamigo": {
+    "Flamigo": {
         "num": 973,
         "name": "Flamigo",
         "types": [
@@ -39555,7 +39555,7 @@ export const pokemoninfo = {
             "Flying"
         ]
     },
-    "cetoddle": {
+    "Cetoddle": {
         "num": 974,
         "name": "Cetoddle",
         "types": [
@@ -39584,7 +39584,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "cetitan": {
+    "Cetitan": {
         "num": 975,
         "name": "Cetitan",
         "types": [
@@ -39613,7 +39613,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "veluza": {
+    "Veluza": {
         "num": 976,
         "name": "Veluza",
         "types": [
@@ -39639,7 +39639,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "dondozo": {
+    "Dondozo": {
         "num": 977,
         "name": "Dondozo",
         "types": [
@@ -39665,7 +39665,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "tatsugiri": {
+    "Tatsugiri": {
         "num": 978,
         "name": "Tatsugiri",
         "baseForme": "Curly",
@@ -39701,7 +39701,7 @@ export const pokemoninfo = {
             "Water 2"
         ]
     },
-    "annihilape": {
+    "Annihilape": {
         "num": 979,
         "name": "Annihilape",
         "types": [
@@ -39731,7 +39731,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "clodsire": {
+    "Clodsire": {
         "num": 980,
         "name": "Clodsire",
         "types": [
@@ -39761,7 +39761,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "farigiraf": {
+    "Farigiraf": {
         "num": 981,
         "name": "Farigiraf",
         "types": [
@@ -39791,7 +39791,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "dudunsparce": {
+    "Dudunsparce": {
         "num": 982,
         "name": "Dudunsparce",
         "baseForme": "Two-Segment",
@@ -39828,7 +39828,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "dudunsparcethreesegment": {
+    "Dudunsparce-Three-Segment": {
         "num": 982,
         "name": "Dudunsparce-Three-Segment",
         "baseSpecies": "Dudunsparce",
@@ -39859,7 +39859,7 @@ export const pokemoninfo = {
             "Field"
         ]
     },
-    "kingambit": {
+    "Kingambit": {
         "num": 983,
         "name": "Kingambit",
         "types": [
@@ -39889,7 +39889,7 @@ export const pokemoninfo = {
             "Human-Like"
         ]
     },
-    "greattusk": {
+    "Great Tusk": {
         "num": 984,
         "name": "Great Tusk",
         "types": [
@@ -39918,7 +39918,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "screamtail": {
+    "Scream Tail": {
         "num": 985,
         "name": "Scream Tail",
         "types": [
@@ -39947,7 +39947,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "brutebonnet": {
+    "Brute Bonnet": {
         "num": 986,
         "name": "Brute Bonnet",
         "types": [
@@ -39976,7 +39976,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "fluttermane": {
+    "Flutter Mane": {
         "num": 987,
         "name": "Flutter Mane",
         "types": [
@@ -40005,7 +40005,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "slitherwing": {
+    "Slither Wing": {
         "num": 988,
         "name": "Slither Wing",
         "types": [
@@ -40034,7 +40034,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "sandyshocks": {
+    "Sandy Shocks": {
         "num": 989,
         "name": "Sandy Shocks",
         "types": [
@@ -40063,7 +40063,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "irontreads": {
+    "Iron Treads": {
         "num": 990,
         "name": "Iron Treads",
         "types": [
@@ -40092,7 +40092,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironbundle": {
+    "Iron Bundle": {
         "num": 991,
         "name": "Iron Bundle",
         "types": [
@@ -40121,7 +40121,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironhands": {
+    "Iron Hands": {
         "num": 992,
         "name": "Iron Hands",
         "types": [
@@ -40150,7 +40150,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironjugulis": {
+    "Iron Jugulis": {
         "num": 993,
         "name": "Iron Jugulis",
         "types": [
@@ -40179,7 +40179,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironmoth": {
+    "Iron Moth": {
         "num": 994,
         "name": "Iron Moth",
         "types": [
@@ -40208,7 +40208,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironthorns": {
+    "Iron Thorns": {
         "num": 995,
         "name": "Iron Thorns",
         "types": [
@@ -40237,7 +40237,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "frigibax": {
+    "Frigibax": {
         "num": 996,
         "name": "Frigibax",
         "types": [
@@ -40267,7 +40267,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "arctibax": {
+    "Arctibax": {
         "num": 997,
         "name": "Arctibax",
         "types": [
@@ -40299,7 +40299,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "baxcalibur": {
+    "Baxcalibur": {
         "num": 998,
         "name": "Baxcalibur",
         "types": [
@@ -40328,7 +40328,7 @@ export const pokemoninfo = {
             "Mineral"
         ]
     },
-    "gimmighoul": {
+    "Gimmighoul": {
         "num": 999,
         "name": "Gimmighoul",
         "baseForme": "Chest",
@@ -40364,7 +40364,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "gimmighoulroaming": {
+    "Gimmighoul-Roaming": {
         "num": 999,
         "name": "Gimmighoul-Roaming",
         "baseSpecies": "Gimmighoul",
@@ -40394,7 +40394,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "gholdengo": {
+    "Gholdengo": {
         "num": 1000,
         "name": "Gholdengo",
         "types": [
@@ -40423,7 +40423,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "wochien": {
+    "Wo-Chien": {
         "num": 1001,
         "name": "Wo-Chien",
         "types": [
@@ -40452,7 +40452,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "chienpao": {
+    "Chien-Pao": {
         "num": 1002,
         "name": "Chien-Pao",
         "types": [
@@ -40481,7 +40481,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "tinglu": {
+    "Ting-Lu": {
         "num": 1003,
         "name": "Ting-Lu",
         "types": [
@@ -40510,7 +40510,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "chiyu": {
+    "Chi-Yu": {
         "num": 1004,
         "name": "Chi-Yu",
         "types": [
@@ -40539,7 +40539,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "roaringmoon": {
+    "Roaring Moon": {
         "num": 1005,
         "name": "Roaring Moon",
         "types": [
@@ -40568,7 +40568,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironvaliant": {
+    "Iron Valiant": {
         "num": 1006,
         "name": "Iron Valiant",
         "types": [
@@ -40597,7 +40597,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "koraidon": {
+    "Koraidon": {
         "num": 1007,
         "name": "Koraidon",
         "types": [
@@ -40626,7 +40626,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "miraidon": {
+    "Miraidon": {
         "num": 1008,
         "name": "Miraidon",
         "types": [
@@ -40655,7 +40655,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "walkingwake": {
+    "Walking Wake": {
         "num": 1009,
         "name": "Walking Wake",
         "types": [
@@ -40684,7 +40684,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironleaves": {
+    "Iron Leaves": {
         "num": 1010,
         "name": "Iron Leaves",
         "types": [
@@ -40713,7 +40713,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "dipplin": {
+    "Dipplin": {
         "num": 1011,
         "name": "Dipplin",
         "types": [
@@ -40747,7 +40747,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "poltchageist": {
+    "Poltchageist": {
         "num": 1012,
         "name": "Poltchageist",
         "baseForme": "Counterfeit",
@@ -40786,7 +40786,7 @@ export const pokemoninfo = {
             "Poltchageist-Artisan"
         ]
     },
-    "poltchageistartisan": {
+    "Poltchageist-Artisan": {
         "num": 1012,
         "name": "Poltchageist-Artisan",
         "baseSpecies": "Poltchageist",
@@ -40818,7 +40818,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "sinistcha": {
+    "Sinistcha": {
         "num": 1013,
         "name": "Sinistcha",
         "baseForme": "Unremarkable",
@@ -40857,7 +40857,7 @@ export const pokemoninfo = {
             "Sinistcha-Masterpiece"
         ]
     },
-    "sinistchamasterpiece": {
+    "Sinistcha-Masterpiece": {
         "num": 1013,
         "name": "Sinistcha-Masterpiece",
         "baseSpecies": "Sinistcha",
@@ -40889,7 +40889,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "okidogi": {
+    "Okidogi": {
         "num": 1014,
         "name": "Okidogi",
         "types": [
@@ -40916,7 +40916,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "munkidori": {
+    "Munkidori": {
         "num": 1015,
         "name": "Munkidori",
         "types": [
@@ -40943,7 +40943,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "fezandipiti": {
+    "Fezandipiti": {
         "num": 1016,
         "name": "Fezandipiti",
         "types": [
@@ -40970,7 +40970,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ogerpon": {
+    "Ogerpon": {
         "num": 1017,
         "name": "Ogerpon",
         "baseForme": "Teal",
@@ -41016,7 +41016,7 @@ export const pokemoninfo = {
         ],
         "forceTeraType": "Grass"
     },
-    "ogerponwellspring": {
+    "Ogerpon-Wellspring": {
         "num": 1017,
         "name": "Ogerpon-Wellspring",
         "baseSpecies": "Ogerpon",
@@ -41047,7 +41047,7 @@ export const pokemoninfo = {
         "changesFrom": "Ogerpon",
         "forceTeraType": "Water"
     },
-    "ogerponhearthflame": {
+    "Ogerpon-Hearthflame": {
         "num": 1017,
         "name": "Ogerpon-Hearthflame",
         "baseSpecies": "Ogerpon",
@@ -41078,7 +41078,7 @@ export const pokemoninfo = {
         "changesFrom": "Ogerpon",
         "forceTeraType": "Fire"
     },
-    "ogerponcornerstone": {
+    "Ogerpon-Cornerstone": {
         "num": 1017,
         "name": "Ogerpon-Cornerstone",
         "baseSpecies": "Ogerpon",
@@ -41109,7 +41109,7 @@ export const pokemoninfo = {
         "changesFrom": "Ogerpon",
         "forceTeraType": "Rock"
     },
-    "ogerpontealtera": {
+    "Ogerpon-Teal-Tera": {
         "num": 1017,
         "name": "Ogerpon-Teal-Tera",
         "baseSpecies": "Ogerpon",
@@ -41138,7 +41138,7 @@ export const pokemoninfo = {
         "battleOnly": "Ogerpon",
         "forceTeraType": "Grass"
     },
-    "ogerponwellspringtera": {
+    "Ogerpon-Wellspring-Tera": {
         "num": 1017,
         "name": "Ogerpon-Wellspring-Tera",
         "baseSpecies": "Ogerpon",
@@ -41169,7 +41169,7 @@ export const pokemoninfo = {
         "battleOnly": "Ogerpon-Wellspring",
         "forceTeraType": "Water"
     },
-    "ogerponhearthflametera": {
+    "Ogerpon-Hearthflame-Tera": {
         "num": 1017,
         "name": "Ogerpon-Hearthflame-Tera",
         "baseSpecies": "Ogerpon",
@@ -41200,7 +41200,7 @@ export const pokemoninfo = {
         "battleOnly": "Ogerpon-Hearthflame",
         "forceTeraType": "Fire"
     },
-    "ogerponcornerstonetera": {
+    "Ogerpon-Cornerstone-Tera": {
         "num": 1017,
         "name": "Ogerpon-Cornerstone-Tera",
         "baseSpecies": "Ogerpon",
@@ -41231,7 +41231,7 @@ export const pokemoninfo = {
         "battleOnly": "Ogerpon-Cornerstone",
         "forceTeraType": "Rock"
     },
-    "archaludon": {
+    "Archaludon": {
         "num": 1018,
         "name": "Archaludon",
         "types": [
@@ -41262,7 +41262,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "hydrapple": {
+    "Hydrapple": {
         "num": 1019,
         "name": "Hydrapple",
         "types": [
@@ -41293,7 +41293,7 @@ export const pokemoninfo = {
             "Dragon"
         ]
     },
-    "gougingfire": {
+    "Gouging Fire": {
         "num": 1020,
         "name": "Gouging Fire",
         "types": [
@@ -41319,7 +41319,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ragingbolt": {
+    "Raging Bolt": {
         "num": 1021,
         "name": "Raging Bolt",
         "types": [
@@ -41345,7 +41345,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironboulder": {
+    "Iron Boulder": {
         "num": 1022,
         "name": "Iron Boulder",
         "types": [
@@ -41371,7 +41371,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "ironcrown": {
+    "Iron Crown": {
         "num": 1023,
         "name": "Iron Crown",
         "types": [
@@ -41397,7 +41397,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "terapagos": {
+    "Terapagos": {
         "num": 1024,
         "name": "Terapagos",
         "types": [
@@ -41434,7 +41434,7 @@ export const pokemoninfo = {
         ],
         "forceTeraType": "Stellar"
     },
-    "terapagosterastal": {
+    "Terapagos-Terastal": {
         "num": 1024,
         "name": "Terapagos-Terastal",
         "baseSpecies": "Terapagos",
@@ -41465,7 +41465,7 @@ export const pokemoninfo = {
         "battleOnly": "Terapagos",
         "forceTeraType": "Stellar"
     },
-    "terapagosstellar": {
+    "Terapagos-Stellar": {
         "num": 1024,
         "name": "Terapagos-Stellar",
         "baseSpecies": "Terapagos",
@@ -41496,7 +41496,7 @@ export const pokemoninfo = {
         "battleOnly": "Terapagos",
         "forceTeraType": "Stellar"
     },
-    "pecharunt": {
+    "Pecharunt": {
         "num": 1025,
         "name": "Pecharunt",
         "types": [
@@ -41525,7 +41525,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "missingno": {
+    "MissingNo.": {
         "num": 0,
         "name": "MissingNo.",
         "types": [
@@ -41550,7 +41550,7 @@ export const pokemoninfo = {
             "Undiscovered"
         ]
     },
-    "syclar": {
+    "Syclar": {
         "num": -1,
         "name": "Syclar",
         "types": [
@@ -41581,7 +41581,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "syclant": {
+    "Syclant": {
         "num": -2,
         "name": "Syclant",
         "types": [
@@ -41611,7 +41611,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "revenankh": {
+    "Revenankh": {
         "num": -3,
         "name": "Revenankh",
         "types": [
@@ -41640,7 +41640,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "embirch": {
+    "Embirch": {
         "num": -4,
         "name": "Embirch",
         "types": [
@@ -41672,7 +41672,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "flarelm": {
+    "Flarelm": {
         "num": -5,
         "name": "Flarelm",
         "types": [
@@ -41706,7 +41706,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "pyroak": {
+    "Pyroak": {
         "num": -6,
         "name": "Pyroak",
         "types": [
@@ -41737,7 +41737,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "breezi": {
+    "Breezi": {
         "num": -7,
         "name": "Breezi",
         "types": [
@@ -41768,7 +41768,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "fidgit": {
+    "Fidgit": {
         "num": -8,
         "name": "Fidgit",
         "types": [
@@ -41798,7 +41798,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "rebble": {
+    "Rebble": {
         "num": -9,
         "name": "Rebble",
         "types": [
@@ -41829,7 +41829,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "tactite": {
+    "Tactite": {
         "num": -10,
         "name": "Tactite",
         "types": [
@@ -41862,7 +41862,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "stratagem": {
+    "Stratagem": {
         "num": -11,
         "name": "Stratagem",
         "types": [
@@ -41892,7 +41892,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "privatyke": {
+    "Privatyke": {
         "num": -12,
         "name": "Privatyke",
         "types": [
@@ -41923,7 +41923,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "arghonaut": {
+    "Arghonaut": {
         "num": -13,
         "name": "Arghonaut",
         "types": [
@@ -41953,7 +41953,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "kitsunoh": {
+    "Kitsunoh": {
         "num": -14,
         "name": "Kitsunoh",
         "types": [
@@ -41984,7 +41984,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "cyclohm": {
+    "Cyclohm": {
         "num": -15,
         "name": "Cyclohm",
         "types": [
@@ -42015,7 +42015,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "colossoil": {
+    "Colossoil": {
         "num": -16,
         "name": "Colossoil",
         "types": [
@@ -42046,7 +42046,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "krilowatt": {
+    "Krilowatt": {
         "num": -17,
         "name": "Krilowatt",
         "types": [
@@ -42077,7 +42077,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "voodoll": {
+    "Voodoll": {
         "num": -18,
         "name": "Voodoll",
         "types": [
@@ -42109,7 +42109,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "voodoom": {
+    "Voodoom": {
         "num": -19,
         "name": "Voodoom",
         "types": [
@@ -42140,7 +42140,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "scratchet": {
+    "Scratchet": {
         "num": -20,
         "name": "Scratchet",
         "types": [
@@ -42172,7 +42172,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "tomohawk": {
+    "Tomohawk": {
         "num": -21,
         "name": "Tomohawk",
         "types": [
@@ -42203,7 +42203,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "necturine": {
+    "Necturine": {
         "num": -22,
         "name": "Necturine",
         "types": [
@@ -42235,7 +42235,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "necturna": {
+    "Necturna": {
         "num": -23,
         "name": "Necturna",
         "types": [
@@ -42266,7 +42266,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "mollux": {
+    "Mollux": {
         "num": -24,
         "name": "Mollux",
         "types": [
@@ -42294,7 +42294,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "cupra": {
+    "Cupra": {
         "num": -25,
         "name": "Cupra",
         "types": [
@@ -42325,7 +42325,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "argalis": {
+    "Argalis": {
         "num": -26,
         "name": "Argalis",
         "types": [
@@ -42358,7 +42358,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "aurumoth": {
+    "Aurumoth": {
         "num": -27,
         "name": "Aurumoth",
         "types": [
@@ -42388,7 +42388,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "brattler": {
+    "Brattler": {
         "num": -28,
         "name": "Brattler",
         "types": [
@@ -42420,7 +42420,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "malaconda": {
+    "Malaconda": {
         "num": -29,
         "name": "Malaconda",
         "types": [
@@ -42451,7 +42451,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "cawdet": {
+    "Cawdet": {
         "num": -30,
         "name": "Cawdet",
         "types": [
@@ -42482,7 +42482,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "cawmodore": {
+    "Cawmodore": {
         "num": -31,
         "name": "Cawmodore",
         "types": [
@@ -42512,7 +42512,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "volkritter": {
+    "Volkritter": {
         "num": -32,
         "name": "Volkritter",
         "types": [
@@ -42544,7 +42544,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "volkraken": {
+    "Volkraken": {
         "num": -33,
         "name": "Volkraken",
         "types": [
@@ -42575,7 +42575,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "snugglow": {
+    "Snugglow": {
         "num": -34,
         "name": "Snugglow",
         "types": [
@@ -42607,7 +42607,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "plasmanta": {
+    "Plasmanta": {
         "num": -35,
         "name": "Plasmanta",
         "types": [
@@ -42638,7 +42638,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "floatoy": {
+    "Floatoy": {
         "num": -36,
         "name": "Floatoy",
         "types": [
@@ -42669,7 +42669,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "caimanoe": {
+    "Caimanoe": {
         "num": -37,
         "name": "Caimanoe",
         "types": [
@@ -42703,7 +42703,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "naviathan": {
+    "Naviathan": {
         "num": -38,
         "name": "Naviathan",
         "types": [
@@ -42734,7 +42734,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "crucibelle": {
+    "Crucibelle": {
         "num": -39,
         "name": "Crucibelle",
         "types": [
@@ -42774,7 +42774,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "crucibellemega": {
+    "Crucibelle-Mega": {
         "num": -39,
         "name": "Crucibelle-Mega",
         "baseSpecies": "Crucibelle",
@@ -42808,7 +42808,7 @@ export const pokemoninfo = {
         "requiredItem": "Crucibellite",
         "gen": 6
     },
-    "pluffle": {
+    "Pluffle": {
         "num": -40,
         "name": "Pluffle",
         "types": [
@@ -42839,7 +42839,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "kerfluffle": {
+    "Kerfluffle": {
         "num": -41,
         "name": "Kerfluffle",
         "types": [
@@ -42871,7 +42871,7 @@ export const pokemoninfo = {
         ],
         "gen": 6
     },
-    "pajantom": {
+    "Pajantom": {
         "num": -42,
         "name": "Pajantom",
         "types": [
@@ -42898,7 +42898,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "mumbao": {
+    "Mumbao": {
         "num": -43,
         "name": "Mumbao",
         "types": [
@@ -42929,7 +42929,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "jumbao": {
+    "Jumbao": {
         "num": -44,
         "name": "Jumbao",
         "types": [
@@ -42960,7 +42960,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "fawnifer": {
+    "Fawnifer": {
         "num": -45,
         "name": "Fawnifer",
         "types": [
@@ -42993,7 +42993,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "electrelk": {
+    "Electrelk": {
         "num": -46,
         "name": "Electrelk",
         "types": [
@@ -43029,7 +43029,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "caribolt": {
+    "Caribolt": {
         "num": -47,
         "name": "Caribolt",
         "types": [
@@ -43062,7 +43062,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "smogecko": {
+    "Smogecko": {
         "num": -48,
         "name": "Smogecko",
         "types": [
@@ -43096,7 +43096,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "smoguana": {
+    "Smoguana": {
         "num": -49,
         "name": "Smoguana",
         "types": [
@@ -43133,7 +43133,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "smokomodo": {
+    "Smokomodo": {
         "num": -50,
         "name": "Smokomodo",
         "types": [
@@ -43167,7 +43167,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "swirlpool": {
+    "Swirlpool": {
         "num": -51,
         "name": "Swirlpool",
         "types": [
@@ -43201,7 +43201,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "coribalis": {
+    "Coribalis": {
         "num": -52,
         "name": "Coribalis",
         "types": [
@@ -43238,7 +43238,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "snaelstrom": {
+    "Snaelstrom": {
         "num": -53,
         "name": "Snaelstrom",
         "types": [
@@ -43272,7 +43272,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "justyke": {
+    "Justyke": {
         "num": -54,
         "name": "Justyke",
         "types": [
@@ -43304,7 +43304,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "equilibra": {
+    "Equilibra": {
         "num": -55,
         "name": "Equilibra",
         "types": [
@@ -43335,7 +43335,7 @@ export const pokemoninfo = {
         ],
         "gen": 7
     },
-    "solotl": {
+    "Solotl": {
         "num": -56,
         "name": "Solotl",
         "types": [
@@ -43367,7 +43367,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "astrolotl": {
+    "Astrolotl": {
         "num": -57,
         "name": "Astrolotl",
         "types": [
@@ -43398,7 +43398,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "miasmite": {
+    "Miasmite": {
         "num": -58,
         "name": "Miasmite",
         "types": [
@@ -43430,7 +43430,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "miasmaw": {
+    "Miasmaw": {
         "num": -59,
         "name": "Miasmaw",
         "types": [
@@ -43461,7 +43461,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "chromera": {
+    "Chromera": {
         "num": -60,
         "name": "Chromera",
         "types": [
@@ -43488,7 +43488,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "nohface": {
+    "Nohface": {
         "num": -61,
         "name": "Nohface",
         "types": [
@@ -43518,7 +43518,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "monohm": {
+    "Monohm": {
         "num": -62,
         "name": "Monohm",
         "types": [
@@ -43549,7 +43549,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "duohm": {
+    "Duohm": {
         "num": -63,
         "name": "Duohm",
         "types": [
@@ -43583,7 +43583,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "dorsoil": {
+    "Dorsoil": {
         "num": -64,
         "name": "Dorsoil",
         "types": [
@@ -43614,7 +43614,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "protowatt": {
+    "Protowatt": {
         "num": -65,
         "name": "Protowatt",
         "types": [
@@ -43646,7 +43646,7 @@ export const pokemoninfo = {
         ],
         "gen": 4
     },
-    "venomicon": {
+    "Venomicon": {
         "num": -66,
         "name": "Venomicon",
         "baseForme": "Prologue",
@@ -43682,7 +43682,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "venomiconepilogue": {
+    "Venomicon-Epilogue": {
         "num": -66,
         "name": "Venomicon-Epilogue",
         "baseSpecies": "Venomicon",
@@ -43713,7 +43713,7 @@ export const pokemoninfo = {
         "changesFrom": "Venomicon",
         "gen": 8
     },
-    "saharascal": {
+    "Saharascal": {
         "num": -67,
         "name": "Saharascal",
         "types": [
@@ -43743,7 +43743,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "saharaja": {
+    "Saharaja": {
         "num": -68,
         "name": "Saharaja",
         "types": [
@@ -43773,7 +43773,7 @@ export const pokemoninfo = {
         ],
         "gen": 8
     },
-    "ababo": {
+    "Ababo": {
         "num": -69,
         "name": "Ababo",
         "types": [
@@ -43808,7 +43808,7 @@ export const pokemoninfo = {
         "canHatch": true,
         "gen": 9
     },
-    "scattervein": {
+    "Scattervein": {
         "num": -70,
         "name": "Scattervein",
         "types": [
@@ -43846,7 +43846,7 @@ export const pokemoninfo = {
         "canHatch": true,
         "gen": 9
     },
-    "hemogoblin": {
+    "Hemogoblin": {
         "num": -71,
         "name": "Hemogoblin",
         "types": [
@@ -43882,7 +43882,7 @@ export const pokemoninfo = {
         ],
         "gen": 9
     },
-    "cresceidon": {
+    "Cresceidon": {
         "num": -72,
         "name": "Cresceidon",
         "types": [
@@ -43911,7 +43911,7 @@ export const pokemoninfo = {
         ],
         "gen": 9
     },
-    "pokestarsmeargle": {
+    "Pokestar Smeargle": {
         "num": -5000,
         "name": "Pokestar Smeargle",
         "types": [
@@ -43938,7 +43938,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarufo": {
+    "Pokestar UFO": {
         "num": -5001,
         "name": "Pokestar UFO",
         "types": [
@@ -43972,7 +43972,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarufo2": {
+    "Pokestar UFO-2": {
         "num": -5001,
         "name": "Pokestar UFO-2",
         "baseSpecies": "Pokestar UFO",
@@ -44001,7 +44001,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarbrycenman": {
+    "Pokestar Brycen-Man": {
         "num": -5002,
         "name": "Pokestar Brycen-Man",
         "types": [
@@ -44031,7 +44031,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarmt": {
+    "Pokestar MT": {
         "num": -5003,
         "name": "Pokestar MT",
         "types": [
@@ -44060,7 +44060,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarmt2": {
+    "Pokestar MT2": {
         "num": -5004,
         "name": "Pokestar MT2",
         "types": [
@@ -44090,7 +44090,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestartransport": {
+    "Pokestar Transport": {
         "num": -5005,
         "name": "Pokestar Transport",
         "types": [
@@ -44119,7 +44119,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestargiant": {
+    "Pokestar Giant": {
         "num": -5006,
         "name": "Pokestar Giant",
         "types": [
@@ -44150,7 +44150,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarhumanoid": {
+    "Pokestar Humanoid": {
         "num": -5007,
         "name": "Pokestar Humanoid",
         "types": [
@@ -44178,7 +44178,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarmonster": {
+    "Pokestar Monster": {
         "num": -5008,
         "name": "Pokestar Monster",
         "types": [
@@ -44206,7 +44206,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarf00": {
+    "Pokestar F-00": {
         "num": -5009,
         "name": "Pokestar F-00",
         "types": [
@@ -44235,7 +44235,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarf002": {
+    "Pokestar F-002": {
         "num": -5010,
         "name": "Pokestar F-002",
         "types": [
@@ -44264,7 +44264,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarspirit": {
+    "Pokestar Spirit": {
         "num": -5011,
         "name": "Pokestar Spirit",
         "types": [
@@ -44293,7 +44293,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarblackdoor": {
+    "Pokestar Black Door": {
         "num": -5012,
         "name": "Pokestar Black Door",
         "types": [
@@ -44322,7 +44322,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarwhitedoor": {
+    "Pokestar White Door": {
         "num": -5013,
         "name": "Pokestar White Door",
         "types": [
@@ -44351,7 +44351,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarblackbelt": {
+    "Pokestar Black Belt": {
         "num": -5014,
         "name": "Pokestar Black Belt",
         "types": [
@@ -44380,7 +44380,7 @@ export const pokemoninfo = {
         ],
         "gen": 5
     },
-    "pokestarufopropu2": {
+    "Pokestar UFO-PropU2": {
         "num": -5001,
         "name": "Pokestar UFO-PropU2",
         "baseSpecies": "Pokestar UFO",

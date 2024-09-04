@@ -13,6 +13,7 @@ import UsageDif from "@/components/stats/UsageDif.vue";
 import {abilityText} from "@/components/data/abilityText.js";
 import {itemText} from "@/components/data/ItemText.js";
 import {moveText} from "@/components/data/moveText.js";
+import {pokemoninfo} from "@/components/data/pokemoninfo.js"
 import {moveInfo} from "@/components/data/moveInfo.js";
 import {nature} from "@/components/data/nature.js";
 import Team from "@/components/Team.vue";
@@ -148,6 +149,43 @@ async function queryPokemonSet(format, pokemon) {
     }
   }
 }
+
+function getPokemonTypes(name) {
+  return pokemoninfo[name]?.types;
+}
+
+function getPokemonStats(name) {
+  return pokemoninfo[name]?.baseStats;
+}
+
+function getStatStyle(stat, value) {
+  let width = 180 * value / 255;
+  let bg;
+  switch (stat) {
+    case "hp":
+      bg = "rgb(85, 137, 54)";
+      break;
+    case "atk":
+      bg = "rgb(248, 203, 60)";
+      break;
+    case "def":
+      bg = "rgb(217, 136, 55)";
+      break;
+    case "spa":
+      bg = "rgb(89, 195, 208)";
+      break;
+    case "spd":
+      bg = "rgb(88, 144, 205)";
+      break;
+    case "spe":
+      bg = "rgb(164, 86, 208)";
+      break;
+  }
+
+  return `width:${width}px;background:${bg}`
+}
+
+
 </script>
 
 <template>
@@ -156,7 +194,19 @@ async function queryPokemonSet(format, pokemon) {
       <img width="120" height="120"
            :src="`https://play.pokemonshowdown.com/sprites/dex/${pokemon.name.toLowerCase().replaceAll(' ','')}.png`"
            :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
-      <p class="text-3xl font-bold">{{ pokemon?.name }}</p>
+      <div class="flex justify-start items-center">
+        <p class="text-3xl font-bold mr-1">{{ pokemon?.name }}</p>
+        <img v-if="pokemoninfo[pokemon?.name]" v-for="type in getPokemonTypes(pokemon?.name)"
+             :src="`/types/${type}.png`" height="17" width="40" :alt="tera"/>
+        <div class="ml-4 w-56" v-if="pokemoninfo[pokemon?.name]">
+          <div v-for="(value, key) in getPokemonStats(pokemon?.name)" class="flex gap-1 items-center text-center">
+            <span class="font-mono  text-sm w-6">{{ key.toUpperCase() }}</span>
+            <span :style="getStatStyle(key,value)" class="size-3.5"></span>
+            <span class="text-sm">{{ value }}</span>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="flex justify-start items-center gap-2 mb-5">
       <Divider layout="vertical" type="solid"/>
@@ -207,7 +257,7 @@ async function queryPokemonSet(format, pokemon) {
     </div>
     <Divider type="solid"/>
     <div v-if="props.format.includes('gen9') && moveset.teraTypes" class="ml-5 my-3">
-      <p class="text-xl text-gray-500">teraTypes</p>
+      <p class="text-xl text-gray-500">tera types</p>
       <div class="flex justify-start gap-2 mb-1" v-for=" [tera, value] in filterPopularSet(moveset.teraTypes,0.01)">
         <div class="w-44 items-center">
           <img :src="`/types/${tera}.png`" :alt="tera"/>
@@ -279,7 +329,7 @@ async function queryPokemonSet(format, pokemon) {
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3" v-if="teams && teams.length !== 0">
-      <p class="text-xl  mb-3">replay</p>
+      <p class="text-xl  mb-3">teams</p>
       <div class="mb-3 flex items-center text-center" v-for="teamGroup in teams">
         <Team class="w-1/3" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
         <div class="flex gap-2 w-full" v-for="team in teamGroup.teams">

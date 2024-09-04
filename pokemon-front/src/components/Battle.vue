@@ -20,13 +20,21 @@ function toggleBattleStatVisibility() {
 }
 
 function battleButtonIcon() {
-  return battleChartVisibility.value ? "pi pi-angle-up" : "pi pi-angle-down"
+  return battleChartVisibility.value ? "pi pi-angle-up" : "pi pi-angle-down";
+}
+
+function getDecorateClass(data) {
+  if (props.tourPlayer) {
+    return data?.winSmogonPlayerName.toLowerCase() === props.playerName.toLowerCase() ? 'deco-winner' : 'deco-loser';
+  } else {
+    return data?.winner.toLowerCase() === props.playerName.toLowerCase() ? 'deco-winner' : 'deco-loser';
+  }
 }
 
 </script>
 
 <template>
-  <div :class="data.winner===props.playerName ? 'deco-winner': 'deco-loser' "></div>
+  <div :class="getDecorateClass(data)"></div>
   <div class="battle-table text-lg">
     <p v-if="props.tourPlayer" class="font-sans font-bold">{{ data.tourId + ' ' + data.stage }}</p>
     <a style="display:block" target="_blank" :href="`https://replay.pokemonshowdown.com/${data.id}`" class="text-black">

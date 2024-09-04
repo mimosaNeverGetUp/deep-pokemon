@@ -23,6 +23,7 @@ public class CacheService {
     protected static final String MAX_RATING = "maxRating";
     protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
     protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
+    protected static final String MAX_PLAYER_WIN_DIF = "maxPlayerWinDif";
 
     private final BattleService battleService;
     private final PlayerService playerService;
@@ -43,23 +44,29 @@ public class CacheService {
 
     public boolean loadTeam() {
         log.info("start load team group");
-        boolean res = loadTeamGroup("last_3_days");
-        res &= loadTeamGroup("last_7_days");
-        res &= loadTeamGroup("last_30_days");
-        res &= loadTeamGroup("last_90_days");
+        boolean res = loadTeamGroup("last_3_days", false);
+        res &= loadTeamGroup("last_7_days", false);
+        res &= loadTeamGroup("last_30_days", false);
+        res &= loadTeamGroup("last_90_days", false);
+        res &= loadTeamGroup("tour_wcop_2024", true);
+        res &= loadTeamGroup("tour_olt_xi", true);
         return res;
     }
 
-    private boolean loadTeamGroup(String groupName) {
+    private boolean loadTeamGroup(String groupName, boolean isTour) {
         log.info("start load team group {}", groupName);
         try {
-            loadTeamGroupBySort(groupName, MAX_RATING);
+            if (isTour) {
+                loadTeamGroupBySort(groupName, MAX_PLAYER_WIN_DIF);
+            } else {
+                loadTeamGroupBySort(groupName, MAX_RATING);
+            }
             loadTeamGroupBySort(groupName, UNIQUE_PLAYER_NUM);
             loadTeamGroupBySort(groupName, LATEST_BATTLE_DATE);
-            loadTeamGroupByTeamType(groupName, Collections.singletonList("BALANCE"));
-            loadTeamGroupByTeamType(groupName, List.of("STAFF", "BALANCE_STAFF"));
-            loadTeamGroupByTeamType(groupName, Collections.singletonList("ATTACK"));
-            loadTeamGroupByTeamType(groupName, Collections.singletonList("BALANCE_ATTACK"));
+            loadTeamGroupByTeamType(groupName, Collections.singletonList("BALANCE"), isTour);
+            loadTeamGroupByTeamType(groupName, List.of("STAFF", "BALANCE_STAFF"), isTour);
+            loadTeamGroupByTeamType(groupName, Collections.singletonList("ATTACK"), isTour);
+            loadTeamGroupByTeamType(groupName, Collections.singletonList("BALANCE_ATTACK"), isTour);
         } catch (Exception e) {
             log.error("load team group error", e);
             return false;
@@ -73,10 +80,16 @@ public class CacheService {
         battleService.teamGroup(2, 7, null, null, null, sort, groupName);
     }
 
-    private void loadTeamGroupByTeamType(String groupName, List<String> tags) {
-        battleService.teamGroup(0, 7, tags, null, null, MAX_RATING, groupName);
-        battleService.teamGroup(1, 7, tags, null, null, MAX_RATING, groupName);
-        battleService.teamGroup(2, 7, tags, null, null, MAX_RATING, groupName);
+    private void loadTeamGroupByTeamType(String groupName, List<String> tags, boolean isTour) {
+        if (isTour) {
+            battleService.teamGroup(0, 7, tags, null, null, MAX_PLAYER_WIN_DIF, groupName);
+            battleService.teamGroup(1, 7, tags, null, null, MAX_PLAYER_WIN_DIF, groupName);
+            battleService.teamGroup(2, 7, tags, null, null, MAX_PLAYER_WIN_DIF, groupName);
+        } else {
+            battleService.teamGroup(0, 7, tags, null, null, MAX_RATING, groupName);
+            battleService.teamGroup(1, 7, tags, null, null, MAX_RATING, groupName);
+            battleService.teamGroup(2, 7, tags, null, null, MAX_RATING, groupName);
+        }
     }
 
     public boolean loadRankAndPlayer() {
@@ -118,6 +131,9 @@ public class CacheService {
             loadMonthlyStat(format, 0, 20, true);
             loadMonthlyStat(format, 1, 20, false);
             loadMonthlyStat(format, 2, 20, false);
+            loadMonthlyStat(format, 0, 100, false);
+            loadMonthlyStat(format, 1, 100, false);
+            loadMonthlyStat(format, 2, 100, false);
         } catch (Exception e) {
             log.error("load monthly stat fail", e);
             return false;

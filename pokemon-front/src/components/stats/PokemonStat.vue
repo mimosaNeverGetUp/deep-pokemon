@@ -210,7 +210,7 @@ function getStatStyle(stat, value) {
     </div>
     <div class="flex justify-start items-center gap-2 mb-5">
       <Divider layout="vertical" type="solid"/>
-      <div class="items-center">
+      <div class="ml-3 items-center">
         <p class="text-xl text-gray-500">weight</p>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.weighted) }}</p>

@@ -195,7 +195,7 @@ function getStatStyle(stat, value) {
            :src="`https://play.pokemonshowdown.com/sprites/dex/${pokemon.name.toLowerCase().replaceAll(' ','')}.png`"
            :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
       <div class="flex justify-start items-center">
-        <p class="text-3xl font-bold mr-1">{{ pokemon?.name }}</p>
+        <p class="text-3xl font-bold mr-1 text-center items-center">{{ pokemon?.name }}</p>
         <img v-if="pokemoninfo[pokemon?.name]" v-for="type in getPokemonTypes(pokemon?.name)"
              :src="`/types/${type}.png`" height="17" width="40" :alt="tera"/>
         <div class="ml-4 w-56" v-if="pokemoninfo[pokemon?.name]">
@@ -212,7 +212,7 @@ function getStatStyle(stat, value) {
       <Divider layout="vertical" type="solid"/>
       <div class="items-center">
         <p class="text-xl text-gray-500">weight</p>
-        <div class="flex gap-5 w-44 items-center">
+        <div class="flex gap-5 w-44 min-w-44 items-center">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.weighted) }}</p>
           <UsageDif :newValue="pokemon.usage.weighted" :oldValue="pokemon.lastMonthUsage?.usage.weighted"/>
         </div>
@@ -232,38 +232,38 @@ function getStatStyle(stat, value) {
       <p class="text-xl text-gray-500">abilities</p>
       <div class="flex justify-start items-center gap-2 mb-1"
            v-for=" [ability, value] in Object.entries(moveset.abilities)">
-        <span class="w-44">{{ ability }}</span>
-        <div class="flex gap-5 w-44 items-center">
+        <span class="w-44 min-w-44">{{ ability }}</span>
+        <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.abilities[ability]"/>
         </div>
-        <span class="">{{ abilityText[ability]?.shortDesc }}</span>
+        <span class="whitespace-nowrap">{{ abilityText[ability]?.shortDesc }}</span>
       </div>
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">items</p>
       <div class="flex justify-start gap-2 mb-1" v-for=" [item, value] in filterPopularSet(moveset.items,0.01)">
-        <div class="w-44 items-center">
+        <div class="w-44 items-center min-w-44">
           <img :src="`/itemicon/${item}.png`" :alt="item"/>
           <span>{{ item }}</span>
         </div>
-        <div class="flex gap-5 w-44 items-center">
+        <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.items[item]"/>
         </div>
-        <span>{{ itemText[item]?.desc }}</span>
+        <span class="whitespace-nowrap">{{ itemText[item]?.desc }}</span>
       </div>
     </div>
     <Divider type="solid"/>
     <div v-if="props.format.includes('gen9') && moveset.teraTypes" class="ml-5 my-3">
       <p class="text-xl text-gray-500">tera types</p>
       <div class="flex justify-start gap-2 mb-1" v-for=" [tera, value] in filterPopularSet(moveset.teraTypes,0.01)">
-        <div class="w-44 items-center">
+        <div class="w-44 items-center min-w-44">
           <img :src="`/types/${tera}.png`" :alt="tera"/>
           <span>{{ tera }}</span>
         </div>
-        <div class="flex gap-5 w-44 items-center">
+        <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
         </div>
       </div>
@@ -273,37 +273,37 @@ function getStatStyle(stat, value) {
       <p class="text-xl text-gray-500">moves</p>
       <div class="flex justify-start items-center gap-2 mb-1"
            v-for=" [move, value] in filterPopularSet(moveset.moves,0.01)">
-        <span class="w-44">{{ move }}</span>
-        <div class="flex gap-5 w-44 items-center">
+        <span class="w-44 min-w-44">{{ move }}</span>
+        <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.moves[move]"/>
         </div>
         <img :src="getMoveTypeIconUrl(move)" :alt="move"/>
         <img :src="getMoveCategoryIconUrl(move)" :alt="move"/>
-        <span class="w-7">{{ moveInfo[move]?.basePower }}</span>
-        <span class="w-12">{{ getAccuracyText(moveInfo[move]?.accuracy) }}</span>
-        <span>{{ moveText[move]?.shortDesc }}</span>
+        <span class="w-7 text-center">{{ moveInfo[move]?.basePower }}</span>
+        <span class="w-12 text-center">{{ getAccuracyText(moveInfo[move]?.accuracy) }}</span>
+        <span class="whitespace-nowrap">{{ moveText[move]?.shortDesc }}</span>
       </div>
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">spreads</p>
       <div class="flex">
-        <span class="w-32">HP</span>
-        <span class="w-32">ATK</span>
-        <span class="w-32">DEF</span>
-        <span class="w-32">SPA</span>
-        <span class="w-32">SPD</span>
-        <span class="w-32">SPE</span>
+        <span class="w-32 min-w-32">HP</span>
+        <span class="w-32 min-w-32">ATK</span>
+        <span class="w-32 min-w-32">DEF</span>
+        <span class="w-32 min-w-32">SPA</span>
+        <span class="w-32 min-w-32">SPD</span>
+        <span class="w-32 min-w-32">SPE</span>
       </div>
       <div class="flex justify-start items-center mb-1" v-for=" [spread, value] in
       filterPopularSet(moveset.spreads,0.025)">
-        <span class="w-32">{{ getSpreadText(spread, 0, 'hp') }}</span>
-        <span class="w-32">{{ getSpreadText(spread, 1, 'atk') }}</span>
-        <span class="w-32">{{ getSpreadText(spread, 2, 'def') }}</span>
-        <span class="w-32">{{ getSpreadText(spread, 3, 'spa') }}</span>
-        <span class="w-32">{{ getSpreadText(spread, 4, 'spd') }}</span>
-        <span class="w-32">{{ getSpreadText(spread, 5, 'spe') }}</span>
+        <span class="w-32 min-w-32">{{ getSpreadText(spread, 0, 'hp') }}</span>
+        <span class="w-32 min-w-32">{{ getSpreadText(spread, 1, 'atk') }}</span>
+        <span class="w-32 min-w-32">{{ getSpreadText(spread, 2, 'def') }}</span>
+        <span class="w-32 min-w-32">{{ getSpreadText(spread, 3, 'spa') }}</span>
+        <span class="w-32 min-w-32">{{ getSpreadText(spread, 4, 'spd') }}</span>
+        <span class="w-32 min-w-32">{{ getSpreadText(spread, 5, 'spe') }}</span>
         <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
       </div>
     </div>
@@ -328,10 +328,10 @@ function getStatStyle(stat, value) {
       </div>
     </div>
     <Divider type="solid"/>
-    <div class="ml-5 my-3" v-if="teams && teams.length !== 0">
+    <div class="ml-5 my-3 whitespace-nowrap" v-if="teams && teams.length !== 0">
       <p class="text-xl  mb-3">teams</p>
       <div class="mb-3 flex items-center text-center" v-for="teamGroup in teams">
-        <Team class="w-1/3" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
+        <Team class="" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
         <div class="flex gap-2 w-full" v-for="team in teamGroup.teams">
           <router-link :to="`/player-record?name=${team.playerName}`" class="text-black w-1/2">
             {{ team.playerName }}

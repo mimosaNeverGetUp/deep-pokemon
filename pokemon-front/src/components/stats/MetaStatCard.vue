@@ -19,7 +19,7 @@ const props = defineProps({
     <template #title>
       <p class="font-bold text-center">{{ metric }}</p></template>
     <template #content>
-      <p>{{ value }}</p>
+      <p class="text-center">{{ value }}</p>
     </template>
   </Card>
 </template>

@@ -192,7 +192,7 @@ public class BattleService {
                 Aggregation.addFields().
                         addFieldWithValue("teamSet", ArrayOperators.arrayOf(SET).first()).build(),
                 Aggregation.stage("{ $project : { 'teams.pokemons': 0, 'teams._id': 0, 'teams.teamId': 0, 'teams" +
-                        ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, '_id': 0, 'set': 0} }"));
+                        ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, 'set': 0} }"));
         MongodbUtils.withPageOperation(query, page, row);
         List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation, getTeamGroupCollection(groupName),
                         TeamGroupDto.class)

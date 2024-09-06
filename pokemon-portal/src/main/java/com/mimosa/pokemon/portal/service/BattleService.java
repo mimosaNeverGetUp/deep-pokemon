@@ -24,18 +24,19 @@
 
 package com.mimosa.pokemon.portal.service;
 
-import com.mimosa.deeppokemon.entity.Battle;
-import com.mimosa.deeppokemon.entity.BattleTeam;
+import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.deeppokemon.entity.tour.TourBattle;
 import com.mimosa.deeppokemon.entity.tour.TourPlayer;
 import com.mimosa.deeppokemon.entity.tour.TourPlayerRecord;
+import com.mimosa.deeppokemon.entity.tour.TourTeam;
 import com.mimosa.pokemon.portal.dto.BattleDto;
+import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.TeamGroupDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
-import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
 import com.mimosa.pokemon.portal.util.MongodbUtils;
+import org.bson.types.Binary;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
@@ -45,7 +46,9 @@ import org.springframework.data.mongodb.core.query.Collation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ServerErrorException;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -73,12 +76,11 @@ public class BattleService {
     protected static final String WIN_SMOGON_PLAYER_NAME = "winSmogonPlayerName";
     protected static final String SMOGON_PLAYER = "smogonPlayer";
     protected static final String SMOGON_PLAYER_NAME = "smogonPlayer.name";
+    protected static final String TEAM_ID = "teamId";
     private final MongoTemplate mongoTemplate;
-    private final CrawlerApi crawlerApi;
 
-    public BattleService(MongoTemplate mongoTemplate, CrawlerApi crawlerApi) {
+    public BattleService(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
-        this.crawlerApi = crawlerApi;
     }
 
     @Cacheable("playerBattle")
@@ -224,12 +226,111 @@ public class BattleService {
         return String.format("%s_%s", TEAM_SET, groupName);
     }
 
+    public TeamGroupDto searchTeam(Binary teamId) {
+        List<BattleTeam> teamList = new ArrayList<>();
+        Query ladderTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId)).with(Sort.by(Sort.Order.desc("rating")));
+        ladderTeamQuery.limit(50);
+        teamList.addAll(mongoTemplate.find(ladderTeamQuery, BattleTeam.class));
+        Query tourTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId));
+        tourTeamQuery.limit(50);
+        teamList.addAll(mongoTemplate.find(tourTeamQuery, TourTeam.class));
+
+        if (teamList.isEmpty()) {
+            return null;
+        }
+        TeamSet teamSet = buildTeamSet(teamList);
+        return new TeamGroupDto(teamSet.id(), teamSet.tier(), null, teamList.size(), null,
+                null, null, teamList.get(0).getPokemons(), null, null,
+                convert(teamList), teamSet);
+    }
+
+    public TeamSet buildTeamSet(List<BattleTeam> teams) {
+        if (teams == null || teams.isEmpty()) {
+            return null;
+        }
+        Map<String, Map<String, Integer>> moveMap = new HashMap<>();
+        Map<String, Map<String, Integer>> itemsMap = new HashMap<>();
+        Map<String, Map<String, Integer>> abilityMap = new HashMap<>();
+        Map<String, Map<String, Integer>> teraTypes = new HashMap<>();
+        for (BattleTeam team : teams) {
+            countPokemonSet(team, moveMap, itemsMap, abilityMap, teraTypes);
+        }
+
+        List<PokemonBuildSet> pokemonBuildSets = new ArrayList<>();
+        for (var entrySet : moveMap.entrySet()) {
+            String pokemon = entrySet.getKey();
+            pokemonBuildSets.add(new PokemonBuildSet(pokemon, descSortByValue(moveMap.get(pokemon)),
+                    descSortByValue(abilityMap.get(pokemon)), descSortByValue(itemsMap.get(pokemon)),
+                    descSortByValue(teraTypes.get(pokemon))));
+        }
+
+        LocalDate minReplayDate = teams.stream()
+                .map(BattleTeam::getBattleDate)
+                .filter(Objects::nonNull)
+                .min(LocalDate::compareTo)
+                .orElse(null);
+        return new TeamSet(new Binary(teams.get(0).getTeamId()), teams.get(0).getTier(), teams.size(), minReplayDate,
+                null, pokemonBuildSets);
+    }
+
+    private static void countPokemonSet(BattleTeam team,
+                                        Map<String, Map<String, Integer>> moveMap,
+                                        Map<String, Map<String, Integer>> itemsMap,
+                                        Map<String, Map<String, Integer>> abilityMap,
+                                        Map<String, Map<String, Integer>> teraTypes) {
+        for (Pokemon pokemon : team.getPokemons()) {
+            if (!moveMap.containsKey(pokemon.getName())) {
+                moveMap.put(pokemon.getName(), new HashMap<>());
+                itemsMap.put(pokemon.getName(), new HashMap<>());
+                abilityMap.put(pokemon.getName(), new HashMap<>());
+                teraTypes.put(pokemon.getName(), new HashMap<>());
+            }
+
+            if (pokemon.getItem() != null) {
+                itemsMap.get(pokemon.getName()).merge(pokemon.getItem().trim(), 1, Integer::sum);
+            }
+
+            if (pokemon.getAbility() != null) {
+                abilityMap.get(pokemon.getName()).merge(pokemon.getAbility().trim(), 1, Integer::sum);
+            }
+
+            if (pokemon.getTeraType() != null) {
+                teraTypes.get(pokemon.getName()).merge(pokemon.getTeraType().trim(), 1, Integer::sum);
+            }
+
+            for (String move : pokemon.getMoves()) {
+                moveMap.get(pokemon.getName()).merge(move.trim(), 1, Integer::sum);
+            }
+        }
+    }
+
+    private <K, V extends Comparable<? super V>> List<K> descSortByValue(Map<K, V> map) {
+        List<Map.Entry<K, V>> list = new ArrayList<>(map.entrySet());
+        list.sort(Collections.reverseOrder(Map.Entry.comparingByValue()));
+
+        List<K> result = new ArrayList<>();
+        for (Map.Entry<K, V> entry : list) {
+            result.add(entry.getKey());
+        }
+
+        return result;
+    }
+
+    private List<BattleTeamDto> convert(List<BattleTeam> battleTeams) {
+        List<BattleTeamDto> battleTeamDtos = new ArrayList<>();
+        for (BattleTeam battleTeam : battleTeams) {
+            battleTeamDtos.add(new BattleTeamDto(battleTeam.getBattleId(), battleTeam.getBattleDate(), null
+                    , battleTeam.getPlayerName(), null, null, null, null));
+        }
+        return battleTeamDtos;
+    }
+
     @RegisterReflectionForBinding({BattleStat.class, PlayerStat.class, PokemonBattleStat.class, TurnStat.class,
             TurnPlayerStat.class, TurnPokemonStat.class})
     public BattleStat battleStat(String battleId) {
         BattleStat battleStat = mongoTemplate.findById(battleId, BattleStat.class);
         if (battleStat == null) {
-            battleStat = crawlerApi.battleStat(battleId);
+            throw new ServerErrorException("stat is not exist", null);
         }
         return battleStat;
     }

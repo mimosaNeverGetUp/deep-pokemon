@@ -21,13 +21,13 @@ public class CacheService {
         // execute annotation
     }
 
-    @CacheEvict(value = {"teamGroup", "team"}, allEntries = true)
+    @CacheEvict(value = {"teamGroup"}, allEntries = true)
     public void clearTeam() {
         // execute annotation
     }
 
     @CacheEvict(value = {"rank", "playerRank", "playerBattle", "teamGroup", "monthlyUsage", "monthlyMeta",
-            "monthlyMoveSet", "monthlyPokemonSet", "tours", "tourPlayerBattle", "team"}, allEntries = true)
+            "monthlyMoveSet", "monthlyPokemonSet", "tours", "tourPlayerBattle"}, allEntries = true)
     public void clearAll() {
         // execute annotation
     }
@@ -38,7 +38,7 @@ public class CacheService {
         // execute annotation
     }
 
-    @CacheEvict(value = {"tours", "tourPlayerBattle"}, allEntries = true)
+    @CacheEvict(value = {"tours"}, allEntries = true)
     public void clearTour() {
         // execute annotation
     }

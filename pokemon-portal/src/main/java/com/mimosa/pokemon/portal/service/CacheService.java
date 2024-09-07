@@ -132,8 +132,6 @@ public class CacheService {
             loadMonthlyStat(format, 1, 20, false);
             loadMonthlyStat(format, 2, 20, false);
             loadMonthlyStat(format, 0, 100, false);
-            loadMonthlyStat(format, 1, 100, false);
-            loadMonthlyStat(format, 2, 100, false);
         } catch (Exception e) {
             log.error("load monthly stat fail", e);
             return false;

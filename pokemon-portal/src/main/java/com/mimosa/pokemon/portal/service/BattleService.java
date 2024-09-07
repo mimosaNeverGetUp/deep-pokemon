@@ -109,7 +109,6 @@ public class BattleService {
         return new PageResponse<>(count, page, row, battles);
     }
 
-    @Cacheable("tourPlayerBattle")
     public PageResponse<BattleDto> listTourBattle(String playerName, int page, int row) {
         Criteria criteria = Criteria.where(SMOGON_PLAYER_NAME).in(playerName);
         long count = mongoTemplate.count(new Query(criteria), TourBattle.class);
@@ -226,8 +225,8 @@ public class BattleService {
         return String.format("%s_%s", TEAM_SET, groupName);
     }
 
-    @Cacheable("team")
-    public TeamGroupDto searchTeam(Binary teamId,int replayLimit) {
+    @RegisterReflectionForBinding({TourTeam.class, BattleTeam.class})
+    public TeamGroupDto searchTeam(Binary teamId, int replayLimit) {
         List<BattleTeam> teamList = new ArrayList<>();
         Query ladderTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId)).with(Sort.by(Sort.Order.desc("rating")));
         ladderTeamQuery.limit(replayLimit);

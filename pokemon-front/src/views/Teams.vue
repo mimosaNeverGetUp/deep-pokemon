@@ -140,7 +140,7 @@ queryTeams(page.value, row.value);
       <template #body="slotProps">
         <div class="flex items-center gap-1">
           <Team :team="slotProps.data" :compact="true" :teamSet="slotProps.data.teamSet"></Team>
-          <i v-if="tour" class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
+          <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
              @click="toggleTeamInfoDialog(slotProps.data.id.data)"/>
         </div>
       </template>

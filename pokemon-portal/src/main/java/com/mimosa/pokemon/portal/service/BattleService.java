@@ -226,6 +226,7 @@ public class BattleService {
         return String.format("%s_%s", TEAM_SET, groupName);
     }
 
+    @Cacheable("team")
     public TeamGroupDto searchTeam(Binary teamId,int replayLimit) {
         List<BattleTeam> teamList = new ArrayList<>();
         Query ladderTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId)).with(Sort.by(Sort.Order.desc("rating")));

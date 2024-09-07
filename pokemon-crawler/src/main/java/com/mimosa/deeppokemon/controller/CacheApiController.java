@@ -29,7 +29,7 @@ public class CacheApiController {
 
     @PostMapping("/team/delete")
     public boolean deleteTeamGroup() {
-        cacheService.clearTeamGroup();
+        cacheService.clearTeam();
         return true;
     }
 

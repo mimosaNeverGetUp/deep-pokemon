@@ -11,12 +11,11 @@ import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.BattleService;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import org.bson.types.Binary;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
 import java.util.Collections;
 import java.util.List;
 
@@ -47,5 +46,11 @@ public class TeamApiController {
             Collections.sort(players);
         }
         return battleService.teamGroup(page, row, tags, pokemons, players, sort, groupName);
+    }
+
+    @GetMapping("/team/{teamId}")
+    public TeamGroupDto team(@PathVariable("teamId") String teamId,
+                             @RequestParam(required = false, name = "replayNum", defaultValue = "20") int replayNum) {
+        return battleService.searchTeam(new Binary(Base64.getDecoder().decode(teamId)), replayNum);
     }
 }

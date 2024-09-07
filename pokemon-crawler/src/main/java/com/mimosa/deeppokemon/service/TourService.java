@@ -19,6 +19,7 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -70,6 +71,7 @@ public class TourService {
         this.replayBattleCrawler = replayBattleCrawler;
     }
 
+    @CacheEvict(value = {"tours", "tourPlayerBattle", "teamGroup", "team"}, allEntries = true)
     public List<Battle> crawTour(String tourName, String tourShortName, String format, ReplayProvider replayProvider) {
         SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler);
         CompletableFuture<List<Battle>> future = battleService.crawBattle(replayProvider, crawler, false);

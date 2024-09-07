@@ -10,7 +10,9 @@ import Column from "primevue/column";
 import Team from "@/components/Team.vue";
 import DataTable from "primevue/datatable";
 import ProgressSpinner from 'primevue/progressspinner';
+import Dialog from 'primevue/dialog';
 import {useRoute} from "vue-router";
+import TeamInfo from "@/components/TeamInfo.vue";
 
 const route = useRoute();
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
@@ -21,6 +23,8 @@ const tour = ref(route.query.tour !== undefined);
 const teams = ref();
 const page = ref(0);
 const row = ref(7);
+const teamInfoDialogVisible = ref(false);
+const teamInfoId = ref();
 
 async function queryTeams(page, row) {
   let url = new URL(`${apiUrl}/api/v2/teams?page=${page}&row=${row}`);
@@ -119,6 +123,12 @@ async function onPage(event) {
   });
 }
 
+function toggleTeamInfoDialog(teamId) {
+  console.log(teamId)
+  teamInfoDialogVisible.value = true;
+  teamInfoId.value = teamId;
+}
+
 queryTeams(page.value, row.value);
 </script>
 
@@ -128,8 +138,10 @@ queryTeams(page.value, row.value);
              @page="onPage($event)" :scrollable="false" tableStyle="min-width: 50rem">
     <Column field="teamId" header="team" :style="{ width:'20%'}">
       <template #body="slotProps">
-        <div class="flex items-center">
+        <div class="flex items-center gap-1">
           <Team :team="slotProps.data" :compact="true" :teamSet="slotProps.data.teamSet"></Team>
+          <i v-if="tour" class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
+             @click="toggleTeamInfoDialog(slotProps.data.id.data)"/>
         </div>
       </template>
     </Column>
@@ -156,9 +168,9 @@ queryTeams(page.value, row.value);
           </Column>
           <Column v-if="tour" field="playerRecord.winDif" sortable header="record" :style="{ width:'10%'}">
             <template #body="{data}">
-              <span>{{ data.playerRecord?.win +"-" +data.playerRecord?.loss }}</span>
+              <span>{{ data.playerRecord?.win + "-" + data.playerRecord?.loss }}</span>
             </template>
-            </Column>
+          </Column>
           <Column v-if="tour" field="player.team" header="team" :style="{ width:'10%'}"/>
           <Column v-if="tour" field="stage" header="stage" :style="{ width:'10%'}"/>
           <Column v-else field="rating" sortable header="rating" :style="{ width:'10%'}"/>
@@ -173,8 +185,13 @@ queryTeams(page.value, row.value);
         </DataTable>
       </template>
     </Column>
-
   </DataTable>
+
+  <Dialog v-model:visible="teamInfoDialogVisible" modal header="Team Info" class="size-3/4">
+    <div class="">
+      <TeamInfo :teamId="teamInfoId"></TeamInfo>
+    </div>
+  </Dialog>
   <ProgressSpinner v-if="loading"/>
   <p v-if="loadFail" class="mt-[60px]">load team fail.</p>
 </template>

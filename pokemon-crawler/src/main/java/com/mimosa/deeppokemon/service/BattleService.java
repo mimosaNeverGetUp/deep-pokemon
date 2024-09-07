@@ -287,7 +287,7 @@ public class BattleService {
     }
 
 
-    @CacheEvict(value = "teamGroup", allEntries = true)
+    @CacheEvict(value = {"teamGroup", "team"}, allEntries = true)
     public synchronized void updateTeam() {
         updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(3), LocalDate.now()
                 , "team_group_last_3_days", "team_set_last_3_days"));

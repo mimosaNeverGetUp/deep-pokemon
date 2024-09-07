@@ -111,4 +111,23 @@ class TeamApiControllerTest {
                         Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.notNullValue()
                         )))));
     }
+
+    @Test
+    void searchTeamByID() throws Exception {
+        mockMvc.perform(get("/api/team/MDAwMzAzMjQwNDg1MDk4NDA5ODgxMDA5"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").isNotEmpty())
+                .andExpect(jsonPath("$.replayNum").isNotEmpty())
+                .andExpect(jsonPath("$.teamSet").isNotEmpty())
+                .andExpect(jsonPath("$.pokemons").isNotEmpty())
+                .andExpect(jsonPath("$.teams").isNotEmpty())
+                .andExpect(jsonPath("$.teams", Matchers.everyItem(Matchers.allOf(
+                        Matchers.hasEntry(Matchers.equalTo("battleId"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("battleDate"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("pokemons"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("playerName"), Matchers.not(0))
+                ))));
+
+    }
 }

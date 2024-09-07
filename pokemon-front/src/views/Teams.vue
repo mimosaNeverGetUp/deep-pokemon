@@ -124,7 +124,6 @@ async function onPage(event) {
 }
 
 function toggleTeamInfoDialog(teamId) {
-  console.log(teamId)
   teamInfoDialogVisible.value = true;
   teamInfoId.value = teamId;
 }

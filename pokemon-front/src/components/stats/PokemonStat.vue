@@ -197,7 +197,7 @@ function getStatStyle(stat, value) {
       <div class="flex justify-start items-center">
         <p class="text-3xl font-bold mr-1 text-center items-center">{{ pokemon?.name }}</p>
         <img v-if="pokemoninfo[pokemon?.name]" v-for="type in getPokemonTypes(pokemon?.name)"
-             :src="`/types/${type}.png`" height="17" width="40" :alt="tera"/>
+             :src="`/types/${type}.png`" height="17" width="40" :alt="type"/>
         <div class="ml-4 w-56" v-if="pokemoninfo[pokemon?.name]">
           <div v-for="(value, key) in getPokemonStats(pokemon?.name)" class="flex gap-1 items-center text-center">
             <span class="font-mono  text-sm w-6">{{ key.toUpperCase() }}</span>

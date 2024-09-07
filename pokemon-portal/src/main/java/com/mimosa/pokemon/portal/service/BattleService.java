@@ -226,13 +226,13 @@ public class BattleService {
         return String.format("%s_%s", TEAM_SET, groupName);
     }
 
-    public TeamGroupDto searchTeam(Binary teamId) {
+    public TeamGroupDto searchTeam(Binary teamId,int replayLimit) {
         List<BattleTeam> teamList = new ArrayList<>();
         Query ladderTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId)).with(Sort.by(Sort.Order.desc("rating")));
-        ladderTeamQuery.limit(50);
+        ladderTeamQuery.limit(replayLimit);
         teamList.addAll(mongoTemplate.find(ladderTeamQuery, BattleTeam.class));
         Query tourTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId));
-        tourTeamQuery.limit(50);
+        tourTeamQuery.limit(replayLimit);
         teamList.addAll(mongoTemplate.find(tourTeamQuery, TourTeam.class));
 
         if (teamList.isEmpty()) {
@@ -319,8 +319,9 @@ public class BattleService {
     private List<BattleTeamDto> convert(List<BattleTeam> battleTeams) {
         List<BattleTeamDto> battleTeamDtos = new ArrayList<>();
         for (BattleTeam battleTeam : battleTeams) {
-            battleTeamDtos.add(new BattleTeamDto(battleTeam.getBattleId(), battleTeam.getBattleDate(), null
-                    , battleTeam.getPlayerName(), null, null, null, null));
+            battleTeamDtos.add(new BattleTeamDto(battleTeam.getBattleId(), battleTeam.getBattleDate(),
+                    (int) battleTeam.getRating(), battleTeam.getPlayerName(), null, null, null,
+                    null, battleTeam.getPokemons()));
         }
         return battleTeamDtos;
     }

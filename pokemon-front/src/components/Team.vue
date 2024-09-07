@@ -130,7 +130,7 @@ watch(() => props.teamSet, async (teamSet) => {
 }
 
 .set-tip .set-tip-text {
-  visibility: hidden;
+  display: none;
   background-color: black;
   color: #fff;
   width: 300px;
@@ -140,6 +140,6 @@ watch(() => props.teamSet, async (teamSet) => {
 }
 
 .set-tip:hover .set-tip-text {
-  visibility: visible;
+  display: block;
 }
 </style>

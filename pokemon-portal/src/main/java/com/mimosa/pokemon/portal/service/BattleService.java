@@ -77,6 +77,7 @@ public class BattleService {
     protected static final String SMOGON_PLAYER = "smogonPlayer";
     protected static final String SMOGON_PLAYER_NAME = "smogonPlayer.name";
     protected static final String TEAM_ID = "teamId";
+    protected static final String BATTLE_DATE = "battleDate";
     private final MongoTemplate mongoTemplate;
 
     public BattleService(MongoTemplate mongoTemplate) {
@@ -142,7 +143,7 @@ public class BattleService {
         Criteria criteria = Criteria.where("playerName").is(playerName)
                 .andOperator(Criteria.where("tier").in("gen9ou", "[Gen 9] OU"));
         Query query = new Query(criteria)
-                .with(Sort.by(Sort.Order.desc("battleDate")))
+                .with(Sort.by(Sort.Order.desc(BATTLE_DATE)))
                 .limit(2);
         query.collation(Collation.of("en").strength(2));
         return mongoTemplate.find(query, BattleTeam.class);
@@ -228,7 +229,7 @@ public class BattleService {
     @RegisterReflectionForBinding({TourTeam.class, BattleTeam.class})
     public TeamGroupDto searchTeam(Binary teamId, int replayLimit) {
         List<BattleTeam> teamList = new ArrayList<>();
-        Query ladderTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId)).with(Sort.by(Sort.Order.desc("rating")));
+        Query ladderTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId)).with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
         ladderTeamQuery.limit(replayLimit);
         teamList.addAll(mongoTemplate.find(ladderTeamQuery, BattleTeam.class));
         Query tourTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId));

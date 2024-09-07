@@ -27,7 +27,7 @@ public class CacheService {
     }
 
     @CacheEvict(value = {"rank", "playerRank", "playerBattle", "teamGroup", "monthlyUsage", "monthlyMeta",
-            "monthlyMoveSet", "monthlyPokemonSet", "tours", "tourPlayerBattle"}, allEntries = true)
+            "monthlyMoveSet", "monthlyPokemonSet", "tours"}, allEntries = true)
     public void clearAll() {
         // execute annotation
     }

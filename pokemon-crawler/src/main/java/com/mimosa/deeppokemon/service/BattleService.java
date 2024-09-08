@@ -37,6 +37,7 @@ import com.mongodb.bulk.BulkWriteError;
 import com.mongodb.bulk.BulkWriteInsert;
 import com.mongodb.bulk.BulkWriteResult;
 import org.bson.Document;
+import org.bson.types.Binary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
@@ -173,10 +174,12 @@ public class BattleService {
             for (BattleTeam team : battle.getBattleTeams()) {
                 String battleTeamId = String.format("%s_%d", battle.getBattleID(), index);
                 byte[] teamId = calTeamId(team.getPokemons());
+                List<Binary> featureIds = calTeamFeatureId(team.getPokemons());
                 float rating = Math.max(battle.getAvageRating(), team.getRating());
                 team.setId(battleTeamId);
                 team.setRating(rating);
                 team.setTeamId(teamId);
+                team.setFeatureIds(featureIds);
                 team.setBattleId(battle.getBattleID());
                 team.setBattleDate(battle.getDate());
                 team.setBattleType(battle.getType());
@@ -362,7 +365,7 @@ public class BattleService {
                 .build();
         aggregationOperations.add(addFieldsOperationBuilder);
         aggregationOperations.add(Aggregation.stage("{ $project : { 'playerSet': 0, 'pokemons.moves': 0, 'pokemons.item': 0," +
-                " 'pokemons.ability': 0 } }"));
+                " 'pokemons.ability': 0, 'teams.featureIds': 0 } }"));
         MergeOperation mergeOperation = Aggregation.merge()
                 .intoCollection(teamGroupDetail.teamGroupCollectionName())
                 .whenDocumentsMatch(teamGroupDetail.getMergeMatchUpdateOperation())
@@ -394,5 +397,19 @@ public class BattleService {
         TeamGroupDetail teamGroupDetail = new TeamGroupDetail(month.with(firstDayOfMonth()), month.with(lastDayOfMonth()),
                 teamGroupCollectionName, teamSetCollectionName);
         updateTeam(teamGroupDetail);
+    }
+
+    public List<Binary> calTeamFeatureId(List<Pokemon> pokemons) {
+        if (pokemons == null || pokemons.size() < 6) {
+            return Collections.emptyList();
+        }
+
+        List<Binary> featureIdList = new ArrayList<>();
+        for (int i = 0; i < pokemons.size(); i++) {
+            List<Pokemon> subPokemons = new ArrayList<>(pokemons);
+            subPokemons.remove(i);
+            featureIdList.add(new Binary(calTeamId(subPokemons)));
+        }
+        return featureIdList;
     }
 }

@@ -31,11 +31,12 @@ class TeamServiceTest {
                 Collections.singleton(Tag.ATTACK), null);
         Mockito.doReturn(List.of(teamSetA, teamSetB)).when(teamService).getTeamSets(Mockito.any(), Mockito.any());
         List<TeamGroup> teamGroups = new ArrayList<>();
-        TeamGroup teamGroupA = new TeamGroup("testA".getBytes(), null, 0, 1, 0, null, null, null, null, null, null);
+        TeamGroup teamGroupA = new TeamGroup("testA".getBytes(), null, 0, 1, 0,
+                null, null, null, null, null, null, null);
         TeamGroup teamGroupB = new TeamGroup("testB".getBytes(), null, 0, 5, 0, null, null, null, null,
-                null, null);
+                null, null, null);
         TeamGroup teamGroupC = new TeamGroup("testC".getBytes(), null, 0, 1, 0, null, null, null, null,
-                null, null);
+                null, null, null);
         teamGroups.add(teamGroupA);
         teamGroups.add(teamGroupB);
         teamGroups.add(teamGroupC);
@@ -66,7 +67,7 @@ class TeamServiceTest {
                 0, null, "gen9ou", pokemonsC, null);
 
         TeamGroup teamGroup = new TeamGroup("1".getBytes(), "gen9ou", 3, 3, 0
-                , null, null, null, null,
+                , null, null, null, null, null,
                 LocalDate.now().minusMonths(1), List.of(battleTeamA, battleTeamB, battleTeamC));
         TeamSet teamSet = teamService.buildTeamSet(teamGroup);
         assertEquals("1", new String(teamSet.id().getData()));

@@ -28,6 +28,7 @@ public class TeamGroupDetail {
     protected static final String TEAMS = "teams";
     protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
     protected static final String REPLAY_NUM = "replayNum";
+    protected static final String FEATURE_IDS = "featureIds";
 
     private final LocalDate start;
     private final LocalDate end;
@@ -70,6 +71,7 @@ public class TeamGroupDetail {
                 .max(RATING).as(MAX_RATING)
                 .first(POKEMONS).as(POKEMONS)
                 .first(TAG_SET).as(TAG_SET)
+                .first(FEATURE_IDS).as(FEATURE_IDS)
                 .first(TIER).as(TIER)
                 .addToSet(PLAYER_NAME).as(PLAYER_SET)
                 .push("$$ROOT").as(TEAMS);

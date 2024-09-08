@@ -95,6 +95,7 @@ class BattleServiceTest {
                 Assertions.assertNotNull(battleTeam.getBattleDate());
                 Assertions.assertNotNull(battleTeam.getTier());
                 Assertions.assertFalse(battleTeam.getTagSet().isEmpty());
+                Assertions.assertFalse(battleTeam.getFeatureIds().isEmpty());
                 List<Pokemon> pokemons = battleTeam.getPokemons();
                 Assertions.assertNotNull(pokemons);
                 Assertions.assertTrue(pokemons.stream().allMatch(PokemonMatcher.POKEMON_MATCHER::matches));
@@ -131,6 +132,20 @@ class BattleServiceTest {
         Assertions.assertEquals("019906450889098309841017", teamId);
     }
 
+
+    @Test
+    void calTeamFeatureId() {
+        List<Binary> featureIds = battleService.calTeamFeatureId(List.of(new Pokemon("Ogerpon-Wellspring"), new Pokemon(
+                "Kingambit"), new Pokemon("Great Tusk"), new Pokemon("Zamazenta-*"), new Pokemon("Landorus-Therian"), new Pokemon("Slowking-Galar")));
+        Assertions.assertEquals(6, featureIds.size());
+        Assertions.assertTrue(featureIds.contains(new Binary("06450889098309841017".getBytes())));
+        Assertions.assertTrue(featureIds.contains(new Binary("01990889098309841017".getBytes())));
+        Assertions.assertTrue(featureIds.contains(new Binary("01990645098309841017".getBytes())));
+        Assertions.assertTrue(featureIds.contains(new Binary("01990645088909841017".getBytes())));
+        Assertions.assertTrue(featureIds.contains(new Binary("01990645088909831017".getBytes())));
+        Assertions.assertTrue(featureIds.contains(new Binary("01990645088909830984".getBytes())));
+    }
+
     @Test
     void updateTeam() {
         battleService.updateTeam(new TeamGroupDetail(LocalDate.now().minusYears(99), LocalDate.now(),
@@ -145,6 +160,7 @@ class BattleServiceTest {
         Assertions.assertNotNull(teamGroup.id());
         Assertions.assertNotNull(teamGroup.id());
         Assertions.assertFalse(teamGroup.teams().isEmpty());
+        Assertions.assertTrue(teamGroup.teams().get(0).getFeatureIds().isEmpty());
         Assertions.assertNotEquals(0, teamGroup.replayNum());
         Assertions.assertNotEquals(0, teamGroup.uniquePlayerNum());
         Assertions.assertNotNull(teamGroup.maxRating());
@@ -193,6 +209,7 @@ class BattleServiceTest {
             Assertions.assertNotNull(teamGroup.id());
             Assertions.assertNotNull(teamGroup.id());
             Assertions.assertFalse(teamGroup.teams().isEmpty());
+            Assertions.assertTrue(teamGroup.teams().get(0).getFeatureIds().isEmpty());
             Assertions.assertNotEquals(0, teamGroup.replayNum());
             Assertions.assertNotEquals(0, teamGroup.uniquePlayerNum());
             Assertions.assertNotNull(teamGroup.maxPlayerWinDif());

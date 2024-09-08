@@ -65,6 +65,7 @@ public class TourTeamGroupDetail extends TeamGroupDetail {
                 .max(PLAYER_RECORD_WIN_DIF).as(MAX_PLAYER_WIN_DIF)
                 .first(POKEMONS).as(POKEMONS)
                 .first(TAG_SET).as(TAG_SET)
+                .first(FEATURE_IDS).as(FEATURE_IDS)
                 .first(TIER).as(TIER)
                 .addToSet(PLAYER_NAME).as(PLAYER_SET)
                 .push("$$ROOT").as(TEAMS);

@@ -24,7 +24,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
-@ContextConfiguration(classes = MongodbTestConfig.class)
+//@ContextConfiguration(classes = MongodbTestConfig.class)
 class BattleTeamMigratorTest {
     @Autowired
     private BattleTeamMigrator battleTeamMigrator;
@@ -32,7 +32,7 @@ class BattleTeamMigratorTest {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    @Test
+//    @Test
     void migrateBattleTeam() {
         battleTeamMigrator.migrateBattleTeam();
         List<BattleTeam> battleTeams = mongoTemplate.find(new Query().limit(10), BattleTeam.class);

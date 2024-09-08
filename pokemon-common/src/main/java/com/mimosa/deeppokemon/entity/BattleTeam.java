@@ -1,5 +1,6 @@
 package com.mimosa.deeppokemon.entity;
 
+import org.bson.types.Binary;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -23,11 +24,13 @@ public class BattleTeam implements Serializable {
     protected String tier;
     protected List<Pokemon> pokemons;
     protected Set<Tag> tagSet;
+    protected List<Binary> featureIds;
 
     public BattleTeam() {
         battleType = new ArrayList<>();
         pokemons = new ArrayList<>();
         tagSet = new HashSet<>();
+        featureIds = new ArrayList<>();
     }
 
     public BattleTeam(String id, String battleId, byte[] teamId, LocalDate battleDate, List<String> battleType,
@@ -42,6 +45,7 @@ public class BattleTeam implements Serializable {
         this.tier = tier;
         this.pokemons = pokemons;
         this.tagSet = tagSet;
+        featureIds = new ArrayList<>();
     }
 
     public String getId() {
@@ -122,6 +126,14 @@ public class BattleTeam implements Serializable {
 
     public void setTagSet(Set<Tag> tagSet) {
         this.tagSet = tagSet;
+    }
+
+    public List<Binary> getFeatureIds() {
+        return featureIds;
+    }
+
+    public void setFeatureIds(List<Binary> featureIds) {
+        this.featureIds = featureIds;
     }
 
     public Pokemon findPokemon(String pokemonName) {

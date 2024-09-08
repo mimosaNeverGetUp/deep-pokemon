@@ -78,6 +78,7 @@ public class TourTeamGroupDetail extends TeamGroupDetail {
                 SetOperation.set(LATEST_BATTLE_DATE).toValue("$$new.latestBattleDate")
                         .and().set(MAX_PLAYER_WIN_RATE).toValue("$$new.maxPlayerWinRate")
                         .and().set(MAX_PLAYER_WIN_DIF).toValue("$$new.maxPlayerWinDif")
+                        .and().set(FEATURE_IDS).toValue("$$new.featureIds")
                         .and().set(POKEMONS).toValue("$$new.pokemons")
                         .and().set(TEAMS).toValue("$$new.teams")
                         .and().set(UNIQUE_PLAYER_NUM).toValue("$$new.uniquePlayerNum")

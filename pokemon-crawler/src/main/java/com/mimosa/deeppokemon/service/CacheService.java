@@ -21,12 +21,12 @@ public class CacheService {
         // execute annotation
     }
 
-    @CacheEvict(value = {"teamGroup"}, allEntries = true)
+    @CacheEvict(value = {"teamGroup", "teamInfo"}, allEntries = true)
     public void clearTeam() {
         // execute annotation
     }
 
-    @CacheEvict(value = {"rank", "playerRank", "playerBattle", "teamGroup", "monthlyUsage", "monthlyMeta",
+    @CacheEvict(value = {"rank", "playerRank", "playerBattle", "teamGroup", "teamInfo", "monthlyUsage", "monthlyMeta",
             "monthlyMoveSet", "monthlyPokemonSet", "tours"}, allEntries = true)
     public void clearAll() {
         // execute annotation

@@ -90,6 +90,7 @@ public class PokemonPortalApplication {
                     .registerType(BattleDto.class)
                     .registerType(BattleTeam.class)
                     .registerType(Pokemon.class)
+                    .registerType(TeamGroup.class)
                     .registerType(TeamGroupDto.class)
                     .registerType(TeamSet.class)
                     .registerType(PokemonBuildSet.class)

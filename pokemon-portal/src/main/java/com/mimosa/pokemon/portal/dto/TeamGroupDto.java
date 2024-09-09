@@ -17,8 +17,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
-public record TeamGroupDto(@MongoId Binary id, String tier, Integer uniquePlayerNum, Integer replayNum, Integer maxRating,
-                           Float maxPlayerWinRate, Integer maxPlayerWinDif,
-                           List<Pokemon> pokemons, Set<Tag> tagSet, LocalDate latestBattleDate,
-                           List<BattleTeamDto> teams, TeamSet teamSet) implements Serializable {
+public record TeamGroupDto(@MongoId Binary id, String tier, Integer uniquePlayerNum, Integer replayNum,
+                           Integer maxRating, Float maxPlayerWinRate, Integer maxPlayerWinDif,
+                           List<Pokemon> pokemons, Set<Tag> tagSet, List<Binary> featureIds, LocalDate latestBattleDate,
+                           List<BattleTeamDto> teams, TeamSet teamSet, List<TeamGroupDto> similarTeams) implements Serializable {
+
 }

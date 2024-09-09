@@ -40,6 +40,7 @@ import org.bson.types.Binary;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.MongoExpression;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Collation;
@@ -78,6 +79,8 @@ public class BattleService {
     protected static final String SMOGON_PLAYER_NAME = "smogonPlayer.name";
     protected static final String TEAM_ID = "teamId";
     protected static final String BATTLE_DATE = "battleDate";
+    protected static final String FEATURE_IDS = "featureIds";
+    protected static final String POKEMONS = "pokemons";
     private final MongoTemplate mongoTemplate;
 
     public BattleService(MongoTemplate mongoTemplate) {
@@ -226,6 +229,7 @@ public class BattleService {
         return String.format("%s_%s", TEAM_SET, groupName);
     }
 
+    @Cacheable("teamInfo")
     @RegisterReflectionForBinding({TourTeam.class, BattleTeam.class})
     public TeamGroupDto searchTeam(Binary teamId, int replayLimit) {
         List<BattleTeam> teamList = new ArrayList<>();
@@ -240,9 +244,37 @@ public class BattleService {
             return null;
         }
         TeamSet teamSet = buildTeamSet(teamList);
+        List<TeamGroupDto> similarTeams = searchSimilarTeam(teamSet.id(), teamList.get(0).getFeatureIds());
         return new TeamGroupDto(teamSet.id(), teamSet.tier(), null, teamList.size(), null,
-                null, null, teamList.get(0).getPokemons(), null, null,
-                convert(teamList), teamSet);
+                null, null, teamList.get(0).getPokemons(), null,
+                null, null, convert(teamList), teamSet, similarTeams);
+    }
+
+    public List<TeamGroupDto> searchSimilarTeam(Binary teamId, List<Binary> teamFeatureIds) {
+        MatchOperation matchOperation =
+                Aggregation.match(Criteria.where(FEATURE_IDS).elemMatch(new Criteria().in(teamFeatureIds)));
+        UnionWithOperation unionWithOperation = UnionWithOperation.unionWith(TOUR_TEAM).pipeline(matchOperation);
+
+        GroupOperation groupOperation = Aggregation.group(TEAM_ID)
+                .and(TEAMS, AggregationExpression.from(MongoExpression.create("{$firstN:{input:\"$$ROOT\",n:20}}")))
+                .first(POKEMONS).as(POKEMONS);
+        LimitOperation limitOperation = Aggregation.limit(6);
+        Aggregation aggregation = Aggregation.newAggregation(matchOperation, unionWithOperation, groupOperation,
+                limitOperation);
+        List<TeamGroup> teamGroups =
+                mongoTemplate.aggregate(aggregation, BattleTeam.class, TeamGroup.class).getMappedResults();
+        List<TeamGroupDto> similarTeams = new ArrayList<>();
+        for (TeamGroup teamGroup : teamGroups) {
+            if (teamId.equals(new Binary(teamGroup.id()))) {
+                continue;
+            }
+
+            TeamSet teamSet = buildTeamSet(teamGroup.teams());
+            similarTeams.add(new TeamGroupDto(new Binary(teamGroup.id()), null, null, null, null,
+                    null, null, teamGroup.pokemons(), null, null,
+                    null, null, teamSet, null));
+        }
+        return similarTeams;
     }
 
     public TeamSet buildTeamSet(List<BattleTeam> teams) {

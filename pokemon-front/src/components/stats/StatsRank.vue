@@ -9,6 +9,7 @@ import {ref} from "vue";
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import RankDif from "@/components/stats/RankDif.vue";
+import {zh_translation_text} from "@/components/data/translationText.js";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const usages = ref(null)
@@ -19,7 +20,12 @@ const totalRecords = ref(null);
 
 const props = defineProps({
   updateSelectPokemon: Function,
-  format: String
+  format: String,
+  language: {
+    type: String,
+    required: false,
+    default: "en"
+  }
 })
 
 async function fetchStatsData(format, page, row) {
@@ -53,6 +59,14 @@ function onRowSelect(row) {
   props.updateSelectPokemon(row.data);
 }
 
+function getTranslation(text) {
+  if (props.language === "zh" && zh_translation_text[text]) {
+    return zh_translation_text[text];
+  }
+
+  return text;
+}
+
 fetchStatsData(props.format, page.value, row.value);
 </script>
 
@@ -65,9 +79,9 @@ fetchStatsData(props.format, page.value, row.value);
     </Column>
     <Column field="name" header="pokemon" :style="{ width:'35%' }">
       <template #body="{data}">
-        <div class="flex gap-1 items-center justify-center">
+        <div class="flex gap-1 items-center justify-start">
           <img :src="getIconUrl(data.name)" :alt="data.name" :title="data.name"/>
-          <span class="w-full"> {{ data.name }}</span>
+          <span class=" w-full min-w-24"> {{ getTranslation(data.name) }}</span>
           <RankDif :newValue="data.rank" :oldValue="data.lastMonthUsage?.rank"/>
         </div>
       </template>

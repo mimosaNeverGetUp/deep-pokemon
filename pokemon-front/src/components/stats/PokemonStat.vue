@@ -14,6 +14,7 @@ import {abilityText} from "@/components/data/abilityText.js";
 import {itemText} from "@/components/data/ItemText.js";
 import {moveText} from "@/components/data/moveText.js";
 import {pokemoninfo} from "@/components/data/pokemoninfo.js"
+import {zh_translation_text} from "@/components/data/translationText.js"
 import {moveInfo} from "@/components/data/moveInfo.js";
 import {nature} from "@/components/data/nature.js";
 import Team from "@/components/Team.vue";
@@ -21,8 +22,14 @@ import Team from "@/components/Team.vue";
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const props = defineProps({
   pokemon: Object,
-  format: String
+  format: String,
+  language: {
+    type: String,
+    required: false,
+    default: "en"
+  }
 })
+
 const moveset = ref()
 const sets = ref()
 const teams = ref(null)
@@ -185,6 +192,13 @@ function getStatStyle(stat, value) {
   return `width:${width}px;background:${bg}`
 }
 
+function getTranslation(text) {
+  if (props.language === "zh" && zh_translation_text[text]) {
+    return zh_translation_text[text];
+  }
+
+  return text;
+}
 
 </script>
 
@@ -195,12 +209,12 @@ function getStatStyle(stat, value) {
            :src="`https://play.pokemonshowdown.com/sprites/dex/${pokemon.name.toLowerCase().replaceAll(' ','')}.png`"
            :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
       <div class="flex justify-start items-center">
-        <p class="text-3xl font-bold mr-1 text-center items-center">{{ pokemon?.name }}</p>
+        <p class="text-3xl font-bold mr-1 text-center items-center">{{  getTranslation(pokemon?.name) }}</p>
         <img v-if="pokemoninfo[pokemon?.name]" v-for="type in getPokemonTypes(pokemon?.name)"
              :src="`/types/${type}.png`" height="17" width="40" :alt="type"/>
         <div class="ml-4 w-56" v-if="pokemoninfo[pokemon?.name]">
           <div v-for="(value, key) in getPokemonStats(pokemon?.name)" class="flex gap-1 items-center text-center">
-            <span class="font-mono  text-sm w-6">{{ key.toUpperCase() }}</span>
+            <span class="font-mono  text-sm w-6">{{ key }}</span>
             <span :style="getStatStyle(key,value)" class="size-3.5"></span>
             <span class="text-sm">{{ value }}</span>
           </div>
@@ -211,7 +225,7 @@ function getStatStyle(stat, value) {
     <div class="flex justify-start items-center gap-2 mb-5">
       <Divider layout="vertical" type="solid"/>
       <div class="ml-3 items-center">
-        <p class="text-xl text-gray-500">weight</p>
+        <p class="text-xl text-gray-500">{{getTranslation("weight")}}</p>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.weighted) }}</p>
           <UsageDif :newValue="pokemon.usage.weighted" :oldValue="pokemon.lastMonthUsage?.usage.weighted"/>
@@ -219,7 +233,7 @@ function getStatStyle(stat, value) {
       </div>
       <Divider layout="vertical" type="solid"/>
       <div class="items-center">
-        <p class="text-xl text-gray-500">raw</p>
+        <p class="text-xl text-gray-500">{{getTranslation("raw")}}</p>
         <div class="flex gap-5 items-center">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.raw) }}</p>
           <UsageDif :newValue="pokemon.usage.raw" :oldValue="pokemon.lastMonthUsage?.usage.raw"/>
@@ -232,12 +246,12 @@ function getStatStyle(stat, value) {
       <p class="text-xl text-gray-500">abilities</p>
       <div class="flex justify-start items-center gap-2 mb-1"
            v-for=" [ability, value] in Object.entries(moveset.abilities)">
-        <span class="w-44 min-w-44">{{ ability }}</span>
+        <span class="w-44 min-w-44">{{ getTranslation(ability) }}</span>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.abilities[ability]"/>
         </div>
-        <span class="whitespace-nowrap">{{ abilityText[ability]?.shortDesc }}</span>
+        <span class="whitespace-nowrap">{{ getTranslation(abilityText[ability]?.shortDesc) }}</span>
       </div>
     </div>
     <Divider type="solid"/>
@@ -246,13 +260,13 @@ function getStatStyle(stat, value) {
       <div class="flex justify-start gap-2 mb-1" v-for=" [item, value] in filterPopularSet(moveset.items,0.01)">
         <div class="w-44 items-center min-w-44">
           <img :src="`/itemicon/${item}.png`" :alt="item"/>
-          <span>{{ item }}</span>
+          <span>{{ getTranslation(item) }}</span>
         </div>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.items[item]"/>
         </div>
-        <span class="whitespace-nowrap">{{ itemText[item]?.desc }}</span>
+        <span class="whitespace-nowrap">{{ getTranslation(itemText[item]?.desc) }}</span>
       </div>
     </div>
     <Divider type="solid"/>
@@ -261,7 +275,7 @@ function getStatStyle(stat, value) {
       <div class="flex justify-start gap-2 mb-1" v-for=" [tera, value] in filterPopularSet(moveset.teraTypes,0.01)">
         <div class="w-44 items-center min-w-44">
           <img :src="`/types/${tera}.png`" :alt="tera"/>
-          <span>{{ tera }}</span>
+          <span>{{ getTranslation(tera) }}</span>
         </div>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
@@ -273,7 +287,7 @@ function getStatStyle(stat, value) {
       <p class="text-xl text-gray-500">moves</p>
       <div class="flex justify-start items-center gap-2 mb-1"
            v-for=" [move, value] in filterPopularSet(moveset.moves,0.01)">
-        <span class="w-44 min-w-44">{{ move }}</span>
+        <span class="w-44 min-w-44">{{ getTranslation(move) }}</span>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.moves[move]"/>
@@ -282,19 +296,19 @@ function getStatStyle(stat, value) {
         <img :src="getMoveCategoryIconUrl(move)" :alt="move"/>
         <span class="w-7 text-center">{{ moveInfo[move]?.basePower }}</span>
         <span class="w-12 text-center">{{ getAccuracyText(moveInfo[move]?.accuracy) }}</span>
-        <span class="whitespace-nowrap">{{ moveText[move]?.shortDesc }}</span>
+        <span class="whitespace-nowrap">{{ getTranslation(moveText[move]?.shortDesc) }}</span>
       </div>
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">spreads</p>
       <div class="flex">
-        <span class="w-32 min-w-32">HP</span>
-        <span class="w-32 min-w-32">ATK</span>
-        <span class="w-32 min-w-32">DEF</span>
-        <span class="w-32 min-w-32">SPA</span>
-        <span class="w-32 min-w-32">SPD</span>
-        <span class="w-32 min-w-32">SPE</span>
+        <span class="w-32 min-w-32">{{getTranslation('Hp')}}</span>
+        <span class="w-32 min-w-32">{{getTranslation('Atk')}}</span>
+        <span class="w-32 min-w-32">{{getTranslation('Def')}}</span>
+        <span class="w-32 min-w-32">{{getTranslation('SpA')}}</span>
+        <span class="w-32 min-w-32">{{getTranslation('SpD')}}</span>
+        <span class="w-32 min-w-32">{{getTranslation('Spe')}}</span>
       </div>
       <div class="flex justify-start items-center mb-1" v-for=" [spread, value] in
       filterPopularSet(moveset.spreads,0.025)">
@@ -314,7 +328,7 @@ function getStatStyle(stat, value) {
       filterPopularSet(moveset.teammates,0.20)">
         <div class="w-60   ">
           <img :src="getIconUrl(teammate)" :alt="teammate"/>
-          <span>{{ teammate }}</span>
+          <span>{{ getTranslation(teammate) }}</span>
         </div>
         <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
       </div>

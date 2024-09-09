@@ -71,7 +71,7 @@ public class TourService {
         this.replayBattleCrawler = replayBattleCrawler;
     }
 
-    @CacheEvict(value = {"tours", "teamGroup"}, allEntries = true)
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
     public List<Battle> crawTour(String tourName, String tourShortName, String format, ReplayProvider replayProvider) {
         SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler);
         CompletableFuture<List<Battle>> future = battleService.crawBattle(replayProvider, crawler, false);

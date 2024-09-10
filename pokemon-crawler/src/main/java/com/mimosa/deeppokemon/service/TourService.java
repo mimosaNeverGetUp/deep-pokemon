@@ -71,7 +71,6 @@ public class TourService {
         this.replayBattleCrawler = replayBattleCrawler;
     }
 
-    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
     public List<Battle> crawTour(String tourName, String tourShortName, String format, ReplayProvider replayProvider) {
         SmogonTourReplayBattleCrawler crawler = new SmogonTourReplayBattleCrawler(replayBattleCrawler);
         CompletableFuture<List<Battle>> future = battleService.crawBattle(replayProvider, crawler, false);
@@ -154,6 +153,7 @@ public class TourService {
         return tourPlayerRecords;
     }
 
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
     public List<Battle> crawWcop2024() {
         SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(WCOP_FORUMS_URL,
                 WCOP_2024_FULL_TOUR_NAME, WCOP_FORUMS_THREAD_SUFFIX_STAGES);
@@ -162,6 +162,7 @@ public class TourService {
         return crawTour(WCOP_2024_FULL_TOUR_NAME, WCOP_2024, GEN_9_OU, provider);
     }
 
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
     public List<Battle> crawOltXI() {
         SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(OLT_FORUMS_URL,
                 OLT_XI_FULL_TOUR_NAME, OLT_STAGES);

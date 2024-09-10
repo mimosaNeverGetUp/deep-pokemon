@@ -18,6 +18,8 @@ import {zh_translation_text} from "@/components/data/translationText.js"
 import {moveInfo} from "@/components/data/moveInfo.js";
 import {nature} from "@/components/data/nature.js";
 import Team from "@/components/Team.vue";
+import Dialog from "primevue/dialog";
+import TeamInfo from "@/components/TeamInfo.vue";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const props = defineProps({
@@ -34,6 +36,8 @@ const moveset = ref()
 const sets = ref()
 const teams = ref(null)
 const loadFail = ref(false)
+const teamInfoDialogVisible = ref(false);
+const teamInfoId = ref();
 
 async function fetchStatsData(format, pokemon) {
   const res = await fetch(`${apiUrl}/api/stats/${format}/moveset/` + pokemon, {
@@ -192,6 +196,11 @@ function getStatStyle(stat, value) {
   return `width:${width}px;background:${bg}`
 }
 
+function toggleTeamInfoDialog(teamId) {
+  teamInfoDialogVisible.value = true;
+  teamInfoId.value = teamId;
+}
+
 function getTranslation(text) {
   if (props.language === "zh" && zh_translation_text[text]) {
     return zh_translation_text[text];
@@ -209,7 +218,7 @@ function getTranslation(text) {
            :src="`https://play.pokemonshowdown.com/sprites/dex/${pokemon.name.toLowerCase().replaceAll(' ','')}.png`"
            :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
       <div class="flex justify-start items-center">
-        <p class="text-3xl font-bold mr-1 text-center items-center">{{  getTranslation(pokemon?.name) }}</p>
+        <p class="text-3xl font-bold mr-1 text-center items-center">{{ getTranslation(pokemon?.name) }}</p>
         <img v-if="pokemoninfo[pokemon?.name]" v-for="type in getPokemonTypes(pokemon?.name)"
              :src="`/types/${type}.png`" height="17" width="40" :alt="type"/>
         <div class="ml-4 w-56" v-if="pokemoninfo[pokemon?.name]">
@@ -225,7 +234,7 @@ function getTranslation(text) {
     <div class="flex justify-start items-center gap-2 mb-5">
       <Divider layout="vertical" type="solid"/>
       <div class="ml-3 items-center">
-        <p class="text-xl text-gray-500">{{getTranslation("weight")}}</p>
+        <p class="text-xl text-gray-500">{{ getTranslation("weight") }}</p>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.weighted) }}</p>
           <UsageDif :newValue="pokemon.usage.weighted" :oldValue="pokemon.lastMonthUsage?.usage.weighted"/>
@@ -233,7 +242,7 @@ function getTranslation(text) {
       </div>
       <Divider layout="vertical" type="solid"/>
       <div class="items-center">
-        <p class="text-xl text-gray-500">{{getTranslation("raw")}}</p>
+        <p class="text-xl text-gray-500">{{ getTranslation("raw") }}</p>
         <div class="flex gap-5 items-center">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.raw) }}</p>
           <UsageDif :newValue="pokemon.usage.raw" :oldValue="pokemon.lastMonthUsage?.usage.raw"/>
@@ -303,12 +312,12 @@ function getTranslation(text) {
     <div class="ml-5 my-3">
       <p class="text-xl text-gray-500">spreads</p>
       <div class="flex">
-        <span class="w-32 min-w-32">{{getTranslation('Hp')}}</span>
-        <span class="w-32 min-w-32">{{getTranslation('Atk')}}</span>
-        <span class="w-32 min-w-32">{{getTranslation('Def')}}</span>
-        <span class="w-32 min-w-32">{{getTranslation('SpA')}}</span>
-        <span class="w-32 min-w-32">{{getTranslation('SpD')}}</span>
-        <span class="w-32 min-w-32">{{getTranslation('Spe')}}</span>
+        <span class="w-32 min-w-32">{{ getTranslation('Hp') }}</span>
+        <span class="w-32 min-w-32">{{ getTranslation('Atk') }}</span>
+        <span class="w-32 min-w-32">{{ getTranslation('Def') }}</span>
+        <span class="w-32 min-w-32">{{ getTranslation('SpA') }}</span>
+        <span class="w-32 min-w-32">{{ getTranslation('SpD') }}</span>
+        <span class="w-32 min-w-32">{{ getTranslation('Spe') }}</span>
       </div>
       <div class="flex justify-start items-center mb-1" v-for=" [spread, value] in
       filterPopularSet(moveset.spreads,0.025)">
@@ -346,17 +355,15 @@ function getTranslation(text) {
       <p class="text-xl  mb-3">teams</p>
       <div class="mb-3 flex items-center text-center" v-for="teamGroup in teams">
         <Team class="" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
-        <div class="flex gap-2 w-full" v-for="team in teamGroup.teams">
-          <router-link :to="`/player-record?name=${team.playerName}`" class="text-black w-1/2">
-            {{ team.playerName }}
-          </router-link>
-          <a :href="`https://replay.pokemonshowdown.com/${team.battleId}`" target="_blank" class="text-black w-1/2">
-            {{ team.battleId }}
-          </a>
-        </div>
+        <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem" @click="toggleTeamInfoDialog(teamGroup.id.data)"/>
       </div>
     </div>
   </div>
   <span v-else-if="loadFail">load move set fail.</span>
   <ProgressSpinner v-else/>
+  <Dialog v-model:visible="teamInfoDialogVisible" modal header="Team Info" class="size-3/4">
+    <div class="">
+      <TeamInfo :teamId="teamInfoId"></TeamInfo>
+    </div>
+  </Dialog>
 </template>

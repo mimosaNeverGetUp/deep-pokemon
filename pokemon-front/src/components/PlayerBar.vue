@@ -21,12 +21,16 @@ async function queryPlayer() {
   player.value = await res.json()
 }
 
+function getRandomPlayerImage() {
+  return Math.random() >= 0.5 ? "Jirachi.jpg" : "Sprigatito.jpg"
+}
+
 queryPlayer();
 </script>
 
 <template>
   <div class="player-bar">
-    <Avatar image="/pokemonicon/touxiang.png"
+    <Avatar :image="getRandomPlayerImage()"
             class="player-avatar"/>
     <div class="player-info">
       <p style="font-weight:bold">
@@ -55,8 +59,8 @@ queryPlayer();
 }
 
 .player-avatar {
-  width: 120px;
-  height: 130px;
+  width: 128px;
+  height: 128px;
 }
 
 .player-info {

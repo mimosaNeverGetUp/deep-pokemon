@@ -17,6 +17,30 @@ const props = defineProps({
   data: Object,
 })
 
+const plugins = [
+  {
+    id: "eventBG",
+    beforeDraw: (chart) => {
+      const ctx = chart.ctx;
+      const yScale = chart.scales.y;
+      const chartArea = chart.chartArea;
+
+      // 获取 0 位置的 Y 坐标
+      const yZero = yScale.getPixelForValue(-100);
+
+      // 保存当前状态
+      ctx.save();
+
+      // 设置背景颜色
+      ctx.fillStyle = 'rgb(245 245 244)';
+      ctx.fillRect(chartArea.left, yZero, chartArea.right - chartArea.left, chartArea.bottom - yZero);
+
+      // 恢复之前状态
+      ctx.restore();
+    },
+  }
+];
+
 async function queryBattleStat(battleId) {
   const res = await fetch(`${apiUrl}/api/battle/${battleId}/stat`, {
         method: "GET"
@@ -61,7 +85,45 @@ function battleChartOption(battleStat) {
       ticks: {
         min: 0,
         max: turnLength,
-        stepSize: 1,
+        stepSize: 1
+      },
+      title: {
+        display: true, // 显示标题
+        text: 'Turn',
+        font: {
+          size: 16,
+          family: 'Arial',
+          weight: 'bold'
+        },
+        align: "end"
+      }
+    },
+    y: {
+      ticks: {
+        color:["#E84057","#5383E8","black","black","black","black","black","black","black",],
+        callback: function (value) {
+          if (value >= 0) {
+            return value + '%'; // 将数值转换为百分比格式
+          } else if (value === -100) {
+            return props.data.winner;
+          }
+
+          for (let team of props.data.teams) {
+            if (team.playerName !== props.data.winner) {
+              return team.playerName;
+            }
+          }
+        }
+      },
+      title: {
+        display: true, // 显示标题
+        text: 'HP',
+        font: {
+          size: 16,
+          family: 'Arial',
+          weight: 'bold'
+        },
+        align: "end"
       }
     }
   }
@@ -105,10 +167,10 @@ function highLightChartDataSets(players, playerHighLights) {
       let y;
       let x = turnHighLight.turn;
       if (props.playerName.toLowerCase() === player.toLowerCase()) {
-        pointBackgroundColor = "blue";
+        pointBackgroundColor = "#5383E8";
         y = -100;
       } else {
-        pointBackgroundColor = "red";
+        pointBackgroundColor = "#E84057";
         y = -200;
       }
 
@@ -137,7 +199,7 @@ function highLightChartDataSets(players, playerHighLights) {
         // build faint pokemon
         let faintPokemon = turnHighLight.description.split("opponent")[1].split(" by ")[0].trim();
         let opponentY = -300 - y;
-        let opponentPointColor = pointBackgroundColor === "blue" ? "red" : "blue";
+        let opponentPointColor = pointBackgroundColor === "#5383E8" ? "#E84057" : "#5383E8";
         let faintPokemonPointData = buildPointData(opponentPointColor, event, x, opponentY);
         const faintPokemonIcon = new Image(30, 22);
         createTransparentImage(getIconUrl(faintPokemon), 0.3, faintPokemonIcon)
@@ -257,9 +319,11 @@ function healthLineChartDataSets(playerNames, turnStats) {
     healthLineChartDataSets.push({
       label: playerName === "" ? "null" : playerName,
       data: battleTrendChartData,
-      borderColor: playerName.toLowerCase() === props.playerName.toLowerCase() ? "blue" : "red",
+      borderColor: playerName.toLowerCase() === props.playerName.toLowerCase() ? "blue" : "#E84057",
       borderWidth: 1,
-      pointRadius: 2
+      pointRadius: 2,
+      cubicInterpolationMode: 'monotone',
+      tension: 0.1
     });
   }
   return healthLineChartDataSets;
@@ -275,14 +339,24 @@ queryBattleStat(props.data.id)
 <template>
   <div>
     <TabView v-if="load === true">
-      <TabPanel header="trend" headerClass="text-lg w-1/2 text-black">
+      <TabPanel headerClass="w-1/2">
+        <template #header>
+          <div class="flex justify-center items-center gap-2 w-full">
+            <span class="text-lg text-black">trend</span>
+          </div>
+        </template>
         <div class="flex justify-center items-center">
-          <Chart :key="data.battleID" type="line"
+          <Chart :key="data.battleID" type="line" :plugins="plugins"
                  :data="battleChartData(data)" :options="battleChartOption(battleStat)"
                  class="size-3/4"/>
         </div>
       </TabPanel>
-      <TabPanel header="stat" headerClass="text-lg w-1/2 text-black">
+      <TabPanel headerClass="w-1/2">
+        <template #header>
+          <div class="flex justify-center items-center gap-2 w-full">
+            <span class="text-lg text-black">stat</span>
+          </div>
+        </template>
         <DataTable :value="playerPokemonBattleStat" class="ladder" :scrollable="false"
                    tableStyle="min-width: 50rem" :row-style="rowStyle">
           <Column field="name" header="pokemon" :style="{ width:'10%'}">
@@ -295,8 +369,24 @@ queryBattleStat(props.data.id)
           <Column field="switchCount" header="switch" :sortable="true" :style="{ width:'5%' }"></Column>
           <Column field="moveCount" header="move" :sortable="true" :style="{ width:'5%' }"></Column>
           <Column field="killCount" header="kill" :sortable="true" :style="{ width:'5%' }"></Column>
-          <Column field="healthValue" header="正负值" :sortable="true" :style="{ width:'5%' }"></Column>
-          <Column field="attackValue" header="进攻贡献值" :sortable="true" :style="{ width:'5%' }"></Column>
+          <Column field="healthValue" :sortable="true" :style="{ width:'5%' }">
+            <template #header>
+              <span>{{ "正负值(+/-)" }}</span>
+              <i class="ml-2 pi pi-question-circle"
+                 v-tooltip.top  ="'宝可梦在场(或不在场通过状态、场地)造成的双方HP变化差，值越大表示作用越大。' +
+                  '\n\n特殊场景：\n' +
+                  '1. 换人被认为是宝可梦4个招式以外的一种特殊招式，所以换人回合已方受到的伤害，计入换人前宝可梦的正负值'"
+                 style="font-size: 1rem"/>
+            </template>
+          </Column>
+          <Column field="attackValue" :sortable="true" :style="{ width:'5%' }">
+            <template #header>
+              <span>{{ "进攻贡献值" }}</span>
+              <i class="ml-2 pi pi-question-circle" v-tooltip.top="'宝可梦通过招式、状态、场地等方式造成的敌方HP变化总和。' +
+               '\n\n值越大表示进攻贡献越大，负数表示已方造成的伤害小于敌方恢复'"
+                 style="font-size: 1rem"/>
+            </template>
+          </Column>
 
         </DataTable>
       </TabPanel>

@@ -14,12 +14,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class TeamServiceTest {
+class    TeamServiceTest {
     @SpyBean
     private TeamService teamService;
 
@@ -61,9 +65,9 @@ class TeamServiceTest {
                 List.of("Stealth Rock", "Wish", "MoonBlast"), "Water"));
         BattleTeam battleTeamA = new BattleTeam("1", "1", "1".getBytes(), null, null,
                 0, null, "gen9ou", pokemonsA, null);
-        BattleTeam battleTeamB = new BattleTeam("1", "1", "1".getBytes(), LocalDate.now().minusMonths(1), null,
+        BattleTeam battleTeamB = new BattleTeam("1", "1", "1".getBytes(), LocalDateTime.now().minusMonths(1), null,
                 0, null, "gen9ou", pokemonsB, null);
-        BattleTeam battleTeamC = new BattleTeam("1", "1", "1".getBytes(), LocalDate.now().minusMonths(1), null,
+        BattleTeam battleTeamC = new BattleTeam("1", "1", "1".getBytes(), LocalDateTime.now().minusMonths(1), null,
                 0, null, "gen9ou", pokemonsC, null);
 
         TeamGroup teamGroup = new TeamGroup("1".getBytes(), "gen9ou", 3, 3, 0

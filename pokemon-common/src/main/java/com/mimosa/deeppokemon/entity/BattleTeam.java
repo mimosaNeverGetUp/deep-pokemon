@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,7 +17,7 @@ public class BattleTeam implements Serializable {
     protected String id;
     protected String battleId;
     protected byte[] teamId;
-    protected LocalDate battleDate;
+    protected LocalDateTime battleDate;
     protected List<String> battleType;
     protected float rating;
     protected String playerName;
@@ -33,7 +33,7 @@ public class BattleTeam implements Serializable {
         featureIds = new ArrayList<>();
     }
 
-    public BattleTeam(String id, String battleId, byte[] teamId, LocalDate battleDate, List<String> battleType,
+    public BattleTeam(String id, String battleId, byte[] teamId, LocalDateTime battleDate, List<String> battleType,
                       float rating, String playerName, String tier, List<Pokemon> pokemons, Set<Tag> tagSet) {
         this.id = id;
         this.battleId = battleId;
@@ -72,11 +72,11 @@ public class BattleTeam implements Serializable {
         this.teamId = teamId;
     }
 
-    public LocalDate getBattleDate() {
+    public LocalDateTime getBattleDate() {
         return battleDate;
     }
 
-    public void setBattleDate(LocalDate battleDate) {
+    public void setBattleDate(LocalDateTime battleDate) {
         this.battleDate = battleDate;
     }
 

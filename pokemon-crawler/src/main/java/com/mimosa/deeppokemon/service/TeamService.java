@@ -23,6 +23,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -126,7 +127,7 @@ public class TeamService {
             if (teamSetMap.containsKey(teamId)) {
                 TeamSet teamSet = teamSetMap.get(teamId);
                 if (!isTagSync(teamGroup, teamSet)) {
-                    log.debug("start to update team group {} tag",  new String(teamId.getData()));
+                    log.debug("start to update team group {} tag", new String(teamId.getData()));
                     needUpdate = true;
                     updateTeamGroupTag(bulkOperations, teamId, teamSet.tagSet());
                 }
@@ -221,13 +222,13 @@ public class TeamService {
                     descSortByValue(teraTypes.get(pokemon))));
         }
 
-        LocalDate minReplayDate = teamGroup.teams().stream()
+        LocalDateTime minReplayDate = teamGroup.teams().stream()
                 .map(BattleTeam::getBattleDate)
                 .filter(Objects::nonNull)
-                .min(LocalDate::compareTo)
+                .min(LocalDateTime::compareTo)
                 .orElse(null);
-        TeamSet teamSet = new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(), minReplayDate,
-                null, pokemonBuildSets);
+        TeamSet teamSet = new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(),
+                minReplayDate == null ? null : minReplayDate.toLocalDate(), null, pokemonBuildSets);
         return tagTeamSet(teamSet);
     }
 
@@ -237,7 +238,7 @@ public class TeamService {
         return teamSet.withTags(team.getTagSet());
     }
 
-    public Set<Tag> tagTeam(String teamId,String collectionName) {
+    public Set<Tag> tagTeam(String teamId, String collectionName) {
         TeamSet teamSet = mongoTemplate.findById(new Binary(Base64.getDecoder().decode(teamId)), TeamSet.class,
                 collectionName);
         return tagTeamSet(teamSet).tagSet();

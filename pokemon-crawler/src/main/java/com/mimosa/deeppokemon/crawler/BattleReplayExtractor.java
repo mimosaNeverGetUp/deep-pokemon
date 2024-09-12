@@ -35,7 +35,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.time.Instant;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -70,7 +70,8 @@ public class BattleReplayExtractor {
         teams.get(0).setRating(battleReplayData.rating());
         teams.get(1).setRating(battleReplayData.rating());
         logger.debug("extract end");
-        LocalDate date = LocalDate.ofInstant(Instant.ofEpochSecond(battleReplayData.uploadTime()), ZoneId.systemDefault());
+        LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochSecond(battleReplayData.uploadTime()),
+                ZoneId.systemDefault());
         String winner = extractWinner(battleReplayData.log());
         int avageRating = battleReplayData.rating();
         Battle battle = new Battle(teams, date, winner, avageRating);

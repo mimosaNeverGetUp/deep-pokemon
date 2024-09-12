@@ -30,7 +30,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Document(collection = "battle")
@@ -41,7 +41,7 @@ public class Battle implements Serializable {
     // 简介
     protected String info;
     // 对局日期
-    protected LocalDate date;
+    protected LocalDateTime date;
     // 对战玩家
     protected List<String> players;
     // 胜方
@@ -66,7 +66,7 @@ public class Battle implements Serializable {
         this.battleTeams = battleTeams;
     }
 
-    public Battle(String battleID, String info, LocalDate date, String winner, float avageRating,
+    public Battle(String battleID, String info, LocalDateTime date, String winner, float avageRating,
                   List<BattleTeam> battleTeams) {
         this.battleID = battleID;
         this.info = info;
@@ -76,7 +76,7 @@ public class Battle implements Serializable {
         this.battleTeams = battleTeams;
     }
 
-    public Battle(List<BattleTeam> battleTeams, LocalDate date, String winner, float avageRating) {
+    public Battle(List<BattleTeam> battleTeams, LocalDateTime date, String winner, float avageRating) {
         this.battleTeams = battleTeams;
         this.date = date;
         this.winner = winner;
@@ -110,11 +110,11 @@ public class Battle implements Serializable {
         this.battleTeams = battleTeams;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

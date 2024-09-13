@@ -65,7 +65,8 @@ public class TeamService {
             if (batchTeamGroup.size() >= BATCH_SIZE) {
                 try {
                     needUpdateTeamGroup.addAll(queryNeedUpdateTeamGroup(batchTeamGroup,
-                            teamGroupDetail.teamSetCollectionName(), teamGroupDetail.start()));
+                            teamGroupDetail.teamSetCollectionName(), teamGroupDetail.start() == null ?
+                                    null : teamGroupDetail.start().toLocalDate()));
                 } catch (Exception e) {
                     log.error("queryNeedUpdateTeamGroup exception", e);
                 } finally {
@@ -76,7 +77,8 @@ public class TeamService {
         if (!batchTeamGroup.isEmpty()) {
             try {
                 needUpdateTeamGroup.addAll(queryNeedUpdateTeamGroup(batchTeamGroup,
-                        teamGroupDetail.teamSetCollectionName(), teamGroupDetail.start()));
+                        teamGroupDetail.teamSetCollectionName(), teamGroupDetail.start() == null ?
+                                null : teamGroupDetail.start().toLocalDate()));
             } catch (Exception e) {
                 log.error("queryNeedUpdateTeamGroup exception", e);
             }

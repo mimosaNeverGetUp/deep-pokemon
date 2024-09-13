@@ -21,7 +21,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -148,7 +148,7 @@ class BattleServiceTest {
 
     @Test
     void updateTeam() {
-        battleService.updateTeam(new TeamGroupDetail(LocalDate.now().minusYears(99), LocalDate.now(),
+        battleService.updateTeam(new TeamGroupDetail(LocalDateTime.now().minusYears(99), LocalDateTime.now(),
                 TEAM_GROUP_LAST_99_Y, TEAM_SET_LAST_99_Y));
         TeamGroup teamGroup = mongoTemplate.findOne(new Query(), TeamGroup.class, TEAM_GROUP_LAST_99_Y);
         Assertions.assertNotNull(teamGroup);

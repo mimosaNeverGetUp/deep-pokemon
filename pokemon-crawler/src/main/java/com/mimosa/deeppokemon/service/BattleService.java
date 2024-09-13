@@ -56,6 +56,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ServerErrorException;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.*;
@@ -63,7 +64,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
-import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 
 @Service("crawBattleService")
 public class BattleService {
@@ -292,13 +292,13 @@ public class BattleService {
 
     @CacheEvict(value = {"teamGroup", "teamInfo"}, allEntries = true)
     public synchronized void updateTeam() {
-        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(3), LocalDate.now()
+        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(3).atStartOfDay(), LocalDateTime.now()
                 , "team_group_last_3_days", "team_set_last_3_days"));
-        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(7), LocalDate.now()
+        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(7).atStartOfDay(), LocalDateTime.now()
                 , "team_group_last_7_days", "team_set_last_7_days"));
-        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(30), LocalDate.now()
+        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(30).atStartOfDay(), LocalDateTime.now()
                 , "team_group_last_30_days", "team_set_last_30_days"));
-        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(90), LocalDate.now()
+        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(90).atStartOfDay(), LocalDateTime.now()
                 , "team_group_last_90_days", "team_set_last_90_days"));
     }
 
@@ -394,8 +394,9 @@ public class BattleService {
         log.info("start craw monthly team,month: {}", yearMonth);
         String teamGroupCollectionName = String.format("team_group_%s", yearMonth);
         String teamSetCollectionName = String.format("team_set_%s", yearMonth);
-        TeamGroupDetail teamGroupDetail = new TeamGroupDetail(month.with(firstDayOfMonth()), month.with(lastDayOfMonth()),
-                teamGroupCollectionName, teamSetCollectionName);
+        LocalDate monthFirstDay = month.with(firstDayOfMonth());
+        TeamGroupDetail teamGroupDetail = new TeamGroupDetail(monthFirstDay.atStartOfDay(),
+                monthFirstDay.plusMonths(1).atStartOfDay(), teamGroupCollectionName, teamSetCollectionName);
         updateTeam(teamGroupDetail);
     }
 

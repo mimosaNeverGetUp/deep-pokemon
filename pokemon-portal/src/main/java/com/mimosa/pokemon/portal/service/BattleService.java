@@ -49,7 +49,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ServerErrorException;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -298,13 +298,13 @@ public class BattleService {
                     descSortByValue(teraTypes.get(pokemon))));
         }
 
-        LocalDate minReplayDate = teams.stream()
+        LocalDateTime minReplayDate = teams.stream()
                 .map(BattleTeam::getBattleDate)
                 .filter(Objects::nonNull)
-                .min(LocalDate::compareTo)
+                .min(LocalDateTime::compareTo)
                 .orElse(null);
-        return new TeamSet(new Binary(teams.get(0).getTeamId()), teams.get(0).getTier(), teams.size(), minReplayDate,
-                null, pokemonBuildSets);
+        return new TeamSet(new Binary(teams.get(0).getTeamId()), teams.get(0).getTier(), teams.size(),
+                minReplayDate == null ? null : minReplayDate.toLocalDate(), null, pokemonBuildSets);
     }
 
     private static void countPokemonSet(BattleTeam team,
@@ -353,7 +353,8 @@ public class BattleService {
     private List<BattleTeamDto> convert(List<BattleTeam> battleTeams) {
         List<BattleTeamDto> battleTeamDtos = new ArrayList<>();
         for (BattleTeam battleTeam : battleTeams) {
-            battleTeamDtos.add(new BattleTeamDto(battleTeam.getBattleId(), battleTeam.getBattleDate(),
+            LocalDateTime battleDateTime = battleTeam.getBattleDate();
+            battleTeamDtos.add(new BattleTeamDto(battleTeam.getBattleId(), battleDateTime == null ? null : battleDateTime.toLocalDate(),
                     (int) battleTeam.getRating(), battleTeam.getPlayerName(), null, null, null,
                     null, battleTeam.getPokemons()));
         }

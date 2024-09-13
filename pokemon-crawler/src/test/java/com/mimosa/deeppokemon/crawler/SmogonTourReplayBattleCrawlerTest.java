@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -125,7 +125,7 @@ class SmogonTourReplayBattleCrawlerTest {
         Battle battle = new Battle();
         battle.setBattleID(TEST_123);
         battle.setFormat("gen9ou");
-        battle.setDate(LocalDate.now());
+        battle.setDate(LocalDateTime.now());
         battle.setPlayers(List.of("a1", "b1"));
         battle.setWinner("a1");
         battle.setLog("log");
@@ -134,7 +134,7 @@ class SmogonTourReplayBattleCrawlerTest {
         BattleTeam teamA = new BattleTeam();
         teamA.setId("team_1");
         teamA.setBattleId(battle.getBattleID());
-        teamA.setBattleDate(LocalDate.now());
+        teamA.setBattleDate(LocalDateTime.now());
         teamA.setTeamId("team_1".getBytes());
         teamA.setBattleType(battle.getType());
         teamA.setPlayerName("a1");
@@ -144,7 +144,7 @@ class SmogonTourReplayBattleCrawlerTest {
         BattleTeam teamB = new BattleTeam();
         teamB.setId("team_2");
         teamB.setBattleId(battle.getBattleID());
-        teamB.setBattleDate(LocalDate.now());
+        teamB.setBattleDate(LocalDateTime.now());
         teamB.setTeamId("team_2".getBytes());
         teamB.setBattleType(battle.getType());
         teamB.setPlayerName("b1");

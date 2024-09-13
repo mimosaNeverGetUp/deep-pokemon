@@ -47,6 +47,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ImportRuntimeHints;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -119,6 +120,7 @@ public class PokemonPortalApplication {
                     .registerType(Float.class)
                     .registerType(TreeMap.class)
                     .registerType(LocalDate.class)
+                    .registerType(LocalDateTime.class)
                     .registerType(Binary.class)
                     .registerType(Tag.class)
                     .registerType(TypeReference.of("java.time.Ser"))

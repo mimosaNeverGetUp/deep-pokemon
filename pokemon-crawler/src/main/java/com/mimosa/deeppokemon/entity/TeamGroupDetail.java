@@ -9,7 +9,7 @@ package com.mimosa.deeppokemon.entity;
 import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,12 +30,12 @@ public class TeamGroupDetail {
     protected static final String REPLAY_NUM = "replayNum";
     protected static final String FEATURE_IDS = "featureIds";
 
-    private final LocalDate start;
-    private final LocalDate end;
+    private final LocalDateTime start;
+    private final LocalDateTime end;
     private final String teamGroupCollectionName;
     private final String teamSetCollectionName;
 
-    public TeamGroupDetail(LocalDate start, LocalDate end, String teamGroupCollectionName,
+    public TeamGroupDetail(LocalDateTime start, LocalDateTime end, String teamGroupCollectionName,
                            String teamSetCollectionName) {
         this.start = start;
         this.end = end;
@@ -43,11 +43,11 @@ public class TeamGroupDetail {
         this.teamSetCollectionName = teamSetCollectionName;
     }
 
-    public LocalDate start() {
+    public LocalDateTime start() {
         return start;
     }
 
-    public LocalDate end() {
+    public LocalDateTime end() {
         return end;
     }
 

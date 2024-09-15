@@ -44,11 +44,11 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
 
     protected static final Set<String> BOOST_ATTACK_MOVES = Set.of("Bulk Up",
             "Growth", "Coil", "Hone Claws", "No Retreat", "Victory Dance", "Work Up", "Curse", "Gear Up", "Howl",
-            "Belly Drum", "Calm Mind", "Take Heart", "Meteor Beam", "Fiery Dance", "Electro Shot", "Quiver Dance",
+            "Belly Drum", "Calm Mind", "Take Heart", "Meteor Beam", "Fiery Dance", "Electro Shot",
             "Geomancy", "Torch Song");
 
     protected static final Set<String> BOOST_MULTI_ATTACK_MOVES = Set.of("Swords Dance",
-            "Dragon Dance", "Shell Smash", "Nasty Plot", "Tail Glow");
+            "Dragon Dance", "Shell Smash", "Nasty Plot", "Tail Glow", "Quiver Dance");
 
     protected static final Set<String> RECOVERY_MOVES = Set.of("Jungle Healing", "Slack Off",
             "Synthesis", "Strength Sap", "Milk Drink", "Heal Order", "Ingrain", "Morning Sun", "Moonlight", "Aqua Ring",
@@ -161,6 +161,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                      "Rock Incense", "Rose Incense", "Sea Incense", "Sharp Beak", "Silk Scarf", "Silver Powder",
                      "Soft Sand", "Soul Dew", "Spell Tag", "Splash Plate", "Spooky Plate", "Stone Plate", "Toxic Plate",
                      "Twisted Spoon", "Wave Incense", "Zap Plate", "Sky Plate" -> setAttackValue += 0.5F;
+                case "Power Herb" -> setAttackValue += 0.25;
                 default -> log.debug("no attack item {}", item);
             }
         }
@@ -169,6 +170,10 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         if (pokemonBuildSet.moves() != null) {
             Set<String> topMoves = new HashSet<>(pokemonBuildSet.moves().subList(0,
                     Math.min(pokemonBuildSet.moves().size(), 4)));
+            if (topMoves.stream().anyMatch("Taunt"::equals) || topMoves.stream().anyMatch("Scale Shot"::equals)) {
+                moveAttackValue = 0.25F;
+            }
+
             if (topMoves.stream().anyMatch(BOOST_ATTACK_MOVES::contains)) {
                 moveAttackValue = 0.5F;
             }
@@ -245,7 +250,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return false;
     }
 
-    private boolean tagIronTreads(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+    protected boolean tagIronTreads(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return false;
         }
@@ -272,7 +277,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return false;
     }
 
-    private boolean tagLandorus(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+    protected boolean tagLandorus(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return false;
         }
@@ -331,14 +336,16 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             switch (ability) {
                 case "Defiant", "Infiltrator", "Clear Body", "Torrent", "Blaze", "Overgrow", "Technician",
                      "Hydration", "Guard Dog", "Iron Fist", "Reckless", "Normalize", "Tough Claws", "Aerilate",
-                     "Soul-Heart", "Beast Boost", "Grassy Terrain" -> maxAttackLevel = Math.max(0.25F, maxAttackLevel);
+                     "Soul-Heart", "Beast Boost", "Grassy Terrain", "Berserk" ->
+                        maxAttackLevel = Math.max(0.25F, maxAttackLevel);
                 case "Good as Gold", "Sharpness", "Toxic Debris", "Poison Heal", "Libero", "Magic Bounce",
                      "Purifying Salt", "Grassy Surge", "Contrary", "Magic Guard", "Protean", "Mold Breaker",
                      "Unburden", "Battle Bond", "Swift Swim", "Snow Warning", "Tinted Lens", "Sand Stream",
                      "Neutralizing Gas", "Weak Armor", "Chlorophyll", "Sand Rush", "Speed Boost", "Toxic Chain",
                      "Skill Link", "Moxie", "Pixilate", "Psychic Surge", "Electric Surge", "Punk Rock", "Transistor",
                      "Water Bubble" -> maxAttackLevel = Math.max(0.5F, maxAttackLevel);
-                case "Magnet Pull", "Supreme Overlord" -> maxAttackLevel = Math.max(0.75F, maxAttackLevel);
+                case "Magnet Pull", "Supreme Overlord", "Slush Rush" ->
+                        maxAttackLevel = Math.max(0.75F, maxAttackLevel);
                 case "Drought", "Drizzle", "Guts", "Adaptability", "Huge Power", "Stance Change" ->
                         maxAttackLevel = Math.max(1.0F, maxAttackLevel);
                 default -> log.debug("Unknown ability:{}", ability);
@@ -354,12 +361,13 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             switch (ability) {
                 case "Sturdy", "Static", "Water Absorb", "Flash Fire", "Rough Skin", "Natural Cure",
                      "Thick Fat", "Flame Body", "Marvel Scale", "Storm Drain", "Sap Sipper", "Triage", "Good as Gold",
-                     "Grassy Terrain", "Heatproof", "Sand Stream", "Disguise", "Hydration" ->
+                     "Grassy Terrain", "Heatproof", "Sand Stream", "Disguise", "Hydration", "Grassy Surge" ->
                         maxDefLevel = Math.max(0.25F, maxDefLevel);
                 case "Volt Absorb", "Levitate", "Stamina", "Dauntless Shield", "Multiscale", "Unaware", "Fluffy",
                      "Magic Bounce", "Vessel of Ruin", "Magic Guard" -> maxDefLevel = Math.max(0.5F, maxDefLevel);
                 case "Regenerator", "Purifying Salt" -> maxDefLevel = Math.max(0.75F, maxDefLevel);
                 case "Poison Heal", "Intimidate" -> maxDefLevel = Math.max(1.0F, maxDefLevel);
+                case "Wonder Guard" -> maxDefLevel = Math.max(2.0F, maxDefLevel);
                 default -> log.debug("Unknown ability:{}", ability);
             }
         }

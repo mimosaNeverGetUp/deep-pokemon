@@ -39,28 +39,28 @@ import java.util.Set;
 @Component
 public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
     private static final Logger log = LoggerFactory.getLogger(PokemonAttackDefenseTagProvider.class);
-    private static final Set<String> ATTACK_SET_POKEMONS = Set.of("Ninetales", "Ribombee", "Serperior", "Ninetales-Alola");
-    private static final Set<String> ATTACK_MIX_POKEMONS = Set.of("Torkoal");
+    protected static final Set<String> ATTACK_SET_POKEMONS = Set.of("Ninetales", "Ribombee", "Serperior", "Ninetales-Alola");
+    protected static final Set<String> ATTACK_MIX_POKEMONS = Set.of("Torkoal");
 
-    private static final Set<String> BOOST_ATTACK_MOVES = Set.of("Bulk Up",
+    protected static final Set<String> BOOST_ATTACK_MOVES = Set.of("Bulk Up",
             "Growth", "Coil", "Hone Claws", "No Retreat", "Victory Dance", "Work Up", "Curse", "Gear Up", "Howl",
             "Belly Drum", "Calm Mind", "Take Heart", "Meteor Beam", "Fiery Dance", "Electro Shot", "Quiver Dance",
             "Geomancy", "Torch Song");
 
-    private static final Set<String> BOOST_MULTI_ATTACK_MOVES = Set.of("Swords Dance",
+    protected static final Set<String> BOOST_MULTI_ATTACK_MOVES = Set.of("Swords Dance",
             "Dragon Dance", "Shell Smash", "Nasty Plot", "Tail Glow");
 
-    private static final Set<String> RECOVERY_MOVES = Set.of("Jungle Healing", "Slack Off",
+    protected static final Set<String> RECOVERY_MOVES = Set.of("Jungle Healing", "Slack Off",
             "Synthesis", "Strength Sap", "Milk Drink", "Heal Order", "Ingrain", "Morning Sun", "Moonlight", "Aqua Ring",
             "Life Dew", "Soft-Boiled", "Rest", "Wish", "Roost", "Recover", "Shore Up");
 
-    private static final Set<String> OTHER_DEF_MOVES = Set.of("Will-O-Wisp", "Pain Split");
+    protected static final Set<String> OTHER_DEF_MOVES = Set.of("Will-O-Wisp", "Pain Split");
 
-    private static final String TYPE_PATTERN = "TYPE";
+    protected static final String TYPE_PATTERN = "TYPE";
 
-    private final PokemonStatsLevelCrawler pokemonStatsLevelCrawler;
+    protected final PokemonStatsLevelCrawler pokemonStatsLevelCrawler;
 
-    private final PokemonTypeTagProvider pokemonTypeTagProvider;
+    protected final PokemonTypeTagProvider pokemonTypeTagProvider;
 
     public PokemonAttackDefenseTagProvider(PokemonStatsLevelCrawler pokemonStatsLevelCrawler, PokemonTypeTagProvider pokemonTypeTagProvider) {
         this.pokemonStatsLevelCrawler = pokemonStatsLevelCrawler;
@@ -75,7 +75,6 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         }
 
         pokemonTypeTagProvider.tag(pokemonInfo, pokemonBuildSet);
-        HashSet<Tag> highLevelTagSet = new HashSet<>();//高层次的标签集合，用于替换之前的低层次
         log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
         //获取攻防种族level
         float levelAttack = pokemonStatsLevelCrawler.getAtkLevel(pokemonInfo);
@@ -104,6 +103,15 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                         "abilityAttackValue {} setAttackValue {} setDefValue {} set {}",
                 pokemonInfo.getName(), maxLevelAttack, maxLevelDefence, typeValue, abilityDefenceValue,
                 abilityAttackValue, setAttackValue, setDefValue, pokemonBuildSet);
+
+        Set<Tag> highLevelTags = getHighLevelTags(maxLevelAttack, maxLevelDefence);
+
+        pokemonInfo.setTags(highLevelTags);
+        log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
+    }
+
+    protected Set<Tag> getHighLevelTags(float maxLevelAttack, float maxLevelDefence) {
+        Set<Tag> highLevelTagSet = new HashSet<>();
         if (maxLevelAttack > maxLevelDefence) {
             if (maxLevelDefence >= 4.25) {
                 highLevelTagSet.add(Tag.ATTACK_BULK_SET);
@@ -127,12 +135,10 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                 highLevelTagSet.add(Tag.BALANCE_SET);
             }
         }
-
-        pokemonInfo.setTags(highLevelTagSet);
-        log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
+        return highLevelTagSet;
     }
 
-    private float setAttackValue(PokemonBuildSet pokemonBuildSet) {
+    protected float setAttackValue(PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return 0;
         }
@@ -183,7 +189,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return setAttackValue;
     }
 
-    private float setDefValue(PokemonBuildSet pokemonBuildSet) {
+    protected float setDefValue(PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return 0;
         }
@@ -212,7 +218,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return setDefValue;
     }
 
-    private boolean tagSpecifyPokemon(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+    protected boolean tagSpecifyPokemon(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         switch (pokemonInfo.getName()) {
             case "Landorus-Therian" -> {
                 return tagLandorus(pokemonInfo, pokemonBuildSet);
@@ -292,7 +298,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return false;
     }
 
-    private float getValueOfType(PokemonInfo pokemonInfo) {
+    protected float getValueOfType(PokemonInfo pokemonInfo) {
         for (Tag tag : pokemonInfo.getTags()) {
             String name = tag.name();
             if (name.contains(TYPE_PATTERN)) {
@@ -318,7 +324,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return 0.0f;
     }
 
-    public float getMaxAtkLevelOfAbilities(PokemonInfo pokemonInfo) {
+    protected float getMaxAtkLevelOfAbilities(PokemonInfo pokemonInfo) {
         float maxAttackLevel = 0; //特性之中最好的进攻等级
 
         for (String ability : pokemonInfo.getAbilities()) {
@@ -341,7 +347,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return maxAttackLevel;
     }
 
-    public float getMaxDefLevelOfAbilities(PokemonInfo pokemonInfo) {
+    protected float getMaxDefLevelOfAbilities(PokemonInfo pokemonInfo) {
         float maxDefLevel = 0;
 
         for (String ability : pokemonInfo.getAbilities()) {

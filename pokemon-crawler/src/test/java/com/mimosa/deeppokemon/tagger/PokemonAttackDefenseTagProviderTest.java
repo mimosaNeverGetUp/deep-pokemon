@@ -49,6 +49,7 @@ class PokemonAttackDefenseTagProviderTest {
     void tag() throws Exception {
         Set<Tag> tagSet = Set.of(Tag.ATTACK_SET, Tag.DEFENSE_SET, Tag.DEFENSE_MIX_SET, Tag.DEFENSE_BULK_SET,
                 Tag.ATTACK_MIX_SET, Tag.ATTACK_BULK_SET, Tag.BALANCE_SET, Tag.BALANCE_BULK_SET);
+        Assertions.assertTrue(pokemonAttackDefenseTagProvider.supportTag("gen9ou"));
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (PokemonInfo pokemonInfo : pokemonInfoList) {
             pokemonAttackDefenseTagProvider.tag(pokemonInfo, null);

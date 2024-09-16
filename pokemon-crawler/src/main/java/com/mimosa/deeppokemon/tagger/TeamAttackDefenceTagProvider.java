@@ -68,7 +68,7 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
                     return;
                 }
                 for (PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider : pokemonAttackDefenseTagProviders) {
-                    if (team.getTier() != null && pokemonAttackDefenseTagProvider.getSupportFormat().contains(team.getTier())) {
+                    if (pokemonAttackDefenseTagProvider.supportTag(team.getTier())) {
                         pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSetMap.get(pokemon.getName()));
                     }
                 }

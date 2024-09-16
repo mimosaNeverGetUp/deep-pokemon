@@ -27,9 +27,6 @@ package com.mimosa.deeppokemon.tagger;
 import com.mimosa.deeppokemon.entity.PokemonBuildSet;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * @program: deep-pokemon
  * @description: 宝可梦分类功能
@@ -40,7 +37,7 @@ import java.util.Set;
 public interface PokemonTagProvider {
     void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet);
 
-    default Set<String> getSupportFormat() {
-        return Set.of("gen9ou");
+    default boolean supportTag(String format) {
+        return "gen9ou".equalsIgnoreCase(format);
     }
 }

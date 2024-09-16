@@ -27,8 +27,8 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
     }
 
     @Override
-    public Set<String> getSupportFormat() {
-        return Set.of("gen8ou");
+    public boolean supportTag(String format) {
+        return "gen8ou".equalsIgnoreCase(format);
     }
 
     @Override

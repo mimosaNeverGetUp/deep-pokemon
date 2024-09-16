@@ -35,6 +35,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootTest
 class PokemonAttackDefenseTagProviderTest {
@@ -46,10 +47,13 @@ class PokemonAttackDefenseTagProviderTest {
 
     @Test
     void tag() throws Exception {
+        Set<Tag> tagSet = Set.of(Tag.ATTACK_SET, Tag.DEFENSE_SET, Tag.DEFENSE_MIX_SET, Tag.DEFENSE_BULK_SET,
+                Tag.ATTACK_MIX_SET, Tag.ATTACK_BULK_SET, Tag.BALANCE_SET, Tag.BALANCE_BULK_SET);
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (PokemonInfo pokemonInfo : pokemonInfoList) {
             pokemonAttackDefenseTagProvider.tag(pokemonInfo, null);
             Assertions.assertEquals(1, pokemonInfo.getTags().size());
+            Assertions.assertTrue(tagSet.contains(pokemonInfo.getTags().stream().findFirst().orElseThrow()));
         }
     }
 

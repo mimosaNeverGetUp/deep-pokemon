@@ -77,6 +77,7 @@ class TeamAttackDefenceTagProviderTest {
 
     public BattleTeam build(String... names) {
         BattleTeam team = new BattleTeam();
+        team.setTier("gen9ou");
         List<Pokemon> pokemons = new ArrayList<>();
         for (String name : names) {
             Pokemon pokemon = new Pokemon();

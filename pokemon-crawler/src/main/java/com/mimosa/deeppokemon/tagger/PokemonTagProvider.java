@@ -35,6 +35,9 @@ import com.mimosa.deeppokemon.entity.PokemonInfo;
  */
 
 public interface PokemonTagProvider {
-
     void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet);
+
+    default boolean supportTag(String format) {
+        return "gen9ou".equalsIgnoreCase(format);
+    }
 }

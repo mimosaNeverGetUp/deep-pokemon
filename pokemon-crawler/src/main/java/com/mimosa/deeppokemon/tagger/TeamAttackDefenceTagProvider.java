@@ -31,6 +31,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,12 +39,12 @@ import java.util.Set;
 public class TeamAttackDefenceTagProvider implements TeamTagProvider {
     private static final Logger logger = LoggerFactory.getLogger(TeamAttackDefenceTagProvider.class);
 
-    private final PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider;
+    private final List<PokemonAttackDefenseTagProvider> pokemonAttackDefenseTagProviders;
 
     private final PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
 
-    public TeamAttackDefenceTagProvider(PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider, PokemonInfoCrawlerImp pokemonInfoCrawlerImp) {
-        this.pokemonAttackDefenseTagProvider = pokemonAttackDefenseTagProvider;
+    public TeamAttackDefenceTagProvider(List<PokemonAttackDefenseTagProvider> pokemonAttackDefenseTagProviders, PokemonInfoCrawlerImp pokemonInfoCrawlerImp) {
+        this.pokemonAttackDefenseTagProviders = pokemonAttackDefenseTagProviders;
         this.pokemonInfoCrawlerImp = pokemonInfoCrawlerImp;
     }
 
@@ -66,7 +67,11 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
                     logger.error("pokemoninfo {} not found and team tag fail", pokemon.getName());
                     return;
                 }
-                pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSetMap.get(pokemon.getName()));
+                for (PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider : pokemonAttackDefenseTagProviders) {
+                    if (pokemonAttackDefenseTagProvider.supportTag(team.getTier())) {
+                        pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSetMap.get(pokemon.getName()));
+                    }
+                }
                 logger.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
 
                 //手动神经元，加权求和大于阈值进行分类...
@@ -107,6 +112,12 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
                     }
                 }
             }
+
+            if (atk == 0 && def == 0) {
+                logger.error("can not find valiad tag for team {}", team.getId());
+                return;
+            }
+
             float dif = atk - def;
             if (Math.abs(dif) <= 1.25) {
                 tags.add(Tag.BALANCE);

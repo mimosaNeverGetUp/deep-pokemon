@@ -253,6 +253,7 @@ public class TeamService {
             pokemons.add(new Pokemon(pokemonSet.name()));
         }
         team.setPokemons(pokemons);
+        team.setTier(teamSet.tier());
         team.setTagSet(new HashSet<>());
         return team;
     }

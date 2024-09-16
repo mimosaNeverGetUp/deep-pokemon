@@ -65,10 +65,15 @@ class    TeamServiceTest {
                 List.of("Stealth Rock", "Wish", "MoonBlast"), "Water"));
         BattleTeam battleTeamA = new BattleTeam("1", "1", "1".getBytes(), null, null,
                 0, null, "gen9ou", pokemonsA, null);
+        battleTeamA.setTier("gen9ou");
+
         BattleTeam battleTeamB = new BattleTeam("1", "1", "1".getBytes(), LocalDateTime.now().minusMonths(1), null,
                 0, null, "gen9ou", pokemonsB, null);
+        battleTeamB.setTier("gen9ou");
+
         BattleTeam battleTeamC = new BattleTeam("1", "1", "1".getBytes(), LocalDateTime.now().minusMonths(1), null,
                 0, null, "gen9ou", pokemonsC, null);
+        battleTeamC.setTier("gen9ou");
 
         TeamGroup teamGroup = new TeamGroup("1".getBytes(), "gen9ou", 3, 3, 0
                 , null, null, null, null, null,

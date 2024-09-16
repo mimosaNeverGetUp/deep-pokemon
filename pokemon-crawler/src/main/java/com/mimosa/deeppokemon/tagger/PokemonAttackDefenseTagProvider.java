@@ -39,28 +39,35 @@ import java.util.Set;
 @Component
 public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
     private static final Logger log = LoggerFactory.getLogger(PokemonAttackDefenseTagProvider.class);
-    private static final Set<String> ATTACK_SET_POKEMONS = Set.of("Ninetales", "Ribombee", "Serperior", "Ninetales-Alola");
-    private static final Set<String> ATTACK_MIX_POKEMONS = Set.of("Torkoal");
+    protected static final Set<String> ATTACK_SET_POKEMONS = Set.of("Ninetales", "Ribombee", "Ninetales-Alola");
+    protected static final Set<String> ATTACK_MIX_POKEMONS = Set.of("Torkoal", "Araquanid");
+    protected static final Set<String> LITTLE_BOOST_ATTACK_MOVES = Set.of("Scale Shot");
 
-    private static final Set<String> BOOST_ATTACK_MOVES = Set.of("Bulk Up",
+    protected static final Set<String> BOOST_ATTACK_MOVES = Set.of("Bulk Up",
             "Growth", "Coil", "Hone Claws", "No Retreat", "Victory Dance", "Work Up", "Curse", "Gear Up", "Howl",
-            "Belly Drum", "Calm Mind", "Take Heart", "Meteor Beam", "Fiery Dance", "Electro Shot", "Quiver Dance",
+            "Calm Mind", "Take Heart", "Meteor Beam", "Fiery Dance", "Electro Shot",
             "Geomancy", "Torch Song");
 
-    private static final Set<String> BOOST_MULTI_ATTACK_MOVES = Set.of("Swords Dance",
-            "Dragon Dance", "Shell Smash", "Nasty Plot", "Tail Glow");
+    protected static final Set<String> BOOST_MULTI_ATTACK_MOVES = Set.of("Swords Dance",
+            "Dragon Dance", "Shell Smash", "Nasty Plot", "Tail Glow", "Quiver Dance", "Tidy Up");
 
-    private static final Set<String> RECOVERY_MOVES = Set.of("Jungle Healing", "Slack Off",
+    protected static final Set<String> HIGH_POWER_ATTACK_MOVES = Set.of("Brave Bird", "Head Smash", "Chloroblast", "Mind Blown",
+            "Wood Hammer", "Wave Crash", "Head Charge", "Light of Ruin", "Double-Edge", "Steel Beam", "Flare Blitz",
+            "High Jump Kick", "Outrage", "Explosion", "Self-Destruct", "Hyper Beam", "Thrash", "Petal Dance", "V-create",
+            "Gigaton Hammer", "Eruption", "Blast Burn", "Hydro Cannon", "Water Spout", "Frenzy Plant", "Giga Impact",
+            "Psycho Boost", "Boomburst", "Fleur Cannon", "Close Combat", "Raging Fury", "Population Bomb");
+
+    protected static final Set<String> RECOVERY_MOVES = Set.of("Jungle Healing", "Slack Off",
             "Synthesis", "Strength Sap", "Milk Drink", "Heal Order", "Ingrain", "Morning Sun", "Moonlight", "Aqua Ring",
             "Life Dew", "Soft-Boiled", "Rest", "Wish", "Roost", "Recover", "Shore Up");
 
-    private static final Set<String> OTHER_DEF_MOVES = Set.of("Will-O-Wisp", "Pain Split");
+    protected static final Set<String> OTHER_DEF_MOVES = Set.of("Will-O-Wisp", "Pain Split", "Thunder Wave");
 
-    private static final String TYPE_PATTERN = "TYPE";
+    protected static final String TYPE_PATTERN = "TYPE";
 
-    private final PokemonStatsLevelCrawler pokemonStatsLevelCrawler;
+    protected final PokemonStatsLevelCrawler pokemonStatsLevelCrawler;
 
-    private final PokemonTypeTagProvider pokemonTypeTagProvider;
+    protected final PokemonTypeTagProvider pokemonTypeTagProvider;
 
     public PokemonAttackDefenseTagProvider(PokemonStatsLevelCrawler pokemonStatsLevelCrawler, PokemonTypeTagProvider pokemonTypeTagProvider) {
         this.pokemonStatsLevelCrawler = pokemonStatsLevelCrawler;
@@ -75,7 +82,6 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         }
 
         pokemonTypeTagProvider.tag(pokemonInfo, pokemonBuildSet);
-        HashSet<Tag> highLevelTagSet = new HashSet<>();//高层次的标签集合，用于替换之前的低层次
         log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
         //获取攻防种族level
         float levelAttack = pokemonStatsLevelCrawler.getAtkLevel(pokemonInfo);
@@ -104,6 +110,15 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                         "abilityAttackValue {} setAttackValue {} setDefValue {} set {}",
                 pokemonInfo.getName(), maxLevelAttack, maxLevelDefence, typeValue, abilityDefenceValue,
                 abilityAttackValue, setAttackValue, setDefValue, pokemonBuildSet);
+
+        Set<Tag> highLevelTags = getHighLevelTags(maxLevelAttack, maxLevelDefence);
+
+        pokemonInfo.setTags(highLevelTags);
+        log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
+    }
+
+    protected Set<Tag> getHighLevelTags(float maxLevelAttack, float maxLevelDefence) {
+        Set<Tag> highLevelTagSet = new HashSet<>();
         if (maxLevelAttack > maxLevelDefence) {
             if (maxLevelDefence >= 4.25) {
                 highLevelTagSet.add(Tag.ATTACK_BULK_SET);
@@ -127,12 +142,10 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                 highLevelTagSet.add(Tag.BALANCE_SET);
             }
         }
-
-        pokemonInfo.setTags(highLevelTagSet);
-        log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
+        return highLevelTagSet;
     }
 
-    private float setAttackValue(PokemonBuildSet pokemonBuildSet) {
+    protected float setAttackValue(PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return 0;
         }
@@ -155,6 +168,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                      "Rock Incense", "Rose Incense", "Sea Incense", "Sharp Beak", "Silk Scarf", "Silver Powder",
                      "Soft Sand", "Soul Dew", "Spell Tag", "Splash Plate", "Spooky Plate", "Stone Plate", "Toxic Plate",
                      "Twisted Spoon", "Wave Incense", "Zap Plate", "Sky Plate" -> setAttackValue += 0.5F;
+                case "Power Herb" -> setAttackValue += 0.25;
                 default -> log.debug("no attack item {}", item);
             }
         }
@@ -163,6 +177,10 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         if (pokemonBuildSet.moves() != null) {
             Set<String> topMoves = new HashSet<>(pokemonBuildSet.moves().subList(0,
                     Math.min(pokemonBuildSet.moves().size(), 4)));
+            if (topMoves.stream().anyMatch(LITTLE_BOOST_ATTACK_MOVES::contains)) {
+                moveAttackValue = 0.25F;
+            }
+
             if (topMoves.stream().anyMatch(BOOST_ATTACK_MOVES::contains)) {
                 moveAttackValue = 0.5F;
             }
@@ -178,12 +196,20 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             if (topMoves.stream().anyMatch("Belly Drum"::equals)) {
                 moveAttackValue = 1F;
             }
+
+            if (topMoves.stream().anyMatch("Taunt"::equals)) {
+                moveAttackValue += 0.25F;
+            }
+
+            if (topMoves.stream().anyMatch(HIGH_POWER_ATTACK_MOVES::contains)) {
+                moveAttackValue += 0.25F;
+            }
         }
         setAttackValue += moveAttackValue;
         return setAttackValue;
     }
 
-    private float setDefValue(PokemonBuildSet pokemonBuildSet) {
+    protected float setDefValue(PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return 0;
         }
@@ -212,7 +238,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return setDefValue;
     }
 
-    private boolean tagSpecifyPokemon(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+    protected boolean tagSpecifyPokemon(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         switch (pokemonInfo.getName()) {
             case "Landorus-Therian" -> {
                 return tagLandorus(pokemonInfo, pokemonBuildSet);
@@ -220,6 +246,34 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             case "Iron Treads" -> {
                 return tagIronTreads(pokemonInfo, pokemonBuildSet);
             }
+            case "Zamazenta" -> {
+                return tagZamazenta(pokemonInfo, pokemonBuildSet);
+            }
+            case "Samurott-Hisui" -> {
+                return tagSamurottHisui(pokemonInfo, pokemonBuildSet);
+            }
+            case "Hatterene" -> {
+                return tagHatterene(pokemonInfo, pokemonBuildSet);
+            }
+            case "Clefable" -> {
+                return tagClefable(pokemonInfo, pokemonBuildSet);
+            }
+            case "Garchomp" -> {
+                return tagGarchomp(pokemonInfo, pokemonBuildSet);
+            }
+            case "Serperior" -> {
+                return tagSerperior(pokemonInfo, pokemonBuildSet);
+            }
+            case "Manaphy" -> {
+                return tagManaphy(pokemonInfo, pokemonBuildSet);
+            }
+            case "Rotom-Wash" -> {
+                return tagRotomWash(pokemonInfo, pokemonBuildSet);
+            }
+            case "Azumarill" -> {
+                return tagAzumarill(pokemonInfo, pokemonBuildSet);
+            }
+
             default -> log.debug("Unknown pokemon:{}", pokemonInfo.getName());
         }
 
@@ -239,7 +293,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return false;
     }
 
-    private boolean tagIronTreads(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+    protected boolean tagIronTreads(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return false;
         }
@@ -266,7 +320,164 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return false;
     }
 
-    private boolean tagLandorus(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+    protected boolean tagMew(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+        if ("Focus Sash".equals(item) || "Colbur Berry".equals(item) || "Red Card".equals(item)) {
+            if (topMoves.contains("Soft-Boiled") || topMoves.contains("Roost")) {
+                return false;
+            }
+
+            if (topMoves.contains("Stealth Rock") || topMoves.contains("Spikes")) {
+                HashSet<Tag> tags = new HashSet<>();
+                tags.add(Tag.ATTACK);
+                pokemonInfo.setTags(tags);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected boolean tagGarchomp(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+
+        if ("Rocky Helmet".equals(item) && !topMoves.contains("Swords Dance")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        if ("Leftovers".equals(item) && topMoves.contains("Protect")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        return false;
+    }
+
+    protected boolean tagSerperior(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+
+        if (topMoves.contains("Synthesis")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        HashSet<Tag> tags = new HashSet<>();
+        tags.add(Tag.ATTACK_SET);
+        pokemonInfo.setTags(tags);
+        return true;
+    }
+
+    protected boolean tagRotomWash(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+
+        if ("Leftovers".equals(item) || "Heavy-Duty Boots".equals(item) || "Rocky Helmet".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        } else if ("Choice Scarf".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        return false;
+    }
+
+    protected boolean tagAzumarill(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+
+        if ("Sitrus Berry".equals(item) || "Choice Band".equals(item) || topMoves.contains("Belly Drum")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        } else if (topMoves.contains("Whirlpool") || topMoves.contains("Perish Song") || topMoves.contains("Rest")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        HashSet<Tag> tags = new HashSet<>();
+        tags.add(Tag.ATTACK_MIX_SET);
+        pokemonInfo.setTags(tags);
+        return true;
+    }
+
+    protected boolean tagManaphy(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+
+        if (topMoves.contains("Take Heart")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        if (topMoves.contains("Tail Glow") && !topMoves.contains("Rest")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        return false;
+    }
+
+    protected boolean tagLandorus(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return false;
         }
@@ -282,7 +493,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             return true;
         }
 
-        if ("Rocky Helmet".equals(item)) {
+        if ("Rocky Helmet".equals(item) || "Leftovers".equals(item)) {
             HashSet<Tag> tags = new HashSet<>();
             tags.add(Tag.DEFENSE_MIX_SET);
             pokemonInfo.setTags(tags);
@@ -292,7 +503,91 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return false;
     }
 
-    private float getValueOfType(PokemonInfo pokemonInfo) {
+    protected boolean tagHatterene(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        if ("Leftovers".equals(item) || "Assault Vest".equals(item) || "Eject Button".equals(item)
+                || "Rocky Helmet".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        return false;
+    }
+
+    protected boolean tagClefable(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+
+        if ("Choice Scarf".equals(item) || "Sticky Barb".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+        if (topMoves.contains("Calm Mind")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        return false;
+    }
+
+    protected boolean tagSamurottHisui(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+
+        if ("Assault Vest".equals(item) || topMoves.contains("Rest")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        return false;
+    }
+
+    protected boolean tagZamazenta(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+        if (topMoves.contains("Close Combat") && !topMoves.contains("Iron Defense") && !topMoves.contains("Body Press")) {
+            HashSet<Tag> tags = new HashSet<>();
+            if ("Choice Band".equals(item) || "Life Orb".equals(item) || "Expert Belt".equals(item)) {
+                tags.add(Tag.ATTACK_MIX_SET);
+            } else {
+                tags.add(Tag.ATTACK_BULK_SET);
+            }
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        return false;
+    }
+
+    protected float getValueOfType(PokemonInfo pokemonInfo) {
         for (Tag tag : pokemonInfo.getTags()) {
             String name = tag.name();
             if (name.contains(TYPE_PATTERN)) {
@@ -318,21 +613,23 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return 0.0f;
     }
 
-    public float getMaxAtkLevelOfAbilities(PokemonInfo pokemonInfo) {
+    protected float getMaxAtkLevelOfAbilities(PokemonInfo pokemonInfo) {
         float maxAttackLevel = 0; //特性之中最好的进攻等级
 
         for (String ability : pokemonInfo.getAbilities()) {
             switch (ability) {
                 case "Defiant", "Infiltrator", "Clear Body", "Torrent", "Blaze", "Overgrow", "Technician",
                      "Hydration", "Guard Dog", "Iron Fist", "Reckless", "Normalize", "Tough Claws", "Aerilate",
-                     "Soul-Heart", "Beast Boost", "Grassy Terrain" -> maxAttackLevel = Math.max(0.25F, maxAttackLevel);
+                     "Soul-Heart", "Beast Boost", "Grassy Terrain", "Berserk" ->
+                        maxAttackLevel = Math.max(0.25F, maxAttackLevel);
                 case "Good as Gold", "Sharpness", "Toxic Debris", "Poison Heal", "Libero", "Magic Bounce",
                      "Purifying Salt", "Grassy Surge", "Contrary", "Magic Guard", "Protean", "Mold Breaker",
                      "Unburden", "Battle Bond", "Swift Swim", "Snow Warning", "Tinted Lens", "Sand Stream",
                      "Neutralizing Gas", "Weak Armor", "Chlorophyll", "Sand Rush", "Speed Boost", "Toxic Chain",
                      "Skill Link", "Moxie", "Pixilate", "Psychic Surge", "Electric Surge", "Punk Rock", "Transistor",
                      "Water Bubble" -> maxAttackLevel = Math.max(0.5F, maxAttackLevel);
-                case "Magnet Pull", "Supreme Overlord" -> maxAttackLevel = Math.max(0.75F, maxAttackLevel);
+                case "Magnet Pull", "Supreme Overlord", "Slush Rush" ->
+                        maxAttackLevel = Math.max(0.75F, maxAttackLevel);
                 case "Drought", "Drizzle", "Guts", "Adaptability", "Huge Power", "Stance Change" ->
                         maxAttackLevel = Math.max(1.0F, maxAttackLevel);
                 default -> log.debug("Unknown ability:{}", ability);
@@ -341,19 +638,20 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return maxAttackLevel;
     }
 
-    public float getMaxDefLevelOfAbilities(PokemonInfo pokemonInfo) {
+    protected float getMaxDefLevelOfAbilities(PokemonInfo pokemonInfo) {
         float maxDefLevel = 0;
 
         for (String ability : pokemonInfo.getAbilities()) {
             switch (ability) {
                 case "Sturdy", "Static", "Water Absorb", "Flash Fire", "Rough Skin", "Natural Cure",
                      "Thick Fat", "Flame Body", "Marvel Scale", "Storm Drain", "Sap Sipper", "Triage", "Good as Gold",
-                     "Grassy Terrain", "Heatproof", "Sand Stream", "Disguise", "Hydration" ->
+                     "Grassy Terrain", "Heatproof", "Sand Stream", "Disguise", "Hydration", "Grassy Surge" ->
                         maxDefLevel = Math.max(0.25F, maxDefLevel);
                 case "Volt Absorb", "Levitate", "Stamina", "Dauntless Shield", "Multiscale", "Unaware", "Fluffy",
                      "Magic Bounce", "Vessel of Ruin", "Magic Guard" -> maxDefLevel = Math.max(0.5F, maxDefLevel);
                 case "Regenerator", "Purifying Salt" -> maxDefLevel = Math.max(0.75F, maxDefLevel);
                 case "Poison Heal", "Intimidate" -> maxDefLevel = Math.max(1.0F, maxDefLevel);
+                case "Wonder Guard" -> maxDefLevel = Math.max(2.0F, maxDefLevel);
                 default -> log.debug("Unknown ability:{}", ability);
             }
         }

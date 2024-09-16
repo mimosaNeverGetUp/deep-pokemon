@@ -107,6 +107,10 @@ function getTeamGroupName(range) {
 }
 
 function getSort() {
+  if (route.query.sort === "date") {
+    return "battleDate";
+  }
+
   if (tour.value) {
     return "playerRecord.winDif";
   } else {

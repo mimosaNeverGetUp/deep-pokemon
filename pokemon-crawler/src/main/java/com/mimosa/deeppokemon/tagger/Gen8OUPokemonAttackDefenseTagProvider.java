@@ -73,11 +73,18 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
             case "Cloyster" -> {
                 return tagCloyster(pokemonInfo, pokemonBuildSet);
             }
+            case "Garchomp" -> {
+                return tagGarchomp(pokemonInfo, pokemonBuildSet);
+            }
+            case "Serperior" -> {
+                return tagSerperior(pokemonInfo, pokemonBuildSet);
+            }
             default -> log.debug("Unknown pokemon:{}", pokemonInfo.getName());
         }
         return false;
     }
 
+    @Override
     protected boolean tagLandorus(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return false;
@@ -173,57 +180,6 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
         return false;
     }
 
-
-    protected boolean tagClefable(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
-        if (pokemonBuildSet == null) {
-            return false;
-        }
-
-        List<String> items = pokemonBuildSet.items();
-        String item = items == null || items.isEmpty() ? null : items.get(0);
-
-        if ("Choice Scarf".equals(item) || "Sticky Barb".equals(item)) {
-            HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.DEFENSE_MIX_SET);
-            pokemonInfo.setTags(tags);
-            return true;
-        }
-        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
-                Math.min(pokemonBuildSet.moves().size(), 4)));
-        if (topMoves.contains("Calm Mind")) {
-            HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.DEFENSE_MIX_SET);
-            pokemonInfo.setTags(tags);
-            return true;
-        }
-        return false;
-    }
-
-    protected boolean tagMew(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
-        if (pokemonBuildSet == null) {
-            return false;
-        }
-
-        List<String> items = pokemonBuildSet.items();
-        String item = items == null || items.isEmpty() ? null : items.get(0);
-
-        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
-                Math.min(pokemonBuildSet.moves().size(), 4)));
-        if ("Focus Sash".equals(item) || "Colbur Berry".equals(item)) {
-            if (topMoves.contains("Soft-Boiled") || topMoves.contains("Roost")) {
-                return false;
-            }
-
-            if (topMoves.contains("Stealth Rock") || topMoves.contains("Spikes")) {
-                HashSet<Tag> tags = new HashSet<>();
-                tags.add(Tag.ATTACK);
-                pokemonInfo.setTags(tags);
-                return true;
-            }
-        }
-        return false;
-    }
-
     protected boolean tagVictini(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return false;
@@ -245,28 +201,6 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
         }
 
 
-        return false;
-    }
-
-    protected boolean tagRotomWash(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
-        if (pokemonBuildSet == null) {
-            return false;
-        }
-
-        List<String> items = pokemonBuildSet.items();
-        String item = items == null || items.isEmpty() ? null : items.get(0);
-
-        if ("Leftovers".equals(item) || "Heavy-Duty Boots".equals(item)) {
-            HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.DEFENSE_MIX_SET);
-            pokemonInfo.setTags(tags);
-            return true;
-        } else if ("Choice Scarf".equals(item)) {
-            HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.ATTACK_MIX_SET);
-            pokemonInfo.setTags(tags);
-            return true;
-        }
         return false;
     }
 
@@ -292,33 +226,6 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
             return true;
         }
         return false;
-    }
-
-    protected boolean tagAzumarill(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
-        if (pokemonBuildSet == null) {
-            return false;
-        }
-
-        List<String> items = pokemonBuildSet.items();
-        String item = items == null || items.isEmpty() ? null : items.get(0);
-        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
-                Math.min(pokemonBuildSet.moves().size(), 4)));
-
-        if ("Sitrus Berry".equals(item) || topMoves.contains("Belly Drum")) {
-            HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.ATTACK_SET);
-            pokemonInfo.setTags(tags);
-            return true;
-        } else if (topMoves.contains("Whirlpool") || topMoves.contains("Perish Song") || topMoves.contains("Rest")) {
-            HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.DEFENSE_SET);
-            pokemonInfo.setTags(tags);
-            return true;
-        }
-        HashSet<Tag> tags = new HashSet<>();
-        tags.add(Tag.ATTACK_MIX_SET);
-        pokemonInfo.setTags(tags);
-        return true;
     }
 
     protected boolean tagAegislash(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {

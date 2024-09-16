@@ -58,17 +58,16 @@ public class BattleReplayExtractor {
 
         String tier = battleReplayData.formatId();
         List<BattleTeam> teams = extractTeam(battleReplayData.log());
-        //贴标签
-        for (BattleTeam team : teams) {
-            teamTagger.tagTeam(team, null);
-        }
-
         teams.get(0).setPlayerName(battleReplayData.players().get(0));
         teams.get(1).setPlayerName(battleReplayData.players().get(1));
         teams.get(0).setTier(tier);
         teams.get(1).setTier(tier);
         teams.get(0).setRating(battleReplayData.rating());
         teams.get(1).setRating(battleReplayData.rating());
+        //贴标签
+        for (BattleTeam team : teams) {
+            teamTagger.tagTeam(team, null);
+        }
         logger.debug("extract end");
         LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochSecond(battleReplayData.uploadTime()),
                 ZoneId.systemDefault());

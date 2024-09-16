@@ -115,6 +115,7 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
 
             if (atk == 0 && def == 0) {
                 logger.error("can not find valiad tag for team {}", team.getId());
+                return;
             }
 
             float dif = atk - def;

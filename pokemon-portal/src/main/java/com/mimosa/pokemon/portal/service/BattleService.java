@@ -181,7 +181,12 @@ public class BattleService {
         long total = mongoTemplate.count(query, getTeamGroupCollection(groupName));
 
         MatchOperation matchOperation = Aggregation.match(criteria);
-        SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC, sort);
+        SortOperation sortOperation;
+        if ("maxPlayerWinDif".equals(sort)) {
+            sortOperation = Aggregation.sort(Sort.Direction.DESC, sort, "latestBattleDate");
+        } else {
+            sortOperation = Aggregation.sort(Sort.Direction.DESC, sort);
+        }
         LookupOperation lookupOperation = LookupOperation.newLookup()
                 .from(getTeamSetCollection(groupName))
                 .localField(ID)

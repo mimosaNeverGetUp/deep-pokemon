@@ -35,6 +35,7 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
     private static final int OF_INDEX = 3;
     protected static final String ITEM = "item";
     protected static final String WISH = "Wish";
+    protected static final String HEALING_WISH = "Healing Wish";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -70,8 +71,11 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
             healthOfTarget = moveEventStat.eventTarget();
         } else if (isFieldHealth(healthFrom, battleContext)) {
             healthOfTarget = battleContext.getField().eventTarget();
-        } else if (isWishHealth(healthFrom)) {
+        } else if (isWishRecovery(healthFrom)) {
             healthOfTarget = getWishOfTarget(battleEvent, eventTarget, battleContext);
+        } else if (isHealingWish(healthFrom)) {
+            // no analyze tmp
+            return;
         } else {
             healthOfTarget = eventTarget;
         }
@@ -122,8 +126,12 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
         }
     }
 
-    private boolean isWishHealth(String healthFrom) {
+    private boolean isWishRecovery(String healthFrom) {
         return StringUtils.equals(WISH, healthFrom);
+    }
+
+    private boolean isHealingWish(String healthFrom) {
+        return StringUtils.equals(HEALING_WISH, healthFrom);
     }
 
     private static void setPokemonItem(BattleContext battleContext, String healthFrom, EventTarget eventTarget) {

@@ -1,0 +1,363 @@
+|badge|p2|silver|gen9ou|30-2
+|uhtml|medal-msg|<div class="broadcast-blue">Curious what those medals under the avatar are? PS now has Ladder Seasons! For more information, check out the <a href="https://www.smogon.com/forums/threads/3740067/">thread on Smogon.</a></div>
+|raw|<div class="broadcast-blue"><strong>This battle is required to be public due to a player having a name starting with 'lt113tr'.</div>
+|j|☆lt113tr yone
+|j|☆switchbladess
+|t:|1723618200
+|gametype|singles
+|player|p1|lt113tr yone|nate|1799
+|player|p2|switchbladess|shadowtriad|1973
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Iron Moth|
+|poke|p1|Deoxys-Speed|
+|poke|p1|Kingambit, M|
+|poke|p1|Iron Valiant|
+|poke|p1|Ogerpon-Wellspring, F|
+|poke|p1|Roaring Moon|
+|poke|p2|Hatterene, F|
+|poke|p2|Heatran, M|
+|poke|p2|Toxapex, M|
+|poke|p2|Mamoswine, M|
+|poke|p2|Samurott-Hisui, M|
+|poke|p2|Dragonite, M|
+|teampreview
+|c|☆lt113tr yone|gl
+|j| Kate Marie
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by lt113tr yone)
+|j| lt112tp aladdin
+|j| LT113TR ln3
+|j| klih llllll
+|j| popoklkjlkj
+|l| LT113TR ln3
+|c|☆switchbladess|Hf
+|
+|t:|1723618238
+|start
+|switch|p1a: Alice|Ogerpon-Wellspring, F|100/100
+|switch|p2a: Jack Sparrow|Samurott-Hisui, M, shiny|100/100
+|turn|1
+|inactive|lt113tr yone has 120 seconds left.
+|j| Disscratch
+|j| dk fan club
+|
+|t:|1723618289
+|move|p2a: Jack Sparrow|Ceaseless Edge|p1a: Alice
+|-damage|p1a: Alice|39/100
+|-sidestart|p1: lt113tr yone|Spikes
+|move|p1a: Alice|U-turn|p2a: Jack Sparrow
+|-supereffective|p2a: Jack Sparrow
+|-damage|p2a: Jack Sparrow|33/100
+|inactive|lt113tr yone has 90 seconds left.
+|
+|t:|1723618308
+|switch|p1a: Calamity|Iron Valiant, shiny|100/100|[from] U-turn
+|-damage|p1a: Calamity|88/100|[from] Spikes
+|-enditem|p1a: Calamity|Booster Energy
+|-activate|p1a: Calamity|ability: Quark Drive|[fromitem]
+|-start|p1a: Calamity|quarkdrivespa
+|
+|upkeep
+|turn|2
+|
+|t:|1723618325
+|switch|p2a: Serpentine|Toxapex, M, shiny|100/100
+|move|p1a: Calamity|Calm Mind|p1a: Calamity
+|-boost|p1a: Calamity|spa|1
+|-boost|p1a: Calamity|spd|1
+|
+|upkeep
+|turn|3
+|
+|t:|1723618330
+|move|p1a: Calamity|Shadow Ball|p2a: Serpentine
+|-damage|p2a: Serpentine|67/100
+|move|p2a: Serpentine|Sludge Bomb|p1a: Calamity
+|-supereffective|p1a: Calamity
+|-damage|p1a: Calamity|13/100
+|
+|upkeep
+|turn|4
+|
+|t:|1723618339
+|move|p1a: Calamity|Moonblast|p2a: Serpentine
+|-resisted|p2a: Serpentine
+|-damage|p2a: Serpentine|39/100
+|move|p2a: Serpentine|Sludge Bomb|p1a: Calamity
+|-supereffective|p1a: Calamity
+|-damage|p1a: Calamity|0 fnt
+|faint|p1a: Calamity
+|-end|p1a: Calamity|Quark Drive|[silent]
+|
+|upkeep
+|
+|t:|1723618349
+|switch|p1a: Overgod|Kingambit, M, shiny|100/100
+|-activate|p1a: Overgod|ability: Supreme Overlord
+|-start|p1a: Overgod|fallen1|[silent]
+|-item|p1a: Overgod|Air Balloon
+|turn|5
+|l| lt112tp aladdin
+|
+|t:|1723618361
+|switch|p2a: Chaos|Heatran, M, shiny|100/100
+|-item|p2a: Chaos|Air Balloon
+|move|p1a: Overgod|Kowtow Cleave|p2a: Chaos
+|-damage|p2a: Chaos|67/100
+|-enditem|p2a: Chaos|Air Balloon
+|
+|upkeep
+|turn|6
+|inactive|lt113tr yone has 120 seconds left.
+|
+|t:|1723618374
+|-end|p1a: Overgod|fallen1|[silent]
+|switch|p1a: Comatose|Deoxys-Speed, shiny|100/100
+|-damage|p1a: Comatose|88/100|[from] Spikes
+|-ability|p1a: Comatose|Pressure
+|move|p2a: Chaos|Stealth Rock|p1a: Comatose
+|-sidestart|p1: lt113tr yone|move: Stealth Rock
+|
+|upkeep
+|turn|7
+|inactive|lt113tr yone has 120 seconds left.
+|
+|t:|1723618394
+|switch|p2a: Lacey Evans|Hatterene, F, shiny|100/100
+|move|p1a: Comatose|Stealth Rock|p2a: Lacey Evans
+|move|p2a: Lacey Evans|Stealth Rock||[from]ability: Magic Bounce|[still]
+|-fail|p2a: Lacey Evans
+|
+|upkeep
+|turn|8
+|
+|t:|1723618398
+|move|p1a: Comatose|Stealth Rock|p2a: Lacey Evans
+|move|p2a: Lacey Evans|Stealth Rock||[from]ability: Magic Bounce|[still]
+|-fail|p2a: Lacey Evans
+|move|p2a: Lacey Evans|Trick Room|p2a: Lacey Evans
+|-fieldstart|move: Trick Room|[of] p2a: Lacey Evans
+|
+|upkeep
+|turn|9
+|j| holis D
+|
+|t:|1723618408
+|move|p2a: Lacey Evans|Dazzling Gleam|p1a: Comatose
+|-damage|p1a: Comatose|10/100
+|move|p1a: Comatose|Stealth Rock|p2a: Lacey Evans
+|move|p2a: Lacey Evans|Stealth Rock||[from]ability: Magic Bounce|[still]
+|-fail|p2a: Lacey Evans
+|
+|upkeep
+|turn|10
+|
+|t:|1723618413
+|move|p2a: Lacey Evans|Psychic Noise|p1a: Comatose
+|-resisted|p1a: Comatose
+|-damage|p1a: Comatose|0 fnt
+|faint|p1a: Comatose
+|
+|upkeep
+|j| meowscardaily
+|
+|t:|1723618417
+|switch|p1a: Overgod|Kingambit, M, shiny|100/100
+|-damage|p1a: Overgod|94/100|[from] Stealth Rock
+|-activate|p1a: Overgod|ability: Supreme Overlord
+|-start|p1a: Overgod|fallen2|[silent]
+|-item|p1a: Overgod|Air Balloon
+|turn|11
+|j| lt113tr who is u
+|
+|t:|1723618421
+|move|p2a: Lacey Evans|Mystical Fire|p1a: Overgod
+|-supereffective|p1a: Overgod
+|-damage|p1a: Overgod|38/100
+|-unboost|p1a: Overgod|spa|1
+|-enditem|p1a: Overgod|Air Balloon
+|move|p1a: Overgod|Swords Dance|p1a: Overgod
+|-boost|p1a: Overgod|atk|2
+|
+|upkeep
+|turn|12
+|j| y7f2
+|
+|t:|1723618433
+|move|p1a: Overgod|Sucker Punch|p2a: Lacey Evans
+|-enditem|p2a: Lacey Evans|Focus Sash
+|-damage|p2a: Lacey Evans|1/100
+|move|p2a: Lacey Evans|Dazzling Gleam|p1a: Overgod
+|-damage|p1a: Overgod|0 fnt
+|faint|p1a: Overgod
+|-end|p1a: Overgod|fallen2|[silent]
+|
+|-fieldend|move: Trick Room
+|upkeep
+|
+|t:|1723618437
+|switch|p1a: Symbolism|Iron Moth, shiny|100/100
+|-damage|p1a: Symbolism|88/100|[from] Spikes
+|-damage|p1a: Symbolism|63/100|[from] Stealth Rock
+|-enditem|p1a: Symbolism|Booster Energy
+|-activate|p1a: Symbolism|ability: Quark Drive|[fromitem]
+|-start|p1a: Symbolism|quarkdrivespe
+|turn|13
+|l| dk fan club
+|
+|t:|1723618444
+|move|p1a: Symbolism|Fiery Dance|p2a: Lacey Evans
+|-damage|p2a: Lacey Evans|0 fnt
+|-boost|p1a: Symbolism|spa|1
+|faint|p2a: Lacey Evans
+|
+|upkeep
+|
+|t:|1723618447
+|switch|p2a: Leviathan|Dragonite, M, shiny|100/100
+|turn|14
+|
+|t:|1723618453
+|move|p1a: Symbolism|Sludge Wave|p2a: Leviathan
+|-crit|p2a: Leviathan
+|-damage|p2a: Leviathan|49/100
+|move|p2a: Leviathan|Earthquake|p1a: Symbolism
+|-supereffective|p1a: Symbolism
+|-damage|p1a: Symbolism|0 fnt
+|faint|p1a: Symbolism
+|-end|p1a: Symbolism|Quark Drive|[silent]
+|
+|upkeep
+|
+|t:|1723618464
+|switch|p1a: Dark Phoenix|Roaring Moon, shiny|100/100
+|-damage|p1a: Dark Phoenix|88/100|[from] Spikes
+|-damage|p1a: Dark Phoenix|76/100|[from] Stealth Rock
+|-enditem|p1a: Dark Phoenix|Booster Energy
+|-activate|p1a: Dark Phoenix|ability: Protosynthesis|[fromitem]
+|-start|p1a: Dark Phoenix|protosynthesisatk
+|turn|15
+|
+|t:|1723618469
+|switch|p2a: Chaos|Heatran, M, shiny|67/100
+|move|p1a: Dark Phoenix|Dragon Dance|p1a: Dark Phoenix
+|-boost|p1a: Dark Phoenix|atk|1
+|-boost|p1a: Dark Phoenix|spe|1
+|
+|upkeep
+|turn|16
+|
+|t:|1723618472
+|move|p1a: Dark Phoenix|Earthquake|p2a: Chaos
+|-supereffective|p2a: Chaos
+|-damage|p2a: Chaos|0 fnt
+|faint|p2a: Chaos
+|
+|upkeep
+|l| y7f2
+|
+|t:|1723618474
+|switch|p2a: Napoleon|Mamoswine, M, shiny|100/100
+|turn|17
+|
+|t:|1723618478
+|-terastallize|p1a: Dark Phoenix|Ghost
+|move|p2a: Napoleon|Ice Shard|p1a: Dark Phoenix
+|-damage|p1a: Dark Phoenix|34/100
+|-damage|p2a: Napoleon|91/100|[from] item: Life Orb
+|move|p1a: Dark Phoenix|Knock Off|p2a: Napoleon
+|-damage|p2a: Napoleon|0 fnt
+|-enditem|p2a: Napoleon|Life Orb|[from] move: Knock Off|[of] p1a: Dark Phoenix
+|faint|p2a: Napoleon
+|
+|upkeep
+|
+|t:|1723618487
+|switch|p2a: Serpentine|Toxapex, M, shiny|72/100
+|turn|18
+|
+|t:|1723618492
+|switch|p2a: Leviathan|Dragonite, M, shiny|49/100
+|move|p1a: Dark Phoenix|Earthquake|p2a: Leviathan
+|-immune|p2a: Leviathan
+|
+|upkeep
+|turn|19
+|
+|t:|1723618507
+|move|p1a: Dark Phoenix|Knock Off|p2a: Leviathan
+|-damage|p2a: Leviathan|0 fnt
+|-enditem|p2a: Leviathan|Choice Band|[from] move: Knock Off|[of] p1a: Dark Phoenix
+|faint|p2a: Leviathan
+|
+|upkeep
+|l| popoklkjlkj
+|
+|t:|1723618508
+|switch|p2a: Serpentine|Toxapex, M, shiny|100/100
+|turn|20
+|
+|t:|1723618535
+|-terastallize|p2a: Serpentine|Fighting
+|move|p1a: Dark Phoenix|Earthquake|p2a: Serpentine
+|-damage|p2a: Serpentine|46/100
+|move|p2a: Serpentine|Sludge Bomb|p1a: Dark Phoenix
+|-resisted|p1a: Dark Phoenix
+|-damage|p1a: Dark Phoenix|21/100
+|-status|p1a: Dark Phoenix|psn
+|
+|-damage|p1a: Dark Phoenix|8/100 psn|[from] psn
+|upkeep
+|turn|21
+|
+|t:|1723618545
+|move|p1a: Dark Phoenix|Earthquake|p2a: Serpentine
+|-damage|p2a: Serpentine|0 fnt
+|faint|p2a: Serpentine
+|
+|-damage|p1a: Dark Phoenix|0 fnt|[from] psn
+|faint|p1a: Dark Phoenix
+|-end|p1a: Dark Phoenix|Protosynthesis|[silent]
+|upkeep
+|
+|t:|1723618548
+|switch|p1a: Alice|Ogerpon-Wellspring, F|39/100
+|switch|p2a: Jack Sparrow|Samurott-Hisui, M, shiny|33/100
+|-damage|p1a: Alice|27/100|[from] Spikes
+|-damage|p1a: Alice|15/100|[from] Stealth Rock
+|turn|22
+|c|☆lt113tr yone|F
+|
+|t:|1723618553
+|move|p2a: Jack Sparrow|Sacred Sword|p1a: Alice
+|-damage|p1a: Alice|0 fnt
+|faint|p1a: Alice
+|
+|win|switchbladess
+|raw|lt113tr yone's rating: 1799 &rarr; <strong>1788</strong><br />(-11 for losing)
+|raw|switchbladess's rating: 1973 &rarr; <strong>1984</strong><br />(+11 for winning)
+|l|☆lt113tr yone
+|player|p1|
+|c|☆switchbladess|Gg
+|l|☆switchbladess
+|player|p2|
+|l| holis D
+|j| LT113TR K
+|j| lt113tr j
+|l| LT113TR K
+|l| meowscardaily
+|l| lt113tr j
+|j| meowscardaily
+|l| Kate Marie
+|j| LT113TR KISS LAND

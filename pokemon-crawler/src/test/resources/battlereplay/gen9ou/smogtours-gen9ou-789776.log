@@ -1,0 +1,562 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
+|t:|1725809025
+|gametype|singles
+|player|p1|chansey and lulu|1|
+|player|p2|Bbeeaa|ethan|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Gouging Fire|
+|poke|p1|Great Tusk|
+|poke|p1|Iron Moth|
+|poke|p1|Ninetales, M|
+|poke|p1|Walking Wake|
+|poke|p1|Hatterene, F|
+|poke|p2|Clefable, F|
+|poke|p2|Ting-Lu|
+|poke|p2|Skarmory, F|
+|poke|p2|Zamazenta-*|
+|poke|p2|Reuniclus, F|
+|poke|p2|Dragonite, F|
+|teampreview
+|inactive|chansey and lulu has 270 seconds left.
+|inactive|Bbeeaa has 270 seconds left.
+|c|☆Bbeeaa|Fuckkkk
+|c|+3d|Ole ole ole ole
+|c|☆Bbeeaa|I loseeeee afff
+|c|+3d|Ole ole
+|inactive|Bbeeaa has 240 seconds left.
+|c|+spookyz|noooo
+|inactive|chansey and lulu disconnected and has 300 seconds to reconnect!
+|player|p1|
+|c|+PkeL SweeTforU|wtf u loadin
+|
+|t:|1725809104
+|start
+|switch|p1a: Ninetales|Ninetales, M|100/100
+|switch|p2a: Reuniclus|Reuniclus, F|100/100
+|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Ninetales
+|turn|1
+|inactive|chansey and lulu reconnected and has 300 seconds left.
+|player|p1|chansey and lulu|1|
+|c|☆Bbeeaa|Idk
+|c|☆Bbeeaa|some noob linked me team
+|c|☆Bbeeaa|this team *
+|c|+ALlCE|my bad
+|c|☆Bbeeaa|and tricking ( my coach ) told me to use it game 3
+|inactive|chansey and lulu has 270 seconds left.
+|
+|t:|1725809148
+|switch|p1a: Hatterene|Hatterene, F|100/100
+|move|p2a: Reuniclus|Knock Off|p1a: Hatterene
+|-crit|p1a: Hatterene
+|-damage|p1a: Hatterene|76/100
+|-enditem|p1a: Hatterene|Assault Vest|[from] move: Knock Off|[of] p2a: Reuniclus
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|2
+|
+|t:|1725809157
+|switch|p2a: Ting-Lu|Ting-Lu|100/100
+|-ability|p2a: Ting-Lu|Vessel of Ruin
+|move|p1a: Hatterene|Nuzzle|p2a: Ting-Lu
+|-immune|p2a: Ting-Lu
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|3
+|
+|t:|1725809169
+|switch|p1a: Great Tusk|Great Tusk|100/100
+|-activate|p1a: Great Tusk|ability: Protosynthesis
+|-start|p1a: Great Tusk|protosynthesisatk
+|move|p2a: Ting-Lu|Earthquake|p1a: Great Tusk
+|-damage|p1a: Great Tusk|66/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|4
+|c|+blarghlfarghl|gettem chonsey
+|c|+AcrOne|its joever already
+|c|+blarghlfarghl|ggs
+|c|+AcrOne|ggs
+|
+|t:|1725809194
+|switch|p2a: Reuniclus|Reuniclus, F|100/100
+|move|p1a: Great Tusk|Close Combat|p2a: Reuniclus
+|-resisted|p2a: Reuniclus
+|-damage|p2a: Reuniclus|66/100
+|-unboost|p1a: Great Tusk|def|1
+|-unboost|p1a: Great Tusk|spd|1
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|5
+|c|+AcrOne|nt
+|inactive|Bbeeaa has 270 seconds left.
+|c|☆Bbeeaa|Mons really hard af on this gen
+|c|☆Bbeeaa|They making me use calc and everything
+|inactive|Bbeeaa has 240 seconds left.
+|c|☆Bbeeaa|!calc
+|c|+Bbeeaa|/raw <div class="infobox">Pok&eacute;mon Showdown! damage calculator. (Courtesy of Honko, Austin, dhelmise, &amp; jetou)<br />- <a href="https://calc.pokemonshowdown.com/index.html?gen=9">Damage Calculator</a></div>
+|
+|t:|1725809262
+|move|p1a: Great Tusk|Headlong Rush|p2a: Reuniclus
+|-damage|p2a: Reuniclus|0 fnt
+|-unboost|p1a: Great Tusk|def|1
+|-unboost|p1a: Great Tusk|spd|1
+|faint|p2a: Reuniclus
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|t:|1725809276
+|switch|p2a: Skarmory|Skarmory, F|100/100
+|turn|6
+|c|+blarghlfarghl|hope the calc helped u bro
+|c|☆Bbeeaa|I lied i didn't use it
+|
+|t:|1725809291
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Hatterene|Hatterene, F|76/100
+|move|p2a: Skarmory|Brave Bird|p1a: Hatterene
+|-damage|p1a: Hatterene|45/100
+|-damage|p2a: Skarmory|91/100|[from] Recoil
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|7
+|
+|t:|1725809302
+|switch|p2a: Ting-Lu|Ting-Lu|100/100
+|-ability|p2a: Ting-Lu|Vessel of Ruin
+|move|p1a: Hatterene|Draining Kiss|p2a: Ting-Lu
+|-supereffective|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|79/100
+|-heal|p1a: Hatterene|71/100|[from] drain|[of] p2a: Ting-Lu
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|8
+|
+|t:|1725809310
+|move|p2a: Ting-Lu|Earthquake|p1a: Hatterene
+|-damage|p1a: Hatterene|34/100
+|move|p1a: Hatterene|Draining Kiss|p2a: Ting-Lu
+|-supereffective|p2a: Ting-Lu
+|-crit|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|50/100
+|-heal|p1a: Hatterene|68/100|[from] drain|[of] p2a: Ting-Lu
+|
+|-weather|none
+|upkeep
+|turn|9
+|inactive|Bbeeaa has 240 seconds left.
+|
+|t:|1725809325
+|switch|p2a: Clefable|Clefable, F|100/100
+|move|p1a: Hatterene|Draining Kiss|p2a: Clefable
+|-damage|p2a: Clefable|78/100
+|-heal|p1a: Hatterene|89/100|[from] drain|[of] p2a: Clefable
+|
+|-damage|p1a: Hatterene|77/100|[from] item: Sticky Barb
+|upkeep
+|turn|10
+|
+|t:|1725809355
+|switch|p1a: Ninetales|Ninetales, M|100/100
+|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Ninetales
+|move|p2a: Clefable|Wish|p2a: Clefable
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|11
+|inactive|chansey and lulu has 270 seconds left.
+|inactive|Bbeeaa has 240 seconds left.
+|
+|t:|1725809371
+|switch|p1a: Great Tusk|Great Tusk|66/100
+|-activate|p1a: Great Tusk|ability: Protosynthesis
+|-start|p1a: Great Tusk|protosynthesisatk
+|move|p2a: Clefable|Moonblast|p1a: Great Tusk
+|-supereffective|p1a: Great Tusk
+|-damage|p1a: Great Tusk|0 fnt
+|faint|p1a: Great Tusk
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Clefable|100/100|[from] move: Wish|[wisher] Clefable
+|upkeep
+|inactive|chansey and lulu has 270 seconds left.
+|
+|t:|1725809379
+|switch|p1a: Gouging Fire|Gouging Fire|100/100
+|-activate|p1a: Gouging Fire|ability: Protosynthesis
+|-start|p1a: Gouging Fire|protosynthesisatk
+|turn|12
+|inactive|Bbeeaa has 240 seconds left.
+|c|☆Bbeeaa|Im glad this guy gone
+|c|☆Bbeeaa|after this week
+|c|+3d|Omg
+|
+|t:|1725809417
+|switch|p2a: Skarmory|Skarmory, F|91/100
+|move|p1a: Gouging Fire|Raging Fury|p2a: Skarmory
+|-supereffective|p2a: Skarmory
+|-damage|p2a: Skarmory|0 fnt
+|faint|p2a: Skarmory
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|inactive|Bbeeaa has 210 seconds left.
+|
+|t:|1725809433
+|switch|p2a: Zamazenta|Zamazenta|100/100
+|-ability|p2a: Zamazenta|Dauntless Shield|boost
+|-boost|p2a: Zamazenta|def|1
+|turn|13
+|
+|t:|1725809436
+|move|p2a: Zamazenta|Iron Defense|p2a: Zamazenta
+|-boost|p2a: Zamazenta|def|2
+|move|p1a: Gouging Fire|Raging Fury|p2a: Zamazenta|[from]lockedmove
+|-damage|p2a: Zamazenta|54/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|14
+|
+|t:|1725809446
+|move|p2a: Zamazenta|Body Press|p1a: Gouging Fire
+|-damage|p1a: Gouging Fire|25/100
+|move|p1a: Gouging Fire|Raging Fury|p2a: Zamazenta|[from]lockedmove
+|-damage|p2a: Zamazenta|5/100
+|-start|p1a: Gouging Fire|confusion|[fatigue]
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|15
+|
+|t:|1725809457
+|-end|p1a: Gouging Fire|Protosynthesis|[silent]
+|switch|p1a: Hatterene|Hatterene, F|77/100
+|move|p2a: Zamazenta|Rest|p2a: Zamazenta
+|-status|p2a: Zamazenta|slp|[from] move: Rest
+|-heal|p2a: Zamazenta|100/100 slp|[silent]
+|-enditem|p2a: Zamazenta|Chesto Berry|[eat]
+|-curestatus|p2a: Zamazenta|slp|[msg]
+|
+|-weather|SunnyDay|[upkeep]
+|-damage|p1a: Hatterene|65/100|[from] item: Sticky Barb
+|upkeep
+|turn|16
+|
+|t:|1725809473
+|switch|p2a: Clefable|Clefable, F|100/100
+|move|p1a: Hatterene|Draining Kiss|p2a: Clefable
+|-damage|p2a: Clefable|81/100
+|-heal|p1a: Hatterene|83/100|[from] drain|[of] p2a: Clefable
+|
+|-weather|SunnyDay|[upkeep]
+|-damage|p1a: Hatterene|70/100|[from] item: Sticky Barb
+|upkeep
+|turn|17
+|
+|t:|1725809492
+|switch|p1a: Walking Wake|Walking Wake|100/100
+|-activate|p1a: Walking Wake|ability: Protosynthesis
+|-start|p1a: Walking Wake|protosynthesisspe
+|move|p2a: Clefable|Wish|p2a: Clefable
+|
+|-weather|none
+|-end|p1a: Walking Wake|Protosynthesis
+|upkeep
+|turn|18
+|
+|t:|1725809509
+|move|p1a: Walking Wake|Flip Turn|p2a: Clefable
+|-damage|p2a: Clefable|67/100
+|
+|t:|1725809514
+|-end|p1a: Walking Wake|Protosynthesis|[silent]
+|switch|p1a: Ninetales|Ninetales, M|100/100|[from] Flip Turn
+|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Ninetales
+|move|p2a: Clefable|Knock Off|p1a: Ninetales
+|-damage|p1a: Ninetales|82/100
+|-enditem|p1a: Ninetales|Heat Rock|[from] move: Knock Off|[of] p2a: Clefable
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Clefable|100/100|[from] move: Wish|[wisher] Clefable
+|upkeep
+|turn|19
+|
+|t:|1725809529
+|switch|p1a: Iron Moth|Iron Moth|100/100
+|-enditem|p1a: Iron Moth|Booster Energy
+|-activate|p1a: Iron Moth|ability: Quark Drive|[fromitem]
+|-start|p1a: Iron Moth|quarkdrivespe
+|move|p2a: Clefable|Wish|p2a: Clefable
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|20
+|
+|t:|1725809538
+|-end|p1a: Iron Moth|Quark Drive|[silent]
+|switch|p1a: Walking Wake|Walking Wake|100/100
+|-activate|p1a: Walking Wake|ability: Protosynthesis
+|-start|p1a: Walking Wake|protosynthesisspe
+|switch|p2a: Ting-Lu|Ting-Lu|50/100
+|-ability|p2a: Ting-Lu|Vessel of Ruin
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Ting-Lu|89/100|[from] move: Wish|[wisher] Clefable
+|upkeep
+|turn|21
+|c|+zuzhouwawa|Lu Lu seldom played tours before. He should have forgotten to send hf and gg.
+|inactive|Bbeeaa has 240 seconds left.
+|c|+blarghlfarghl|he has still been more respectful than his opponent however
+|c|☆Bbeeaa|Right
+|c|+3d|Chansey delulu
+|c|☆Bbeeaa|it's very disrespectful towards a legend like me
+|c|+3d|U r ass
+|inactive|Bbeeaa has 210 seconds left.
+|c|☆Bbeeaa|Indeed
+|c|+3d|Ur about to get packed up
+|inactive|chansey and lulu has 270 seconds left.
+|c|☆Bbeeaa|look how I'm playing a close game
+|c|+3d|By a dude named chansey delulu
+|c|☆Bbeeaa|Vs a bad player
+|c|+3d|Cuz u sacked reuni t0
+|
+|t:|1725809606
+|-terastallize|p2a: Ting-Lu|Water
+|move|p1a: Walking Wake|Hydro Steam|p2a: Ting-Lu
+|-resisted|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|73/100
+|move|p2a: Ting-Lu|Stealth Rock|p1a: Walking Wake
+|-sidestart|p1: chansey and lulu|move: Stealth Rock
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|22
+|c|+blarghlfarghl|u just gonna take that chonsey?
+|inactive|chansey and lulu has 270 seconds left.
+|c|+3d|Oh my god
+|c|+3d|He got them up
+|c|+blarghlfarghl|gg
+|c|+3d|I just fell to my knees
+|c|+3d|No diddy
+|c|+blarghlfarghl|u were already on them
+|inactive|chansey and lulu has 240 seconds left.
+|c|☆Bbeeaa|U 2 damn annoying
+|c|☆Bbeeaa|this is suppose to be my monologue
+|
+|t:|1725809653
+|move|p1a: Walking Wake|Flip Turn|p2a: Ting-Lu
+|-resisted|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|71/100
+|
+|t:|1725809660
+|-end|p1a: Walking Wake|Protosynthesis|[silent]
+|switch|p1a: Gouging Fire|Gouging Fire|25/100|[from] Flip Turn
+|-damage|p1a: Gouging Fire|0 fnt|[from] Stealth Rock
+|faint|p1a: Gouging Fire
+|-end|p1a: Gouging Fire|Protosynthesis|[silent]
+|move|p2a: Ting-Lu|Earthquake|p1: Gouging Fire|[notarget]
+|-fail|p2a: Ting-Lu
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|inactive|chansey and lulu has 210 seconds left.
+|c|☆Bbeeaa|Boy I'm ngl u a kinda different type of ass cuz why would I wish pass that turn
+|
+|t:|1725809694
+|switch|p1a: Hatterene|Hatterene, F|70/100
+|-damage|p1a: Hatterene|58/100|[from] Stealth Rock
+|turn|23
+|
+|t:|1725809703
+|switch|p2a: Clefable|Clefable, F|100/100
+|move|p1a: Hatterene|Nuzzle|p2a: Clefable
+|-damage|p2a: Clefable|97/100
+|-status|p2a: Clefable|par
+|
+|-weather|SunnyDay|[upkeep]
+|-damage|p1a: Hatterene|46/100|[from] item: Sticky Barb
+|upkeep
+|turn|24
+|c|+blarghlfarghl|well said.
+|inactive|Bbeeaa has 210 seconds left.
+|
+|t:|1725809709
+|move|p1a: Hatterene|Psyshock|p2a: Clefable
+|-damage|p2a: Clefable|67/100 par
+|move|p2a: Clefable|Wish|p2a: Clefable
+|
+|-weather|SunnyDay|[upkeep]
+|-damage|p1a: Hatterene|33/100|[from] item: Sticky Barb
+|upkeep
+|turn|25
+|inactive|Bbeeaa has 210 seconds left.
+|
+|t:|1725809721
+|switch|p2a: Ting-Lu|Ting-Lu, tera:Water|71/100
+|-ability|p2a: Ting-Lu|Vessel of Ruin
+|move|p1a: Hatterene|Draining Kiss|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|60/100
+|-heal|p1a: Hatterene|46/100|[from] drain|[of] p2a: Ting-Lu
+|
+|-weather|none
+|-heal|p2a: Ting-Lu|99/100|[from] move: Wish|[wisher] Clefable
+|-damage|p1a: Hatterene|34/100|[from] item: Sticky Barb
+|upkeep
+|turn|26
+|inactive|Bbeeaa has 210 seconds left.
+|
+|t:|1725809734
+|move|p2a: Ting-Lu|Heavy Slam|p1a: Hatterene
+|-supereffective|p1a: Hatterene
+|-damage|p1a: Hatterene|0 fnt
+|faint|p1a: Hatterene
+|
+|upkeep
+|
+|t:|1725809741
+|switch|p1a: Ninetales|Ninetales, M|82/100
+|-damage|p1a: Ninetales|57/100|[from] Stealth Rock
+|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Ninetales
+|turn|27
+|inactive|Bbeeaa has 210 seconds left.
+|c|+Galatina might be|Didn't have w doubt tricking suggested this team
+|
+|t:|1725809756
+|switch|p2a: Clefable|Clefable, F|67/100 par
+|move|p1a: Ninetales|Encore||[still]
+|-fail|p1a: Ninetales
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|28
+|inactive|Bbeeaa has 210 seconds left.
+|
+|t:|1725809770
+|move|p1a: Ninetales|Weather Ball|p2a: Clefable
+|-damage|p2a: Clefable|25/100 par
+|move|p2a: Clefable|Wish|p2a: Clefable
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|29
+|inactive|Bbeeaa has 210 seconds left.
+|
+|t:|1725809780
+|switch|p2a: Ting-Lu|Ting-Lu, tera:Water|99/100
+|-ability|p2a: Ting-Lu|Vessel of Ruin
+|move|p1a: Ninetales|Weather Ball|p2a: Ting-Lu
+|-resisted|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|89/100
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Ting-Lu|100/100|[from] move: Wish|[wisher] Clefable
+|upkeep
+|turn|30
+|
+|t:|1725809788
+|move|p1a: Ninetales|Will-O-Wisp|p2a: Ting-Lu|[miss]
+|-miss|p1a: Ninetales|p2a: Ting-Lu
+|move|p2a: Ting-Lu|Earthquake|p1a: Ninetales
+|-supereffective|p1a: Ninetales
+|-damage|p1a: Ninetales|0 fnt
+|faint|p1a: Ninetales
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|c|+blarghlfarghl|he just won
+|c|+xray|expert wish
+|c|+3d|Thankfully he took 40% on clef to restore 6% on lu
+|c|+blarghlfarghl|terrible
+|
+|t:|1725809802
+|switch|p1a: Iron Moth|Iron Moth|100/100
+|-damage|p1a: Iron Moth|76/100|[from] Stealth Rock
+|turn|31
+|c|☆Bbeeaa|It was to get ride of encore
+|c|☆Bbeeaa|Noobs.
+|
+|t:|1725809819
+|move|p1a: Iron Moth|Sludge Wave|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|78/100
+|move|p2a: Ting-Lu|Earthquake|p1a: Iron Moth
+|-supereffective|p1a: Iron Moth
+|-damage|p1a: Iron Moth|0 fnt
+|faint|p1a: Iron Moth
+|-end|p1a: Iron Moth|Quark Drive|[silent]
+|
+|-weather|none
+|upkeep
+|c|+Niko|if it makes ur oppo get severe illness it's a tricking-approved team
+|c|+a plague doc|g3?
+|
+|t:|1725809826
+|switch|p1a: Walking Wake|Walking Wake|100/100
+|-damage|p1a: Walking Wake|88/100|[from] Stealth Rock
+|turn|32
+|c|+blarghlfarghl|dont let this distract from the fact that u got bodied by a doubles
+|c|☆Bbeeaa|OMG I FINALLY GOT AN OFFICIAL WIN AFTER two years
+|c|+Niko|g2, 1-0 lulu
+|
+|t:|1725809845
+|move|p1a: Walking Wake|Dragon Pulse|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|59/100
+|move|p2a: Ting-Lu|Earthquake|p1a: Walking Wake
+|-damage|p1a: Walking Wake|42/100
+|
+|upkeep
+|turn|33
+|-message|chansey and lulu forfeited.
+|
+|win|Bbeeaa
+|player|p1|
+|c|☆Bbeeaa|GG
+|c|+Niko|say ggs now
+|c|+blarghlfarghl|he already said it
+|c|☆Bbeeaa|Say ggs
+|c|☆Bbeeaa|again
+|c|+Niko|say ggs
+|c|+Niko|chansey and lulu
+|c|+AcrOne|nah poor kid
+|c|+lax|don't be mean to my protege
+|c|+AcrOne|stop the bullying
+|c|+lax|fuck yall
+|c|+AcrOne|wtf...
+|c|+Unowndragon|enough
+|c|+Niko|kek
+|c|+blarghlfarghl|someone ban bea again
+|c|+AcrOne|real
+|c|+Galatina might be|real
+|c|+Niko|lax did u ghost him?
+|c|+AcrOne|and niko too
+|c|+Niko|it looks like it since he lost
+|c|+Galatina might be|why is enz1 allowed to speak
+|c|+AcrOne|fuck dynamos
+|c|+Galatina might be|go back to ur cave
+|c|+lax|no if I ghosted him we'd win cuz I'm much better than u niko
+|c|+Galatina might be|Lulu was ghosted by niko
+|c|+Galatina might be|No doubt
+|c|+lax|only explanation
+|c|+Niko|don't reveal please
+|c|+Niko|i have a team tour to play soon
+|c|+Galatina might be|HHHHHHHHH
+|c|+Galatina might be|goat.
+|player|p2|

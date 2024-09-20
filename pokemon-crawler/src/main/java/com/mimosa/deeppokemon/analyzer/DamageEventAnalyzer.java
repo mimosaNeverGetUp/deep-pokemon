@@ -16,6 +16,8 @@ import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -94,9 +96,10 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             String item = splits[1].strip();
             if (item.contains(STICKY_BARB)) {
                 int opponentPlayerNumber = 3 - eventTarget.playerNumber();
-
-                battleContext.setPokemonItem(opponentPlayerNumber,
-                        battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1).getActivePokemonName(), item);
+                if (opponentIsAllNotSetStickyBarb(battleContext.getBattle(), opponentPlayerNumber)) {
+                    battleContext.setPokemonItem(opponentPlayerNumber,
+                            battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1).getActivePokemonName(), item);
+                }
                 return;
             }
             if (damageOf != null) {
@@ -107,6 +110,15 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
 
             }
         }
+    }
+
+    private static boolean opponentIsAllNotSetStickyBarb(Battle battle, int opponentPlayerNumber) {
+        for (Pokemon pokemon : battle.getBattleTeams().get(opponentPlayerNumber - 1).getPokemons()) {
+            if (StringUtils.equals(pokemon.getItem(), STICKY_BARB)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void setPlayerSwitchDamageStat(BattleEvent battleEvent, BattleStat battleStat, EventTarget eventTarget,
@@ -144,7 +156,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             // get stat by parent end event
             damageOf = endEventStat.eventTarget();
             damageFrom = endEventStat.endEvent();
-        }  else {
+        } else {
             // may be is opponent player turn start pokemon
             damageOf = BattleEventUtil.getOpponentTurnStartPokemonTarget(battleContext, eventTarget);
         }

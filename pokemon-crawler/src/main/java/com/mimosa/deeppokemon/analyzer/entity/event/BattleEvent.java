@@ -14,6 +14,7 @@ public final class BattleEvent {
     private final BattleEvent parentEvent;
     private List<BattleEvent> childrenEvents;
     private BattleEvent previousEvent;
+    private BattleEvent nextEvent;
     private Object battleEventStat;
 
     public BattleEvent(String type, List<String> contents, BattleEvent parentEvent, List<BattleEvent> childrenEvents) {
@@ -66,6 +67,14 @@ public final class BattleEvent {
 
     public void setBattleEventStat(Object battleEventStat) {
         this.battleEventStat = battleEventStat;
+    }
+
+    public BattleEvent getNextEvent() {
+        return nextEvent;
+    }
+
+    public void setNextEvent(BattleEvent nextEvent) {
+        this.nextEvent = nextEvent;
     }
 
     @Override

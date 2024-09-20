@@ -36,6 +36,9 @@ public class BattleEventParser {
 
             if (battleEvent.getParentEvent() == null) {
                 battleEvent.setChildrenEvents(new ArrayList<>());
+                if (currentParentEvent.get() != null) {
+                    currentParentEvent.get().setNextEvent(battleEvent);
+                }
                 battleEvents.add(battleEvent);
                 currentParentEvent.set(battleEvent);
             } else {

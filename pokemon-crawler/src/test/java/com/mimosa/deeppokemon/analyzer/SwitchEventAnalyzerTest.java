@@ -30,6 +30,8 @@ import java.util.List;
 class SwitchEventAnalyzerTest {
     private static final String SLOWKING_GALAR = "Slowking-Galar";
     private static final String DRAGAPULT = "Dragapult";
+    protected static final String OGERPON_WELLSPRING = "Ogerpon-Wellspring";
+    protected static final String SAMUROTT_HISUI = "Samurott-Hisui";
     @Autowired
     private SwitchEventAnalyzer analyzer;
 
@@ -130,7 +132,7 @@ class SwitchEventAnalyzerTest {
 
     @Test
     void analyzeSwitch_HasSwitchDamage_HasStealthRock() {
-        BattleEvent damageEvent = new BattleEvent("damage", null, null, null);
+        BattleEvent damageEvent = new BattleEvent("damage", List.of("p1a: Slowking", "88/100", "[from] Spikes"), null, null);
         BattleEvent switchEvent = new BattleEvent("switch", List.of("p1a: Slowking", "Slowking-Galar, M", "100/100"),
                 null, List.of(damageEvent));
         Battle battle = new BattleBuilder()
@@ -152,7 +154,7 @@ class SwitchEventAnalyzerTest {
 
     @Test
     void analyzeSwitch_HasSwitchDamage_HasSpikes() {
-        BattleEvent damageEvent = new BattleEvent("damage", null, null, null);
+        BattleEvent damageEvent = new BattleEvent("damage", List.of("p1a: Slowking", "88/100", "[from] Spikes"), null, null);
         BattleEvent switchEvent = new BattleEvent("switch", List.of("p1a: Slowking", "Slowking-Galar, M", "100/100"),
                 null, List.of(damageEvent));
         Battle battle = new BattleBuilder()
@@ -255,4 +257,38 @@ class SwitchEventAnalyzerTest {
         analyzer.analyze(switchEvent, battleStat, battleContext);
         Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon("Clefable").getItem());
     }
+
+
+    @Test
+    void analyzeSwitch_HasSwitchDamage_HasSpikes_DoubleSwitch() {
+        BattleEvent damageEvent = new BattleEvent("damage", List.of("p1a: Alice", "88/100", "[from] Spikes"), null,
+                null);
+        BattleEvent p1SwitchEvent = new BattleEvent("switch", List.of("p1a: Alice", "Ogerpon-Wellspring, F", "100/100"),
+                null, null);
+        BattleEvent p2SwitchEvent = new BattleEvent("switch", List.of("p2a: Jack Sparrow", "Samurott-Hisui, M, shiny"
+                , "100/100"), null, List.of(damageEvent));
+        p1SwitchEvent.setNextEvent(p2SwitchEvent);
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, OGERPON_WELLSPRING)
+                .addPokemon(2, SAMUROTT_HISUI)
+                .build();
+
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(1, OGERPON_WELLSPRING, "Alice")
+                .addPokemon(2, SAMUROTT_HISUI, "Jack Sparrow")
+                .addSide(1, new Side("Spikes", null))
+                .addSide(2, new Side("Spikes", null))
+                .setBattle(battle)
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, OGERPON_WELLSPRING)
+                .addPokemonStat(2, SAMUROTT_HISUI)
+                .build();
+        analyzer.analyze(p1SwitchEvent, battleStat, battleContext);
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon(OGERPON_WELLSPRING).getItem());
+        analyzer.analyze(p2SwitchEvent, battleStat, battleContext);
+        Assertions.assertEquals("Heavy-Duty Boots", battle.getBattleTeams().get(1).findPokemon(SAMUROTT_HISUI).getItem());
+    }
+
 }

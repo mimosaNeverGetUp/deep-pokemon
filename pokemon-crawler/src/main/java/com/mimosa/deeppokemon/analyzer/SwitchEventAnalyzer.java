@@ -88,7 +88,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
             return;
         }
 
-        boolean hasSwitchDamage = hasDamageChildrenEvent(battleEvent);
+        boolean hasSwitchDamage = hasDamageChildrenEvent(battleEvent, battleContext, switchName, switchPlayerNumber);
         if (!hasSwitchDamage) {
             if (sideList.stream().anyMatch(side -> StringUtils.equals(STEALTH_ROCK, side.name())) && isNotStealthRockImmunity(switchName)) {
                 battleContext.setPokemonItem(switchPlayerNumber, switchName, HEAVY_DUTY_BOOTS);
@@ -124,11 +124,34 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         return !pokemonInfo.getAbilities().contains(MAGIC_GUARD);
     }
 
-    private boolean hasDamageChildrenEvent(BattleEvent battleEvent) {
-        if (battleEvent.getChildrenEvents() == null) {
-            return false;
+    private boolean hasDamageChildrenEvent(BattleEvent battleEvent, BattleContext battleContext, String switchName,
+                                           int switchPlayerNumber) {
+        if (battleEvent.getChildrenEvents() != null && battleEvent.getChildrenEvents().stream().anyMatch(event ->
+                hasDamage(battleContext, switchName, switchPlayerNumber, event))) {
+            return true;
         }
-        return battleEvent.getChildrenEvents().stream().anyMatch(event -> StringUtils.equals("damage", event.getType()));
+        BattleEvent nextEvent = battleEvent.getNextEvent();
+        if (nextEvent != null && StringUtils.equals(SWITCH, nextEvent.getType()) && nextEvent.getChildrenEvents() != null) {
+            // when pokemon both die,player switch next pokemon in same time and damage will not happen suddenly
+            // so we should check damage is happen in next switch children event
+            if (nextEvent.getChildrenEvents().stream().anyMatch(event ->
+                    hasDamage(battleContext, switchName, switchPlayerNumber, event))) {
+                return true;
+
+            }
+        }
+        return false;
+    }
+
+    private static boolean hasDamage(BattleContext battleContext, String switchName, int switchPlayerNumber, BattleEvent event) {
+        if (StringUtils.equals("damage", event.getType())) {
+            EventTarget eventTarget = BattleEventUtil.getEventTarget(event.getContents().get(0), battleContext);
+            if (eventTarget.playerNumber() == switchPlayerNumber
+                    || StringUtils.equals(eventTarget.targetName(), switchName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

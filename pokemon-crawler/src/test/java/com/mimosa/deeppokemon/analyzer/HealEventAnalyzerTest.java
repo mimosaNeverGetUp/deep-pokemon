@@ -34,6 +34,9 @@ class HealEventAnalyzerTest {
     private static final String CORVIKNIGHT = "Corviknight";
     private static final String TING_LU = "Ting-Lu";
     private static final String GLISCOR = "Gliscor";
+    protected static final String DARKRAI = "Darkrai";
+    protected static final String HATTERENE = "Hatterene";
+    protected static final String ALOMOMOLA = "Alomomola";
     @Autowired
     private HealEventAnalyzer healEventAnalyzer;
 
@@ -156,5 +159,38 @@ class HealEventAnalyzerTest {
 
         PokemonStatus corviknightStatus = battleContext.getPlayerStatusList().get(0).getPokemonStatus(CORVIKNIGHT);
         assertEquals(BigDecimal.valueOf(100.0), corviknightStatus.getHealth());
+    }
+    @Test
+    void analyzeWishHeal() {
+        BattleEvent healthEvent = new BattleEvent("heal",
+                List.of("p2a: Hatterene", "100/100", "[from] move: Wish","[wisher] Alomomola"), null, null, null);
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, HATTERENE)
+                .addPokemonStat(2, ALOMOMOLA)
+                .addPokemonStat(1, DARKRAI)
+                .build();
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, HATTERENE, HATTERENE)
+                .addPokemon(2, ALOMOMOLA, ALOMOMOLA)
+                .addPokemon(1, DARKRAI, DARKRAI)
+                .setTurnStartPokemon(2, ALOMOMOLA)
+                .setTurnStartPokemon(1, DARKRAI)
+                .setHealth(2, HATTERENE, BigDecimal.valueOf(44))
+                .build();
+        assertTrue(healEventAnalyzer.supportAnalyze(healthEvent));
+        healEventAnalyzer.analyze(healthEvent, battleStat, battleContext);
+
+        PokemonBattleStat p1Stat = battleStat.playerStatList().get(0).getPokemonBattleStat(DARKRAI);
+        PokemonBattleStat p2WisherStat = battleStat.playerStatList().get(1).getPokemonBattleStat(ALOMOMOLA);
+        PokemonBattleStat hattereneStat = battleStat.playerStatList().get(1).getPokemonBattleStat(ALOMOMOLA);
+        assertEquals(BigDecimal.valueOf(-56.0), p1Stat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(-56.0), p1Stat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(56.0), p2WisherStat.getHealthValue());
+        assertEquals(BigDecimal.valueOf(0.0), p2WisherStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(0.0), hattereneStat.getAttackValue());
+        assertEquals(BigDecimal.valueOf(0.0), hattereneStat.getAttackValue());
+
+        PokemonStatus pokemonStatus = battleContext.getPlayerStatusList().get(1).getPokemonStatus(HATTERENE);
+        assertEquals(BigDecimal.valueOf(100.0), pokemonStatus.getHealth());
     }
 }

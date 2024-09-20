@@ -49,6 +49,7 @@ public class Battle implements Serializable {
     // 排名
     protected float avageRating;
     // 对局记录
+    @Transient
     protected String log;
     //对局回合
     protected int turnCount;

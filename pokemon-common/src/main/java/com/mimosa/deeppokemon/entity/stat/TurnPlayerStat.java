@@ -6,6 +6,8 @@
 
 package com.mimosa.deeppokemon.entity.stat;
 
+import org.springframework.data.annotation.Transient;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +15,8 @@ import java.util.Objects;
 
 public class TurnPlayerStat {
     private BigDecimal totalHealth;
+
+    @Transient
     private Map<String, TurnPokemonStat> turnPokemonStatMap;
 
     public TurnPlayerStat() {

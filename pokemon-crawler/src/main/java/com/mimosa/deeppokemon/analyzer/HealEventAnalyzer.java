@@ -16,6 +16,7 @@ import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -31,7 +32,9 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
     private static final int TARGET_INDEX = 0;
     private static final int HEALTH_INDEX = 1;
     private static final int FROM_INDEX = 2;
+    private static final int OF_INDEX = 3;
     protected static final String ITEM = "item";
+    protected static final String WISH = "Wish";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -67,6 +70,23 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
             healthOfTarget = moveEventStat.eventTarget();
         } else if (isFieldHealth(healthFrom, battleContext)) {
             healthOfTarget = battleContext.getField().eventTarget();
+        } else if (isWishHealth(healthFrom)) {
+            String ofTargetContent = battleEvent.getContents().get(OF_INDEX);
+            if (ofTargetContent.contains("[wisher]")) {
+                String[] split = ofTargetContent.split("]");
+                if (split.length >= 2) {
+                    String nickName = split[1].trim();
+                    String pokemonName = battleContext.getPlayerStatusList()
+                            .get(eventTarget.playerNumber() - 1).getPokemonName(nickName);
+                    healthOfTarget = new EventTarget(eventTarget.playerNumber(), pokemonName, nickName);
+                } else {
+                    log.warn("can not find wisher by {}", ofTargetContent);
+                    healthOfTarget = eventTarget;
+                }
+            } else {
+                log.warn("wisher content {} is invalid", ofTargetContent);
+                healthOfTarget = eventTarget;
+            }
         } else {
             healthOfTarget = eventTarget;
         }
@@ -96,6 +116,10 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
                 opponentPokemonStat.setAttackValue(opponentPokemonStat.getAttackValue().subtract(healthDiff));
             }
         }
+    }
+
+    private boolean isWishHealth(String healthFrom) {
+        return StringUtils.equals(WISH, healthFrom);
     }
 
     private static void setPokemonItem(BattleContext battleContext, String healthFrom, EventTarget eventTarget) {

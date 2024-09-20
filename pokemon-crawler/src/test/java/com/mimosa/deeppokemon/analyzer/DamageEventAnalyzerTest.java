@@ -427,6 +427,54 @@ class DamageEventAnalyzerTest {
         Assertions.assertEquals(0, p1Stat.getHealthValue().intValue());
     }
 
+    @Test
+    void analyzeStickyBarbDamage() {
+        String hatterene = "Hatterene";
+        String clefable = "Clefable";
+        String tinglu = "Ting-Lu";
+
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Hatterene", "77/100", "[from] item: Sticky " +
+                "Barb"), null, null);
+
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, hatterene)
+                .addPokemon(2, clefable)
+                .addPokemon(2, tinglu)
+                .build();
+
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(1, hatterene, hatterene)
+                .addPokemon(2, clefable, clefable)
+                .setActivePokemonName(1, hatterene)
+                .setActivePokemonName(2, clefable)
+                .setTurnStartPokemon(2, tinglu)
+                .setTurnStartPokemon(1, hatterene)
+                .setHealth(1, hatterene, BigDecimal.valueOf(68))
+                .setBattle(battle)
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, hatterene)
+                .addPokemonStat(2, clefable)
+                .addPokemonStat(2, tinglu)
+                .build();
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        Assertions.assertEquals("Sticky Barb", battle.getBattleTeams().get(1).findPokemon(clefable).getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(1).findPokemon(tinglu).getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon(hatterene).getItem());
+
+
+        battleEvent = new BattleEvent("damage", List.of("p1a: Hatterene", "34/100", "[from] item: Sticky " +
+                "Barb"), null, null);
+        battleContext.getPlayerStatusList().get(0).getPokemonStatus(hatterene).setHealth(BigDecimal.valueOf(46));
+        battleContext.getPlayerStatusList().get(1).setActivePokemonName(tinglu);
+
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        Assertions.assertEquals("Sticky Barb", battle.getBattleTeams().get(1).findPokemon(clefable).getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(1).findPokemon(tinglu).getItem());
+        Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon(hatterene).getItem());
+    }
+
     private static Arguments buildSwitchDamageEvent() {
         BattleEvent switchEvent = new BattleEvent("switch", null, null, null);
         switchEvent.setBattleEventStat(new MoveEventStat(new EventTarget(2, "Gliscor", "Gliscor")

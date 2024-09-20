@@ -71,22 +71,7 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
         } else if (isFieldHealth(healthFrom, battleContext)) {
             healthOfTarget = battleContext.getField().eventTarget();
         } else if (isWishHealth(healthFrom)) {
-            String ofTargetContent = battleEvent.getContents().get(OF_INDEX);
-            if (ofTargetContent.contains("[wisher]")) {
-                String[] split = ofTargetContent.split("]");
-                if (split.length >= 2) {
-                    String nickName = split[1].trim();
-                    String pokemonName = battleContext.getPlayerStatusList()
-                            .get(eventTarget.playerNumber() - 1).getPokemonName(nickName);
-                    healthOfTarget = new EventTarget(eventTarget.playerNumber(), pokemonName, nickName);
-                } else {
-                    log.warn("can not find wisher by {}", ofTargetContent);
-                    healthOfTarget = eventTarget;
-                }
-            } else {
-                log.warn("wisher content {} is invalid", ofTargetContent);
-                healthOfTarget = eventTarget;
-            }
+            healthOfTarget = getWishOfTarget(battleEvent, eventTarget, battleContext);
         } else {
             healthOfTarget = eventTarget;
         }
@@ -115,6 +100,25 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
                 opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue().subtract(healthDiff));
                 opponentPokemonStat.setAttackValue(opponentPokemonStat.getAttackValue().subtract(healthDiff));
             }
+        }
+    }
+
+    private EventTarget getWishOfTarget(BattleEvent battleEvent, EventTarget eventTarget, BattleContext battleContext) {
+        String ofTargetContent = battleEvent.getContents().get(OF_INDEX);
+        if (ofTargetContent.contains("[wisher]")) {
+            String[] split = ofTargetContent.split("]");
+            if (split.length >= 2) {
+                String nickName = split[1].trim();
+                String pokemonName = battleContext.getPlayerStatusList()
+                        .get(eventTarget.playerNumber() - 1).getPokemonName(nickName);
+                return new EventTarget(eventTarget.playerNumber(), pokemonName, nickName);
+            } else {
+                log.warn("can not find wisher by {}", ofTargetContent);
+                return eventTarget;
+            }
+        } else {
+            log.warn("wisher content {} is invalid", ofTargetContent);
+            return eventTarget;
         }
     }
 

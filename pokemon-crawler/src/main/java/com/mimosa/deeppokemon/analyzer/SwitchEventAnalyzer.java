@@ -44,6 +44,8 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     protected static final String SPIKES = "Spikes";
     protected static final String LEVITATE = "Levitate";
     protected static final String MAGIC_GUARD = "Magic Guard";
+    protected static final String ITEM = "item";
+    protected static final String AIR_BALLOON = "Air Balloon";
 
     private final PokemonInfoCrawler pokemonInfoCrawler;
 
@@ -88,17 +90,43 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
             return;
         }
 
-        boolean hasSwitchDamage = hasDamageChildrenEvent(battleEvent, battleContext, switchName, switchPlayerNumber);
+        boolean hasSwitchDamage = hasSwitchDamage(battleEvent, battleContext, switchName, switchPlayerNumber);
         if (!hasSwitchDamage) {
             if (sideList.stream().anyMatch(side -> StringUtils.equals(STEALTH_ROCK, side.name())) && isNotStealthRockImmunity(switchName)) {
                 battleContext.setPokemonItem(switchPlayerNumber, switchName, HEAVY_DUTY_BOOTS);
                 return;
             }
 
-            if (sideList.stream().anyMatch(side -> StringUtils.equals(SPIKES, side.name())) && isNotSpikeImmunity(switchName)) {
+            if (sideList.stream().anyMatch(side -> StringUtils.equals(SPIKES, side.name()))
+                    && isNotSpikeImmunity(switchName)
+                    && hasNoAirBalloonItem(battleEvent, battleContext, switchName, switchPlayerNumber)) {
                 battleContext.setPokemonItem(switchPlayerNumber, switchName, HEAVY_DUTY_BOOTS);
             }
         }
+    }
+
+    private boolean hasNoAirBalloonItem(BattleEvent battleEvent, BattleContext battleContext, String switchName,
+                                        int switchPlayerNumber) {
+        if (battleEvent.getChildrenEvents() == null) {
+            return true;
+        }
+        for (BattleEvent childEvent : battleEvent.getChildrenEvents()) {
+            if (StringUtils.equals(ITEM, childEvent.getType()) && childEvent.getContents().size() >= 2) {
+                EventTarget eventTarget = BattleEventUtil.getEventTarget(childEvent.getContents().get(0),
+                        battleContext);
+                String item = childEvent.getContents().get(1);
+                if (StringUtils.equals(AIR_BALLOON, item) && eventTarget != null
+                        && eventTarget.playerNumber() == switchPlayerNumber
+                        && StringUtils.equals(eventTarget.targetName(), switchName)) {
+                    return false;
+                }
+            }
+        }
+        if (battleEvent.getNextEvent() != null && StringUtils.equals(SWITCH, battleEvent.getNextEvent().getType())) {
+            // maybe item event no happen suddenly when player both switch
+            return hasNoAirBalloonItem(battleEvent.getNextEvent(), battleContext, switchName, switchPlayerNumber);
+        }
+        return true;
     }
 
     private boolean isNotSpikeImmunity(String pokemon) {
@@ -124,21 +152,17 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         return !pokemonInfo.getAbilities().contains(MAGIC_GUARD);
     }
 
-    private boolean hasDamageChildrenEvent(BattleEvent battleEvent, BattleContext battleContext, String switchName,
-                                           int switchPlayerNumber) {
+    private boolean hasSwitchDamage(BattleEvent battleEvent, BattleContext battleContext, String switchName,
+                                    int switchPlayerNumber) {
         if (battleEvent.getChildrenEvents() != null && battleEvent.getChildrenEvents().stream().anyMatch(event ->
                 hasDamage(battleContext, switchName, switchPlayerNumber, event))) {
             return true;
         }
         BattleEvent nextEvent = battleEvent.getNextEvent();
-        if (nextEvent != null && StringUtils.equals(SWITCH, nextEvent.getType()) && nextEvent.getChildrenEvents() != null) {
+        if (nextEvent != null && StringUtils.equals(SWITCH, nextEvent.getType())) {
             // when pokemon both die,player switch next pokemon in same time and damage will not happen suddenly
             // so we should check damage is happen in next switch children event
-            if (nextEvent.getChildrenEvents().stream().anyMatch(event ->
-                    hasDamage(battleContext, switchName, switchPlayerNumber, event))) {
-                return true;
-
-            }
+            return hasSwitchDamage(nextEvent, battleContext, switchName, switchPlayerNumber);
         }
         return false;
     }

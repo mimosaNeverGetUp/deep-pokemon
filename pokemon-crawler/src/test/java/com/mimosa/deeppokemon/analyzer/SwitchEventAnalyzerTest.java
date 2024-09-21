@@ -258,7 +258,6 @@ class SwitchEventAnalyzerTest {
         Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon("Clefable").getItem());
     }
 
-
     @Test
     void analyzeSwitch_HasSwitchDamage_HasSpikes_DoubleSwitch() {
         BattleEvent damageEvent = new BattleEvent("damage", List.of("p1a: Alice", "88/100", "[from] Spikes"), null,
@@ -289,6 +288,30 @@ class SwitchEventAnalyzerTest {
         Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon(OGERPON_WELLSPRING).getItem());
         analyzer.analyze(p2SwitchEvent, battleStat, battleContext);
         Assertions.assertEquals("Heavy-Duty Boots", battle.getBattleTeams().get(1).findPokemon(SAMUROTT_HISUI).getItem());
+    }
+
+    @Test
+    void analyzeSwitch_AirBalloon_HasNotSwitchDamage_HasSpikes() {
+        String tinkaton = "Tinkaton";
+        BattleEvent itemEvent = new BattleEvent("item", List.of("p2a: Tinkaton", "Air Balloon"),
+                null, null);
+        BattleEvent switchEvent = new BattleEvent("switch", List.of("p2a: Tinkaton", tinkaton, "100/100"),
+                null, List.of(itemEvent));
+        Battle battle = new BattleBuilder()
+                .addPokemon(2, tinkaton)
+                .build();
+
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, tinkaton, tinkaton)
+                .addSide(2, new Side("Spikes", null))
+                .setBattle(battle)
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, tinkaton)
+                .build();
+        analyzer.analyze(switchEvent, battleStat, battleContext);
+        Assertions.assertNull(battle.getBattleTeams().get(1).findPokemon("Tinkaton").getItem());
     }
 
 }

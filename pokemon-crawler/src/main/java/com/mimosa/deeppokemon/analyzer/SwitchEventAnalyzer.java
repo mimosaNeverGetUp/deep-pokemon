@@ -170,10 +170,12 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
     private static boolean hasDamage(BattleContext battleContext, String switchName, int switchPlayerNumber, BattleEvent event) {
         if (StringUtils.equals("damage", event.getType())) {
             EventTarget eventTarget = BattleEventUtil.getEventTarget(event.getContents().get(0), battleContext);
-            if (eventTarget.playerNumber() == switchPlayerNumber
-                    || StringUtils.equals(eventTarget.targetName(), switchName)) {
-                return true;
+            if (eventTarget == null) {
+                return false;
             }
+
+            return eventTarget.playerNumber() == switchPlayerNumber
+                    && StringUtils.equals(eventTarget.targetName(), switchName);
         }
         return false;
     }

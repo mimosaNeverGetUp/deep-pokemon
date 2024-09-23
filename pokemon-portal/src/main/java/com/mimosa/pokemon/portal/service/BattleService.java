@@ -165,12 +165,15 @@ public class BattleService {
         }
 
         Criteria criteria = new Criteria();
-        if (CollectionUtils.hasNotNullObject(stages)) {
-            criteria.and(TEAMS).elemMatch(new Criteria(STAGE).in(stages));
-        }
-
-        if (CollectionUtils.hasNotNullObject(playerNames)) {
-            criteria.and(TEAMS).elemMatch(new Criteria(PLAYER_NAME).in(playerNames));
+        if (CollectionUtils.hasNotNullObject(stages) || CollectionUtils.hasNotNullObject(playerNames)) {
+            Criteria teamCriteria = new Criteria();
+            if(CollectionUtils.hasNotNullObject(stages)){
+                teamCriteria.and(STAGE).in(stages);
+            }
+            if(CollectionUtils.hasNotNullObject(playerNames)){
+                teamCriteria.and(PLAYER_NAME).in(playerNames);
+            }
+            criteria.and(TEAMS).elemMatch(teamCriteria);
         }
 
         if (CollectionUtils.hasNotNullObject(tags)) {

@@ -33,7 +33,7 @@ public class TeamApiController {
     public PageResponse<TeamGroupDto> teamGroup(@RequestParam(required = false, name = "pokemons") List<String> pokemons,
                                                 @RequestParam(required = false, name = "players") List<String> players,
                                                 @RequestParam(required = false, name = "tags") List<String> tags,
-                                                @RequestParam(required = false, name = "stage") String stage,
+                                                @RequestParam(required = false, name = "stage") List<String> stages,
                                                 @RequestParam(required = false, name = "sort", defaultValue = "maxRating") String sort,
                                                 @RequestParam(required = false, name = "groupName") String groupName,
                                                 @RequestParam(name = "page") @Min(0) int page,
@@ -43,10 +43,12 @@ public class TeamApiController {
             Collections.sort(pokemons);
         }
         if (players != null) {
-            // 避免顺序不一样不走缓存
             Collections.sort(players);
         }
-        return battleService.teamGroup(page, row, tags, pokemons, players, stage, sort, groupName);
+        if (stages != null) {
+            Collections.sort(stages);
+        }
+        return battleService.teamGroup(page, row, tags, pokemons, players, stages, sort, groupName);
     }
 
     @GetMapping("/team/{teamId}")

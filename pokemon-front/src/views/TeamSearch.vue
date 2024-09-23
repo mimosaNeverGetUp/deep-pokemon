@@ -20,6 +20,7 @@ const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 const pokemons = ref()
 const players = ref()
+const selectStages = ref()
 const selectTags = ref()
 const selectedSort = ref("rating")
 const selectedRange = ref("Last week")
@@ -36,7 +37,9 @@ const tourShortName = ref()
 const tourPlaceHolder = ref("loading...");
 const tourSortModes = ref(["win dif", "popularity", "date"])
 const tourNodes = [];
-const tourPlayers = ref([])
+const tourPlayers = ref([]);
+const stages = ref([]);
+const stagesMap = {};
 let tourPlayersMap = {}
 
 
@@ -69,11 +72,12 @@ async function queryAllTour() {
         try {
           for (let tier in tour.tierPlayers) {
             let key = tour.shortName + "_" + tier;
-            tourPlayersMap[key] =tour.tierPlayers[tier]
+            tourPlayersMap[key] = tour.tierPlayers[tier]
           }
-        } catch (e){
+        } catch (e) {
           console.log("init tour players fail")
         }
+        stagesMap[tour.shortName] = tour.stages;
       }
       tourPlaceHolder.value = "select tour";
     } catch (e) {
@@ -105,7 +109,10 @@ function changeBattleType(event) {
 function onNodeSelect(event) {
   tourShortName.value = event.key;
   let key = event.key + "_" + "gen9ou";
-  tourPlayers.value = tourPlayersMap[key]
+  tourPlayers.value = tourPlayersMap[key];
+  stages.value = stagesMap[event.key];
+  selectStages.value = null;
+  players.value = null;
 }
 
 function getTeamSearchUrl(pokemons, tags, range, month, sort) {
@@ -119,8 +126,9 @@ function getTeamSearchUrl(pokemons, tags, range, month, sort) {
 
   if (searchTour.value) {
     let selectPlayers = players.value ? players.value : '';
+    let selectStage = selectStages.value ? selectStages.value : '';
     let tourGroupName = "tour_" + tourShortName.value;
-    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&range=${tourGroupName}&tour=true&players=${selectPlayers}`
+    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&range=${tourGroupName}&tour=true&players=${selectPlayers}&stages=${selectStage}`
   }
 
   if (useMonthRange.value) {
@@ -177,6 +185,12 @@ queryAllTour();
         </div>
 
         <div v-if="searchTour">
+          <span>stages</span>
+          <MultiSelect v-model="selectStages" :options="stages"
+                       display="chip" filter
+                       placeholder="select stages" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
+                       :virtualScrollerOptions="{ itemSize: 44 }"/>
+
           <span>players</span>
           <MultiSelect v-model="players" :options="tourPlayers"
                        display="chip" filter

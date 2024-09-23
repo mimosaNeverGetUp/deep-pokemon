@@ -40,6 +40,10 @@ async function queryTeams(page, row) {
     url.searchParams.set('tags', getTeamTagFiled(route.query.tags));
   }
 
+  if (route.query.stages) {
+    url.searchParams.set('stages', route.query.stages);
+  }
+
   if (route.query.sort) {
     url.searchParams.set('sort', getSortFiled(route.query.sort));
   }

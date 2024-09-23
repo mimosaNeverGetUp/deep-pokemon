@@ -95,12 +95,15 @@ public class TourService {
                 .and(TIER).is(format);
         Tour tour = mongoTemplate.findById(tourName, Tour.class);
         List<String> tierPlayers = mongoTemplate.findDistinct(new Query(criteria), "player.name", TourTeam.class, String.class);
+        List<String> stages = mongoTemplate.findDistinct(new Query(Criteria.where(TOUR_ID).is(tourName)), "stage", TourTeam.class,
+                String.class);
         if (tour == null) {
             tour = new Tour();
             tour.setId(tourName);
             tour.setShortName(tourShortName);
             tour.setTires(Collections.singletonList(format));
             tour.setTierPlayers(Collections.singletonMap(format, tierPlayers));
+            tour.setStages(stages);
             mongoTemplate.insert(tour);
         } else {
             Set<String> tiers = new HashSet<>(tour.getTires());
@@ -113,6 +116,7 @@ public class TourService {
             tierplayersMap.put(format, tierPlayers);
             tour.setShortName(tourShortName);
             tour.setTires(tiers.stream().toList());
+            tour.setStages(stages);
             tour.setTierPlayers(tierplayersMap);
             mongoTemplate.save(tour);
         }

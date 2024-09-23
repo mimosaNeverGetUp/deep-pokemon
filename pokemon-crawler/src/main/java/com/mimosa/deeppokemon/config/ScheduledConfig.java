@@ -29,6 +29,7 @@ import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.CacheService;
 import com.mimosa.deeppokemon.service.StatsService;
+import com.mimosa.deeppokemon.service.TourService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -47,13 +48,15 @@ public class ScheduledConfig {
     private final BattleService battleService;
     private final StatsService statsService;
     private final CacheService cacheService;
+    private final TourService tourService;
 
     public ScheduledConfig(LadderCrawler battleCrawler, StatsService statsService, BattleService battleService,
-                           CacheService cacheService) {
+                           CacheService cacheService, TourService tourService) {
         this.battleCrawler = battleCrawler;
         this.statsService = statsService;
         this.battleService = battleService;
         this.cacheService = cacheService;
+        this.tourService = tourService;
     }
 
     /**
@@ -85,6 +88,14 @@ public class ScheduledConfig {
         statsService.craw("gen7ou");
         statsService.craw("gen5ou");
         cacheService.clearMonthlyStat();
+    }
+
+
+    @Scheduled(cron = "0 30 0 * * ?")
+    private void crawOlt() {
+        log.info("start craw olt");
+        tourService.crawOltXI();
+        log.info("craw olt success");
     }
 
     @Scheduled(cron = "0 0 2 1 * ?")

@@ -20,6 +20,7 @@ public class Tour implements Serializable {
     protected String shortName;
     protected List<String> tires;
     protected List<String> teams;
+    protected List<String> stages;
     protected Map<String, List<String>> tierPlayers;
 
     public String getId() {
@@ -60,5 +61,13 @@ public class Tour implements Serializable {
 
     public void setTierPlayers(Map<String, List<String>> tierPlayers) {
         this.tierPlayers = tierPlayers;
+    }
+
+    public List<String> getStages() {
+        return stages;
+    }
+
+    public void setStages(List<String> stages) {
+        this.stages = stages;
     }
 }

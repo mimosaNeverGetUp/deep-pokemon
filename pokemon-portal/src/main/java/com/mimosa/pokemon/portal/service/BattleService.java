@@ -81,6 +81,7 @@ public class BattleService {
     protected static final String BATTLE_DATE = "battleDate";
     protected static final String FEATURE_IDS = "featureIds";
     protected static final String POKEMONS = "pokemons";
+    protected static final String PLAYER_NAME = "player.name";
     private final MongoTemplate mongoTemplate;
 
     public BattleService(MongoTemplate mongoTemplate) {
@@ -157,15 +158,18 @@ public class BattleService {
     @RegisterReflectionForBinding({TeamGroupDto.class, BattleTeam.class, BattleDto.class, TourPlayer.class,
             TourPlayerRecord.class})
     public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
-                                                List<String> playerNames, String sort, String groupName) {
+                                                List<String> playerNames, String stage, String sort, String groupName) {
         if (!VALIDATE_TEAM_GROUP_SORT.contains(sort)) {
             throw new IllegalArgumentException("Invalid sort value: " + sort);
         }
 
         Criteria criteria = new Criteria();
+        if (stage != null && !stage.isEmpty() && !stage.isBlank()) {
+            criteria.and(TEAMS).elemMatch(new Criteria(STAGE).is(stage));
+        }
 
         if (CollectionUtils.hasNotNullObject(playerNames)) {
-            criteria.and(TEAMS).elemMatch(new Criteria("player.name").in(playerNames));
+            criteria.and(TEAMS).elemMatch(new Criteria(PLAYER_NAME).in(playerNames));
         }
 
         if (CollectionUtils.hasNotNullObject(tags)) {

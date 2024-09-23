@@ -1,8 +1,3 @@
-#此文本为pokemonshowdown replay回放爬取文字脚本,用于观察文本格式以及单元测试使用
-#此回放世代为gen8ou,包含以下元素:
-#1.预知未来
-#回放来源:https://replay.pokemonshowdown.com/smogtours-gen8ou-563945
-
 |t:|1622814358
 |gametype|singles
 |player|p1|Separation|#wcop2021china|

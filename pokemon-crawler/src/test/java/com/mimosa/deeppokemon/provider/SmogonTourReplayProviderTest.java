@@ -14,6 +14,8 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,8 +34,9 @@ class SmogonTourReplayProviderTest {
     @Value("classpath:api/2024WcopReplay.html")
     private Resource replayDocument;
 
-    @Test
-    void Wcop2024() throws IOException {
+    @ParameterizedTest
+    @CsvSource(value = {"gen9ou", "gen8ou"})
+    void Wcop2024(String format) throws IOException {
         String replayThreadUrl = "http1s://www.smogon" +
                 ".com/forums/threads/the-world-cup-of-pok%C3%A9mon-2024-replays.3742226/";
         List<String> stageTitles = List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Quarterfinals", "Semifinals", "Finals");
@@ -51,18 +54,18 @@ class SmogonTourReplayProviderTest {
                     .getWinSmogonPlayer(Mockito.any(), Mockito.anyList());
 
             smogonTourReplayProvider = new SmogonTourReplayProvider("WCOP2024", replayThreadUrl,
-                    "gen9ou", stageTitles, winPlayerExtractor);
+                    format, stageTitles, winPlayerExtractor);
             assertTrue(smogonTourReplayProvider.hasNext());
         }
         List<String> exceptStageTitles = List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Round 1 TB",
                 "Quarterfinals", "Semifinals", "Semifinals TB", "Finals");
         Map<String, Boolean> stageMap = new HashMap<>();
-        for(String exceptStageTitle : exceptStageTitles) {
+        for (String exceptStageTitle : exceptStageTitles) {
             stageMap.put(exceptStageTitle, false);
         }
         while (smogonTourReplayProvider.hasNext()) {
             List<Replay> replays = smogonTourReplayProvider.next().replayList();
-            for(Replay replay : replays) {
+            for (Replay replay : replays) {
                 SmogonTourReplay smogonTourReplay = (SmogonTourReplay) replay;
                 stageMap.put(smogonTourReplay.getStage(), true);
                 assertNotNull(smogonTourReplay.getTourName());
@@ -78,6 +81,9 @@ class SmogonTourReplayProviderTest {
         }
         assertEquals(exceptStageTitles.size(), stageMap.size());
         for (var entry : stageMap.entrySet()) {
+            if (entry.getKey().equals("Round 1 TB") && !format.equals("gen9ou")) {
+                continue;
+            }
             assertTrue(entry.getValue());
         }
     }

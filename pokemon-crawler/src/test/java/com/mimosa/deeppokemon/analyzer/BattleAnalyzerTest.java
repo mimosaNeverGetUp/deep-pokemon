@@ -48,7 +48,16 @@ class BattleAnalyzerTest {
     private Resource battleStat;
 
     public static Stream<Arguments> provideBattleLog() throws IOException {
-        ClassPathResource replayDirectory = new ClassPathResource("battlereplay/gen9ou");
+        return provideBattleLog("battlereplay/gen9ou");
+    }
+
+
+    public static Stream<Arguments> provideGen8ouBattleLog() throws IOException {
+        return provideBattleLog("battlereplay/gen8ou");
+    }
+
+    public static Stream<Arguments> provideBattleLog(String path) throws IOException {
+        ClassPathResource replayDirectory = new ClassPathResource(path);
         List<Arguments> arguments = new ArrayList<>();
         try (Stream<Path> battleLogPaths = Files.list(replayDirectory.getFile().toPath())) {
             battleLogPaths.forEach(battleReplay -> {
@@ -71,6 +80,7 @@ class BattleAnalyzerTest {
         return arguments.stream();
     }
 
+
     @Test
     void analyze_matchExceptStat() throws IOException {
         Battle battle = new Battle();
@@ -86,6 +96,15 @@ class BattleAnalyzerTest {
     @ParameterizedTest
     @MethodSource("provideBattleLog")
     void analyze_noException(Battle battle) {
+        battleAnalyzer.analyze(Collections.singletonList(battle));
+        MatcherAssert.assertThat(battle.getBattleStat(), BattleStatMatcher.BATTLE_STAT_MATCHER);
+        Assertions.assertNotNull(battle.getBattleStat());
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("provideGen8ouBattleLog")
+    void analyze_gen8ou_noException(Battle battle) {
         battleAnalyzer.analyze(Collections.singletonList(battle));
         MatcherAssert.assertThat(battle.getBattleStat(), BattleStatMatcher.BATTLE_STAT_MATCHER);
         Assertions.assertNotNull(battle.getBattleStat());

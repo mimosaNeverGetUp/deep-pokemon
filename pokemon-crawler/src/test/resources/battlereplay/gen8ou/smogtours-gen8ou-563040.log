@@ -1,9 +1,3 @@
-#此文本为pokemonshowdown replay回放爬取文字脚本,用于观察文本格式以及单元测试使用
-#此回放世代为gen8ou,包含以下元素:
-#1.熔岩风暴
-#2.连续攻击(水流连打)
-#回放来源:https://replay.pokemonshowdown.com/smogtours-gen8ou-563040
-
 |t:|1622344024
 |gametype|singles
 |player|p1|Analytic|#wcop2021asia|

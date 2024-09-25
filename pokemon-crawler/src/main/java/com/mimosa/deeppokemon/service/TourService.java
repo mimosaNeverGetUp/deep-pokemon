@@ -60,6 +60,15 @@ public class TourService {
             List.of("Round 1", "Round 2", "Round 3", "Round 4", "Round 5", "Top 16",
                     "Quarterfinals", "Semifinals", "Finals");
 
+    protected static final String SCL_IV = "SCL IV";
+    protected static final String SMOGON_CHAMPIONS_LEAGUE_IV = "Smogon Champions League IV";
+    protected static final String SCL_FORUMS_URL =
+            "https://www.smogon.com/forums/forums/smogon-champions-league.453/";
+    protected static final String SCL_IV_REPLAY_URL =
+            "https://www.smogon.com/forums/threads/scl-iv-replays.3750816/";
+    protected static final List<String> SCL_STAGES =
+            List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6","Week 7","Week 8","Week 9",
+                    "Semifinals", "Finals");
 
     private final BattleService battleService;
     private final MongoTemplate mongoTemplate;
@@ -95,12 +104,15 @@ public class TourService {
                 .and(TIER).is(format);
         Tour tour = mongoTemplate.findById(tourName, Tour.class);
         List<String> tierPlayers = mongoTemplate.findDistinct(new Query(criteria), "player.name", TourTeam.class, String.class);
+        List<String> stages = mongoTemplate.findDistinct(new Query(Criteria.where(TOUR_ID).is(tourName)), "stage", TourTeam.class,
+                String.class);
         if (tour == null) {
             tour = new Tour();
             tour.setId(tourName);
             tour.setShortName(tourShortName);
             tour.setTires(Collections.singletonList(format));
             tour.setTierPlayers(Collections.singletonMap(format, tierPlayers));
+            tour.setStages(stages);
             mongoTemplate.insert(tour);
         } else {
             Set<String> tiers = new HashSet<>(tour.getTires());
@@ -113,6 +125,7 @@ public class TourService {
             tierplayersMap.put(format, tierPlayers);
             tour.setShortName(tourShortName);
             tour.setTires(tiers.stream().toList());
+            tour.setStages(stages);
             tour.setTierPlayers(tierplayersMap);
             mongoTemplate.save(tour);
         }
@@ -169,5 +182,14 @@ public class TourService {
         OltTourReplayProvider provider = new OltTourReplayProvider(OLT_XI_FULL_TOUR_NAME, OLT_XI_REPLAY_URL,
                 GEN_9_OU, new HashSet<>(OLT_STAGES), winPlayerExtractor);
         return crawTour(OLT_XI_FULL_TOUR_NAME, OLT_XI, GEN_9_OU, provider);
+    }
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawSclIv() {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(SCL_FORUMS_URL,
+                SMOGON_CHAMPIONS_LEAGUE_IV, SCL_STAGES);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV_REPLAY_URL,
+                GEN_9_OU, SCL_STAGES, winPlayerExtractor);
+        return crawTour(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV, GEN_9_OU, provider);
     }
 }

@@ -81,6 +81,7 @@ public class BattleService {
     protected static final String BATTLE_DATE = "battleDate";
     protected static final String FEATURE_IDS = "featureIds";
     protected static final String POKEMONS = "pokemons";
+    protected static final String PLAYER_NAME = "player.name";
     private final MongoTemplate mongoTemplate;
 
     public BattleService(MongoTemplate mongoTemplate) {
@@ -157,15 +158,22 @@ public class BattleService {
     @RegisterReflectionForBinding({TeamGroupDto.class, BattleTeam.class, BattleDto.class, TourPlayer.class,
             TourPlayerRecord.class})
     public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
-                                                List<String> playerNames, String sort, String groupName) {
+                                                List<String> playerNames, List<String> stages, String sort,
+                                                String groupName) {
         if (!VALIDATE_TEAM_GROUP_SORT.contains(sort)) {
             throw new IllegalArgumentException("Invalid sort value: " + sort);
         }
 
         Criteria criteria = new Criteria();
-
-        if (CollectionUtils.hasNotNullObject(playerNames)) {
-            criteria.and(TEAMS).elemMatch(new Criteria("player.name").in(playerNames));
+        if (CollectionUtils.hasNotNullObject(stages) || CollectionUtils.hasNotNullObject(playerNames)) {
+            Criteria teamCriteria = new Criteria();
+            if(CollectionUtils.hasNotNullObject(stages)){
+                teamCriteria.and(STAGE).in(stages);
+            }
+            if(CollectionUtils.hasNotNullObject(playerNames)){
+                teamCriteria.and(PLAYER_NAME).in(playerNames);
+            }
+            criteria.and(TEAMS).elemMatch(teamCriteria);
         }
 
         if (CollectionUtils.hasNotNullObject(tags)) {
@@ -203,8 +211,11 @@ public class BattleService {
                 Aggregation.stage("{ $project : { 'teams.pokemons': 0, 'teams._id': 0, 'teams.teamId': 0, 'teams" +
                         ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, 'set': 0, 'featureIds': 0} }"));
         MongodbUtils.withPageOperation(query, page, row);
-        List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation, getTeamGroupCollection(groupName),
-                        TeamGroupDto.class)
+        AggregationOptions options = AggregationOptions.builder()
+                .allowDiskUse(true)
+                .build();
+        List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation.withOptions(options),
+                        getTeamGroupCollection(groupName), TeamGroupDto.class)
                 .getMappedResults();
         return new PageResponse<>(total, page, row, battleTeams);
     }

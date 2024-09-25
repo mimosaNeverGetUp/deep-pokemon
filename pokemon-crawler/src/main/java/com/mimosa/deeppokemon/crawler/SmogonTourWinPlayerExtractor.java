@@ -189,6 +189,7 @@ public class SmogonTourWinPlayerExtractor {
                 BattleMatch battleMatch = new BattleMatch(firstPlayerName, playerName);
                 battleWinner.put(battleMatch, winnerName);
                 firstPlayerName = null;
+                winnerName = null;
             }
         }
         return battleWinner;

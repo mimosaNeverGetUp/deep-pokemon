@@ -112,6 +112,29 @@ class TeamApiControllerTest {
                         )))));
     }
 
+
+    @Test
+    void searchTourTeamByStage() throws Exception {
+        mockMvc.perform(get("/api/v2/teams")
+                        .queryParam("page", "0")
+                        .queryParam("row", "7")
+                        .queryParam("stage", "Round 1")
+                        .queryParam("groupName", "tour_wcop_2024"))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(jsonPath("$.page").value(0))
+                .andExpect(jsonPath("$.row").value(7))
+                .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
+                .andExpect(jsonPath("$.data").isNotEmpty())
+                .andExpect(jsonPath("$.data", Matchers.everyItem(Matchers.allOf(
+                        Matchers.hasEntry(Matchers.equalTo("maxPlayerWinRate"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("maxPlayerWinDif"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("uniquePlayerNum"), Matchers.not(0)),
+                        Matchers.hasEntry(Matchers.equalTo("pokemons"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.notNullValue()
+                        )))));
+    }
+
     @Test
     void searchTeamByID() throws Exception {
         mockMvc.perform(get("/api/team/MDAwMzAzMjQwNDg1MDk4NDA5ODgxMDA5"))

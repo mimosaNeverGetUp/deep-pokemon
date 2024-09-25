@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TourApiController {
     protected static final String THE_WORLD_CUP_OF_POKEMON_2024 = "The World Cup of Pokémon 2024";
     protected static final String WCOP_2024 = "wcop_2024";
+    protected static final String OLT_XI = "olt_xi";
+    protected static final String OLT_XI_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XI";
     private final TourService tourService;
     private final BattleService battleService;
 
@@ -39,15 +41,27 @@ public class TourApiController {
         return true;
     }
 
+    @PostMapping("/sclIv/battle")
+    public boolean crawSclIv() {
+        tourService.crawSclIv();
+        return true;
+    }
+
     @PostMapping("/wcop2024/record/update")
     public boolean updateWcop2024PlayerRecord(@RequestParam("format") String format) {
         tourService.updatePlayerRecord(THE_WORLD_CUP_OF_POKEMON_2024, format);
         return true;
     }
 
-    @PostMapping("/wcop2024/player/update")
-    public boolean updateWcop2024TierPlayer(@RequestParam("format") String format) {
+    @PostMapping("/wcop2024/info/update")
+    public boolean updateWcop2024Info(@RequestParam("format") String format) {
         tourService.updateTour(THE_WORLD_CUP_OF_POKEMON_2024, WCOP_2024, format);
+        return true;
+    }
+
+    @PostMapping("/oltxi/info/update")
+    public boolean updateOltXiTourInfo() {
+        tourService.updateTour(OLT_XI_FULL_TOUR_NAME, OLT_XI, "gen9ou");
         return true;
     }
 

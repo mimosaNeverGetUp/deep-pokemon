@@ -1,0 +1,840 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
+|t:|1721574060
+|gametype|singles
+|player|p1|Raiza|lucas|
+|player|p2|Luthier|#luthier|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|8
+|tier|[Gen 8] OU
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Dynamax Clause: You cannot dynamax
+|clearpoke
+|poke|p1|Mew|
+|poke|p1|Dragapult, F|
+|poke|p1|Volcarona, F|
+|poke|p1|Landorus-Therian, M|
+|poke|p1|Bisharp, F|
+|poke|p1|Zapdos|
+|poke|p2|Volcanion|
+|poke|p2|Ninetales-Alola, M|
+|poke|p2|Corviknight, F|
+|poke|p2|Arctozolt|
+|poke|p2|Landorus-Therian, M|
+|poke|p2|Tornadus-Therian, M|
+|teampreview
+|c|☆Luthier|hf
+|c|☆Raiza|hf
+|c|+DripLegend|GO LYTH
+|inactive|Raiza has 270 seconds left.
+|inactive|Luthier has 270 seconds left.
+|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!</strong><br />Only users of rank ☆ and higher can talk.</div>
+|inactive|Raiza has 240 seconds left.
+|inactive|Luthier has 240 seconds left.
+|inactive|Raiza has 210 seconds left.
+|inactive|Luthier has 210 seconds left.
+|inactive|Raiza has 180 seconds left.
+|inactive|Raiza has 150 seconds left.
+|
+|t:|1721574216
+|start
+|switch|p1a: Catalyst|Mew|100/100
+|switch|p2a: Ninetales|Ninetales-Alola, M|100/100
+|-weather|Hail|[from] ability: Snow Warning|[of] p2a: Ninetales
+|turn|1
+|inactive|Raiza has 210 seconds left.
+|inactive|Raiza has 180 seconds left.
+|
+|t:|1721574255
+|move|p2a: Ninetales|Hypnosis|p1a: Catalyst|[miss]
+|-miss|p2a: Ninetales|p1a: Catalyst
+|move|p1a: Catalyst|Spikes|p2a: Ninetales
+|-sidestart|p2: Luthier|Spikes
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Catalyst|94/100|[from] Hail
+|upkeep
+|turn|2
+|inactive|Raiza has 180 seconds left.
+|
+|t:|1721574271
+|move|p2a: Ninetales|Hypnosis|p1a: Catalyst|[miss]
+|-miss|p2a: Ninetales|p1a: Catalyst
+|move|p1a: Catalyst|Spikes|p2a: Ninetales
+|-sidestart|p2: Luthier|Spikes
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Catalyst|88/100|[from] Hail
+|upkeep
+|turn|3
+|inactive|Raiza has 180 seconds left.
+|
+|t:|1721574282
+|move|p2a: Ninetales|Hypnosis|p1a: Catalyst
+|-status|p1a: Catalyst|slp|[from] move: Hypnosis
+|cant|p1a: Catalyst|slp
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Catalyst|82/100 slp|[from] Hail
+|upkeep
+|turn|4
+|inactive|Raiza has 180 seconds left.
+|inactive|Luthier has 240 seconds left.
+|inactive|Raiza has 150 seconds left.
+|inactive|Luthier has 210 seconds left.
+|inactive|Raiza has 120 seconds left.
+|
+|t:|1721574371
+|switch|p2a: Arctozolt|Arctozolt|100/100
+|-damage|p2a: Arctozolt|84/100|[from] Spikes
+|cant|p1a: Catalyst|slp
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Catalyst|76/100 slp|[from] Hail
+|-heal|p2a: Arctozolt|90/100|[from] item: Leftovers
+|upkeep
+|turn|5
+|inactive|Raiza has 90 seconds left.
+|inactive|Luthier has 180 seconds left.
+|
+|t:|1721574414
+|switch|p1a: Monster|Landorus-Therian, M|100/100
+|-ability|p1a: Monster|Intimidate|boost
+|-unboost|p2a: Arctozolt|atk|1
+|move|p2a: Arctozolt|Substitute|p2a: Arctozolt
+|-start|p2a: Arctozolt|Substitute
+|-damage|p2a: Arctozolt|65/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Monster|94/100|[from] Hail
+|-heal|p2a: Arctozolt|72/100|[from] item: Leftovers
+|-heal|p1a: Monster|100/100|[from] item: Leftovers
+|upkeep
+|turn|6
+|
+|t:|1721574422
+|switch|p1a: End of the Line|Volcarona, F|100/100
+|move|p2a: Arctozolt|Bolt Beak|p1a: End of the Line
+|-damage|p1a: End of the Line|58/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|51/100|[from] Hail
+|-heal|p2a: Arctozolt|78/100|[from] item: Leftovers
+|upkeep
+|turn|7
+|inactive|Raiza has 90 seconds left.
+|inactive|Luthier has 180 seconds left.
+|
+|t:|1721574454
+|switch|p2a: Landorus|Landorus-Therian, M|100/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: End of the Line|atk|1
+|move|p1a: End of the Line|Roost|p1a: End of the Line
+|-heal|p1a: End of the Line|100/100
+|-singleturn|p1a: End of the Line|move: Roost
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|94/100|[from] Hail
+|-damage|p2a: Landorus|94/100|[from] Hail
+|-heal|p2a: Landorus|100/100|[from] item: Leftovers
+|upkeep
+|turn|8
+|inactive|Raiza has 90 seconds left.
+|inactive|Luthier has 150 seconds left.
+|inactive|Luthier has 120 seconds left.
+|inactive|Raiza has 60 seconds left.
+|
+|t:|1721574524
+|switch|p1a: Monster|Landorus-Therian, M|100/100
+|-ability|p1a: Monster|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|Toxic|p1a: Monster
+|-status|p1a: Monster|tox
+|
+|-weather|none
+|-damage|p1a: Monster|94/100 tox|[from] psn
+|upkeep
+|turn|9
+|inactive|Luthier has 90 seconds left.
+|
+|t:|1721574550
+|move|p1a: Monster|Toxic|p2a: Landorus
+|-status|p2a: Landorus|tox
+|move|p2a: Landorus|U-turn|p1a: Monster
+|-resisted|p1a: Monster
+|-damage|p1a: Monster|87/100 tox
+|
+|t:|1721574570
+|switch|p2a: Corviknight|Corviknight, F|100/100|[from] U-turn
+|-ability|p2a: Corviknight|Pressure
+|
+|-heal|p1a: Monster|93/100 tox|[from] item: Leftovers
+|-damage|p1a: Monster|81/100 tox|[from] psn
+|upkeep
+|turn|10
+|
+|t:|1721574588
+|switch|p1a: Catalyst|Mew|76/100 slp
+|move|p2a: Corviknight|Defog|p1a: Catalyst
+|-unboost|p1a: Catalyst|evasion|1
+|-sideend|p2: Luthier|Spikes|[from] move: Defog|[of] p2a: Corviknight
+|
+|upkeep
+|turn|11
+|
+|t:|1721574600
+|-curestatus|p1a: Catalyst|slp|[msg]
+|move|p1a: Catalyst|Spikes|p2a: Corviknight
+|-sidestart|p2: Luthier|Spikes
+|move|p2a: Corviknight|U-turn|p1a: Catalyst
+|-supereffective|p1a: Catalyst
+|-damage|p1a: Catalyst|51/100
+|-damage|p2a: Corviknight|84/100|[from] item: Rocky Helmet|[of] p1a: Catalyst
+|inactive|Luthier has 60 seconds left.
+|
+|t:|1721574639
+|switch|p2a: Ninetales|Ninetales-Alola, M|100/100|[from] U-turn
+|-damage|p2a: Ninetales|88/100|[from] Spikes
+|-weather|Hail|[from] ability: Snow Warning|[of] p2a: Ninetales
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Catalyst|45/100|[from] Hail
+|upkeep
+|turn|12
+|
+|t:|1721574644
+|move|p2a: Ninetales|Hypnosis|p1a: Catalyst
+|-status|p1a: Catalyst|slp|[from] move: Hypnosis
+|cant|p1a: Catalyst|slp
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Catalyst|38/100 slp|[from] Hail
+|upkeep
+|turn|13
+|inactive|Raiza has 60 seconds left.
+|inactive|Luthier has 60 seconds left.
+|
+|t:|1721574665
+|switch|p1a: Doberman|Bisharp, F|100/100
+|move|p2a: Ninetales|Moonblast|p1a: Doberman
+|-damage|p1a: Doberman|62/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Doberman|56/100|[from] Hail
+|-heal|p1a: Doberman|62/100|[from] item: Leftovers
+|upkeep
+|turn|14
+|inactive|Raiza has 30 seconds left.
+|inactive|Luthier has 30 seconds left.
+|inactive|Luthier has 20 seconds left.
+|
+|t:|1721574706
+|switch|p2a: Corviknight|Corviknight, F|84/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Doberman|Iron Head|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|69/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Doberman|56/100|[from] Hail
+|-damage|p2a: Corviknight|63/100|[from] Hail
+|-heal|p1a: Doberman|62/100|[from] item: Leftovers
+|-heal|p2a: Corviknight|69/100|[from] item: Leftovers
+|upkeep
+|turn|15
+|inactive|Luthier has 30 seconds left this turn.
+|inactive|Raiza has 30 seconds left.
+|
+|t:|1721574718
+|switch|p1a: Made in Heaven|Zapdos|100/100
+|move|p2a: Corviknight|U-turn|p1a: Made in Heaven
+|-resisted|p1a: Made in Heaven
+|-damage|p1a: Made in Heaven|93/100
+|inactive|Raiza has 30 seconds left this turn.
+|inactive|Luthier has 30 seconds left this turn.
+|inactive|Luthier has 20 seconds left.
+|inactive|Luthier has 15 seconds left.
+|inactive|Luthier has 10 seconds left.
+|
+|t:|1721574739
+|switch|p2a: Landorus|Landorus-Therian, M|100/100 tox|[from] U-turn
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Made in Heaven|atk|1
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Made in Heaven|87/100|[from] Hail
+|-damage|p2a: Landorus|94/100 tox|[from] Hail
+|-heal|p2a: Landorus|100/100 tox|[from] item: Leftovers
+|-damage|p2a: Landorus|94/100 tox|[from] psn
+|upkeep
+|turn|16
+|inactive|Luthier has 20 seconds left this turn.
+|inactive|Raiza has 30 seconds left.
+|
+|t:|1721574755
+|switch|p1a: Monster|Landorus-Therian, M|81/100 tox
+|-ability|p1a: Monster|Intimidate|boost
+|-unboost|p2a: Landorus|atk|1
+|move|p2a: Landorus|Defog|p1a: Monster
+|-unboost|p1a: Monster|evasion|1
+|-sideend|p2: Luthier|Spikes|[from] move: Defog|[of] p2a: Landorus
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Monster|75/100 tox|[from] Hail
+|-damage|p2a: Landorus|88/100 tox|[from] Hail
+|-heal|p2a: Landorus|94/100 tox|[from] item: Leftovers
+|-heal|p1a: Monster|81/100 tox|[from] item: Leftovers
+|-damage|p2a: Landorus|82/100 tox|[from] psn
+|-damage|p1a: Monster|75/100 tox|[from] psn
+|upkeep
+|turn|17
+|inactive|Luthier has 30 seconds left this turn.
+|
+|t:|1721574760
+|move|p1a: Monster|Stealth Rock|p2a: Landorus
+|-sidestart|p2: Luthier|move: Stealth Rock
+|move|p2a: Landorus|U-turn|p1a: Monster
+|-resisted|p1a: Monster
+|-damage|p1a: Monster|67/100 tox
+|inactive|Luthier has 30 seconds left.
+|
+|t:|1721574771
+|switch|p2a: Corviknight|Corviknight, F|69/100|[from] U-turn
+|-damage|p2a: Corviknight|56/100|[from] Stealth Rock
+|-ability|p2a: Corviknight|Pressure
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Monster|61/100 tox|[from] Hail
+|-damage|p2a: Corviknight|50/100|[from] Hail
+|-heal|p1a: Monster|67/100 tox|[from] item: Leftovers
+|-heal|p2a: Corviknight|56/100|[from] item: Leftovers
+|-damage|p1a: Monster|55/100 tox|[from] psn
+|upkeep
+|turn|18
+|inactive|Luthier has 30 seconds left.
+|
+|t:|1721574777
+|switch|p1a: Made in Heaven|Zapdos|87/100
+|move|p2a: Corviknight|Defog|p1a: Made in Heaven
+|-unboost|p1a: Made in Heaven|evasion|1
+|-sideend|p2: Luthier|Stealth Rock|[from] move: Defog|[of] p2a: Corviknight
+|
+|-weather|none
+|-heal|p2a: Corviknight|62/100|[from] item: Leftovers
+|upkeep
+|turn|19
+|
+|t:|1721574792
+|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
+|move|p1a: Made in Heaven|Hurricane|p2a: Tornadus|[miss]
+|-miss|p1a: Made in Heaven|p2a: Tornadus
+|
+|upkeep
+|turn|20
+|
+|t:|1721574802
+|move|p2a: Tornadus|Heat Wave|p1a: Made in Heaven
+|-damage|p1a: Made in Heaven|63/100
+|move|p1a: Made in Heaven|Hurricane|p2a: Tornadus
+|-damage|p2a: Tornadus|69/100
+|
+|upkeep
+|turn|21
+|
+|t:|1721574816
+|move|p2a: Tornadus|Heat Wave|p1a: Made in Heaven
+|-damage|p1a: Made in Heaven|40/100
+|move|p1a: Made in Heaven|Hurricane|p2a: Tornadus
+|-damage|p2a: Tornadus|40/100
+|
+|upkeep
+|turn|22
+|
+|t:|1721574824
+|switch|p2a: Ninetales|Ninetales-Alola, M|88/100
+|-weather|Hail|[from] ability: Snow Warning|[of] p2a: Ninetales
+|move|p1a: Made in Heaven|Roost|p1a: Made in Heaven
+|-heal|p1a: Made in Heaven|90/100
+|-singleturn|p1a: Made in Heaven|move: Roost
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Made in Heaven|84/100|[from] Hail
+|upkeep
+|turn|23
+|
+|t:|1721574834
+|switch|p2a: Arctozolt|Arctozolt|78/100
+|switch|p1a: End of the Line|Volcarona, F|94/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|88/100|[from] Hail
+|-heal|p2a: Arctozolt|84/100|[from] item: Leftovers
+|upkeep
+|turn|24
+|
+|t:|1721574843
+|switch|p2a: Volcanion|Volcanion|100/100
+|move|p1a: End of the Line|Bug Buzz|p2a: Volcanion
+|-resisted|p2a: Volcanion
+|-damage|p2a: Volcanion|77/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p2a: Volcanion|71/100|[from] Hail
+|-damage|p1a: End of the Line|82/100|[from] Hail
+|upkeep
+|turn|25
+|inactive|Raiza has 60 seconds left.
+|
+|t:|1721574882
+|switch|p1a: Deconstruction|Dragapult, F|100/100
+|move|p2a: Volcanion|Steam Eruption|p1a: Deconstruction
+|-resisted|p1a: Deconstruction
+|-damage|p1a: Deconstruction|34/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Deconstruction|28/100|[from] Hail
+|-damage|p2a: Volcanion|65/100|[from] Hail
+|upkeep
+|turn|26
+|
+|t:|1721574893
+|switch|p2a: Tornadus|Tornadus-Therian, M|73/100
+|move|p1a: Deconstruction|Shadow Ball|p2a: Tornadus
+|-damage|p2a: Tornadus|37/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Deconstruction|22/100|[from] Hail
+|-damage|p2a: Tornadus|31/100|[from] Hail
+|upkeep
+|turn|27
+|inactive|Luthier has 60 seconds left.
+|
+|t:|1721574919
+|move|p1a: Deconstruction|Shadow Ball|p2a: Tornadus
+|-damage|p2a: Tornadus|0 fnt
+|faint|p2a: Tornadus
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Deconstruction|16/100|[from] Hail
+|upkeep
+|
+|t:|1721574920
+|switch|p2a: Arctozolt|Arctozolt|84/100
+|turn|28
+|inactive|Luthier has 60 seconds left.
+|inactive|Raiza has 60 seconds left.
+|
+|t:|1721574961
+|switch|p1a: End of the Line|Volcarona, F|82/100
+|move|p2a: Arctozolt|Blizzard|p1a: End of the Line
+|-resisted|p1a: End of the Line
+|-damage|p1a: End of the Line|66/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|60/100|[from] Hail
+|-heal|p2a: Arctozolt|90/100|[from] item: Leftovers
+|upkeep
+|turn|29
+|
+|t:|1721574969
+|switch|p1a: Catalyst|Mew|38/100 slp
+|move|p2a: Arctozolt|Blizzard|p1a: Catalyst
+|-damage|p1a: Catalyst|10/100 slp
+|
+|-weather|none
+|-heal|p2a: Arctozolt|96/100|[from] item: Leftovers
+|upkeep
+|turn|30
+|
+|t:|1721574978
+|switch|p2a: Ninetales|Ninetales-Alola, M|88/100
+|-weather|Hail|[from] ability: Snow Warning|[of] p2a: Ninetales
+|cant|p1a: Catalyst|slp
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Catalyst|4/100 slp|[from] Hail
+|upkeep
+|turn|31
+|inactive|Raiza has 60 seconds left.
+|
+|t:|1721575006
+|switch|p2a: Arctozolt|Arctozolt|96/100
+|switch|p1a: End of the Line|Volcarona, F|60/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|54/100|[from] Hail
+|-heal|p2a: Arctozolt|100/100|[from] item: Leftovers
+|upkeep
+|turn|32
+|inactive|Luthier has 60 seconds left.
+|
+|t:|1721575023
+|switch|p1a: Monster|Landorus-Therian, M|55/100 tox
+|-ability|p1a: Monster|Intimidate|boost
+|-unboost|p2a: Arctozolt|atk|1
+|move|p2a: Arctozolt|Substitute|p2a: Arctozolt
+|-start|p2a: Arctozolt|Substitute
+|-damage|p2a: Arctozolt|76/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Monster|49/100 tox|[from] Hail
+|-heal|p2a: Arctozolt|82/100|[from] item: Leftovers
+|-heal|p1a: Monster|55/100 tox|[from] item: Leftovers
+|-damage|p1a: Monster|49/100 tox|[from] psn
+|upkeep
+|turn|33
+|
+|t:|1721575031
+|switch|p1a: Catalyst|Mew|4/100 slp
+|move|p2a: Arctozolt|Blizzard|p1a: Catalyst
+|-damage|p1a: Catalyst|0 fnt
+|faint|p1a: Catalyst
+|
+|-weather|Hail|[upkeep]
+|-heal|p2a: Arctozolt|88/100|[from] item: Leftovers
+|upkeep
+|
+|t:|1721575037
+|switch|p1a: End of the Line|Volcarona, F|54/100
+|turn|34
+|
+|t:|1721575053
+|switch|p2a: Volcanion|Volcanion|65/100
+|move|p1a: End of the Line|Roost|p1a: End of the Line
+|-heal|p1a: End of the Line|100/100
+|-singleturn|p1a: End of the Line|move: Roost
+|
+|-weather|Hail|[upkeep]
+|-damage|p2a: Volcanion|59/100|[from] Hail
+|-damage|p1a: End of the Line|94/100|[from] Hail
+|upkeep
+|turn|35
+|inactive|Raiza has 30 seconds left.
+|
+|t:|1721575082
+|switch|p1a: Doberman|Bisharp, F|62/100
+|move|p2a: Volcanion|Steam Eruption|p1a: Doberman
+|-damage|p1a: Doberman|0 fnt
+|faint|p1a: Doberman
+|
+|-weather|Hail|[upkeep]
+|-damage|p2a: Volcanion|53/100|[from] Hail
+|upkeep
+|
+|t:|1721575084
+|switch|p1a: Deconstruction|Dragapult, F|16/100
+|turn|36
+|
+|t:|1721575090
+|switch|p2a: Corviknight|Corviknight, F|62/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Deconstruction|Shadow Ball|p2a: Corviknight
+|-damage|p2a: Corviknight|16/100
+|-unboost|p2a: Corviknight|spd|1
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Deconstruction|10/100|[from] Hail
+|-damage|p2a: Corviknight|10/100|[from] Hail
+|-heal|p2a: Corviknight|16/100|[from] item: Leftovers
+|upkeep
+|turn|37
+|
+|t:|1721575093
+|move|p1a: Deconstruction|Shadow Ball|p2a: Corviknight
+|-crit|p2a: Corviknight
+|-damage|p2a: Corviknight|0 fnt
+|faint|p2a: Corviknight
+|
+|-weather|none
+|upkeep
+|inactive|Luthier has 90 seconds left.
+|
+|t:|1721575136
+|switch|p2a: Landorus|Landorus-Therian, M|82/100 tox
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Deconstruction|atk|1
+|turn|38
+|inactive|Raiza has 60 seconds left.
+|
+|t:|1721575160
+|switch|p1a: Made in Heaven|Zapdos|84/100
+|move|p2a: Landorus|U-turn|p1a: Made in Heaven
+|-resisted|p1a: Made in Heaven
+|-damage|p1a: Made in Heaven|73/100
+|
+|t:|1721575168
+|switch|p2a: Ninetales|Ninetales-Alola, M|88/100|[from] U-turn
+|-weather|Hail|[from] ability: Snow Warning|[of] p2a: Ninetales
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Made in Heaven|66/100|[from] Hail
+|upkeep
+|turn|39
+|inactive|Raiza has 60 seconds left.
+|inactive|Luthier has 90 seconds left.
+|
+|t:|1721575178
+|move|p2a: Ninetales|Hypnosis|p1a: Made in Heaven
+|-status|p1a: Made in Heaven|slp|[from] move: Hypnosis
+|cant|p1a: Made in Heaven|slp
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Made in Heaven|60/100 slp|[from] Hail
+|upkeep
+|turn|40
+|inactive|Raiza has 60 seconds left.
+|inactive|Luthier has 90 seconds left.
+|
+|t:|1721575195
+|switch|p2a: Arctozolt|Arctozolt|88/100
+|switch|p1a: Monster|Landorus-Therian, M|49/100 tox
+|-ability|p1a: Monster|Intimidate|boost
+|-unboost|p2a: Arctozolt|atk|1
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Monster|43/100 tox|[from] Hail
+|-heal|p2a: Arctozolt|94/100|[from] item: Leftovers
+|-heal|p1a: Monster|49/100 tox|[from] item: Leftovers
+|-damage|p1a: Monster|43/100 tox|[from] psn
+|upkeep
+|turn|41
+|inactive|Raiza has 60 seconds left.
+|
+|t:|1721575203
+|switch|p2a: Volcanion|Volcanion|53/100
+|move|p1a: Monster|Earthquake|p2a: Volcanion
+|-supereffective|p2a: Volcanion
+|-damage|p2a: Volcanion|0 fnt
+|faint|p2a: Volcanion
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Monster|37/100 tox|[from] Hail
+|-heal|p1a: Monster|43/100 tox|[from] item: Leftovers
+|-damage|p1a: Monster|31/100 tox|[from] psn
+|upkeep
+|
+|t:|1721575208
+|switch|p2a: Arctozolt|Arctozolt|94/100
+|turn|42
+|inactive|Raiza has 60 seconds left.
+|inactive|Raiza has 30 seconds left.
+|
+|t:|1721575255
+|switch|p1a: Made in Heaven|Zapdos|60/100 slp
+|move|p2a: Arctozolt|Substitute|p2a: Arctozolt
+|-start|p2a: Arctozolt|Substitute
+|-damage|p2a: Arctozolt|69/100
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: Made in Heaven|54/100 slp|[from] Hail
+|-heal|p2a: Arctozolt|76/100|[from] item: Leftovers
+|upkeep
+|turn|43
+|inactive|Raiza has 30 seconds left.
+|
+|t:|1721575270
+|move|p2a: Arctozolt|Blizzard|p1a: Made in Heaven
+|-supereffective|p1a: Made in Heaven
+|-damage|p1a: Made in Heaven|0 fnt
+|faint|p1a: Made in Heaven
+|
+|-weather|Hail|[upkeep]
+|-heal|p2a: Arctozolt|82/100|[from] item: Leftovers
+|upkeep
+|inactive|Raiza has 30 seconds left.
+|
+|t:|1721575279
+|switch|p1a: Monster|Landorus-Therian, M|31/100 tox
+|-ability|p1a: Monster|Intimidate|boost
+|-immune|p2a: Arctozolt
+|turn|44
+|
+|t:|1721575282
+|move|p2a: Arctozolt|Blizzard|p1a: Monster
+|-supereffective|p1a: Monster
+|-damage|p1a: Monster|0 fnt
+|faint|p1a: Monster
+|
+|-weather|Hail|[upkeep]
+|-heal|p2a: Arctozolt|88/100|[from] item: Leftovers
+|upkeep
+|
+|t:|1721575288
+|switch|p1a: End of the Line|Volcarona, F|94/100
+|turn|45
+|inactive|Luthier has 120 seconds left.
+|inactive|Luthier has 90 seconds left.
+|
+|t:|1721575331
+|switch|p2a: Landorus|Landorus-Therian, M|82/100 tox
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: End of the Line|atk|1
+|move|p1a: End of the Line|Quiver Dance|p1a: End of the Line
+|-boost|p1a: End of the Line|spa|1
+|-boost|p1a: End of the Line|spd|1
+|-boost|p1a: End of the Line|spe|1
+|
+|-weather|none
+|-heal|p2a: Landorus|88/100 tox|[from] item: Leftovers
+|-damage|p2a: Landorus|82/100 tox|[from] psn
+|upkeep
+|turn|46
+|inactive|Luthier has 90 seconds left.
+|
+|t:|1721575370
+|move|p1a: End of the Line|Substitute|p1a: End of the Line
+|-start|p1a: End of the Line|Substitute
+|-damage|p1a: End of the Line|69/100
+|move|p2a: Landorus|Toxic||[still]
+|-fail|p2a: Landorus
+|
+|-heal|p2a: Landorus|88/100 tox|[from] item: Leftovers
+|-damage|p2a: Landorus|76/100 tox|[from] psn
+|upkeep
+|turn|47
+|inactive|Raiza has 60 seconds left.
+|
+|t:|1721575380
+|switch|p2a: Ninetales|Ninetales-Alola, M|88/100
+|-weather|Hail|[from] ability: Snow Warning|[of] p2a: Ninetales
+|move|p1a: End of the Line|Quiver Dance|p1a: End of the Line
+|-boost|p1a: End of the Line|spa|1
+|-boost|p1a: End of the Line|spd|1
+|-boost|p1a: End of the Line|spe|1
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|63/100|[from] Hail
+|upkeep
+|turn|48
+|inactive|Raiza has 60 seconds left.
+|
+|t:|1721575387
+|move|p1a: End of the Line|Bug Buzz|p2a: Ninetales
+|-resisted|p2a: Ninetales
+|-damage|p2a: Ninetales|50/100
+|move|p2a: Ninetales|Encore|p1a: End of the Line
+|-start|p1a: End of the Line|Encore
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|57/100|[from] Hail
+|upkeep
+|turn|49
+|
+|t:|1721575394
+|move|p1a: End of the Line|Bug Buzz|p2a: Ninetales
+|-resisted|p2a: Ninetales
+|-damage|p2a: Ninetales|13/100
+|move|p2a: Ninetales|Moonblast|p1a: End of the Line
+|-resisted|p1a: End of the Line
+|-activate|p1a: End of the Line|move: Substitute|[damage]
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|51/100|[from] Hail
+|upkeep
+|turn|50
+|
+|t:|1721575400
+|move|p1a: End of the Line|Bug Buzz|p2a: Ninetales
+|-resisted|p2a: Ninetales
+|-damage|p2a: Ninetales|0 fnt
+|faint|p2a: Ninetales
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|45/100|[from] Hail
+|upkeep
+|
+|t:|1721575402
+|switch|p2a: Landorus|Landorus-Therian, M|76/100 tox
+|-ability|p2a: Landorus|Intimidate|boost
+|-immune|p1a: End of the Line
+|turn|51
+|
+|t:|1721575407
+|move|p1a: End of the Line|Bug Buzz|p2a: Landorus
+|-resisted|p2a: Landorus
+|-damage|p2a: Landorus|49/100 tox
+|-unboost|p2a: Landorus|spd|1
+|move|p2a: Landorus|Earthquake|p1a: End of the Line
+|-end|p1a: End of the Line|Substitute
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|39/100|[from] Hail
+|-damage|p2a: Landorus|43/100 tox|[from] Hail
+|-heal|p2a: Landorus|49/100 tox|[from] item: Leftovers
+|-damage|p2a: Landorus|43/100 tox|[from] psn
+|-end|p1a: End of the Line|Encore
+|upkeep
+|turn|52
+|inactive|Raiza has 90 seconds left.
+|inactive|Raiza has 60 seconds left.
+|inactive|Luthier has 90 seconds left.
+|inactive|Raiza has 30 seconds left.
+|inactive|Raiza has 20 seconds left.
+|inactive|Raiza has 15 seconds left.
+|
+|t:|1721575494
+|move|p1a: End of the Line|Roost|p1a: End of the Line
+|-heal|p1a: End of the Line|89/100
+|-singleturn|p1a: End of the Line|move: Roost
+|move|p2a: Landorus|Toxic|p1a: End of the Line
+|-status|p1a: End of the Line|tox
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|83/100 tox|[from] Hail
+|-damage|p2a: Landorus|37/100 tox|[from] Hail
+|-heal|p2a: Landorus|43/100 tox|[from] item: Leftovers
+|-damage|p1a: End of the Line|76/100 tox|[from] psn
+|-damage|p2a: Landorus|31/100 tox|[from] psn
+|upkeep
+|turn|53
+|inactive|Raiza has 25 seconds left this turn.
+|inactive|Raiza has 20 seconds left.
+|inactive|Raiza has 15 seconds left.
+|
+|t:|1721575507
+|move|p1a: End of the Line|Substitute|p1a: End of the Line
+|-start|p1a: End of the Line|Substitute
+|-damage|p1a: End of the Line|51/100 tox
+|move|p2a: Landorus|Earthquake|p1a: End of the Line
+|-end|p1a: End of the Line|Substitute
+|
+|-weather|Hail|[upkeep]
+|-damage|p1a: End of the Line|45/100 tox|[from] Hail
+|-damage|p2a: Landorus|25/100 tox|[from] Hail
+|-heal|p2a: Landorus|31/100 tox|[from] item: Leftovers
+|-damage|p1a: End of the Line|33/100 tox|[from] psn
+|-damage|p2a: Landorus|13/100 tox|[from] psn
+|upkeep
+|turn|54
+|inactive|Raiza has 25 seconds left this turn.
+|
+|t:|1721575513
+|move|p1a: End of the Line|Bug Buzz|p2a: Landorus
+|-resisted|p2a: Landorus
+|-damage|p2a: Landorus|0 fnt
+|faint|p2a: Landorus
+|
+|-weather|none
+|-damage|p1a: End of the Line|14/100 tox|[from] psn
+|upkeep
+|inactive|Raiza has 30 seconds left this turn.
+|
+|t:|1721575519
+|switch|p2a: Arctozolt|Arctozolt|88/100
+|turn|55
+|c|☆Raiza|gg
+|c|☆Luthier|gg
+|
+|t:|1721575522
+|move|p1a: End of the Line|Bug Buzz|p2a: Arctozolt
+|-damage|p2a: Arctozolt|0 fnt
+|faint|p2a: Arctozolt
+|
+|win|Raiza
+|player|p2|

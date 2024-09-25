@@ -1,0 +1,426 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
+|t:|1720294243
+|gametype|singles
+|player|p1|EeveetoTheN00b|acetrainersnow|
+|player|p2|oldspicemike|#wcop2024usmidwest|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Latios, M|
+|poke|p1|Fezandipiti, M|
+|poke|p1|Zapdos|
+|poke|p1|Great Tusk|
+|poke|p1|Heatran, M|
+|poke|p1|Roaring Moon|
+|poke|p2|Ting-Lu|
+|poke|p2|Moltres|
+|poke|p2|Tinkaton, F|
+|poke|p2|Ogerpon, F|
+|poke|p2|Raging Bolt|
+|poke|p2|Weavile, F|
+|teampreview
+|c|☆oldspicemike|hf
+|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!</strong><br />Only users of rank ☆ and higher can talk.</div>
+|inactive|EeveetoTheN00b has 270 seconds left.
+|inactive|oldspicemike has 270 seconds left.
+|c|☆EeveetoTheN00b|same
+|inactive|EeveetoTheN00b has 240 seconds left.
+|inactive|oldspicemike has 240 seconds left.
+|inactive|oldspicemike has 210 seconds left.
+|inactive|oldspicemike has 180 seconds left.
+|
+|t:|1720294386
+|start
+|switch|p1a: Fire Boss|Heatran, M|100/100
+|switch|p2a: Ting-Lu|Ting-Lu|100/100
+|-item|p1a: Fire Boss|Air Balloon
+|-ability|p2a: Ting-Lu|Vessel of Ruin
+|turn|1
+|
+|t:|1720294402
+|move|p1a: Fire Boss|Stealth Rock|p2a: Ting-Lu
+|-sidestart|p2: oldspicemike|move: Stealth Rock
+|move|p2a: Ting-Lu|Ruination|p1a: Fire Boss
+|-damage|p1a: Fire Boss|51/100
+|-enditem|p1a: Fire Boss|Air Balloon
+|
+|upkeep
+|turn|2
+|
+|t:|1720294421
+|switch|p1a: Mega Donphan|Great Tusk|100/100
+|move|p2a: Ting-Lu|Earthquake|p1a: Mega Donphan
+|-damage|p1a: Mega Donphan|72/100
+|
+|-heal|p1a: Mega Donphan|78/100|[from] item: Leftovers
+|upkeep
+|turn|3
+|inactive|oldspicemike has 210 seconds left.
+|
+|t:|1720294461
+|switch|p2a: Ogerpon|Ogerpon, F|100/100
+|move|p1a: Mega Donphan|Knock Off|p2a: Ogerpon
+|-damage|p2a: Ogerpon|60/100
+|-enditem|p2a: Ogerpon|Heavy-Duty Boots|[from] move: Knock Off|[of] p1a: Mega Donphan
+|
+|-heal|p1a: Mega Donphan|84/100|[from] item: Leftovers
+|upkeep
+|turn|4
+|inactive|oldspicemike has 180 seconds left.
+|
+|t:|1720294505
+|-end|p1a: Mega Donphan|Protosynthesis|[silent]
+|switch|p1a: Fazan|Fezandipiti, M|100/100
+|move|p2a: Ogerpon|Synthesis|p2a: Ogerpon
+|-heal|p2a: Ogerpon|100/100
+|
+|upkeep
+|turn|5
+|
+|t:|1720294515
+|switch|p2a: Tinkaton|Tinkaton, F|100/100
+|-damage|p2a: Tinkaton|94/100|[from] Stealth Rock
+|-item|p2a: Tinkaton|Air Balloon
+|move|p1a: Fazan|U-turn|p2a: Tinkaton
+|-resisted|p2a: Tinkaton
+|-damage|p2a: Tinkaton|91/100
+|-enditem|p2a: Tinkaton|Air Balloon
+|-enditem|p1a: Fazan|Heavy-Duty Boots|[silent]|[from] ability: Pickpocket|[of] p1a: Fazan
+|-item|p2a: Tinkaton|Heavy-Duty Boots|[from] ability: Pickpocket|[of] p1a: Fazan
+|
+|t:|1720294522
+|switch|p1a: Fire Boss|Heatran, M|51/100|[from] U-turn
+|
+|upkeep
+|turn|6
+|inactive|oldspicemike has 180 seconds left.
+|
+|t:|1720294537
+|switch|p2a: Ting-Lu|Ting-Lu|100/100
+|-damage|p2a: Ting-Lu|94/100|[from] Stealth Rock
+|-ability|p2a: Ting-Lu|Vessel of Ruin
+|move|p1a: Fire Boss|Magma Storm|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|66/100
+|-activate|p2a: Ting-Lu|move: Magma Storm|[of] p1a: Fire Boss
+|
+|-damage|p2a: Ting-Lu|54/100|[from] move: Magma Storm|[partiallytrapped]
+|upkeep
+|turn|7
+|inactive|oldspicemike has 180 seconds left.
+|inactive|EeveetoTheN00b has 270 seconds left.
+|
+|t:|1720294569
+|switch|p1a: Mega Donphan|Great Tusk|84/100
+|move|p2a: Ting-Lu|Earthquake|p1a: Mega Donphan
+|-damage|p1a: Mega Donphan|54/100
+|
+|-heal|p1a: Mega Donphan|61/100|[from] item: Leftovers
+|-end|p2a: Ting-Lu|Magma Storm|[partiallytrapped]|[silent]
+|upkeep
+|turn|8
+|inactive|oldspicemike has 150 seconds left.
+|inactive|EeveetoTheN00b has 240 seconds left.
+|inactive|oldspicemike has 120 seconds left.
+|
+|t:|1720294629
+|move|p1a: Mega Donphan|Ice Spinner|p2a: Ting-Lu
+|-supereffective|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|22/100
+|-damage|p1a: Mega Donphan|44/100|[from] item: Rocky Helmet|[of] p2a: Ting-Lu
+|move|p2a: Ting-Lu|Spikes|p1a: Mega Donphan
+|-sidestart|p1: EeveetoTheN00b|Spikes
+|
+|-heal|p1a: Mega Donphan|50/100|[from] item: Leftovers
+|upkeep
+|turn|9
+|inactive|EeveetoTheN00b has 240 seconds left.
+|inactive|oldspicemike has 120 seconds left.
+|
+|t:|1720294646
+|move|p1a: Mega Donphan|Rapid Spin|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|12/100
+|-boost|p1a: Mega Donphan|spe|1
+|-damage|p1a: Mega Donphan|34/100|[from] item: Rocky Helmet|[of] p2a: Ting-Lu
+|-sideend|p1: EeveetoTheN00b|Spikes|[from] move: Rapid Spin|[of] p1a: Mega Donphan
+|move|p2a: Ting-Lu|Earthquake|p1a: Mega Donphan
+|-damage|p1a: Mega Donphan|8/100
+|
+|-heal|p1a: Mega Donphan|14/100|[from] item: Leftovers
+|upkeep
+|turn|10
+|inactive|oldspicemike has 120 seconds left.
+|inactive|EeveetoTheN00b has 240 seconds left.
+|
+|t:|1720294663
+|move|p1a: Mega Donphan|Ice Spinner|p2a: Ting-Lu
+|-supereffective|p2a: Ting-Lu
+|-damage|p2a: Ting-Lu|0 fnt
+|-damage|p1a: Mega Donphan|0 fnt|[from] item: Rocky Helmet|[of] p2a: Ting-Lu
+|faint|p2a: Ting-Lu
+|faint|p1a: Mega Donphan
+|-end|p1a: Mega Donphan|Protosynthesis|[silent]
+|
+|upkeep
+|inactive|EeveetoTheN00b has 240 seconds left.
+|inactive|oldspicemike has 120 seconds left.
+|
+|t:|1720294692
+|switch|p1a: Oropéndola|Zapdos, shiny|100/100
+|switch|p2a: Raging Bolt|Raging Bolt|100/100
+|turn|11
+|inactive|oldspicemike has 120 seconds left.
+|
+|t:|1720294702
+|move|p2a: Raging Bolt|Volt Switch|p1a: Oropéndola
+|-damage|p1a: Oropéndola|60/100
+|
+|t:|1720294716
+|-end|p2a: Raging Bolt|Protosynthesis|[silent]
+|switch|p2a: Tinkaton|Tinkaton, F|91/100|[from] Volt Switch
+|move|p1a: Oropéndola|U-turn|p2a: Tinkaton
+|-resisted|p2a: Tinkaton
+|-damage|p2a: Tinkaton|87/100
+|
+|t:|1720294727
+|switch|p1a: Fire Boss|Heatran, M|51/100|[from] U-turn
+|
+|upkeep
+|turn|12
+|inactive|oldspicemike has 120 seconds left.
+|
+|t:|1720294736
+|move|p2a: Tinkaton|Stealth Rock|p1a: Fire Boss
+|-sidestart|p1: EeveetoTheN00b|move: Stealth Rock
+|move|p1a: Fire Boss|Magma Storm|p2a: Tinkaton
+|-supereffective|p2a: Tinkaton
+|-damage|p2a: Tinkaton|0 fnt
+|faint|p2a: Tinkaton
+|
+|upkeep
+|inactive|oldspicemike has 120 seconds left.
+|
+|t:|1720294743
+|switch|p2a: Raging Bolt|Raging Bolt|100/100
+|turn|13
+|inactive|EeveetoTheN00b has 240 seconds left.
+|
+|t:|1720294750
+|move|p1a: Fire Boss|Earth Power|p2a: Raging Bolt
+|-supereffective|p2a: Raging Bolt
+|-damage|p2a: Raging Bolt|40/100
+|move|p2a: Raging Bolt|Thunderbolt|p1a: Fire Boss
+|-damage|p1a: Fire Boss|1/100
+|
+|upkeep
+|turn|14
+|
+|t:|1720294756
+|switch|p1a: Fazan|Fezandipiti, M|100/100
+|-damage|p1a: Fazan|88/100|[from] Stealth Rock
+|move|p2a: Raging Bolt|Thunderclap||[still]
+|-fail|p2a: Raging Bolt
+|
+|upkeep
+|turn|15
+|
+|t:|1720294770
+|-end|p2a: Raging Bolt|Protosynthesis|[silent]
+|switch|p2a: Moltres|Moltres|100/100
+|move|p1a: Fazan|Moonblast|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|87/100
+|
+|upkeep
+|turn|16
+|
+|t:|1720294785
+|move|p1a: Fazan|Beat Up|p2a: Moltres
+|-damage|p2a: Moltres|85/100
+|-damage|p2a: Moltres|83/100
+|-damage|p2a: Moltres|81/100
+|-damage|p2a: Moltres|79/100
+|-damage|p2a: Moltres|76/100
+|-hitcount|p2a: Moltres|5
+|move|p2a: Moltres|U-turn|p1a: Fazan
+|-resisted|p1a: Fazan
+|-damage|p1a: Fazan|85/100
+|
+|t:|1720294803
+|switch|p2a: Weavile|Weavile, F|100/100|[from] U-turn
+|
+|upkeep
+|turn|17
+|inactive|oldspicemike has 120 seconds left.
+|inactive|EeveetoTheN00b has 240 seconds left.
+|
+|t:|1720294857
+|-terastallize|p2a: Weavile|Ice
+|move|p2a: Weavile|Swords Dance|p2a: Weavile
+|-boost|p2a: Weavile|atk|2
+|move|p1a: Fazan|U-turn|p2a: Weavile
+|-crit|p2a: Weavile
+|-damage|p2a: Weavile|68/100
+|
+|t:|1720294865
+|switch|p1a: Roaring Moon|Roaring Moon|100/100|[from] U-turn
+|-damage|p1a: Roaring Moon|88/100|[from] Stealth Rock
+|
+|upkeep
+|turn|18
+|inactive|oldspicemike has 120 seconds left.
+|
+|t:|1720294882
+|switch|p2a: Moltres|Moltres|76/100
+|-terastallize|p1a: Roaring Moon|Dark
+|move|p1a: Roaring Moon|Knock Off|p2a: Moltres
+|-damage|p2a: Moltres|26/100
+|-enditem|p2a: Moltres|Heavy-Duty Boots|[from] move: Knock Off|[of] p1a: Roaring Moon
+|
+|upkeep
+|turn|19
+|inactive|oldspicemike has 120 seconds left.
+|inactive|EeveetoTheN00b has 210 seconds left.
+|
+|t:|1720294911
+|-end|p1a: Roaring Moon|Protosynthesis|[silent]
+|switch|p1a: Oropéndola|Zapdos, shiny|60/100
+|move|p2a: Moltres|Roost|p2a: Moltres
+|-heal|p2a: Moltres|76/100
+|-singleturn|p2a: Moltres|move: Roost
+|
+|upkeep
+|turn|20
+|inactive|EeveetoTheN00b has 210 seconds left.
+|
+|t:|1720294926
+|switch|p2a: Raging Bolt|Raging Bolt|40/100
+|move|p1a: Oropéndola|Roost|p1a: Oropéndola
+|-heal|p1a: Oropéndola|100/100
+|-singleturn|p1a: Oropéndola|move: Roost
+|
+|upkeep
+|turn|21
+|
+|t:|1720294936
+|move|p2a: Raging Bolt|Thunderbolt|p1a: Oropéndola
+|-damage|p1a: Oropéndola|52/100
+|move|p1a: Oropéndola|U-turn|p2a: Raging Bolt
+|-damage|p2a: Raging Bolt|27/100
+|
+|t:|1720294941
+|switch|p1a: Fazan|Fezandipiti, M|85/100|[from] U-turn
+|-damage|p1a: Fazan|72/100|[from] Stealth Rock
+|
+|upkeep
+|turn|22
+|inactive|EeveetoTheN00b has 210 seconds left.
+|inactive|oldspicemike has 90 seconds left.
+|inactive|EeveetoTheN00b has 180 seconds left.
+|inactive|oldspicemike has 60 seconds left.
+|
+|t:|1720295019
+|-end|p2a: Raging Bolt|Protosynthesis|[silent]
+|switch|p2a: Moltres|Moltres|76/100
+|-damage|p2a: Moltres|26/100|[from] Stealth Rock
+|move|p1a: Fazan|Moonblast|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|14/100
+|-status|p2a: Moltres|tox|[from] ability: Toxic Chain|[of] p1a: Fazan
+|
+|-damage|p2a: Moltres|8/100 tox|[from] psn
+|upkeep
+|turn|23
+|inactive|EeveetoTheN00b has 180 seconds left.
+|
+|t:|1720295051
+|move|p1a: Fazan|Moonblast|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|0 fnt
+|faint|p2a: Moltres
+|
+|upkeep
+|
+|t:|1720295056
+|switch|p2a: Weavile|Weavile, F, tera:Ice|68/100
+|turn|24
+|
+|t:|1720295061
+|switch|p1a: Fire Boss|Heatran, M|1/100
+|-damage|p1a: Fire Boss|0 fnt|[from] Stealth Rock
+|faint|p1a: Fire Boss
+|move|p2a: Weavile|Triple Axel|p1: Fire Boss|[notarget]
+|-fail|p2a: Weavile
+|
+|upkeep
+|
+|t:|1720295072
+|switch|p1a: Roaring Moon|Roaring Moon, tera:Dark|88/100
+|-damage|p1a: Roaring Moon|76/100|[from] Stealth Rock
+|turn|25
+|inactive|oldspicemike has 60 seconds left.
+|
+|t:|1720295097
+|switch|p2a: Raging Bolt|Raging Bolt|27/100
+|move|p1a: Roaring Moon|Knock Off|p2a: Raging Bolt
+|-damage|p2a: Raging Bolt|0 fnt
+|-enditem|p2a: Raging Bolt|Heavy-Duty Boots|[from] move: Knock Off|[of] p1a: Roaring Moon
+|faint|p2a: Raging Bolt
+|-end|p2a: Raging Bolt|Protosynthesis|[silent]
+|
+|upkeep
+|
+|t:|1720295100
+|switch|p2a: Ogerpon|Ogerpon, F|100/100
+|-damage|p2a: Ogerpon|88/100|[from] Stealth Rock
+|turn|26
+|inactive|EeveetoTheN00b has 180 seconds left.
+|inactive|oldspicemike has 60 seconds left.
+|
+|t:|1720295138
+|-end|p1a: Roaring Moon|Protosynthesis|[silent]
+|switch|p1a: Blue Eon|Latios, M|100/100
+|-damage|p1a: Blue Eon|88/100|[from] Stealth Rock
+|switch|p2a: Weavile|Weavile, F, tera:Ice|68/100
+|
+|upkeep
+|turn|27
+|inactive|oldspicemike has 30 seconds left.
+|inactive|EeveetoTheN00b has 150 seconds left.
+|inactive|oldspicemike has 20 seconds left.
+|
+|t:|1720295168
+|switch|p2a: Ogerpon|Ogerpon, F|88/100
+|-damage|p2a: Ogerpon|76/100|[from] Stealth Rock
+|move|p1a: Blue Eon|Psyshock|p2a: Ogerpon
+|-damage|p2a: Ogerpon|0 fnt
+|faint|p2a: Ogerpon
+|
+|upkeep
+|inactive|oldspicemike has 25 seconds left this turn.
+|inactive|oldspicemike has 20 seconds left.
+|
+|t:|1720295175
+|switch|p2a: Weavile|Weavile, F, tera:Ice|68/100
+|turn|28
+|inactive|oldspicemike has 30 seconds left this turn.
+|
+|t:|1720295178
+|move|p2a: Weavile|Swords Dance|p2a: Weavile
+|-boost|p2a: Weavile|atk|2
+|move|p1a: Blue Eon|Psyshock|p2a: Weavile
+|-damage|p2a: Weavile|0 fnt
+|faint|p2a: Weavile
+|
+|win|EeveetoTheN00b
+|c|☆oldspicemike|gg
+|c|☆EeveetoTheN00b|gg
+|player|p2|

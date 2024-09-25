@@ -1,3 +1,4 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
 |t:|1622814358
 |gametype|singles
 |player|p1|Separation|#wcop2021china|
@@ -28,60 +29,60 @@
 |poke|p2|Dragapult, M|
 |teampreview
 |c|☆bruno from e4|gl
-|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!<\/strong><br \/>Only users of rank ☆ and higher can talk.<\/div>
+|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!</strong><br />Only users of rank ☆ and higher can talk.</div>
 |c|☆Separation|hf
 |inactive|Separation has 270 seconds left.
 |inactive|bruno from e4 has 270 seconds left.
 |
 |t:|1622814413
 |start
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100
-|switch|p2a: Landorus|Landorus-Therian, M|100\/100
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361
+|switch|p2a: Landorus|Landorus-Therian, M|382/382
 |-ability|p2a: Landorus|Intimidate|boost
 |-unboost|p1a: Tornadus|atk|1
 |turn|1
 |
 |t:|1622814425
 |move|p1a: Tornadus|Knock Off|p2a: Landorus
-|-damage|p2a: Landorus|90\/100
+|-damage|p2a: Landorus|342/382
 |-enditem|p2a: Landorus|Leftovers|[from] move: Knock Off|[of] p1a: Tornadus
 |move|p2a: Landorus|Toxic|p1a: Tornadus
 |-status|p1a: Tornadus|tox
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|2
 |
 |t:|1622814448
-|switch|p2a: Blissey|Blissey, F|100\/100
+|switch|p2a: Blissey|Blissey, F|714/714
 |move|p1a: Tornadus|Heat Wave|p2a: Blissey
-|-damage|p2a: Blissey|92\/100
+|-damage|p2a: Blissey|653/714
 |
-|-damage|p1a: Tornadus|82\/100 tox|[from] psn
+|-damage|p1a: Tornadus|295/361 tox|[from] psn
 |upkeep
 |turn|3
 |
 |t:|1622814461
 |move|p1a: Tornadus|Knock Off|p2a: Blissey
-|-damage|p2a: Blissey|81\/100
+|-damage|p2a: Blissey|577/714
 |-enditem|p2a: Blissey|Heavy-Duty Boots|[from] move: Knock Off|[of] p1a: Tornadus
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622814469
-|switch|p2a: Dragapult|Dragapult, M|100\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |
-|-damage|p1a: Tornadus|64\/100 tox|[from] psn
+|-damage|p1a: Tornadus|229/361 tox|[from] psn
 |upkeep
 |turn|4
 |
 |t:|1622814474
-|switch|p1a: Blissey|Blissey, F|100\/100
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Dragapult|U-turn|p1a: Blissey
-|-damage|p1a: Blissey|83\/100
+|-damage|p1a: Blissey|586/714
 |inactive|bruno from e4 has 270 seconds left.
 |
 |t:|1622814510
-|switch|p2a: Nitrogen|Blacephalon|100\/100|[from]move: U-turn
+|switch|p2a: Nitrogen|Blacephalon|247/247
 |
 |upkeep
 |turn|5
@@ -92,26 +93,26 @@
 |move|p1a: Blissey|Teleport|p1a: Blissey
 |
 |t:|1622814523
-|switch|p1a: Tornadus|Tornadus-Therian, M|97\/100 tox|[from]move: Teleport
+|switch|p1a: Tornadus|Tornadus-Therian, M|349/361 tox
 |
-|-damage|p1a: Tornadus|91\/100 tox|[from] psn
+|-damage|p1a: Tornadus|327/361 tox|[from] psn
 |upkeep
 |turn|6
 |
 |t:|1622814530
-|switch|p2a: Blissey|Blissey, F|81\/100
+|switch|p2a: Blissey|Blissey, F|577/714
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|68\/100
+|-damage|p2a: Blissey|482/714
 |
 |t:|1622814537
-|switch|p1a: Ferrothorn|Ferrothorn, F|100\/100|[from]move: U-turn
+|switch|p1a: Ferrothorn|Ferrothorn, F|352/352
 |
 |upkeep
 |turn|7
 |
 |t:|1622814547
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|100\/100
+|-heal|p2a: Blissey|714/714
 |move|p1a: Ferrothorn|Stealth Rock|p2a: Blissey
 |-sidestart|p2: bruno from e4|move: Stealth Rock
 |
@@ -127,18 +128,18 @@
 |turn|9
 |
 |t:|1622814559
-|switch|p2a: Corviknight|Corviknight, F|100\/100
-|-damage|p2a: Corviknight|88\/100|[from] Stealth Rock
+|switch|p2a: Corviknight|Corviknight, F|400/400
+|-damage|p2a: Corviknight|350/400|[from] Stealth Rock
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Ferrothorn|Knock Off|p2a: Corviknight
-|-damage|p2a: Corviknight|75\/100
+|-damage|p2a: Corviknight|297/400
 |-enditem|p2a: Corviknight|Leftovers|[from] move: Knock Off|[of] p1a: Ferrothorn
 |
 |upkeep
 |turn|10
 |
 |t:|1622814565
-|switch|p1a: Slowbro|Slowbro, M|100\/100
+|switch|p1a: Slowbro|Slowbro, M|394/394
 |move|p2a: Corviknight|Defog|p1a: Slowbro
 |-unboost|p1a: Slowbro|evasion|1
 |-sideend|p2: bruno from e4|Stealth Rock|[from] move: Defog|[of] p2a: Corviknight
@@ -150,10 +151,10 @@
 |move|p2a: Corviknight|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
 |-crit|p1a: Slowbro
-|-damage|p1a: Slowbro|74\/100
+|-damage|p1a: Slowbro|288/394
 |
 |t:|1622814578
-|switch|p2a: Hydreigon|Hydreigon, M|100\/100|[from]move: U-turn
+|switch|p2a: Hydreigon|Hydreigon, M|333/333
 |move|p1a: Slowbro|Future Sight|p2a: Hydreigon
 |-start|p1a: Slowbro|move: Future Sight
 |
@@ -161,45 +162,45 @@
 |turn|12
 |
 |t:|1622814606
-|switch|p2a: Corviknight|Corviknight, F|75\/100
+|switch|p2a: Corviknight|Corviknight, F|297/400
 |-ability|p2a: Corviknight|Pressure
-|switch|p1a: Blissey|Blissey, F|83\/100
+|switch|p1a: Blissey|Blissey, F|586/714
 |
 |upkeep
 |turn|13
 |
 |t:|1622814618
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|100\/100
+|-heal|p2a: Corviknight|400/400
 |-singleturn|p2a: Corviknight|move: Roost
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|100\/100
+|-heal|p1a: Blissey|714/714
 |
 |-end|p2a: Corviknight|move: Future Sight
 |-resisted|p2a: Corviknight
-|-damage|p2a: Corviknight|80\/100
+|-damage|p2a: Corviknight|319/400
 |upkeep
 |turn|14
 |
 |t:|1622814628
 |move|p2a: Corviknight|U-turn|p1a: Blissey
-|-damage|p1a: Blissey|88\/100
+|-damage|p1a: Blissey|624/714
 |
 |t:|1622814632
-|switch|p2a: Blissey|Blissey, F|100\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|714/714
 |move|p1a: Blissey|Teleport|p1a: Blissey
 |
 |t:|1622814641
-|switch|p1a: Buzzwole|Buzzwole|100\/100|[from]move: Teleport
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |
 |upkeep
 |turn|15
 |
 |t:|1622814648
-|switch|p2a: Corviknight|Corviknight, F|80\/100
+|switch|p2a: Corviknight|Corviknight, F|319/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Buzzwole|Close Combat|p2a: Corviknight
-|-damage|p2a: Corviknight|42\/100
+|-damage|p2a: Corviknight|166/400
 |-unboost|p1a: Buzzwole|def|1
 |-unboost|p1a: Buzzwole|spd|1
 |
@@ -209,7 +210,7 @@
 |inactive|Separation has 270 seconds left.
 |
 |t:|1622814702
-|switch|p2a: Dragapult|Dragapult, M|100\/100
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |move|p1a: Buzzwole|Close Combat|p2a: Dragapult
 |-immune|p2a: Dragapult
 |
@@ -219,11 +220,11 @@
 |inactive|Separation has 270 seconds left.
 |
 |t:|1622814715
-|switch|p1a: Blissey|Blissey, F|88\/100
+|switch|p1a: Blissey|Blissey, F|624/714
 |move|p2a: Dragapult|Will-O-Wisp|p1a: Blissey
 |-status|p1a: Blissey|brn
 |
-|-damage|p1a: Blissey|82\/100 brn|[from] brn
+|-damage|p1a: Blissey|580/714 brn|[from] brn
 |upkeep
 |turn|18
 |inactive|bruno from e4 has 270 seconds left.
@@ -231,13 +232,13 @@
 |
 |t:|1622814731
 |move|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|61\/100 brn
+|-damage|p1a: Blissey|429/714 brn
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|39\/100 brn
+|-damage|p1a: Blissey|278/714 brn
 |move|p1a: Blissey|Teleport|p1a: Blissey
 |
 |t:|1622814736
-|switch|p1a: Ferrothorn|Ferrothorn, F|100\/100 par|[from]move: Teleport
+|switch|p1a: Ferrothorn|Ferrothorn, F|352/352 par
 |
 |upkeep
 |turn|19
@@ -245,7 +246,7 @@
 |inactive|Separation has 270 seconds left.
 |
 |t:|1622814758
-|switch|p2a: Landorus|Landorus-Therian, M|90\/100
+|switch|p2a: Landorus|Landorus-Therian, M|342/382
 |-ability|p2a: Landorus|Intimidate|boost
 |-unboost|p1a: Ferrothorn|atk|1
 |cant|p1a: Ferrothorn|par
@@ -257,19 +258,19 @@
 |
 |t:|1622814775
 |move|p2a: Landorus|Knock Off|p1a: Ferrothorn
-|-damage|p1a: Ferrothorn|83\/100 par
-|-damage|p2a: Landorus|78\/100|[from] ability: Iron Barbs|[of] p1a: Ferrothorn
+|-damage|p1a: Ferrothorn|289/352 par
+|-damage|p2a: Landorus|295/382|[from] ability: Iron Barbs|[of] p1a: Ferrothorn
 |-enditem|p1a: Ferrothorn|Leftovers|[from] move: Knock Off|[of] p2a: Landorus
 |move|p1a: Ferrothorn|Leech Seed|p2a: Landorus
 |-start|p2a: Landorus|move: Leech Seed
 |
-|-damage|p2a: Landorus|65\/100|[from] Leech Seed|[of] p1a: Ferrothorn
-|-heal|p1a: Ferrothorn|96\/100 par|[silent]
+|-damage|p2a: Landorus|248/382|[from] Leech Seed|[of] p1a: Ferrothorn
+|-heal|p1a: Ferrothorn|336/352 par|[silent]
 |upkeep
 |turn|21
 |
 |t:|1622814787
-|switch|p2a: Corviknight|Corviknight, F|42\/100
+|switch|p2a: Corviknight|Corviknight, F|166/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Ferrothorn|Stealth Rock|p2a: Corviknight
 |-sidestart|p2: bruno from e4|move: Stealth Rock
@@ -278,9 +279,9 @@
 |turn|22
 |
 |t:|1622814797
-|switch|p1a: Slowbro|Slowbro, M|100\/100
+|switch|p1a: Slowbro|Slowbro, M|394/394
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|92\/100
+|-heal|p2a: Corviknight|366/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
 |upkeep
@@ -292,7 +293,7 @@
 |-unboost|p1a: Slowbro|evasion|1
 |-sideend|p2: bruno from e4|Stealth Rock|[from] move: Defog|[of] p2a: Corviknight
 |move|p1a: Slowbro|Scald|p2a: Corviknight
-|-damage|p2a: Corviknight|66\/100
+|-damage|p2a: Corviknight|264/400
 |
 |upkeep
 |turn|24
@@ -300,28 +301,28 @@
 |t:|1622814812
 |move|p2a: Corviknight|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|83\/100
+|-damage|p1a: Slowbro|324/394
 |
 |t:|1622814814
-|switch|p2a: Hydreigon|Hydreigon, M|100\/100|[from]move: U-turn
+|switch|p2a: Hydreigon|Hydreigon, M|333/333
 |move|p1a: Slowbro|Scald|p2a: Hydreigon
 |-resisted|p2a: Hydreigon
-|-damage|p2a: Hydreigon|86\/100
+|-damage|p2a: Hydreigon|285/333
 |
-|-heal|p2a: Hydreigon|92\/100|[from] item: Leftovers
+|-heal|p2a: Hydreigon|305/333|[from] item: Leftovers
 |upkeep
 |turn|25
 |
 |t:|1622814826
 |move|p2a: Hydreigon|Dark Pulse|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|6\/100
+|-damage|p1a: Slowbro|22/394
 |move|p1a: Slowbro|Teleport|p1a: Slowbro
 |
 |t:|1622814829
-|switch|p1a: Blissey|Blissey, F|39\/100|[from]move: Teleport
+|switch|p1a: Blissey|Blissey, F|278/714
 |
-|-heal|p2a: Hydreigon|98\/100|[from] item: Leftovers
+|-heal|p2a: Hydreigon|325/333|[from] item: Leftovers
 |upkeep
 |turn|26
 |inactive|bruno from e4 has 270 seconds left.
@@ -330,9 +331,9 @@
 |move|p2a: Hydreigon|Nasty Plot|p2a: Hydreigon
 |-boost|p2a: Hydreigon|spa|2
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|89\/100
+|-heal|p1a: Blissey|635/714
 |
-|-heal|p2a: Hydreigon|100\/100|[from] item: Leftovers
+|-heal|p2a: Hydreigon|333/333|[from] item: Leftovers
 |upkeep
 |turn|27
 |inactive|Separation has 270 seconds left.
@@ -343,28 +344,28 @@
 |move|p1a: Blissey|Toxic|p2a: Hydreigon
 |-status|p2a: Hydreigon|tox
 |
-|-damage|p2a: Hydreigon|94\/100 tox|[from] psn
+|-damage|p2a: Hydreigon|313/333 tox|[from] psn
 |upkeep
 |turn|28
 |
 |t:|1622814907
 |move|p2a: Hydreigon|Dark Pulse|p1a: Blissey
-|-damage|p1a: Blissey|48\/100
+|-damage|p1a: Blissey|340/714
 |cant|p1a: Blissey|flinch
 |
-|-heal|p2a: Hydreigon|100\/100 tox|[from] item: Leftovers
-|-damage|p2a: Hydreigon|88\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|333/333 tox|[from] item: Leftovers
+|-damage|p2a: Hydreigon|293/333 tox|[from] psn
 |upkeep
 |turn|29
 |inactive|Separation has 270 seconds left.
 |
 |t:|1622814936
-|switch|p1a: Ferrothorn|Ferrothorn, F|96\/100 par
+|switch|p1a: Ferrothorn|Ferrothorn, F|336/352 par
 |move|p2a: Hydreigon|Dark Pulse|p1a: Ferrothorn
-|-damage|p1a: Ferrothorn|11\/100 par
+|-damage|p1a: Ferrothorn|36/352 par
 |
-|-heal|p2a: Hydreigon|94\/100 tox|[from] item: Leftovers
-|-damage|p2a: Hydreigon|76\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|313/333 tox|[from] item: Leftovers
+|-damage|p2a: Hydreigon|253/333 tox|[from] psn
 |upkeep
 |turn|30
 |
@@ -373,18 +374,18 @@
 |-damage|p1a: Ferrothorn|0 fnt
 |faint|p1a: Ferrothorn
 |
-|-heal|p2a: Hydreigon|82\/100 tox|[from] item: Leftovers
-|-damage|p2a: Hydreigon|58\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|273/333 tox|[from] item: Leftovers
+|-damage|p2a: Hydreigon|193/333 tox|[from] psn
 |upkeep
 |
 |t:|1622814955
-|switch|p1a: Blissey|Blissey, F|48\/100
+|switch|p1a: Blissey|Blissey, F|340/714
 |turn|31
 |
 |t:|1622814957
-|switch|p2a: Blissey|Blissey, F|100\/100
+|switch|p2a: Blissey|Blissey, F|714/714
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|98\/100
+|-heal|p1a: Blissey|697/714
 |
 |upkeep
 |turn|32
@@ -398,60 +399,60 @@
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815030
-|switch|p1a: Buzzwole|Buzzwole|100\/100|[from]move: Teleport
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |
 |upkeep
 |turn|33
 |
 |t:|1622815042
 |move|p1a: Buzzwole|Ice Punch|p2a: Blissey
-|-damage|p2a: Blissey|78\/100
+|-damage|p2a: Blissey|550/714
 |-status|p2a: Blissey|frz
 |-curestatus|p2a: Blissey|frz|[msg]
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |inactive|bruno from e4 has 270 seconds left.
 |
 |t:|1622815082
-|switch|p2a: Dragapult|Dragapult, M|100\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |
 |upkeep
 |turn|34
 |inactive|bruno from e4 has 270 seconds left.
 |
 |t:|1622815092
-|switch|p1a: Blissey|Blissey, F|98\/100
+|switch|p1a: Blissey|Blissey, F|697/714
 |move|p2a: Dragapult|U-turn|p1a: Blissey
-|-damage|p1a: Blissey|79\/100
+|-damage|p1a: Blissey|557/714
 |inactive|bruno from e4 has 270 seconds left.
 |
 |t:|1622815097
-|switch|p2a: Nitrogen|Blacephalon|100\/100|[from]move: U-turn
+|switch|p2a: Nitrogen|Blacephalon|247/247
 |
 |upkeep
 |turn|35
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815103
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Nitrogen|Trick|p1a: Tornadus
 |-activate|p2a: Nitrogen|move: Trick|[of] p1a: Tornadus
 |-item|p1a: Tornadus|Choice Specs|[from] move: Trick
 |-item|p2a: Nitrogen|Heavy-Duty Boots|[from] move: Trick
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|36
 |
 |t:|1622815111
-|switch|p2a: Corviknight|Corviknight, F|66\/100
+|switch|p2a: Corviknight|Corviknight, F|264/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Tornadus|U-turn|p2a: Corviknight
 |-resisted|p2a: Corviknight
-|-damage|p2a: Corviknight|64\/100
+|-damage|p2a: Corviknight|256/400
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815123
-|switch|p1a: Slowbro|Slowbro, M|39\/100|[from]move: U-turn
+|switch|p1a: Slowbro|Slowbro, M|153/394
 |
 |upkeep
 |turn|37
@@ -460,62 +461,62 @@
 |t:|1622815135
 |move|p2a: Corviknight|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|21\/100
+|-damage|p1a: Slowbro|81/394
 |
 |t:|1622815147
-|switch|p2a: Dragapult|Dragapult, M|100\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |move|p1a: Slowbro|Teleport|p1a: Slowbro
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815184
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox|[from]move: Teleport
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|38
 |
 |t:|1622815189
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|84\/100 tox
+|-damage|p1a: Tornadus|300/361 tox
 |
 |t:|1622815191
-|switch|p2a: Corviknight|Corviknight, F|64\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|256/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Tornadus|U-turn|p2a: Corviknight
 |-resisted|p2a: Corviknight
-|-damage|p2a: Corviknight|62\/100
+|-damage|p2a: Corviknight|247/400
 |
 |t:|1622815198
-|switch|p1a: Nidoking|Nidoking, M|100\/100|[from]move: U-turn
+|switch|p1a: Nidoking|Nidoking, M|303/303
 |
 |upkeep
 |turn|39
 |
 |t:|1622815219
-|switch|p2a: Blissey|Blissey, F|78\/100
+|switch|p2a: Blissey|Blissey, F|550/714
 |move|p1a: Nidoking|Thunderbolt|p2a: Blissey
-|-damage|p2a: Blissey|61\/100
+|-damage|p2a: Blissey|434/714
 |
 |upkeep
 |turn|40
 |
 |t:|1622815225
 |move|p1a: Nidoking|Earth Power|p2a: Blissey
-|-damage|p2a: Blissey|36\/100
+|-damage|p2a: Blissey|257/714
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|86\/100
+|-heal|p2a: Blissey|614/714
 |
 |upkeep
 |turn|41
 |
 |t:|1622815232
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
-|-damage|p2a: Blissey|62\/100
+|-damage|p2a: Blissey|437/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622815257
-|switch|p2a: Dragapult|Dragapult, M|100\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |
 |upkeep
 |turn|42
@@ -523,96 +524,96 @@
 |t:|1622815261
 |move|p2a: Dragapult|U-turn|p1a: Nidoking
 |-resisted|p1a: Nidoking
-|-damage|p1a: Nidoking|88\/100
+|-damage|p1a: Nidoking|264/303
 |
 |t:|1622815263
-|switch|p2a: Blissey|Blissey, F|62\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|437/714
 |move|p1a: Nidoking|Ice Beam|p2a: Blissey
-|-damage|p2a: Blissey|44\/100
+|-damage|p2a: Blissey|312/714
 |
 |upkeep
 |turn|43
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815293
-|switch|p1a: Buzzwole|Buzzwole|100\/100
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|94\/100
+|-heal|p2a: Blissey|669/714
 |
 |upkeep
 |turn|44
 |
 |t:|1622815300
-|switch|p2a: Corviknight|Corviknight, F|62\/100
+|switch|p2a: Corviknight|Corviknight, F|247/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Buzzwole|Ice Punch|p2a: Corviknight
-|-damage|p2a: Corviknight|46\/100
+|-damage|p2a: Corviknight|182/400
 |
 |upkeep
 |turn|45
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815316
-|switch|p1a: Nidoking|Nidoking, M|88\/100
+|switch|p1a: Nidoking|Nidoking, M|264/303
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|96\/100
+|-heal|p2a: Corviknight|382/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
 |upkeep
 |turn|46
 |
 |t:|1622815321
-|switch|p2a: Blissey|Blissey, F|94\/100
+|switch|p2a: Blissey|Blissey, F|669/714
 |move|p1a: Nidoking|Thunderbolt|p2a: Blissey
-|-damage|p2a: Blissey|79\/100
+|-damage|p2a: Blissey|561/714
 |
 |upkeep
 |turn|47
 |
 |t:|1622815328
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
-|-damage|p2a: Blissey|51\/100
+|-damage|p2a: Blissey|362/714
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|100\/100
+|-heal|p2a: Blissey|714/714
 |
 |upkeep
 |turn|48
 |
 |t:|1622815338
 |move|p1a: Nidoking|Earth Power|p2a: Blissey
-|-damage|p2a: Blissey|76\/100
+|-damage|p2a: Blissey|537/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622815341
-|switch|p2a: Dragapult|Dragapult, M|100\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |
 |upkeep
 |turn|49
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815393
-|switch|p1a: Buzzwole|Buzzwole|100\/100
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |move|p2a: Dragapult|U-turn|p1a: Buzzwole
 |-resisted|p1a: Buzzwole
-|-damage|p1a: Buzzwole|94\/100
+|-damage|p1a: Buzzwole|387/415
 |
 |t:|1622815408
-|switch|p2a: Corviknight|Corviknight, F|96\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|382/400
 |-ability|p2a: Corviknight|Pressure
 |
 |upkeep
 |turn|50
 |
 |t:|1622815415
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|92\/100 tox
+|-damage|p1a: Tornadus|332/361 tox
 |
 |t:|1622815430
-|switch|p2a: Dragapult|Dragapult, M|100\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |
-|-damage|p1a: Tornadus|86\/100 tox|[from] psn
+|-damage|p1a: Tornadus|310/361 tox|[from] psn
 |upkeep
 |turn|51
 |inactive|Separation has 240 seconds left.
@@ -620,17 +621,17 @@
 |t:|1622815446
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|75\/100 tox
+|-damage|p1a: Tornadus|270/361 tox
 |
 |t:|1622815449
-|switch|p2a: Corviknight|Corviknight, F|96\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|382/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Tornadus|U-turn|p2a: Corviknight
 |-resisted|p2a: Corviknight
-|-damage|p2a: Corviknight|94\/100
+|-damage|p2a: Corviknight|374/400
 |
 |t:|1622815453
-|switch|p1a: Slowbro|Slowbro, M|54\/100|[from]move: U-turn
+|switch|p1a: Slowbro|Slowbro, M|212/394
 |
 |upkeep
 |turn|52
@@ -638,10 +639,10 @@
 |t:|1622815460
 |move|p2a: Corviknight|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|36\/100
+|-damage|p1a: Slowbro|138/394
 |
 |t:|1622815462
-|switch|p2a: Dragapult|Dragapult, M|100\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |move|p1a: Slowbro|Future Sight|p2a: Dragapult
 |-start|p1a: Slowbro|move: Future Sight
 |
@@ -650,9 +651,9 @@
 |inactive|bruno from e4 has 270 seconds left.
 |
 |t:|1622815492
-|switch|p1a: Buzzwole|Buzzwole|94\/100
+|switch|p1a: Buzzwole|Buzzwole|387/415
 |move|p2a: Dragapult|Hex|p1a: Buzzwole
-|-damage|p1a: Buzzwole|60\/100
+|-damage|p1a: Buzzwole|245/415
 |
 |upkeep
 |turn|54
@@ -662,34 +663,34 @@
 |t:|1622815525
 |move|p2a: Dragapult|U-turn|p1a: Buzzwole
 |-resisted|p1a: Buzzwole
-|-damage|p1a: Buzzwole|54\/100
+|-damage|p1a: Buzzwole|221/415
 |
 |t:|1622815528
-|switch|p2a: Corviknight|Corviknight, F|94\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|374/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Buzzwole|Roost|p1a: Buzzwole
-|-heal|p1a: Buzzwole|100\/100
+|-heal|p1a: Buzzwole|415/415
 |-singleturn|p1a: Buzzwole|move: Roost
 |
 |-end|p2a: Corviknight|move: Future Sight
 |-resisted|p2a: Corviknight
-|-damage|p2a: Corviknight|73\/100
+|-damage|p2a: Corviknight|291/400
 |upkeep
 |turn|55
 |
 |t:|1622815543
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|100\/100
+|-heal|p2a: Corviknight|400/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|56
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815563
-|switch|p1a: Buzzwole|Buzzwole|100\/100
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |move|p2a: Corviknight|Roost||[still]
 |-fail|p2a: Corviknight|heal
 |
@@ -698,40 +699,40 @@
 |inactive|Separation has 240 seconds left.
 |
 |t:|1622815570
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|93\/100 tox
+|-damage|p1a: Tornadus|333/361 tox
 |
 |t:|1622815586
-|switch|p2a: Dragapult|Dragapult, M|100\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |
-|-damage|p1a: Tornadus|87\/100 tox|[from] psn
+|-damage|p1a: Tornadus|311/361 tox|[from] psn
 |upkeep
 |turn|58
 |
 |t:|1622815597
 |move|p2a: Dragapult|Hex|p1a: Tornadus
-|-damage|p1a: Tornadus|31\/100 tox
+|-damage|p1a: Tornadus|110/361 tox
 |move|p1a: Tornadus|U-turn|p2a: Dragapult
 |-resisted|p2a: Dragapult
-|-damage|p2a: Dragapult|90\/100
+|-damage|p2a: Dragapult|283/317
 |
 |t:|1622815604
-|switch|p1a: Blissey|Blissey, F|79\/100|[from]move: U-turn
+|switch|p1a: Blissey|Blissey, F|557/714
 |
 |upkeep
 |turn|59
 |
 |t:|1622815623
 |move|p2a: Dragapult|U-turn|p1a: Blissey
-|-damage|p1a: Blissey|61\/100
+|-damage|p1a: Blissey|430/714
 |
 |t:|1622815625
-|switch|p2a: Corviknight|Corviknight, F|100\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|400/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|100\/100
+|-heal|p1a: Blissey|714/714
 |
 |upkeep
 |turn|60
@@ -740,11 +741,11 @@
 |t:|1622815637
 |move|p2a: Corviknight|Body Press|p1a: Blissey
 |-supereffective|p1a: Blissey
-|-damage|p1a: Blissey|50\/100
+|-damage|p1a: Blissey|352/714
 |move|p1a: Blissey|Teleport|p1a: Blissey
 |
 |t:|1622815646
-|switch|p1a: Slowbro|Slowbro, M|69\/100|[from]move: Teleport
+|switch|p1a: Slowbro|Slowbro, M|269/394
 |
 |upkeep
 |turn|61
@@ -752,42 +753,42 @@
 |t:|1622815649
 |move|p2a: Corviknight|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|52\/100
+|-damage|p1a: Slowbro|203/394
 |
 |t:|1622815651
-|switch|p2a: Hydreigon|Hydreigon, M|58\/100|[from]move: U-turn
+|switch|p2a: Hydreigon|Hydreigon, M|193/333
 |move|p1a: Slowbro|Teleport|p1a: Slowbro
 |
 |t:|1622815654
-|switch|p1a: Blissey|Blissey, F|50\/100|[from]move: Teleport
+|switch|p1a: Blissey|Blissey, F|352/714
 |
-|-heal|p2a: Hydreigon|64\/100|[from] item: Leftovers
+|-heal|p2a: Hydreigon|213/333|[from] item: Leftovers
 |upkeep
 |turn|62
 |
 |t:|1622815666
-|switch|p2a: Corviknight|Corviknight, F|100\/100
+|switch|p2a: Corviknight|Corviknight, F|400/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|99\/100
+|-heal|p1a: Blissey|709/714
 |
 |upkeep
 |turn|63
 |
 |t:|1622815680
-|switch|p1a: Slowbro|Slowbro, M|85\/100
+|switch|p1a: Slowbro|Slowbro, M|334/394
 |move|p2a: Corviknight|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|68\/100
+|-damage|p1a: Slowbro|264/394
 |
 |t:|1622815703
-|switch|p2a: Blissey|Blissey, F|76\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|537/714
 |
 |upkeep
 |turn|64
 |
 |t:|1622815712
-|switch|p1a: Blissey|Blissey, F|99\/100
+|switch|p1a: Blissey|Blissey, F|709/714
 |move|p2a: Blissey|Thunder Wave|p1a: Blissey
 |-status|p1a: Blissey|par
 |
@@ -795,54 +796,54 @@
 |turn|65
 |
 |t:|1622815721
-|switch|p2a: Corviknight|Corviknight, F|100\/100
+|switch|p2a: Corviknight|Corviknight, F|400/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Teleport|p1a: Blissey
 |
 |t:|1622815723
 |-curestatus|p1a: Blissey|par|[from] ability: Natural Cure
-|switch|p1a: Nidoking|Nidoking, M|88\/100|[from]move: Teleport
+|switch|p1a: Nidoking|Nidoking, M|264/303
 |
 |upkeep
 |turn|66
 |
 |t:|1622815735
-|switch|p2a: Blissey|Blissey, F|76\/100
+|switch|p2a: Blissey|Blissey, F|537/714
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
-|-damage|p2a: Blissey|49\/100
+|-damage|p2a: Blissey|345/714
 |
 |upkeep
 |turn|67
 |
 |t:|1622815749
-|switch|p1a: Tornadus|Tornadus-Therian, M|64\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|230/361 tox
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|99\/100
+|-heal|p2a: Blissey|702/714
 |
-|-damage|p1a: Tornadus|58\/100 tox|[from] psn
+|-damage|p1a: Tornadus|208/361 tox|[from] psn
 |upkeep
 |turn|68
 |
 |t:|1622815751
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|87\/100
+|-damage|p2a: Blissey|619/714
 |
 |t:|1622815754
-|switch|p1a: Blissey|Blissey, F|99\/100|[from]move: U-turn
+|switch|p1a: Blissey|Blissey, F|709/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622815775
-|switch|p2a: Dragapult|Dragapult, M|90\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|283/317
 |
 |upkeep
 |turn|69
 |
 |t:|1622815784
 |move|p2a: Dragapult|U-turn|p1a: Blissey
-|-damage|p1a: Blissey|81\/100
+|-damage|p1a: Blissey|572/714
 |
 |t:|1622815788
-|switch|p2a: Corviknight|Corviknight, F|100\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|400/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Toxic|p2a: Corviknight
 |-immune|p2a: Corviknight
@@ -851,32 +852,32 @@
 |turn|70
 |
 |t:|1622815801
-|switch|p1a: Tornadus|Tornadus-Therian, M|91\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|328/361 tox
 |move|p2a: Corviknight|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|83\/100 tox
+|-damage|p1a: Tornadus|299/361 tox
 |
 |t:|1622815818
-|switch|p2a: Dragapult|Dragapult, M|90\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|283/317
 |
-|-damage|p1a: Tornadus|77\/100 tox|[from] psn
+|-damage|p1a: Tornadus|277/361 tox|[from] psn
 |upkeep
 |turn|71
 |
 |t:|1622815825
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|68\/100 tox
+|-damage|p1a: Tornadus|242/361 tox
 |
 |t:|1622815828
-|switch|p2a: Corviknight|Corviknight, F|100\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|400/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Tornadus|U-turn|p2a: Corviknight
 |-resisted|p2a: Corviknight
-|-damage|p2a: Corviknight|98\/100
+|-damage|p2a: Corviknight|392/400
 |
 |t:|1622815831
-|switch|p1a: Nidoking|Nidoking, M|88\/100|[from]move: U-turn
+|switch|p1a: Nidoking|Nidoking, M|264/303
 |
 |upkeep
 |turn|72
@@ -884,40 +885,40 @@
 |t:|1622815842
 |move|p1a: Nidoking|Thunderbolt|p2a: Corviknight
 |-supereffective|p2a: Corviknight
-|-damage|p2a: Corviknight|16\/100
+|-damage|p2a: Corviknight|62/400
 |move|p2a: Corviknight|U-turn|p1a: Nidoking
 |-resisted|p1a: Nidoking
-|-damage|p1a: Nidoking|78\/100
+|-damage|p1a: Nidoking|236/303
 |
 |t:|1622815847
-|switch|p2a: Dragapult|Dragapult, M|90\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|283/317
 |
 |upkeep
 |turn|73
 |
 |t:|1622815854
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|91\/100 tox
+|-damage|p1a: Tornadus|325/361 tox
 |
 |t:|1622815859
-|switch|p2a: Blissey|Blissey, F|87\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|619/714
 |
-|-damage|p1a: Tornadus|84\/100 tox|[from] psn
+|-damage|p1a: Tornadus|303/361 tox|[from] psn
 |upkeep
 |turn|74
 |
 |t:|1622815865
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|75\/100
+|-damage|p2a: Blissey|530/714
 |
 |t:|1622815867
-|switch|p1a: Nidoking|Nidoking, M|78\/100|[from]move: U-turn
+|switch|p1a: Nidoking|Nidoking, M|236/303
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622815873
-|switch|p2a: Dragapult|Dragapult, M|90\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|283/317
 |
 |upkeep
 |turn|75
@@ -925,74 +926,74 @@
 |t:|1622815882
 |move|p2a: Dragapult|U-turn|p1a: Nidoking
 |-resisted|p1a: Nidoking
-|-damage|p1a: Nidoking|66\/100
+|-damage|p1a: Nidoking|197/303
 |
 |t:|1622815885
-|switch|p2a: Blissey|Blissey, F|75\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|530/714
 |move|p1a: Nidoking|Ice Beam|p2a: Blissey
-|-damage|p2a: Blissey|58\/100
+|-damage|p2a: Blissey|409/714
 |
 |upkeep
 |turn|76
 |
 |t:|1622815899
-|switch|p1a: Buzzwole|Buzzwole|100\/100
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|100\/100
+|-heal|p2a: Blissey|714/714
 |
 |upkeep
 |turn|77
 |
 |t:|1622815905
-|switch|p2a: Nitrogen|Blacephalon|100\/100
+|switch|p2a: Nitrogen|Blacephalon|247/247
 |move|p1a: Buzzwole|Ice Punch|p2a: Nitrogen
 |-resisted|p2a: Nitrogen
-|-damage|p2a: Nitrogen|70\/100
+|-damage|p2a: Nitrogen|172/247
 |
 |upkeep
 |turn|78
 |
 |t:|1622815911
-|switch|p1a: Blissey|Blissey, F|81\/100
+|switch|p1a: Blissey|Blissey, F|572/714
 |move|p2a: Nitrogen|Overheat|p1a: Blissey
-|-damage|p1a: Blissey|54\/100
+|-damage|p1a: Blissey|379/714
 |-unboost|p2a: Nitrogen|spa|2
 |
 |upkeep
 |turn|79
 |
 |t:|1622815919
-|switch|p2a: Landorus|Landorus-Therian, M|65\/100
+|switch|p2a: Landorus|Landorus-Therian, M|248/382
 |-ability|p2a: Landorus|Intimidate|boost
 |-unboost|p1a: Blissey|atk|1
 |move|p1a: Blissey|Seismic Toss|p2a: Landorus
-|-damage|p2a: Landorus|39\/100
+|-damage|p2a: Landorus|148/382
 |
 |upkeep
 |turn|80
 |
 |t:|1622815929
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Landorus|Earthquake|p1a: Tornadus
 |-immune|p1a: Tornadus
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|81
 |
 |t:|1622815937
 |move|p1a: Tornadus|U-turn|p2a: Landorus
 |-resisted|p2a: Landorus
-|-damage|p2a: Landorus|33\/100
+|-damage|p2a: Landorus|124/382
 |
 |t:|1622815941
-|switch|p1a: Slowbro|Slowbro, M|100\/100|[from]move: U-turn
+|switch|p1a: Slowbro|Slowbro, M|394/394
 |move|p2a: Landorus|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|74\/100
+|-damage|p1a: Slowbro|288/394
 |
 |t:|1622815947
-|switch|p2a: Corviknight|Corviknight, F|16\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|62/400
 |-ability|p2a: Corviknight|Pressure
 |
 |upkeep
@@ -1000,20 +1001,20 @@
 |
 |t:|1622815951
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|66\/100
+|-heal|p2a: Corviknight|262/400
 |-singleturn|p2a: Corviknight|move: Roost
 |move|p1a: Slowbro|Scald|p2a: Corviknight
-|-damage|p2a: Corviknight|37\/100
+|-damage|p2a: Corviknight|148/400
 |
 |upkeep
 |turn|83
 |
 |t:|1622815955
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|87\/100
+|-heal|p2a: Corviknight|348/400
 |-singleturn|p2a: Corviknight|move: Roost
 |move|p1a: Slowbro|Scald|p2a: Corviknight
-|-damage|p2a: Corviknight|59\/100
+|-damage|p2a: Corviknight|233/400
 |
 |upkeep
 |turn|84
@@ -1021,101 +1022,101 @@
 |t:|1622815960
 |move|p2a: Corviknight|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|56\/100
+|-damage|p1a: Slowbro|218/394
 |
 |t:|1622815961
-|switch|p2a: Hydreigon|Hydreigon, M|64\/100|[from]move: U-turn
+|switch|p2a: Hydreigon|Hydreigon, M|213/333
 |move|p1a: Slowbro|Scald|p2a: Hydreigon
 |-resisted|p2a: Hydreigon
-|-damage|p2a: Hydreigon|50\/100
+|-damage|p2a: Hydreigon|164/333
 |-status|p2a: Hydreigon|brn
 |
-|-heal|p2a: Hydreigon|56\/100 brn|[from] item: Leftovers
-|-damage|p2a: Hydreigon|50\/100 brn|[from] brn
+|-heal|p2a: Hydreigon|184/333 brn|[from] item: Leftovers
+|-damage|p2a: Hydreigon|164/333 brn|[from] brn
 |upkeep
 |turn|85
 |
 |t:|1622815967
-|switch|p2a: Dragapult|Dragapult, M|90\/100
-|switch|p1a: Buzzwole|Buzzwole|100\/100
+|switch|p2a: Dragapult|Dragapult, M|283/317
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |
 |upkeep
 |turn|86
 |
 |t:|1622815975
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Dragapult|Will-O-Wisp|p1a: Tornadus|[miss]
 |-miss|p2a: Dragapult|p1a: Tornadus
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|87
 |
 |t:|1622815988
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|83\/100 tox
+|-damage|p1a: Tornadus|298/361 tox
 |
 |t:|1622815990
-|switch|p2a: Blissey|Blissey, F|100\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|714/714
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|88\/100
+|-damage|p2a: Blissey|625/714
 |
 |t:|1622815996
-|switch|p1a: Blissey|Blissey, F|54\/100|[from]move: U-turn
+|switch|p1a: Blissey|Blissey, F|379/714
 |
 |upkeep
 |turn|88
 |
 |t:|1622816003
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|100\/100
+|-heal|p1a: Blissey|714/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816004
-|switch|p2a: Corviknight|Corviknight, F|59\/100|[from]move: Teleport
+|switch|p2a: Corviknight|Corviknight, F|233/400
 |-ability|p2a: Corviknight|Pressure
 |
 |upkeep
 |turn|89
 |
 |t:|1622816010
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|100\/100
+|-heal|p2a: Corviknight|400/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|90
 |
 |t:|1622816016
 |move|p1a: Tornadus|Heat Wave|p2a: Corviknight
 |-supereffective|p2a: Corviknight
-|-damage|p2a: Corviknight|26\/100
+|-damage|p2a: Corviknight|104/400
 |move|p2a: Corviknight|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|87\/100 tox
+|-damage|p1a: Tornadus|313/361 tox
 |
 |t:|1622816019
-|switch|p2a: Dragapult|Dragapult, M|90\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|283/317
 |
-|-damage|p1a: Tornadus|75\/100 tox|[from] psn
+|-damage|p1a: Tornadus|269/361 tox|[from] psn
 |upkeep
 |turn|91
 |
 |t:|1622816025
-|switch|p1a: Slowbro|Slowbro, M|89\/100
+|switch|p1a: Slowbro|Slowbro, M|349/394
 |move|p2a: Dragapult|Dragon Darts|p1a: Slowbro
-|-damage|p1a: Slowbro|75\/100
+|-damage|p1a: Slowbro|295/394
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Slowbro
-|-damage|p1a: Slowbro|62\/100
+|-damage|p1a: Slowbro|241/394
 |
 |upkeep
 |turn|92
 |
 |t:|1622816037
-|switch|p1a: Blissey|Blissey, F|100\/100
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Dragapult|Will-O-Wisp|p1a: Blissey|[miss]
 |-miss|p2a: Dragapult|p1a: Blissey
 |
@@ -1123,22 +1124,22 @@
 |turn|93
 |
 |t:|1622816047
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Dragapult|Dragon Darts|p1a: Tornadus
-|-damage|p1a: Tornadus|79\/100 tox
+|-damage|p1a: Tornadus|285/361 tox
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Tornadus
-|-damage|p1a: Tornadus|57\/100 tox
+|-damage|p1a: Tornadus|204/361 tox
 |
-|-damage|p1a: Tornadus|51\/100 tox|[from] psn
+|-damage|p1a: Tornadus|182/361 tox|[from] psn
 |upkeep
 |turn|94
 |
 |t:|1622816056
-|switch|p1a: Slowbro|Slowbro, M|95\/100
+|switch|p1a: Slowbro|Slowbro, M|372/394
 |move|p2a: Dragapult|Dragon Darts|p1a: Slowbro
-|-damage|p1a: Slowbro|82\/100
+|-damage|p1a: Slowbro|323/394
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Slowbro
-|-damage|p1a: Slowbro|70\/100
+|-damage|p1a: Slowbro|275/394
 |
 |upkeep
 |turn|95
@@ -1149,30 +1150,30 @@
 |move|p1a: Slowbro|Teleport|p1a: Slowbro
 |
 |t:|1622816071
-|switch|p1a: Tornadus|Tornadus-Therian, M|84\/100 tox|[from]move: Teleport
+|switch|p1a: Tornadus|Tornadus-Therian, M|302/361 tox
 |
-|-damage|p1a: Tornadus|78\/100 tox|[from] psn
+|-damage|p1a: Tornadus|280/361 tox|[from] psn
 |upkeep
 |turn|96
 |
 |t:|1622816078
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|67\/100 tox
+|-damage|p1a: Tornadus|241/361 tox
 |
 |t:|1622816080
-|switch|p2a: Blissey|Blissey, F|88\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|625/714
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|75\/100
+|-damage|p2a: Blissey|532/714
 |
 |t:|1622816086
-|switch|p1a: Buzzwole|Buzzwole|100\/100|[from]move: U-turn
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |
 |upkeep
 |turn|97
 |
 |t:|1622816096
-|switch|p2a: Nitrogen|Blacephalon|70\/100
+|switch|p2a: Nitrogen|Blacephalon|172/247
 |move|p1a: Buzzwole|Close Combat|p2a: Nitrogen
 |-immune|p2a: Nitrogen
 |
@@ -1180,16 +1181,16 @@
 |turn|98
 |
 |t:|1622816104
-|switch|p1a: Blissey|Blissey, F|100\/100
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Nitrogen|Overheat|p1a: Blissey
-|-damage|p1a: Blissey|77\/100
+|-damage|p1a: Blissey|546/714
 |-unboost|p2a: Nitrogen|spa|2
 |
 |upkeep
 |turn|99
 |
 |t:|1622816111
-|switch|p2a: Dragapult|Dragapult, M|90\/100
+|switch|p2a: Dragapult|Dragapult, M|283/317
 |move|p1a: Blissey|Seismic Toss|p2a: Dragapult
 |-immune|p2a: Dragapult
 |
@@ -1198,94 +1199,94 @@
 |
 |t:|1622816124
 |move|p2a: Dragapult|U-turn|p1a: Blissey
-|-damage|p1a: Blissey|58\/100
+|-damage|p1a: Blissey|412/714
 |
 |t:|1622816127
-|switch|p2a: Corviknight|Corviknight, F|26\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|104/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|100\/100
+|-heal|p1a: Blissey|714/714
 |
 |upkeep
 |turn|101
 |
 |t:|1622816134
-|switch|p1a: Nidoking|Nidoking, M|66\/100
+|switch|p1a: Nidoking|Nidoking, M|197/303
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|76\/100
+|-heal|p2a: Corviknight|304/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
 |upkeep
 |turn|102
 |
 |t:|1622816143
-|switch|p2a: Blissey|Blissey, F|75\/100
+|switch|p2a: Blissey|Blissey, F|532/714
 |move|p1a: Nidoking|Thunderbolt|p2a: Blissey
-|-damage|p2a: Blissey|59\/100
+|-damage|p2a: Blissey|419/714
 |
 |upkeep
 |turn|103
 |
 |t:|1622816149
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
-|-damage|p2a: Blissey|31\/100
+|-damage|p2a: Blissey|220/714
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|81\/100
+|-heal|p2a: Blissey|577/714
 |
 |upkeep
 |turn|104
 |
 |t:|1622816157
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
-|-damage|p2a: Blissey|54\/100
+|-damage|p2a: Blissey|385/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816173
-|switch|p2a: Dragapult|Dragapult, M|90\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|283/317
 |
 |upkeep
 |turn|105
 |inactive|Separation has 270 seconds left.
 |
 |t:|1622816213
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|91\/100 tox
+|-damage|p1a: Tornadus|325/361 tox
 |
 |t:|1622816216
-|switch|p2a: Blissey|Blissey, F|54\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|385/714
 |
-|-damage|p1a: Tornadus|84\/100 tox|[from] psn
+|-damage|p1a: Tornadus|303/361 tox|[from] psn
 |upkeep
 |turn|106
 |inactive|Separation has 270 seconds left.
 |
 |t:|1622816222
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|43\/100
+|-damage|p2a: Blissey|303/714
 |
 |t:|1622816225
-|switch|p1a: Buzzwole|Buzzwole|100\/100|[from]move: U-turn
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|93\/100
+|-heal|p2a: Blissey|660/714
 |
 |upkeep
 |turn|107
 |
 |t:|1622816232
-|switch|p2a: Corviknight|Corviknight, F|76\/100
+|switch|p2a: Corviknight|Corviknight, F|304/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Buzzwole|Ice Punch|p2a: Corviknight
-|-damage|p2a: Corviknight|60\/100
+|-damage|p2a: Corviknight|238/400
 |
 |upkeep
 |turn|108
 |
 |t:|1622816239
-|switch|p1a: Slowbro|Slowbro, M|100\/100
+|switch|p1a: Slowbro|Slowbro, M|394/394
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|100\/100
+|-heal|p2a: Corviknight|400/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
 |upkeep
@@ -1294,48 +1295,48 @@
 |t:|1622816257
 |move|p2a: Corviknight|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|84\/100
+|-damage|p1a: Slowbro|328/394
 |
 |t:|1622816259
-|switch|p2a: Hydreigon|Hydreigon, M|50\/100 brn|[from]move: U-turn
+|switch|p2a: Hydreigon|Hydreigon, M|164/333 brn
 |move|p1a: Slowbro|Scald|p2a: Hydreigon
 |-resisted|p2a: Hydreigon
-|-damage|p2a: Hydreigon|34\/100 brn
+|-damage|p2a: Hydreigon|113/333 brn
 |
-|-heal|p2a: Hydreigon|40\/100 brn|[from] item: Leftovers
-|-damage|p2a: Hydreigon|34\/100 brn|[from] brn
+|-heal|p2a: Hydreigon|133/333 brn|[from] item: Leftovers
+|-damage|p2a: Hydreigon|113/333 brn|[from] brn
 |upkeep
 |turn|110
 |
 |t:|1622816265
-|switch|p1a: Buzzwole|Buzzwole|100\/100
+|switch|p1a: Buzzwole|Buzzwole|415/415
 |move|p2a: Hydreigon|Dark Pulse|p1a: Buzzwole
 |-resisted|p1a: Buzzwole
-|-damage|p1a: Buzzwole|75\/100
+|-damage|p1a: Buzzwole|308/415
 |
-|-heal|p2a: Hydreigon|40\/100 brn|[from] item: Leftovers
-|-damage|p2a: Hydreigon|34\/100 brn|[from] brn
+|-heal|p2a: Hydreigon|133/333 brn|[from] item: Leftovers
+|-damage|p2a: Hydreigon|113/333 brn|[from] brn
 |upkeep
 |turn|111
 |
 |t:|1622816270
-|switch|p2a: Corviknight|Corviknight, F|100\/100
+|switch|p2a: Corviknight|Corviknight, F|400/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Buzzwole|Ice Punch|p2a: Corviknight
-|-damage|p2a: Corviknight|85\/100
+|-damage|p2a: Corviknight|340/400
 |
 |upkeep
 |turn|112
 |
 |t:|1622816278
 |move|p1a: Buzzwole|Ice Punch|p2a: Corviknight
-|-damage|p2a: Corviknight|71\/100
+|-damage|p2a: Corviknight|281/400
 |move|p2a: Corviknight|U-turn|p1a: Buzzwole
 |-resisted|p1a: Buzzwole
-|-damage|p1a: Buzzwole|70\/100
+|-damage|p1a: Buzzwole|289/415
 |
 |t:|1622816284
-|switch|p2a: Dragapult|Dragapult, M|90\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|283/317
 |
 |upkeep
 |turn|113
@@ -1345,19 +1346,19 @@
 |-status|p1a: Buzzwole|brn
 |move|p1a: Buzzwole|Ice Punch|p2a: Dragapult
 |-supereffective|p2a: Dragapult
-|-damage|p2a: Dragapult|52\/100
+|-damage|p2a: Dragapult|163/317
 |
-|-damage|p1a: Buzzwole|64\/100 brn|[from] brn
+|-damage|p1a: Buzzwole|264/415 brn|[from] brn
 |upkeep
 |turn|114
 |
 |t:|1622816313
-|switch|p1a: Blissey|Blissey, F|100\/100
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Dragapult|U-turn|p1a: Blissey
-|-damage|p1a: Blissey|82\/100
+|-damage|p1a: Blissey|580/714
 |
 |t:|1622816331
-|switch|p2a: Landorus|Landorus-Therian, M|33\/100|[from]move: U-turn
+|switch|p2a: Landorus|Landorus-Therian, M|124/382
 |-ability|p2a: Landorus|Intimidate|boost
 |-unboost|p1a: Blissey|atk|1
 |
@@ -1365,28 +1366,28 @@
 |turn|115
 |
 |t:|1622816341
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Landorus|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|88\/100 tox
+|-damage|p1a: Tornadus|316/361 tox
 |
 |t:|1622816350
-|switch|p2a: Blissey|Blissey, F|93\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|660/714
 |
-|-damage|p1a: Tornadus|82\/100 tox|[from] psn
+|-damage|p1a: Tornadus|294/361 tox|[from] psn
 |upkeep
 |turn|116
 |
 |t:|1622816354
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|81\/100
+|-damage|p2a: Blissey|577/714
 |
 |t:|1622816355
-|switch|p1a: Blissey|Blissey, F|82\/100|[from]move: U-turn
+|switch|p1a: Blissey|Blissey, F|580/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816367
-|switch|p2a: Landorus|Landorus-Therian, M|33\/100|[from]move: Teleport
+|switch|p2a: Landorus|Landorus-Therian, M|124/382
 |-ability|p2a: Landorus|Intimidate|boost
 |-unboost|p1a: Blissey|atk|1
 |
@@ -1394,90 +1395,90 @@
 |turn|117
 |
 |t:|1622816384
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Landorus|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|89\/100 tox
+|-damage|p1a: Tornadus|320/361 tox
 |
 |t:|1622816393
-|switch|p2a: Corviknight|Corviknight, F|71\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|281/400
 |-ability|p2a: Corviknight|Pressure
 |
-|-damage|p1a: Tornadus|83\/100 tox|[from] psn
+|-damage|p1a: Tornadus|298/361 tox|[from] psn
 |upkeep
 |turn|118
 |
 |t:|1622816405
-|switch|p2a: Blissey|Blissey, F|81\/100
+|switch|p2a: Blissey|Blissey, F|577/714
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|69\/100
+|-damage|p2a: Blissey|487/714
 |
 |t:|1622816410
-|switch|p1a: Buzzwole|Buzzwole|64\/100 brn|[from]move: U-turn
+|switch|p1a: Buzzwole|Buzzwole|264/415 brn
 |
-|-damage|p1a: Buzzwole|58\/100 brn|[from] brn
+|-damage|p1a: Buzzwole|239/415 brn|[from] brn
 |upkeep
 |turn|119
 |
 |t:|1622816414
-|switch|p2a: Nitrogen|Blacephalon|70\/100
+|switch|p2a: Nitrogen|Blacephalon|172/247
 |move|p1a: Buzzwole|Roost|p1a: Buzzwole
-|-heal|p1a: Buzzwole|100\/100 brn
+|-heal|p1a: Buzzwole|415/415 brn
 |-singleturn|p1a: Buzzwole|move: Roost
 |
-|-damage|p1a: Buzzwole|94\/100 brn|[from] brn
+|-damage|p1a: Buzzwole|390/415 brn|[from] brn
 |upkeep
 |turn|120
 |
 |t:|1622816418
-|switch|p1a: Blissey|Blissey, F|82\/100
+|switch|p1a: Blissey|Blissey, F|580/714
 |move|p2a: Nitrogen|Overheat|p1a: Blissey
-|-damage|p1a: Blissey|58\/100
+|-damage|p1a: Blissey|408/714
 |-unboost|p2a: Nitrogen|spa|2
 |
 |upkeep
 |turn|121
 |
 |t:|1622816429
-|switch|p2a: Corviknight|Corviknight, F|71\/100
+|switch|p2a: Corviknight|Corviknight, F|281/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|100\/100
+|-heal|p1a: Blissey|714/714
 |
 |upkeep
 |turn|122
 |
 |t:|1622816435
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|100\/100
+|-heal|p2a: Corviknight|400/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|123
 |
 |t:|1622816440
 |move|p1a: Tornadus|Heat Wave|p2a: Corviknight
 |-supereffective|p2a: Corviknight
-|-damage|p2a: Corviknight|37\/100
+|-damage|p2a: Corviknight|146/400
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|87\/100
+|-heal|p2a: Corviknight|346/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
-|-damage|p1a: Tornadus|82\/100 tox|[from] psn
+|-damage|p1a: Tornadus|295/361 tox|[from] psn
 |upkeep
 |turn|124
 |
 |t:|1622816449
-|switch|p1a: Slowbro|Slowbro, M|100\/100
-|switch|p2a: Blissey|Blissey, F|69\/100
+|switch|p1a: Slowbro|Slowbro, M|394/394
+|switch|p2a: Blissey|Blissey, F|487/714
 |
 |upkeep
 |turn|125
 |
 |t:|1622816460
-|switch|p1a: Nidoking|Nidoking, M|66\/100
+|switch|p1a: Nidoking|Nidoking, M|197/303
 |move|p2a: Blissey|Thunder Wave|p1a: Nidoking
 |-immune|p1a: Nidoking
 |
@@ -1486,9 +1487,9 @@
 |
 |t:|1622816466
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
-|-damage|p2a: Blissey|43\/100
+|-damage|p2a: Blissey|300/714
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|93\/100
+|-heal|p2a: Blissey|657/714
 |
 |upkeep
 |turn|127
@@ -1496,11 +1497,11 @@
 |t:|1622816474
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
 |-crit|p2a: Blissey
-|-damage|p2a: Blissey|53\/100
+|-damage|p2a: Blissey|372/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816482
-|switch|p2a: Dragapult|Dragapult, M|52\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|163/317
 |
 |upkeep
 |turn|128
@@ -1508,10 +1509,10 @@
 |t:|1622816492
 |move|p2a: Dragapult|U-turn|p1a: Nidoking
 |-resisted|p1a: Nidoking
-|-damage|p1a: Nidoking|52\/100
+|-damage|p1a: Nidoking|157/303
 |
 |t:|1622816500
-|switch|p2a: Nitrogen|Blacephalon|70\/100|[from]move: U-turn
+|switch|p2a: Nitrogen|Blacephalon|172/247
 |move|p1a: Nidoking|Earth Power|p2a: Nitrogen
 |-supereffective|p2a: Nitrogen
 |-crit|p2a: Nitrogen
@@ -1521,256 +1522,256 @@
 |upkeep
 |
 |t:|1622816502
-|switch|p2a: Dragapult|Dragapult, M|52\/100
+|switch|p2a: Dragapult|Dragapult, M|163/317
 |turn|129
 |
 |t:|1622816507
-|switch|p1a: Slowbro|Slowbro, M|100\/100
+|switch|p1a: Slowbro|Slowbro, M|394/394
 |move|p2a: Dragapult|U-turn|p1a: Slowbro
 |-supereffective|p1a: Slowbro
-|-damage|p1a: Slowbro|78\/100
+|-damage|p1a: Slowbro|304/394
 |
 |t:|1622816509
-|switch|p2a: Hydreigon|Hydreigon, M|34\/100 brn|[from]move: U-turn
+|switch|p2a: Hydreigon|Hydreigon, M|113/333 brn
 |
-|-heal|p2a: Hydreigon|40\/100 brn|[from] item: Leftovers
-|-damage|p2a: Hydreigon|34\/100 brn|[from] brn
+|-heal|p2a: Hydreigon|133/333 brn|[from] item: Leftovers
+|-damage|p2a: Hydreigon|113/333 brn|[from] brn
 |upkeep
 |turn|130
 |
 |t:|1622816514
-|switch|p1a: Buzzwole|Buzzwole|94\/100 brn
+|switch|p1a: Buzzwole|Buzzwole|390/415 brn
 |move|p2a: Hydreigon|Roost|p2a: Hydreigon
-|-heal|p2a: Hydreigon|85\/100 brn
+|-heal|p2a: Hydreigon|280/333 brn
 |-singleturn|p2a: Hydreigon|move: Roost
 |
-|-heal|p2a: Hydreigon|91\/100 brn|[from] item: Leftovers
-|-damage|p2a: Hydreigon|85\/100 brn|[from] brn
-|-damage|p1a: Buzzwole|88\/100 brn|[from] brn
+|-heal|p2a: Hydreigon|300/333 brn|[from] item: Leftovers
+|-damage|p2a: Hydreigon|280/333 brn|[from] brn
+|-damage|p1a: Buzzwole|365/415 brn|[from] brn
 |upkeep
 |turn|131
 |
 |t:|1622816518
-|switch|p2a: Corviknight|Corviknight, F|87\/100
+|switch|p2a: Corviknight|Corviknight, F|346/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Buzzwole|Leech Life|p2a: Corviknight
 |-resisted|p2a: Corviknight
-|-damage|p2a: Corviknight|84\/100
-|-heal|p1a: Buzzwole|90\/100 brn|[from] drain|[of] p2a: Corviknight
+|-damage|p2a: Corviknight|334/400
+|-heal|p1a: Buzzwole|371/415 brn|[from] drain|[of] p2a: Corviknight
 |
-|-damage|p1a: Buzzwole|84\/100 brn|[from] brn
+|-damage|p1a: Buzzwole|346/415 brn|[from] brn
 |upkeep
 |turn|132
 |
 |t:|1622816521
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|92\/100 tox
+|-damage|p1a: Tornadus|331/361 tox
 |
 |t:|1622816524
-|switch|p2a: Blissey|Blissey, F|53\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|372/714
 |
-|-damage|p1a: Tornadus|86\/100 tox|[from] psn
+|-damage|p1a: Tornadus|309/361 tox|[from] psn
 |upkeep
 |turn|133
 |
 |t:|1622816532
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|39\/100
+|-damage|p2a: Blissey|278/714
 |
 |t:|1622816545
-|switch|p1a: Buzzwole|Buzzwole|84\/100 brn|[from]move: U-turn
+|switch|p1a: Buzzwole|Buzzwole|346/415 brn
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|89\/100
+|-heal|p2a: Blissey|635/714
 |
-|-damage|p1a: Buzzwole|78\/100 brn|[from] brn
+|-damage|p1a: Buzzwole|321/415 brn|[from] brn
 |upkeep
 |turn|134
 |
 |t:|1622816552
-|switch|p2a: Corviknight|Corviknight, F|84\/100
+|switch|p2a: Corviknight|Corviknight, F|334/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Buzzwole|Roost|p1a: Buzzwole
-|-heal|p1a: Buzzwole|100\/100 brn
+|-heal|p1a: Buzzwole|415/415 brn
 |-singleturn|p1a: Buzzwole|move: Roost
 |
-|-damage|p1a: Buzzwole|94\/100 brn|[from] brn
+|-damage|p1a: Buzzwole|390/415 brn|[from] brn
 |upkeep
 |turn|135
 |
 |t:|1622816554
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|92\/100 tox
+|-damage|p1a: Tornadus|332/361 tox
 |
 |t:|1622816561
-|switch|p2a: Blissey|Blissey, F|89\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|635/714
 |
-|-damage|p1a: Tornadus|86\/100 tox|[from] psn
+|-damage|p1a: Tornadus|310/361 tox|[from] psn
 |upkeep
 |turn|136
 |
 |t:|1622816565
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|76\/100
+|-damage|p2a: Blissey|538/714
 |
 |t:|1622816569
-|switch|p1a: Blissey|Blissey, F|100\/100|[from]move: U-turn
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816573
-|switch|p2a: Hydreigon|Hydreigon, M|85\/100 brn|[from]move: Teleport
+|switch|p2a: Hydreigon|Hydreigon, M|280/333 brn
 |
-|-heal|p2a: Hydreigon|91\/100 brn|[from] item: Leftovers
-|-damage|p2a: Hydreigon|85\/100 brn|[from] brn
+|-heal|p2a: Hydreigon|300/333 brn|[from] item: Leftovers
+|-damage|p2a: Hydreigon|280/333 brn|[from] brn
 |upkeep
 |turn|137
 |
 |t:|1622816579
-|switch|p1a: Buzzwole|Buzzwole|94\/100 brn
+|switch|p1a: Buzzwole|Buzzwole|390/415 brn
 |move|p2a: Hydreigon|Nasty Plot|p2a: Hydreigon
 |-boost|p2a: Hydreigon|spa|2
 |
-|-heal|p2a: Hydreigon|91\/100 brn|[from] item: Leftovers
-|-damage|p2a: Hydreigon|85\/100 brn|[from] brn
-|-damage|p1a: Buzzwole|88\/100 brn|[from] brn
+|-heal|p2a: Hydreigon|300/333 brn|[from] item: Leftovers
+|-damage|p2a: Hydreigon|280/333 brn|[from] brn
+|-damage|p1a: Buzzwole|365/415 brn|[from] brn
 |upkeep
 |turn|138
 |
 |t:|1622816584
-|switch|p2a: Corviknight|Corviknight, F|84\/100
+|switch|p2a: Corviknight|Corviknight, F|334/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Buzzwole|Leech Life|p2a: Corviknight
 |-resisted|p2a: Corviknight
-|-damage|p2a: Corviknight|81\/100
-|-heal|p1a: Buzzwole|90\/100 brn|[from] drain|[of] p2a: Corviknight
+|-damage|p2a: Corviknight|321/400
+|-heal|p1a: Buzzwole|372/415 brn|[from] drain|[of] p2a: Corviknight
 |
-|-damage|p1a: Buzzwole|84\/100 brn|[from] brn
+|-damage|p1a: Buzzwole|347/415 brn|[from] brn
 |upkeep
 |turn|139
 |
 |t:|1622816591
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|92\/100 tox
+|-damage|p1a: Tornadus|331/361 tox
 |
 |t:|1622816597
-|switch|p2a: Dragapult|Dragapult, M|52\/100|[from]move: U-turn
+|switch|p2a: Dragapult|Dragapult, M|163/317
 |
-|-damage|p1a: Tornadus|86\/100 tox|[from] psn
+|-damage|p1a: Tornadus|309/361 tox|[from] psn
 |upkeep
 |turn|140
 |
 |t:|1622816608
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|76\/100 tox
+|-damage|p1a: Tornadus|273/361 tox
 |
 |t:|1622816609
-|switch|p2a: Blissey|Blissey, F|76\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|538/714
 |move|p1a: Tornadus|Knock Off|p2a: Blissey
-|-damage|p2a: Blissey|63\/100
+|-damage|p2a: Blissey|449/714
 |
-|-damage|p1a: Tornadus|64\/100 tox|[from] psn
+|-damage|p1a: Tornadus|229/361 tox|[from] psn
 |upkeep
 |turn|141
 |
 |t:|1622816626
-|switch|p1a: Blissey|Blissey, F|100\/100
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816631
-|switch|p2a: Hydreigon|Hydreigon, M|85\/100 brn|[from]move: Teleport
+|switch|p2a: Hydreigon|Hydreigon, M|280/333 brn
 |
-|-heal|p2a: Hydreigon|91\/100 brn|[from] item: Leftovers
-|-damage|p2a: Hydreigon|85\/100 brn|[from] brn
+|-heal|p2a: Hydreigon|300/333 brn|[from] item: Leftovers
+|-damage|p2a: Hydreigon|280/333 brn|[from] brn
 |upkeep
 |turn|142
 |
 |t:|1622816635
-|switch|p2a: Dragapult|Dragapult, M|52\/100
-|switch|p1a: Buzzwole|Buzzwole|84\/100 brn
+|switch|p2a: Dragapult|Dragapult, M|163/317
+|switch|p1a: Buzzwole|Buzzwole|347/415 brn
 |
-|-damage|p1a: Buzzwole|78\/100 brn|[from] brn
+|-damage|p1a: Buzzwole|322/415 brn|[from] brn
 |upkeep
 |turn|143
 |
 |t:|1622816642
-|switch|p1a: Blissey|Blissey, F|100\/100
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|81\/100
+|-damage|p1a: Blissey|572/714
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|61\/100
+|-damage|p1a: Blissey|430/714
 |
 |upkeep
 |turn|144
 |
 |t:|1622816648
 |move|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|39\/100
+|-damage|p1a: Blissey|273/714
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|17\/100
+|-damage|p1a: Blissey|120/714
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|67\/100
+|-heal|p1a: Blissey|477/714
 |
 |upkeep
 |turn|145
 |
 |t:|1622816655
 |move|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|46\/100
+|-damage|p1a: Blissey|324/714
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|27\/100
+|-damage|p1a: Blissey|189/714
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|77\/100
+|-heal|p1a: Blissey|546/714
 |
 |upkeep
 |turn|146
 |
 |t:|1622816676
 |move|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|56\/100
+|-damage|p1a: Blissey|396/714
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Blissey
-|-damage|p1a: Blissey|37\/100
+|-damage|p1a: Blissey|263/714
 |move|p1a: Blissey|Toxic|p2a: Dragapult
 |-status|p2a: Dragapult|tox
 |
-|-damage|p2a: Dragapult|46\/100 tox|[from] psn
+|-damage|p2a: Dragapult|144/317 tox|[from] psn
 |upkeep
 |turn|147
 |
 |t:|1622816686
-|switch|p1a: Slowbro|Slowbro, M|100\/100
+|switch|p1a: Slowbro|Slowbro, M|394/394
 |move|p2a: Dragapult|Will-O-Wisp|p1a: Slowbro
 |-status|p1a: Slowbro|brn
 |
-|-damage|p2a: Dragapult|34\/100 tox|[from] psn
-|-damage|p1a: Slowbro|94\/100 brn|[from] brn
+|-damage|p2a: Dragapult|106/317 tox|[from] psn
+|-damage|p1a: Slowbro|370/394 brn|[from] brn
 |upkeep
 |turn|148
 |
 |t:|1622816693
-|switch|p1a: Tornadus|Tornadus-Therian, M|97\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|349/361 tox
 |move|p2a: Dragapult|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
-|-damage|p1a: Tornadus|86\/100 tox
+|-damage|p1a: Tornadus|308/361 tox
 |
 |t:|1622816695
-|switch|p2a: Blissey|Blissey, F|63\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|449/714
 |
-|-damage|p1a: Tornadus|80\/100 tox|[from] psn
+|-damage|p1a: Tornadus|286/361 tox|[from] psn
 |upkeep
 |turn|149
 |
 |t:|1622816699
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|50\/100
+|-damage|p2a: Blissey|353/714
 |
 |t:|1622816701
-|switch|p1a: Blissey|Blissey, F|37\/100|[from]move: U-turn
+|switch|p1a: Blissey|Blissey, F|263/714
 |move|p2a: Blissey|Aromatherapy|p2a: Blissey
 |-activate|p2a: Blissey|move: Aromatherapy
 |-curestatus|p2: Hydreigon|brn|[msg]
@@ -1781,9 +1782,9 @@
 |
 |t:|1622816704
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|99\/100
+|-heal|p2a: Blissey|710/714
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|87\/100
+|-heal|p1a: Blissey|620/714
 |
 |upkeep
 |turn|151
@@ -1792,34 +1793,34 @@
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816720
-|switch|p2a: Corviknight|Corviknight, F|81\/100|[from]move: Teleport
+|switch|p2a: Corviknight|Corviknight, F|321/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Teleport|p1a: Blissey
 |
 |t:|1622816732
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox|[from]move: Teleport
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |
-|-damage|p1a: Tornadus|94\/100 tox|[from] psn
+|-damage|p1a: Tornadus|339/361 tox|[from] psn
 |upkeep
 |turn|152
 |
 |t:|1622816737
-|switch|p2a: Hydreigon|Hydreigon, M|85\/100
+|switch|p2a: Hydreigon|Hydreigon, M|280/333
 |move|p1a: Tornadus|Heat Wave|p2a: Hydreigon
 |-resisted|p2a: Hydreigon
-|-damage|p2a: Hydreigon|67\/100
+|-damage|p2a: Hydreigon|220/333
 |
-|-heal|p2a: Hydreigon|73\/100|[from] item: Leftovers
-|-damage|p1a: Tornadus|82\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|240/333|[from] item: Leftovers
+|-damage|p1a: Tornadus|295/361 tox|[from] psn
 |upkeep
 |turn|153
 |
 |t:|1622816741
-|switch|p1a: Blissey|Blissey, F|87\/100
+|switch|p1a: Blissey|Blissey, F|620/714
 |move|p2a: Hydreigon|Nasty Plot|p2a: Hydreigon
 |-boost|p2a: Hydreigon|spa|2
 |
-|-heal|p2a: Hydreigon|79\/100|[from] item: Leftovers
+|-heal|p2a: Hydreigon|260/333|[from] item: Leftovers
 |upkeep
 |turn|154
 |
@@ -1829,65 +1830,65 @@
 |move|p1a: Blissey|Toxic|p2a: Hydreigon
 |-status|p2a: Hydreigon|tox
 |
-|-heal|p2a: Hydreigon|85\/100 tox|[from] item: Leftovers
-|-damage|p2a: Hydreigon|79\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|280/333 tox|[from] item: Leftovers
+|-damage|p2a: Hydreigon|260/333 tox|[from] psn
 |upkeep
 |turn|155
 |
 |t:|1622816754
 |move|p2a: Hydreigon|Dark Pulse|p1a: Blissey
-|-damage|p1a: Blissey|45\/100
+|-damage|p1a: Blissey|316/714
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|95\/100
+|-heal|p1a: Blissey|673/714
 |
-|-heal|p2a: Hydreigon|85\/100 tox|[from] item: Leftovers
-|-damage|p2a: Hydreigon|73\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|280/333 tox|[from] item: Leftovers
+|-damage|p2a: Hydreigon|240/333 tox|[from] psn
 |upkeep
 |turn|156
 |
 |t:|1622816759
 |move|p2a: Hydreigon|Dark Pulse|p1a: Blissey
-|-damage|p1a: Blissey|55\/100
+|-damage|p1a: Blissey|390/714
 |cant|p1a: Blissey|flinch
 |
-|-heal|p2a: Hydreigon|79\/100 tox|[from] item: Leftovers
-|-damage|p2a: Hydreigon|61\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|260/333 tox|[from] item: Leftovers
+|-damage|p2a: Hydreigon|200/333 tox|[from] psn
 |upkeep
 |turn|157
 |
 |t:|1622816764
 |move|p2a: Hydreigon|Dark Pulse|p1a: Blissey
-|-damage|p1a: Blissey|16\/100
+|-damage|p1a: Blissey|113/714
 |cant|p1a: Blissey|flinch
 |
-|-heal|p2a: Hydreigon|67\/100 tox|[from] item: Leftovers
-|-damage|p2a: Hydreigon|43\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|220/333 tox|[from] item: Leftovers
+|-damage|p2a: Hydreigon|140/333 tox|[from] psn
 |upkeep
 |turn|158
-|c|☆Separation|:\/
+|c|☆Separation|:/
 |
 |t:|1622816789
-|switch|p1a: Buzzwole|Buzzwole|78\/100 brn
+|switch|p1a: Buzzwole|Buzzwole|322/415 brn
 |move|p2a: Hydreigon|Dark Pulse|p1a: Buzzwole
 |-resisted|p1a: Buzzwole
 |-damage|p1a: Buzzwole|0 fnt
 |faint|p1a: Buzzwole
 |
-|-heal|p2a: Hydreigon|49\/100 tox|[from] item: Leftovers
-|-damage|p2a: Hydreigon|19\/100 tox|[from] psn
+|-heal|p2a: Hydreigon|160/333 tox|[from] item: Leftovers
+|-damage|p2a: Hydreigon|60/333 tox|[from] psn
 |upkeep
 |
 |t:|1622816791
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |turn|159
 |
 |t:|1622816795
-|switch|p2a: Blissey|Blissey, F|99\/100
+|switch|p2a: Blissey|Blissey, F|710/714
 |move|p1a: Tornadus|U-turn|p2a: Blissey
-|-damage|p2a: Blissey|86\/100
+|-damage|p2a: Blissey|614/714
 |
 |t:|1622816797
-|switch|p1a: Blissey|Blissey, F|16\/100|[from]move: U-turn
+|switch|p1a: Blissey|Blissey, F|113/714
 |
 |upkeep
 |turn|160
@@ -1897,19 +1898,19 @@
 |-activate|p2a: Blissey|move: Aromatherapy
 |-curestatus|p2: Hydreigon|tox|[msg]
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|66\/100
+|-heal|p1a: Blissey|470/714
 |
 |upkeep
 |turn|161
 |
 |t:|1622816810
 |move|p1a: Blissey|Soft-Boiled|p1a: Blissey
-|-heal|p1a: Blissey|100\/100
+|-heal|p1a: Blissey|714/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |inactive|bruno from e4 has 270 seconds left.
 |
 |t:|1622816869
-|switch|p2a: Corviknight|Corviknight, F|81\/100|[from]move: Teleport
+|switch|p2a: Corviknight|Corviknight, F|321/400
 |-ability|p2a: Corviknight|Pressure
 |
 |upkeep
@@ -1917,89 +1918,89 @@
 |inactive|Separation has 270 seconds left.
 |
 |t:|1622816915
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Corviknight|U-turn|p1a: Tornadus
 |-resisted|p1a: Tornadus
 |-crit|p1a: Tornadus
-|-damage|p1a: Tornadus|89\/100 tox
+|-damage|p1a: Tornadus|318/361 tox
 |
 |t:|1622816920
-|switch|p2a: Blissey|Blissey, F|86\/100|[from]move: U-turn
+|switch|p2a: Blissey|Blissey, F|614/714
 |
-|-damage|p1a: Tornadus|82\/100 tox|[from] psn
+|-damage|p1a: Tornadus|296/361 tox|[from] psn
 |upkeep
 |turn|163
 |
 |t:|1622816931
-|switch|p1a: Blissey|Blissey, F|100\/100
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816933
-|switch|p2a: Hydreigon|Hydreigon, M|19\/100|[from]move: Teleport
+|switch|p2a: Hydreigon|Hydreigon, M|60/333
 |
-|-heal|p2a: Hydreigon|25\/100|[from] item: Leftovers
+|-heal|p2a: Hydreigon|80/333|[from] item: Leftovers
 |upkeep
 |turn|164
 |
 |t:|1622816938
-|switch|p2a: Corviknight|Corviknight, F|81\/100
+|switch|p2a: Corviknight|Corviknight, F|321/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Seismic Toss|p2a: Corviknight
-|-damage|p2a: Corviknight|56\/100
+|-damage|p2a: Corviknight|221/400
 |
 |upkeep
 |turn|165
 |
 |t:|1622816944
-|switch|p1a: Nidoking|Nidoking, M|52\/100
+|switch|p1a: Nidoking|Nidoking, M|157/303
 |move|p2a: Corviknight|Roost|p2a: Corviknight
-|-heal|p2a: Corviknight|100\/100
+|-heal|p2a: Corviknight|400/400
 |-singleturn|p2a: Corviknight|move: Roost
 |
 |upkeep
 |turn|166
 |
 |t:|1622816948
-|switch|p2a: Blissey|Blissey, F|86\/100
+|switch|p2a: Blissey|Blissey, F|614/714
 |move|p1a: Nidoking|Thunderbolt|p2a: Blissey
-|-damage|p2a: Blissey|69\/100
+|-damage|p2a: Blissey|491/714
 |
 |upkeep
 |turn|167
 |
 |t:|1622816952
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
-|-damage|p2a: Blissey|44\/100
+|-damage|p2a: Blissey|308/714
 |move|p2a: Blissey|Soft-Boiled|p2a: Blissey
-|-heal|p2a: Blissey|94\/100
+|-heal|p2a: Blissey|665/714
 |
 |upkeep
 |turn|168
 |
 |t:|1622816955
 |move|p1a: Nidoking|Sludge Wave|p2a: Blissey
-|-damage|p2a: Blissey|70\/100
+|-damage|p2a: Blissey|493/714
 |move|p2a: Blissey|Teleport|p2a: Blissey
 |
 |t:|1622816957
-|switch|p2a: Dragapult|Dragapult, M|34\/100|[from]move: Teleport
+|switch|p2a: Dragapult|Dragapult, M|106/317
 |
 |upkeep
 |turn|169
 |
 |t:|1622816964
-|switch|p1a: Tornadus|Tornadus-Therian, M|100\/100 tox
+|switch|p1a: Tornadus|Tornadus-Therian, M|361/361 tox
 |move|p2a: Dragapult|Dragon Darts|p1a: Tornadus
-|-damage|p1a: Tornadus|78\/100 tox
+|-damage|p1a: Tornadus|280/361 tox
 |-anim|p2a: Dragapult|Dragon Darts|p1a: Tornadus
-|-damage|p1a: Tornadus|57\/100 tox
+|-damage|p1a: Tornadus|204/361 tox
 |
-|-damage|p1a: Tornadus|51\/100 tox|[from] psn
+|-damage|p1a: Tornadus|182/361 tox|[from] psn
 |upkeep
 |turn|170
 |
 |t:|1622816968
-|switch|p1a: Blissey|Blissey, F|100\/100
+|switch|p1a: Blissey|Blissey, F|714/714
 |move|p2a: Dragapult|Hex|p1a: Blissey
 |-immune|p1a: Blissey
 |
@@ -2008,10 +2009,10 @@
 |
 |t:|1622816973
 |move|p2a: Dragapult|U-turn|p1a: Blissey
-|-damage|p1a: Blissey|80\/100
+|-damage|p1a: Blissey|570/714
 |
 |t:|1622816976
-|switch|p2a: Corviknight|Corviknight, F|100\/100|[from]move: U-turn
+|switch|p2a: Corviknight|Corviknight, F|400/400
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Blissey|Toxic|p2a: Corviknight
 |-immune|p2a: Corviknight

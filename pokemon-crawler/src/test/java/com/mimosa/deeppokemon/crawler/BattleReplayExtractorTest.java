@@ -49,6 +49,10 @@ class BattleReplayExtractorTest {
     @Value("classpath:api/battleReplay.json")
     Resource battleReplay;
 
+
+    @Value("classpath:api/gen8OuBattleReplay.json")
+    Resource gen8OuBattleReplay;
+
     @Value("classpath:api/battleReplay_magic_bounce.json")
     Resource battleReplayWithMagicBounce;
 
@@ -69,6 +73,15 @@ class BattleReplayExtractorTest {
         for (BattleTeam team : battle.getBattleTeams()) {
             Assertions.assertNotEquals(0F, team.getRating());
         }
+    }
+
+    @Test
+    void extraGen8Battle() throws IOException {
+        BattleReplayData battleReplayData =
+                OBJECT_MAPPER.readValue(gen8OuBattleReplay.getContentAsString(StandardCharsets.UTF_8), BattleReplayData.class);
+        Battle battle = battleReplayExtractor.extract(battleReplayData);
+
+        MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
     }
 
     @Test

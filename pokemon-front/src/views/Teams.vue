@@ -153,7 +153,6 @@ queryTeams(page.value, row.value);
       </template>
     </Column>
     <Column field="uniquePlayerNum" header="use(unique)" :style="{ width:'5%'}"/>
-    <Column field="id.data" header="id" :style="{ width:'5%'}"/>
 
     <Column v-if="!tour" field="maxRating" header="maxRating" :style="{ width:'10%'}"/>
 

@@ -133,7 +133,7 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
                 logger.error("unknown tag situation atk {} def {}", atk, def);
             }
 
-            logger.info("{} atk {} def {} tag {}", team.getPokemons().stream().map(Pokemon::getName).toList(),
+            logger.debug("{} atk {} def {} tag {}", team.getPokemons().stream().map(Pokemon::getName).toList(),
                     atk, def, tags);
         } catch (Exception e) {
             logger.error("tag team fail", e);

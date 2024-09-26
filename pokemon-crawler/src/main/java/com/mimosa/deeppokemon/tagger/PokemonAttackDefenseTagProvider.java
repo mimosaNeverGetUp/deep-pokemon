@@ -107,7 +107,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         maxLevelDefence += abilityDefenceValue + typeValue;
         maxLevelDefence += setDefValue;
 
-        log.info("pokemon {} maxLevel_attack {} maxLevel_defence {} typeValue {} abilityDefenceValue {} " +
+        log.debug("pokemon {} maxLevel_attack {} maxLevel_defence {} typeValue {} abilityDefenceValue {} " +
                         "abilityAttackValue {} setAttackValue {} setDefValue {} set {}",
                 pokemonInfo.getName(), maxLevelAttack, maxLevelDefence, typeValue, abilityDefenceValue,
                 abilityAttackValue, setAttackValue, setDefValue, pokemonBuildSet);
@@ -115,7 +115,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         Set<Tag> highLevelTags = getHighLevelTags(maxLevelAttack, maxLevelDefence);
 
         pokemonInfo.setTags(highLevelTags);
-        log.info("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
+        log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
     }
 
     protected Set<Tag> getHighLevelTags(float maxLevelAttack, float maxLevelDefence) {

@@ -9,12 +9,14 @@ import Divider from "primevue/divider";
   </Header>
   <div class="main">
     <router-view></router-view>
-    <Divider type="solid"/>
     <footer class="footer">
-      <span class="text-gray-600">© 2024 Mimosa</span>
-      <a target="_blank" :href="`https://space.bilibili.com/37832209`" >
-        <img src="/bilibili.svg" alt="bilibili" class="size-5">
-      </a>
+      <Divider type="solid"/>
+      <div class="flex">
+        <span class="text-gray-600">© 2024 Mimosa</span>
+        <a target="_blank" :href="`https://space.bilibili.com/37832209`" >
+          <img src="/bilibili.svg" alt="bilibili" class="size-5">
+        </a>
+      </div>
     </footer>
   </div>
 
@@ -29,7 +31,6 @@ import Divider from "primevue/divider";
 
 .footer {
   margin-top: auto;
-  display: flex;
   justify-items: center;
   align-items: center;
   gap: 0.25rem;

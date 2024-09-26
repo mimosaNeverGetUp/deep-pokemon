@@ -30,8 +30,8 @@ public class TourApiController {
     }
 
     @PostMapping("/wcop2024/battle")
-    public boolean crawWcopTour() {
-        tourService.crawWcop2024();
+    public boolean crawWcopTour(@RequestParam("format") String format) {
+        tourService.crawWcop2024(format);
         return true;
     }
 

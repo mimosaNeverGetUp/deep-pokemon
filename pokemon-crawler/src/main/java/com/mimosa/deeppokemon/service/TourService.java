@@ -67,7 +67,7 @@ public class TourService {
     protected static final String SCL_IV_REPLAY_URL =
             "https://www.smogon.com/forums/threads/scl-iv-replays.3750816/";
     protected static final List<String> SCL_STAGES =
-            List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6","Week 7","Week 8","Week 9",
+            List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9",
                     "Semifinals", "Finals");
 
     private final BattleService battleService;
@@ -89,8 +89,12 @@ public class TourService {
         if (!battles.isEmpty()) {
             updateTour(tourName, tourShortName, format);
             updatePlayerRecord(tourName, format);
-            battleService.updateTeam(new TourTeamGroupDetail(String.format("team_group_tour_%s", tourShortName),
-                    String.format("team_set_tour_%s", tourShortName), tourName, format));
+            String teamGroupCollectionName = GEN_9_OU.equals(format) ? String.format("team_group_tour_%s", tourShortName)
+                    : String.format("team_group_tour_%s_%s", tourShortName, format);
+            String teamSetCollectionName = GEN_9_OU.equals(format) ? String.format("team_set_tour_%s", tourShortName)
+                    : String.format("team_set_tour_%s_%s", tourShortName, format);
+            battleService.updateTeam(new TourTeamGroupDetail(teamGroupCollectionName,
+                    teamSetCollectionName, tourName, format));
         } else {
             log.error("craw empty battle of {}", tourName);
         }
@@ -167,12 +171,12 @@ public class TourService {
     }
 
     @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
-    public List<Battle> crawWcop2024() {
+    public List<Battle> crawWcop2024(String format) {
         SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(WCOP_FORUMS_URL,
                 WCOP_2024_FULL_TOUR_NAME, WCOP_FORUMS_THREAD_SUFFIX_STAGES);
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(WCOP_2024_FULL_TOUR_NAME, WCOP_2024_REPLAY_URL,
-                GEN_9_OU, WCOP_REPLAY_STAGES, winPlayerExtractor);
-        return crawTour(WCOP_2024_FULL_TOUR_NAME, WCOP_2024, GEN_9_OU, provider);
+                format, WCOP_REPLAY_STAGES, winPlayerExtractor);
+        return crawTour(WCOP_2024_FULL_TOUR_NAME, WCOP_2024, format, provider);
     }
 
     @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)

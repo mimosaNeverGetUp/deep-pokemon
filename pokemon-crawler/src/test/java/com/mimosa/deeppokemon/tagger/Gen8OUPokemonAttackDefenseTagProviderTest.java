@@ -60,7 +60,7 @@ class Gen8OUPokemonAttackDefenseTagProviderTest {
         assertTag("Garchomp", Tag.ATTACK_MIX_SET, null);
         assertTag("Heatran", Tag.ATTACK_MIX_SET, null);
         assertTag("Clefable", Tag.DEFENSE_SET, null);
-        assertTag("Melmetal", Tag.DEFENSE_BULK_SET, null);
+        assertTag("Melmetal", Tag.ATTACK_BULK_SET, null);
         assertTag("Weavile", Tag.ATTACK_SET, null);
         assertTag("Rillaboom", Tag.ATTACK_SET, null);
         assertTag("Urshifu-Rapid-Strike", Tag.ATTACK_MIX_SET, null);
@@ -74,7 +74,7 @@ class Gen8OUPokemonAttackDefenseTagProviderTest {
         assertTag("Corviknight", Tag.DEFENSE_SET, null);
         assertTag("Tapu Koko", Tag.ATTACK_SET, null);
         assertTag("Dragonite", Tag.ATTACK_MIX_SET, null);
-        assertTag("Tyranitar", Tag.DEFENSE_BULK_SET, null);
+        assertTag("Tyranitar", Tag.ATTACK_BULK_SET, null);
         assertTag("Hatterene", Tag.ATTACK_SET, null);
         assertTag("Blacephalon", Tag.ATTACK_SET, null);
         assertTag("Excadrill", Tag.ATTACK_SET, null);
@@ -118,8 +118,8 @@ class Gen8OUPokemonAttackDefenseTagProviderTest {
         assertTag("Clefable", Tag.DEFENSE_MIX_SET, buildSet("Clefable", "Leftovers", "Calm Mind"));
         assertTag("Clefable", Tag.DEFENSE_SET, buildSet("Clefable", "Leftovers", ""));
 
-        assertTag("Melmetal", Tag.DEFENSE_BULK_SET, buildSet("Melmetal", "Leftovers", "Double Iron Bash"));
-        assertTag("Melmetal", Tag.DEFENSE_BULK_SET, buildSet("Melmetal", "Assault Vest", "Double Iron Bash"));
+        assertTag("Melmetal", Tag.ATTACK_BULK_SET, buildSet("Melmetal", "Leftovers", "Double Iron Bash"));
+        assertTag("Melmetal", Tag.ATTACK_BULK_SET, buildSet("Melmetal", "Assault Vest", "Double Iron Bash"));
         assertTag("Melmetal", Tag.ATTACK_BULK_SET, buildSet("Melmetal", "Choice Band", "Double Iron Bash"));
 
         assertTag("Rillaboom", Tag.ATTACK_MIX_SET, buildSet("Rillaboom", "Leftovers", ""));
@@ -138,6 +138,8 @@ class Gen8OUPokemonAttackDefenseTagProviderTest {
         assertTag("Dragonite", Tag.DEFENSE_MIX_SET, buildSet("Dragonite", "Heavy-Duty Boots", "Roost"));
 
         assertTag("Tyranitar", Tag.ATTACK_BULK_SET, buildSet("Tyranitar", "Choice Band", ""));
+        assertTag("Tyranitar", Tag.ATTACK_BULK_SET, buildSet("Tyranitar", "", ""));
+        assertTag("Tyranitar", Tag.DEFENSE_BULK_SET, buildSet("Tyranitar", "Leftovers", ""));
 
         assertTag("Hatterene", Tag.ATTACK_MIX_SET, buildSet("Hatterene", "Leftovers", ""));
         assertTag("Hatterene", Tag.ATTACK_SET, buildSet("Hatterene", "Grassy Seed", "Calm Mind"));

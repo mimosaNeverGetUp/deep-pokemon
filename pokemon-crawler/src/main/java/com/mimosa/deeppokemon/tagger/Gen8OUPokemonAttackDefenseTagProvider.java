@@ -37,8 +37,14 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
             case "Landorus-Therian" -> {
                 return tagLandorus(pokemonInfo, pokemonBuildSet);
             }
+            case "Melmetal" -> {
+                return tagMelmetal(pokemonInfo, pokemonBuildSet);
+            }
             case "Heatran" -> {
                 return tagHeatran(pokemonInfo, pokemonBuildSet);
+            }
+            case "Tyranitar" -> {
+                return tagTyranitar(pokemonInfo, pokemonBuildSet);
             }
             case "Rillaboom" -> {
                 return tagRillaboom(pokemonInfo, pokemonBuildSet);
@@ -100,6 +106,13 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
         return false;
     }
 
+    private boolean tagMelmetal(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        HashSet<Tag> tags = new HashSet<>();
+        tags.add(Tag.ATTACK_BULK_SET);
+        pokemonInfo.setTags(tags);
+        return true;
+    }
+
     @Override
     protected boolean tagLandorus(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
@@ -120,32 +133,6 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
         if ("Rocky Helmet".equals(item) || "Leftovers".equals(item)) {
             HashSet<Tag> tags = new HashSet<>();
             tags.add(Tag.DEFENSE_MIX_SET);
-            pokemonInfo.setTags(tags);
-            return true;
-        }
-
-        return false;
-    }
-
-
-    protected boolean tagHeatran(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
-        if (pokemonBuildSet == null) {
-            return false;
-        }
-
-        List<String> items = pokemonBuildSet.items();
-        String item = items == null || items.isEmpty() ? null : items.get(0);
-        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
-                Math.min(pokemonBuildSet.moves().size(), 4)));
-
-        if ("Leftovers".equals(item)) {
-            HashSet<Tag> tags = new HashSet<>();
-            if (topMoves.contains("Taunt")) {
-                tags.add(Tag.DEFENSE_BULK_SET);
-            } else {
-                tags.add(Tag.DEFENSE_MIX_SET);
-            }
-
             pokemonInfo.setTags(tags);
             return true;
         }

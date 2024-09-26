@@ -274,6 +274,12 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             case "Azumarill" -> {
                 return tagAzumarill(pokemonInfo, pokemonBuildSet);
             }
+            case "Heatran" -> {
+                return tagHeatran(pokemonInfo, pokemonBuildSet);
+            }
+            case "Tyranitar" -> {
+                return tagTyranitar(pokemonInfo, pokemonBuildSet);
+            }
 
             default -> log.debug("Unknown pokemon:{}", pokemonInfo.getName());
         }
@@ -593,6 +599,54 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         }
 
         return false;
+    }
+
+    protected boolean tagHeatran(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+
+        if ("Leftovers".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            if (topMoves.contains("Taunt") || topMoves.contains("Magma Storm")) {
+                tags.add(Tag.DEFENSE_BULK_SET);
+            } else {
+                tags.add(Tag.DEFENSE_MIX_SET);
+            }
+
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        return false;
+    }
+
+    protected boolean tagTyranitar(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_BULK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        if ("Leftovers".equals(item) || "Assault Vest".equals(item) || "Heavy-Duty Boots".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_BULK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        HashSet<Tag> tags = new HashSet<>();
+        tags.add(Tag.ATTACK_BULK_SET);
+        pokemonInfo.setTags(tags);
+        return true;
     }
 
     protected float getValueOfType(PokemonInfo pokemonInfo) {

@@ -44,6 +44,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
     protected static final String THREAD_REPLAY_STAGE_CLASS = "div.bbWrapper";
     protected static final String GEN_9_OU = "gen9ou";
     protected static final String PLAYER_ID_FORMAT = "%s_%s_%s";
+    protected static final String SUFFIX_TIEBREAKER = " Tiebreaker";
 
     private boolean initialized = false;
     private final String tourName;
@@ -267,7 +268,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
     private boolean isTB(Element replayContent) {
         for (Element element : replayContent.getAllElements()) {
             String text = element.ownText();
-            if (text.endsWith(SUFFIX_TB)) {
+            if ((text.endsWith(SUFFIX_TB) || text.endsWith(SUFFIX_TIEBREAKER)) && !element.is("a")) {
                 return true;
             }
         }

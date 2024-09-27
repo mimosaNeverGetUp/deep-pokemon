@@ -37,7 +37,7 @@ public class SmogonTourWinPlayerExtractor {
     private static final Pattern DID_NOT_PLAYER_PATTERN =
             Pattern.compile("Did Not Play: (.*)" + Pattern.quote("*"));
     private static final Pattern TB_URL_PATTERN =
-            Pattern.compile(Pattern.quote("-tb-") + "(\\d+)" + Pattern.quote("."));
+            Pattern.compile("(" + Pattern.quote("-tb-") + "|" + Pattern.quote("-tiebreaker-post-") + ")" + "(\\d+)" + Pattern.quote("."));
     private static final Pattern ROUND_2_URL_PATTERN =
             Pattern.compile(Pattern.quote("round-2-") + "(\\d+)" + Pattern.quote("."));
 
@@ -117,7 +117,7 @@ public class SmogonTourWinPlayerExtractor {
     private void extractTBOrRound2(String threadSuffixStage, String relativeUrl, String absoluteUrl) throws IOException {
         Matcher matcher = TB_URL_PATTERN.matcher(relativeUrl);
         if (matcher.find()) {
-            int tbFloor = Integer.parseInt(matcher.group(1));
+            int tbFloor = Integer.parseInt(matcher.group(2));
             extractMoreBattleMatchUpInMatchThread(absoluteUrl, String.format("%s TB", threadSuffixStage), tbFloor);
         }
 
@@ -187,7 +187,7 @@ public class SmogonTourWinPlayerExtractor {
                 firstPlayerName = playerName;
             } else {
                 BattleMatch battleMatch = new BattleMatch(firstPlayerName, playerName);
-                battleWinner.put(battleMatch, winnerName);
+                battleWinner.putIfAbsent(battleMatch, winnerName);
                 firstPlayerName = null;
                 winnerName = null;
             }

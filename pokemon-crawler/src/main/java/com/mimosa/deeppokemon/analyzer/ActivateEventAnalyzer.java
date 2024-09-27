@@ -13,6 +13,7 @@ import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.utils.MatcherUtil;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,7 @@ public class ActivateEventAnalyzer implements BattleEventAnalyzer {
     private static final int ACTIVATE_INDEX = 1;
     private static final int OF_INDEX = 2;
     private static final Pattern ACTIVATE_PATTERN = Pattern.compile("([^:]+)" + Pattern.quote(": ") + "(.+)");
+    protected static final String ITEM = "item";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -48,8 +50,14 @@ public class ActivateEventAnalyzer implements BattleEventAnalyzer {
             if (battleEvent.getContents().size() > OF_INDEX) {
                 ofTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX), battleContext);
             }
-            battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
-                    .addActivateStatus(new ActivateStatus(content, type, status, ofTarget));
+
+            if (StringUtils.equals(ITEM, type)) {
+                battleContext.setPokemonItem(eventTarget.playerNumber(), eventTarget.targetName(), status);
+            } else {
+                battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
+                        .addActivateStatus(new ActivateStatus(content, type, status, ofTarget));
+            }
+
         }
     }
 

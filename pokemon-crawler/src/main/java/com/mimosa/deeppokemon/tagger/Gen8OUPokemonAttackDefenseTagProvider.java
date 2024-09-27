@@ -37,8 +37,14 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
             case "Landorus-Therian" -> {
                 return tagLandorus(pokemonInfo, pokemonBuildSet);
             }
+            case "Melmetal" -> {
+                return tagMelmetal(pokemonInfo, pokemonBuildSet);
+            }
             case "Heatran" -> {
                 return tagHeatran(pokemonInfo, pokemonBuildSet);
+            }
+            case "Tyranitar" -> {
+                return tagTyranitar(pokemonInfo, pokemonBuildSet);
             }
             case "Rillaboom" -> {
                 return tagRillaboom(pokemonInfo, pokemonBuildSet);
@@ -76,12 +82,35 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
             case "Garchomp" -> {
                 return tagGarchomp(pokemonInfo, pokemonBuildSet);
             }
-            case "Serperior" -> {
-                return tagSerperior(pokemonInfo, pokemonBuildSet);
+            case "Tornadus-Therian" -> {
+                return tagTornadusTherian(pokemonInfo, pokemonBuildSet);
+            }
+            case "Hatterene" -> {
+                return tagHatterene(pokemonInfo, pokemonBuildSet);
             }
             default -> log.debug("Unknown pokemon:{}", pokemonInfo.getName());
         }
+        if (ATTACK_SET_POKEMONS.contains(pokemonInfo.getName())) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        if (ATTACK_MIX_POKEMONS.contains(pokemonInfo.getName())) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
         return false;
+    }
+
+    private boolean tagMelmetal(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        HashSet<Tag> tags = new HashSet<>();
+        tags.add(Tag.ATTACK_BULK_SET);
+        pokemonInfo.setTags(tags);
+        return true;
     }
 
     @Override
@@ -111,32 +140,6 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
         return false;
     }
 
-
-    protected boolean tagHeatran(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
-        if (pokemonBuildSet == null) {
-            return false;
-        }
-
-        List<String> items = pokemonBuildSet.items();
-        String item = items == null || items.isEmpty() ? null : items.get(0);
-        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
-                Math.min(pokemonBuildSet.moves().size(), 4)));
-
-        if ("Leftovers".equals(item)) {
-            HashSet<Tag> tags = new HashSet<>();
-            if (topMoves.contains("Taunt")) {
-                tags.add(Tag.DEFENSE_BULK_SET);
-            } else {
-                tags.add(Tag.DEFENSE_MIX_SET);
-            }
-
-            pokemonInfo.setTags(tags);
-            return true;
-        }
-
-        return false;
-    }
-
     protected boolean tagRillaboom(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
             return false;
@@ -147,7 +150,7 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
 
         if ("Leftovers".equals(item) || "Assault Vest".equals(item)) {
             HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.DEFENSE_BULK_SET);
+            tags.add(Tag.ATTACK_MIX_SET);
             pokemonInfo.setTags(tags);
             return true;
         }
@@ -195,11 +198,10 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
             return true;
         } else if ("Choice Scarf".equals(item) || "Choice Band".equals(item)) {
             HashSet<Tag> tags = new HashSet<>();
-            tags.add(Tag.ATTACK);
+            tags.add(Tag.ATTACK_SET);
             pokemonInfo.setTags(tags);
             return true;
         }
-
 
         return false;
     }
@@ -230,7 +232,10 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
 
     protected boolean tagAegislash(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
-            return false;
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
         }
 
         List<String> items = pokemonBuildSet.items();
@@ -257,7 +262,10 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
 
     protected boolean tagDracozolt(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
-            return false;
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
         }
 
         List<String> items = pokemonBuildSet.items();
@@ -278,7 +286,10 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
 
     protected boolean tagCloyster(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
-            return false;
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
         }
 
         List<String> items = pokemonBuildSet.items();
@@ -294,5 +305,22 @@ public class Gen8OUPokemonAttackDefenseTagProvider extends PokemonAttackDefenseT
         tags.add(Tag.ATTACK_SET);
         pokemonInfo.setTags(tags);
         return true;
+    }
+
+
+    protected boolean tagTornadusTherian(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+        if (topMoves.contains("Taunt") && !topMoves.contains("Nasty Plot")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        return false;
     }
 }

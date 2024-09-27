@@ -1,12 +1,4 @@
-#此文本为pokemonshowdown replay回放爬取文字脚本,用于观察文本格式以及单元测试使用
-#此回放世代为gen8ou,包含以下元素:
-#1.剧毒伤害
-#2.头盔伤害
-#3.戏法道具
-#4.岩钉、仙场
-#5.剑舞强化
-#回放来源:https://replay.pokemonshowdown.com/smogtours-gen8ou-560155
-
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
 |t:|1620566983
 |gametype|singles
 |player|p1|Separation|sabrina|
@@ -42,24 +34,24 @@
 |c|+Arnav_73|lets go serene
 |inactive|Separation has 270 seconds left.
 |inactive|Serene Grace has 270 seconds left.
-|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!<\/strong><br \/>Only users of rank ☆ and higher can talk.<\/div>
+|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!</strong><br />Only users of rank ☆ and higher can talk.</div>
 |inactive|Serene Grace has 240 seconds left.
 |inactive|Serene Grace has 210 seconds left.
 |
 |t:|1620567077
 |start
-|switch|p1a: Zeraora|Zeraora|100\/100
-|switch|p2a: Dragapult|Dragapult, M|100\/100
+|switch|p1a: Zeraora|Zeraora|317/317
+|switch|p2a: Dragapult|Dragapult, M|317/317
 |turn|1
 |
 |t:|1620567081
-|switch|p2a: Garchomp|Garchomp, F|100\/100
+|switch|p2a: Garchomp|Garchomp, F|415/415
 |move|p1a: Zeraora|Knock Off|p2a: Garchomp
-|-damage|p2a: Garchomp|77\/100
-|-damage|p1a: Zeraora|88\/100|[from] ability: Rough Skin|[of] p2a: Garchomp
-|-damage|p1a: Zeraora|72\/100|[from] item: Rocky Helmet|[of] p2a: Garchomp
+|-damage|p2a: Garchomp|316/415
+|-damage|p1a: Zeraora|278/317|[from] ability: Rough Skin|[of] p2a: Garchomp
+|-damage|p1a: Zeraora|226/317|[from] item: Rocky Helmet|[of] p2a: Garchomp
 |-enditem|p2a: Garchomp|Rocky Helmet|[from] move: Knock Off|[of] p1a: Zeraora
-|-damage|p1a: Zeraora|62\/100|[from] item: Life Orb
+|-damage|p1a: Zeraora|195/317|[from] item: Life Orb
 |
 |upkeep
 |turn|2
@@ -67,7 +59,7 @@
 |inactive|Separation has 270 seconds left.
 |
 |t:|1620567134
-|switch|p1a: Garchomp|Garchomp, F|100\/100
+|switch|p1a: Garchomp|Garchomp, F|357/357
 |move|p2a: Garchomp|Stealth Rock|p1a: Garchomp
 |-sidestart|p1: Separation|move: Stealth Rock
 |
@@ -83,46 +75,46 @@
 |move|p2a: Garchomp|Toxic|p1a: Garchomp
 |-status|p1a: Garchomp|tox
 |
-|-damage|p1a: Garchomp|94\/100 tox|[from] psn
+|-damage|p1a: Garchomp|335/357 tox|[from] psn
 |upkeep
 |turn|4
 |inactive|Serene Grace has 180 seconds left.
 |
 |t:|1620567273
 |move|p1a: Garchomp|Earthquake|p2a: Garchomp
-|-damage|p2a: Garchomp|44\/100
+|-damage|p2a: Garchomp|181/415
 |move|p2a: Garchomp|Toxic|p1a: Garchomp
 |-fail|p1a: Garchomp|tox
 |
-|-damage|p1a: Garchomp|82\/100 tox|[from] psn
+|-damage|p1a: Garchomp|291/357 tox|[from] psn
 |upkeep
 |turn|5
 |
 |t:|1620567287
-|switch|p2a: Corviknight|Corviknight, M|100\/100
-|-damage|p2a: Corviknight|88\/100|[from] Stealth Rock
+|switch|p2a: Corviknight|Corviknight, M|400/400
+|-damage|p2a: Corviknight|350/400|[from] Stealth Rock
 |-ability|p2a: Corviknight|Pressure
 |move|p1a: Garchomp|Scale Shot|p2a: Corviknight|[miss]
 |-miss|p1a: Garchomp|p2a: Corviknight
 |
-|-heal|p2a: Corviknight|94\/100|[from] item: Leftovers
-|-damage|p1a: Garchomp|64\/100 tox|[from] psn
+|-heal|p2a: Corviknight|375/400|[from] item: Leftovers
+|-damage|p1a: Garchomp|225/357 tox|[from] psn
 |upkeep
 |turn|6
 |inactive|Serene Grace has 150 seconds left.
 |inactive|Serene Grace has 120 seconds left.
 |
 |t:|1620567351
-|switch|p1a: Zapdos|Zapdos-Galar|100\/100
-|-damage|p1a: Zapdos|88\/100|[from] Stealth Rock
+|switch|p1a: Zapdos|Zapdos-Galar|321/321
+|-damage|p1a: Zapdos|281/321|[from] Stealth Rock
 |move|p2a: Corviknight|U-turn|p1a: Zapdos
 |-resisted|p1a: Zapdos
-|-damage|p1a: Zapdos|84\/100
+|-damage|p1a: Zapdos|268/321
 |inactive|Serene Grace has 120 seconds left.
 |inactive|Serene Grace has 90 seconds left.
 |
 |t:|1620567405
-|switch|p2a: Slowking|Slowking, M|100\/100|[from]move: U-turn
+|switch|p2a: Slowking|Slowking, M|393/393
 |
 |upkeep
 |turn|7
@@ -131,37 +123,37 @@
 |t:|1620567450
 |move|p1a: Zapdos|U-turn|p2a: Slowking
 |-supereffective|p2a: Slowking
-|-damage|p2a: Slowking|31\/100
+|-damage|p2a: Slowking|121/393
 |
 |t:|1620567454
-|switch|p1a: Aegislash|Aegislash, M|100\/100|[from]move: U-turn
-|-damage|p1a: Aegislash|94\/100|[from] Stealth Rock
+|switch|p1a: Aegislash|Aegislash, M|289/289
+|-damage|p1a: Aegislash|271/289|[from] Stealth Rock
 |-item|p1a: Aegislash|Air Balloon
 |move|p2a: Slowking|Teleport|p2a: Slowking
 |inactive|Serene Grace has 90 seconds left.
 |inactive|Serene Grace has 60 seconds left.
 |
 |t:|1620567502
-|switch|p2a: Corviknight|Corviknight, M|94\/100|[from]move: Teleport
-|-damage|p2a: Corviknight|82\/100|[from] Stealth Rock
+|switch|p2a: Corviknight|Corviknight, M|375/400
+|-damage|p2a: Corviknight|325/400|[from] Stealth Rock
 |-ability|p2a: Corviknight|Pressure
 |
-|-heal|p2a: Corviknight|88\/100|[from] item: Leftovers
+|-heal|p2a: Corviknight|350/400|[from] item: Leftovers
 |upkeep
 |turn|8
 |inactive|Separation has 240 seconds left.
 |
 |t:|1620567520
-|switch|p1a: Tapu Fini|Tapu Fini|100\/100
-|-damage|p1a: Tapu Fini|88\/100|[from] Stealth Rock
+|switch|p1a: Tapu Fini|Tapu Fini|281/281
+|-damage|p1a: Tapu Fini|246/281|[from] Stealth Rock
 |-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p1a: Tapu Fini
 |move|p2a: Corviknight|U-turn|p1a: Tapu Fini
 |-resisted|p1a: Tapu Fini
-|-damage|p1a: Tapu Fini|81\/100
+|-damage|p1a: Tapu Fini|225/281
 |inactive|Serene Grace has 60 seconds left.
 |
 |t:|1620567530
-|switch|p2a: Clefable|Clefable, M|100\/100|[from]move: U-turn
+|switch|p2a: Clefable|Clefable, M|394/394
 |
 |upkeep
 |turn|9
@@ -172,41 +164,41 @@
 |-item|p2a: Clefable|Choice Scarf|[from] move: Trick
 |-item|p1a: Tapu Fini|Leftovers|[from] move: Trick
 |move|p2a: Clefable|Moonblast|p1a: Tapu Fini
-|-damage|p1a: Tapu Fini|53\/100
+|-damage|p1a: Tapu Fini|147/281
 |
-|-heal|p1a: Tapu Fini|59\/100|[from] item: Leftovers
+|-heal|p1a: Tapu Fini|164/281|[from] item: Leftovers
 |upkeep
 |turn|10
 |
 |t:|1620567544
 |move|p1a: Tapu Fini|Moonblast|p2a: Clefable
-|-damage|p2a: Clefable|71\/100
+|-damage|p2a: Clefable|279/394
 |-unboost|p2a: Clefable|spa|1
 |move|p2a: Clefable|Moonblast|p1a: Tapu Fini
-|-damage|p1a: Tapu Fini|40\/100
+|-damage|p1a: Tapu Fini|110/281
 |
-|-heal|p1a: Tapu Fini|46\/100|[from] item: Leftovers
+|-heal|p1a: Tapu Fini|127/281|[from] item: Leftovers
 |upkeep
 |turn|11
 |
 |t:|1620567556
 |move|p1a: Tapu Fini|Moonblast|p2a: Clefable
-|-damage|p2a: Clefable|42\/100
+|-damage|p2a: Clefable|165/394
 |move|p2a: Clefable|Moonblast|p1a: Tapu Fini
-|-damage|p1a: Tapu Fini|25\/100
+|-damage|p1a: Tapu Fini|70/281
 |
-|-heal|p1a: Tapu Fini|31\/100|[from] item: Leftovers
+|-heal|p1a: Tapu Fini|87/281|[from] item: Leftovers
 |upkeep
 |turn|12
 |inactive|Serene Grace has 60 seconds left.
 |
 |t:|1620567583
-|switch|p2a: Slowking|Slowking, M|65\/100
+|switch|p2a: Slowking|Slowking, M|252/393
 |move|p1a: Tapu Fini|Moonblast|p2a: Slowking
-|-damage|p2a: Slowking|43\/100
+|-damage|p2a: Slowking|167/393
 |-unboost|p2a: Slowking|spa|1
 |
-|-heal|p1a: Tapu Fini|38\/100|[from] item: Leftovers
+|-heal|p1a: Tapu Fini|104/281|[from] item: Leftovers
 |-fieldend|Misty Terrain
 |upkeep
 |turn|13
@@ -217,26 +209,26 @@
 |-start|p2a: Slowking|move: Taunt
 |cant|p2a: Slowking|move: Taunt|Teleport
 |
-|-heal|p1a: Tapu Fini|44\/100|[from] item: Leftovers
+|-heal|p1a: Tapu Fini|121/281|[from] item: Leftovers
 |upkeep
 |turn|14
 |
 |t:|1620567594
 |move|p1a: Tapu Fini|Moonblast|p2a: Slowking
-|-damage|p2a: Slowking|21\/100
+|-damage|p2a: Slowking|80/393
 |move|p2a: Slowking|Future Sight|p1a: Tapu Fini
 |-start|p2a: Slowking|move: Future Sight
 |
-|-heal|p1a: Tapu Fini|50\/100|[from] item: Leftovers
+|-heal|p1a: Tapu Fini|138/281|[from] item: Leftovers
 |upkeep
 |turn|15
 |
 |t:|1620567607
-|switch|p2a: Clefable|Clefable, M|42\/100
+|switch|p2a: Clefable|Clefable, M|165/394
 |move|p1a: Tapu Fini|Surf|p2a: Clefable
-|-damage|p2a: Clefable|17\/100
+|-damage|p2a: Clefable|66/394
 |
-|-heal|p1a: Tapu Fini|56\/100|[from] item: Leftovers
+|-heal|p1a: Tapu Fini|155/281|[from] item: Leftovers
 |upkeep
 |turn|16
 |
@@ -246,13 +238,13 @@
 |faint|p2a: Clefable
 |
 |-end|p1a: Tapu Fini|move: Future Sight
-|-damage|p1a: Tapu Fini|16\/100
-|-heal|p1a: Tapu Fini|22\/100|[from] item: Leftovers
+|-damage|p1a: Tapu Fini|43/281
+|-heal|p1a: Tapu Fini|60/281|[from] item: Leftovers
 |upkeep
 |
 |t:|1620567621
-|switch|p2a: Dragapult|Dragapult, M|100\/100
-|-damage|p2a: Dragapult|88\/100|[from] Stealth Rock
+|switch|p2a: Dragapult|Dragapult, M|317/317
+|-damage|p2a: Dragapult|278/317|[from] Stealth Rock
 |turn|17
 |inactive|Serene Grace has 90 seconds left.
 |
@@ -264,13 +256,13 @@
 |upkeep
 |
 |t:|1620567642
-|switch|p1a: Moltres|Moltres-Galar|100\/100
+|switch|p1a: Moltres|Moltres-Galar|321/321
 |turn|18
 |inactive|Serene Grace has 90 seconds left.
 |
 |t:|1620567654
-|switch|p2a: Garchomp|Garchomp, F|44\/100
-|-damage|p2a: Garchomp|38\/100|[from] Stealth Rock
+|switch|p2a: Garchomp|Garchomp, F|181/415
+|-damage|p2a: Garchomp|156/415|[from] Stealth Rock
 |move|p1a: Moltres|Fiery Wrath|p2a: Garchomp
 |-damage|p2a: Garchomp|0 fnt
 |faint|p2a: Garchomp
@@ -279,37 +271,37 @@
 |inactive|Serene Grace has 60 seconds left.
 |
 |t:|1620567705
-|switch|p2a: Bisharp|Bisharp, F|100\/100
-|-damage|p2a: Bisharp|95\/100|[from] Stealth Rock
+|switch|p2a: Bisharp|Bisharp, F|271/271
+|-damage|p2a: Bisharp|255/271|[from] Stealth Rock
 |turn|19
 |
 |t:|1620567707
-|switch|p1a: Garchomp|Garchomp, F|64\/100 tox
-|-damage|p1a: Garchomp|57\/100 tox|[from] Stealth Rock
+|switch|p1a: Garchomp|Garchomp, F|225/357 tox
+|-damage|p1a: Garchomp|203/357 tox|[from] Stealth Rock
 |move|p2a: Bisharp|Iron Head|p1a: Garchomp
-|-damage|p1a: Garchomp|17\/100 tox
-|-damage|p2a: Bisharp|82\/100|[from] ability: Rough Skin|[of] p1a: Garchomp
+|-damage|p1a: Garchomp|58/357 tox
+|-damage|p2a: Bisharp|222/271|[from] ability: Rough Skin|[of] p1a: Garchomp
 |
-|-damage|p1a: Garchomp|11\/100 tox|[from] psn
+|-damage|p1a: Garchomp|36/357 tox|[from] psn
 |upkeep
 |turn|20
 |
 |t:|1620567719
 |move|p2a: Bisharp|Sucker Punch|p1a: Garchomp
 |-damage|p1a: Garchomp|0 fnt
-|-damage|p2a: Bisharp|70\/100|[from] ability: Rough Skin|[of] p1a: Garchomp
+|-damage|p2a: Bisharp|189/271|[from] ability: Rough Skin|[of] p1a: Garchomp
 |faint|p1a: Garchomp
 |
 |upkeep
 |
 |t:|1620567723
-|switch|p1a: Zapdos|Zapdos-Galar|84\/100
-|-damage|p1a: Zapdos|72\/100|[from] Stealth Rock
+|switch|p1a: Zapdos|Zapdos-Galar|268/321
+|-damage|p1a: Zapdos|228/321|[from] Stealth Rock
 |turn|21
 |inactive|Serene Grace has 60 seconds left.
 |
 |t:|1620567743
-|switch|p2a: Slowking|Slowking, M|54\/100
+|switch|p2a: Slowking|Slowking, M|211/393
 |move|p1a: Zapdos|U-turn|p2a: Slowking
 |-supereffective|p2a: Slowking
 |-damage|p2a: Slowking|0 fnt
@@ -317,15 +309,15 @@
 |inactive|Separation has 270 seconds left.
 |
 |t:|1620567781
-|switch|p1a: Zeraora|Zeraora|62\/100|[from]move: U-turn
-|-damage|p1a: Zeraora|50\/100|[from] Stealth Rock
+|switch|p1a: Zeraora|Zeraora|195/317
+|-damage|p1a: Zeraora|156/317|[from] Stealth Rock
 |
 |upkeep
 |inactive|Serene Grace has 30 seconds left.
 |
 |t:|1620567819
-|switch|p2a: Bisharp|Bisharp, F|70\/100
-|-damage|p2a: Bisharp|64\/100|[from] Stealth Rock
+|switch|p2a: Bisharp|Bisharp, F|189/271
+|-damage|p2a: Bisharp|173/271|[from] Stealth Rock
 |turn|22
 |inactive|Serene Grace has 30 seconds left.
 |inactive|Serene Grace has 20 seconds left.
@@ -358,8 +350,8 @@
 |inactive|Serene Grace has 15 seconds left this turn.
 |
 |t:|1620567873
-|switch|p1a: Zapdos|Zapdos-Galar|72\/100
-|-damage|p1a: Zapdos|59\/100|[from] Stealth Rock
+|switch|p1a: Zapdos|Zapdos-Galar|228/321
+|-damage|p1a: Zapdos|188/321|[from] Stealth Rock
 |turn|24
 |inactive|Serene Grace has 25 seconds left this turn.
 |inactive|Serene Grace has 20 seconds left.
@@ -367,7 +359,7 @@
 |t:|1620567879
 |move|p2a: Bisharp|Sucker Punch|p1a: Zapdos
 |-resisted|p1a: Zapdos
-|-damage|p1a: Zapdos|5\/100
+|-damage|p1a: Zapdos|14/321
 |move|p1a: Zapdos|Thunderous Kick|p2a: Bisharp
 |-supereffective|p2a: Bisharp
 |-damage|p2a: Bisharp|0 fnt
@@ -378,8 +370,8 @@
 |inactive|Serene Grace has 20 seconds left.
 |
 |t:|1620567888
-|switch|p2a: Dragapult|Dragapult, M|88\/100
-|-damage|p2a: Dragapult|76\/100|[from] Stealth Rock
+|switch|p2a: Dragapult|Dragapult, M|278/317
+|-damage|p2a: Dragapult|239/317|[from] Stealth Rock
 |turn|25
 |inactive|Serene Grace has 30 seconds left this turn.
 |inactive|Serene Grace has 20 seconds left.
@@ -392,17 +384,17 @@
 |inactive|Serene Grace has 25 seconds left this turn.
 |
 |t:|1620567902
-|switch|p2a: Corviknight|Corviknight, M|88\/100|[from]move: U-turn
-|-damage|p2a: Corviknight|75\/100|[from] Stealth Rock
+|switch|p2a: Corviknight|Corviknight, M|350/400
+|-damage|p2a: Corviknight|300/400|[from] Stealth Rock
 |-ability|p2a: Corviknight|Pressure
 |
-|-heal|p2a: Corviknight|82\/100|[from] item: Leftovers
+|-heal|p2a: Corviknight|325/400|[from] item: Leftovers
 |upkeep
 |inactive|Serene Grace has 30 seconds left this turn.
 |
 |t:|1620567904
-|switch|p1a: Aegislash|Aegislash, M|94\/100
-|-damage|p1a: Aegislash|88\/100|[from] Stealth Rock
+|switch|p1a: Aegislash|Aegislash, M|271/289
+|-damage|p1a: Aegislash|253/289|[from] Stealth Rock
 |-item|p1a: Aegislash|Air Balloon
 |turn|26
 |
@@ -411,12 +403,12 @@
 |-boost|p1a: Aegislash|atk|2
 |move|p2a: Corviknight|U-turn|p1a: Aegislash
 |-resisted|p1a: Aegislash
-|-damage|p1a: Aegislash|85\/100
+|-damage|p1a: Aegislash|244/289
 |-enditem|p1a: Aegislash|Air Balloon
 |
 |t:|1620567910
-|switch|p2a: Dragapult|Dragapult, M|76\/100|[from]move: U-turn
-|-damage|p2a: Dragapult|64\/100|[from] Stealth Rock
+|switch|p2a: Dragapult|Dragapult, M|239/317
+|-damage|p2a: Dragapult|200/317|[from] Stealth Rock
 |
 |upkeep
 |turn|27
@@ -431,19 +423,19 @@
 |upkeep
 |
 |t:|1620567916
-|switch|p2a: Corviknight|Corviknight, M|82\/100
-|-damage|p2a: Corviknight|69\/100|[from] Stealth Rock
+|switch|p2a: Corviknight|Corviknight, M|325/400
+|-damage|p2a: Corviknight|275/400|[from] Stealth Rock
 |-ability|p2a: Corviknight|Pressure
 |turn|28
 |
 |t:|1620567923
 |move|p1a: Aegislash|Shadow Claw|p2a: Corviknight
-|-damage|p2a: Corviknight|11\/100
+|-damage|p2a: Corviknight|44/400
 |move|p2a: Corviknight|U-turn|p1a: Aegislash
 |-resisted|p1a: Aegislash
-|-damage|p1a: Aegislash|78\/100
+|-damage|p1a: Aegislash|223/289
 |
-|-heal|p2a: Corviknight|18\/100|[from] item: Leftovers
+|-heal|p2a: Corviknight|69/400|[from] item: Leftovers
 |upkeep
 |turn|29
 |c|☆Serene Grace|gg

@@ -55,7 +55,8 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             "Wood Hammer", "Wave Crash", "Head Charge", "Light of Ruin", "Double-Edge", "Steel Beam", "Flare Blitz",
             "High Jump Kick", "Outrage", "Explosion", "Self-Destruct", "Hyper Beam", "Thrash", "Petal Dance", "V-create",
             "Gigaton Hammer", "Eruption", "Blast Burn", "Hydro Cannon", "Water Spout", "Frenzy Plant", "Giga Impact",
-            "Psycho Boost", "Boomburst", "Fleur Cannon", "Close Combat", "Raging Fury", "Population Bomb");
+            "Psycho Boost", "Boomburst", "Fleur Cannon", "Close Combat", "Raging Fury", "Population Bomb",
+            "Double Iron Bash", "Stored Power");
 
     protected static final Set<String> RECOVERY_MOVES = Set.of("Jungle Healing", "Slack Off",
             "Synthesis", "Strength Sap", "Milk Drink", "Heal Order", "Ingrain", "Morning Sun", "Moonlight", "Aqua Ring",
@@ -155,7 +156,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         if (item != null) {
             switch (item) {
                 case "Choice Band", "Choice Specs" -> setAttackValue += 1;
-                case "Booster Energy" -> setAttackValue += 1;
+                case "Booster Energy", "Weakness Policy" -> setAttackValue += 1;
                 case "Life Orb" -> setAttackValue += 1;
                 // 1.1x item
                 case "Muscle Band", "Punching Glove", "Wise Glasses", "Loaded Dice", "Eject Button", "Focus Sash",
@@ -273,6 +274,12 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             case "Azumarill" -> {
                 return tagAzumarill(pokemonInfo, pokemonBuildSet);
             }
+            case "Heatran" -> {
+                return tagHeatran(pokemonInfo, pokemonBuildSet);
+            }
+            case "Tyranitar" -> {
+                return tagTyranitar(pokemonInfo, pokemonBuildSet);
+            }
 
             default -> log.debug("Unknown pokemon:{}", pokemonInfo.getName());
         }
@@ -337,11 +344,18 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
 
             if (topMoves.contains("Stealth Rock") || topMoves.contains("Spikes")) {
                 HashSet<Tag> tags = new HashSet<>();
-                tags.add(Tag.ATTACK);
+                tags.add(Tag.ATTACK_SET);
                 pokemonInfo.setTags(tags);
                 return true;
             }
         }
+        if (topMoves.contains("Cosmic Power")) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
         return false;
     }
 
@@ -362,7 +376,7 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             return true;
         }
 
-        if ("Leftovers".equals(item) && topMoves.contains("Protect")) {
+        if ("Leftovers".equals(item) && (topMoves.contains("Protect") || topMoves.contains("Toxic"))) {
             HashSet<Tag> tags = new HashSet<>();
             tags.add(Tag.DEFENSE_MIX_SET);
             pokemonInfo.setTags(tags);
@@ -585,6 +599,54 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         }
 
         return false;
+    }
+
+    protected boolean tagHeatran(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            return false;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        Set<String> topMoves = pokemonBuildSet.moves() == null ? Collections.emptySet() : new HashSet<>(pokemonBuildSet.moves().subList(0,
+                Math.min(pokemonBuildSet.moves().size(), 4)));
+
+        if ("Leftovers".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            if (topMoves.contains("Taunt") || topMoves.contains("Magma Storm")) {
+                tags.add(Tag.DEFENSE_BULK_SET);
+            } else {
+                tags.add(Tag.DEFENSE_MIX_SET);
+            }
+
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        return false;
+    }
+
+    protected boolean tagTyranitar(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_BULK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+        if ("Leftovers".equals(item) || "Assault Vest".equals(item) || "Heavy-Duty Boots".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.DEFENSE_BULK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        HashSet<Tag> tags = new HashSet<>();
+        tags.add(Tag.ATTACK_BULK_SET);
+        pokemonInfo.setTags(tags);
+        return true;
     }
 
     protected float getValueOfType(PokemonInfo pokemonInfo) {

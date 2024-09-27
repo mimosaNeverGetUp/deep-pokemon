@@ -23,6 +23,7 @@ const players = ref()
 const selectStages = ref()
 const selectTags = ref()
 const selectedSort = ref("rating")
+const selectedTier = ref("gen9ou")
 const selectedRange = ref("Last week")
 const tags = ref(["Offense", "Balance", "HO", "Stall"]);
 const ranges = ref(["Last 3 days", "Last week", "Last month", "Last 3 months"]);
@@ -38,9 +39,11 @@ const tourPlaceHolder = ref("loading...");
 const tourSortModes = ref(["win dif", "popularity", "date"])
 const tourNodes = [];
 const tourPlayers = ref([]);
+const tourTiers = ref([]);
 const stages = ref([]);
 const stagesMap = {};
 let tourPlayersMap = {}
+let tourTiersMap = {}
 
 
 const useMonthRange = ref(false)
@@ -72,12 +75,13 @@ async function queryAllTour() {
         try {
           for (let tier in tour.tierPlayers) {
             let key = tour.shortName + "_" + tier;
-            tourPlayersMap[key] = tour.tierPlayers[tier]
+            tourPlayersMap[key] = tour.tierPlayers[tier];
           }
         } catch (e) {
           console.log("init tour players fail")
         }
         stagesMap[tour.shortName] = tour.stages;
+        tourTiersMap[tour.shortName] = tour.tires;
       }
       tourPlaceHolder.value = "select tour";
     } catch (e) {
@@ -108,10 +112,17 @@ function changeBattleType(event) {
 
 function onNodeSelect(event) {
   tourShortName.value = event.key;
-  let key = event.key + "_" + "gen9ou";
+  let key = event.key + "_" + selectedTier.value;
   tourPlayers.value = tourPlayersMap[key];
   stages.value = stagesMap[event.key];
+  tourTiers.value = tourTiersMap[event.key];
   selectStages.value = null;
+  players.value = null;
+}
+
+function onTierChange(event) {
+  let key = tourShortName.value + "_" + event.value;
+  tourPlayers.value = tourPlayersMap[key];
   players.value = null;
 }
 
@@ -127,8 +138,13 @@ function getTeamSearchUrl(pokemons, tags, range, month, sort) {
   if (searchTour.value) {
     let selectPlayers = players.value ? players.value : '';
     let selectStage = selectStages.value ? selectStages.value : '';
-    let tourGroupName = "tour_" + tourShortName.value;
-    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&range=${tourGroupName}&tour=true&players=${selectPlayers}&stages=${selectStage}`
+    let tourGroupName;
+    if (selectedTier.value === "gen9ou") {
+      tourGroupName = "tour_" + tourShortName.value;
+    } else {
+      tourGroupName = "tour_" + tourShortName.value + "_" + selectedTier.value;
+    }
+    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&range=${tourGroupName}&tour=true&players=${selectPlayers}&stages=${selectStage}`;
   }
 
   if (useMonthRange.value) {
@@ -166,6 +182,10 @@ queryAllTour();
                 :minDate="minMonth" inline/>
       <SelectButton v-else-if="!searchTour" v-model="selectedRange" :options="ranges" aria-labelledby="basic"/>
       <div v-else>
+        <div v-if="tourTiers.length >=1" class="mb-2">
+          <span>tier</span>
+          <SelectButton v-model="selectedTier" :options="tourTiers" aria-labelledby="basic" @change="onTierChange"/>
+        </div>
         <p class="items-center">Tour</p>
         <TreeSelect v-model="selectTour" filter :options="tourNodes" :placeholder="tourPlaceHolder"
                     class="w-80 mt-1.5" @node-select="onNodeSelect"/>

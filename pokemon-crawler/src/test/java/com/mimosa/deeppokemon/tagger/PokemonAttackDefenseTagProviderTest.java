@@ -88,6 +88,8 @@ class PokemonAttackDefenseTagProviderTest {
         assertTag("Azumarill", Tag.ATTACK_MIX_SET, null);
         assertTag("Rotom-Wash", Tag.DEFENSE_MIX_SET, null);
         assertTag("Manaphy", Tag.ATTACK_SET, null);
+        assertTag("Heatran", Tag.ATTACK_MIX_SET, null);
+        assertTag("Tyranitar", Tag.ATTACK_BULK_SET, null);
 
         assertTag("Kingambit", Tag.ATTACK_BULK_SET, buildSet("Kingambit", "Black Glasses", "Swords Dance"));
         assertTag("Landorus-Therian", Tag.DEFENSE_MIX_SET, buildSet("Landorus-Therian", "Rocky Helmet", ""));
@@ -149,6 +151,14 @@ class PokemonAttackDefenseTagProviderTest {
         assertTag("Azumarill", Tag.ATTACK_SET, buildSet("Azumarill", "Choice Band", ""));
         assertTag("Azumarill", Tag.ATTACK_SET, buildSet("Azumarill", "", "Belly Drum"));
         assertTag("Azumarill", Tag.DEFENSE_SET, buildSet("Azumarill", "", "Whirlpool"));
+
+        assertTag("Heatran", Tag.DEFENSE_MIX_SET, buildSet("Heatran", "Leftovers", ""));
+        assertTag("Heatran", Tag.DEFENSE_BULK_SET, buildSet("Heatran", "Leftovers", "Taunt"));
+        assertTag("Heatran", Tag.DEFENSE_BULK_SET, buildSet("Heatran", "Leftovers", "Magma Storm"));
+
+        assertTag("Tyranitar", Tag.ATTACK_BULK_SET, buildSet("Tyranitar", "Choice Band", ""));
+        assertTag("Tyranitar", Tag.ATTACK_BULK_SET, buildSet("Tyranitar", "", ""));
+        assertTag("Tyranitar", Tag.DEFENSE_BULK_SET, buildSet("Tyranitar", "Leftovers", ""));
     }
 
     public void assertTag(String name, Tag tag, PokemonBuildSet pokemonBuildSet) {

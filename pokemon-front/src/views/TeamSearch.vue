@@ -117,6 +117,7 @@ function onNodeSelect(event) {
   stages.value = stagesMap[event.key];
   tourTiers.value = tourTiersMap[event.key];
   selectStages.value = null;
+  selectedTier.value = tourTiers.value[0];
   players.value = null;
 }
 

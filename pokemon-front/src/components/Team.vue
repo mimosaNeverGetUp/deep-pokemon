@@ -10,8 +10,8 @@ const props = defineProps({
 const pokemonConfigMap = ref();
 
 function getIconUrl(pokemon) {
-  const iconName = pokemon.name.replace(" ", "").replace("-*", "")
-  return "/pokemonicon/" + iconName + ".png"
+  const iconName = pokemon.name.replace(" ", "").replace("-*", "");
+  return "/pokemonicon/" + encodeURIComponent(iconName) + ".png";
 }
 
 function getItemUrl(item) {

@@ -21,6 +21,9 @@ public class TourApiController {
     protected static final String WCOP_2024 = "wcop_2024";
     protected static final String OLT_XI = "olt_xi";
     protected static final String OLT_XI_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XI";
+    protected static final String SCL_IV = "SCL IV";
+    protected static final String SMOGON_CHAMPIONS_LEAGUE_IV = "Smogon Champions League IV";
+
     private final TourService tourService;
     private final BattleService battleService;
 
@@ -47,6 +50,12 @@ public class TourApiController {
         return true;
     }
 
+    @PostMapping("/splXv/battle")
+    public boolean crawSplIv(@RequestParam("format") String format) {
+        tourService.crawSplXv(format);
+        return true;
+    }
+
     @PostMapping("/wcop2024/record/update")
     public boolean updateWcop2024PlayerRecord(@RequestParam("format") String format) {
         tourService.updatePlayerRecord(THE_WORLD_CUP_OF_POKEMON_2024, format);
@@ -62,6 +71,12 @@ public class TourApiController {
     @PostMapping("/oltxi/info/update")
     public boolean updateOltXiTourInfo() {
         tourService.updateTour(OLT_XI_FULL_TOUR_NAME, OLT_XI, "gen9ou");
+        return true;
+    }
+
+    @PostMapping("/scliv/info/update")
+    public boolean updateSclIvTourInfo() {
+        tourService.updateTour(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV, "gen9ou");
         return true;
     }
 

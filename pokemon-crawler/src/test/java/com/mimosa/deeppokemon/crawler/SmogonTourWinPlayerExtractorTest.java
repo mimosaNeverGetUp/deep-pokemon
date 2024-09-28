@@ -50,6 +50,14 @@ class SmogonTourWinPlayerExtractorTest {
     @Value("classpath:api/2024WcopRound1Page17.html")
     private Resource round1Page17Resource;
 
+    @Value("classpath:api/SplForum.html")
+    private Resource splForumsResource;
+
+    @Value("classpath:api/2024SplSemifinals.html")
+    private Resource splSemifinalsResource;
+
+    @Value("classpath:api/2024SplSemifinalsPage3.html")
+    private Resource splSemifinalsPage3Resource;
 
     @Test
     void getSemiWinSmogonPlayer() throws IOException {
@@ -187,6 +195,31 @@ class SmogonTourWinPlayerExtractorTest {
             assertWinner(extractor, "Round 1", "tdnt", "mimilimi", "mimilimi");
             assertWinner(extractor, "Round 1", "emforbes", "bbeeaa", "emforbes");
             assertWinner(extractor, "Round 1", "chansey and lulu", "soulwind", "soulwind");
+        }
+    }
+
+    @Test
+    void getSplSemiWinSmogonPlayer() throws IOException {
+        String tourForumsUrl = "http1s://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
+        Document forumDoc = Jsoup.parse(splForumsResource.getFile());
+        Document semiFinalDoc = Jsoup.parse(splSemifinalsResource.getFile());
+        Document semiFinalPage3Doc = Jsoup.parse(splSemifinalsPage3Resource.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(forumDoc, semiFinalDoc, semiFinalPage3Doc);
+
+            SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "Smogon Premier League XV",
+                    List.of("Semifinals"));
+
+            assertWinner(extractor, "Semifinals", "jj09lie", "xrn", "xrn");
+            assertWinner(extractor, "Semifinals", "trosko", "kushalos", "trosko");
+            assertWinner(extractor, "Semifinals", "garay oak", "hayburner", "garay oak");
+            assertWinner(extractor, "Semifinals", "soulwind", "fakes", "fakes");
+            assertWinner(extractor, "Semifinals TB", "soulwind", "fakes", "fakes");
+            assertWinner(extractor, "Semifinals TB", "trosko", "hellom", "trosko");
+            assertWinner(extractor, "Semifinals TB", "myjava", "xavgb", "myjava");
         }
     }
 

@@ -20,11 +20,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
@@ -70,6 +72,16 @@ public class TourService {
             List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9",
                     "Semifinals", "Finals");
 
+    protected static final String SPL_XV = "SPL XV";
+    protected static final String SMOGON_PREMIER_LEAGUE_XV = "Smogon Premier League XV";
+    protected static final String SPL_FORUMS_URL =
+            "https://www.smogon.com/forums/forums/smogon-premier-league.130/";
+    protected static final String SPL_XV_REPLAY_URL =
+            "https://www.smogon.com/forums/threads/spl-xv-replays.3734444/";
+    protected static final List<String> SPL_STAGES =
+            List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9",
+                    "Semifinals", "Finals");
+
     private final BattleService battleService;
     private final MongoTemplate mongoTemplate;
     private final ReplayBattleCrawler replayBattleCrawler;
@@ -108,8 +120,11 @@ public class TourService {
                 .and(TIER).is(format);
         Tour tour = mongoTemplate.findById(tourName, Tour.class);
         List<String> tierPlayers = mongoTemplate.findDistinct(new Query(criteria), "player.name", TourTeam.class, String.class);
-        List<String> stages = mongoTemplate.findDistinct(new Query(Criteria.where(TOUR_ID).is(tourName)), "stage", TourTeam.class,
+        Query tourQuery = new Query(Criteria.where(TOUR_ID).is(tourName));
+        List<String> stages = mongoTemplate.findDistinct(tourQuery, "stage", TourTeam.class,
                 String.class);
+        tourQuery.with(Sort.by("battleDate"));
+        LocalDate firstBattleDate = mongoTemplate.findOne(tourQuery, TourTeam.class).getBattleDate().toLocalDate();
         if (tour == null) {
             tour = new Tour();
             tour.setId(tourName);
@@ -117,6 +132,7 @@ public class TourService {
             tour.setTires(Collections.singletonList(format));
             tour.setTierPlayers(Collections.singletonMap(format, tierPlayers));
             tour.setStages(stages);
+            tour.setStartDate(firstBattleDate);
             mongoTemplate.insert(tour);
         } else {
             Set<String> tiers = new HashSet<>(tour.getTires());
@@ -130,6 +146,7 @@ public class TourService {
             tour.setShortName(tourShortName);
             tour.setTires(tiers.stream().toList());
             tour.setStages(stages);
+            tour.setStartDate(firstBattleDate);
             tour.setTierPlayers(tierplayersMap);
             mongoTemplate.save(tour);
         }
@@ -195,5 +212,15 @@ public class TourService {
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV_REPLAY_URL,
                 GEN_9_OU, SCL_STAGES, winPlayerExtractor);
         return crawTour(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV, GEN_9_OU, provider);
+    }
+
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawSplXv(String format) {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(SPL_FORUMS_URL,
+                SMOGON_PREMIER_LEAGUE_XV, SPL_STAGES);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_PREMIER_LEAGUE_XV, SPL_XV_REPLAY_URL,
+                format, SPL_STAGES, winPlayerExtractor);
+        return crawTour(SMOGON_PREMIER_LEAGUE_XV, SPL_XV, format, provider);
     }
 }

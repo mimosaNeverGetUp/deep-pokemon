@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ public class Tour implements Serializable {
     @MongoId
     protected String id;
     protected String shortName;
+    protected LocalDate startDate;
     protected List<String> tires;
     protected List<String> teams;
     protected List<String> stages;
@@ -69,5 +71,13 @@ public class Tour implements Serializable {
 
     public void setStages(List<String> stages) {
         this.stages = stages;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 }

@@ -109,6 +109,12 @@ public class BattleContext {
                 pokemon = battle.getBattleTeams().get(playerNumber - 1).findPokemon(blurPokemonName);
             } else {
                 log.warn("blur pokemon {} is not found in battle", blurPokemonName);
+                int formCharIndex = pokemonName.indexOf("-");
+                if (formCharIndex != -1) {
+                    blurPokemonName = pokemonName.substring(0, formCharIndex) + "-*";
+                    log.info("try use another blur pokemon name {}", blurPokemonName);
+                    pokemon = battle.getBattleTeams().get(playerNumber - 1).findPokemon(blurPokemonName);
+                }
             }
         }
         return pokemon;

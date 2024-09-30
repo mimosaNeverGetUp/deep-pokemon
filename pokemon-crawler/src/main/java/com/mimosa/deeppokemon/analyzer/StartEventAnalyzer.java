@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import java.util.Set;
 
 @Component
-public class StartEventAnalyzer implements BattleEventAnalyzer{
+public class StartEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger log = LoggerFactory.getLogger(StartEventAnalyzer.class);
     private static final String START = "start";
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(START);
@@ -35,7 +35,7 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
             return;
         }
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleContext);
-        if(eventTarget == null){
+        if (eventTarget == null) {
             log.debug("can not analyze battle event without event target {}", battleEvent);
             return;
         }
@@ -46,8 +46,8 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
         }
 
         switch (buff) {
-            case "Salt Cure" -> setSaltBuffOf(battleEvent, battleContext, eventTarget, buff);
-            case "Future Sight","Doom Desire" -> setStartMoveTarget(battleContext, eventTarget, buff);
+            case "Salt Cure", "Curse" -> setBuffOf(battleEvent, battleContext, eventTarget, buff);
+            case "Future Sight", "Doom Desire" -> setStartMoveTarget(battleContext, eventTarget, buff);
             case "confusion" -> setConfusionBuffOf(battleEvent, battleContext, eventTarget, buff);
             default -> log.warn("buff {} start and nothing set?", buff);
         }
@@ -57,13 +57,13 @@ public class StartEventAnalyzer implements BattleEventAnalyzer{
         battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).setStartMoveTarget(buff, eventTarget);
     }
 
-    private static void setSaltBuffOf(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget, String buff) {
-        EventTarget saltOf = null;
+    private static void setBuffOf(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget, String buff) {
+        EventTarget buffOf = null;
         if (battleEvent.getParentEvent() != null &&
                 battleEvent.getParentEvent().getBattleEventStat() instanceof MoveEventStat moveEventStat) {
-            saltOf = moveEventStat.eventTarget();
+            buffOf = moveEventStat.eventTarget();
         }
-        BattleEventUtil.getPokemonStatus(battleContext, eventTarget).setBuffOf(buff, saltOf);
+        BattleEventUtil.getPokemonStatus(battleContext, eventTarget).setBuffOf(buff, buffOf);
     }
 
     private static void setConfusionBuffOf(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget,

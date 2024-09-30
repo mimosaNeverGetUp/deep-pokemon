@@ -1,0 +1,357 @@
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up.
+|t:|1727651030
+|gametype|singles
+|player|p1|Enzonana-2002|sabrina|
+|player|p2|can't talk hf ggs|lucas|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Iron Valiant|
+|poke|p1|Kingambit, M|
+|poke|p1|Glimmora, F|
+|poke|p1|Ogerpon-Wellspring, F|
+|poke|p1|Dragapult, M|
+|poke|p1|Kyurem|
+|poke|p2|Kyurem|
+|poke|p2|Kingambit, F|
+|poke|p2|Pecharunt|
+|poke|p2|Samurott-Hisui, M|
+|poke|p2|Zamazenta-*|
+|poke|p2|Landorus-Therian, M|
+|teampreview
+|c|+Isza|Go
+|c|☆Enzonana-2002|hf
+|inactive|Enzonana-2002 has 270 seconds left.
+|inactive|can't talk hf ggs has 270 seconds left.
+|c|+Enzonana|MOMAZOOOOOOOOOOOOOOOOOOOOOS
+|inactive|Enzonana-2002 has 240 seconds left.
+|inactive|can't talk hf ggs has 240 seconds left.
+|c|+tieracid|hf
+|raw|<div class="broadcast-red"><strong>Moderated chat was set to ☆!</strong><br />Only users of rank ☆ and higher can talk.</div>
+|inactive|Enzonana-2002 has 210 seconds left.
+|inactive|Enzonana-2002 has 180 seconds left.
+|inactive|Enzonana-2002 has 150 seconds left.
+|
+|t:|1727651180
+|start
+|switch|p1a: Ogerpon|Ogerpon-Wellspring, F|100/100
+|switch|p2a: Landorus|Landorus-Therian, M|100/100
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Ogerpon|atk|1
+|turn|1
+|inactive|Enzonana-2002 has 210 seconds left.
+|inactive|can't talk hf ggs has 270 seconds left.
+|
+|t:|1727651207
+|move|p1a: Ogerpon|Ivy Cudgel|p2a: Landorus|[anim] Ivy Cudgel Water
+|-supereffective|p2a: Landorus
+|-damage|p2a: Landorus|21/100
+|move|p2a: Landorus|U-turn|p1a: Ogerpon
+|-supereffective|p1a: Ogerpon
+|-damage|p1a: Ogerpon|47/100
+|
+|t:|1727651212
+|switch|p2a: Kyurem|Kyurem|100/100|[from] U-turn
+|-ability|p2a: Kyurem|Pressure
+|
+|upkeep
+|turn|2
+|inactive|Enzonana-2002 has 210 seconds left.
+|
+|t:|1727651228
+|switch|p1a: Kyurem|Kyurem, shiny|100/100
+|-ability|p1a: Kyurem|Pressure
+|move|p2a: Kyurem|Freeze-Dry|p1a: Kyurem
+|-damage|p1a: Kyurem|63/100
+|
+|upkeep
+|turn|3
+|inactive|Enzonana-2002 has 210 seconds left.
+|inactive|can't talk hf ggs has 270 seconds left.
+|
+|t:|1727651273
+|move|p2a: Kyurem|Ice Beam|p1a: Kyurem
+|-damage|p1a: Kyurem|17/100
+|move|p1a: Kyurem|Icicle Spear|p2a: Kyurem
+|-damage|p2a: Kyurem|86/100
+|-damage|p2a: Kyurem|71/100
+|-damage|p2a: Kyurem|58/100
+|-damage|p2a: Kyurem|43/100
+|-hitcount|p2a: Kyurem|4
+|
+|upkeep
+|turn|4
+|inactive|Enzonana-2002 has 180 seconds left.
+|inactive|can't talk hf ggs has 240 seconds left.
+|
+|t:|1727651300
+|move|p2a: Kyurem|Ice Beam|p1a: Kyurem
+|-damage|p1a: Kyurem|0 fnt
+|faint|p1a: Kyurem
+|
+|upkeep
+|inactive|Enzonana-2002 has 180 seconds left.
+|
+|t:|1727651314
+|switch|p1a: Dragapult|Dragapult, M, shiny|100/100
+|turn|5
+|inactive|can't talk hf ggs has 240 seconds left.
+|
+|t:|1727651322
+|move|p1a: Dragapult|Dragon Darts|p2a: Kyurem
+|-supereffective|p2a: Kyurem
+|-damage|p2a: Kyurem|3/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Kyurem
+|-supereffective|p2a: Kyurem
+|-damage|p2a: Kyurem|0 fnt
+|faint|p2a: Kyurem
+|
+|upkeep
+|
+|t:|1727651323
+|switch|p2a: Samurott|Samurott-Hisui, M|100/100
+|turn|6
+|inactive|Enzonana-2002 has 180 seconds left.
+|inactive|Enzonana-2002 has 150 seconds left.
+|
+|t:|1727651382
+|switch|p1a: Glimmora|Glimmora, F|100/100
+|move|p2a: Samurott|Ceaseless Edge|p1a: Glimmora|[miss]
+|-miss|p2a: Samurott|p1a: Glimmora
+|
+|upkeep
+|turn|7
+|inactive|Enzonana-2002 has 150 seconds left.
+|
+|t:|1727651390
+|move|p1a: Glimmora|Stealth Rock|p2a: Samurott
+|-sidestart|p2: can't talk hf ggs|move: Stealth Rock
+|move|p2a: Samurott|Ceaseless Edge|p1a: Glimmora|[miss]
+|-miss|p2a: Samurott|p1a: Glimmora
+|
+|upkeep
+|turn|8
+|inactive|Enzonana-2002 has 150 seconds left.
+|
+|t:|1727651419
+|move|p1a: Glimmora|Mortal Spin|p2a: Samurott
+|-damage|p2a: Samurott|93/100
+|-status|p2a: Samurott|psn
+|move|p2a: Samurott|Ceaseless Edge|p1a: Glimmora
+|-damage|p1a: Glimmora|47/100
+|-activate|p1a: Glimmora|ability: Toxic Debris
+|-sidestart|p2: can't talk hf ggs|move: Toxic Spikes
+|-sidestart|p1: Enzonana-2002|Spikes
+|
+|-damage|p2a: Samurott|81/100 psn|[from] psn
+|upkeep
+|turn|9
+|inactive|Enzonana-2002 has 120 seconds left.
+|
+|t:|1727651459
+|switch|p1a: Iron Valiant|Iron Valiant, shiny|100/100
+|-damage|p1a: Iron Valiant|88/100|[from] Spikes
+|-enditem|p1a: Iron Valiant|Booster Energy
+|-activate|p1a: Iron Valiant|ability: Quark Drive|[fromitem]
+|-start|p1a: Iron Valiant|quarkdrivespe
+|move|p2a: Samurott|Ceaseless Edge|p1a: Iron Valiant
+|-resisted|p1a: Iron Valiant
+|-damage|p1a: Iron Valiant|74/100
+|-sidestart|p1: Enzonana-2002|Spikes
+|
+|-damage|p2a: Samurott|69/100 psn|[from] psn
+|upkeep
+|turn|10
+|inactive|can't talk hf ggs has 270 seconds left.
+|inactive|Enzonana-2002 has 90 seconds left.
+|
+|t:|1727651505
+|-terastallize|p2a: Samurott|Poison
+|move|p1a: Iron Valiant|Moonblast|p2a: Samurott
+|-resisted|p2a: Samurott
+|-damage|p2a: Samurott|50/100 psn
+|move|p2a: Samurott|Razor Shell|p1a: Iron Valiant
+|-damage|p1a: Iron Valiant|11/100
+|-unboost|p1a: Iron Valiant|def|1
+|
+|-damage|p2a: Samurott|38/100 psn|[from] psn
+|upkeep
+|turn|11
+|inactive|Enzonana-2002 has 60 seconds left.
+|inactive|Enzonana-2002 has 30 seconds left.
+|
+|t:|1727651563
+|move|p1a: Iron Valiant|Knock Off|p2a: Samurott
+|-damage|p2a: Samurott|10/100 psn
+|-enditem|p2a: Samurott|Assault Vest|[from] move: Knock Off|[of] p1a: Iron Valiant
+|move|p2a: Samurott|Ceaseless Edge|p1a: Iron Valiant
+|-resisted|p1a: Iron Valiant
+|-damage|p1a: Iron Valiant|0 fnt
+|-sidestart|p1: Enzonana-2002|Spikes
+|faint|p1a: Iron Valiant
+|-end|p1a: Iron Valiant|Quark Drive|[silent]
+|
+|-damage|p2a: Samurott|0 fnt|[from] psn
+|faint|p2a: Samurott
+|upkeep
+|inactive|Enzonana-2002 has 30 seconds left.
+|inactive|can't talk hf ggs has 270 seconds left.
+|inactive|Enzonana-2002 has 20 seconds left.
+|inactive|Enzonana-2002 has 15 seconds left.
+|inactive|Enzonana-2002 has 10 seconds left.
+|
+|t:|1727651595
+|switch|p1a: Kingambit|Kingambit, M, shiny|100/100
+|switch|p2a: Pecharunt|Pecharunt|100/100
+|-sideend|p2: can't talk hf ggs|move: Toxic Spikes|[of] p2a: Pecharunt
+|-activate|p1a: Kingambit|ability: Supreme Overlord
+|-start|p1a: Kingambit|fallen2|[silent]
+|-item|p1a: Kingambit|Air Balloon
+|turn|12
+|inactive|Enzonana-2002 has 20 seconds left this turn.
+|inactive|Enzonana-2002 has 15 seconds left.
+|inactive|Enzonana-2002 has 10 seconds left.
+|
+|t:|1727651607
+|move|p2a: Pecharunt|Parting Shot|p1a: Kingambit
+|-unboost|p1a: Kingambit|atk|1
+|-unboost|p1a: Kingambit|spa|1
+|inactive|Enzonana-2002 has 15 seconds left this turn.
+|
+|t:|1727651609
+|switch|p2a: Zamazenta|Zamazenta|100/100|[from] Parting Shot
+|-ability|p2a: Zamazenta|Dauntless Shield|boost
+|-boost|p2a: Zamazenta|def|1
+|move|p1a: Kingambit|Kowtow Cleave|p2a: Zamazenta
+|-resisted|p2a: Zamazenta
+|-damage|p2a: Zamazenta|87/100
+|
+|upkeep
+|turn|13
+|inactive|Enzonana-2002 has 25 seconds left this turn.
+|inactive|Enzonana-2002 has 20 seconds left.
+|inactive|Enzonana-2002 has 15 seconds left.
+|inactive|Enzonana-2002 has 10 seconds left.
+|
+|t:|1727651628
+|move|p2a: Zamazenta|Crunch|p1a: Kingambit
+|-resisted|p1a: Kingambit
+|-damage|p1a: Kingambit|90/100
+|-enditem|p1a: Kingambit|Air Balloon
+|move|p1a: Kingambit|Iron Head|p2a: Zamazenta
+|-damage|p2a: Zamazenta|63/100
+|
+|upkeep
+|turn|14
+|inactive|Enzonana-2002 has 20 seconds left this turn.
+|inactive|Enzonana-2002 has 15 seconds left.
+|inactive|Enzonana-2002 has 10 seconds left.
+|
+|t:|1727651641
+|move|p2a: Zamazenta|Close Combat|p1a: Kingambit
+|-supereffective|p1a: Kingambit
+|-crit|p1a: Kingambit
+|-damage|p1a: Kingambit|0 fnt
+|-unboost|p2a: Zamazenta|def|1
+|-unboost|p2a: Zamazenta|spd|1
+|faint|p1a: Kingambit
+|-end|p1a: Kingambit|fallen2|[silent]
+|
+|upkeep
+|inactive|Enzonana-2002 has 15 seconds left this turn.
+|inactive|Enzonana-2002 has 10 seconds left.
+|
+|t:|1727651647
+|switch|p1a: Dragapult|Dragapult, M, shiny|100/100
+|-damage|p1a: Dragapult|76/100|[from] Spikes
+|turn|15
+|inactive|Enzonana-2002 has 20 seconds left this turn.
+|inactive|Enzonana-2002 has 15 seconds left.
+|inactive|Enzonana-2002 has 10 seconds left.
+|
+|t:|1727651660
+|switch|p2a: Pecharunt|Pecharunt|100/100
+|move|p1a: Dragapult|Curse|p2a: Pecharunt
+|-start|p2a: Pecharunt|Curse|[of] p1a: Dragapult
+|-damage|p1a: Dragapult|26/100
+|
+|-damage|p2a: Pecharunt|76/100|[from] Curse
+|upkeep
+|turn|16
+|inactive|Enzonana-2002 has 20 seconds left this turn.
+|inactive|Enzonana-2002 has 15 seconds left.
+|inactive|Enzonana-2002 has 10 seconds left.
+|inactive|Enzonana-2002 has 5 seconds left.
+|
+|t:|1727651675
+|move|p1a: Dragapult|Hex|p2a: Pecharunt
+|-supereffective|p2a: Pecharunt
+|-damage|p2a: Pecharunt|20/100
+|move|p2a: Pecharunt|Hex|p1a: Dragapult
+|-supereffective|p1a: Dragapult
+|-damage|p1a: Dragapult|0 fnt
+|faint|p1a: Dragapult
+|
+|-damage|p2a: Pecharunt|0 fnt|[from] Curse
+|faint|p2a: Pecharunt
+|upkeep
+|inactive|Enzonana-2002 has 15 seconds left this turn.
+|inactive|Enzonana-2002 has 10 seconds left.
+|
+|t:|1727651685
+|switch|p1a: Ogerpon|Ogerpon-Wellspring, F|47/100
+|switch|p2a: Landorus|Landorus-Therian, M|21/100
+|-damage|p1a: Ogerpon|22/100|[from] Spikes
+|-damage|p2a: Landorus|9/100|[from] Stealth Rock
+|-ability|p2a: Landorus|Intimidate|boost
+|-unboost|p1a: Ogerpon|atk|1
+|turn|17
+|inactive|Enzonana-2002 has 20 seconds left this turn.
+|
+|t:|1727651688
+|move|p1a: Ogerpon|Ivy Cudgel|p2a: Landorus|[anim] Ivy Cudgel Water
+|-supereffective|p2a: Landorus
+|-damage|p2a: Landorus|0 fnt
+|faint|p2a: Landorus
+|
+|upkeep
+|inactive|Enzonana-2002 has 25 seconds left this turn.
+|
+|t:|1727651690
+|switch|p2a: Zamazenta|Zamazenta|63/100
+|turn|18
+|inactive|Enzonana-2002 has 30 seconds left.
+|
+|t:|1727651697
+|move|p2a: Zamazenta|Close Combat|p1a: Ogerpon
+|-damage|p1a: Ogerpon|0 fnt
+|-unboost|p2a: Zamazenta|def|1
+|-unboost|p2a: Zamazenta|spd|1
+|faint|p1a: Ogerpon
+|
+|upkeep
+|
+|t:|1727651699
+|switch|p1a: Glimmora|Glimmora, F|47/100
+|-damage|p1a: Glimmora|22/100|[from] Spikes
+|turn|19
+|
+|t:|1727651702
+|move|p2a: Zamazenta|Heavy Slam|p1a: Glimmora
+|-supereffective|p1a: Glimmora
+|-damage|p1a: Glimmora|0 fnt
+|-activate|p1a: Glimmora|ability: Toxic Debris
+|-sidestart|p2: can't talk hf ggs|move: Toxic Spikes
+|faint|p1a: Glimmora
+|
+|win|can't talk hf ggs
+|c|☆Enzonana-2002|gg

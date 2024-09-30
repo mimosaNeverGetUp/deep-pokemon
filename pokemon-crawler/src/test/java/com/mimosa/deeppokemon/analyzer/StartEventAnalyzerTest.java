@@ -30,6 +30,8 @@ class StartEventAnalyzerTest {
     private static final String PECHARUNT = "Pecharunt";
     private static final String DRAGONITE = "Dragonite";
     private static final String CONFUSION = "confusion";
+    protected static final String DRAGAPULT = "Dragapult";
+    protected static final String CURSE = "Curse";
     @Autowired
     private StartEventAnalyzer startEventAnalyzer;
 
@@ -91,5 +93,29 @@ class StartEventAnalyzerTest {
         assertNotNull(moveTarget);
         assertEquals(1, moveTarget.playerNumber());
         assertEquals(hatterene, moveTarget.targetName());
+    }
+
+
+    @Test
+    void analyzeCurse() {
+        BattleEvent moveEvent = new BattleEvent("move", null, null, null);
+        moveEvent.setBattleEventStat(new MoveEventStat(new EventTarget(1, DRAGAPULT, DRAGAPULT), CURSE));
+        BattleEvent startEvent = new BattleEvent("start", List.of("p2a: Pecharunt", CURSE, "[of] p1a: Dragapult"), moveEvent, null);
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, PECHARUNT, PECHARUNT)
+                .addPokemon(1, DRAGAPULT, DRAGAPULT)
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(2, PECHARUNT)
+                .addPokemonStat(1, DRAGAPULT)
+                .build();
+        assertTrue(startEventAnalyzer.supportAnalyze(startEvent));
+        startEventAnalyzer.analyze(startEvent, battleStat, battleContext);
+        EventTarget buffOf = battleContext.getPlayerStatusList().get(1).getPokemonStatus(PECHARUNT).getBuffOf(CURSE);
+        assertNotNull(buffOf);
+        assertEquals(1, buffOf.playerNumber());
+        assertEquals(DRAGAPULT, buffOf.targetName());
+        assertEquals(DRAGAPULT, buffOf.targetName());
     }
 }

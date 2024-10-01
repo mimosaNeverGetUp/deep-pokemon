@@ -12,6 +12,7 @@ import com.mimosa.deeppokemon.entity.Tag;
 import com.mimosa.deeppokemon.entity.pokepast.PokePastTeam;
 import com.mimosa.deeppokemon.migrate.BattleTeamMigrator;
 import com.mimosa.deeppokemon.service.TeamService;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -26,13 +27,15 @@ public class TeamApiController {
     private final BattleTeamMigrator battleTeamMigrator;
     private final SmogonPokePastTeamCrawler smogonPokePastTeamCrawler;
     private final PokePastTeamCrawler pokePastTeamCrawler;
+    private final MongoTemplate mongoTemplate;
 
     public TeamApiController(TeamService teamService, BattleTeamMigrator battleTeamMigrator,
-                             SmogonPokePastTeamCrawler smogonPokePastTeamCrawler, PokePastTeamCrawler pokePastTeamCrawler) {
+                             SmogonPokePastTeamCrawler smogonPokePastTeamCrawler, PokePastTeamCrawler pokePastTeamCrawler, MongoTemplate mongoTemplate) {
         this.teamService = teamService;
         this.battleTeamMigrator = battleTeamMigrator;
         this.smogonPokePastTeamCrawler = smogonPokePastTeamCrawler;
         this.pokePastTeamCrawler = pokePastTeamCrawler;
+        this.mongoTemplate = mongoTemplate;
     }
 
     @GetMapping("/team/tag")
@@ -58,6 +61,8 @@ public class TeamApiController {
 
     @PostMapping("/team/pokepast")
     public PokePastTeam crawPokepast(@RequestParam("url") String url) {
-        return pokePastTeamCrawler.craw(url);
+        PokePastTeam pokePastTeam = pokePastTeamCrawler.craw(url);
+        mongoTemplate.save(pokePastTeam);
+        return pokePastTeam;
     }
 }

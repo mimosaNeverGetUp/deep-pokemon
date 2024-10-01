@@ -31,9 +31,13 @@ class PokePastTeamCrawlerTest {
     @Value("classpath:api/pokepast/fb0e434de8244b90")
     Resource pokepastDoc;
 
-
     @Value("classpath:api/pokepast/6a30608cd62cbb2e")
     Resource pokepastDoc_NickName;
+
+
+    @Value("classpath:api/pokepast/f30e82f269cf37ad")
+    Resource pokepastDoc_EmptyPokemon;
+
 
     @Test
     void craw() throws IOException {
@@ -55,7 +59,6 @@ class PokePastTeamCrawlerTest {
         }
     }
 
-
     @Test
     void crawNickNameTeam() throws IOException {
         Document pokepastDocument = Jsoup.parse(pokepastDoc_NickName.getFile());
@@ -71,6 +74,27 @@ class PokePastTeamCrawlerTest {
             assertEquals("https://pokepast.es/6a30608cd62cbb2e", pokePastTeam.url());
             assertEquals("gen9ou", pokePastTeam.format());
             assertEquals("Srn", pokePastTeam.author());
+            assertNotNull(pokePastTeam.pokemonSets());
+            assertEquals(6, pokePastTeam.pokemonSets().size());
+        }
+    }
+
+
+    @Test
+    void crawTeamWithEmptyPokemon() throws IOException {
+        Document pokepastDocument = Jsoup.parse(pokepastDoc_EmptyPokemon.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(pokepastDocument);
+            PokePastTeam pokePastTeam = pokePastTeamCrawler.craw("https://pokepast.es/f30e82f269cf37ad");
+            assertNotNull(pokePastTeam);
+            assertEquals("f30e82f269cf37ad", pokePastTeam.id());
+            assertNotNull(pokePastTeam.teamId());
+            assertNull(pokePastTeam.format());
+            assertNull(pokePastTeam.author());
+            assertEquals("https://pokepast.es/f30e82f269cf37ad", pokePastTeam.url());
             assertNotNull(pokePastTeam.pokemonSets());
             assertEquals(6, pokePastTeam.pokemonSets().size());
         }

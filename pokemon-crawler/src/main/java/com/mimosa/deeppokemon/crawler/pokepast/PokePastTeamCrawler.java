@@ -44,7 +44,7 @@ public class PokePastTeamCrawler {
         this.battleService = battleService;
     }
 
-    PokePastTeam craw(String uriStr) {
+    public PokePastTeam craw(String uriStr) {
         if (uriStr == null || !uriStr.startsWith(POKEPAST_ES)) {
             throw new IllegalArgumentException("Invalid URL: " + uriStr);
         }
@@ -63,12 +63,16 @@ public class PokePastTeamCrawler {
     private PokePastTeam extractTeamFromHtml(Document doc, URI uri) {
         String pokePastId = getPokePastId(uri);
         Elements pokemonSetDocs = doc.select("pre");
-        if (pokemonSetDocs.size() != 6) {
+        if (!isPokePasteValid(pokemonSetDocs)) {
             log.error("pokepast team {} is invalid", pokePastId);
             throw new IllegalArgumentException("pokepast team " + pokePastId + " is invalid");
         }
         Map<String, String> pokemonSets = new HashMap<>();
         for (Element pokemonSetDoc : pokemonSetDocs) {
+            if (pokemonSetDoc.childNodeSize() <=1) {
+                continue;
+            }
+
             String name = extratPokemonName(pokemonSetDoc);
             if (name == null) {
                 log.error("can not extract pokemon name from {}", pokemonSetDoc.wholeText());
@@ -83,6 +87,16 @@ public class PokePastTeamCrawler {
         String format = extractFormat(pokePastInfo);
         Binary teamId = new Binary(battleService.calTeamId(pokemonSets.keySet()));
         return new PokePastTeam(pokePastId, uri.toString(), format, author, teamId, pokemonSets);
+    }
+
+    private boolean isPokePasteValid(Elements pokemonSetDocs) {
+        int pokemonSize = 0;
+        for(Element pokemonSetDoc : pokemonSetDocs) {
+            if (pokemonSetDoc.childNodeSize() > 1) {
+                pokemonSize++;
+            }
+        }
+        return pokemonSize == 6;
     }
 
     private String extratPokemonName(Element pokemonSetDoc) {

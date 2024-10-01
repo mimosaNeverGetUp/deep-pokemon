@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Untitled PokePaste</title>
+		<link rel="stylesheet" href="/css/paste.css">
+		<meta name="robots" content="noindex">
+	</head>
+	<body>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/984-0.png">
+				<img class="img-item" src="/img/items/540.png">
+			</div>
+			<pre><span class="type-ground">Great Tusk</span> @ Rocky Helmet
+<span class="attr">Ability: </span>Protosynthesis
+<span class="attr">Tera Type: </span><span class="type-fire">Fire</span>
+<span class="attr">EVs: </span><span class="stat-hp">252 HP</span> / <span class="stat-spd">4 SpD</span> / <span class="stat-spe">252 Spe</span>
+Jolly Nature
+<span class="type-ground">-</span> Headlong Rush
+<span class="type-ice">-</span> Ice Spinner
+<span class="type-normal">-</span> Rapid Spin
+<span class="type-rock">-</span> Stealth Rock
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/645-1.png">
+				<img class="img-item" src="/img/items/287.png">
+			</div>
+			<pre><span class="type-ground">Landorus-Therian</span> @ Choice Scarf
+<span class="attr">Ability: </span>Intimidate
+<span class="attr">Tera Type: </span><span class="type-flying">Flying</span>
+<span class="attr">EVs: </span><span class="stat-hp">4 HP</span> / <span class="stat-atk">252 Atk</span> / <span class="stat-spe">252 Spe</span>
+Jolly Nature
+<span class="type-ground">-</span> Earthquake
+<span class="type-normal">-</span> Tera Blast
+<span class="type-rock">-</span> Stone Edge
+<span class="type-bug">-</span> U-turn
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/199-1.png">
+				<img class="img-item" src="/img/items/640.png">
+			</div>
+			<pre><span class="type-poison">Slowking-Galar</span> @ Assault Vest
+<span class="attr">Ability: </span>Regenerator
+<span class="attr">Tera Type: </span><span class="type-water">Water</span>
+<span class="attr">EVs: </span><span class="stat-hp">248 HP</span> / <span class="stat-def">192 Def</span> / <span class="stat-spd">68 SpD</span>
+Relaxed Nature
+<span class="attr">IVs: </span><span class="stat-atk">0 Atk</span> / <span class="stat-spe">0 Spe</span>
+<span class="type-psychic">-</span> Future Sight
+<span class="type-poison">-</span> Sludge Bomb
+<span class="type-psychic">-</span> Psyshock
+<span class="type-fire">-</span> Flamethrower
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/0-0.png">
+			</div>
+			<pre>Ogerpon-Wellspring (<span class="gender-f">F</span>) @ Wellspring Mask
+<span class="attr">Ability: </span>Water Absorb
+<span class="attr">Tera Type: </span><span class="type-water">Water</span>
+<span class="attr">EVs: </span><span class="stat-atk">252 Atk</span> / <span class="stat-spd">4 SpD</span> / <span class="stat-spe">252 Spe</span>
+Adamant Nature
+- Ivy Cudgel
+<span class="type-dark">-</span> Knock Off
+<span class="type-grass">-</span> Power Whip
+<span class="type-bug">-</span> U-turn
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/0-0.png">
+				<img class="img-item" src="/img/items/1880.png">
+			</div>
+			<pre>Raging Bolt @ Booster Energy
+<span class="attr">Ability: </span>Protosynthesis
+<span class="attr">Tera Type: </span><span class="type-fairy">Fairy</span>
+<span class="attr">EVs: </span><span class="stat-hp">120 HP</span> / <span class="stat-spa">252 SpA</span> / <span class="stat-spe">136 Spe</span>
+Modest Nature
+<span class="attr">IVs: </span><span class="stat-atk">20 Atk</span>
+<span class="type-electric">-</span> Thunderbolt
+- Thunderclap
+<span class="type-dragon">-</span> Dragon Pulse
+<span class="type-psychic">-</span> Calm Mind
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/983-0.png">
+				<img class="img-item" src="/img/items/234.png">
+			</div>
+			<pre><span class="type-dark">Kingambit</span> @ Leftovers
+<span class="attr">Ability: </span>Supreme Overlord
+<span class="attr">Tera Type: </span><span class="type-ghost">Ghost</span>
+<span class="attr">EVs: </span><span class="stat-hp">240 HP</span> / <span class="stat-atk">252 Atk</span> / <span class="stat-spe">16 Spe</span>
+Adamant Nature
+<span class="type-steel">-</span> Iron Head
+<span class="type-fighting">-</span> Low Kick
+<span class="type-dark">-</span> Sucker Punch
+<span class="type-normal">-</span> Swords Dance
+
+</pre>
+		</article>
+		<aside>
+			<input id="vgcmode" type="checkbox">
+			<label for="vgcmode">Columns Mode</label> /
+			<input id="evivmode" type="checkbox">
+			<label for="evivmode">Stat Colours</label> /
+			<input id="lightmode" type="checkbox">
+			<label for="lightmode">Light Mode</label>
+		</aside>
+		<script src="/js/preferences.js"></script>
+	</body>
+</html>

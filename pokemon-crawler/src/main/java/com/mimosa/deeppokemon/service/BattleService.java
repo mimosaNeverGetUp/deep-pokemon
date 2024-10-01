@@ -216,6 +216,14 @@ public class BattleService {
         return stringBuilder.toString().getBytes();
     }
 
+    public byte[] calTeamId(Collection<String> pokemons) {
+        List<Pokemon> pokemonList = new ArrayList<>();
+        for(String pokemon : pokemons) {
+            pokemonList.add(new Pokemon(pokemon));
+        }
+        return calTeamId(pokemonList);
+    }
+
     public Set<String> getAllBattleIds() {
         if (battleIds.isEmpty()) {
             battleIds.addAll(queryAllBattleIds());

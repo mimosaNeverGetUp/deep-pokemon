@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The SSS</title>
+		<link rel="stylesheet" href="/css/paste.css">
+		<meta name="robots" content="noindex">
+	</head>
+	<body>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/324-0.png">
+				<img class="img-item" src="/img/items/284.png">
+			</div>
+			<pre>Lloyd (<span class="type-fire">Torkoal</span>) (<span class="gender-f">F</span>) @ <span class="type-fire">Heat Rock</span>
+<span class="attr">Ability: </span>Drought
+<span class="attr">Tera Type: </span><span class="type-fairy">Fairy</span>
+<span class="attr">EVs: </span><span class="stat-hp">104 HP</span> / <span class="stat-spa">236 SpA</span> / <span class="stat-spd">168 SpD</span>
+Quiet Nature
+<span class="type-fire">-</span> Overheat
+<span class="type-normal">-</span> Rapid Spin
+<span class="type-rock">-</span> Stealth Rock
+<span class="type-ground">-</span> Earthquake
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/984-0.png">
+				<img class="img-item" src="/img/items/1885.png">
+			</div>
+			<pre>Randy (<span class="type-ground">Great Tusk</span>) @ Covert Cloak
+<span class="attr">Ability: </span>Protosynthesis
+<span class="attr">Tera Type: </span><span class="type-steel">Steel</span>
+<span class="attr">EVs: </span><span class="stat-hp">252 HP</span> / <span class="stat-atk">4 Atk</span> / <span class="stat-spe">252 Spe</span>
+Jolly Nature
+<span class="type-ground">-</span> Earthquake
+<span class="type-ice">-</span> Ice Spinner
+<span class="type-fighting">-</span> Bulk Up
+<span class="type-normal">-</span> Rapid Spin
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/988-0.png">
+				<img class="img-item" src="/img/items/640.png">
+			</div>
+			<pre>Noel (<span class="type-bug">Slither Wing</span>) @ Assault Vest
+<span class="attr">Ability: </span>Protosynthesis
+<span class="attr">Tera Type: </span><span class="type-electric">Electric</span>
+<span class="attr">EVs: </span><span class="stat-hp">168 HP</span> / <span class="stat-atk">252 Atk</span> / <span class="stat-spe">88 Spe</span>
+Adamant Nature
+<span class="type-bug">-</span> U-turn
+<span class="type-bug">-</span> First Impression
+<span class="type-ground">-</span> Earthquake
+<span class="type-fighting">-</span> Low Kick
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/3-0.png">
+				<img class="img-item" src="/img/items/270.png">
+			</div>
+			<pre>Elie (<span class="type-grass">Venusaur</span>) @ Life Orb
+<span class="attr">Ability: </span>Chlorophyll
+<span class="attr">Tera Type: </span><span class="type-fire">Fire</span>
+<span class="attr">EVs: </span><span class="stat-def">4 Def</span> / <span class="stat-spa">252 SpA</span> / <span class="stat-spe">252 Spe</span>
+Timid Nature
+<span class="attr">IVs: </span><span class="stat-hp">29 HP</span> / <span class="stat-atk">0 Atk</span>
+<span class="type-normal">-</span> Growth
+<span class="type-grass">-</span> Giga Drain
+<span class="type-poison">-</span> Sludge Bomb
+<span class="type-normal">-</span> Weather Ball
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/0-0.png">
+				<img class="img-item" src="/img/items/297.png">
+			</div>
+			<pre>Tio (Walking Wake) @ Choice Specs
+<span class="attr">Ability: </span>Protosynthesis
+<span class="attr">Tera Type: </span><span class="type-water">Water</span>
+<span class="attr">EVs: </span><span class="stat-hp">8 HP</span> / <span class="stat-def">4 Def</span> / <span class="stat-spa">244 SpA</span> / <span class="stat-spe">252 Spe</span>
+Timid Nature
+- Hydro Steam
+<span class="type-dragon">-</span> Draco Meteor
+<span class="type-fire">-</span> Flamethrower
+<span class="type-water">-</span> Flip Turn
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/485-0.png">
+				<img class="img-item" src="/img/items/541.png">
+			</div>
+			<pre>Wazy (<span class="type-fire">Heatran</span>) @ Air Balloon
+<span class="attr">Ability: </span>Flash Fire
+<span class="attr">Tera Type: </span><span class="type-ghost">Ghost</span>
+<span class="attr">EVs: </span><span class="stat-hp">224 HP</span> / <span class="stat-spa">40 SpA</span> / <span class="stat-spe">244 Spe</span>
+Modest Nature
+<span class="attr">IVs: </span><span class="stat-atk">0 Atk</span>
+<span class="type-fire">-</span> Magma Storm
+<span class="type-ground">-</span> Earth Power
+<span class="type-grass">-</span> Solar Beam
+<span class="type-dark">-</span> Taunt
+
+</pre>
+		</article>
+		<aside>
+			<h1>The SSS</h1>
+			<h2>&nbsp;by Srn</h2>
+			<p>Format: gen9ou</p>
+			<input id="vgcmode" type="checkbox">
+			<label for="vgcmode">Columns Mode</label> /
+			<input id="evivmode" type="checkbox">
+			<label for="evivmode">Stat Colours</label> /
+			<input id="lightmode" type="checkbox">
+			<label for="lightmode">Light Mode</label>
+		</aside>
+		<script src="/js/preferences.js"></script>
+	</body>
+</html>

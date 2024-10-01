@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Untitled PokePaste</title>
+		<link rel="stylesheet" href="/css/paste.css">
+		<meta name="robots" content="noindex">
+	</head>
+	<body>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/983-0.png">
+				<img class="img-item" src="/img/items/541.png">
+			</div>
+			<pre><span class="type-dark">Kingambit</span> @ Air Balloon
+<span class="attr">Ability: </span>Supreme Overlord
+<span class="attr">Tera Type: </span><span class="type-ghost">Ghost</span>
+<span class="attr">EVs: </span><span class="stat-hp">140 HP</span> / <span class="stat-atk">252 Atk</span> / <span class="stat-spd">4 SpD</span> / <span class="stat-spe">112 Spe</span>
+Adamant Nature
+<span class="type-normal">-</span> Swords Dance
+<span class="type-dark">-</span> Kowtow Cleave
+<span class="type-steel">-</span> Iron Head
+<span class="type-dark">-</span> Sucker Punch
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/970-0.png">
+				<img class="img-item" src="/img/items/275.png">
+			</div>
+			<pre><span class="type-rock">Glimmora</span> @ Focus Sash
+<span class="attr">Ability: </span>Toxic Debris
+<span class="attr">Tera Type: </span><span class="type-ghost">Ghost</span>
+<span class="attr">EVs: </span><span class="stat-atk">4 Atk</span> / <span class="stat-spa">252 SpA</span> / <span class="stat-spe">252 Spe</span>
+Naive Nature
+<span class="attr">IVs: </span><span class="stat-hp">28 HP</span>
+<span class="type-poison">-</span> Mortal Spin
+<span class="type-ground">-</span> Earth Power
+<span class="type-rock">-</span> Power Gem
+<span class="type-rock">-</span> Stealth Rock
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/889-0.png">
+				<img class="img-item" src="/img/items/234.png">
+			</div>
+			<pre><span class="type-fighting">Zamazenta</span> @ Leftovers
+<span class="attr">Ability: </span>Dauntless Shield
+<span class="attr">Tera Type: </span><span class="type-fire">Fire</span>
+<span class="attr">EVs: </span><span class="stat-hp">150 HP</span> / <span class="stat-def">184 Def</span> / <span class="stat-spe">174 Spe</span>
+Jolly Nature
+<span class="type-steel">-</span> Iron Defense
+<span class="type-fighting">-</span> Body Press
+<span class="type-dark">-</span> Crunch
+<span class="type-normal">-</span> Substitute
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/149-0.png">
+				<img class="img-item" src="/img/items/1120.png">
+			</div>
+			<pre><span class="type-dragon">Dragonite</span> @ Heavy-Duty Boots
+<span class="attr">Ability: </span>Multiscale
+<span class="attr">Tera Type: </span><span class="type-normal">Normal</span>
+<span class="attr">EVs: </span><span class="stat-atk">252 Atk</span> / <span class="stat-spd">4 SpD</span> / <span class="stat-spe">252 Spe</span>
+Adamant Nature
+<span class="type-dragon">-</span> Dragon Dance
+<span class="type-ground">-</span> Earthquake
+<span class="type-normal">-</span> Extreme Speed
+<span class="type-normal">-</span> Encore
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/637-0.png">
+				<img class="img-item" src="/img/items/1120.png">
+			</div>
+			<pre><span class="type-bug">Volcarona</span> @ Heavy-Duty Boots
+<span class="attr">Ability: </span>Flame Body
+<span class="attr">Tera Type: </span><span class="type-water">Water</span>
+<span class="attr">EVs: </span><span class="stat-spa">252 SpA</span> / <span class="stat-spd">4 SpD</span> / <span class="stat-spe">252 Spe</span>
+Timid Nature
+<span class="attr">IVs: </span><span class="stat-atk">0 Atk</span>
+<span class="type-bug">-</span> Quiver Dance
+<span class="type-fire">-</span> Sunny Day
+<span class="type-bug">-</span> Bug Buzz
+<span class="type-normal">-</span> Morning Sun
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/1005-0.png">
+				<img class="img-item" src="/img/items/1880.png">
+			</div>
+			<pre><span class="type-dragon">Roaring Moon</span> @ Booster Energy
+<span class="attr">Ability: </span>Protosynthesis
+<span class="attr">Tera Type: </span><span class="type-flying">Flying</span>
+<span class="attr">EVs: </span><span class="stat-atk">252 Atk</span> / <span class="stat-spd">4 SpD</span> / <span class="stat-spe">252 Spe</span>
+Jolly Nature
+<span class="type-dragon">-</span> Dragon Dance
+<span class="type-dark">-</span> Knock Off
+<span class="type-flying">-</span> Acrobatics
+<span class="type-dark">-</span> Taunt
+
+</pre>
+		</article>
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/0-0.png">
+			</div>
+			<pre>
+
+</pre>
+		</article>
+		<aside>
+			<p>change volc to ft if you don’t have arch ptsd
+</p>
+			<input id="vgcmode" type="checkbox">
+			<label for="vgcmode">Columns Mode</label> /
+			<input id="evivmode" type="checkbox">
+			<label for="evivmode">Stat Colours</label> /
+			<input id="lightmode" type="checkbox">
+			<label for="lightmode">Light Mode</label>
+		</aside>
+		<script src="/js/preferences.js"></script>
+	</body>
+</html>

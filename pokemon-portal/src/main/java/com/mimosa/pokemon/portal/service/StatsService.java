@@ -47,6 +47,7 @@ public class StatsService {
     protected static final String ITEMS = "items";
     protected static final String MOVES = "moves";
     protected static final String ABILITIES = "abilities";
+    protected static final String TERA_TYPES = "teraTypes";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -145,7 +146,7 @@ public class StatsService {
         String lastMonthStatId = formatter.format(statDate.minusMonths(1)) + moveSetDto.getFormat();
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(lastMonthStatId)
                 .and(NAME).is(moveSetDto.getName()));
-        query.fields().include(ITEMS, MOVES, ABILITIES);
+        query.fields().include(ITEMS, MOVES, ABILITIES, TERA_TYPES);
         moveSetDto.setLastMonthMoveSet(mongoTemplate.findOne(query, MonthlyPokemonMoveSetDto.class, MONTHLY_STAT_POKEMON_MOVESET));
     }
 

@@ -288,6 +288,7 @@ function getTranslation(text) {
         </div>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
+          <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.teraTypes?.[tera]"/>
         </div>
       </div>
     </div>

@@ -25,6 +25,7 @@
 package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.pokepast.PokePastTeam;
 import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.deeppokemon.entity.tour.TourBattle;
 import com.mimosa.deeppokemon.entity.tour.TourPlayer;
@@ -82,6 +83,8 @@ public class BattleService {
     protected static final String FEATURE_IDS = "featureIds";
     protected static final String POKEMONS = "pokemons";
     protected static final String PLAYER_NAME = "player.name";
+    protected static final String POKEPAST_TEAM = "pokepast_team";
+    protected static final String POKEPASTS = "pokepasts";
     private final MongoTemplate mongoTemplate;
 
     public BattleService(MongoTemplate mongoTemplate) {
@@ -156,7 +159,7 @@ public class BattleService {
 
     @Cacheable("teamGroup")
     @RegisterReflectionForBinding({TeamGroupDto.class, BattleTeam.class, BattleDto.class, TourPlayer.class,
-            TourPlayerRecord.class})
+            TourPlayerRecord.class, PokePastTeam.class})
     public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
                                                 List<String> playerNames, List<String> stages, String sort,
                                                 String groupName) {
@@ -167,10 +170,10 @@ public class BattleService {
         Criteria criteria = new Criteria();
         if (CollectionUtils.hasNotNullObject(stages) || CollectionUtils.hasNotNullObject(playerNames)) {
             Criteria teamCriteria = new Criteria();
-            if(CollectionUtils.hasNotNullObject(stages)){
+            if (CollectionUtils.hasNotNullObject(stages)) {
                 teamCriteria.and(STAGE).in(stages);
             }
-            if(CollectionUtils.hasNotNullObject(playerNames)){
+            if (CollectionUtils.hasNotNullObject(playerNames)) {
                 teamCriteria.and(PLAYER_NAME).in(playerNames);
             }
             criteria.and(TEAMS).elemMatch(teamCriteria);
@@ -200,16 +203,23 @@ public class BattleService {
                 .localField(ID)
                 .foreignField(ID)
                 .as(SET);
+        LookupOperation lookupPokePastOperation = LookupOperation.newLookup()
+                .from(POKEPAST_TEAM)
+                .localField(ID)
+                .foreignField(TEAM_ID)
+                .as(POKEPASTS);
         Aggregation aggregation = Aggregation.newAggregation(
                 matchOperation,
                 sortOperation,
                 Aggregation.skip((long) (page) * row),
                 Aggregation.limit(row),
                 lookupOperation,
+                lookupPokePastOperation,
                 Aggregation.addFields().
                         addFieldWithValue("teamSet", ArrayOperators.arrayOf(SET).first()).build(),
                 Aggregation.stage("{ $project : { 'teams.pokemons': 0, 'teams._id': 0, 'teams.teamId': 0, 'teams" +
-                        ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, 'set': 0, 'featureIds': 0} }"));
+                        ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, 'set': 0, 'featureIds': 0," +
+                        "'pokepasts.pokemonSets': 0,'pokepasts._id': 0,'pokepasts.teamId': 0} }"));
         MongodbUtils.withPageOperation(query, page, row);
         AggregationOptions options = AggregationOptions.builder()
                 .allowDiskUse(true)
@@ -264,7 +274,7 @@ public class BattleService {
         List<TeamGroupDto> similarTeams = searchSimilarTeam(teamSet.id(), teamList.get(0).getFeatureIds());
         return new TeamGroupDto(teamSet.id(), teamSet.tier(), null, teamList.size(), null,
                 null, null, teamList.get(0).getPokemons(), null,
-                null, null, convert(teamList), teamSet, similarTeams);
+                null, null, convert(teamList), teamSet, similarTeams, null);
     }
 
     public List<TeamGroupDto> searchSimilarTeam(Binary teamId, List<Binary> teamFeatureIds) {
@@ -289,7 +299,7 @@ public class BattleService {
             TeamSet teamSet = buildTeamSet(teamGroup.teams());
             similarTeams.add(new TeamGroupDto(new Binary(teamGroup.id()), null, null, null, null,
                     null, null, teamGroup.pokemons(), null, null,
-                    null, null, teamSet, null));
+                    null, null, teamSet, null, null));
         }
         return similarTeams;
     }

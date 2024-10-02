@@ -10,10 +10,11 @@ import org.bson.types.Binary;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.io.Serializable;
 import java.util.Map;
 
 @Document("pokepast_team")
 public record PokePastTeam(@MongoId String id, String url, String format, String author, Binary teamId,
-                           Map<String, String> pokemonSets) {
+                           Map<String, String> pokemonSets) implements Serializable {
 
 }

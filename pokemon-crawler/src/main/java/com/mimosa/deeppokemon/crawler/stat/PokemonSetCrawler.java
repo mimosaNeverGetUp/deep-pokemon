@@ -121,7 +121,7 @@ public class PokemonSetCrawler {
         for (Map.Entry<String, Integer> entry : evs.entrySet()) {
             String evsItem = entry.getKey();
             int evsValue = entry.getValue();
-            evsItemTexts.add(String.format(" %d %s ", evsValue, evsItem.toUpperCase(Locale.ROOT)));
+            evsItemTexts.add(String.format(" %d %s ", evsValue, evsItem.toLowerCase(Locale.ROOT)));
         }
         return String.join(EVS_DELIMITER, evsItemTexts).strip();
     }

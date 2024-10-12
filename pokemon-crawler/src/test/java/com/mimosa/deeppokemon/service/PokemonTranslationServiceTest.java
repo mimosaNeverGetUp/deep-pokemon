@@ -23,6 +23,17 @@ class PokemonTranslationServiceTest {
         assertEquals("火焰之躯", pokemonTranslationService.getTranslation("Flame Body"));
         assertEquals("火焰鸟", pokemonTranslationService.getTranslation("Moltres"));
         assertEquals("吃剩的东西", pokemonTranslationService.getTranslation("Leftovers"));
+        assertEquals("吃剩的东西", pokemonTranslationService.getTranslation("Leftovers"));
+        assertEquals("黏美龙-洗翠", pokemonTranslationService.getTranslation("Goodra-Hisui"));
+        assertEquals("黏美龙-洗翠", pokemonTranslationService.getTranslation("Goodra-H"));
+        assertEquals("黏美龙-洗翠", pokemonTranslationService.getTranslation("Hisuian Goodra"));
+        assertEquals("大剑鬼-洗翠", pokemonTranslationService.getTranslation("Hisuian Samurott"));
+        assertEquals("火焰鸟-伽勒尔", pokemonTranslationService.getTranslation("Moltres-Galar"));
+        assertEquals("火焰鸟-伽勒尔", pokemonTranslationService.getTranslation("Galarian Moltres"));
+        assertEquals("火焰鸟-伽勒尔", pokemonTranslationService.getTranslation("Galarian Moltres"));
+        assertEquals("九尾-阿罗拉", pokemonTranslationService.getTranslation("Alolan Ninetales"));
+        assertEquals("九尾-阿罗拉", pokemonTranslationService.getTranslation("Ninetales-Alola"));
+        assertEquals("吃剩的东西", pokemonTranslationService.getTranslation("Leftovers"));
     }
 
     @Test

@@ -375,18 +375,19 @@ function getTranslation(text) {
       <div class="mt-3 mb-10" v-for=" [setName, set] in Object.entries(sets)">
         <p class="font-bold">{{ setName }}</p>
         <pre>{{ set }}</pre>
+
         <Accordion :multiple="true" v-if="analysis?.setAnalyzes?.[setName]" class="mt-7">
           <AccordionTab>
             <template #header>
             <span class="flex align-items-center gap-2 w-full">
-                <span class="font-bold white-space-nowrap">analysis</span>
+                <span class="font-bold white-space-nowrap">Smogon Analysis</span>
             </span>
             </template>
-            <div class="flex">
-                <Textarea v-model="analysis.setChineseAnalyzes[setName]" disabled rows="20" cols="60"
-                          class="font-sans bg-gray-50"/>
-                <Textarea v-model="analysis.setAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-sans bg-gray-50"/>
+            <div class="">
+              <Textarea v-model="analysis.setChineseAnalyzes[setName]" disabled rows="20" cols="60"
+                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg"/>
+              <Textarea v-model="analysis.setAnalyzes[setName]" disabled rows="20" cols="60"
+                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg"/>
             </div>
 
           </AccordionTab>

@@ -48,6 +48,9 @@ public class PokemonTranslationService {
                 } else if (StringUtils.equals(formName, "Alola")) {
                     shortName = String.format("%s %s", "Alolan", key.substring(0, index));
                     shortNameMap.put(shortName, translationMaps.get(key));
+                } else if (StringUtils.equals(formName, "Mega")) {
+                    shortName = String.format("%s %s", "Mega", key.substring(0, index));
+                    shortNameMap.put(shortName, translationMaps.get(key));
                 }
             }
         }

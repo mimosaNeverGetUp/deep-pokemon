@@ -34,6 +34,8 @@ class PokemonTranslationServiceTest {
         assertEquals("火焰鸟-伽勒尔", pokemonTranslationService.getTranslation("Galarian Moltres"));
         assertEquals("九尾-阿罗拉", pokemonTranslationService.getTranslation("Alolan Ninetales"));
         assertEquals("九尾-阿罗拉", pokemonTranslationService.getTranslation("Ninetales-Alola"));
+        assertEquals("巨钳螳螂-超级进化", pokemonTranslationService.getTranslation("Mega Scizor"));
+        assertEquals("喷火龙-超级进化-X", pokemonTranslationService.getTranslation("Mega Charizard X"));
         assertEquals("吃剩的东西", pokemonTranslationService.getTranslation("Leftovers"));
     }
 

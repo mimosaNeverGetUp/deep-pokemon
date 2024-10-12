@@ -7,9 +7,11 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.crawler.stat.MonthlyStatCrawler;
+import com.mimosa.deeppokemon.crawler.stat.PokemonAnalyzeCrawler;
 import com.mimosa.deeppokemon.crawler.stat.PokemonSetCrawler;
 import com.mimosa.deeppokemon.crawler.stat.dto.MonthlyBattleStatDto;
 import com.mimosa.deeppokemon.crawler.stat.dto.MonthlyPokemonStatDto;
+import com.mimosa.deeppokemon.entity.stat.PokemonAnalyze;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.*;
 import org.slf4j.Logger;
@@ -39,12 +41,15 @@ public class StatsService {
     private final MongoTemplate mongoTemplate;
     private final MonthlyStatCrawler monthlyStatCrawler;
     private final PokemonSetCrawler pokemonSetCrawler;
+    private final PokemonAnalyzeCrawler pokemonAnalyzeCrawler;
     private final Map<String, LocalDateTime> crawStatTimeMap;
 
-    public StatsService(MongoTemplate mongoTemplate, MonthlyStatCrawler monthlyStatCrawler, PokemonSetCrawler pokemonSetCrawler) {
+    public StatsService(MongoTemplate mongoTemplate, MonthlyStatCrawler monthlyStatCrawler,
+                        PokemonSetCrawler pokemonSetCrawler, PokemonAnalyzeCrawler pokemonAnalyzeCrawler) {
         this.mongoTemplate = mongoTemplate;
         this.monthlyStatCrawler = monthlyStatCrawler;
         this.pokemonSetCrawler = pokemonSetCrawler;
+        this.pokemonAnalyzeCrawler = pokemonAnalyzeCrawler;
         crawStatTimeMap = new HashMap<>();
     }
 
@@ -105,6 +110,18 @@ public class StatsService {
             return false;
         }
         return true;
+    }
+
+    public int crawPokemonAnalyzes(String format, String specifyPokemonName, boolean overwrite) {
+        List<PokemonAnalyze> pokemonAnalyzes = pokemonAnalyzeCrawler.craw(format, specifyPokemonName);
+        if (!overwrite) {
+            mongoTemplate.insertAll(pokemonAnalyzes);
+        } else {
+            for(PokemonAnalyze pokemonAnalyze : pokemonAnalyzes) {
+                mongoTemplate.save(pokemonAnalyze);
+            }
+        }
+        return pokemonAnalyzes.size();
     }
 
     public void save(String format, MonthlyBattleStatDto monthlyBattleStatDto) {

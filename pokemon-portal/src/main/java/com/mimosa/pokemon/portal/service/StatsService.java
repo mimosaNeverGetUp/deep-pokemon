@@ -6,6 +6,7 @@
 
 package com.mimosa.pokemon.portal.service;
 
+import com.mimosa.deeppokemon.entity.stat.PokemonAnalyze;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyPokemonUsage;
@@ -193,5 +194,14 @@ public class StatsService {
                 .addCriteria(Criteria.where(STAT_ID).is(statId))
                 .addCriteria(Criteria.where(NAME).is(pokemon));
         return mongoTemplate.findOne(query, PokemonSet.class);
+    }
+
+    public PokemonAnalyze queryPokemonAnalysis(String format, String pokemon) {
+        String id = String.join("_", format, pokemon);
+        PokemonAnalyze pokemonAnalyze = mongoTemplate.findById(id, PokemonAnalyze.class);
+        if(pokemonAnalyze == null) {
+            throw new ServerErrorException("pokemon analysis is empty", null);
+        }
+        return pokemonAnalyze;
     }
 }

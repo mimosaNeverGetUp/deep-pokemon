@@ -49,7 +49,6 @@ class BattleReplayExtractorTest {
     @Value("classpath:api/battleReplay.json")
     Resource battleReplay;
 
-
     @Value("classpath:api/gen8OuBattleReplay.json")
     Resource gen8OuBattleReplay;
 

@@ -6,6 +6,7 @@
 
 package com.mimosa.pokemon.portal.api;
 
+import com.mimosa.deeppokemon.entity.stat.PokemonAnalyze;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
 import com.mimosa.pokemon.portal.dto.MonthlyPokemonMoveSetDto;
@@ -52,5 +53,11 @@ public class StatsApiController {
     public PokemonSet set(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format,
                           @PathVariable("pokemon") String pokmeon) {
         return statsService.queryPokemonSet(format, pokmeon);
+    }
+
+    @GetMapping("{format}/analysis/{pokemon}")
+    public PokemonAnalyze analysis(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format,
+                                   @PathVariable("pokemon") String pokmeon) {
+        return statsService.queryPokemonAnalysis(format, pokmeon);
     }
 }

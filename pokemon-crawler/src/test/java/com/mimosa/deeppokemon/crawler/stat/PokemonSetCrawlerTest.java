@@ -37,7 +37,6 @@ class PokemonSetCrawlerTest {
 
     @Test
     void craw() throws IOException {
-
         try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
             mockHttpUtil.when(() -> HttpUtil.request(Mockito.any()))
                     .thenReturn(setGen9ouResource.getContentAsString(StandardCharsets.UTF_8));

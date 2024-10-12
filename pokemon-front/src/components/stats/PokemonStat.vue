@@ -9,6 +9,10 @@ import {ref, watch} from "vue";
 
 import Divider from 'primevue/divider';
 import ProgressSpinner from 'primevue/progressspinner';
+import Textarea from 'primevue/textarea';
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
+
 import UsageDif from "@/components/stats/UsageDif.vue";
 import {abilityText} from "@/components/data/abilityText.js";
 import {itemText} from "@/components/data/ItemText.js";
@@ -34,6 +38,7 @@ const props = defineProps({
 
 const moveset = ref()
 const sets = ref()
+const analysis = ref()
 const teams = ref(null)
 const loadFail = ref(false)
 const teamInfoDialogVisible = ref(false);
@@ -64,6 +69,7 @@ function getIconUrl(pokemon) {
 watch(() => props.pokemon, async (newPokemon) => {
   moveset.value = null
   sets.value = null;
+  analysis.value = null
   teams.value = null;
 
   await fetchStatsData(props.format, newPokemon.name);
@@ -73,6 +79,8 @@ watch(() => props.pokemon, async (newPokemon) => {
   });
   await queryPokemonSet(props.format, newPokemon.name);
   await queryTeams(0, 5, newPokemon.name);
+  await queryPokemonAnalysis(props.format, newPokemon.name);
+
 });
 
 function convertToPercentage(f) {
@@ -155,6 +163,24 @@ async function queryPokemonSet(format, pokemon) {
     try {
       let result = await res.json();
       sets.value = result.sets;
+    } catch (e) {
+      console.log("response is empty or invalid")
+    }
+  }
+}
+
+async function queryPokemonAnalysis(format, pokemon) {
+  let url = new URL(`${apiUrl}/api/stats/${format}/analysis/` + pokemon);
+
+  const res = await fetch(url,
+      {
+        method: "GET"
+      }
+  );
+  if (res.ok) {
+    try {
+      let result = await res.json();
+      analysis.value = result;
     } catch (e) {
       console.log("response is empty or invalid")
     }
@@ -349,6 +375,22 @@ function getTranslation(text) {
       <div class="mt-3 mb-10" v-for=" [setName, set] in Object.entries(sets)">
         <p class="font-bold">{{ setName }}</p>
         <pre>{{ set }}</pre>
+        <Accordion :multiple="true" v-if="analysis?.setAnalyzes?.[setName]" class="mt-7">
+          <AccordionTab>
+            <template #header>
+            <span class="flex align-items-center gap-2 w-full">
+                <span class="font-bold white-space-nowrap">analysis</span>
+            </span>
+            </template>
+            <div class="flex">
+                <Textarea v-model="analysis.setChineseAnalyzes[setName]" disabled rows="20" cols="60"
+                          class="font-sans bg-gray-50"/>
+                <Textarea v-model="analysis.setAnalyzes[setName]" disabled rows="20" cols="60"
+                        class="font-sans bg-gray-50"/>
+            </div>
+
+          </AccordionTab>
+        </Accordion>
       </div>
     </div>
     <Divider type="solid"/>
@@ -356,8 +398,9 @@ function getTranslation(text) {
       <p class="text-xl  mb-3">teams</p>
       <div class="mb-3 flex items-center text-center" v-for="teamGroup in teams">
         <Team class="" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
-        <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem" @click="toggleTeamInfoDialog(teamGroup.id.data)"/>
-        <a class="ml-2" target="_blank" v-if="teamGroup.pokepasts?.length > 0" :href="teamGroup.pokepasts[0].url" >
+        <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
+           @click="toggleTeamInfoDialog(teamGroup.id.data)"/>
+        <a class="ml-2" target="_blank" v-if="teamGroup.pokepasts?.length > 0" :href="teamGroup.pokepasts[0].url">
           <i class="pi pi-link" style="color: darkblue"></i>
         </a>
       </div>

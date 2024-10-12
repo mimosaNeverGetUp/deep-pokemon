@@ -28,6 +28,7 @@ class PokemonTranslationServiceTest {
         assertEquals("黏美龙-洗翠", pokemonTranslationService.getTranslation("Goodra-H"));
         assertEquals("黏美龙-洗翠", pokemonTranslationService.getTranslation("Hisuian Goodra"));
         assertEquals("大剑鬼-洗翠", pokemonTranslationService.getTranslation("Hisuian Samurott"));
+        assertEquals("风速狗-洗翠", pokemonTranslationService.getTranslation("Hisuian Arcanine"));
         assertEquals("火焰鸟-伽勒尔", pokemonTranslationService.getTranslation("Moltres-Galar"));
         assertEquals("火焰鸟-伽勒尔", pokemonTranslationService.getTranslation("Galarian Moltres"));
         assertEquals("火焰鸟-伽勒尔", pokemonTranslationService.getTranslation("Galarian Moltres"));

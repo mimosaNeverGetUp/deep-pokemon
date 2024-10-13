@@ -57,7 +57,7 @@ queryBattle(page.value, row.value);
 </script>
 
 <template>
-  <DataTable :value="battleList" class="ladder" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
+  <DataTable :value="battleList" class="min-w-max" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
              :totalRecords="totalRecords" @page="onPage($event)" :scrollable="false"
              tableStyle="min-width: 50rem" :row-style="rowStyle">
     <Column field="battle" header="battle" :style="{ display:'flex', width:'100%', padding: 0 }"

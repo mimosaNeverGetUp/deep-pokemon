@@ -86,6 +86,7 @@ fetchData(page.value, row.value)
 <style scoped>
 /*排行榜表格样式*/
 .ladder {
+  min-width: max-content;
   width: 90%;
   margin: 60px auto 0; /*表格下移以适应绝对定位的导航栏*/
 }

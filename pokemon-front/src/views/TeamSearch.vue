@@ -161,68 +161,71 @@ queryAllTour();
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 mt-[40px]">
-    <span>Type</span>
-    <SelectButton v-model="selectType" :options="types" aria-labelledby="basic" @change="changeBattleType"/>
-  </div>
-
-  <div class="flex flex-col gap-2 mt-2">
-    <span>Tag</span>
-    <SelectButton v-model="selectTags" :options="tags" aria-labelledby="basic"/>
-    <span>Sort</span>
-    <SelectButton v-model="selectedSort" :options="sortModes" aria-labelledby="basic"/>
-    <div v-if="!searchTour" class="mt-2">
-      <span class="items-center text-center">Range</span>
-      <i class="ml-2 pi pi-calendar cursor-pointer hover:bg-green-500" style="font-size: 1.5rem"
-         @click="changeShowMode"></i>
+  <div class="min-w-max">
+    <div class="flex flex-col gap-2 mt-[40px]">
+      <span>Type</span>
+      <SelectButton v-model="selectType" :options="types" aria-labelledby="basic" @change="changeBattleType"/>
     </div>
 
-    <div class="mt-2">
-      <Calendar v-if="useMonthRange && !searchTour" class="w-96" v-model="selectMonth" view="month" dateFormat="dd/mm"
-                :maxDate="maxMonth"
-                :minDate="minMonth" inline/>
-      <SelectButton v-else-if="!searchTour" v-model="selectedRange" :options="ranges" aria-labelledby="basic"/>
-      <div v-else>
-        <div v-if="tourTiers.length >=1" class="mb-2">
-          <span>tier</span>
-          <SelectButton v-model="selectedTier" :options="tourTiers" aria-labelledby="basic" @change="onTierChange"/>
+    <div class="flex flex-col gap-2 mt-2">
+      <span>Tag</span>
+      <SelectButton v-model="selectTags" :options="tags" aria-labelledby="basic"/>
+      <span>Sort</span>
+      <SelectButton v-model="selectedSort" :options="sortModes" aria-labelledby="basic"/>
+      <div v-if="!searchTour" class="mt-2">
+        <span class="items-center text-center">Range</span>
+        <i class="ml-2 pi pi-calendar cursor-pointer hover:bg-green-500" style="font-size: 1.5rem"
+           @click="changeShowMode"></i>
+      </div>
+
+      <div class="mt-2">
+        <Calendar v-if="useMonthRange && !searchTour" class="w-96" v-model="selectMonth" view="month" dateFormat="dd/mm"
+                  :maxDate="maxMonth"
+                  :minDate="minMonth" inline/>
+        <SelectButton v-else-if="!searchTour" v-model="selectedRange" :options="ranges" aria-labelledby="basic"/>
+        <div v-else>
+          <div v-if="tourTiers.length >=1" class="mb-2">
+            <span>tier</span>
+            <SelectButton v-model="selectedTier" :options="tourTiers" aria-labelledby="basic" @change="onTierChange"/>
+          </div>
+          <p class="items-center">Tour</p>
+          <TreeSelect v-model="selectTour" filter :options="tourNodes" :placeholder="tourPlaceHolder"
+                      class="w-80 mt-1.5" @node-select="onNodeSelect"/>
         </div>
-        <p class="items-center">Tour</p>
-        <TreeSelect v-model="selectTour" filter :options="tourNodes" :placeholder="tourPlaceHolder"
-                    class="w-80 mt-1.5" @node-select="onNodeSelect"/>
       </div>
     </div>
+
+    <Accordion class=" w-96 mt-12">
+      <AccordionTab header="Advanced search">
+        <div class="flex flex-col w-full justify-start gap-2 mt-3">
+          <div>
+            <span>pokemons</span>
+            <MultiSelect v-model="pokemons" :options=" Object.values(pokemoninfo).map(item => item.name)" display="chip"
+                         filter
+                         placeholder="select pokemons" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
+                         :virtualScrollerOptions="{ itemSize: 44 }"/>
+          </div>
+
+          <div v-if="searchTour">
+            <span>stages</span>
+            <MultiSelect v-model="selectStages" :options="stages"
+                         display="chip" filter
+                         placeholder="select stages" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
+                         :virtualScrollerOptions="{ itemSize: 44 }"/>
+
+            <span>players</span>
+            <MultiSelect v-model="players" :options="tourPlayers"
+                         display="chip" filter
+                         placeholder="select players" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
+                         :virtualScrollerOptions="{ itemSize: 44 }"/>
+          </div>
+        </div>
+      </AccordionTab>
+    </Accordion>
+
+    <router-link :to="getTeamSearchUrl(pokemons, selectTags, selectedRange, selectMonth, selectedSort)">
+      <Button class="mt-3" icon="pi pi-search" label="Submit"/>
+    </router-link>
   </div>
 
-  <Accordion class=" w-96 mt-12">
-    <AccordionTab header="Advanced search">
-      <div class="flex flex-col w-full justify-start gap-2 mt-3">
-        <div>
-          <span>pokemons</span>
-          <MultiSelect v-model="pokemons" :options=" Object.values(pokemoninfo).map(item => item.name)" display="chip"
-                       filter
-                       placeholder="select pokemons" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
-                       :virtualScrollerOptions="{ itemSize: 44 }"/>
-        </div>
-
-        <div v-if="searchTour">
-          <span>stages</span>
-          <MultiSelect v-model="selectStages" :options="stages"
-                       display="chip" filter
-                       placeholder="select stages" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
-                       :virtualScrollerOptions="{ itemSize: 44 }"/>
-
-          <span>players</span>
-          <MultiSelect v-model="players" :options="tourPlayers"
-                       display="chip" filter
-                       placeholder="select players" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
-                       :virtualScrollerOptions="{ itemSize: 44 }"/>
-        </div>
-      </div>
-    </AccordionTab>
-  </Accordion>
-
-  <router-link :to="getTeamSearchUrl(pokemons, selectTags, selectedRange, selectMonth, selectedSort)">
-    <Button class="mt-3" icon="pi pi-search" label="Submit"/>
-  </router-link>
 </template>

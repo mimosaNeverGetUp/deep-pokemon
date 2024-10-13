@@ -11,6 +11,7 @@ import com.mimosa.deeppokemon.utils.HttpUtil;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ServerErrorException;
@@ -40,6 +41,7 @@ public class AiService {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
+    @RegisterReflectionForBinding(value = {ChatResponse.class, ChatMessage.class, ChatChoice.class})
     public String translate(String text, String prompt) throws IOException {
         Map<String, Object> params = new HashMap<>();
         params.put(MODEL, GPT_4_O_MINI);

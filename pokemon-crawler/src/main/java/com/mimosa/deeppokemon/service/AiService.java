@@ -47,8 +47,8 @@ public class AiService {
         params.put(MODEL, GPT_4_O_MINI);
         params.put(MESSAGES, buildMessages(text, prompt));
         RequestConfig requestConfig = RequestConfig.custom()
-                .setResponseTimeout(60, TimeUnit.SECONDS)   // 设置连接超时，单位为毫秒
-                .setConnectionRequestTimeout(60, TimeUnit.SECONDS)
+                .setResponseTimeout(120, TimeUnit.SECONDS)   // 设置连接超时，单位为毫秒
+                .setConnectionRequestTimeout(120, TimeUnit.SECONDS)
                 .build();
 
         String data = OBJECT_MAPPER.writeValueAsString(params);

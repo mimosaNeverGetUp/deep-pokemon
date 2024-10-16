@@ -401,7 +401,8 @@ function getTranslation(text) {
         <Team class="" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
            @click="toggleTeamInfoDialog(teamGroup.id.data)"/>
-        <a class="ml-2" target="_blank" v-if="teamGroup.pokepasts?.length > 0" :href="teamGroup.pokepasts[0].url">
+        <a class="ml-2" target="_blank" v-if="teamGroup.pokepasts?.length > 0" v-for="pokepast in teamGroup.pokepasts"
+           :href="pokepast.url" >
           <i class="pi pi-link" style="color: darkblue"></i>
         </a>
       </div>

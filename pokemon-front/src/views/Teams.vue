@@ -149,8 +149,8 @@ queryTeams(page.value, row.value);
           <Team :team="slotProps.data" :compact="true" :teamSet="slotProps.data.teamSet"></Team>
           <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
              @click="toggleTeamInfoDialog(slotProps.data.id.data)"/>
-          <a class="ml-2" target="_blank" v-if="slotProps.data.pokepasts?.length > 0"
-             :href="slotProps.data.pokepasts[0].url" >
+          <a class="ml-2" target="_blank" v-if="slotProps.data.pokepasts?.length > 0" v-for="pokepast in slotProps.data.pokepasts"
+             :href="pokepast.url" >
             <i class="pi pi-link" style="color: darkblue"></i>
           </a>
         </div>

@@ -37,6 +37,8 @@ class PokemonTranslationServiceTest {
         assertEquals("巨钳螳螂-超级进化", pokemonTranslationService.getTranslation("Mega Scizor"));
         assertEquals("喷火龙-超级进化-X", pokemonTranslationService.getTranslation("Mega Charizard X"));
         assertEquals("吃剩的东西", pokemonTranslationService.getTranslation("Leftovers"));
+        assertEquals("讲究眼镜猛雷鼓", pokemonTranslationService.getTranslation("Choice Specs Raging Bolt"));
+        assertEquals("内敛 (+特攻, -攻击)猛雷鼓", pokemonTranslationService.getTranslation("Modest Raging Bolt"));
     }
 
     @Test

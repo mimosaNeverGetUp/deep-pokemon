@@ -14,14 +14,13 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
 public class PokemonTranslationService {
-    private final Pattern PROPER_NOUNS_PATTERN = Pattern.compile("\\b([A-Z][a-z\\-]*\\s?)+\\b");
+    private static final Pattern PROPER_NOUNS_PATTERN = Pattern.compile("\\b([A-Z][a-z\\-]*\\s?)+\\b");
 
     private final Map<String, String> translationMaps;
     private final Map<String, String> shortNameMap;
@@ -31,7 +30,7 @@ public class PokemonTranslationService {
         translationMaps = objectMapper.readValue(translationResource.getContentAsString(StandardCharsets.UTF_8),
                 objectMapper.getTypeFactory().constructMapType(Map.class, String.class, String.class));
         // put short name of multi form pokemon
-         shortNameMap = new HashMap();
+        shortNameMap = new HashMap<>();
         for (String key : translationMaps.keySet()) {
             int index = key.indexOf("-");
             if (index != -1 && index + 2 <= key.length()) {
@@ -57,12 +56,40 @@ public class PokemonTranslationService {
     }
 
     public String getTranslation(String context) {
-        if (translationMaps.get(context) != null) {
-            return translationMaps.get(context);
-        }else if(shortNameMap.containsKey(context)){
-            return shortNameMap.get(context);
+        if (getWordTranslation(context) != null) {
+            return getWordTranslation(context);
         }
+
+        // try split context and translate
+        List<String> words = Arrays.stream(context.split(" ")).toList();
+        if (words.size() < 2) {
+            return context;
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < words.size(); i++) {
+            String word = words.get(i);
+            stringBuilder.append(i == 0 ? word : " " + word);
+            if (getWordTranslation(stringBuilder.toString()) != null) {
+                if (i == words.size() - 1) {
+                    return getWordTranslation(stringBuilder.toString());
+                } else {
+                    String retainWord = String.join(" ", words.subList(i + 1, words.size()));
+                    return getWordTranslation(stringBuilder.toString()) + getTranslation(retainWord);
+                }
+            }
+        }
+
         return context;
+    }
+
+    public String getWordTranslation(String word) {
+        if (translationMaps.get(word) != null) {
+            return translationMaps.get(word);
+        } else if (shortNameMap.containsKey(word)) {
+            return shortNameMap.get(word);
+        }
+
+        return null;
     }
 
     public String translateText(String text) {

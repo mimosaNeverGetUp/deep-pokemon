@@ -99,6 +99,13 @@ public class PokemonTranslationService {
             String properNouns = matcher.group(0).trim();
             output = output.replace(properNouns, getTranslation(properNouns));
         }
+
+        // translate again to avoid miss match proper nouns after replace
+        matcher = PROPER_NOUNS_PATTERN.matcher(output);
+        while (matcher.find()) {
+            String properNouns = matcher.group(0).trim();
+            output = output.replace(properNouns, getTranslation(properNouns));
+        }
         output = output.replace("Entry hazards", "进场障碍");
         output = output.replace("entry hazards", "进场障碍");
         output = output.replace("entry hazard ", "进场障碍 ");

@@ -49,6 +49,7 @@ public class StatsService {
     protected static final String MOVES = "moves";
     protected static final String ABILITIES = "abilities";
     protected static final String TERA_TYPES = "teraTypes";
+    protected static final String MEGA = "-Mega";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -193,15 +194,22 @@ public class StatsService {
         Query query = new Query()
                 .addCriteria(Criteria.where(STAT_ID).is(statId))
                 .addCriteria(Criteria.where(NAME).is(pokemon));
-        return mongoTemplate.findOne(query, PokemonSet.class);
+        PokemonSet pokemonSet = mongoTemplate.findOne(query, PokemonSet.class);
+        if (pokemonSet == null && pokemon.contains(MEGA)) {
+            return queryPokemonSet(format, pokemon.substring(0, pokemon.indexOf(MEGA)));
+        }
+        return pokemonSet;
     }
 
     public PokemonAnalyze queryPokemonAnalysis(String format, String pokemon) {
         String id = String.join("_", format, pokemon);
         PokemonAnalyze pokemonAnalyze = mongoTemplate.findById(id, PokemonAnalyze.class);
-        if(pokemonAnalyze == null) {
+        if (pokemonAnalyze == null && pokemon.contains(MEGA)) {
+            return queryPokemonAnalysis(format, pokemon.substring(0, pokemon.indexOf(MEGA)));
+        } else if (pokemonAnalyze == null) {
             throw new ServerErrorException("pokemon analysis is empty", null);
         }
+
         return pokemonAnalyze;
     }
 }

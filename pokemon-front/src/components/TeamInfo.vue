@@ -78,32 +78,43 @@ watch(() => props.teamId, async (newTeamId) => {
     <p class="font-bold">team</p>
     <Team :team="teamInfo" :compact="true" :teamSet="teamInfo?.teamSet"></Team>
     <Accordion>
-      <AccordionTab header="set" :headerStyle='{"font-weight": 700}'>
-        <div class="flex gap-10">
-          <div v-for="pokemon in teamInfo?.teamSet.pokemons" class="min-w-36">
-            <p>
-              {{ pokemon.name }}
-            </p>
-            <div v-if="pokemon.items">
-              <p class="text-red-500">{{ "@" + (pokemon.items?.length === 0 ? "???" : pokemon.items[0]) }}</p>
+      <AccordionTab header="export" :headerStyle='{"font-weight": 700}'>
+        <div class="">
+          <div v-for="pokemon in teamInfo?.teamSet.pokemons" class="flex gap-1">
+            <div class="">
+              <div class="min-w-80">
+                <span>{{ pokemon.name }}</span>
+                <span v-if="pokemon.items" class="text-red-500">
+                  {{ " @ " + (pokemon.items?.length === 0 ? "???" : pokemon.items[0]) }}
+                </span>
+              </div>
+              <div>
+                {{ "Ability: ???" }}
+              </div>
+              <div class="flex items-center gap-1">
+                <span>{{ "Tera Type: " + (pokemon.teraTypes?.length === 0 ? "???" : pokemon.teraTypes[0]) }}</span>
+              </div>
+              <div v-if="pokemon.moves && pokemon.moves.length !==0">
+                <div v-for="move in pokemon.moves.slice(0, 4)" class="text-blue-500">
+                  {{ "-" + move }}
+                </div>
+                <br/>
+              </div>
+              <br v-else>
             </div>
 
-            <div class="flex items-center gap-1">
-              <p>{{ "Tera Type: " + pokemon.teraTypes }}</p>
-            </div>
-            <div v-if="pokemon.moves && pokemon.moves.length !==0">
-              <p v-for="move in pokemon.moves.slice(0, 4)">
-                <span class="text-blue-500">{{ "-" + move }}</span>
+            <div class="select-none font-light">
+              <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="font-bold">alternative sets</p>
+              <p v-for="item in pokemon.items.slice(1, pokemon.items.length)" class="font-light">
+                {{ "@" + item }}
               </p>
-              <br/>
+              <p v-if="pokemon.teraTypes.length > 1" class="font-light">
+                {{ "Tera Type: " + pokemon.teraTypes.slice(1, pokemon.teraTypes.length) }}
+              </p>
+              <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="font-light">
+                {{ "-" + move }}
+              </p>
             </div>
-            <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="font-light">alternative sets:</p>
-            <p v-for="item in pokemon.items.slice(1, pokemon.items.length)">
-              <span class="font-light">{{ "@" + item }}</span>
-            </p>
-            <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)">
-              <span class="font-light">{{ "-" + move }}</span>
-            </p>
           </div>
         </div>
       </AccordionTab>

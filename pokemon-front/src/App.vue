@@ -31,7 +31,6 @@ import Divider from "primevue/divider";
 
 .footer {
   margin-top: auto;
-  justify-items: center;
   align-items: center;
   gap: 0.25rem;
 }

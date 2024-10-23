@@ -283,7 +283,7 @@ public class BattleService {
         UnionWithOperation unionWithOperation = UnionWithOperation.unionWith(TOUR_TEAM).pipeline(matchOperation);
 
         GroupOperation groupOperation = Aggregation.group(TEAM_ID)
-                .and(TEAMS, AggregationExpression.from(MongoExpression.create("{$firstN:{input:\"$$ROOT\",n:20}}")))
+                .and(TEAMS, AggregationExpression.from(MongoExpression.create("{$lastN:{input:\"$$ROOT\",n:20}}")))
                 .first(POKEMONS).as(POKEMONS);
         LimitOperation limitOperation = Aggregation.limit(6);
         Aggregation aggregation = Aggregation.newAggregation(matchOperation, unionWithOperation, groupOperation,

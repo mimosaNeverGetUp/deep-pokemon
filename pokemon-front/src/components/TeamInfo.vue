@@ -29,7 +29,7 @@ const loadFail = ref(false);
 async function queryTeam(teamId) {
   loading.value = true;
   teamInfo.value = null
-  const res = await fetch(`${apiUrl}/api/team/${teamId}`, {
+  const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30`, {
         method: "GET"
       }
   )

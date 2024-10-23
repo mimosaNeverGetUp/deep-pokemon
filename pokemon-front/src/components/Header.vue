@@ -56,7 +56,10 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
-        <p>2024/10/19 调整队伍配置文本为PokePaste格式</p>
+        <p>2024/10/24 优化：Similar Teams存在对应PokePaste时，队伍右侧显示链接按钮</p>
+        <br/>
+
+        <p>2024/10/19 优化：调整队伍配置文本为PokePaste格式</p>
       </Sidebar>
     </div>
   </header>

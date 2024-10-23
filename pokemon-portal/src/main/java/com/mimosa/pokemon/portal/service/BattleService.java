@@ -85,6 +85,7 @@ public class BattleService {
     protected static final String PLAYER_NAME = "player.name";
     protected static final String POKEPAST_TEAM = "pokepast_team";
     protected static final String POKEPASTS = "pokepasts";
+    protected static final String POKEMON_SETS = "pokemonSets";
     private final MongoTemplate mongoTemplate;
 
     public BattleService(MongoTemplate mongoTemplate) {
@@ -291,18 +292,32 @@ public class BattleService {
         List<TeamGroup> teamGroups =
                 mongoTemplate.aggregate(aggregation, BattleTeam.class, TeamGroup.class).getMappedResults();
         List<TeamGroupDto> similarTeams = new ArrayList<>();
+        Map<Binary, List<PokePastTeam>> pokepastMap = getPokepastMap(teamGroups);
         for (TeamGroup teamGroup : teamGroups) {
-            if (teamId.equals(new Binary(teamGroup.id()))) {
+            Binary similarTeamId = new Binary(teamGroup.id());
+            if (teamId.equals(similarTeamId)) {
                 continue;
             }
 
             TeamSet teamSet = buildTeamSet(teamGroup.teams());
-            similarTeams.add(new TeamGroupDto(new Binary(teamGroup.id()), null, null, null, null,
+            similarTeams.add(new TeamGroupDto(similarTeamId, null, null, null, null,
                     null, null, teamGroup.pokemons(), null, null,
-                    null, null, teamSet, null, null));
+                    null, null, teamSet, null, pokepastMap.get(similarTeamId)));
         }
         return similarTeams;
     }
+
+    private Map<Binary, List<PokePastTeam>> getPokepastMap(List<TeamGroup> similarTeams) {
+        if(similarTeams.isEmpty()) {
+            return Collections.emptyMap();
+        }
+        List<Binary> teamIds = similarTeams.stream().map(teamGroup -> new Binary(teamGroup.id())).toList();
+        Query query = new Query(Criteria.where(TEAM_ID).in(teamIds));
+        query.fields().exclude(POKEMON_SETS);
+        List<PokePastTeam> pokePastes = mongoTemplate.find(query, PokePastTeam.class);
+        return pokePastes.stream().collect(Collectors.groupingBy(PokePastTeam::teamId));
+    }
+
 
     public TeamSet buildTeamSet(List<BattleTeam> teams) {
         if (teams == null || teams.isEmpty()) {

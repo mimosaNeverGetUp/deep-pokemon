@@ -128,6 +128,10 @@ watch(() => props.teamId, async (newTeamId) => {
         <Team :team="similarTeam" :compact="true" :teamSet="similarTeam?.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
            @click="queryTeam(similarTeam.id.data)"/>
+        <a class="ml-2" target="_blank" v-if="similarTeam.pokepasts?.length > 0" v-for="pokepast in similarTeam.pokepasts"
+           :href="pokepast.url" >
+          <i class="pi pi-link" style="color: darkblue"></i>
+        </a>
       </div>
     </div>
 

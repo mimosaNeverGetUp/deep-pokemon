@@ -53,7 +53,10 @@ queryUpdateDate()
         <p class="font-bold">特别感谢：</p>
         <p>1. <a target="_blank" href="https://github.com/pkmn/smogon">@pkmn</a>的数据API</p>
         <p>2. <a target="_blank" href="https://pschina.one/topic/2087/%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E4%B8%8E%E5%8F%8D%E9%A6%88">PS China</a>的汉化脚本</p>
+        <br/>
 
+        <p class="font-bold">Release Note：</p>
+        <p>2024/10/19 调整队伍配置文本为PokePaste格式</p>
       </Sidebar>
     </div>
   </header>

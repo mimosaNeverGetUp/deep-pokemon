@@ -39,6 +39,7 @@ class PokemonTranslationServiceTest {
         assertEquals("吃剩的东西", pokemonTranslationService.getTranslation("Leftovers"));
         assertEquals("讲究眼镜猛雷鼓", pokemonTranslationService.getTranslation("Choice Specs Raging Bolt"));
         assertEquals("内敛 (+特攻, -攻击)猛雷鼓", pokemonTranslationService.getTranslation("Modest Raging Bolt"));
+        assertEquals("冥想猛雷鼓", pokemonTranslationService.getTranslation("Calm Mind Raging Bolt"));
     }
 
     @Test

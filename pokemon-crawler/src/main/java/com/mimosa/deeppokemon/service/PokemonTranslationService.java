@@ -69,7 +69,11 @@ public class PokemonTranslationService {
         for (int i = 0; i < words.size(); i++) {
             String word = words.get(i);
             stringBuilder.append(i == 0 ? word : " " + word);
-            if (getWordTranslation(stringBuilder.toString()) != null) {
+
+            String nextWord = i >= words.size() - 1 ? "" : words.get(i + 1);
+            String nextCombineWord = String.join(" ", stringBuilder.toString(), nextWord);
+            // avoid translate word early, when next combine word also can translate, continue loop
+            if (getWordTranslation(stringBuilder.toString()) != null && getWordTranslation(nextCombineWord) == null) {
                 if (i == words.size() - 1) {
                     return getWordTranslation(stringBuilder.toString());
                 } else {

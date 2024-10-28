@@ -90,13 +90,6 @@ public class ScheduledConfig {
         cacheService.clearMonthlyStat();
     }
 
-    @Scheduled(cron = "0 30 0 * * ?")
-    private void crawOlt() {
-        log.info("start craw olt");
-        tourService.crawOltXI();
-        log.info("craw olt success");
-    }
-
     @Scheduled(cron = "0 45 0 * * 2")
     private void crawSclIv() {
         log.info("start craw scl");

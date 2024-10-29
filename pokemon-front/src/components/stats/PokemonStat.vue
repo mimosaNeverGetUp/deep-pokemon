@@ -110,7 +110,10 @@ function filterPopularSet(set, thresold) {
 
 function getMoveTypeIconUrl(move) {
   let type = Dex.forGen(currentTierNumber).moves.get(move)?.type;
-  return `/types/${type}.png`
+  if (type === "???") {
+    return "/types/null.png";
+  }
+  return `/types/${type}.png`;
 }
 
 function getMoveCategoryIconUrl(move) {
@@ -120,6 +123,11 @@ function getMoveCategoryIconUrl(move) {
 
 function getMoveBasePower(move) {
   return Dex.forGen(currentTierNumber).moves.get(move)?.basePower;
+}
+
+function getMovePP(move) {
+  let pp = Dex.forGen(currentTierNumber).moves.get(move)?.pp;
+  return pp ? pp * 1.6 : 'NA';
 }
 
 function getAccuracyText(move) {
@@ -347,9 +355,12 @@ function getTranslation(text) {
         </div>
         <img :src="getMoveTypeIconUrl(move)" :alt="move"/>
         <img :src="getMoveCategoryIconUrl(move)" :alt="move"/>
-        <span class="w-7 text-center">{{ getMoveBasePower(move) }}</span>
-        <span class="w-12 text-center">{{ getAccuracyText(move) }}</span>
-        <span class="whitespace-nowrap">{{ getTranslation(Dex.forGen(currentTierNumber).moves.get(move)?.shortDesc) }}</span>
+        <span class="w-7 min-w-7 text-center">{{ getMoveBasePower(move) }}</span>
+        <span class="w-12 min-w-12 text-center">{{ getAccuracyText(move) }}</span>
+        <span class="w-7 min-w-7 text-center">{{ getMovePP(move) }}</span>
+        <span class="whitespace-nowrap">{{
+            getTranslation(Dex.forGen(currentTierNumber).moves.get(move)?.shortDesc)
+          }}</span>
       </div>
     </div>
     <Divider type="solid"/>

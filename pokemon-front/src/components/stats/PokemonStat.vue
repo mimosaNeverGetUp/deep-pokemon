@@ -12,14 +12,10 @@ import ProgressSpinner from 'primevue/progressspinner';
 import Textarea from 'primevue/textarea';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
+import {Dex} from '@pkmn/dex';
 
 import UsageDif from "@/components/stats/UsageDif.vue";
-import {abilityText} from "@/components/data/abilityText.js";
-import {itemText} from "@/components/data/ItemText.js";
-import {moveText} from "@/components/data/moveText.js";
-import {pokemoninfo} from "@/components/data/pokemoninfo.js"
 import {zh_translation_text} from "@/components/data/translationText.js"
-import {moveInfo} from "@/components/data/moveInfo.js";
 import {nature} from "@/components/data/nature.js";
 import Team from "@/components/Team.vue";
 import Dialog from "primevue/dialog";
@@ -35,6 +31,21 @@ const props = defineProps({
     default: "en"
   }
 })
+
+// get current tier
+const genRegex = /gen([0-9]+)/g;
+let currentTier;
+let currentTierNumber;
+if (props.format.includes("1v1")) {
+  currentTier = props.format.substring(0, props.format.indexOf("1v1"));
+  currentTierNumber = currentTier.matchAll(genRegex).next().value[1];
+} else if (props.format.includes("2v2")) {
+  currentTier = props.format.substring(0, props.format.indexOf("2v2"));
+  currentTierNumber = currentTier.matchAll(genRegex).next().value[1];
+} else {
+  currentTier = props.format.matchAll(genRegex).next().value[0];
+  currentTierNumber = props.format.matchAll(genRegex).next().value[1];
+}
 
 const moveset = ref()
 const sets = ref()
@@ -98,16 +109,22 @@ function filterPopularSet(set, thresold) {
 }
 
 function getMoveTypeIconUrl(move) {
-  let type = moveInfo[move]?.type
+  let type = Dex.forGen(currentTierNumber).moves.get(move)?.type;
   return `/types/${type}.png`
 }
 
 function getMoveCategoryIconUrl(move) {
-  let category = moveInfo[move]?.category
+  let category = Dex.forGen(currentTierNumber).moves.get(move)?.category;
   return `/categories/${category}.png`
 }
 
-function getAccuracyText(accuracy) {
+function getMoveBasePower(move) {
+  return Dex.forGen(currentTierNumber).moves.get(move)?.basePower;
+}
+
+function getAccuracyText(move) {
+  let accuracy = Dex.forGen(currentTierNumber).moves.get(move)?.accuracy;
+
   if (accuracy === true) {
     return '100%';
   }
@@ -188,11 +205,11 @@ async function queryPokemonAnalysis(format, pokemon) {
 }
 
 function getPokemonTypes(name) {
-  return pokemoninfo[name]?.types;
+  return Dex.forGen(currentTierNumber).species.get(name)?.types;
 }
 
 function getPokemonStats(name) {
-  return pokemoninfo[name]?.baseStats;
+  return Dex.forGen(currentTierNumber).species.get(name)?.baseStats;
 }
 
 function getStatStyle(stat, value) {
@@ -245,9 +262,9 @@ function getTranslation(text) {
            :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
       <div class="flex justify-start items-center">
         <p class="text-3xl font-bold mr-1 text-center items-center">{{ getTranslation(pokemon?.name) }}</p>
-        <img v-if="pokemoninfo[pokemon?.name]" v-for="type in getPokemonTypes(pokemon?.name)"
+        <img v-if="Dex.forGen(currentTierNumber).species.get(pokemon?.name)" v-for="type in getPokemonTypes(pokemon?.name)"
              :src="`/types/${type}.png`" height="17" width="40" :alt="type"/>
-        <div class="ml-4 w-56" v-if="pokemoninfo[pokemon?.name]">
+        <div class="ml-4 w-56" v-if="Dex.forGen(currentTierNumber).species.get(pokemon?.name)">
           <div v-for="(value, key) in getPokemonStats(pokemon?.name)" class="flex gap-1 items-center text-center">
             <span class="font-mono  text-sm w-6">{{ key }}</span>
             <span :style="getStatStyle(key,value)" class="size-3.5"></span>
@@ -286,7 +303,7 @@ function getTranslation(text) {
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.abilities[ability]"/>
         </div>
-        <span class="whitespace-nowrap">{{ getTranslation(abilityText[ability]?.shortDesc) }}</span>
+        <span class="whitespace-nowrap">{{getTranslation(Dex.forGen(currentTierNumber).abilities.get(ability)?.shortDesc) }}</span>
       </div>
     </div>
     <Divider type="solid"/>
@@ -301,7 +318,7 @@ function getTranslation(text) {
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.items[item]"/>
         </div>
-        <span class="whitespace-nowrap">{{ getTranslation(itemText[item]?.desc) }}</span>
+        <span class="whitespace-nowrap">{{ getTranslation(Dex.forGen(currentTierNumber).items.get(item)?.desc) }}</span>
       </div>
     </div>
     <Divider type="solid"/>
@@ -330,9 +347,9 @@ function getTranslation(text) {
         </div>
         <img :src="getMoveTypeIconUrl(move)" :alt="move"/>
         <img :src="getMoveCategoryIconUrl(move)" :alt="move"/>
-        <span class="w-7 text-center">{{ moveInfo[move]?.basePower }}</span>
-        <span class="w-12 text-center">{{ getAccuracyText(moveInfo[move]?.accuracy) }}</span>
-        <span class="whitespace-nowrap">{{ getTranslation(moveText[move]?.shortDesc) }}</span>
+        <span class="w-7 text-center">{{ getMoveBasePower(move) }}</span>
+        <span class="w-12 text-center">{{ getAccuracyText(move) }}</span>
+        <span class="whitespace-nowrap">{{ getTranslation(Dex.forGen(currentTierNumber).moves.get(move)?.shortDesc) }}</span>
       </div>
     </div>
     <Divider type="solid"/>
@@ -402,7 +419,7 @@ function getTranslation(text) {
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
            @click="toggleTeamInfoDialog(teamGroup.id.data)"/>
         <a class="ml-2" target="_blank" v-if="teamGroup.pokepasts?.length > 0" v-for="pokepast in teamGroup.pokepasts"
-           :href="pokepast.url" >
+           :href="pokepast.url">
           <i class="pi pi-link" style="color: darkblue"></i>
         </a>
       </div>

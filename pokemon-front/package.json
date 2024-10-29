@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@pkmn/dex": "^0.9.21",
     "chart.js": "^4.4.2",
     "primeicons": "^6.0.1",
     "primevue": "^3.49.1",

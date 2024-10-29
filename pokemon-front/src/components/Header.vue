@@ -56,10 +56,13 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
-        <p>2024/10/24 优化：Similar Teams存在对应PokePaste时，队伍右侧显示链接按钮</p>
+        <p><span class="font-bold">2024/10/29 修复：</span>正确显示旧世代特性、道具、招式文本，正确显示旧世代宝可梦的属性及种族值</p>
         <br/>
 
-        <p>2024/10/19 优化：调整队伍配置文本为PokePaste格式</p>
+        <p><span class="font-bold">2024/10/24 优化：</span>Similar Teams存在对应PokePaste时，队伍右侧显示链接按钮</p>
+        <br/>
+
+        <p><span class="font-bold">2024/10/19 优化：</span>调整队伍配置文本为PokePaste格式</p>
       </Sidebar>
     </div>
   </header>

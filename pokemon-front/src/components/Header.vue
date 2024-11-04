@@ -56,6 +56,10 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2024/11/4 tour：</span>
+          <a target="_blank" href="https://www.smogon.com/forums/threads/oupl-viii-replays.3754001/">OUPL VIII</a></p>
+        <br/>
+
         <p><span class="font-bold">2024/10/29 修复：</span>正确显示旧世代特性、道具、招式文本，正确显示旧世代宝可梦的属性及种族值</p>
         <br/>
 

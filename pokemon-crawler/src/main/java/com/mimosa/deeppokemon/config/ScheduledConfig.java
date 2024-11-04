@@ -97,6 +97,14 @@ public class ScheduledConfig {
         log.info("craw scl success");
     }
 
+    @Scheduled(cron = "0 25 0 * * 2")
+    private void crawOuplViii() {
+        log.info("start craw oupl");
+        tourService.crawOuplViii("gen9ou");
+        tourService.crawOuplViii("gen8ou");
+        log.info("craw oupl success");
+    }
+
     @Scheduled(cron = "0 0 2 1 * ?")
     private void crawMonthlyTeam() {
         LocalDate lastMonth = LocalDate.now().minusMonths(1);

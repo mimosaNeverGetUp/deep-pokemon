@@ -8,7 +8,9 @@ package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.tour.Tour;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +25,8 @@ public class TourService {
 
     @Cacheable("tours")
     public List<Tour> getAllTours() {
-        return mongoTemplate.findAll(Tour.class);
+        Query query = new Query();
+        query.with(Sort.by(Sort.Order.desc("startDate")));
+        return mongoTemplate.find(query, Tour.class);
     }
 }

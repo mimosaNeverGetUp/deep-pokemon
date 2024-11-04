@@ -56,7 +56,14 @@ public class TourApiController {
         return true;
     }
 
+    @PostMapping("/ouplViii/battle")
+    public boolean crawOuplViii(@RequestParam("format") String format) {
+        tourService.crawOuplViii(format);
+        return true;
+    }
+
     @PostMapping("/wcop2024/record/update")
+
     public boolean updateWcop2024PlayerRecord(@RequestParam("format") String format) {
         tourService.updatePlayerRecord(THE_WORLD_CUP_OF_POKEMON_2024, format);
         return true;

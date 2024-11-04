@@ -82,6 +82,14 @@ public class TourService {
             List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9",
                     "Semifinals", "Finals");
 
+    protected static final String OUPL_VIII = "OUPL VIII";
+    protected static final String OUPL_FORUMS_URL =
+            "https://www.smogon.com/forums/forums/gen-9-ou-archive.841/";
+    protected static final String OUPL_VIII_REPLAY_URL =
+            "https://www.smogon.com/forums/threads/oupl-viii-replays.3754001/";
+    protected static final List<String> OUPL_STAGES =
+            List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Semifinals", "Finals");
+
     private final BattleService battleService;
     private final MongoTemplate mongoTemplate;
     private final ReplayBattleCrawler replayBattleCrawler;
@@ -222,5 +230,14 @@ public class TourService {
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_PREMIER_LEAGUE_XV, SPL_XV_REPLAY_URL,
                 format, SPL_STAGES, winPlayerExtractor);
         return crawTour(SMOGON_PREMIER_LEAGUE_XV, SPL_XV, format, provider);
+    }
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawOuplViii(String format) {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(OUPL_FORUMS_URL,
+                OUPL_VIII, OUPL_STAGES);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(OUPL_VIII, OUPL_VIII_REPLAY_URL,
+                format, OUPL_STAGES, winPlayerExtractor);
+        return crawTour(OUPL_VIII, OUPL_VIII, format, provider);
     }
 }

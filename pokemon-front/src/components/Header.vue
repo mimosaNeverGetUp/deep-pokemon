@@ -56,6 +56,9 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2024/11/9 优化：</span>系统设置为深色模式时，调整主题色</p>
+        <br/>
+
         <p><span class="font-bold">2024/11/4 tour：</span>
           <a target="_blank" href="https://www.smogon.com/forums/threads/oupl-viii-replays.3754001/">OUPL VIII</a></p>
         <br/>

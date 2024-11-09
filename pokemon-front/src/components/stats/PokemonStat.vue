@@ -413,9 +413,9 @@ function getTranslation(text) {
             </template>
             <div class="">
               <Textarea v-model="analysis.setChineseAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg"/>
+                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dark:bg-[#181818] dark:text-[#EBEBEBA3]"/>
               <Textarea v-model="analysis.setAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg"/>
+                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dark:bg-[#181818] dark:text-[#EBEBEBA3]"/>
             </div>
 
           </AccordionTab>

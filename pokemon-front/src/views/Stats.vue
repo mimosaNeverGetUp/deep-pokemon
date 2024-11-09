@@ -50,7 +50,7 @@ getFormatNode();
 <template>
   <div class="mt-[30px] gap-1 flex items-center justify-end">
     <router-link :to="getStatsLink()">
-      <Avatar icon="pi pi-language" class="bg-white" size="large"/>
+      <Avatar icon="pi pi-language" class="bg-white dark:bg-[#181818] dark:text-[#EBEBEBA3]" size="large"/>
     </router-link>
     <TreeSelect filter :options="formatNodes" :placeholder="route.query.format" @node-select="onNodeSelect"/>
   </div>

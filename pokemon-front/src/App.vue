@@ -1,6 +1,12 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Divider from "primevue/divider";
+import { usePrimeVue } from 'primevue/config';
+
+const PrimeVue = usePrimeVue();
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  PrimeVue.changeTheme('aura-light-green', 'aura-dark-green', 'theme-link', () => {console.log(2)});
+}
 
 </script>
 

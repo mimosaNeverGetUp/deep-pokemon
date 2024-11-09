@@ -342,7 +342,7 @@ queryBattleStat(props.data.id)
       <TabPanel headerClass="w-1/2">
         <template #header>
           <div class="flex justify-center items-center gap-2 w-full">
-            <span class="text-lg text-black">trend</span>
+            <span class="text-lg text-black dark:text-[#EBEBEBA3]">trend</span>
           </div>
         </template>
         <div class="flex justify-center items-center">
@@ -354,7 +354,7 @@ queryBattleStat(props.data.id)
       <TabPanel headerClass="w-1/2">
         <template #header>
           <div class="flex justify-center items-center gap-2 w-full">
-            <span class="text-lg text-black">stat</span>
+            <span class="text-lg text-black dark:text-[#EBEBEBA3]">stat</span>
           </div>
         </template>
         <DataTable :value="playerPokemonBattleStat" class="ladder" :scrollable="false"

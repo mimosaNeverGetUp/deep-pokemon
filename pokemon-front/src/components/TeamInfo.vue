@@ -147,7 +147,7 @@ watch(() => props.teamId, async (newTeamId) => {
       </Column>
       <Column field="playerName" header="playerName" :style="{ width:'10%'}">
         <template #body="{data}">
-          <router-link :to="`/player-record?name=${data.playerName}`" class="text-black">
+          <router-link :to="`/player-record?name=${data.playerName}`" class="text-black dark:text-[#EBEBEBA3]">
             {{ data.playerName }}
           </router-link>
         </template>
@@ -156,7 +156,7 @@ watch(() => props.teamId, async (newTeamId) => {
       <Column field="rating" sortable header="rating" :style="{ width:'10%'}"/>
       <Column field="battle-example" header="replay" :style="{ width:'20%'}">
         <template #body="{data}">
-          <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="text-black">
+          <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="text-black dark:text-[#EBEBEBA3]">
             {{ data.battleId }}
           </a>
         </template>

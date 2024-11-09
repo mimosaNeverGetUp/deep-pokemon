@@ -12,7 +12,7 @@
     "@pkmn/dex": "^0.9.21",
     "chart.js": "^4.4.2",
     "primeicons": "^6.0.1",
-    "primevue": "^3.49.1",
+    "primevue": "^3.53.0",
     "vue": "^3.4.15",
     "vue-router": "^4.3.0"
   },

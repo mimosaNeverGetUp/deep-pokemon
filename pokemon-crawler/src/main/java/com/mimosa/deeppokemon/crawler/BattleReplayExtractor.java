@@ -74,11 +74,16 @@ public class BattleReplayExtractor {
         String winner = extractWinner(battleReplayData.log());
         int avageRating = battleReplayData.rating();
         Battle battle = new Battle(teams, date, winner, avageRating);
-        battle.setBattleID(battleReplayData.id());
+        if (battleReplayData.password() == null) {
+            battle.setBattleID(battleReplayData.id());
+        } else {
+            battle.setBattleID(String.format("%s-%spw", battleReplayData.id(), battleReplayData.password()));
+        }
         battle.setFormat(tier);
         battle.setPlayers(battleReplayData.players());
         battle.setAvageRating(battleReplayData.rating());
         battle.setLog(battleReplayData.log());
+        battle.setPassword(battleReplayData.password());
         extractBattleTurn(battleReplayData.log(), battle);
         logger.debug("extract battle: {}", battle);
         return battle;

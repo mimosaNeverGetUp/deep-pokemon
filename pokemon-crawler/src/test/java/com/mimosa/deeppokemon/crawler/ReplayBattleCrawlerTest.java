@@ -44,13 +44,15 @@ class ReplayBattleCrawlerTest {
     @Value("classpath:api/battleReplay.json")
     Resource battleReplay;
 
+    @Value("classpath:api/battleReplay_private.json")
+    Resource privateBattleReplay;
+
     @Autowired
     BattleService battleSevice;
 
     @Autowired
     private final ObjectMapper OBJECT_MAPPER =
             new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
 
     @Test
     void crawler() throws IOException {
@@ -63,6 +65,23 @@ class ReplayBattleCrawlerTest {
             Battle battle = crawler.craw(new ReplaySource(null, Collections.singletonList(replay))).get(0);
             MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
             Assertions.assertNotEquals(0, battle.getAvageRating());
+            Assertions.assertNull(battle.getPassword());
+            Assertions.assertEquals("gen9ou-2106610802", battle.getBattleID());
+        }
+    }
+
+    @Test
+    void privateBattle() throws IOException {
+        try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {
+            BattleReplayData battleReplayData =
+                    OBJECT_MAPPER.readValue(privateBattleReplay.getContentAsString(StandardCharsets.UTF_8), BattleReplayData.class);
+
+            mockHttpUtil.when(() -> HttpUtil.request(Mockito.any(), Mockito.any(Class.class))).thenReturn(battleReplayData);
+            Replay replay = new Replay(ID_GEN9, 0, null, 1790, new String[]{"PTLT508 jojo", "OU G Herbo"}, false);
+            Battle battle = crawler.craw(new ReplaySource(null, Collections.singletonList(replay))).get(0);
+            MatcherAssert.assertThat(battle, BattleMatcher.BATTLE_MATCHER);
+            Assertions.assertEquals("1yciqmm3wbcy71qr3bqwch7vscxdb30", battle.getPassword());
+            Assertions.assertEquals("gen9ou-2241120635-1yciqmm3wbcy71qr3bqwch7vscxdb30pw", battle.getBattleID());
         }
     }
 }

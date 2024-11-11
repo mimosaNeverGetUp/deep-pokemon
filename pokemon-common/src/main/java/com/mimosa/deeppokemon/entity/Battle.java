@@ -55,6 +55,8 @@ public class Battle implements Serializable {
     protected int turnCount;
     //比赛类型
     protected List<String> type;
+    // pwd
+    protected String password;
 
     // 队伍
     @Transient
@@ -181,6 +183,14 @@ public class Battle implements Serializable {
 
     public void setFormat(String format) {
         this.format = format;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

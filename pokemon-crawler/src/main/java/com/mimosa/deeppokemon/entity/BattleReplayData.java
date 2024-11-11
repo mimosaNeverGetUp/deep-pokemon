@@ -12,5 +12,5 @@ import java.util.List;
 
 public record BattleReplayData(String id, String format, List<String> players,
                                @JsonProperty("uploadtime") long uploadTime,
-                               String log, @JsonProperty("formatid") String formatId, int rating) {
+                               String log, @JsonProperty("formatid") String formatId, int rating, String password) {
 }

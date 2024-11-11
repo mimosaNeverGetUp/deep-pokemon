@@ -101,7 +101,6 @@ class BattleAnalyzerTest {
         Assertions.assertNotNull(battle.getBattleStat());
     }
 
-
     @ParameterizedTest
     @MethodSource("provideGen8ouBattleLog")
     void analyze_gen8ou_noException(Battle battle) {

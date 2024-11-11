@@ -98,4 +98,48 @@ class FaintEventAnalyzerTest {
         Assertions.assertEquals(54, battleHighLight.turn());
         Assertions.assertNotNull(battleHighLight.description());
     }
+
+    @Test
+    void analyze_RockyDamage_Faint() {
+
+        String skarmory = "Skarmory";
+        String greatTusk = "Great Tusk";
+        int killPlyayerNumber = 2;
+
+        BattleEvent damageEvent = new BattleEvent("damage", null, null, null);
+        EventTarget damageTarget = new EventTarget(2, skarmory, skarmory);
+        EventTarget damageOf = new EventTarget(1, greatTusk, greatTusk);
+        damageEvent.setBattleEventStat(new DamageEventStat(damageTarget, damageOf, "Ice Spinner",
+                BigDecimal.valueOf(14)));
+
+        BattleEvent rockyDamageEvent = new BattleEvent("damage", null, null, null);
+        EventTarget rockyDamageTarget = new EventTarget(1, greatTusk, greatTusk);
+        EventTarget rockyDamageOf = new EventTarget(2, skarmory, skarmory);
+        rockyDamageEvent.setBattleEventStat(new DamageEventStat(rockyDamageTarget, rockyDamageOf, "item: Rocky Helmet",
+                BigDecimal.valueOf(1)));
+
+        BattleEvent moveEvent = new BattleEvent("move", null, null, List.of(damageEvent, rockyDamageEvent));
+        BattleEvent faintEvent = new BattleEvent("faint", List.of("p1a: Great Tusk"), null, null, moveEvent);
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(killPlyayerNumber, skarmory, skarmory)
+                .addPokemon(1, greatTusk, greatTusk)
+                .setTurn(5)
+                .build();
+
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(killPlyayerNumber, skarmory)
+                .addPokemonStat(1, greatTusk)
+                .build();
+        Assertions.assertTrue(faintEventAnalyzer.supportAnalyze(faintEvent));
+        faintEventAnalyzer.analyze(faintEvent, battleStat, battleContext);
+        PlayerStat killPlayerStat = battleStat.playerStatList().get(killPlyayerNumber - 1);
+        PokemonBattleStat killPokemonBattleStat =
+                killPlayerStat.getPokemonBattleStat(skarmory);
+        Assertions.assertEquals(1, killPokemonBattleStat.getKillCount());
+        Assertions.assertEquals(1, killPlayerStat.getHighLights().size());
+        BattleHighLight battleHighLight = killPlayerStat.getHighLights().get(0);
+        Assertions.assertEquals(BattleHighLight.HighLightType.KILL, battleHighLight.type());
+        Assertions.assertEquals(5, battleHighLight.turn());
+        Assertions.assertNotNull(battleHighLight.description());
+    }
 }

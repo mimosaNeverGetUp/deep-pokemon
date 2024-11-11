@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerErrorException;
+import org.testcontainers.shaded.com.google.common.collect.Streams;
 
 import java.util.Set;
 
@@ -38,7 +39,7 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer {
 
         EventTarget eventTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(TARGET_INDEX), battleContext);
         if (eventTarget != null) {
-            DamageEventStat damageEventStat = getKillDamageEventStat(battleEvent);
+            DamageEventStat damageEventStat = getKillDamageEventStat(battleEvent, eventTarget);
             if (damageEventStat != null) {
                 EventTarget damageOf = damageEventStat.damageOf();
                 if (damageOf == null) {
@@ -53,8 +54,8 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer {
         }
     }
 
-    private DamageEventStat getKillDamageEventStat(BattleEvent battleEvent) {
-        DamageEventStat previousDamageEventStat = getPreviousDamageEventStat(battleEvent);
+    private DamageEventStat getKillDamageEventStat(BattleEvent battleEvent, EventTarget eventTarget) {
+        DamageEventStat previousDamageEventStat = getPreviousDamageEventStat(battleEvent, eventTarget);
         if (previousDamageEventStat != null) {
             return previousDamageEventStat;
         }
@@ -88,13 +89,18 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer {
         }
     }
 
-    private DamageEventStat getPreviousDamageEventStat(BattleEvent battleEvent) {
+    private DamageEventStat getPreviousDamageEventStat(BattleEvent battleEvent, EventTarget eventTarget) {
         if (battleEvent.getPreviousEvent() != null && battleEvent.getPreviousEvent().getChildrenEvents() != null) {
-            return battleEvent.getPreviousEvent().getChildrenEvents()
+            return Streams.findLast(battleEvent.getPreviousEvent().getChildrenEvents()
                     .stream()
-                    .filter(e -> e.getBattleEventStat() instanceof DamageEventStat)
-                    .map(e -> (DamageEventStat) e.getBattleEventStat())
-                    .findFirst().orElse(null);
+                    .filter(e -> {
+                        if (e.getBattleEventStat() instanceof DamageEventStat damageEventStat) {
+                            return eventTarget.equals(damageEventStat.eventTarget());
+                        }
+                        return false;
+                    } )
+                    .map(e -> (DamageEventStat) e.getBattleEventStat()))
+                    .orElse(null);
         }
         return null;
     }

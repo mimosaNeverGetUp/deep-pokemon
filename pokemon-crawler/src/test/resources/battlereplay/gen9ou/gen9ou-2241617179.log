@@ -1,0 +1,94 @@
+|html|<div class="broadcast-blue"><strong>[Gen 9] OU is currently suspecting Gliscor! For information on how to participate check out the <a href="https://www.smogon.com/forums/threads/np-sv-ou-suspect-process-round-15-higher-ground-see-post-2-for-new-suspect-info.3754477/#post-10327652">suspect thread</a>.</strong></div>
+|j|☆PO KD8 专围吹飞
+|j|☆just a passer
+|t:|1731320624
+|gametype|singles
+|player|p1|PO KD8 专围吹飞|acerola|
+|player|p2|just a passer|1|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Gholdengo|
+|poke|p1|Ting-Lu|
+|poke|p1|Skarmory, F|
+|poke|p1|Great Tusk|
+|poke|p1|Roaring Moon|
+|poke|p1|Reuniclus, M|
+|poke|p2|Gholdengo|
+|poke|p2|Ting-Lu|
+|poke|p2|Skarmory, F|
+|poke|p2|Great Tusk|
+|poke|p2|Roaring Moon|
+|poke|p2|Reuniclus, M|
+|teampreview
+|
+|t:|1731320632
+|start
+|switch|p1a: Great Tusk|Great Tusk, shiny|100/100
+|switch|p2a: Skarmory|Skarmory, F, shiny|100/100
+|turn|1
+|
+|t:|1731320637
+|move|p1a: Great Tusk|Ice Spinner|p2a: Skarmory
+|-damage|p2a: Skarmory|86/100
+|-damage|p1a: Great Tusk|84/100|[from] item: Rocky Helmet|[of] p2a: Skarmory
+|move|p2a: Skarmory|Body Press|p1a: Great Tusk
+|-damage|p1a: Great Tusk|67/100
+|
+|upkeep
+|turn|2
+|
+|t:|1731320644
+|move|p1a: Great Tusk|Ice Spinner|p2a: Skarmory
+|-damage|p2a: Skarmory|72/100
+|-damage|p1a: Great Tusk|51/100|[from] item: Rocky Helmet|[of] p2a: Skarmory
+|move|p2a: Skarmory|Body Press|p1a: Great Tusk
+|-damage|p1a: Great Tusk|34/100
+|
+|upkeep
+|turn|3
+|
+|t:|1731320670
+|move|p1a: Great Tusk|Ice Spinner|p2a: Skarmory
+|-damage|p2a: Skarmory|58/100
+|-damage|p1a: Great Tusk|17/100|[from] item: Rocky Helmet|[of] p2a: Skarmory
+|move|p2a: Skarmory|Roost|p2a: Skarmory
+|-heal|p2a: Skarmory|100/100
+|-singleturn|p2a: Skarmory|move: Roost
+|
+|upkeep
+|turn|4
+|
+|t:|1731320679
+|move|p1a: Great Tusk|Ice Spinner|p2a: Skarmory
+|-damage|p2a: Skarmory|87/100
+|-damage|p1a: Great Tusk|1/100|[from] item: Rocky Helmet|[of] p2a: Skarmory
+|move|p2a: Skarmory|Roost|p2a: Skarmory
+|-heal|p2a: Skarmory|100/100
+|-singleturn|p2a: Skarmory|move: Roost
+|
+|upkeep
+|turn|5
+|
+|t:|1731320685
+|move|p1a: Great Tusk|Ice Spinner|p2a: Skarmory
+|-damage|p2a: Skarmory|86/100
+|-damage|p1a: Great Tusk|0 fnt|[from] item: Rocky Helmet|[of] p2a: Skarmory
+|faint|p1a: Great Tusk
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|move|p2a: Skarmory|Spikes|p1: Great Tusk
+|-sidestart|p1: PO KD8 专围吹飞|Spikes
+|
+|upkeep
+|-message|PO KD8 专围吹飞 forfeited.
+|
+|win|just a passer

@@ -5,7 +5,7 @@ import { usePrimeVue } from 'primevue/config';
 
 const PrimeVue = usePrimeVue();
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  PrimeVue.changeTheme('aura-light-green', 'aura-dark-green', 'theme-link', () => {console.log(2)});
+  PrimeVue.changeTheme('aura-light-green', 'aura-dark-green', 'theme-link', () => {});
 }
 
 </script>

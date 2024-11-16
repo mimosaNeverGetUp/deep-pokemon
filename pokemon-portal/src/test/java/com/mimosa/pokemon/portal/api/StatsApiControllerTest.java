@@ -36,13 +36,11 @@ class StatsApiControllerTest {
     @Test
     void usages() throws Exception {
         Mockito.doReturn("202407gen9ou").when(statsService).getLatestStatId("gen9ou");
-        mockMvc.perform(get("/api/stats/gen9ou/usage")
-                        .queryParam("page", "0")
-                        .queryParam("row", "20"))
+        mockMvc.perform(get("/api/stats/gen9ou/usage"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
                 .andExpect(jsonPath("$.page").value(0))
-                .andExpect(jsonPath("$.row").value(20))
+                .andExpect(jsonPath("$.row", Matchers.not(0)))
                 .andExpect(jsonPath("$.data").isNotEmpty())
                 .andExpect(jsonPath("$.data",
                         Matchers.everyItem(Matchers.allOf(

@@ -15,7 +15,6 @@ import com.mimosa.pokemon.portal.dto.MonthlyPokemonMoveSetDto;
 import com.mimosa.pokemon.portal.dto.MonthlyPokemonUsageDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
-import com.mimosa.pokemon.portal.util.MongodbUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
@@ -59,21 +58,20 @@ public class StatsService {
     }
 
     @Cacheable("monthlyUsage")
-    public PageResponse<MonthlyPokemonUsageDto> queryUsage(String format, int page, int row) {
+    public PageResponse<MonthlyPokemonUsageDto> queryUsage(String format) {
         String statId = getLatestStatId(format);
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId)).with(Sort.by(Sort.Order.desc(USAGE_WEIGHTED)));
         long total = mongoTemplate.count(query, MonthlyPokemonUsage.class);
-        MongodbUtils.withPageOperation(query, page, row);
         List<MonthlyPokemonUsageDto> pokemonUsages = mongoTemplate.find(query, MonthlyPokemonUsageDto.class, MONTHLY_STAT_POKEMON_USAGE);
-        fillRankAndLastMonthUsage(pokemonUsages, page, row);
-        return new PageResponse<>(total, page, row, pokemonUsages);
+        fillRankAndLastMonthUsage(pokemonUsages);
+        return new PageResponse<>(total, 0, (int) total, pokemonUsages);
     }
 
-    private void fillRankAndLastMonthUsage(List<MonthlyPokemonUsageDto> pokemonUsages, int page, int row) {
+    private void fillRankAndLastMonthUsage(List<MonthlyPokemonUsageDto> pokemonUsages) {
         if (pokemonUsages.isEmpty()) {
             return;
         }
-        fillRank(pokemonUsages, page, row);
+        fillRank(pokemonUsages);
 
         LocalDate statDate = pokemonUsages.get(0).getDate();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(YYYY_MM);
@@ -89,7 +87,7 @@ public class StatsService {
 
         Map<String, MonthlyPokemonUsageDto> lastMonthUsageMap = lastMonthPokemonUsages.stream()
                 .collect(Collectors.toMap(MonthlyPokemonUsageDto::getName, Function.identity()));
-        fillRank(lastMonthPokemonUsages, 0, 0);
+        fillRank(lastMonthPokemonUsages);
         for (MonthlyPokemonUsageDto pokemonUsageDto : pokemonUsages) {
             if (lastMonthUsageMap.containsKey(pokemonUsageDto.getName())) {
                 pokemonUsageDto.setLastMonthUsage(lastMonthUsageMap.get(pokemonUsageDto.getName()));
@@ -103,8 +101,8 @@ public class StatsService {
         }
     }
 
-    private void fillRank(List<MonthlyPokemonUsageDto> pokemonUsages, int page, int row) {
-        int rank = 1 + page * row;
+    private void fillRank(List<MonthlyPokemonUsageDto> pokemonUsages) {
+        int rank = 1;
         for (MonthlyPokemonUsageDto pokemonUsageDto : pokemonUsages) {
             pokemonUsageDto.setRank(rank);
             ++rank;

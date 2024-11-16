@@ -6,15 +6,17 @@
 
 <script setup>
 import {ref} from "vue";
+import {FilterMatchMode} from 'primevue/api';
+import InputText from 'primevue/inputtext';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import MultiSelect from 'primevue/multiselect';
 import RankDif from "@/components/stats/RankDif.vue";
+import {Dex} from '@pkmn/dex';
 import {zh_translation_text} from "@/components/data/translationText.js";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const usages = ref(null)
-const currentPage = ref(0);
-const page = ref(0);
 const row = ref(20);
 const totalRecords = ref(null);
 
@@ -28,22 +30,49 @@ const props = defineProps({
   }
 })
 
-async function fetchStatsData(format, page, row) {
+// get current tier
+const genRegex = /gen([0-9]+)/g;
+let currentTier;
+let currentTierNumber;
+if (props.format.includes("1v1")) {
+  currentTier = props.format.substring(0, props.format.indexOf("1v1"));
+  currentTierNumber = currentTier.matchAll(genRegex).next().value[1];
+} else if (props.format.includes("2v2")) {
+  currentTier = props.format.substring(0, props.format.indexOf("2v2"));
+  currentTierNumber = currentTier.matchAll(genRegex).next().value[1];
+} else {
+  currentTier = props.format.matchAll(genRegex).next().value[0];
+  currentTierNumber = props.format.matchAll(genRegex).next().value[1];
+}
+
+
+const types = []
+for (const type of Dex.forGen(currentTierNumber).types.all()) {
+  types.push(type.name)
+}
+
+const filters = ref({
+  name: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  types: { value: null, matchMode: FilterMatchMode.CONTAINS },
+});
+
+async function fetchStatsData(format) {
   usages.value = null
-  const res = await fetch(`${apiUrl}/api/stats/${format}/usage?&page=${page}&row=${row}`, {
+  const res = await fetch(`${apiUrl}/api/stats/${format}/usage`, {
         method: "GET"
       }
   )
-  const response = await res.json()
+  const response = await res.json();
+  for (let usage of response.data) {
+    usage.types = Dex.forGen(currentTierNumber).species.get(usage.name)?.types;
+  }
   usages.value = response.data;
   totalRecords.value = response.totalRecords;
   props.updateSelectPokemon(usages.value[0]);
 }
 
 function onPage(event) {
-  currentPage.value = event.page;
-  row.value = event.rows;
-  fetchStatsData(props.format, event.page, event.rows)
+  props.updateSelectPokemon(usages.value[event.first]);
 }
 
 function convertToPercentage(f) {
@@ -67,17 +96,17 @@ function getTranslation(text) {
   return text;
 }
 
-fetchStatsData(props.format, page.value, row.value);
+fetchStatsData(props.format);
 </script>
 
 <template>
-  <DataTable :value="usages" class="" lazy paginator :rows="row" :rowsPerPageOptions="[20, 30, 40 ,50, 100]"
+  <DataTable v-model:filters="filters" :value="usages" paginator :rows="row" :rowsPerPageOptions="[20, 30, 40 ,50, 100]"
              :totalRecords="totalRecords" @page="onPage($event)" :scrollable="false" selectionMode="single" dataKey="id"
-             @rowSelect="onRowSelect">
+             @rowSelect="onRowSelect" filterDisplay="row">
     <Column field="rank" header="rank" :style="{ width:'5%' }">
       <template #body="{data}">{{ data.rank }}</template>
     </Column>
-    <Column field="name" header="pokemon" :style="{ width:'35%' }">
+    <Column field="name" header="pokemon" :style="{ width:'35%' }" :showFilterMenu="false" >
       <template #body="{data}">
         <div class="flex gap-1 items-center justify-start">
           <img :src="getIconUrl(data.name)" :alt="data.name" :title="data.name"/>
@@ -85,13 +114,29 @@ fetchStatsData(props.format, page.value, row.value);
           <RankDif :newValue="data.rank" :oldValue="data.lastMonthUsage?.rank"/>
         </div>
       </template>
+      <template #filter="{ filterModel, filterCallback }">
+        <InputText class="min-w-24" v-model="filterModel.value" type="text" @input="filterCallback()"
+                   placeholder="filter" />
+      </template>
     </Column>
-    <Column field="count" header="count" :style="{ width:'5%' }"/>
     <Column field="usage.weighted" header="weighted" :style="{ width:'5%' }">
       <template #body="{data}">{{ convertToPercentage(data.usage.weighted) }}</template>
     </Column>
     <Column field="usage.raw" header="raw" :style="{ width:'5%' }">
       <template #body="{data}">{{ convertToPercentage(data.usage.raw) }}</template>
+    </Column>
+    <Column field="types" header="types" :style="{ width:'5%' }" :showFilterMenu="false" >
+      <template #body="{data}">
+        <div class="flex gap-1">
+          <img v-for="type in data.types"
+               :src="`/types/${type}.png`" height="15" width="36" :alt="type"/>
+        </div>
+      </template>
+      <template #filter="{ filterModel, filterCallback }">
+        <MultiSelect class="max-w-12" v-model="filterModel.value" @change="filterCallback()" :options="types"
+                     placeholder="filter">
+        </MultiSelect>
+      </template>
     </Column>
   </DataTable>
 </template>

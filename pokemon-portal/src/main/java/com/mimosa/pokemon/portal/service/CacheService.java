@@ -128,10 +128,7 @@ public class CacheService {
     public boolean loadMonthlyStat(String format) {
         try {
             statsService.queryMeta(format);
-            loadMonthlyStat(format, 0, 20, true);
-            loadMonthlyStat(format, 1, 20, false);
-            loadMonthlyStat(format, 2, 20, false);
-            loadMonthlyStat(format, 0, 100, false);
+            loadMonthlyStat(format, true);
         } catch (Exception e) {
             log.error("load monthly stat fail", e);
             return false;
@@ -139,8 +136,8 @@ public class CacheService {
         return true;
     }
 
-    public void loadMonthlyStat(String format, int page, int row, boolean loadTeam) {
-        PageResponse<MonthlyPokemonUsageDto> usages = statsService.queryUsage(format, page, row);
+    public void loadMonthlyStat(String format, boolean loadTeam) {
+        PageResponse<MonthlyPokemonUsageDto> usages = statsService.queryUsage(format);
         for (var usage : usages.data()) {
             statsService.queryMoveSet(format, usage.getName());
             statsService.queryPokemonSet(format, usage.getName());

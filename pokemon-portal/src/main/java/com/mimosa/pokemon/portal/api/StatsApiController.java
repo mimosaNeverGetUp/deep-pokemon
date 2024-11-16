@@ -13,8 +13,6 @@ import com.mimosa.pokemon.portal.dto.MonthlyPokemonMoveSetDto;
 import com.mimosa.pokemon.portal.dto.MonthlyPokemonUsageDto;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.StatsService;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,9 +31,8 @@ public class StatsApiController {
     }
 
     @GetMapping("{format}/usage")
-    public PageResponse<MonthlyPokemonUsageDto> usages(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format,
-                                                       @Min(0) int page, @Min(1) @Max(100) int row) {
-        return statsService.queryUsage(format, page, row);
+    public PageResponse<MonthlyPokemonUsageDto> usages(@PathVariable("format") @Pattern(regexp = "^[A-Za-z0-9]*$") String format) {
+        return statsService.queryUsage(format);
     }
 
     @GetMapping("{format}/meta")

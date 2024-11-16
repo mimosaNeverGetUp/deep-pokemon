@@ -115,7 +115,7 @@ fetchStatsData(props.format);
         </div>
       </template>
       <template #filter="{ filterModel, filterCallback }">
-        <InputText class="min-w-24" v-model="filterModel.value" type="text" @input="filterCallback()"
+        <InputText class="min-w-24 max-w-24" v-model="filterModel.value" type="text" @input="filterCallback()"
                    placeholder="filter" />
       </template>
     </Column>

@@ -11,3 +11,4 @@ mongoimport --jsonArray --db test --collection pokemon_set --file /docker-entryp
 mongoimport --jsonArray --db test --collection team_group_tour_wcop_2024 --file /docker-entrypoint-initdb.d/team_group_tour_wcop_2024.json
 mongoimport --jsonArray --db test --collection tour_battle --file /docker-entrypoint-initdb.d/tour_battle.json
 mongoimport --jsonArray --db test --collection tour_team --file /docker-entrypoint-initdb.d/tour_team.json
+mongoimport --jsonArray --db test --collection pokepast_team --file /docker-entrypoint-initdb.d/pokepast_team.json

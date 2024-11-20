@@ -1,0 +1,19 @@
+[{
+  "_id": "6ac3a15f86a7f1f1",
+  "url": "https://pokepast.es/6ac3a15f86a7f1f1",
+  "teamId": {
+    "$binary": {
+      "base64": "MDE0OTA1MDMwOTcwMTAwMDEwMDUxMDA2",
+      "subType": "00"
+    }
+  },
+  "pokemonSets": {
+    "Iron Valiant": "Calamity (Iron Valiant) @ Booster Energy\nAbility: Quark Drive\nShiny: Yes\nTera Type: Ghost\nEVs: 252 SpA / 4 SpD / 252 Spe\nTimid Nature\nIVs: 0 Atk\n- Moonblast\n- Shadow Ball\n- Vacuum Wave\n- Calm Mind\n\n",
+    "Gholdengo": "Spirit Rush (Gholdengo) @ Air Balloon\nAbility: Good as Gold\nShiny: Yes\nTera Type: Fairy\nEVs: 252 SpA / 4 SpD / 252 Spe\nTimid Nature\nIVs: 0 Atk\n- Nasty Plot\n- Shadow Ball\n- Dazzling Gleam\n- Psyshock\n\n",
+    "Dragonite": "Leviathan (Dragonite) (M) @ Heavy-Duty Boots\nAbility: Multiscale\nShiny: Yes\nTera Type: Ground\nEVs: 252 Atk / 4 SpD / 252 Spe\nJolly Nature\n- Dragon Dance\n- Earthquake\n- Ice Spinner\n- Roost\n\n",
+    "Samurott-Hisui": "Jack Sparrow (Samurott-Hisui) (M) @ Choice Scarf\nAbility: Sharpness\nShiny: Yes\nTera Type: Ghost\nEVs: 252 Atk / 4 Def / 252 Spe\nJolly Nature\n- Ceaseless Edge\n- Sacred Sword\n- Aqua Cutter\n- Flip Turn\n\n",
+    "Roaring Moon": "Dark Phoenix (Roaring Moon) @ Booster Energy\nAbility: Protosynthesis\nShiny: Yes\nTera Type: Ground\nEVs: 252 Atk / 4 SpD / 252 Spe\nJolly Nature\n- Dragon Dance\n- Earthquake\n- Knock Off\n- Acrobatics\n\n",
+    "Glimmora": "92 Explorer (Glimmora) (M) @ Red Card\nAbility: Toxic Debris\nShiny: Yes\nTera Type: Ghost\nEVs: 248 HP / 36 Def / 224 SpD\nBold Nature\n- Stealth Rock\n- Mortal Spin\n- Earth Power\n- Sludge Wave\n\n"
+  },
+  "_class": "com.mimosa.deeppokemon.entity.pokepast.PokePastTeam"
+}]

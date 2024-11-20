@@ -52,6 +52,10 @@ async function queryTeams(page, row) {
     url.searchParams.set('groupName', getTeamGroupName(route.query.range));
   }
 
+  if (route.query.pokepaste) {
+    url.searchParams.set('pokepaste', route.query.pokepaste);
+  }
+
   const res = await fetch(url,
       {
         method: "GET"

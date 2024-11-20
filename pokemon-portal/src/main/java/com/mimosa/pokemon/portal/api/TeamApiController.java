@@ -35,6 +35,7 @@ public class TeamApiController {
                                                 @RequestParam(required = false, name = "tags") List<String> tags,
                                                 @RequestParam(required = false, name = "stages") List<String> stages,
                                                 @RequestParam(required = false, name = "sort", defaultValue = "maxRating") String sort,
+                                                @RequestParam(required = false, name = "pokepaste", defaultValue = "false") boolean pokepaste,
                                                 @RequestParam(required = false, name = "groupName") String groupName,
                                                 @RequestParam(name = "page") @Min(0) int page,
                                                 @RequestParam(name = "row") @Min(1) @Max(20) int row) {
@@ -48,7 +49,7 @@ public class TeamApiController {
         if (stages != null) {
             Collections.sort(stages);
         }
-        return battleService.teamGroup(page, row, tags, pokemons, players, stages, sort, groupName);
+        return battleService.teamGroup(page, row, tags, pokemons, players, stages, sort, pokepaste, groupName);
     }
 
     @GetMapping("/team/{teamId}")

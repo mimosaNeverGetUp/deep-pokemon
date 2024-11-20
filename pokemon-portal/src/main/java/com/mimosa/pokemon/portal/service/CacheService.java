@@ -75,20 +75,20 @@ public class CacheService {
     }
 
     private void loadTeamGroupBySort(String groupName, String sort) {
-        battleService.teamGroup(0, 7, null, null, null, null, sort, groupName);
-        battleService.teamGroup(1, 7, null, null, null, null, sort, groupName);
-        battleService.teamGroup(2, 7, null, null, null, null, sort, groupName);
+        battleService.teamGroup(0, 7, null, null, null, null, sort, false, groupName);
+        battleService.teamGroup(1, 7, null, null, null, null, sort, false, groupName);
+        battleService.teamGroup(2, 7, null, null, null, null, sort, false, groupName);
     }
 
     private void loadTeamGroupByTeamType(String groupName, List<String> tags, boolean isTour) {
         if (isTour) {
-            battleService.teamGroup(0, 7, tags, null, null, null, MAX_PLAYER_WIN_DIF, groupName);
-            battleService.teamGroup(1, 7, tags, null, null, null, MAX_PLAYER_WIN_DIF, groupName);
-            battleService.teamGroup(2, 7, tags, null, null, null, MAX_PLAYER_WIN_DIF, groupName);
+            battleService.teamGroup(0, 7, tags, null, null, null, MAX_PLAYER_WIN_DIF, false, groupName);
+            battleService.teamGroup(1, 7, tags, null, null, null, MAX_PLAYER_WIN_DIF, false, groupName);
+            battleService.teamGroup(2, 7, tags, null, null, null, MAX_PLAYER_WIN_DIF, false, groupName);
         } else {
-            battleService.teamGroup(0, 7, tags, null, null, null, MAX_RATING, groupName);
-            battleService.teamGroup(1, 7, tags, null, null, null, MAX_RATING, groupName);
-            battleService.teamGroup(2, 7, tags, null, null, null, MAX_RATING, groupName);
+            battleService.teamGroup(0, 7, tags, null, null, null, MAX_RATING, false, groupName);
+            battleService.teamGroup(1, 7, tags, null, null, null, MAX_RATING, false, groupName);
+            battleService.teamGroup(2, 7, tags, null, null, null, MAX_RATING, false, groupName);
         }
     }
 
@@ -144,7 +144,7 @@ public class CacheService {
             if (loadTeam) {
                 List<String> pokemons = new ArrayList<>();
                 pokemons.add(usage.getName());
-                battleService.teamGroup(0, 5, null, pokemons, null, null, MAX_RATING, "last_90_days");
+                battleService.teamGroup(0, 5, null, pokemons, null, null, MAX_RATING, false, "last_90_days");
             }
         }
     }

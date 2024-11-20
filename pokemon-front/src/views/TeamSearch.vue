@@ -29,11 +29,13 @@ const tags = ref(["Offense", "Balance", "HO", "Stall"]);
 const ranges = ref(["Last 3 days", "Last week", "Last month", "Last 3 months"]);
 const sortModes = ref(["rating", "popularity", "date"])
 const ladderSortModes = ref(["rating", "popularity", "date"])
+const pokepastesOptions = ref(["exist"])
 
 const types = ref(["ladder", "tour"]);
 const selectType = ref("ladder")
 const searchTour = ref(false);
 const selectTour = ref()
+const selectPokepastes = ref();
 const tourShortName = ref()
 const tourPlaceHolder = ref("loading...");
 const tourSortModes = ref(["win dif", "popularity", "date"])
@@ -136,6 +138,7 @@ function getTeamSearchUrl(pokemons, tags, range, month, sort) {
     tags = '';
   }
 
+  let pokepaste = !!selectPokepastes.value;
   if (searchTour.value) {
     let selectPlayers = players.value ? players.value : '';
     let selectStage = selectStages.value ? selectStages.value : '';
@@ -145,16 +148,18 @@ function getTeamSearchUrl(pokemons, tags, range, month, sort) {
     } else {
       tourGroupName = "tour_" + tourShortName.value + "_" + selectedTier.value;
     }
-    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&range=${tourGroupName}&tour=true&players=${selectPlayers}&stages=${selectStage}`;
+
+    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${tourGroupName}&tour=true
+    &players=${selectPlayers}&stages=${selectStage}`;
   }
 
   if (useMonthRange.value) {
     let date = new Date(month);
     let monthNumber = date.getMonth() + 1;
     let monthId = date.getFullYear() + monthNumber.toString().padStart(2, "0");
-    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&range=${monthId}`;
+    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${monthId}`;
   }
-  return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&range=${range}`;
+  return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${range}`;
 }
 
 queryAllTour();
@@ -218,6 +223,10 @@ queryAllTour();
                          display="chip" filter
                          placeholder="select players" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
                          :virtualScrollerOptions="{ itemSize: 44 }"/>
+          </div>
+          <div>
+            <span>pokepaste</span>
+            <SelectButton v-model="selectPokepastes" :options="pokepastesOptions" aria-labelledby="basic"/>
           </div>
         </div>
       </AccordionTab>

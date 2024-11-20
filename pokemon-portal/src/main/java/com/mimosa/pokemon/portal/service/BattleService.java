@@ -34,9 +34,9 @@ import com.mimosa.deeppokemon.entity.tour.TourTeam;
 import com.mimosa.pokemon.portal.dto.BattleDto;
 import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.TeamGroupDto;
+import com.mimosa.pokemon.portal.entity.MongodbQueryCount;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
-import com.mimosa.pokemon.portal.util.MongodbUtils;
 import org.bson.types.Binary;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.cache.annotation.Cacheable;
@@ -86,6 +86,7 @@ public class BattleService {
     protected static final String POKEPAST_TEAM = "pokepast_team";
     protected static final String POKEPASTS = "pokepasts";
     protected static final String POKEMON_SETS = "pokemonSets";
+    protected static final String TOTAL = "total";
     private final MongoTemplate mongoTemplate;
 
     public BattleService(MongoTemplate mongoTemplate) {
@@ -163,11 +164,82 @@ public class BattleService {
             TourPlayerRecord.class, PokePastTeam.class})
     public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
                                                 List<String> playerNames, List<String> stages, String sort,
-                                                String groupName) {
+                                                boolean pokepaste, String groupName) {
         if (!VALIDATE_TEAM_GROUP_SORT.contains(sort)) {
             throw new IllegalArgumentException("Invalid sort value: " + sort);
         }
 
+        Criteria criteria = buildTeamQueryCriteria(tags, pokemonNames, playerNames, stages, pokepaste);
+
+        Query query = new Query(criteria);
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        SortOperation sortOperation;
+        if ("maxPlayerWinDif".equals(sort)) {
+            sortOperation = Aggregation.sort(Sort.Direction.DESC, sort, "latestBattleDate");
+        } else {
+            sortOperation = Aggregation.sort(Sort.Direction.DESC, sort);
+        }
+        LookupOperation lookupOperation = LookupOperation.newLookup()
+                .from(getTeamSetCollection(groupName))
+                .localField(ID)
+                .foreignField(ID)
+                .as(SET);
+        LookupOperation lookupPokePastOperation = LookupOperation.newLookup()
+                .from(POKEPAST_TEAM)
+                .localField(ID)
+                .foreignField(TEAM_ID)
+                .as(POKEPASTS);
+
+        Aggregation aggregation;
+        long total;
+        AggregationOptions options = AggregationOptions.builder()
+                .allowDiskUse(true)
+                .build();
+        if (pokepaste) {
+            aggregation =
+                    Aggregation.newAggregation(
+                            lookupPokePastOperation,
+                            matchOperation,
+                            sortOperation,
+                            Aggregation.skip((long) (page) * row),
+                            Aggregation.limit(row),
+                            lookupOperation,
+                            Aggregation.addFields().
+                                    addFieldWithValue("teamSet", ArrayOperators.arrayOf(SET).first()).build(),
+                            Aggregation.stage("{ $project : { 'teams.pokemons': 0, 'teams._id': 0, 'teams.teamId': 0, 'teams" +
+                                    ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, 'set': 0, 'featureIds': 0," +
+                                    "'pokepasts.pokemonSets': 0,'pokepasts._id': 0,'pokepasts.teamId': 0} }"));
+
+            Aggregation countAggregation = Aggregation.newAggregation(
+                            lookupPokePastOperation,
+                            matchOperation,
+                            Aggregation.count().as(TOTAL));
+            MongodbQueryCount result = mongoTemplate.aggregate(countAggregation.withOptions(options), getTeamGroupCollection(groupName),
+                    MongodbQueryCount.class).getUniqueMappedResult();
+            total = result == null ? 0 : result.total();
+        } else {
+            aggregation = Aggregation.newAggregation(
+                    matchOperation,
+                    sortOperation,
+                    Aggregation.skip((long) (page) * row),
+                    Aggregation.limit(row),
+                    lookupOperation,
+                    lookupPokePastOperation,
+                    Aggregation.addFields().
+                            addFieldWithValue("teamSet", ArrayOperators.arrayOf(SET).first()).build(),
+                    Aggregation.stage("{ $project : { 'teams.pokemons': 0, 'teams._id': 0, 'teams.teamId': 0, 'teams" +
+                            ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, 'set': 0, 'featureIds': 0," +
+                            "'pokepasts.pokemonSets': 0,'pokepasts._id': 0,'pokepasts.teamId': 0} }"));
+            total = mongoTemplate.count(query, getTeamGroupCollection(groupName));
+        }
+
+        List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation.withOptions(options),
+                        getTeamGroupCollection(groupName), TeamGroupDto.class).getMappedResults();
+        return new PageResponse<>(total, page, row, battleTeams);
+    }
+
+    private Criteria buildTeamQueryCriteria(List<String> tags, List<String> pokemonNames, List<String> playerNames,
+                                     List<String> stages, boolean pokepaste) {
         Criteria criteria = new Criteria();
         if (CollectionUtils.hasNotNullObject(stages) || CollectionUtils.hasNotNullObject(playerNames)) {
             Criteria teamCriteria = new Criteria();
@@ -189,46 +261,10 @@ public class BattleService {
             criteria.and("pokemons.name").all(puzzlePokemonNames);
         }
 
-        Query query = new Query(criteria);
-        long total = mongoTemplate.count(query, getTeamGroupCollection(groupName));
-
-        MatchOperation matchOperation = Aggregation.match(criteria);
-        SortOperation sortOperation;
-        if ("maxPlayerWinDif".equals(sort)) {
-            sortOperation = Aggregation.sort(Sort.Direction.DESC, sort, "latestBattleDate");
-        } else {
-            sortOperation = Aggregation.sort(Sort.Direction.DESC, sort);
+        if (pokepaste) {
+            criteria.and(POKEPASTS).ne(List.of());
         }
-        LookupOperation lookupOperation = LookupOperation.newLookup()
-                .from(getTeamSetCollection(groupName))
-                .localField(ID)
-                .foreignField(ID)
-                .as(SET);
-        LookupOperation lookupPokePastOperation = LookupOperation.newLookup()
-                .from(POKEPAST_TEAM)
-                .localField(ID)
-                .foreignField(TEAM_ID)
-                .as(POKEPASTS);
-        Aggregation aggregation = Aggregation.newAggregation(
-                matchOperation,
-                sortOperation,
-                Aggregation.skip((long) (page) * row),
-                Aggregation.limit(row),
-                lookupOperation,
-                lookupPokePastOperation,
-                Aggregation.addFields().
-                        addFieldWithValue("teamSet", ArrayOperators.arrayOf(SET).first()).build(),
-                Aggregation.stage("{ $project : { 'teams.pokemons': 0, 'teams._id': 0, 'teams.teamId': 0, 'teams" +
-                        ".tagSet': 0,'teams.tier': 0, 'teams.battleType': 0, 'set': 0, 'featureIds': 0," +
-                        "'pokepasts.pokemonSets': 0,'pokepasts._id': 0,'pokepasts.teamId': 0} }"));
-        MongodbUtils.withPageOperation(query, page, row);
-        AggregationOptions options = AggregationOptions.builder()
-                .allowDiskUse(true)
-                .build();
-        List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation.withOptions(options),
-                        getTeamGroupCollection(groupName), TeamGroupDto.class)
-                .getMappedResults();
-        return new PageResponse<>(total, page, row, battleTeams);
+        return criteria;
     }
 
     private List<String> getPuzzlePokemonNames(List<String> pokemonNames) {
@@ -308,7 +344,7 @@ public class BattleService {
     }
 
     private Map<Binary, List<PokePastTeam>> getPokepastMap(List<TeamGroup> similarTeams) {
-        if(similarTeams.isEmpty()) {
+        if (similarTeams.isEmpty()) {
             return Collections.emptyMap();
         }
         List<Binary> teamIds = similarTeams.stream().map(teamGroup -> new Binary(teamGroup.id())).toList();

@@ -112,7 +112,6 @@ class TeamApiControllerTest {
                         )))));
     }
 
-
     @Test
     void searchTourTeamByStage() throws Exception {
         mockMvc.perform(get("/api/v2/teams")
@@ -130,6 +129,26 @@ class TeamApiControllerTest {
                         Matchers.hasEntry(Matchers.equalTo("maxPlayerWinRate"), Matchers.notNullValue()),
                         Matchers.hasEntry(Matchers.equalTo("maxPlayerWinDif"), Matchers.notNullValue()),
                         Matchers.hasEntry(Matchers.equalTo("uniquePlayerNum"), Matchers.not(0)),
+                        Matchers.hasEntry(Matchers.equalTo("pokemons"), Matchers.notNullValue()),
+                        Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.notNullValue()
+                        )))));
+    }
+
+
+    @Test
+    void searchTeamWithPokepaste() throws Exception {
+        mockMvc.perform(get("/api/v2/teams")
+                        .queryParam("page", "0")
+                        .queryParam("row", "7")
+                        .queryParam("pokepaste", "true"))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(jsonPath("$.page").value(0))
+                .andExpect(jsonPath("$.row").value(7))
+                .andExpect(jsonPath("$.totalRecords").value(1))
+                .andExpect(jsonPath("$.data").isNotEmpty())
+                .andExpect(jsonPath("$.data", Matchers.everyItem(Matchers.allOf(
+                        Matchers.hasEntry(Matchers.equalTo("pokepasts"), Matchers.notNullValue()),
                         Matchers.hasEntry(Matchers.equalTo("pokemons"), Matchers.notNullValue()),
                         Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.notNullValue()
                         )))));

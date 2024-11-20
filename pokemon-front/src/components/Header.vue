@@ -56,7 +56,10 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
-        <p><span class="font-bold">2024/11/17 优化：</span>使用率排行支持过滤</p>
+        <p><span class="font-bold">2024/11/20 feat：</span>可选择是否只查询有PokePaste的队伍</p>
+        <br/>
+
+        <p><span class="font-bold">2024/11/17 feat：</span>使用率排行支持过滤</p>
         <br/>
 
         <p><span class="font-bold">2024/11/9 优化：</span>系统设置为深色模式时，调整主题色</p>

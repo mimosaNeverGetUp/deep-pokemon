@@ -161,7 +161,7 @@ public class BattleService {
 
     @Cacheable("teamGroup")
     @RegisterReflectionForBinding({TeamGroupDto.class, BattleTeam.class, BattleDto.class, TourPlayer.class,
-            TourPlayerRecord.class, PokePastTeam.class})
+            TourPlayerRecord.class, PokePastTeam.class, MongodbQueryCount.class})
     public PageResponse<TeamGroupDto> teamGroup(int page, int row, List<String> tags, List<String> pokemonNames,
                                                 List<String> playerNames, List<String> stages, String sort,
                                                 boolean pokepaste, String groupName) {
@@ -211,9 +211,9 @@ public class BattleService {
                                     "'pokepasts.pokemonSets': 0,'pokepasts._id': 0,'pokepasts.teamId': 0} }"));
 
             Aggregation countAggregation = Aggregation.newAggregation(
-                            lookupPokePastOperation,
-                            matchOperation,
-                            Aggregation.count().as(TOTAL));
+                    lookupPokePastOperation,
+                    matchOperation,
+                    Aggregation.count().as(TOTAL));
             MongodbQueryCount result = mongoTemplate.aggregate(countAggregation.withOptions(options), getTeamGroupCollection(groupName),
                     MongodbQueryCount.class).getUniqueMappedResult();
             total = result == null ? 0 : result.total();
@@ -234,12 +234,12 @@ public class BattleService {
         }
 
         List<TeamGroupDto> battleTeams = mongoTemplate.aggregate(aggregation.withOptions(options),
-                        getTeamGroupCollection(groupName), TeamGroupDto.class).getMappedResults();
+                getTeamGroupCollection(groupName), TeamGroupDto.class).getMappedResults();
         return new PageResponse<>(total, page, row, battleTeams);
     }
 
     private Criteria buildTeamQueryCriteria(List<String> tags, List<String> pokemonNames, List<String> playerNames,
-                                     List<String> stages, boolean pokepaste) {
+                                            List<String> stages, boolean pokepaste) {
         Criteria criteria = new Criteria();
         if (CollectionUtils.hasNotNullObject(stages) || CollectionUtils.hasNotNullObject(playerNames)) {
             Criteria teamCriteria = new Criteria();

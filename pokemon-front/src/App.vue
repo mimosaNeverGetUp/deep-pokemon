@@ -19,9 +19,6 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
       <Divider type="solid"/>
       <div class="flex">
         <span class="text-gray-600">© 2024 Mimosa</span>
-        <a target="_blank" :href="`https://space.bilibili.com/37832209`" >
-          <img src="/bilibili.svg" alt="bilibili" class="size-5">
-        </a>
       </div>
     </footer>
   </div>

@@ -18,7 +18,14 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     <footer class="footer">
       <Divider type="solid"/>
       <div class="flex">
-        <span class="text-gray-600">© 2024 Mimosa</span>
+        <span class="text-gray-600">
+          © 2024
+          <a target="_blank" :href="`https://space.bilibili.com/37832209`" >
+            <span class="text-[#80DAF6]">Mimosa</span>
+          </a>
+        </span>
+
+
       </div>
     </footer>
   </div>

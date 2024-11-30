@@ -292,7 +292,11 @@ public class BattleService {
         }
         Battle battle = battles.get(0);
         battle.setLog(null);
-        battle.getBattleStat().turnStats().clear();
+        for (TurnStat turnStat : battle.getBattleStat().turnStats()) {
+            for (TurnPlayerStat turnPlayerStat : turnStat.getTurnPlayerStatList()) {
+                turnPlayerStat.getTurnPokemonStatMap().clear();
+            }
+        }
         return battle;
     }
 

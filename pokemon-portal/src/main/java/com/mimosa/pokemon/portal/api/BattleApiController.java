@@ -6,12 +6,10 @@
 
 package com.mimosa.pokemon.portal.api;
 
+import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.pokemon.portal.service.BattleService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -25,5 +23,10 @@ public class BattleApiController {
     @GetMapping("/battle/{battleid}/stat")
     public BattleStat battleStat(@PathVariable("battleid") String battleId) {
         return battleService.battleStat(battleId);
+    }
+
+    @GetMapping("/battle/{battleid}")
+    public Battle battle(@PathVariable("battleid") String battleId) {
+        return battleService.battle(battleId);
     }
 }

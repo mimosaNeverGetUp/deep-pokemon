@@ -6,6 +6,7 @@
 
 package com.mimosa.pokemon.portal.service.microservice;
 
+import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient("pokemon-crawler")
 public interface CrawlerApi {
+    @GetMapping("/api/battle/{battleid}")
+    Battle battle(@PathVariable("battleid") String battleId);
+
     @GetMapping("/api/battle/{battleid}/stat")
     BattleStat battleStat(@PathVariable("battleid") String battleId);
 

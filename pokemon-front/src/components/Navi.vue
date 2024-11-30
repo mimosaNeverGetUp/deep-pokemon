@@ -5,7 +5,7 @@ import NaviItem from '@/components/NaviItem.vue'
 <template>
   <nav>
     <NaviItem url="/ladder">
-      <img class="navi-label-icon" src="/pokemonicon/Incineroar.png" alt="deep-pokemon">
+      <img class="navi-label-icon" src="/pokemonicon/Kingambit.png" alt="deep-pokemon">
       <p>排行榜</p>
     </NaviItem>
 
@@ -15,7 +15,7 @@ import NaviItem from '@/components/NaviItem.vue'
     </NaviItem>
 
     <NaviItem url="/stats?format=gen9ou">
-      <img class="navi-label-icon" src="/pokemonicon/Ninetales-Alola.png" alt="deep-pokemon">
+      <img class="navi-label-icon" src="/pokemonicon/Ribombee.png" alt="deep-pokemon">
       <p>环境</p>
     </NaviItem>
   </nav>

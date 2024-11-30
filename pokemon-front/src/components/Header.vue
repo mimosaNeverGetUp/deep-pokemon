@@ -56,6 +56,12 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2024/12/1 beta feat：</span>
+          可以查询指定replay的对局统计
+          <a target="_blank" href="/battleAnalysis">测试入口</a>
+        </p>
+        <br/>
+
         <p><span class="font-bold">2024/11/20 feat：</span>可选择是否只查询有PokePaste的队伍</p>
         <br/>
 

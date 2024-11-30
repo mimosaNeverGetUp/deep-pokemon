@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {ref, watch} from "vue";
 import Chart from "primevue/chart";
 import ProgressSpinner from 'primevue/progressspinner';
 import TabView from 'primevue/tabview';
@@ -41,17 +41,7 @@ const plugins = [
   }
 ];
 
-async function queryBattleStat(battleId) {
-  const res = await fetch(`${apiUrl}/api/battle/${battleId}/stat`, {
-        method: "GET"
-      }
-  )
-  if (!res.ok) {
-    load.value = false;
-    return;
-  }
-
-  let stat = await res.json();
+function loadStat(stat) {
   battleStat.value = stat;
   let pokemonStat = [];
   for (const playerStat of stat.playerStatList) {
@@ -64,6 +54,20 @@ async function queryBattleStat(battleId) {
   load.value = true
 }
 
+async function queryBattleStat(battleId) {
+  const res = await fetch(`${apiUrl}/api/battle/${battleId}/stat`, {
+        method: "GET"
+      }
+  )
+  if (!res.ok) {
+    load.value = false;
+    return;
+  }
+
+  let stat = await res.json();
+  loadStat(stat);
+}
+
 function getIconUrl(pokemonName) {
   const iconName = pokemonName.replace(" ", "").replace("-*", "")
   return "pokemonicon/" + iconName + ".png"
@@ -71,10 +75,15 @@ function getIconUrl(pokemonName) {
 
 function battleChartData(battle) {
   const playerNames = [];
-  playerNames.push(battle.teams[0].playerName)
-  playerNames.push(battle.teams[1].playerName);
+  if (battle.teams) {
+    playerNames.push(battle.teams[0].playerName);
+    playerNames.push(battle.teams[1].playerName);
+  } else {
+    playerNames.push(battle.battleTeams[0].playerName);
+    playerNames.push(battle.battleTeams[1].playerName);
+  }
 
-  return battleStatChartDataSet(playerNames, battleStat.value)
+  return battleStatChartDataSet(playerNames, battleStat.value);
 }
 
 function battleChartOption(battleStat) {
@@ -108,7 +117,8 @@ function battleChartOption(battleStat) {
             return props.data.winner;
           }
 
-          for (let team of props.data.teams) {
+          let teams = props.data.teams ? props.data.teams : props.data.battleTeams;
+          for (let team of teams) {
             if (team.playerName !== props.data.winner) {
               return team.playerName;
             }
@@ -334,7 +344,16 @@ function rowStyle(row) {
   return {backgroundColor: backgroundColor, margin: 0};
 }
 
-queryBattleStat(props.data.id)
+if (props.data.battleStat) {
+  loadStat(props.data.battleStat);
+} else {
+  queryBattleStat(props.data.id);
+}
+
+watch(() => props.data, async (newBattle) => {
+  loadStat(props.data.battleStat);
+});
+
 </script>
 <template>
   <div>

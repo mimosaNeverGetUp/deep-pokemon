@@ -36,6 +36,7 @@ import com.mimosa.pokemon.portal.dto.BattleTeamDto;
 import com.mimosa.pokemon.portal.dto.TeamGroupDto;
 import com.mimosa.pokemon.portal.entity.MongodbQueryCount;
 import com.mimosa.pokemon.portal.entity.PageResponse;
+import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
 import org.bson.types.Binary;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
@@ -88,9 +89,11 @@ public class BattleService {
     protected static final String POKEMON_SETS = "pokemonSets";
     protected static final String TOTAL = "total";
     private final MongoTemplate mongoTemplate;
+    private final CrawlerApi crawlerApi;
 
-    public BattleService(MongoTemplate mongoTemplate) {
+    public BattleService(MongoTemplate mongoTemplate, CrawlerApi crawlerApi) {
         this.mongoTemplate = mongoTemplate;
+        this.crawlerApi = crawlerApi;
     }
 
     @Cacheable("playerBattle")
@@ -446,5 +449,10 @@ public class BattleService {
             throw new ServerErrorException("stat is not exist", null);
         }
         return battleStat;
+    }
+
+    @RegisterReflectionForBinding(Battle.class)
+    public Battle battle(String battleId) {
+        return crawlerApi.battle(battleId);
     }
 }

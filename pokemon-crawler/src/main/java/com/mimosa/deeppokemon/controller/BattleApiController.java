@@ -7,6 +7,7 @@
 package com.mimosa.deeppokemon.controller;
 
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
+import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.service.BattleService;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,11 @@ public class BattleApiController {
     public BattleApiController(BattleService battleService, LadderCrawler ladderCrawler) {
         this.battleService = battleService;
         this.ladderCrawler = ladderCrawler;
+    }
+
+    @GetMapping("/battle/{battleid}")
+    public Battle battle(@PathVariable("battleid") String battleId) {
+        return battleService.getBattle(battleId);
     }
 
     @GetMapping("/battle/{battleid}/stat")

@@ -275,28 +275,26 @@ public class BattleService {
     @RegisterReflectionForBinding({BattleStat.class, PlayerStat.class, PokemonBattleStat.class, TurnStat.class,
             TurnPlayerStat.class, TurnPokemonStat.class})
     public BattleStat getBattleStat(String battleId) {
-        Battle battle = findBattle(battleId);
-        if (battle == null) {
-            // craw and save
-            CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(Collections.singletonList(battleId)),
-                    battleCrawler, battleAnalyzer, this);
-            return crawBattleTask.call().get(0).getBattleStat();
-        } else if (battle.getLog() == null) {
-            // craw and update
-            CrawBattleTask crawBattleTask = new CrawBattleTask(new FixedReplayProvider(Collections.singletonList(battleId)),
-                    battleCrawler, battleAnalyzer, this, true);
-            return crawBattleTask.call().get(0).getBattleStat();
-        }
+        FixedReplayProvider fixedReplayProvider = new FixedReplayProvider(Collections.singletonList(battleId));
+        List<Battle> battles = battleCrawler.craw(fixedReplayProvider.next());
+        battleAnalyzer.analyze(battles);
 
-        battleAnalyzer.analyze(Collections.singletonList(battle));
-        try {
-            insert(Collections.singletonList(battle.getBattleStat()));
-        } catch (Exception e) {
-            log.warn("save battle stat fail", e);
-        }
-        return battle.getBattleStat();
+        return battles.isEmpty()? null: battles.get(0).getBattleStat();
     }
 
+    @RegisterReflectionForBinding(Battle.class)
+    public Battle getBattle(String battleId) {
+        FixedReplayProvider fixedReplayProvider = new FixedReplayProvider(Collections.singletonList(battleId));
+        List<Battle> battles = battleCrawler.craw(fixedReplayProvider.next());
+        battleAnalyzer.analyze(battles);
+        if(battles.isEmpty()) {
+            return null;
+        }
+        Battle battle = battles.get(0);
+        battle.setLog(null);
+        battle.getBattleStat().turnStats().clear();
+        return battle;
+    }
 
     @CacheEvict(value = {"teamGroup", "teamInfo"}, allEntries = true)
     public synchronized void updateTeam() {

@@ -37,11 +37,11 @@ async function queryBattle() {
 </script>
 
 <template>
-  <div class="mt-[60px]">
+  <div class="mt-[100px] min-w-max">
     <InputText class="w-1/2" type="text" v-model="input"
                placeholder="paste replay url or battle id (only support gen9 singles game)"/>
     <Button label="Submit" @click="queryBattle"/>
-    <BattleStat :data=battle :player-name="battle.winner" v-if="battle"/>
+    <BattleStat class="min-w-[1020px]" :data=battle :player-name="battle.winner" v-if="battle"/>
     <ProgressSpinner v-else-if="load === false"/>
   </div>
 </template>

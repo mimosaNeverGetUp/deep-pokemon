@@ -26,6 +26,9 @@ import org.jsoup.select.NodeVisitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerErrorException;
 
@@ -35,6 +38,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Component
 public class PokemonAnalyzeCrawler {
@@ -48,11 +53,13 @@ public class PokemonAnalyzeCrawler {
     private final AiService aiService;
     private final HttpProxy httpProxy;
     private final PokemonTranslationService pokemonTranslationService;
+    private final MongoTemplate mongoTemplate;
 
-    public PokemonAnalyzeCrawler(AiService aiService, HttpProxy httpProxy, PokemonTranslationService pokemonTranslationService) {
+    public PokemonAnalyzeCrawler(AiService aiService, HttpProxy httpProxy, PokemonTranslationService pokemonTranslationService, MongoTemplate mongoTemplate) {
         this.aiService = aiService;
         this.httpProxy = httpProxy;
         this.pokemonTranslationService = pokemonTranslationService;
+        this.mongoTemplate = mongoTemplate;
     }
 
     @RegisterReflectionForBinding(value = {PokemonAnalyzeDto.class, PokemonSetAnalyzeDto.class})
@@ -74,6 +81,46 @@ public class PokemonAnalyzeCrawler {
         } catch (URISyntaxException e) {
             throw new ServerErrorException(e.getLocalizedMessage(), e);
         }
+    }
+
+    public Map<String, PokemonAnalyzeDto>   getLatestDifferencePokemonAnalyze(String format) {
+        String url = null;
+        try {
+            url = initAnalyzeQuery(format);
+        } catch (URISyntaxException e) {
+            throw new ServerErrorException(e.getLocalizedMessage(), e);
+
+        }
+        Map<String, PokemonAnalyzeDto> latestPokemonAnalyzeMap = httpProxy.get(url, new TypeReference<>() {
+        });
+        Query query = new Query(Criteria.where("format").is(format));
+        List<PokemonAnalyze> pokemonAnalyzes = mongoTemplate.find(query, PokemonAnalyze.class);
+        Map<String, PokemonAnalyze> oldPokemonAnalyzeMap =
+                pokemonAnalyzes.stream().collect(Collectors.toMap(PokemonAnalyze::name, Function.identity()));
+
+        Map<String, PokemonAnalyzeDto> differencePokemonAnalyze = new HashMap<>();
+        for (var entry : latestPokemonAnalyzeMap.entrySet()) {
+            String name = entry.getKey();
+            PokemonAnalyzeDto latestPokemonAnalyze = entry.getValue();
+            PokemonAnalyze oldPokemonAnalyze = oldPokemonAnalyzeMap.get(name);
+            if (oldPokemonAnalyze == null) {
+                differencePokemonAnalyze.put(name, latestPokemonAnalyze);
+                continue;
+            }
+
+            // check analyze content is difference
+            Map<String, String> oldSetAnalyzes = oldPokemonAnalyze.setAnalyzes();
+            Map<String, String> latestSetAnalyzes = convertPokemonSetAnalyze(latestPokemonAnalyze);
+            for (var setAnalyze : latestSetAnalyzes.entrySet()) {
+                String setName = setAnalyze.getKey();
+                String setDescription = setAnalyze.getValue();
+                if (!oldSetAnalyzes.containsKey(setName) || !StringUtils.equals(setDescription, oldSetAnalyzes.get(setName))) {
+                    differencePokemonAnalyze.put(name, latestPokemonAnalyze);
+                }
+            }
+        }
+
+        return differencePokemonAnalyze;
     }
 
     private void parsePokemonAnalyze(String format, String pokemonName, PokemonAnalyzeDto pokemonAnalyzeDto, List<PokemonAnalyze> pokemonAnalyzeList) {

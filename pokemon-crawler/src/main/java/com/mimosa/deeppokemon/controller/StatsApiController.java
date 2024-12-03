@@ -6,6 +6,7 @@
 
 package com.mimosa.deeppokemon.controller;
 
+import com.mimosa.deeppokemon.crawler.stat.dto.PokemonAnalyzeDto;
 import com.mimosa.deeppokemon.service.StatsService;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.validation.annotation.Validated;
@@ -40,5 +41,10 @@ public class StatsApiController {
         map.put("insertSize", Integer.toString(statsService.crawPokemonAnalyzes(format, specifyPokemonName, overwrite)));
         map.put("result", "success");
         return map;
+    }
+
+    @GetMapping("/analyzes/latest")
+    public Map<String, PokemonAnalyzeDto> getLatestDifferenceAnalyzes(@RequestParam("format") String format) {
+        return statsService.getLatestDifferencePokemonAnalyze(format);
     }
 }

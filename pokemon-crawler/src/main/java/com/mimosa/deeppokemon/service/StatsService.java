@@ -11,6 +11,7 @@ import com.mimosa.deeppokemon.crawler.stat.PokemonAnalyzeCrawler;
 import com.mimosa.deeppokemon.crawler.stat.PokemonSetCrawler;
 import com.mimosa.deeppokemon.crawler.stat.dto.MonthlyBattleStatDto;
 import com.mimosa.deeppokemon.crawler.stat.dto.MonthlyPokemonStatDto;
+import com.mimosa.deeppokemon.crawler.stat.dto.PokemonAnalyzeDto;
 import com.mimosa.deeppokemon.entity.stat.PokemonAnalyze;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.*;
@@ -122,6 +123,10 @@ public class StatsService {
             }
         }
         return pokemonAnalyzes.size();
+    }
+
+    public Map<String, PokemonAnalyzeDto> getLatestDifferencePokemonAnalyze(String format) {
+        return pokemonAnalyzeCrawler.getLatestDifferencePokemonAnalyze(format);
     }
 
     public void save(String format, MonthlyBattleStatDto monthlyBattleStatDto) {

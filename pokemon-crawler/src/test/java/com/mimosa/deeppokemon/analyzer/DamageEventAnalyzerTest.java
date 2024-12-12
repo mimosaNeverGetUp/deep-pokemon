@@ -475,6 +475,63 @@ class DamageEventAnalyzerTest {
         Assertions.assertNull(battle.getBattleTeams().get(0).findPokemon(hatterene).getItem());
     }
 
+    @Test
+    void analyzePainSplit() {
+        BattleEvent moveEvent = new BattleEvent("move", null, null, null);
+        int movePlayerNumber = 2;
+        String hatterene = "Hatterene";
+        String darkrai = "Darkrai";
+
+        moveEvent.setBattleEventStat(new MoveEventStat(new EventTarget(movePlayerNumber, hatterene, hatterene)
+                , "Pain Split"));
+        BattleEvent battleEvent = new BattleEvent("sethp", List.of("p1a: Darkrai", "69/100", "[from] move: Pain Split"),
+                moveEvent, null);
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, hatterene, hatterene)
+                .addPokemon(1, darkrai, darkrai)
+                .setTurnStartPokemon(2, hatterene)
+                .setTurnStartPokemon(1, darkrai)
+                .setHealth(1, darkrai, BigDecimal.valueOf(100))
+                .setHealth(2, hatterene, BigDecimal.valueOf(33.0))
+                .build();
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, darkrai)
+                .addPokemonStat(2, hatterene)
+                .build();
+        Assertions.assertTrue(damageEventAnalyzer.supportAnalyze(battleEvent));
+
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        PokemonBattleStat p2Stat = battleStat.playerStatList().get(1)
+                .getPokemonBattleStat(hatterene);
+        Assertions.assertEquals(BigDecimal.valueOf(31.0), p2Stat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(31.0), p2Stat.getHealthValue());
+
+        PokemonBattleStat p1Stat = battleStat.playerStatList().get(0)
+                .getPokemonBattleStat(darkrai);
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), p1Stat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-31.0), p1Stat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(69.0),
+                battleContext.getPlayerStatusList().get(0).getPokemonStatus(darkrai).getHealth());
+        Assertions.assertEquals(BigDecimal.valueOf(33.0),
+                battleContext.getPlayerStatusList().get(1).getPokemonStatus(hatterene).getHealth());
+
+        battleEvent = new BattleEvent("-sethp", List.of("p2a: Hatterene", "61/100", "[from] move: Pain " +
+                "Split"), moveEvent, null);
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        p2Stat = battleStat.playerStatList().get(1)
+                .getPokemonBattleStat(hatterene);
+        Assertions.assertEquals(BigDecimal.valueOf(31.0), p2Stat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(59.0), p2Stat.getHealthValue());
+
+        p1Stat = battleStat.playerStatList().get(0).getPokemonBattleStat(darkrai);
+        Assertions.assertEquals(BigDecimal.valueOf(-28.0), p1Stat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-59.0), p1Stat.getHealthValue());
+        Assertions.assertEquals(BigDecimal.valueOf(69.0),
+                battleContext.getPlayerStatusList().get(0).getPokemonStatus(darkrai).getHealth());
+        Assertions.assertEquals(BigDecimal.valueOf(61.0),
+                battleContext.getPlayerStatusList().get(1).getPokemonStatus(hatterene).getHealth());
+    }
+
     private static Arguments buildSwitchDamageEvent() {
         BattleEvent switchEvent = new BattleEvent("switch", null, null, null);
         switchEvent.setBattleEventStat(new MoveEventStat(new EventTarget(2, "Gliscor", "Gliscor")

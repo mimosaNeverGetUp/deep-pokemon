@@ -36,7 +36,8 @@ import java.util.Set;
 public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger log = LoggerFactory.getLogger(DamageEventAnalyzer.class);
     private static final String DAMAGE = "damage";
-    private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(DAMAGE);
+    private static final String SETHP = "sethp";
+    private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(DAMAGE, SETHP);
     private static final String STEELBEAM = "steelbeam";
     private static final String SUPERCELLSLAM = "supercellslam";
     private static final String HIGHJUMPKICK = "highjumpkick";
@@ -143,7 +144,8 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             // get stat by damage from xxx of xxx
             damageOf = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX),
                     battleContext);
-        } else if (FROM_INDEX == battleEvent.getContents().size() - 1) {
+        } else if (FROM_INDEX == battleEvent.getContents().size() - 1 ||
+                getDamageOfByFrom(eventTarget, damageFrom, battleContext, targetPlayerStatus) != null) {
             // get stat by damage from xxx
             damageOf = getDamageOfByFrom(eventTarget, damageFrom, battleContext, targetPlayerStatus);
         } else if (battleEvent.getParentEvent() != null && battleEvent.getParentEvent().getBattleEventStat()

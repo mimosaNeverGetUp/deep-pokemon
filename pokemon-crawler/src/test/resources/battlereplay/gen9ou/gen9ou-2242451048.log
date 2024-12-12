@@ -1,0 +1,1274 @@
+|html|<div class="broadcast-blue"><strong>[Gen 9] OU is currently suspecting Gliscor! For information on how to participate check out the <a href="https://www.smogon.com/forums/threads/np-sv-ou-suspect-process-round-15-higher-ground-see-post-2-for-new-suspect-info.3754477/#post-10327652">suspect thread</a>.</strong></div>
+|badge|p1|bronze|gen9ou|100-3
+|uhtml|medal-msg|<div class="broadcast-blue">Curious what those medals under the avatar are? PS now has Ladder Seasons! For more information, check out the <a href="https://www.smogon.com/forums/threads/3740067/">thread on Smogon.</a></div>
+|j|☆DA Scizor Enjoyer
+|j|☆aimKP
+|t:|1731428661
+|gametype|singles
+|player|p1|DA Scizor Enjoyer|alder|1819
+|player|p2|aimKP|cynthia-gen4|1778
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rated|
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Scizor, F|
+|poke|p1|Hoopa-Unbound|
+|poke|p1|Primarina, F|
+|poke|p1|Zapdos|
+|poke|p1|Great Tusk|
+|poke|p1|Dragapult, M|
+|poke|p2|Dondozo, M|
+|poke|p2|Blissey, F|
+|poke|p2|Gliscor, F|
+|poke|p2|Gholdengo|
+|poke|p2|Corviknight, F|
+|poke|p2|Garganacl, M|
+|teampreview
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by DA Scizor Enjoyer)
+|
+|t:|1731428671
+|start
+|switch|p1a: Primarina|Primarina, F|100/100
+|switch|p2a: Gliscor|Gliscor, F, shiny|100/100
+|turn|1
+|
+|t:|1731428678
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Primarina|Sparkling Aria|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-status|p2a: Gliscor|tox|[from] item: Toxic Orb
+|upkeep
+|turn|2
+|
+|t:|1731428682
+|switch|p2a: Blissey|Blissey, F, shiny|100/100
+|move|p1a: Primarina|Flip Turn|p2a: Blissey
+|-damage|p2a: Blissey|74/100
+|
+|t:|1731428685
+|switch|p1a: Hoopa|Hoopa-Unbound|100/100|[from] Flip Turn
+|
+|upkeep
+|turn|3
+|
+|t:|1731428692
+|switch|p2a: Garganacl|Garganacl, M|100/100
+|move|p1a: Hoopa|Psychic Noise|p2a: Garganacl
+|-damage|p2a: Garganacl|64/100
+|-start|p2a: Garganacl|move: Heal Block
+|
+|upkeep
+|turn|4
+|
+|t:|1731428698
+|move|p2a: Garganacl|Protect|p2a: Garganacl
+|-singleturn|p2a: Garganacl|Protect
+|move|p1a: Hoopa|Psychic Noise|p2a: Garganacl
+|-activate|p2a: Garganacl|move: Protect
+|
+|-end|p2a: Garganacl|move: Heal Block
+|upkeep
+|turn|5
+|
+|t:|1731428707
+|-terastallize|p2a: Garganacl|Dark
+|move|p1a: Hoopa|Psychic Noise|p2a: Garganacl
+|-immune|p2a: Garganacl
+|move|p2a: Garganacl|Salt Cure|p1a: Hoopa
+|-damage|p1a: Hoopa|76/100
+|-start|p1a: Hoopa|Salt Cure
+|
+|-heal|p2a: Garganacl|70/100|[from] item: Leftovers
+|-damage|p1a: Hoopa|64/100|[from] Salt Cure
+|upkeep
+|turn|6
+|
+|t:|1731428715
+|move|p1a: Hoopa|Drain Punch|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|32/100
+|-heal|p1a: Hoopa|90/100|[from] drain|[of] p2a: Garganacl
+|move|p2a: Garganacl|Recover|p2a: Garganacl
+|-heal|p2a: Garganacl|82/100
+|
+|-heal|p2a: Garganacl|88/100|[from] item: Leftovers
+|-damage|p1a: Hoopa|78/100|[from] Salt Cure
+|upkeep
+|turn|7
+|
+|t:|1731428722
+|-terastallize|p1a: Hoopa|Fighting
+|move|p2a: Garganacl|Protect|p2a: Garganacl
+|-singleturn|p2a: Garganacl|Protect
+|move|p1a: Hoopa|Drain Punch|p2a: Garganacl
+|-activate|p2a: Garganacl|move: Protect
+|
+|-heal|p2a: Garganacl|94/100|[from] item: Leftovers
+|-damage|p1a: Hoopa|65/100|[from] Salt Cure
+|upkeep
+|turn|8
+|j| Kwemeed
+|j| TheLazyPillow
+|
+|t:|1731428737
+|move|p1a: Hoopa|Knock Off|p2a: Garganacl
+|-resisted|p2a: Garganacl
+|-damage|p2a: Garganacl|74/100
+|-enditem|p2a: Garganacl|Leftovers|[from] move: Knock Off|[of] p1a: Hoopa
+|move|p2a: Garganacl|Curse|p2a: Garganacl
+|-unboost|p2a: Garganacl|spe|1
+|-boost|p2a: Garganacl|atk|1
+|-boost|p2a: Garganacl|def|1
+|
+|-damage|p1a: Hoopa|53/100|[from] Salt Cure
+|upkeep
+|turn|9
+|
+|t:|1731428749
+|move|p1a: Hoopa|Drain Punch|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|39/100
+|-heal|p1a: Hoopa|77/100|[from] drain|[of] p2a: Garganacl
+|move|p2a: Garganacl|Salt Cure|p1a: Hoopa
+|-resisted|p1a: Hoopa
+|-damage|p1a: Hoopa|58/100
+|
+|-damage|p1a: Hoopa|46/100|[from] Salt Cure
+|upkeep
+|turn|10
+|
+|t:|1731428754
+|switch|p1a: Primarina|Primarina, F|100/100
+|move|p2a: Garganacl|Recover|p2a: Garganacl
+|-heal|p2a: Garganacl|89/100
+|
+|upkeep
+|turn|11
+|
+|t:|1731428757
+|move|p2a: Garganacl|Protect|p2a: Garganacl
+|-singleturn|p2a: Garganacl|Protect
+|move|p1a: Primarina|Flip Turn|p2a: Garganacl
+|-activate|p2a: Garganacl|move: Protect
+|
+|upkeep
+|turn|12
+|
+|t:|1731428764
+|switch|p2a: Blissey|Blissey, F, shiny|74/100
+|move|p1a: Primarina|Moonblast|p2a: Blissey
+|-damage|p2a: Blissey|61/100
+|
+|upkeep
+|turn|13
+|
+|t:|1731428771
+|move|p1a: Primarina|Psychic Noise|p2a: Blissey
+|-damage|p2a: Blissey|54/100
+|-start|p2a: Blissey|move: Heal Block
+|cant|p2a: Blissey|move: Heal Block|Soft-Boiled
+|
+|upkeep
+|turn|14
+|
+|t:|1731428777
+|switch|p2a: Corviknight|Corviknight, F, shiny|100/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Primarina|Flip Turn|p2a: Corviknight
+|-damage|p2a: Corviknight|92/100
+|-damage|p1a: Primarina|84/100|[from] item: Rocky Helmet|[of] p2a: Corviknight
+|
+|t:|1731428786
+|switch|p1a: Zapdos|Zapdos|100/100|[from] Flip Turn
+|
+|upkeep
+|turn|15
+|
+|t:|1731428790
+|move|p2a: Corviknight|Protect|p2a: Corviknight
+|-singleturn|p2a: Corviknight|Protect
+|move|p1a: Zapdos|Hurricane|p2a: Corviknight
+|-activate|p2a: Corviknight|move: Protect
+|
+|upkeep
+|turn|16
+|
+|t:|1731428797
+|switch|p2a: Gliscor|Gliscor, F, shiny|100/100 tox
+|move|p1a: Zapdos|Hurricane|p2a: Gliscor
+|-damage|p2a: Gliscor|40/100 tox
+|
+|-heal|p2a: Gliscor|52/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|17
+|
+|t:|1731428802
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Zapdos|Hurricane|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|65/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|18
+|
+|t:|1731428805
+|switch|p2a: Blissey|Blissey, F, shiny|54/100
+|move|p1a: Zapdos|Hurricane|p2a: Blissey
+|-damage|p2a: Blissey|41/100
+|
+|upkeep
+|turn|19
+|j| Kyurem
+|
+|t:|1731428809
+|switch|p1a: Hoopa|Hoopa-Unbound, tera:Fighting|46/100
+|move|p2a: Blissey|Soft-Boiled|p2a: Blissey
+|-heal|p2a: Blissey|91/100
+|
+|upkeep
+|turn|20
+|
+|t:|1731428819
+|switch|p2a: Gholdengo|Gholdengo, shiny|100/100
+|move|p1a: Hoopa|Drain Punch|p2a: Gholdengo
+|-immune|p2a: Gholdengo
+|
+|upkeep
+|turn|21
+|j| tplbndsmgcu7threas
+|
+|t:|1731428825
+|move|p2a: Gholdengo|Dazzling Gleam|p1a: Hoopa
+|-supereffective|p1a: Hoopa
+|-damage|p1a: Hoopa|10/100
+|move|p1a: Hoopa|Knock Off|p2a: Gholdengo
+|-supereffective|p2a: Gholdengo
+|-damage|p2a: Gholdengo|0 fnt
+|-enditem|p2a: Gholdengo|Choice Scarf|[from] move: Knock Off|[of] p1a: Hoopa
+|faint|p2a: Gholdengo
+|
+|upkeep
+|j| Bagelthebeagle
+|j| Pokemon-Lover834
+|
+|t:|1731428845
+|switch|p2a: Gliscor|Gliscor, F, shiny|65/100 tox
+|turn|22
+|
+|t:|1731428849
+|switch|p1a: Great Tusk|Great Tusk|100/100
+|move|p2a: Gliscor|Protect||[still]
+|-fail|p2a: Gliscor
+|
+|-heal|p2a: Gliscor|77/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|23
+|
+|t:|1731428864
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Scizor|Scizor, F|100/100
+|move|p2a: Gliscor|Protect||[still]
+|-fail|p2a: Gliscor
+|
+|-heal|p2a: Gliscor|90/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|24
+|
+|t:|1731428867
+|move|p2a: Gliscor|Knock Off|p1a: Scizor
+|-damage|p1a: Scizor|75/100
+|-enditem|p1a: Scizor|Choice Band|[from] move: Knock Off|[of] p2a: Gliscor
+|move|p1a: Scizor|U-turn|p2a: Gliscor
+|-resisted|p2a: Gliscor
+|-damage|p2a: Gliscor|79/100 tox
+|
+|t:|1731428870
+|switch|p1a: Primarina|Primarina, F|84/100|[from] U-turn
+|
+|-heal|p2a: Gliscor|91/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|25
+|
+|t:|1731428877
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Primarina|Sparkling Aria|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|100/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|26
+|
+|t:|1731428884
+|switch|p2a: Blissey|Blissey, F, shiny|91/100
+|move|p1a: Primarina|Flip Turn|p2a: Blissey
+|-damage|p2a: Blissey|65/100
+|
+|t:|1731428886
+|switch|p1a: Hoopa|Hoopa-Unbound, tera:Fighting|10/100|[from] Flip Turn
+|
+|upkeep
+|turn|27
+|
+|t:|1731428897
+|switch|p2a: Corviknight|Corviknight, F, shiny|92/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Hoopa|Drain Punch|p2a: Corviknight
+|-damage|p2a: Corviknight|66/100
+|-heal|p1a: Hoopa|28/100|[from] drain|[of] p2a: Corviknight
+|-damage|p1a: Hoopa|11/100|[from] item: Rocky Helmet|[of] p2a: Corviknight
+|
+|upkeep
+|turn|28
+|
+|t:|1731428904
+|move|p2a: Corviknight|Protect|p2a: Corviknight
+|-singleturn|p2a: Corviknight|Protect
+|move|p1a: Hoopa|Thunderbolt|p2a: Corviknight
+|-activate|p2a: Corviknight|move: Protect
+|
+|upkeep
+|turn|29
+|
+|t:|1731428907
+|switch|p2a: Gliscor|Gliscor, F, shiny|100/100 tox
+|move|p1a: Hoopa|Thunderbolt|p2a: Gliscor
+|-immune|p2a: Gliscor
+|
+|upkeep
+|turn|30
+|
+|t:|1731428909
+|switch|p1a: Great Tusk|Great Tusk|100/100
+|move|p2a: Gliscor|Knock Off|p1a: Great Tusk
+|-resisted|p1a: Great Tusk
+|-damage|p1a: Great Tusk|93/100
+|-enditem|p1a: Great Tusk|Heavy-Duty Boots|[from] move: Knock Off|[of] p2a: Gliscor
+|
+|upkeep
+|turn|31
+|l| Bagelthebeagle
+|
+|t:|1731428916
+|move|p1a: Great Tusk|Ice Spinner|p2a: Gliscor
+|-supereffective|p2a: Gliscor
+|-damage|p2a: Gliscor|32/100 tox
+|move|p2a: Gliscor|Spikes|p1a: Great Tusk
+|-sidestart|p1: DA Scizor Enjoyer|Spikes
+|
+|-heal|p2a: Gliscor|44/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|32
+|
+|t:|1731428920
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Great Tusk|Ice Spinner|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|56/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|33
+|
+|t:|1731428922
+|switch|p2a: Corviknight|Corviknight, F, shiny|66/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Great Tusk|Rapid Spin|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|60/100
+|-boost|p1a: Great Tusk|spe|1
+|-damage|p1a: Great Tusk|77/100|[from] item: Rocky Helmet|[of] p2a: Corviknight
+|-sideend|p1: DA Scizor Enjoyer|Spikes|[from] move: Rapid Spin|[of] p1a: Great Tusk
+|
+|upkeep
+|turn|34
+|
+|t:|1731428926
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Zapdos|Zapdos|100/100
+|move|p2a: Corviknight|Roost|p2a: Corviknight
+|-heal|p2a: Corviknight|100/100
+|-singleturn|p2a: Corviknight|move: Roost
+|
+|upkeep
+|turn|35
+|
+|t:|1731428934
+|switch|p1a: Dragapult|Dragapult, M|100/100
+|move|p2a: Corviknight|Protect||[still]
+|-fail|p2a: Corviknight
+|
+|upkeep
+|turn|36
+|
+|t:|1731428938
+|switch|p2a: Garganacl|Garganacl, M, tera:Dark|89/100
+|move|p1a: Dragapult|U-turn|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|40/100
+|
+|t:|1731428942
+|switch|p1a: Scizor|Scizor, F|75/100|[from] U-turn
+|
+|upkeep
+|turn|37
+|
+|t:|1731428948
+|move|p2a: Garganacl|Protect|p2a: Garganacl
+|-singleturn|p2a: Garganacl|Protect
+|move|p1a: Scizor|U-turn|p2a: Garganacl
+|-activate|p2a: Garganacl|move: Protect
+|
+|upkeep
+|turn|38
+|
+|t:|1731428953
+|switch|p2a: Corviknight|Corviknight, F, shiny|100/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Scizor|U-turn|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|95/100
+|-damage|p1a: Scizor|58/100|[from] item: Rocky Helmet|[of] p2a: Corviknight
+|
+|t:|1731428959
+|switch|p1a: Zapdos|Zapdos|100/100|[from] U-turn
+|
+|upkeep
+|turn|39
+|
+|t:|1731428963
+|move|p2a: Corviknight|Protect|p2a: Corviknight
+|-singleturn|p2a: Corviknight|Protect
+|move|p1a: Zapdos|Hurricane|p2a: Corviknight
+|-activate|p2a: Corviknight|move: Protect
+|
+|upkeep
+|turn|40
+|
+|t:|1731428966
+|switch|p2a: Blissey|Blissey, F, shiny|65/100
+|move|p1a: Zapdos|Thunder Wave|p2a: Blissey
+|-status|p2a: Blissey|par
+|
+|upkeep
+|turn|41
+|
+|t:|1731428970
+|move|p1a: Zapdos|Hurricane|p2a: Blissey|[miss]
+|-miss|p1a: Zapdos|p2a: Blissey
+|move|p2a: Blissey|Soft-Boiled|p2a: Blissey
+|-heal|p2a: Blissey|100/100 par
+|
+|upkeep
+|turn|42
+|
+|t:|1731428973
+|switch|p1a: Hoopa|Hoopa-Unbound, tera:Fighting|11/100
+|move|p2a: Blissey|Seismic Toss|p1a: Hoopa
+|-damage|p1a: Hoopa|0 fnt
+|faint|p1a: Hoopa
+|
+|upkeep
+|
+|t:|1731428976
+|switch|p1a: Scizor|Scizor, F|58/100
+|turn|43
+|
+|t:|1731428981
+|-curestatus|p2a: Blissey|par|[from] ability: Natural Cure
+|switch|p2a: Corviknight|Corviknight, F, shiny|95/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Scizor|Close Combat|p2a: Corviknight
+|-damage|p2a: Corviknight|67/100
+|-unboost|p1a: Scizor|def|1
+|-unboost|p1a: Scizor|spd|1
+|-damage|p1a: Scizor|42/100|[from] item: Rocky Helmet|[of] p2a: Corviknight
+|
+|upkeep
+|turn|44
+|
+|t:|1731428987
+|switch|p1a: Primarina|Primarina, F|84/100
+|move|p2a: Corviknight|Roost|p2a: Corviknight
+|-heal|p2a: Corviknight|100/100
+|-singleturn|p2a: Corviknight|move: Roost
+|
+|upkeep
+|turn|45
+|
+|t:|1731428991
+|move|p2a: Corviknight|Protect|p2a: Corviknight
+|-singleturn|p2a: Corviknight|Protect
+|move|p1a: Primarina|Flip Turn|p2a: Corviknight
+|-activate|p2a: Corviknight|move: Protect
+|
+|upkeep
+|turn|46
+|
+|t:|1731428995
+|move|p2a: Corviknight|Brave Bird|p1a: Primarina
+|-damage|p1a: Primarina|47/100
+|-damage|p2a: Corviknight|89/100|[from] Recoil
+|move|p1a: Primarina|Sparkling Aria|p2a: Corviknight
+|-damage|p2a: Corviknight|45/100
+|
+|upkeep
+|turn|47
+|
+|t:|1731428999
+|move|p2a: Corviknight|Protect|p2a: Corviknight
+|-singleturn|p2a: Corviknight|Protect
+|move|p1a: Primarina|Sparkling Aria|p2a: Corviknight
+|-activate|p2a: Corviknight|move: Protect
+|
+|upkeep
+|turn|48
+|
+|t:|1731429004
+|move|p2a: Corviknight|Roost|p2a: Corviknight
+|-heal|p2a: Corviknight|95/100
+|-singleturn|p2a: Corviknight|move: Roost
+|move|p1a: Primarina|Sparkling Aria|p2a: Corviknight
+|-damage|p2a: Corviknight|47/100
+|
+|upkeep
+|turn|49
+|
+|t:|1731429009
+|move|p2a: Corviknight|Roost|p2a: Corviknight
+|-heal|p2a: Corviknight|97/100
+|-singleturn|p2a: Corviknight|move: Roost
+|move|p1a: Primarina|Sparkling Aria|p2a: Corviknight
+|-damage|p2a: Corviknight|52/100
+|
+|upkeep
+|turn|50
+|
+|t:|1731429012
+|move|p2a: Corviknight|Protect|p2a: Corviknight
+|-singleturn|p2a: Corviknight|Protect
+|move|p1a: Primarina|Sparkling Aria|p2a: Corviknight
+|-activate|p2a: Corviknight|move: Protect
+|
+|upkeep
+|turn|51
+|
+|t:|1731429018
+|switch|p2a: Blissey|Blissey, F, shiny|100/100
+|move|p1a: Primarina|Sparkling Aria|p2a: Blissey
+|-damage|p2a: Blissey|87/100
+|
+|upkeep
+|turn|52
+|
+|t:|1731429026
+|move|p1a: Primarina|Flip Turn|p2a: Blissey
+|-damage|p2a: Blissey|58/100
+|
+|t:|1731429029
+|switch|p1a: Dragapult|Dragapult, M|100/100|[from] Flip Turn
+|move|p2a: Blissey|Seismic Toss|p1a: Dragapult
+|-immune|p1a: Dragapult
+|
+|upkeep
+|turn|53
+|
+|t:|1731429045
+|switch|p2a: Dondozo|Dondozo, M, shiny|100/100
+|move|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|83/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|66/100
+|
+|-heal|p2a: Dondozo|72/100|[from] item: Leftovers
+|upkeep
+|turn|54
+|
+|t:|1731429050
+|switch|p1a: Zapdos|Zapdos|100/100
+|move|p2a: Dondozo|Curse|p2a: Dondozo
+|-unboost|p2a: Dondozo|spe|1
+|-boost|p2a: Dondozo|atk|1
+|-boost|p2a: Dondozo|def|1
+|
+|-heal|p2a: Dondozo|78/100|[from] item: Leftovers
+|upkeep
+|turn|55
+|
+|t:|1731429056
+|switch|p2a: Blissey|Blissey, F, shiny|58/100
+|move|p1a: Zapdos|Thunder Wave|p2a: Blissey
+|-status|p2a: Blissey|par
+|
+|upkeep
+|turn|56
+|
+|t:|1731429061
+|move|p1a: Zapdos|Hurricane|p2a: Blissey
+|-damage|p2a: Blissey|45/100 par
+|-start|p2a: Blissey|confusion
+|-activate|p2a: Blissey|confusion
+|cant|p2a: Blissey|par
+|
+|upkeep
+|turn|57
+|j| Hydra53
+|
+|t:|1731429067
+|move|p1a: Zapdos|Hurricane|p2a: Blissey
+|-damage|p2a: Blissey|33/100 par
+|-activate|p2a: Blissey|confusion
+|move|p2a: Blissey|Soft-Boiled|p2a: Blissey
+|-heal|p2a: Blissey|83/100 par
+|
+|upkeep
+|turn|58
+|
+|t:|1731429070
+|move|p1a: Zapdos|Volt Switch|p2a: Blissey
+|-damage|p2a: Blissey|75/100 par
+|
+|t:|1731429072
+|switch|p1a: Dragapult|Dragapult, M|100/100|[from] Volt Switch
+|-activate|p2a: Blissey|confusion
+|move|p2a: Blissey|Stealth Rock|p1a: Dragapult
+|-sidestart|p1: DA Scizor Enjoyer|move: Stealth Rock
+|
+|upkeep
+|turn|59
+|
+|t:|1731429078
+|-curestatus|p2a: Blissey|par|[from] ability: Natural Cure
+|switch|p2a: Corviknight|Corviknight, F, shiny|52/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Dragapult|Dragon Darts|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|41/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|30/100
+|
+|upkeep
+|turn|60
+|
+|t:|1731429081
+|move|p1a: Dragapult|Dragon Darts|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|18/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-crit|p2a: Corviknight
+|-damage|p2a: Corviknight|2/100
+|move|p2a: Corviknight|Roost|p2a: Corviknight
+|-heal|p2a: Corviknight|52/100
+|-singleturn|p2a: Corviknight|move: Roost
+|
+|upkeep
+|turn|61
+|
+|t:|1731429084
+|move|p2a: Corviknight|Protect|p2a: Corviknight
+|-singleturn|p2a: Corviknight|Protect
+|move|p1a: Dragapult|Dragon Darts|p2a: Corviknight
+|-activate|p2a: Corviknight|move: Protect
+|
+|upkeep
+|turn|62
+|
+|t:|1731429088
+|move|p1a: Dragapult|Dragon Darts|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|42/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|32/100
+|move|p2a: Corviknight|Roost|p2a: Corviknight
+|-heal|p2a: Corviknight|82/100
+|-singleturn|p2a: Corviknight|move: Roost
+|
+|upkeep
+|turn|63
+|
+|t:|1731429092
+|switch|p1a: Zapdos|Zapdos|100/100
+|move|p2a: Corviknight|Brave Bird|p1a: Zapdos
+|-resisted|p1a: Zapdos
+|-damage|p1a: Zapdos|86/100
+|-damage|p2a: Corviknight|77/100|[from] Recoil
+|
+|upkeep
+|turn|64
+|
+|t:|1731429096
+|switch|p2a: Blissey|Blissey, F, shiny|75/100
+|move|p1a: Zapdos|Volt Switch|p2a: Blissey
+|-damage|p2a: Blissey|67/100
+|
+|t:|1731429099
+|switch|p1a: Great Tusk|Great Tusk|77/100|[from] Volt Switch
+|-damage|p1a: Great Tusk|74/100|[from] Stealth Rock
+|
+|upkeep
+|turn|65
+|j| 654654m
+|
+|t:|1731429106
+|switch|p2a: Corviknight|Corviknight, F, shiny|77/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Great Tusk|Close Combat|p2a: Corviknight
+|-damage|p2a: Corviknight|36/100
+|-unboost|p1a: Great Tusk|def|1
+|-unboost|p1a: Great Tusk|spd|1
+|-damage|p1a: Great Tusk|57/100|[from] item: Rocky Helmet|[of] p2a: Corviknight
+|
+|upkeep
+|turn|66
+|
+|t:|1731429118
+|move|p2a: Corviknight|Protect|p2a: Corviknight
+|-singleturn|p2a: Corviknight|Protect
+|move|p1a: Great Tusk|Close Combat|p2a: Corviknight
+|-activate|p2a: Corviknight|move: Protect
+|
+|upkeep
+|turn|67
+|
+|t:|1731429123
+|switch|p2a: Dondozo|Dondozo, M, shiny|78/100
+|move|p1a: Great Tusk|Rapid Spin|p2a: Dondozo
+|-damage|p2a: Dondozo|70/100
+|-boost|p1a: Great Tusk|spe|1
+|-sideend|p1: DA Scizor Enjoyer|Stealth Rock|[from] move: Rapid Spin|[of] p1a: Great Tusk
+|
+|-heal|p2a: Dondozo|76/100|[from] item: Leftovers
+|upkeep
+|turn|68
+|
+|t:|1731429128
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Zapdos|Zapdos|86/100
+|move|p2a: Dondozo|Avalanche|p1a: Zapdos
+|-supereffective|p1a: Zapdos
+|-crit|p1a: Zapdos
+|-damage|p1a: Zapdos|58/100
+|
+|-heal|p2a: Dondozo|82/100|[from] item: Leftovers
+|upkeep
+|turn|69
+|
+|t:|1731429134
+|switch|p2a: Gliscor|Gliscor, F, shiny|56/100 tox
+|move|p1a: Zapdos|Volt Switch|p2a: Gliscor
+|-immune|p2a: Gliscor
+|
+|-heal|p2a: Gliscor|69/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|70
+|l| tplbndsmgcu7threas
+|
+|t:|1731429136
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Zapdos|Hurricane|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|81/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|71
+|
+|t:|1731429139
+|switch|p2a: Blissey|Blissey, F, shiny|67/100
+|move|p1a: Zapdos|Roost|p1a: Zapdos
+|-heal|p1a: Zapdos|100/100
+|-singleturn|p1a: Zapdos|move: Roost
+|
+|upkeep
+|turn|72
+|
+|t:|1731429143
+|move|p1a: Zapdos|Thunder Wave|p2a: Blissey
+|-status|p2a: Blissey|par
+|move|p2a: Blissey|Seismic Toss|p1a: Zapdos
+|-damage|p1a: Zapdos|74/100
+|
+|upkeep
+|turn|73
+|
+|t:|1731429149
+|switch|p1a: Dragapult|Dragapult, M|100/100
+|move|p2a: Blissey|Seismic Toss|p1a: Dragapult
+|-immune|p1a: Dragapult
+|
+|upkeep
+|turn|74
+|
+|t:|1731429152
+|-curestatus|p2a: Blissey|par|[from] ability: Natural Cure
+|switch|p2a: Dondozo|Dondozo, M, shiny|82/100
+|move|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|65/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-crit|p2a: Dondozo
+|-damage|p2a: Dondozo|42/100
+|
+|-heal|p2a: Dondozo|48/100|[from] item: Leftovers
+|upkeep
+|turn|75
+|
+|t:|1731429156
+|move|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|33/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|16/100
+|move|p2a: Dondozo|Rest|p2a: Dondozo
+|-status|p2a: Dondozo|slp|[from] move: Rest
+|-heal|p2a: Dondozo|100/100 slp|[silent]
+|
+|upkeep
+|turn|76
+|
+|t:|1731429160
+|switch|p1a: Zapdos|Zapdos|74/100
+|cant|p2a: Dondozo|slp
+|move|p2a: Dondozo|Sleep Talk|p2a: Dondozo
+|move|p2a: Dondozo|Curse|p2a: Dondozo|[from]move: Sleep Talk
+|-unboost|p2a: Dondozo|spe|1
+|-boost|p2a: Dondozo|atk|1
+|-boost|p2a: Dondozo|def|1
+|
+|upkeep
+|turn|77
+|
+|t:|1731429166
+|switch|p2a: Gliscor|Gliscor, F, shiny|81/100 tox
+|move|p1a: Zapdos|Hurricane|p2a: Gliscor
+|-damage|p2a: Gliscor|23/100 tox
+|
+|-heal|p2a: Gliscor|36/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|78
+|
+|t:|1731429170
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Zapdos|Roost|p1a: Zapdos
+|-heal|p1a: Zapdos|100/100
+|-singleturn|p1a: Zapdos|move: Roost
+|
+|-heal|p2a: Gliscor|48/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|79
+|
+|t:|1731429173
+|switch|p2a: Blissey|Blissey, F, shiny|67/100
+|move|p1a: Zapdos|Volt Switch|p2a: Blissey
+|-damage|p2a: Blissey|59/100
+|
+|t:|1731429175
+|switch|p1a: Dragapult|Dragapult, M|100/100|[from] Volt Switch
+|
+|upkeep
+|turn|80
+|
+|t:|1731429178
+|switch|p2a: Dondozo|Dondozo, M, shiny|100/100 slp
+|move|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|84/100 slp
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|66/100 slp
+|
+|-heal|p2a: Dondozo|73/100 slp|[from] item: Leftovers
+|upkeep
+|turn|81
+|
+|t:|1731429182
+|move|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|56/100 slp
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-crit|p2a: Dondozo
+|-damage|p2a: Dondozo|31/100 slp
+|cant|p2a: Dondozo|slp
+|move|p2a: Dondozo|Sleep Talk|p2a: Dondozo
+|move|p2a: Dondozo|Avalanche|p1a: Dragapult|[from]move: Sleep Talk
+|-supereffective|p1a: Dragapult
+|-damage|p1a: Dragapult|27/100
+|
+|-heal|p2a: Dondozo|38/100 slp|[from] item: Leftovers
+|upkeep
+|turn|82
+|
+|t:|1731429187
+|move|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|20/100 slp
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|3/100 slp
+|-curestatus|p2a: Dondozo|slp|[msg]
+|move|p2a: Dondozo|Rest|p2a: Dondozo
+|-status|p2a: Dondozo|slp|[from] move: Rest
+|-heal|p2a: Dondozo|100/100 slp|[silent]
+|
+|upkeep
+|turn|83
+|
+|t:|1731429195
+|switch|p1a: Zapdos|Zapdos|100/100
+|cant|p2a: Dondozo|slp
+|move|p2a: Dondozo|Sleep Talk|p2a: Dondozo
+|move|p2a: Dondozo|Rest||[from]move: Sleep Talk|[still]
+|-fail|p2a: Dondozo
+|
+|upkeep
+|turn|84
+|c|☆aimKP|no more pp bud
+|
+|t:|1731429202
+|switch|p2a: Blissey|Blissey, F, shiny|59/100
+|move|p1a: Zapdos|Volt Switch|p2a: Blissey
+|-damage|p2a: Blissey|51/100
+|c|☆DA Scizor Enjoyer|yes
+|c|☆DA Scizor Enjoyer|wish i was more careful with hoopa lol
+|
+|t:|1731429223
+|switch|p1a: Great Tusk|Great Tusk|57/100|[from] Volt Switch
+|
+|upkeep
+|turn|85
+|c|☆aimKP|mix attackers are our worst nightmare
+|c|☆DA Scizor Enjoyer|yea we all know
+|
+|t:|1731429243
+|switch|p2a: Garganacl|Garganacl, M, tera:Dark|40/100
+|move|p1a: Great Tusk|Close Combat|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|0 fnt
+|-unboost|p1a: Great Tusk|def|1
+|-unboost|p1a: Great Tusk|spd|1
+|faint|p2a: Garganacl
+|
+|upkeep
+|
+|t:|1731429246
+|switch|p2a: Dondozo|Dondozo, M, shiny|100/100 slp
+|turn|86
+|
+|t:|1731429249
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Zapdos|Zapdos|100/100
+|cant|p2a: Dondozo|slp
+|move|p2a: Dondozo|Sleep Talk|p2a: Dondozo
+|move|p2a: Dondozo|Curse|p2a: Dondozo|[from]move: Sleep Talk
+|-unboost|p2a: Dondozo|spe|1
+|-boost|p2a: Dondozo|atk|1
+|-boost|p2a: Dondozo|def|1
+|
+|upkeep
+|turn|87
+|
+|t:|1731429253
+|switch|p2a: Blissey|Blissey, F, shiny|51/100
+|move|p1a: Zapdos|Hurricane|p2a: Blissey|[miss]
+|-miss|p1a: Zapdos|p2a: Blissey
+|
+|upkeep
+|turn|88
+|
+|t:|1731429256
+|move|p1a: Zapdos|Volt Switch|p2a: Blissey
+|-damage|p2a: Blissey|42/100
+|
+|t:|1731429259
+|switch|p1a: Dragapult|Dragapult, M|27/100|[from] Volt Switch
+|move|p2a: Blissey|Soft-Boiled|p2a: Blissey
+|-heal|p2a: Blissey|92/100
+|
+|upkeep
+|turn|89
+|
+|t:|1731429263
+|switch|p2a: Dondozo|Dondozo, M, shiny|100/100 slp
+|move|p1a: Dragapult|U-turn|p2a: Dondozo
+|-damage|p2a: Dondozo|86/100 slp
+|
+|t:|1731429266
+|switch|p1a: Primarina|Primarina, F|47/100|[from] U-turn
+|
+|-heal|p2a: Dondozo|92/100 slp|[from] item: Leftovers
+|upkeep
+|turn|90
+|
+|t:|1731429270
+|switch|p2a: Blissey|Blissey, F, shiny|92/100
+|move|p1a: Primarina|Flip Turn|p2a: Blissey
+|-damage|p2a: Blissey|66/100
+|j| Lawyerantis
+|
+|t:|1731429275
+|switch|p1a: Scizor|Scizor, F|42/100|[from] Flip Turn
+|
+|upkeep
+|turn|91
+|
+|t:|1731429283
+|switch|p2a: Corviknight|Corviknight, F, shiny|36/100
+|-ability|p2a: Corviknight|Pressure
+|move|p1a: Scizor|U-turn|p2a: Corviknight
+|-resisted|p2a: Corviknight
+|-damage|p2a: Corviknight|30/100
+|-damage|p1a: Scizor|25/100|[from] item: Rocky Helmet|[of] p2a: Corviknight
+|
+|t:|1731429288
+|switch|p1a: Zapdos|Zapdos|100/100|[from] U-turn
+|
+|upkeep
+|turn|92
+|
+|t:|1731429290
+|switch|p2a: Blissey|Blissey, F, shiny|66/100
+|move|p1a: Zapdos|Volt Switch|p2a: Blissey
+|-damage|p2a: Blissey|58/100
+|
+|t:|1731429293
+|switch|p1a: Scizor|Scizor, F|25/100|[from] Volt Switch
+|
+|upkeep
+|turn|93
+|
+|t:|1731429303
+|switch|p2a: Dondozo|Dondozo, M, shiny|92/100 slp
+|move|p1a: Scizor|Close Combat|p2a: Dondozo
+|-damage|p2a: Dondozo|71/100 slp
+|-unboost|p1a: Scizor|def|1
+|-unboost|p1a: Scizor|spd|1
+|
+|-heal|p2a: Dondozo|77/100 slp|[from] item: Leftovers
+|upkeep
+|turn|94
+|l|☆DA Scizor Enjoyer
+|inactive|DA Scizor Enjoyer disconnected and has a minute to reconnect!
+|player|p1|
+|j| econometric$
+|j|☆DA Scizor Enjoyer
+|inactive|DA Scizor Enjoyer reconnected and has 140 seconds left.
+|player|p1|DA Scizor Enjoyer|alder|
+|c|☆aimKP|gg
+|c|☆aimKP|nvm
+|inactive|DA Scizor Enjoyer has 120 seconds left.
+|
+|t:|1731429334
+|move|p1a: Scizor|U-turn|p2a: Dondozo
+|-damage|p2a: Dondozo|58/100 slp
+|
+|t:|1731429336
+|switch|p1a: Zapdos|Zapdos|100/100|[from] U-turn
+|-curestatus|p2a: Dondozo|slp|[msg]
+|move|p2a: Dondozo|Avalanche|p1a: Zapdos
+|-supereffective|p1a: Zapdos
+|-damage|p1a: Zapdos|82/100
+|
+|-heal|p2a: Dondozo|65/100|[from] item: Leftovers
+|upkeep
+|turn|95
+|
+|t:|1731429340
+|switch|p2a: Gliscor|Gliscor, F, shiny|48/100 tox
+|move|p1a: Zapdos|Volt Switch|p2a: Gliscor
+|-immune|p2a: Gliscor
+|
+|-heal|p2a: Gliscor|61/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|96
+|
+|t:|1731429344
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Zapdos|Roost|p1a: Zapdos
+|-heal|p1a: Zapdos|100/100
+|-singleturn|p1a: Zapdos|move: Roost
+|
+|-heal|p2a: Gliscor|73/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|97
+|
+|t:|1731429351
+|move|p1a: Zapdos|Volt Switch|p2a: Gliscor
+|-immune|p2a: Gliscor
+|move|p2a: Gliscor|Spikes|p1a: Zapdos
+|-sidestart|p1: DA Scizor Enjoyer|Spikes
+|
+|-heal|p2a: Gliscor|86/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|98
+|
+|t:|1731429355
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Zapdos|Hurricane|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|-heal|p2a: Gliscor|98/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|99
+|
+|t:|1731429360
+|move|p1a: Zapdos|Volt Switch|p2a: Gliscor
+|-immune|p2a: Gliscor
+|move|p2a: Gliscor|Spikes|p1a: Zapdos
+|-sidestart|p1: DA Scizor Enjoyer|Spikes
+|
+|-heal|p2a: Gliscor|100/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|100
+|
+|t:|1731429364
+|switch|p1a: Great Tusk|Great Tusk|57/100
+|-damage|p1a: Great Tusk|41/100|[from] Spikes
+|move|p2a: Gliscor|Protect||[still]
+|-fail|p2a: Gliscor
+|
+|upkeep
+|turn|101
+|
+|t:|1731429369
+|switch|p2a: Dondozo|Dondozo, M, shiny|65/100
+|move|p1a: Great Tusk|Rapid Spin|p2a: Dondozo
+|-damage|p2a: Dondozo|57/100
+|-boost|p1a: Great Tusk|spe|1
+|-sideend|p1: DA Scizor Enjoyer|Spikes|[from] move: Rapid Spin|[of] p1a: Great Tusk
+|
+|-heal|p2a: Dondozo|63/100|[from] item: Leftovers
+|upkeep
+|turn|102
+|
+|t:|1731429374
+|-end|p1a: Great Tusk|Protosynthesis|[silent]
+|switch|p1a: Zapdos|Zapdos|100/100
+|move|p2a: Dondozo|Avalanche|p1a: Zapdos
+|-supereffective|p1a: Zapdos
+|-damage|p1a: Zapdos|82/100
+|
+|-heal|p2a: Dondozo|69/100|[from] item: Leftovers
+|upkeep
+|turn|103
+|
+|t:|1731429381
+|switch|p2a: Gliscor|Gliscor, F, shiny|100/100 tox
+|move|p1a: Zapdos|Volt Switch|p2a: Gliscor
+|-immune|p2a: Gliscor
+|
+|upkeep
+|turn|104
+|
+|t:|1731429384
+|move|p2a: Gliscor|Protect|p2a: Gliscor
+|-singleturn|p2a: Gliscor|Protect
+|move|p1a: Zapdos|Volt Switch|p2a: Gliscor
+|-activate|p2a: Gliscor|move: Protect
+|
+|upkeep
+|turn|105
+|
+|t:|1731429386
+|move|p1a: Zapdos|Hurricane|p2a: Gliscor
+|-damage|p2a: Gliscor|42/100 tox
+|-start|p2a: Gliscor|confusion
+|-activate|p2a: Gliscor|confusion
+|move|p2a: Gliscor|Spikes|p1a: Zapdos
+|-sidestart|p1: DA Scizor Enjoyer|Spikes
+|
+|-heal|p2a: Gliscor|54/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|106
+|
+|t:|1731429391
+|switch|p2a: Blissey|Blissey, F, shiny|58/100
+|move|p1a: Zapdos|Volt Switch|p2a: Blissey
+|-damage|p2a: Blissey|49/100
+|
+|t:|1731429394
+|switch|p1a: Dragapult|Dragapult, M|27/100|[from] Volt Switch
+|-damage|p1a: Dragapult|15/100|[from] Spikes
+|
+|upkeep
+|turn|107
+|
+|t:|1731429400
+|switch|p2a: Dondozo|Dondozo, M, shiny|69/100
+|move|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|52/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|35/100
+|
+|-heal|p2a: Dondozo|41/100|[from] item: Leftovers
+|upkeep
+|turn|108
+|
+|t:|1731429403
+|move|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|25/100
+|-anim|p1a: Dragapult|Dragon Darts|p2a: Dondozo
+|-damage|p2a: Dondozo|10/100
+|move|p2a: Dondozo|Rest|p2a: Dondozo
+|-status|p2a: Dondozo|slp|[from] move: Rest
+|-heal|p2a: Dondozo|100/100 slp|[silent]
+|
+|upkeep
+|turn|109
+|
+|t:|1731429406
+|-activate|p1a: Dragapult|move: Struggle
+|move|p1a: Dragapult|Struggle|p2a: Dondozo
+|-damage|p2a: Dondozo|90/100 slp
+|-damage|p1a: Dragapult|0 fnt|[from] recoil
+|faint|p1a: Dragapult
+|cant|p2a: Dondozo|slp
+|move|p2a: Dondozo|Sleep Talk|p2a: Dondozo
+|move|p2a: Dondozo|Rest||[from]move: Sleep Talk|[still]
+|-fail|p2a: Dondozo
+|
+|-heal|p2a: Dondozo|96/100 slp|[from] item: Leftovers
+|upkeep
+|
+|t:|1731429411
+|switch|p1a: Zapdos|Zapdos|82/100
+|turn|110
+|
+|t:|1731429419
+|switch|p2a: Gliscor|Gliscor, F, shiny|54/100 tox
+|move|p1a: Zapdos|Hurricane|p2a: Gliscor
+|-damage|p2a: Gliscor|3/100 tox
+|
+|-heal|p2a: Gliscor|16/100 tox|[from] ability: Poison Heal
+|upkeep
+|turn|111
+|c|☆DA Scizor Enjoyer|yea im fking screwed
+|l| econometric$
+|c|☆DA Scizor Enjoyer|gg
+|c|☆aimKP|GG mate
+|-message|DA Scizor Enjoyer forfeited.
+|
+|win|aimKP
+|raw|DA Scizor Enjoyer's rating: 1819 &rarr; <strong>1797</strong><br />(-22 for losing)
+|raw|aimKP's rating: 1778 &rarr; <strong>1800</strong><br />(+22 for winning)
+|l| 654654m
+|l|☆aimKP
+|player|p2|
+|c|☆DA Scizor Enjoyer|illg et back my top 100 later(either that or i jsut go back down to low 1700s or smthin)
+|l|☆DA Scizor Enjoyer
+|player|p1|
+|l| Hydra53
+|l| Lawyerantis
+|j| ladderhater123
+|l| ladderhater123
+|l| Pokemon-Lover834

@@ -144,7 +144,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             // get stat by damage from xxx of xxx
             damageOf = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX),
                     battleContext);
-        } else if (FROM_INDEX == battleEvent.getContents().size() - 1 ||
+        } else if (FROM_INDEX == battleEvent.getContents().size() - 1 &&
                 getDamageOfByFrom(eventTarget, damageFrom, battleContext, targetPlayerStatus) != null) {
             // get stat by damage from xxx
             damageOf = getDamageOfByFrom(eventTarget, damageFrom, battleContext, targetPlayerStatus);

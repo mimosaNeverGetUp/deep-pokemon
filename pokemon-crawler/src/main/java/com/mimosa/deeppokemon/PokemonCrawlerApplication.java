@@ -25,8 +25,6 @@
 package com.mimosa.deeppokemon;
 
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
-
-
 import com.mimosa.deeppokemon.entity.Replay;
 import org.springframework.aot.hint.RuntimeHints;
 import org.springframework.aot.hint.RuntimeHintsRegistrar;
@@ -80,6 +78,8 @@ public class PokemonCrawlerApplication {
                                     TreeMap.class,
                                     Replay.class),
                             TypeHint.builtWith(INVOKE_PUBLIC_CONSTRUCTORS, INVOKE_PUBLIC_METHODS));
+            hints.resources().registerPattern("tourReplay/");
+            hints.resources().registerPattern("tourReplay/oupl.csv");
         }
     }
 }

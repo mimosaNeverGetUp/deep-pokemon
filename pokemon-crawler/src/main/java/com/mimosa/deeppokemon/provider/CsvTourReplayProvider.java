@@ -13,9 +13,6 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.*;
 
 public class CsvTourReplayProvider implements ReplayProvider {
@@ -24,12 +21,12 @@ public class CsvTourReplayProvider implements ReplayProvider {
     protected static final String PLAYER_ID_FORMAT = "%s_%s_%s";
     protected static final String TOUR = "tour";
 
-    private final Path csvPath;
+    private final String[] csvContents;
     private final Deque<ReplaySource> replaySources = new LinkedList<>();
     private boolean initialized = false;
 
-    public CsvTourReplayProvider(Path csvPath) {
-        this.csvPath = csvPath;
+    public CsvTourReplayProvider(String csvContents) {
+        this.csvContents = csvContents.split("\n");
     }
 
     @Override
@@ -51,45 +48,39 @@ public class CsvTourReplayProvider implements ReplayProvider {
     }
 
     private void extractFromCsv() {
-        try {
-            List<String> lines = Files.readAllLines(csvPath);
-            for (String line : lines) {
-                String[] contents = line.split("\\|");
-                if (contents.length < TOUR_REPLAY_PARAM_SIZE) {
-                    log.error("Invalid CSV line: {}", line);
-                    continue;
-                }
-
-                // build replay
-                String tourName = contents[0].trim();
-                String tourStage = contents[1].trim();
-                String replayId = contents[2].trim();
-                String replayTier = contents[3].trim();
-                String replayWinnerSmogonName = contents[4].trim().toLowerCase();
-                List<TourPlayer> tourPlayers = new ArrayList<>();
-                TourPlayer tourPlayerA = buildTourPlayer(tourName, replayTier, contents[5].trim().toLowerCase(), contents[6].trim());
-                TourPlayer tourPlayerB = buildTourPlayer(tourName, replayTier, contents[7].trim().toLowerCase(), contents[8].trim());
-                tourPlayers.add(tourPlayerA);
-                tourPlayers.add(tourPlayerB);
-                TourPlayer winPlayer = null;
-                if (StringUtils.equals(replayWinnerSmogonName, tourPlayerA.getName())) {
-                    winPlayer = tourPlayerA;
-                } else if (StringUtils.equals(replayWinnerSmogonName, tourPlayerB.getName())) {
-                    winPlayer = tourPlayerB;
-                } else {
-                    log.error("Invalid replay winner: {}", replayWinnerSmogonName);
-                }
-
-                SmogonTourReplay smogonTourReplay = new SmogonTourReplay(replayId);
-                smogonTourReplay.setTourName(tourName);
-                smogonTourReplay.setTourPlayers(tourPlayers);
-                smogonTourReplay.setStage(tourStage);
-                smogonTourReplay.setWinPlayer(winPlayer);
-                replaySources.add(new ReplaySource(List.of(TOUR, tourName), Collections.singletonList(smogonTourReplay)));
+        for (String line : csvContents) {
+            String[] contents = line.split("\\|");
+            if (contents.length < TOUR_REPLAY_PARAM_SIZE) {
+                log.error("Invalid CSV line: {}", line);
+                continue;
             }
 
-        } catch (IOException e) {
-            log.error("Error reading csv file", e);
+            // build replay
+            String tourName = contents[0].trim();
+            String tourStage = contents[1].trim();
+            String replayId = contents[2].trim();
+            String replayTier = contents[3].trim();
+            String replayWinnerSmogonName = contents[4].trim().toLowerCase();
+            List<TourPlayer> tourPlayers = new ArrayList<>();
+            TourPlayer tourPlayerA = buildTourPlayer(tourName, replayTier, contents[5].trim().toLowerCase(), contents[6].trim());
+            TourPlayer tourPlayerB = buildTourPlayer(tourName, replayTier, contents[7].trim().toLowerCase(), contents[8].trim());
+            tourPlayers.add(tourPlayerA);
+            tourPlayers.add(tourPlayerB);
+            TourPlayer winPlayer = null;
+            if (StringUtils.equals(replayWinnerSmogonName, tourPlayerA.getName())) {
+                winPlayer = tourPlayerA;
+            } else if (StringUtils.equals(replayWinnerSmogonName, tourPlayerB.getName())) {
+                winPlayer = tourPlayerB;
+            } else {
+                log.error("Invalid replay winner: {}", replayWinnerSmogonName);
+            }
+
+            SmogonTourReplay smogonTourReplay = new SmogonTourReplay(replayId);
+            smogonTourReplay.setTourName(tourName);
+            smogonTourReplay.setTourPlayers(tourPlayers);
+            smogonTourReplay.setStage(tourStage);
+            smogonTourReplay.setWinPlayer(winPlayer);
+            replaySources.add(new ReplaySource(List.of(TOUR, tourName), Collections.singletonList(smogonTourReplay)));
         }
     }
 

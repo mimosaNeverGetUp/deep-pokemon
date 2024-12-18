@@ -244,8 +244,8 @@ public class TourService {
     }
 
     @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
-    public List<Battle> crawTourByCsv(String tourName, String tourShortName, String format, Path csvPath) {
-        CsvTourReplayProvider csvTourReplayProvider = new CsvTourReplayProvider(csvPath);
+    public List<Battle> crawTourByCsv(String tourName, String tourShortName, String format, String csvContents) {
+        CsvTourReplayProvider csvTourReplayProvider = new CsvTourReplayProvider(csvContents);
         return crawTour(tourName, tourShortName, format, csvTourReplayProvider);
     }
 }

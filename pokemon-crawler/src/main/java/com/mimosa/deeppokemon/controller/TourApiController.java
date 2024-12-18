@@ -9,13 +9,15 @@ package com.mimosa.deeppokemon.controller;
 import com.mimosa.deeppokemon.entity.TourTeamGroupDetail;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.TourService;
-import org.springframework.util.ResourceUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequestMapping("/api/tour")
@@ -30,6 +32,9 @@ public class TourApiController {
 
     private final TourService tourService;
     private final BattleService battleService;
+
+    @Value("classpath:tourReplay/oupl.csv")
+    Resource ouplReplayCsvResource;
 
     public TourApiController(TourService tourService, BattleService battleService) {
         this.tourService = tourService;
@@ -67,8 +72,8 @@ public class TourApiController {
     }
 
     @PostMapping("/ouplViii/battleByCsv")
-    public boolean crawOuplViiiByCsv(@RequestParam("format") String format) throws FileNotFoundException {
-        tourService.crawTourByCsv(OUPL_VIII, OUPL_VIII, format, ResourceUtils.getFile("classpath:tourReplay/oupl.csv").toPath());
+    public boolean crawOuplViiiByCsv(@RequestParam("format") String format) throws IOException {
+        tourService.crawTourByCsv(OUPL_VIII, OUPL_VIII, format, ouplReplayCsvResource.getContentAsString(StandardCharsets.UTF_8));
         return true;
     }
 

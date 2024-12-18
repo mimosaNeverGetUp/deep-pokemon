@@ -16,8 +16,10 @@ import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -68,6 +70,14 @@ class HealEventAnalyzerTest {
 
         PokemonStatus corviknightStatus = battleContext.getPlayerStatusList().get(0).getPokemonStatus(CORVIKNIGHT);
         assertEquals(BigDecimal.valueOf(99.0), corviknightStatus.getHealth());
+
+        Assertions.assertEquals(1, rillaboomStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = rillaboomStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(-50.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(CORVIKNIGHT, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(CORVIKNIGHT, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("Roost", battleDamageStat.getDamageFrom());
     }
 
     @Test
@@ -101,6 +111,14 @@ class HealEventAnalyzerTest {
         PokemonStatus tiluStatus = battleContext.getPlayerStatusList().get(1).getPokemonStatus(TING_LU);
         assertEquals(BigDecimal.valueOf(95.0), tiluStatus.getHealth());
         assertEquals("Leftovers", battle.getBattleTeams().get(1).findPokemon(TING_LU).getItem());
+
+        Assertions.assertEquals(1, corviknightStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = corviknightStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(-6.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(TING_LU, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(TING_LU, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("item: Leftovers", battleDamageStat.getDamageFrom());
     }
 
     @Test
@@ -129,6 +147,14 @@ class HealEventAnalyzerTest {
 
         PokemonStatus gliscorStatus = battleContext.getPlayerStatusList().get(0).getPokemonStatus(GLISCOR);
         assertEquals(BigDecimal.valueOf(97.0), gliscorStatus.getHealth());
+
+        Assertions.assertEquals(1, tingluStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = tingluStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(-13.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(GLISCOR, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(GLISCOR, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("ability: Poison Heal", battleDamageStat.getDamageFrom());
     }
 
     @Test
@@ -159,6 +185,14 @@ class HealEventAnalyzerTest {
 
         PokemonStatus corviknightStatus = battleContext.getPlayerStatusList().get(0).getPokemonStatus(CORVIKNIGHT);
         assertEquals(BigDecimal.valueOf(100.0), corviknightStatus.getHealth());
+
+        Assertions.assertEquals(1, rillaboomStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = rillaboomStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(-1.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(RILLABOOM, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(CORVIKNIGHT, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("Grassy Terrain", battleDamageStat.getDamageFrom());
     }
     @Test
     void analyzeWishHeal() {
@@ -192,5 +226,14 @@ class HealEventAnalyzerTest {
 
         PokemonStatus pokemonStatus = battleContext.getPlayerStatusList().get(1).getPokemonStatus(HATTERENE);
         assertEquals(BigDecimal.valueOf(100.0), pokemonStatus.getHealth());
+
+
+        Assertions.assertEquals(1, p1Stat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = p1Stat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(-56.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(ALOMOMOLA, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(HATTERENE, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("Wish", battleDamageStat.getDamageFrom());
     }
 }

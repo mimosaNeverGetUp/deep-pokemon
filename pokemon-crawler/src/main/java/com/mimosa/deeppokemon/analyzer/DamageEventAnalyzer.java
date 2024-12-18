@@ -18,6 +18,7 @@ import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -27,10 +28,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class DamageEventAnalyzer implements BattleEventAnalyzer {
@@ -81,7 +79,48 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             setPlayerSwitchDamageStat(battleEvent, battleStat, eventTarget, healthDiff);
 
             setPokemonItem(battleContext, damageEventStat, eventTarget);
+            setBattleDamageStat(battleStat, damageEventStat);
         }
+    }
+
+    private void setBattleDamageStat(BattleStat battleStat, DamageEventStat damageEventStat) {
+        if (damageEventStat == null || damageEventStat.damageOf() == null) {
+            log.error("can not set damage stat: {}", damageEventStat);
+            return;
+        }
+
+        if (damageEventStat.damageOf().playerNumber() == damageEventStat.eventTarget().playerNumber()) {
+            // self damage, no need to record
+            return;
+        }
+
+        EventTarget damageOf = damageEventStat.damageOf();
+        PokemonBattleStat pokemonBattleStat = battleStat.playerStatList()
+                .get(damageOf.playerNumber() - 1).getPokemonBattleStat(damageOf.targetName());
+        if (pokemonBattleStat == null) {
+            log.error("pokemon not find,can not set damage stat: {}", damageOf);
+            return;
+        }
+        BattleDamageStat battleDamageStat = new BattleDamageStat();
+        battleDamageStat.setDamage(damageEventStat.healthDiff());
+        battleDamageStat.setDamageOf(damageOf.targetName());
+        battleDamageStat.setDamageFrom(damageEventStat.damageFrom());
+        battleDamageStat.setDamageTarget(damageEventStat.eventTarget().targetName());
+        battleDamageStat.setTriggerCount(1);
+
+        List<BattleDamageStat> existBattleDamageStats = pokemonBattleStat.getBattleDamageStats();
+        if (!existBattleDamageStats.contains(battleDamageStat)) {
+            existBattleDamageStats.add(battleDamageStat);
+        } else {
+            BattleDamageStat existStat = existBattleDamageStats.stream()
+                    .filter(o -> Objects.equals(o, battleDamageStat)).findFirst().orElseThrow();
+            existStat.setDamage(existStat.getDamage().add(battleDamageStat.getDamage()));
+            existStat.setTriggerCount(existStat.getTriggerCount() + 1);
+        }
+
+        // sort damage by damage target
+        Collections.sort(existBattleDamageStats, Comparator.comparing(BattleDamageStat::getDamageTarget)
+                .thenComparing(BattleDamageStat::getDamage,Comparator.reverseOrder()));
     }
 
     private static void setPokemonItem(BattleContext battleContext, DamageEventStat damageEventStat,

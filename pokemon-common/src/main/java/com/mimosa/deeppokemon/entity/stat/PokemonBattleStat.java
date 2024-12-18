@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.entity.stat;
 
 import java.math.BigDecimal;
-import java.util.Objects;
+import java.util.*;
 
 public class PokemonBattleStat {
     private String name;
@@ -16,15 +16,17 @@ public class PokemonBattleStat {
     private int killCount;
     private BigDecimal healthValue;
     private BigDecimal attackValue;
+    private List<BattleDamageStat> battleDamageStats;
 
     public PokemonBattleStat() {
-
+        battleDamageStats = new ArrayList<>();
     }
 
     public PokemonBattleStat(String name) {
         this.name = name;
         healthValue = BigDecimal.valueOf(0.0);
         attackValue = BigDecimal.valueOf(0.0);
+        battleDamageStats = new ArrayList<>();
     }
 
     public String getName() {
@@ -73,6 +75,14 @@ public class PokemonBattleStat {
 
     public void setKillCount(int killCount) {
         this.killCount = killCount;
+    }
+
+    public List<BattleDamageStat> getBattleDamageStats() {
+        return battleDamageStats;
+    }
+
+    public void setBattleDamageStats(List<BattleDamageStat> battleDamageStats) {
+        this.battleDamageStats = battleDamageStats;
     }
 
     @Override

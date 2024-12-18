@@ -12,6 +12,7 @@ import com.mimosa.deeppokemon.crawler.SmogonTourWinPlayerExtractor;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.TourTeamGroupDetail;
 import com.mimosa.deeppokemon.entity.tour.*;
+import com.mimosa.deeppokemon.provider.CsvTourReplayProvider;
 import com.mimosa.deeppokemon.provider.OltTourReplayProvider;
 import com.mimosa.deeppokemon.provider.ReplayProvider;
 import com.mimosa.deeppokemon.provider.SmogonTourReplayProvider;
@@ -26,6 +27,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -239,5 +241,11 @@ public class TourService {
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(OUPL_VIII, OUPL_VIII_REPLAY_URL,
                 format, OUPL_STAGES, winPlayerExtractor);
         return crawTour(OUPL_VIII, OUPL_VIII, format, provider);
+    }
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawTourByCsv(String tourName, String tourShortName, String format, Path csvPath) {
+        CsvTourReplayProvider csvTourReplayProvider = new CsvTourReplayProvider(csvPath);
+        return crawTour(tourName, tourShortName, format, csvTourReplayProvider);
     }
 }

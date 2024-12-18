@@ -9,10 +9,13 @@ package com.mimosa.deeppokemon.controller;
 import com.mimosa.deeppokemon.entity.TourTeamGroupDetail;
 import com.mimosa.deeppokemon.service.BattleService;
 import com.mimosa.deeppokemon.service.TourService;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.FileNotFoundException;
 
 @RestController
 @RequestMapping("/api/tour")
@@ -63,8 +66,13 @@ public class TourApiController {
         return true;
     }
 
-    @PostMapping("/wcop2024/record/update")
+    @PostMapping("/ouplViii/battleByCsv")
+    public boolean crawOuplViiiByCsv(@RequestParam("format") String format) throws FileNotFoundException {
+        tourService.crawTourByCsv(OUPL_VIII, OUPL_VIII, format, ResourceUtils.getFile("classpath:tourReplay/oupl.csv").toPath());
+        return true;
+    }
 
+    @PostMapping("/wcop2024/record/update")
     public boolean updateWcop2024PlayerRecord(@RequestParam("format") String format) {
         tourService.updatePlayerRecord(THE_WORLD_CUP_OF_POKEMON_2024, format);
         return true;

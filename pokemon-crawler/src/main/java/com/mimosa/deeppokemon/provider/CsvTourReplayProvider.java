@@ -23,10 +23,12 @@ public class CsvTourReplayProvider implements ReplayProvider {
 
     private final String[] csvContents;
     private final Deque<ReplaySource> replaySources = new LinkedList<>();
+    private final String format;
     private boolean initialized = false;
 
-    public CsvTourReplayProvider(String csvContents) {
+    public CsvTourReplayProvider(String csvContents, String format) {
         this.csvContents = csvContents.split("\n");
+        this.format = format;
     }
 
     @Override
@@ -60,6 +62,10 @@ public class CsvTourReplayProvider implements ReplayProvider {
             String tourStage = contents[1].trim();
             String replayId = contents[2].trim();
             String replayTier = contents[3].trim();
+            if (!StringUtils.equals(replayTier, format)) {
+                continue;
+            }
+
             String replayWinnerSmogonName = contents[4].trim().toLowerCase();
             List<TourPlayer> tourPlayers = new ArrayList<>();
             TourPlayer tourPlayerA = buildTourPlayer(tourName, replayTier, contents[5].trim().toLowerCase(), contents[6].trim());

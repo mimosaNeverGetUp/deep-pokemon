@@ -27,7 +27,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -245,7 +244,7 @@ public class TourService {
 
     @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
     public List<Battle> crawTourByCsv(String tourName, String tourShortName, String format, String csvContents) {
-        CsvTourReplayProvider csvTourReplayProvider = new CsvTourReplayProvider(csvContents);
+        CsvTourReplayProvider csvTourReplayProvider = new CsvTourReplayProvider(csvContents, format);
         return crawTour(tourName, tourShortName, format, csvTourReplayProvider);
     }
 }

@@ -54,6 +54,33 @@ function loadStat(stat) {
   load.value = true
 }
 
+function getDamageTargetStatsMap(battleDamageStats) {
+  if (!battleDamageStats) {
+    return
+  }
+
+  let damageTargetStatsMap = {};
+  for (const battleDamageStat of battleDamageStats) {
+    if (damageTargetStatsMap[battleDamageStat.damageTarget]) {
+      damageTargetStatsMap[battleDamageStat.damageTarget].push(battleDamageStat);
+    } else {
+      let damageTargetStats = [];
+      damageTargetStats.push(battleDamageStat);
+      damageTargetStatsMap[battleDamageStat.damageTarget] = damageTargetStats;
+    }
+  }
+  return damageTargetStatsMap;
+}
+
+function getTotalDamage(damageTargetStats) {
+  let total = 0;
+  for (const damageTargetStat of damageTargetStats)
+  {
+    total += damageTargetStat.damage;
+  }
+  return total;
+}
+
 async function queryBattleStat(battleId) {
   const res = await fetch(`${apiUrl}/api/battle/${battleId}/stat`, {
         method: "GET"
@@ -109,7 +136,7 @@ function battleChartOption(battleStat) {
     },
     y: {
       ticks: {
-        color:["#E84057","#5383E8","black","black","black","black","black","black","black",],
+        color: ["#E84057", "#5383E8", "black", "black", "black", "black", "black", "black", "black",],
         callback: function (value) {
           if (value >= 0) {
             return value + '%'; // 将数值转换为百分比格式
@@ -392,21 +419,37 @@ watch(() => props.data, async (newBattle) => {
             <template #header>
               <span>{{ "正负值(+/-)" }}</span>
               <i class="ml-2 pi pi-question-circle"
-                 v-tooltip.top  ="'宝可梦在场(或不在场通过状态、场地)造成的双方HP变化差，值越大表示作用越大。' +
+                 v-tooltip.top="'宝可梦在场(或不在场通过状态、场地)造成的双方HP变化差，值越大表示作用越大。' +
                   '\n\n特殊场景：\n' +
                   '1. 换人被认为是宝可梦4个招式以外的一种特殊招式，所以换人回合已方受到的伤害，计入换人前宝可梦的正负值'"
                  style="font-size: 1rem"/>
             </template>
           </Column>
-          <Column field="attackValue" :sortable="true" :style="{ width:'5%' }">
+          <Column field="attackValue" :sortable="true" :style="{ width:'10%' }">
             <template #header>
               <span>{{ "进攻贡献值" }}</span>
               <i class="ml-2 pi pi-question-circle" v-tooltip.top="'宝可梦通过招式、状态、场地等方式造成的敌方HP变化总和。' +
                '\n\n值越大表示进攻贡献越大，负数表示已方造成的伤害小于敌方恢复'"
                  style="font-size: 1rem"/>
             </template>
+            <template #body="{data}">
+              <div class="set-tip">
+                <span>{{ data.attackValue }}</span>
+                <div class="set-tip-text text-left" v-if="data.battleDamageStats.length >0">
+                  <div v-for="(damageTargetStats, pokemon) in getDamageTargetStatsMap(data.battleDamageStats)">
+                    <img :src="getIconUrl(pokemon)" :alt="pokemon" :title="pokemon"/>
+                    <span> {{getTotalDamage(damageTargetStats)}}</span>
+                    <p v-for="battleDamageStat in damageTargetStats" class="flex gap-2">
+                      <span>{{ battleDamageStat.triggerCount }}</span>
+                      <span>{{ "x" }}</span>
+                      <span>{{ battleDamageStat.damageFrom }}</span>
+                      <span>{{ battleDamageStat.damage }}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </template>
           </Column>
-
         </DataTable>
       </TabPanel>
     </TabView>
@@ -418,5 +461,24 @@ watch(() => props.data, async (newBattle) => {
 <style>
 .p-tabview-panels {
   padding: 0;
+}
+
+.set-tip {
+  position: relative;
+  display: inline-block;
+}
+
+.set-tip .set-tip-text {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  width: 300px;
+  /* 定位 */
+  position: absolute;
+  z-index: 1;
+}
+
+.set-tip:hover .set-tip-text {
+  visibility: visible;
 }
 </style>

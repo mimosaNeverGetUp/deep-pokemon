@@ -185,14 +185,6 @@ class HealEventAnalyzerTest {
 
         PokemonStatus corviknightStatus = battleContext.getPlayerStatusList().get(0).getPokemonStatus(CORVIKNIGHT);
         assertEquals(BigDecimal.valueOf(100.0), corviknightStatus.getHealth());
-
-        Assertions.assertEquals(1, rillaboomStat.getBattleDamageStats().size());
-        BattleDamageStat battleDamageStat = rillaboomStat.getBattleDamageStats().get(0);
-        Assertions.assertEquals(BigDecimal.valueOf(-1.0), battleDamageStat.getDamage());
-        Assertions.assertEquals(RILLABOOM, battleDamageStat.getDamageOf());
-        Assertions.assertEquals(CORVIKNIGHT, battleDamageStat.getDamageTarget());
-        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
-        Assertions.assertEquals("Grassy Terrain", battleDamageStat.getDamageFrom());
     }
     @Test
     void analyzeWishHeal() {

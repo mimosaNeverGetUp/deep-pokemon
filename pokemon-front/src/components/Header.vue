@@ -56,6 +56,9 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2024/12/21 feat：</span>悬浮在进攻贡献值上可以查看伤害明细（2024/12/21前已爬取的replay不支持）</p>
+        <br/>
+
         <p><span class="font-bold">2024/12/1 beta feat：</span>
           可以查询指定replay的对局统计
           <a target="_blank" href="/battleAnalysis">测试入口</a>

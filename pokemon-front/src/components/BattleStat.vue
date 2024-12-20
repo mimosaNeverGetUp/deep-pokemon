@@ -78,7 +78,7 @@ function getTotalDamage(damageTargetStats) {
   {
     total += damageTargetStat.damage;
   }
-  return total;
+  return total +"%";
 }
 
 async function queryBattleStat(battleId) {
@@ -443,7 +443,7 @@ watch(() => props.data, async (newBattle) => {
                       <span>{{ battleDamageStat.triggerCount }}</span>
                       <span>{{ "x" }}</span>
                       <span>{{ battleDamageStat.damageFrom }}</span>
-                      <span>{{ battleDamageStat.damage }}</span>
+                      <span>{{ battleDamageStat.damage + "%"}}</span>
                     </p>
                   </div>
                 </div>

@@ -17,6 +17,7 @@ import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import com.mimosa.deeppokemon.crawler.PokemonInfoCrawler;
 import com.mimosa.deeppokemon.entity.PokemonInfo;
 import com.mimosa.deeppokemon.entity.Type;
+import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -26,9 +27,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class SwitchEventAnalyzer implements BattleEventAnalyzer {
@@ -231,7 +230,32 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
                     BattleEventUtil.getPokemonStat(battleStat, opponentPlayerNumber, opponentLastStandPokemon);
             opponentPokemonBattleStat.setHealthValue(opponentPokemonBattleStat.getHealthValue().subtract(healthDiff));
             opponentPokemonBattleStat.setAttackValue(opponentPokemonBattleStat.getAttackValue().subtract(healthDiff));
+            setBattleDamageStat(opponentPokemonBattleStat, "Regenerator", pokemonName, healthDiff);
         }
+    }
+
+    private void setBattleDamageStat(PokemonBattleStat opponentPokemonStat, String healthFrom, String targetName, BigDecimal healthDiff) {
+
+        BattleDamageStat battleDamageStat = new BattleDamageStat();
+        battleDamageStat.setDamage(healthDiff.negate());
+        battleDamageStat.setDamageOf(targetName);
+        battleDamageStat.setDamageFrom(healthFrom);
+        battleDamageStat.setDamageTarget(targetName);
+        battleDamageStat.setTriggerCount(1);
+
+        List<BattleDamageStat> existBattleDamageStats = opponentPokemonStat.getBattleDamageStats();
+        if (!existBattleDamageStats.contains(battleDamageStat)) {
+            existBattleDamageStats.add(battleDamageStat);
+        } else {
+            BattleDamageStat existStat = existBattleDamageStats.stream()
+                    .filter(o -> Objects.equals(o, battleDamageStat)).findFirst().orElseThrow();
+            existStat.setDamage(existStat.getDamage().add(battleDamageStat.getDamage()));
+            existStat.setTriggerCount(existStat.getTriggerCount() + 1);
+        }
+
+        // sort damage by damage target
+        Collections.sort(existBattleDamageStats, Comparator.comparing(BattleDamageStat::getDamageTarget)
+                .thenComparing(BattleDamageStat::getDamage, Comparator.reverseOrder()));
     }
 
     private BigDecimal setBattleHealthStatus(BattleContext battleContext, EventTarget eventTarget, String pokemonName,

@@ -19,6 +19,7 @@ import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -114,6 +115,14 @@ class DamageEventAnalyzerTest {
         Assertions.assertNotEquals(BigDecimal.valueOf(0.0), damageEventStat.healthDiff());
         Pokemon opponentPokemon = status.getBattle().getBattleTeams().get(0).findPokemon(opponentTargetStat.getName());
         Assertions.assertEquals("Rocky Helmet", opponentPokemon.getItem());
+
+        Assertions.assertEquals(1, opponentTargetStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = opponentTargetStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(16.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(opponentTargetStat.getName(), battleDamageStat.getDamageOf());
+        Assertions.assertEquals(damageEventStat.eventTarget().targetName(), battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("item: Rocky Helmet", battleDamageStat.getDamageFrom());
     }
 
     @ParameterizedTest
@@ -147,6 +156,14 @@ class DamageEventAnalyzerTest {
                 .getPokemonBattleStat(skarmory);
         Assertions.assertEquals(BigDecimal.valueOf(6.0), skarmoryStat.getAttackValue());
         Assertions.assertEquals(BigDecimal.valueOf(6.0), skarmoryStat.getHealthValue());
+
+        Assertions.assertEquals(1, skarmoryStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = skarmoryStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(skarmory, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(gholdengo, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("Stealth Rock", battleDamageStat.getDamageFrom());
     }
 
     @Test
@@ -173,6 +190,14 @@ class DamageEventAnalyzerTest {
                 .getPokemonBattleStat(ZAPDOS);
         Assertions.assertEquals(BigDecimal.valueOf(0.0), zapdosStat.getAttackValue());
         Assertions.assertEquals(BigDecimal.valueOf(-6.0), zapdosStat.getHealthValue());
+
+        Assertions.assertEquals(1, hippowdonwStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = hippowdonwStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(HIPPOWDONW, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(ZAPDOS, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("Sandstorm", battleDamageStat.getDamageFrom());
     }
 
     @Test
@@ -228,6 +253,14 @@ class DamageEventAnalyzerTest {
                 .getPokemonBattleStat(SKELEDIRGE);
         Assertions.assertEquals(BigDecimal.valueOf(6.0), skeledirgeStat.getAttackValue());
         Assertions.assertEquals(BigDecimal.valueOf(6.0), skeledirgeStat.getHealthValue());
+
+        Assertions.assertEquals(1, skeledirgeStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = skeledirgeStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(6.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(SKELEDIRGE, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(RAGING_BOLT, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("brn", battleDamageStat.getDamageFrom());
     }
 
     @Test

@@ -14,6 +14,7 @@ import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -107,6 +108,14 @@ class SwitchEventAnalyzerTest {
         Assertions.assertEquals(BigDecimal.valueOf(0.0), slowkingStat.getAttackValue());
         Assertions.assertEquals(BigDecimal.valueOf(-20.0), dragapultStat.getHealthValue());
         Assertions.assertEquals(BigDecimal.valueOf(-20.0), dragapultStat.getAttackValue());
+
+        Assertions.assertEquals(1, dragapultStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = dragapultStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(-20.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(SLOWKING_GALAR, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(SLOWKING_GALAR, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("Regenerator", battleDamageStat.getDamageFrom());
     }
 
     @Test

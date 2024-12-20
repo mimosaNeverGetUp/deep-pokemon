@@ -13,6 +13,7 @@ import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
+import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -22,7 +23,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class HealEventAnalyzer implements BattleEventAnalyzer {
@@ -52,8 +53,12 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
                     targetPlayerStatus.getPokemonStatus(eventTarget.targetName());
             BigDecimal healthDiff = health.subtract(pokemonStatus.getHealth());
             String healthFrom = null;
-            if (battleEvent.getContents().size() > FROM_INDEX) {
+            if (battleEvent.getContents().size() > FROM_INDEX &&
+                    BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX)) != null) {
                 healthFrom = BattleEventUtil.getEventFrom(battleEvent.getContents().get(FROM_INDEX));
+            } else if (battleEvent.getParentEvent() != null &&
+                    battleEvent.getParentEvent().getBattleEventStat() instanceof MoveEventStat moveEventStat) {
+                healthFrom = moveEventStat.moveName();
             }
 
             pokemonStatus.setHealth(health);
@@ -103,8 +108,34 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
                         opponentPlayerStat.getPokemonBattleStat(opponentPlayerStatus.getTurnStartPokemonName());
                 opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue().subtract(healthDiff));
                 opponentPokemonStat.setAttackValue(opponentPokemonStat.getAttackValue().subtract(healthDiff));
+                setBattleDamageStat(opponentPokemonStat, healthFrom, eventTarget, healthOfTarget, healthDiff);
             }
         }
+    }
+
+    private void setBattleDamageStat(PokemonBattleStat opponentPokemonStat, String healthFrom, EventTarget eventTarget,
+                                     EventTarget healthOfTarget, BigDecimal healthDiff) {
+
+        BattleDamageStat battleDamageStat = new BattleDamageStat();
+        battleDamageStat.setDamage(healthDiff.negate());
+        battleDamageStat.setDamageOf(healthOfTarget.targetName());
+        battleDamageStat.setDamageFrom(healthFrom);
+        battleDamageStat.setDamageTarget(eventTarget.targetName());
+        battleDamageStat.setTriggerCount(1);
+
+        List<BattleDamageStat> existBattleDamageStats = opponentPokemonStat.getBattleDamageStats();
+        if (!existBattleDamageStats.contains(battleDamageStat)) {
+            existBattleDamageStats.add(battleDamageStat);
+        } else {
+            BattleDamageStat existStat = existBattleDamageStats.stream()
+                    .filter(o -> Objects.equals(o, battleDamageStat)).findFirst().orElseThrow();
+            existStat.setDamage(existStat.getDamage().add(battleDamageStat.getDamage()));
+            existStat.setTriggerCount(existStat.getTriggerCount() + 1);
+        }
+
+        // sort damage by damage target
+        Collections.sort(existBattleDamageStats, Comparator.comparing(BattleDamageStat::getDamageTarget)
+                .thenComparing(BattleDamageStat::getDamage,Comparator.reverseOrder()));
     }
 
     private EventTarget getWishOfTarget(BattleEvent battleEvent, EventTarget eventTarget, BattleContext battleContext) {

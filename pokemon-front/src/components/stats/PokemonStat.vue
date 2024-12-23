@@ -55,6 +55,8 @@ const loadFail = ref(false)
 const teamInfoDialogVisible = ref(false);
 const teamInfoId = ref();
 
+let spreadStatMap = {};
+
 async function fetchStatsData(format, pokemon) {
   const res = await fetch(`${apiUrl}/api/stats/${format}/moveset/` + pokemon, {
         method: "GET"
@@ -82,6 +84,7 @@ watch(() => props.pokemon, async (newPokemon) => {
   sets.value = null;
   analysis.value = null
   teams.value = null;
+  spreadStatMap = {};
 
   await fetchStatsData(props.format, newPokemon.name);
   window.scrollTo({
@@ -142,18 +145,59 @@ function getAccuracyText(move) {
   return accuracy + '%';
 }
 
-function getSpreadText(spread, showNatureIndex, showNatureName) {
+function getSpreadText(spread, showNatureIndex, showNatureName, pokemon) {
   let split = spread.split(':');
   let pokemonNature = split[0];
   let value = split[1].split('/')[showNatureIndex];
 
-  if (nature[pokemonNature].plus === showNatureName) {
+  let isPlus = nature[pokemonNature].plus === showNatureName;
+  let isMinus = nature[pokemonNature].minus === showNatureName;
+
+  if (isPlus) {
     value = value + '+';
-  } else if (nature[pokemonNature].minus === showNatureName) {
+  } else if (isMinus) {
     value = value + '-';
   }
-
   return value;
+}
+
+function getBaseStat(spread, showNatureIndex, showNatureName, pokemon) {
+  let split = spread.split(':');
+  let pokemonNature = split[0];
+  let value = split[1].split('/')[showNatureIndex];
+
+  let isPlus = nature[pokemonNature].plus === showNatureName;
+  let isMinus = nature[pokemonNature].minus === showNatureName;
+  let key = `${pokemon}_${showNatureName}_${value}_${isPlus}_${isMinus}`;
+  if (spreadStatMap[key] && spreadStatMap[key] !== spread) {
+    // not show repeat spread stat
+  } else {
+    spreadStatMap[key] = spread;
+    return getStat(pokemon, showNatureName, value, isMinus, isPlus);
+  }
+}
+
+function getStat(pokemon, natureName, spread, isMinus, isPlus) {
+  let baseStrength = Dex.forGen(currentTierNumber).species.get(pokemon).baseStats[natureName];
+  let baseStat;
+  let level = 100;
+  if (props.format.endsWith("lc")) {
+    level = 5;
+  } else if (props.format.includes("vgc")) {
+    level = 50;
+  }
+
+  if (natureName === "hp") {
+    baseStat = Math.floor(Math.floor(baseStrength * 2 + 31 + Math.floor(spread / 4)) * level / 100) + 10 + level;
+  } else {
+    baseStat = Math.floor(Math.floor(baseStrength * 2 + 31 + Math.floor(spread / 4)) * level / 100) + 5;
+  }
+  if (isMinus) {
+    return Math.floor(baseStat * 0.9);
+  } else if (isPlus) {
+    return Math.floor(baseStat * 1.1);
+  }
+  return baseStat;
 }
 
 async function queryTeams(page, row, pokemon) {
@@ -270,7 +314,8 @@ function getTranslation(text) {
            :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
       <div class="flex justify-start items-center">
         <p class="text-3xl font-bold mr-1 text-center items-center">{{ getTranslation(pokemon?.name) }}</p>
-        <img v-if="Dex.forGen(currentTierNumber).species.get(pokemon?.name)" v-for="type in getPokemonTypes(pokemon?.name)"
+        <img v-if="Dex.forGen(currentTierNumber).species.get(pokemon?.name)"
+             v-for="type in getPokemonTypes(pokemon?.name)"
              :src="`/types/${type}.png`" height="17" width="40" :alt="type"/>
         <div class="ml-4 w-56" v-if="Dex.forGen(currentTierNumber).species.get(pokemon?.name)">
           <div v-for="(value, key) in getPokemonStats(pokemon?.name)" class="flex gap-1 items-center text-center">
@@ -311,7 +356,9 @@ function getTranslation(text) {
           <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
           <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.abilities[ability]"/>
         </div>
-        <span class="whitespace-nowrap">{{getTranslation(Dex.forGen(currentTierNumber).abilities.get(ability)?.shortDesc) }}</span>
+        <span class="whitespace-nowrap">{{
+            getTranslation(Dex.forGen(currentTierNumber).abilities.get(ability)?.shortDesc)
+          }}</span>
       </div>
     </div>
     <Divider type="solid"/>
@@ -375,13 +422,36 @@ function getTranslation(text) {
         <span class="w-32 min-w-32">{{ getTranslation('Spe') }}</span>
       </div>
       <div class="flex justify-start items-center mb-1" v-for=" [spread, value] in
-      filterPopularSet(moveset.spreads,0.025)">
-        <span class="w-32 min-w-32">{{ getSpreadText(spread, 0, 'hp') }}</span>
-        <span class="w-32 min-w-32">{{ getSpreadText(spread, 1, 'atk') }}</span>
-        <span class="w-32 min-w-32">{{ getSpreadText(spread, 2, 'def') }}</span>
-        <span class="w-32 min-w-32">{{ getSpreadText(spread, 3, 'spa') }}</span>
-        <span class="w-32 min-w-32">{{ getSpreadText(spread, 4, 'spd') }}</span>
-        <span class="w-32 min-w-32">{{ getSpreadText(spread, 5, 'spe') }}</span>
+      filterPopularSet(moveset.spreads,0.01)">
+        <span class="16 min-w-16">{{ getSpreadText(spread, 0, 'hp') }}</span>
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+            getBaseStat(spread, 0, 'hp', moveset.name)
+          }}</span>
+
+        <span class="w-16 min-w-16">{{ getSpreadText(spread, 1, 'atk') }}</span>
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+            getBaseStat(spread, 1, 'atk', moveset.name)
+          }}</span>
+
+        <span class="w-16 min-w-16">{{ getSpreadText(spread, 2, 'def') }}</span>
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+            getBaseStat(spread, 2, 'def', moveset.name)
+          }}</span>
+
+        <span class="w-16 min-w-16">{{ getSpreadText(spread, 3, 'spa') }}</span>
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+            getBaseStat(spread, 3, 'spa', moveset.name)
+          }}</span>
+
+        <span class="w-16 min-w-16">{{ getSpreadText(spread, 4, 'spd') }}</span>
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+            getBaseStat(spread, 4, 'spd', moveset.name)
+          }}</span>
+
+        <span class="w-16 min-w-16">{{ getSpreadText(spread, 5, 'spe') }}</span>
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+            getBaseStat(spread, 5, 'spe', moveset.name)
+          }}</span>
         <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
       </div>
     </div>

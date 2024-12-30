@@ -59,7 +59,6 @@ queryUpdateDate()
         <p><span class="font-bold">2024/12/23 优化：</span>宝可梦努力值右侧显示对应能力值</p>
         <br/>
 
-        <p class="font-bold">Release Note：</p>
         <p><span class="font-bold">2024/12/21 feat：</span>悬浮在进攻贡献值上可以查看伤害明细（2024/12/21前已爬取的replay不支持）</p>
         <br/>
 

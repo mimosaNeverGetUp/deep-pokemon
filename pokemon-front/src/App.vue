@@ -19,7 +19,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
       <Divider type="solid"/>
       <div class="flex">
         <span class="text-gray-600">
-          © 2024
+          © 2024-2025
           <a target="_blank" :href="`https://space.bilibili.com/37832209`" >
             <span class="text-[#80DAF6]">Mimosa</span>
           </a>

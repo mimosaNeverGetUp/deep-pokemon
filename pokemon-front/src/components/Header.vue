@@ -59,6 +59,9 @@ queryUpdateDate()
         <p><span class="font-bold">2025/01/03 优化：</span>可切换对战中变化的形态</p>
         <br/>
 
+        <p><span class="font-bold">2025/01/03 修复：</span>调整第二世代及之前能力值计算公式</p>
+        <br/>
+
         <p><span class="font-bold">2024/12/23 优化：</span>宝可梦努力值右侧显示对应能力值</p>
         <br/>
 

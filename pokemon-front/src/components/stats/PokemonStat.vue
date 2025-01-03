@@ -193,10 +193,11 @@ function getStat(pokemon, natureName, spread, isMinus, isPlus) {
     level = 50;
   }
 
+  let maxIvInGen = currentTierNumber >= 3 ? 31 : 30;
   if (natureName === "hp") {
-    baseStat = Math.floor(Math.floor(baseStrength * 2 + 31 + Math.floor(spread / 4)) * level / 100) + 10 + level;
+    baseStat = Math.floor(Math.floor(baseStrength * 2 + maxIvInGen + Math.floor(spread / 4)) * level / 100) + 10 + level;
   } else {
-    baseStat = Math.floor(Math.floor(baseStrength * 2 + 31 + Math.floor(spread / 4)) * level / 100) + 5;
+    baseStat = Math.floor(Math.floor(baseStrength * 2 + maxIvInGen + Math.floor(spread / 4)) * level / 100) + 5;
   }
   if (isMinus) {
     return Math.floor(baseStat * 0.9);

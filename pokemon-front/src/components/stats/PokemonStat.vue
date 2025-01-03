@@ -12,6 +12,7 @@ import ProgressSpinner from 'primevue/progressspinner';
 import Textarea from 'primevue/textarea';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
+import TreeSelect from 'primevue/treeselect';
 import {Dex} from '@pkmn/dex';
 
 import UsageDif from "@/components/stats/UsageDif.vue";
@@ -54,7 +55,7 @@ const teams = ref(null)
 const loadFail = ref(false)
 const teamInfoDialogVisible = ref(false);
 const teamInfoId = ref();
-
+const currentForm = ref(props.pokemon?.name);
 let spreadStatMap = {};
 
 async function fetchStatsData(format, pokemon) {
@@ -71,7 +72,7 @@ async function fetchStatsData(format, pokemon) {
 }
 
 function showDefaultIcon(event) {
-  event.target.src = getIconUrl(props.pokemon.name);
+  event.target.src = getIconUrl(currentForm.value);
 }
 
 function getIconUrl(pokemon) {
@@ -79,11 +80,16 @@ function getIconUrl(pokemon) {
   return "/pokemonicon/" + iconName + ".png"
 }
 
+function getPsIconUrl(pokemon) {
+  return `https://play.pokemonshowdown.com/sprites/dex/${pokemon.toLowerCase().replaceAll(' ', '')}.png`;
+}
+
 watch(() => props.pokemon, async (newPokemon) => {
   moveset.value = null
   sets.value = null;
   analysis.value = null
   teams.value = null;
+  currentForm.value = newPokemon.name;
   spreadStatMap = {};
 
   await fetchStatsData(props.format, newPokemon.name);
@@ -145,7 +151,7 @@ function getAccuracyText(move) {
   return accuracy + '%';
 }
 
-function getSpreadText(spread, showNatureIndex, showNatureName, pokemon) {
+function getSpreadText(spread, showNatureIndex, showNatureName) {
   let split = spread.split(':');
   let pokemonNature = split[0];
   let value = split[1].split('/')[showNatureIndex];
@@ -304,21 +310,60 @@ function getTranslation(text) {
   return text;
 }
 
+function getFormNodes(pokemon) {
+  let formsNode = [];
+  if (!pokemon) {
+    return formsNode;
+  }
+
+  formsNode.push(
+      {
+        key: pokemon,
+        label: getTranslation(pokemon),
+        children: []
+      }
+  );
+
+  let otherFormes = Dex.forGen(currentTierNumber).species.get(pokemon)?.otherFormes;
+  if (otherFormes) {
+    for (const otherForm of otherFormes) {
+      let formInfo = Dex.forGen(currentTierNumber).species.get(otherForm);
+
+      // only filter form in battle exclude mega or item form
+      if (formInfo.gen <= currentTierNumber && formInfo.battleOnly && !formInfo.requiredItem) {
+        formsNode.push({
+          key: otherForm,
+          label: getTranslation(otherForm),
+          children: []
+        });
+      }
+    }
+  }
+
+  return formsNode;
+}
+
+function onNodeSelect(event) {
+  currentForm.value = event.key;
+}
+
 </script>
 
 <template>
   <div class="w-full" v-if="moveset">
     <div class="flex justify-start items-center mb-3">
       <img width="120" height="120"
-           :src="`https://play.pokemonshowdown.com/sprites/dex/${pokemon.name.toLowerCase().replaceAll(' ','')}.png`"
+           :src="getPsIconUrl(currentForm)"
            :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
       <div class="flex justify-start items-center">
-        <p class="text-3xl font-bold mr-1 text-center items-center">{{ getTranslation(pokemon?.name) }}</p>
-        <img v-if="Dex.forGen(currentTierNumber).species.get(pokemon?.name)"
-             v-for="type in getPokemonTypes(pokemon?.name)"
+        <p class="text-3xl font-bold mr-1 text-center items-center">{{ getTranslation(currentForm) }}</p>
+        <img v-if="Dex.forGen(currentTierNumber).species.get(currentForm)"
+             v-for="type in getPokemonTypes(currentForm)"
              :src="`/types/${type}.png`" height="17" width="40" :alt="type"/>
-        <div class="ml-4 w-56" v-if="Dex.forGen(currentTierNumber).species.get(pokemon?.name)">
-          <div v-for="(value, key) in getPokemonStats(pokemon?.name)" class="flex gap-1 items-center text-center">
+        <TreeSelect v-if="getFormNodes(pokemon?.name).length > 1" @node-select="onNodeSelect"
+                    :options="getFormNodes(pokemon?.name)" class="max-w-12 ml-2"/>
+        <div class="ml-4 w-56" v-if="Dex.forGen(currentTierNumber).species.get(currentForm)">
+          <div v-for="(value, key) in getPokemonStats(currentForm)" class="flex gap-1 items-center text-center">
             <span class="font-mono  text-sm w-6">{{ key }}</span>
             <span :style="getStatStyle(key,value)" class="size-3.5"></span>
             <span class="text-sm">{{ value }}</span>
@@ -425,32 +470,32 @@ function getTranslation(text) {
       filterPopularSet(moveset.spreads,0.01)">
         <span class="16 min-w-16">{{ getSpreadText(spread, 0, 'hp') }}</span>
         <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
-            getBaseStat(spread, 0, 'hp', moveset.name)
+            getBaseStat(spread, 0, 'hp', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 1, 'atk') }}</span>
         <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
-            getBaseStat(spread, 1, 'atk', moveset.name)
+            getBaseStat(spread, 1, 'atk', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 2, 'def') }}</span>
         <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
-            getBaseStat(spread, 2, 'def', moveset.name)
+            getBaseStat(spread, 2, 'def', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 3, 'spa') }}</span>
         <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
-            getBaseStat(spread, 3, 'spa', moveset.name)
+            getBaseStat(spread, 3, 'spa', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 4, 'spd') }}</span>
         <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
-            getBaseStat(spread, 4, 'spd', moveset.name)
+            getBaseStat(spread, 4, 'spd', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 5, 'spe') }}</span>
         <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
-            getBaseStat(spread, 5, 'spe', moveset.name)
+            getBaseStat(spread, 5, 'spe', currentForm)
           }}</span>
         <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
       </div>

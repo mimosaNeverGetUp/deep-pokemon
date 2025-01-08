@@ -7,10 +7,12 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.tagger.creativity.TeamCreativityScorer;
 import org.bson.types.Binary;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import java.time.LocalDate;
@@ -23,24 +25,27 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class    TeamServiceTest {
+class TeamServiceTest {
     @SpyBean
     private TeamService teamService;
+
+    @MockBean
+    TeamCreativityScorer teamCreativityScorer;
 
     @Test
     void queryNeedUpdateTeamGroup() {
         TeamSet teamSetA = new TeamSet(new Binary("testA".getBytes()), "gen9ou", 1, LocalDate.now(),
-                Collections.singleton(Tag.ATTACK), null);
+                Collections.singleton(Tag.ATTACK), 5.0F, null);
         TeamSet teamSetB = new TeamSet(new Binary("testB".getBytes()), "gen9ou", 3, LocalDate.now(),
-                Collections.singleton(Tag.ATTACK), null);
+                Collections.singleton(Tag.ATTACK), null, null);
         Mockito.doReturn(List.of(teamSetA, teamSetB)).when(teamService).getTeamSets(Mockito.any(), Mockito.any());
         List<TeamGroup> teamGroups = new ArrayList<>();
         TeamGroup teamGroupA = new TeamGroup("testA".getBytes(), null, 0, 1, 0,
-                null, null, null, null, null, null, null);
+                null, null, null, null, null, null,null,  null);
         TeamGroup teamGroupB = new TeamGroup("testB".getBytes(), null, 0, 5, 0, null, null, null, null,
-                null, null, null);
+                null, null, null, null);
         TeamGroup teamGroupC = new TeamGroup("testC".getBytes(), null, 0, 1, 0, null, null, null, null,
-                null, null, null);
+                null, null, null, null);
         teamGroups.add(teamGroupA);
         teamGroups.add(teamGroupB);
         teamGroups.add(teamGroupC);
@@ -76,7 +81,7 @@ class    TeamServiceTest {
         battleTeamC.setTier("gen9ou");
 
         TeamGroup teamGroup = new TeamGroup("1".getBytes(), "gen9ou", 3, 3, 0
-                , null, null, null, null, null,
+                , null, null, null, null, null, null,
                 LocalDate.now().minusMonths(1), List.of(battleTeamA, battleTeamB, battleTeamC));
         TeamSet teamSet = teamService.buildTeamSet(teamGroup);
         assertEquals("1", new String(teamSet.id().getData()));

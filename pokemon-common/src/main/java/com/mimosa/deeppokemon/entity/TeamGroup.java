@@ -18,6 +18,6 @@ import java.util.Set;
 @Document("team_group")
 public record TeamGroup(@MongoId byte[] id, String tier, Integer uniquePlayerNum, Integer replayNum, Integer maxRating,
                         Float maxPlayerWinRate, Integer maxPlayerWinDif,
-                        List<Pokemon> pokemons, Set<Tag> tagSet, List<Binary> featureIds, LocalDate latestBattleDate,
-                        List<BattleTeam> teams) implements Serializable {
+                        List<Pokemon> pokemons, Set<Tag> tagSet, Float creativityScore, List<Binary> featureIds,
+                        LocalDate latestBattleDate, List<BattleTeam> teams) implements Serializable {
 }

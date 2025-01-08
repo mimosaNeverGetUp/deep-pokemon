@@ -27,8 +27,8 @@ const selectedTier = ref("gen9ou")
 const selectedRange = ref("Last week")
 const tags = ref(["Offense", "Balance", "HO", "Stall"]);
 const ranges = ref(["Last 3 days", "Last week", "Last month", "Last 3 months"]);
-const sortModes = ref(["rating", "popularity", "date"])
-const ladderSortModes = ref(["rating", "popularity", "date"])
+const sortModes = ref(["rating", "popularity", "date", "creativity"])
+const ladderSortModes = ref(["rating", "popularity", "date", "creativity"])
 const pokepastesOptions = ref(["exist"])
 
 const types = ref(["ladder", "tour"]);

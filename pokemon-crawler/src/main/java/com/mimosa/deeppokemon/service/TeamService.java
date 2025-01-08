@@ -10,6 +10,7 @@ import com.google.common.collect.Lists;
 import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.tour.TourTeam;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
+import com.mimosa.deeppokemon.tagger.creativity.TeamCreativityScorer;
 import org.bson.types.Binary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,12 +41,15 @@ public class TeamService {
     protected static final String MAX_RATING = "maxRating";
     protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
     protected static final String TAG_SET = "tagSet";
+    protected static final String CREATIVITY_SCORE = "creativityScore";
     private final MongoTemplate mongoTemplate;
     private final TeamTagger teamTagger;
+    private final TeamCreativityScorer teamCreativityScorer;
 
-    public TeamService(MongoTemplate mongoTemplate, TeamTagger teamTagger) {
+    public TeamService(MongoTemplate mongoTemplate, TeamTagger teamTagger, TeamCreativityScorer teamCreativityScorer) {
         this.mongoTemplate = mongoTemplate;
         this.teamTagger = teamTagger;
+        this.teamCreativityScorer = teamCreativityScorer;
     }
 
     @RegisterReflectionForBinding({TeamGroup.class, BattleTeam.class, TourTeam.class, TeamSet.class,
@@ -94,7 +98,7 @@ public class TeamService {
         Query query = new Query()
                 .with(Sort.by(Sort.Order.desc(LATEST_BATTLE_DATE)))
                 .cursorBatchSize(BATCH_SIZE);
-        query.fields().include(ID, TAG_SET, REPLAY_NUM, UNIQUE_PLAYER_NUM, MAX_RATING);
+        query.fields().include(ID, TAG_SET, REPLAY_NUM, UNIQUE_PLAYER_NUM, MAX_RATING, CREATIVITY_SCORE);
         Stream<TeamGroup> teamGroupStream = mongoTemplate.stream(query, TeamGroup.class, teamGroupCollectionName);
 
         List<TeamGroup> batchTeamGroup = new ArrayList<>();
@@ -119,7 +123,7 @@ public class TeamService {
     private void syncTeamSetAndTeamGroup(List<TeamGroup> batchTeamGroup, String teamSetCollectionName,
                                          String teamGroupCollectionName) {
         Query query = new Query(Criteria.where(ID).in(batchTeamGroup.stream().map(TeamGroup::id).toList()));
-        query.fields().include(ID, TAG_SET, REPLAY_NUM);
+        query.fields().include(ID, TAG_SET, REPLAY_NUM, CREATIVITY_SCORE);
         List<TeamSet> teamSets = mongoTemplate.find(query, TeamSet.class, teamSetCollectionName);
         Map<Binary, TeamSet> teamSetMap = teamSets.stream().collect(Collectors.toMap(TeamSet::id, Function.identity()));
         BulkOperations bulkOperations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, teamGroupCollectionName);
@@ -132,6 +136,12 @@ public class TeamService {
                     log.debug("start to update team group {} tag", new String(teamId.getData()));
                     needUpdate = true;
                     updateTeamGroupTag(bulkOperations, teamId, teamSet.tagSet());
+                }
+
+                if (!isCreativeScoreSync(teamGroup, teamSet)) {
+                    log.debug("start to update team group {} creative score", new String(teamId.getData()));
+                    needUpdate = true;
+                    updateTeamGroupCreativeScore(bulkOperations, teamId, teamSet.creativityScore());
                 }
             }
         }
@@ -146,6 +156,12 @@ public class TeamService {
         bulkOperations.updateOne(query, update);
     }
 
+    private void updateTeamGroupCreativeScore(BulkOperations bulkOperations, Binary teamId, Float creativityScore) {
+        Query query = new Query(Criteria.where(ID).is(teamId));
+        Update update = new Update().set(CREATIVITY_SCORE, creativityScore);
+        bulkOperations.updateOne(query, update);
+    }
+
     private boolean isTagSync(TeamGroup teamGroup, TeamSet teamSet) {
         for (Tag tag : teamSet.tagSet()) {
             if (!teamGroup.tagSet().contains(tag)) {
@@ -153,6 +169,13 @@ public class TeamService {
             }
         }
         return true;
+    }
+
+    private boolean isCreativeScoreSync(TeamGroup teamGroup, TeamSet teamSet) {
+        if (teamGroup.creativityScore() == null) {
+            return false;
+        }
+        return teamGroup.creativityScore().equals(teamSet.creativityScore());
     }
 
     public Collection<Binary> queryNeedUpdateTeamGroup(List<TeamGroup> teamGroups, String teamSetCollectionName,
@@ -166,7 +189,8 @@ public class TeamService {
         for (TeamGroup teamGroup : teamGroups) {
             Binary teamId = new Binary(teamGroup.id());
             TeamSet teamSet = teamSetMap.get(teamId);
-            if (teamSet == null || teamSet.minReplayDate() == null || teamSet.tagSet() == null || teamSet.tagSet().isEmpty()) {
+            if (teamSet == null || teamSet.minReplayDate() == null || teamSet.tagSet() == null || teamSet.tagSet().isEmpty()
+                    || teamSet.creativityScore() == null) {
                 needUpdateTeamGroup.add(new Binary(teamGroup.id()));
                 continue;
             }
@@ -205,7 +229,7 @@ public class TeamService {
     public TeamSet buildTeamSet(TeamGroup teamGroup) {
         if (teamGroup.teams() == null || teamGroup.teams().isEmpty()) {
             return new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), 0, null,
-                    Collections.emptySet(), Collections.emptyList());
+                    Collections.emptySet(), 0F, Collections.emptyList());
         }
 
         Map<String, Map<String, Integer>> moveMap = new HashMap<>();
@@ -230,7 +254,9 @@ public class TeamService {
                 .min(LocalDateTime::compareTo)
                 .orElse(null);
         TeamSet teamSet = new TeamSet(new Binary(teamGroup.id()), teamGroup.tier(), teamGroup.teams().size(),
-                minReplayDate == null ? null : minReplayDate.toLocalDate(), null, pokemonBuildSets);
+                minReplayDate == null ? null : minReplayDate.toLocalDate(), null,
+                0F, pokemonBuildSets);
+        teamSet = teamSet.withcreativityScore(teamCreativityScorer.getCreativeScore(teamSet));
         return tagTeamSet(teamSet);
     }
 

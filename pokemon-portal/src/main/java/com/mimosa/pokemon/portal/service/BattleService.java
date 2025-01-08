@@ -65,7 +65,7 @@ public class BattleService {
     protected static final String AVAGE_RATING = "avageRating";
     protected static final String WINNER = "winner";
     protected static final Set<String> VALIDATE_TEAM_GROUP_SORT = new HashSet<>(List.of("maxRating", "uniquePlayerNum"
-            , "latestBattleDate", "maxPlayerWinDif", "maxPlayerWinRate"));
+            , "latestBattleDate", "maxPlayerWinDif", "maxPlayerWinRate", "creativityScore"));
     protected static final Set<String> MULTI_FORM_POKEMON = new HashSet<>(List.of("Urshifu", "Zamazenta"
             , "Greninja", "Dudunsparce"));
     protected static final String TEAM_SET = "team_set";
@@ -384,7 +384,7 @@ public class BattleService {
                 .min(LocalDateTime::compareTo)
                 .orElse(null);
         return new TeamSet(new Binary(teams.get(0).getTeamId()), teams.get(0).getTier(), teams.size(),
-                minReplayDate == null ? null : minReplayDate.toLocalDate(), null, pokemonBuildSets);
+                minReplayDate == null ? null : minReplayDate.toLocalDate(), null, 0F, pokemonBuildSets);
     }
 
     private static void countPokemonSet(BattleTeam team,

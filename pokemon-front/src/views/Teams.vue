@@ -84,6 +84,8 @@ function getSortFiled(sortMode) {
       return "maxPlayerWinRate";
     case "win dif":
       return "maxPlayerWinDif";
+    case "creativity":
+      return "creativityScore";
   }
 }
 

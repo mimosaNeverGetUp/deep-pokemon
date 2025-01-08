@@ -7,11 +7,14 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.tagger.creativity.TeamCreativityScorer;
 import org.bson.types.Binary;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -27,10 +30,13 @@ class TeamServiceTest {
     @SpyBean
     private TeamService teamService;
 
+    @MockBean
+    TeamCreativityScorer teamCreativityScorer;
+
     @Test
     void queryNeedUpdateTeamGroup() {
         TeamSet teamSetA = new TeamSet(new Binary("testA".getBytes()), "gen9ou", 1, LocalDate.now(),
-                Collections.singleton(Tag.ATTACK), null, null);
+                Collections.singleton(Tag.ATTACK), 5.0F, null);
         TeamSet teamSetB = new TeamSet(new Binary("testB".getBytes()), "gen9ou", 3, LocalDate.now(),
                 Collections.singleton(Tag.ATTACK), null, null);
         Mockito.doReturn(List.of(teamSetA, teamSetB)).when(teamService).getTeamSets(Mockito.any(), Mockito.any());

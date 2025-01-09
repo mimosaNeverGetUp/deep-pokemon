@@ -29,6 +29,7 @@ public class TourApiController {
     protected static final String SCL_IV = "SCL IV";
     protected static final String SMOGON_CHAMPIONS_LEAGUE_IV = "Smogon Champions League IV";
     protected static final String OUPL_VIII = "OUPL VIII";
+    protected static final String GEN_9_OU = "gen9ou";
 
     private final TourService tourService;
     private final BattleService battleService;
@@ -91,28 +92,54 @@ public class TourApiController {
 
     @PostMapping("/oltxi/info/update")
     public boolean updateOltXiTourInfo() {
-        tourService.updateTour(OLT_XI_FULL_TOUR_NAME, OLT_XI, "gen9ou");
+        tourService.updateTour(OLT_XI_FULL_TOUR_NAME, OLT_XI, GEN_9_OU);
         return true;
     }
 
     @PostMapping("/scliv/info/update")
     public boolean updateSclIvTourInfo() {
-        tourService.updateTour(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV, "gen9ou");
+        tourService.updateTour(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV, GEN_9_OU);
+        return true;
+    }
+
+    @PostMapping("/scliv/team/update")
+    public boolean updateSclTeam(@RequestParam("format") String format) {
+        battleService.updateTeam(new TourTeamGroupDetail("team_group_tour_SCL IV",
+                "team_set_tour_SCL IV", SMOGON_CHAMPIONS_LEAGUE_IV, format));
+        return true;
+    }
+
+    @PostMapping("/oltxi/team/update")
+    public boolean updateOltxieam() {
+        battleService.updateTeam(new TourTeamGroupDetail("team_group_tour_olt_xi",
+                "team_set_tour_olt_xi", OLT_XI_FULL_TOUR_NAME, GEN_9_OU));
         return true;
     }
 
     @PostMapping("/wcop2024/team/update")
     public boolean updateWcop2024Team(@RequestParam("format") String format) {
-        battleService.updateTeam(new TourTeamGroupDetail("team_group_tour_wcop_2024",
-                "team_set_tour_wcop_2024", THE_WORLD_CUP_OF_POKEMON_2024, format));
+        if (format.equals(GEN_9_OU)) {
+            battleService.updateTeam(new TourTeamGroupDetail("team_group_tour_wcop_2024",
+                    "team_set_tour_wcop_2024", THE_WORLD_CUP_OF_POKEMON_2024, format));
+        } else {
+            battleService.updateTeam(new TourTeamGroupDetail("team_group_tour_wcop_2024_" + format,
+                    "team_set_tour_wcop_" + format, OUPL_VIII, format));
+        }
+
         return true;
     }
 
     @PostMapping("/ouplViii/update")
     public boolean updateOuplGroupAndRecord(@RequestParam("format") String format) {
         tourService.updatePlayerRecord(OUPL_VIII, format);
-        battleService.updateTeam(new TourTeamGroupDetail("team_group_tour_OUPL VIII",
-                "team_set_tour_OUPL VIII", OUPL_VIII, format));
+        if (format.equals(GEN_9_OU)) {
+            battleService.updateTeam(new TourTeamGroupDetail("team_group_tour_OUPL VIII",
+                    "team_set_tour_OUPL VIII", OUPL_VIII, format));
+        } else {
+            battleService.updateTeam(new TourTeamGroupDetail("team_group_tour_OUPL VIII_" + format,
+                    "team_set_tour_OUPL VIII_" + format, OUPL_VIII, format));
+        }
+
         return true;
     }
 }

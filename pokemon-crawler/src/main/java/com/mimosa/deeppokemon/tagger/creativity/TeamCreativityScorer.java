@@ -85,6 +85,10 @@ public class TeamCreativityScorer {
     }
 
     private @Nullable MonthlyPokemonMoveSet getMonthlyPokemonMoveSet(String statId, String pokemon) {
+        if (pokemon.contains("-*")) {
+            pokemon = pokemon.replaceAll("-\\*", "");
+        }
+
         if (monthlyPokemonMoveSetMap.containsKey(statId + pokemon)) {
             return monthlyPokemonMoveSetMap.get(statId + pokemon);
         }
@@ -116,6 +120,10 @@ public class TeamCreativityScorer {
     }
 
     private float getPokemonUsageScore(String pokemon, String statId) {
+        if (pokemon.contains("-*")) {
+            pokemon = pokemon.replaceAll("-\\*", "");
+        }
+
         MonthlyPokemonUsage pokemonUsage = getMonthlyPokemonUsage(pokemon, statId);
         if (pokemonUsage == null || pokemonUsage.usage().weighted() < 0.01D) {
             return 1F;

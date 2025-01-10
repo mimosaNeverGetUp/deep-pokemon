@@ -25,6 +25,8 @@ import java.util.Set;
 
 @Component
 public class TeamCreativityScorer {
+    protected static final String FORMAT = "format";
+    protected static final String DATE = "date";
     protected static final String STAT_ID = "statId";
     protected static final String YYYY_MM = "yyyyMM";
     protected static final String NAME = "name";
@@ -38,9 +40,9 @@ public class TeamCreativityScorer {
     }
 
     public float getCreativeScore(TeamSet teamSet) {
+
         float creativityScore = 0F;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(YYYY_MM);
-        String latestStatId = formatter.format(LocalDate.now().minusMonths(1)) + teamSet.tier();
+        String latestStatId = getLatestStatId(teamSet.tier());
 
         for (PokemonBuildSet pokemon : teamSet.pokemons()) {
             creativityScore += getPokemonCreativeScore(pokemon, latestStatId);
@@ -95,8 +97,21 @@ public class TeamCreativityScorer {
 
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId).and(NAME).is(pokemon));
         MonthlyPokemonMoveSet pokemonMoveSet = mongoTemplate.findOne(query, MonthlyPokemonMoveSet.class);
+        if (pokemonMoveSet == null) {
+            if (pokemon.contains("-")) {
+                // maybe is special form
+                pokemonMoveSet = getMonthlyPokemonMoveSet(statId, pokemon.substring(0, pokemon.indexOf("-")));
+            } else if (getBlurPokemonSpecialForm(pokemon) != null) {
+                pokemonMoveSet = getMonthlyPokemonMoveSet(statId, getBlurPokemonSpecialForm(pokemon));
+            }
+        }
+
         monthlyPokemonMoveSetMap.put(statId + pokemon, pokemonMoveSet);
         return pokemonMoveSet;
+    }
+
+    private String getBlurPokemonSpecialForm(String pokemon) {
+        return pokemon.contains("Urshifu") ? "Urshifu-Rapid-Strike" : null;
     }
 
     private float getPokemonItemScore(String pokemon, String item, String statId) {
@@ -125,6 +140,7 @@ public class TeamCreativityScorer {
         }
 
         MonthlyPokemonUsage pokemonUsage = getMonthlyPokemonUsage(pokemon, statId);
+
         if (pokemonUsage == null || pokemonUsage.usage().weighted() < 0.01D) {
             return 1F;
         } else if (pokemonUsage.usage().weighted() < 0.02D) {
@@ -141,7 +157,31 @@ public class TeamCreativityScorer {
 
         Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId).and(NAME).is(pokemon));
         MonthlyPokemonUsage pokemonUsage = mongoTemplate.findOne(query, MonthlyPokemonUsage.class);
+        if (pokemonUsage == null) {
+            if (pokemon.contains("-")) {
+                // maybe is special form
+                pokemonUsage = getMonthlyPokemonUsage(pokemon.substring(0, pokemon.indexOf("-")), statId);
+            } else if (getBlurPokemonSpecialForm(pokemon) != null) {
+                pokemonUsage = getMonthlyPokemonUsage(getBlurPokemonSpecialForm(pokemon), statId);
+            }
+        }
+
         monthlyPokemonUsageMap.put(statId + pokemon, pokemonUsage);
         return pokemonUsage;
     }
+
+    private boolean isMonthStatLatest() {
+        return LocalDate.now().getDayOfMonth() != 1;
+    }
+
+    public String getLatestStatId(String format) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(YYYY_MM);
+
+        if (isMonthStatLatest()) {
+            return formatter.format(LocalDate.now().minusMonths(1)) + format;
+        } else {
+            return formatter.format(LocalDate.now().minusMonths(2)) + format;
+        }
+    }
+
 }

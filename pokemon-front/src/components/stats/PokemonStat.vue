@@ -470,32 +470,32 @@ function onNodeSelect(event) {
       <div class="flex justify-start items-center mb-1" v-for=" [spread, value] in
       filterPopularSet(moveset.spreads,0.01)">
         <span class="16 min-w-16">{{ getSpreadText(spread, 0, 'hp') }}</span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-500">{{
             getBaseStat(spread, 0, 'hp', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 1, 'atk') }}</span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-500">{{
             getBaseStat(spread, 1, 'atk', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 2, 'def') }}</span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-500">{{
             getBaseStat(spread, 2, 'def', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 3, 'spa') }}</span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-500">{{
             getBaseStat(spread, 3, 'spa', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 4, 'spd') }}</span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-500">{{
             getBaseStat(spread, 4, 'spd', currentForm)
           }}</span>
 
         <span class="w-16 min-w-16">{{ getSpreadText(spread, 5, 'spe') }}</span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-300">{{
+        <span class="w-16 min-w-16 font-mono text-xs text-sky-500">{{
             getBaseStat(spread, 5, 'spe', currentForm)
           }}</span>
         <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>

@@ -56,6 +56,9 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2025/01/12 feat：</span>新增队伍排序模式：意外性</p>
+        <br/>
+
         <p><span class="font-bold">2025/01/03 优化：</span>可切换对战中变化的形态</p>
         <br/>
 

@@ -63,7 +63,7 @@ class PokemonAttackDefenseTagProviderTest {
         assertTag("Kingambit", Tag.ATTACK_BULK_SET, null);
         assertTag("Great Tusk", Tag.DEFENSE_MIX_SET, null);
         assertTag("Gholdengo", Tag.ATTACK_MIX_SET, null);
-        assertTag("Zamazenta", Tag.DEFENSE_MIX_SET, null);
+        assertTag("Zamazenta", Tag.ATTACK_MIX_SET, null);
         assertTag("Landorus-Therian", Tag.ATTACK_MIX_SET, null);
         assertTag("Dragapult", Tag.ATTACK_SET, null);
         assertTag("Raging Bolt", Tag.ATTACK_MIX_SET, null);
@@ -107,8 +107,8 @@ class PokemonAttackDefenseTagProviderTest {
         assertTag("Gholdengo", Tag.ATTACK_MIX_SET, buildSet("Gold Glasses", "Choice Scarf", ""));
         assertTag("Raging Bolt", Tag.ATTACK_MIX_SET, buildSet("Raging Bolt", "Booster Energy", ""));
         assertTag("Raging Bolt", Tag.ATTACK_MIX_SET, buildSet("Raging Bolt", "Leftovers", "Calm Mind"));
-        assertTag("Zamazenta", Tag.BALANCE_BULK_SET, buildSet("Zamazenta", "Leftovers", "Iron Defense", "Body Press"));
-        assertTag("Zamazenta", Tag.ATTACK_BULK_SET, buildSet("Zamazenta", "Heavy-Duty Boots", "Close Combat"));
+        assertTag("Zamazenta", Tag.ATTACK_BULK_SET, buildSet("Zamazenta", "Leftovers", "Iron Defense", "Body Press"));
+        assertTag("Zamazenta", Tag.ATTACK_MIX_SET, buildSet("Zamazenta", "Heavy-Duty Boots", "Close Combat"));
         assertTag("Gouging Fire", Tag.ATTACK_MIX_SET, buildSet("Gouging Fire", "Booster Energy", "Dragon Dance"));
         assertTag("Gouging Fire", Tag.ATTACK_BULK_SET, buildSet("Gouging Fire", "Booster Energy", "Dragon Dance", "Morning Sun"));
         assertTag("Roaring Moon", Tag.ATTACK_MIX_SET, buildSet("Roaring Moon", "Booster Energy", "Dragon Dance"));

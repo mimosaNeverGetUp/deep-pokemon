@@ -581,7 +581,10 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
 
     protected boolean tagZamazenta(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
-            return false;
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
         }
         List<String> items = pokemonBuildSet.items();
         String item = items == null || items.isEmpty() ? null : items.get(0);
@@ -589,11 +592,13 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
                 Math.min(pokemonBuildSet.moves().size(), 4)));
         if (topMoves.contains("Close Combat") && !topMoves.contains("Iron Defense") && !topMoves.contains("Body Press")) {
             HashSet<Tag> tags = new HashSet<>();
-            if ("Choice Band".equals(item) || "Life Orb".equals(item) || "Expert Belt".equals(item)) {
-                tags.add(Tag.ATTACK_MIX_SET);
-            } else {
-                tags.add(Tag.ATTACK_BULK_SET);
-            }
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+        if ("Leftovers".equals(item) || "Chesto Berry".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_BULK_SET);
             pokemonInfo.setTags(tags);
             return true;
         }

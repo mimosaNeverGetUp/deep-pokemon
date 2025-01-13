@@ -67,6 +67,7 @@ class TeamAttackDefenceTagProviderTest {
         assertTag(Tag.BALANCE, "Gliscor", "Garganacl", "Weezing-Galar", "Kingambit", "Dragapult", "Alomomola");
         assertTag(Tag.ATTACK, "Kyurem", "Iron Valiant", "Iron Moth", "Kingambit", "Samurott-Hisui", "Landorus-Therian");
         assertTag(Tag.BALANCE_ATTACK, "Cinderace", "Kingambit", "Landorus-Therian", "Kyurem", "Slowking-Galar", "Dragapult");
+        assertTag(Tag.BALANCE_ATTACK, "Ninetales-Alola", "Slowking-Galar", "Great Tusk", "Kyurem", "Zamazenta", "Roaring Moon" );
     }
 
     public void assertTag(Tag tag, String... pokemons) {

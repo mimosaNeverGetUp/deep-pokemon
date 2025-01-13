@@ -61,7 +61,7 @@ class PokemonAttackDefenseTagProviderTest {
     @Test
     void tagHighUsage() {
         assertTag("Kingambit", Tag.ATTACK_BULK_SET, null);
-        assertTag("Great Tusk", Tag.DEFENSE_MIX_SET, null);
+        assertTag("Great Tusk", Tag.ATTACK_BULK_SET, null);
         assertTag("Gholdengo", Tag.ATTACK_MIX_SET, null);
         assertTag("Zamazenta", Tag.ATTACK_MIX_SET, null);
         assertTag("Landorus-Therian", Tag.ATTACK_MIX_SET, null);
@@ -90,14 +90,15 @@ class PokemonAttackDefenseTagProviderTest {
         assertTag("Manaphy", Tag.ATTACK_SET, null);
         assertTag("Heatran", Tag.ATTACK_MIX_SET, null);
         assertTag("Tyranitar", Tag.ATTACK_BULK_SET, null);
+        assertTag("Iron Treads", Tag.ATTACK_MIX_SET, null);
 
         assertTag("Kingambit", Tag.ATTACK_BULK_SET, buildSet("Kingambit", "Black Glasses", "Swords Dance"));
         assertTag("Landorus-Therian", Tag.DEFENSE_MIX_SET, buildSet("Landorus-Therian", "Rocky Helmet", ""));
         assertTag("Landorus-Therian", Tag.DEFENSE_MIX_SET, buildSet("Landorus-Therian", "Leftovers", ""));
         assertTag("Landorus-Therian", Tag.DEFENSE_MIX_SET, buildSet("Landorus-Therian", "", "Earth Power"));
-        assertTag("Great Tusk", Tag.ATTACK_BULK_SET, buildSet("Great Tusk", "Booster Energy", "Bulk Up"));
-        assertTag("Great Tusk", Tag.ATTACK_BULK_SET, buildSet("Great Tusk", "Booster Energy", ""));
-        assertTag("Great Tusk", Tag.DEFENSE_MIX_SET, buildSet("Great Tusk", "Heavy-Duty Boots", ""));
+        assertTag("Great Tusk", Tag.ATTACK_MIX_SET, buildSet("Great Tusk", "Booster Energy", "Bulk Up"));
+        assertTag("Great Tusk", Tag.ATTACK_MIX_SET, buildSet("Great Tusk", "Booster Energy", ""));
+        assertTag("Great Tusk", Tag.ATTACK_BULK_SET, buildSet("Great Tusk", "Heavy-Duty Boots", ""));
         assertTag("Iron Valiant", Tag.ATTACK_SET, buildSet("Iron Valiant", "Booster Energy", ""));
         assertTag("Iron Valiant", Tag.ATTACK_SET, buildSet("Iron Valiant", "Choice Specs", ""));
         assertTag("Iron Moth", Tag.ATTACK_SET, buildSet("Iron Moth", "Booster Energy", ""));
@@ -117,7 +118,10 @@ class PokemonAttackDefenseTagProviderTest {
         assertTag("Dragonite", Tag.DEFENSE_MIX_SET, buildSet("Dragonite", "Heavy-Duty Boots", "Roost"));
         assertTag("Dragonite", Tag.ATTACK_BULK_SET, buildSet("Dragonite", "Heavy-Duty Boots", "Roost", "Dragon Dance"));
         assertTag("Primarina", Tag.ATTACK_MIX_SET, buildSet("Primarina", "Assault Vest", ""));
-        assertTag("Iron Treads", Tag.BALANCE_SET, buildSet("Iron Treads", "Booster Energy", ""));
+        assertTag("Iron Treads", Tag.ATTACK_MIX_SET, buildSet("Iron Treads", "Booster Energy", ""));
+        assertTag("Iron Treads", Tag.DEFENSE_MIX_SET, buildSet("Iron Treads", "Leftovers", ""));
+        assertTag("Iron Treads", Tag.DEFENSE_MIX_SET, buildSet("Iron Treads", "Heavy-Duty Boots", ""));
+        assertTag("Iron Treads", Tag.DEFENSE_MIX_SET, buildSet("Iron Treads", "Assault Vest", ""));
         assertTag("Hatterene", Tag.ATTACK_MIX_SET, buildSet("Hatterene", "Leftovers", ""));
         assertTag("Hatterene", Tag.ATTACK_SET, buildSet("Hatterene", "Grassy Seed", "Calm Mind"));
         assertTag("Iron Crown", Tag.ATTACK_MIX_SET, buildSet("Iron Crown", "Booster Energy", "Calm Mind"));

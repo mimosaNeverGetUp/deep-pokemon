@@ -241,6 +241,9 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
 
     protected boolean tagSpecifyPokemon(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         switch (pokemonInfo.getName()) {
+            case "Great Tusk" -> {
+                return tagGreatTusk(pokemonInfo, pokemonBuildSet);
+            }
             case "Landorus-Therian" -> {
                 return tagLandorus(pokemonInfo, pokemonBuildSet);
             }
@@ -300,9 +303,36 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
         return false;
     }
 
+    private boolean tagGreatTusk(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
+        if (pokemonBuildSet == null) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_BULK_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        List<String> items = pokemonBuildSet.items();
+        String item = items == null || items.isEmpty() ? null : items.get(0);
+
+        if ("Booster Energy".equals(item)) {
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
+        }
+
+        HashSet<Tag> tags = new HashSet<>();
+        tags.add(Tag.ATTACK_BULK_SET);
+        pokemonInfo.setTags(tags);
+        return true;
+    }
+
     protected boolean tagIronTreads(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {
         if (pokemonBuildSet == null) {
-            return false;
+            HashSet<Tag> tags = new HashSet<>();
+            tags.add(Tag.ATTACK_MIX_SET);
+            pokemonInfo.setTags(tags);
+            return true;
         }
 
         List<String> items = pokemonBuildSet.items();
@@ -311,11 +341,11 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             switch (item) {
                 case "Booster Energy" -> {
                     HashSet<Tag> tags = new HashSet<>();
-                    tags.add(Tag.BALANCE_SET);
+                    tags.add(Tag.ATTACK_MIX_SET);
                     pokemonInfo.setTags(tags);
                     return true;
                 }
-                case "Leftovers", "Heavy-Duty Boots" -> {
+                case "Leftovers", "Heavy-Duty Boots", "Assault Vest" -> {
                     HashSet<Tag> tags = new HashSet<>();
                     tags.add(Tag.DEFENSE_MIX_SET);
                     pokemonInfo.setTags(tags);
@@ -603,7 +633,10 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             return true;
         }
 
-        return false;
+        HashSet<Tag> tags = new HashSet<>();
+        tags.add(Tag.ATTACK_MIX_SET);
+        pokemonInfo.setTags(tags);
+        return true;
     }
 
     protected boolean tagHeatran(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet) {

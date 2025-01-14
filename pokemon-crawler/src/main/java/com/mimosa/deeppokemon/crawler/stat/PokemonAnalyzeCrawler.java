@@ -48,7 +48,7 @@ public class PokemonAnalyzeCrawler {
     private static final String PATTERN_FORMAT_TXT = "%s.json";
     private static final String prompt = """
             You are a professional translator. You need to translate the given English text into Chinese. The text is about the Pokemon configuration analysis on Pokemon Showdown. The Chinese in the text are the proper names of Pokemon. Please keep the original Chinese text and remove redundant spaces. Pay attention to the accuracy of the sentences when translating, and finally provide a text for human reading.
-                      """;
+            """;
 
     private final AiService aiService;
     private final HttpProxy httpProxy;
@@ -83,7 +83,7 @@ public class PokemonAnalyzeCrawler {
         }
     }
 
-    public Map<String, PokemonAnalyzeDto>   getLatestDifferencePokemonAnalyze(String format) {
+    public Map<String, PokemonAnalyzeDto> getLatestDifferencePokemonAnalyze(String format) {
         String url = null;
         try {
             url = initAnalyzeQuery(format);

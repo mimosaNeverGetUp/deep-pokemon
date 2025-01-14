@@ -35,6 +35,7 @@ public class AiService {
     protected static final String CONTENT_TYPE = "Content-Type";
     protected static final String SYSTEM = "system";
     protected static final String USER = "user";
+    protected static final int MAX_RETRY = 10;
 
     @Value("${OPENAPI_SK:}")
     private String openApiSk;
@@ -59,12 +60,18 @@ public class AiService {
         post.setEntity(new StringEntity(data, StandardCharsets.UTF_8));
         post.setConfig(requestConfig);
 
-        ChatResponse chatResponse = HttpUtil.request(post, ChatResponse.class);
-        if (chatResponse.choices == null || chatResponse.choices().isEmpty()) {
-            throw new ServerErrorException("chat api response invalid", null);
+        int retry = 0;
+        String response = null;
+        while (response == null && retry < MAX_RETRY) {
+            ChatResponse chatResponse = HttpUtil.request(post, ChatResponse.class);
+            if (chatResponse.choices == null || chatResponse.choices().isEmpty()) {
+                throw new ServerErrorException("chat api response invalid", null);
+            }
+            response = chatResponse.choices.get(0).message().content();
+            ++retry;
         }
 
-        return chatResponse.choices.get(0).message().content();
+        return response;
     }
 
     private List<ChatMessage> buildMessages(String text, String prompt) {

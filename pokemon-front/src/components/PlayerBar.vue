@@ -22,7 +22,7 @@ async function queryPlayer() {
 }
 
 function getRandomPlayerImage() {
-  return Math.random() >= 0.5 ? "Jirachi.jpg" : "Sprigatito.jpg"
+  return "unknownf.png";
 }
 
 queryPlayer();
@@ -59,8 +59,8 @@ queryPlayer();
 }
 
 .player-avatar {
-  width: 128px;
-  height: 128px;
+  width: 80px;
+  height: 80px;
 }
 
 .player-info {

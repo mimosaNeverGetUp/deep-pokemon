@@ -3,6 +3,7 @@ import {ref} from "vue";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Battle from "@/components/Battle.vue";
+import PlayerBar from "@/components/PlayerBar.vue";
 
 const props = defineProps({
   playerName: {
@@ -53,10 +54,27 @@ function rowStyle(row) {
   return {backgroundColor: backgroundColor, margin: 0};
 }
 
+function getPlayerIcon() {
+  if (!battleList.value || battleList.value.length === 0) {
+    return null;
+  }
+  let firstBattle = battleList.value[0];
+  if (!firstBattle.playerIcons) {
+    return null;
+  }
+
+  for (let playerIcon of firstBattle.playerIcons) {
+    if (playerIcon.name === props.playerName || playerIcon.forumName === props.playerName) {
+      return playerIcon.icon;
+    }
+  }
+}
+
 queryBattle(page.value, row.value);
 </script>
 
 <template>
+  <PlayerBar :name="playerName" :icon="getPlayerIcon()"></PlayerBar>
   <DataTable :value="battleList" class="min-w-max" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
              :totalRecords="totalRecords" @page="onPage($event)" :scrollable="false"
              tableStyle="min-width: 50rem" :row-style="rowStyle">

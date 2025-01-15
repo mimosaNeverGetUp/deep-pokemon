@@ -1,11 +1,17 @@
 <script setup>
 import Avatar from 'primevue/avatar';
+import {avatar} from "@/components/data/avatar.js";
+
 import {ref} from "vue";
 
 const props = defineProps({
   name: {
     type: String,
     required: true
+  },
+  icon: {
+    type: String,
+    required: false
   }
 });
 
@@ -21,8 +27,24 @@ async function queryPlayer() {
   player.value = await res.json()
 }
 
-function getRandomPlayerImage() {
-  return Math.random() >= 0.5 ? "Jirachi.jpg" : "Sprigatito.jpg"
+function getDefaultPlayerImage() {
+  return "unknownf.png";
+}
+
+function getPlayerIcon() {
+  if (!props.icon) {
+    return getDefaultPlayerImage();
+  }
+
+  if (props.icon in avatar) {
+    return `https://play.pokemonshowdown.com/sprites/trainers/${avatar[props.icon]}.png`;
+  }
+
+  if (props.icon.charAt(0) === '#') {
+    return `https://play.pokemonshowdown.com/sprites/trainers-custom/${props.icon.substr(1)}.png`;
+  }
+
+  return `https://play.pokemonshowdown.com/sprites/trainers/${props.icon}.png`;
 }
 
 queryPlayer();
@@ -30,7 +52,7 @@ queryPlayer();
 
 <template>
   <div class="player-bar">
-    <Avatar :image="getRandomPlayerImage()"
+    <Avatar :image="getPlayerIcon()"
             class="player-avatar"/>
     <div class="player-info">
       <p style="font-weight:bold">
@@ -59,8 +81,8 @@ queryPlayer();
 }
 
 .player-avatar {
-  width: 128px;
-  height: 128px;
+  width: 86px;
+  height: 90px;
 }
 
 .player-info {

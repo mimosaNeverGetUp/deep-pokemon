@@ -57,6 +57,8 @@ public class Battle implements Serializable {
     protected List<String> type;
     // pwd
     protected String password;
+    // 对战玩家头像
+    protected List<PlayerIcon> playerIcons;
 
     // 队伍
     @Transient
@@ -191,6 +193,14 @@ public class Battle implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<PlayerIcon> getPlayerIcons() {
+        return playerIcons;
+    }
+
+    public void setPlayerIcons(List<PlayerIcon> playerIcons) {
+        this.playerIcons = playerIcons;
     }
 
     @Override

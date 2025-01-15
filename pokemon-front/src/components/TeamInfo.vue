@@ -11,7 +11,7 @@ import Column from "primevue/column";
 import DataTable from "primevue/datatable";
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
-
+import {Dex} from '@pkmn/dex';
 import ProgressSpinner from "primevue/progressspinner";
 
 const props = defineProps({
@@ -65,6 +65,59 @@ function sortPokemons(pokemons) {
   });
 }
 
+function getPokemonNameColor(pokemon) {
+  let species = Dex.forGen(9).species.get(pokemon);
+  if (!species) {
+    return "";
+  }
+  return getTypeColor(species.types);
+}
+
+function getTypeColor(Types) {
+  if (Types?.length === 0) {
+    return "";
+  }
+  let type = Types[0];
+  switch (type) {
+    case "Steel":
+      return "text-[#B8B8D0]";
+    case "Water":
+      return "text-[#6890F0]";
+    case "Bug":
+      return "text-[#A8B820]";
+    case "Dark":
+      return "text-[#705848]";
+    case "Dragon":
+      return "text-[#7038F8]";
+    case "Fairy":
+      return "text-[#EE99AC]";
+    case "Electric":
+      return "text-[#F8D030]";
+    case "Fighting":
+      return "text-[#C03028]";
+    case "Fire":
+      return "text-[#F08030]";
+    case "Flying":
+      return "text-[#A890F0]";
+    case "Ghost":
+      return "text-[#705898]";
+    case "Grass":
+      return "text-[#78C850]";
+    case "Ground":
+      return "text-[#E0C068]";
+    case "Ice":
+      return "text-[#98D8D8]";
+    case "Normal":
+      return "text-[#A8A878]";
+    case "Poison":
+      return "text-[#A040A0]";
+    case "Psychic":
+      return "text-[#F85888]"
+    case "Rock":
+      return "text-[#B8A038]";
+  }
+}
+
 queryTeam(props.teamId);
 
 watch(() => props.teamId, async (newTeamId) => {
@@ -83,8 +136,8 @@ watch(() => props.teamId, async (newTeamId) => {
           <div v-for="pokemon in teamInfo?.teamSet.pokemons" class="flex gap-1">
             <div class="">
               <div class="min-w-80">
-                <span>{{ pokemon.name }}</span>
-                <span v-if="pokemon.items" class="text-red-500">
+                <span :class="getPokemonNameColor(pokemon.name)">{{ pokemon.name }}</span>
+                <span v-if="pokemon.items" class="">
                   {{ " @ " + (pokemon.items?.length === 0 ? "???" : pokemon.items[0]) }}
                 </span>
               </div>
@@ -92,10 +145,10 @@ watch(() => props.teamId, async (newTeamId) => {
                 {{ "Ability: ???" }}
               </div>
               <div class="flex items-center gap-1">
-                <span>{{ "Tera Type: " + (pokemon.teraTypes?.length === 0 ? "???" : pokemon.teraTypes[0]) }}</span>
+                <span> {{ "Tera Type: " + (pokemon.teraTypes?.length === 0 ? "???" : pokemon.teraTypes[0]) }}</span>
               </div>
               <div v-if="pokemon.moves && pokemon.moves.length !==0">
-                <div v-for="move in pokemon.moves.slice(0, 4)" class="text-blue-500">
+                <div v-for="move in pokemon.moves.slice(0, 4)">
                   {{ "-" + move }}
                 </div>
                 <br/>
@@ -128,8 +181,9 @@ watch(() => props.teamId, async (newTeamId) => {
         <Team :team="similarTeam" :compact="true" :teamSet="similarTeam?.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
            @click="queryTeam(similarTeam.id.data)"/>
-        <a class="ml-2" target="_blank" v-if="similarTeam.pokepasts?.length > 0" v-for="pokepast in similarTeam.pokepasts"
-           :href="pokepast.url" >
+        <a class="ml-2" target="_blank" v-if="similarTeam.pokepasts?.length > 0"
+           v-for="pokepast in similarTeam.pokepasts"
+           :href="pokepast.url">
           <i class="pi pi-link" style="color: darkblue"></i>
         </a>
       </div>
@@ -156,7 +210,8 @@ watch(() => props.teamId, async (newTeamId) => {
       <Column field="rating" sortable header="rating" :style="{ width:'10%'}"/>
       <Column field="battle-example" header="replay" :style="{ width:'20%'}">
         <template #body="{data}">
-          <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="text-black dark:text-[#EBEBEBA3]">
+          <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
+             class="text-black dark:text-[#EBEBEBA3]">
             {{ data.battleId }}
           </a>
         </template>

@@ -6,6 +6,7 @@ import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
 import Column from "primevue/column";
 import DataTable from "primevue/datatable";
+import PokemonBattleAttackValue from "@/components/PokemonBattleAttackValue.vue";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -52,33 +53,6 @@ function loadStat(stat) {
   }
   playerPokemonBattleStat.value = pokemonStat;
   load.value = true
-}
-
-function getDamageTargetStatsMap(battleDamageStats) {
-  if (!battleDamageStats) {
-    return
-  }
-
-  let damageTargetStatsMap = {};
-  for (const battleDamageStat of battleDamageStats) {
-    if (damageTargetStatsMap[battleDamageStat.damageTarget]) {
-      damageTargetStatsMap[battleDamageStat.damageTarget].push(battleDamageStat);
-    } else {
-      let damageTargetStats = [];
-      damageTargetStats.push(battleDamageStat);
-      damageTargetStatsMap[battleDamageStat.damageTarget] = damageTargetStats;
-    }
-  }
-  return damageTargetStatsMap;
-}
-
-function getTotalDamage(damageTargetStats) {
-  let total = 0;
-  for (const damageTargetStat of damageTargetStats)
-  {
-    total += damageTargetStat.damage;
-  }
-  return total +"%";
 }
 
 async function queryBattleStat(battleId) {
@@ -136,7 +110,7 @@ function battleChartOption(battleStat) {
     },
     y: {
       ticks: {
-        color: ["#E84057", "#5383E8", "black", "black", "black", "black", "black", "black", "black",],
+        color: ["#E84057", "#5383E8", "gray", "gray", "gray", "gray", "gray", "gray", "gray",],
         callback: function (value) {
           if (value >= 0) {
             return value + '%'; // 将数值转换为百分比格式
@@ -403,26 +377,45 @@ watch(() => props.data, async (newBattle) => {
             <span class="text-lg text-black dark:text-[#EBEBEBA3]">stat</span>
           </div>
         </template>
-        <DataTable :value="playerPokemonBattleStat" class="ladder" :scrollable="false"
+        <DataTable :value="playerPokemonBattleStat" :scrollable="false"
                    tableStyle="min-width: 50rem" :row-style="rowStyle">
           <Column field="name" header="pokemon" :style="{ width:'10%'}">
             <template #body="{data}">
               <img :src="getIconUrl(data.name)" :alt="data.name"/>
-              <span>{{ data.name }}</span>
+              <span class="text-black">{{ data.name }}</span>
             </template>
           </Column>
-          <Column field="playerName" header="player" :style="{ width:'5%' }"></Column>
-          <Column field="switchCount" header="switch" :sortable="true" :style="{ width:'5%' }"></Column>
-          <Column field="moveCount" header="move" :sortable="true" :style="{ width:'5%' }"></Column>
-          <Column field="killCount" header="kill" :sortable="true" :style="{ width:'5%' }"></Column>
-          <Column field="healthValue" :sortable="true" :style="{ width:'5%' }">
+          <Column field="playerName" header="player" :style="{ width:'5%' }">
+            <template #body="{data}">
+              <span class="text-black">{{ data.playerName }}</span>
+            </template>
+          </Column>
+          <Column field="switchCount" header="switch" :sortable="true" :style="{ width:'5%'}">
+            <template #body="{data}">
+              <span class="text-black">{{ data.switchCount }}</span>
+            </template>
+          </Column>
+          <Column field="moveCount" header="move" :sortable="true" :style="{ width:'5%'}">
+            <template #body="{data}">
+              <span class="text-black">{{ data.moveCount }}</span>
+            </template>
+          </Column>
+          <Column field="killCount" header="kill" :sortable="true" :style="{ width:'5%'}">
+            <template #body="{data}">
+              <span class="text-black">{{ data.killCount }}</span>
+            </template>
+          </Column>
+          <Column field="healthValue" :sortable="true" :style="{ width:'5%'}">
             <template #header>
               <span>{{ "正负值(+/-)" }}</span>
-              <i class="ml-2 pi pi-question-circle"
+              <i class="ml-2 pi pi-question-circle text-black"
                  v-tooltip.top="'宝可梦在场(或不在场通过状态、场地)造成的双方HP变化差，值越大表示作用越大。' +
                   '\n\n特殊场景：\n' +
                   '1. 换人被认为是宝可梦4个招式以外的一种特殊招式，所以换人回合已方受到的伤害，计入换人前宝可梦的正负值'"
                  style="font-size: 1rem"/>
+            </template>
+            <template #body="{data}">
+              <span class="text-black">{{ data.healthValue }}</span>
             </template>
           </Column>
           <Column field="attackValue" :sortable="true" :style="{ width:'10%' }">
@@ -433,21 +426,7 @@ watch(() => props.data, async (newBattle) => {
                  style="font-size: 1rem"/>
             </template>
             <template #body="{data}">
-              <div class="set-tip">
-                <span>{{ data.attackValue }}</span>
-                <div class="set-tip-text text-left" v-if="data.battleDamageStats.length >0">
-                  <div v-for="(damageTargetStats, pokemon) in getDamageTargetStatsMap(data.battleDamageStats)">
-                    <img :src="getIconUrl(pokemon)" :alt="pokemon" :title="pokemon"/>
-                    <span> {{getTotalDamage(damageTargetStats)}}</span>
-                    <p v-for="battleDamageStat in damageTargetStats" class="flex gap-2">
-                      <span>{{ battleDamageStat.triggerCount }}</span>
-                      <span>{{ "x" }}</span>
-                      <span>{{ battleDamageStat.damageFrom }}</span>
-                      <span>{{ battleDamageStat.damage + "%"}}</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <PokemonBattleAttackValue :data="data"/>
             </template>
           </Column>
         </DataTable>
@@ -463,22 +442,4 @@ watch(() => props.data, async (newBattle) => {
   padding: 0;
 }
 
-.set-tip {
-  position: relative;
-  display: inline-block;
-}
-
-.set-tip .set-tip-text {
-  visibility: hidden;
-  background-color: black;
-  color: #fff;
-  width: 300px;
-  /* 定位 */
-  position: absolute;
-  z-index: 1;
-}
-
-.set-tip:hover .set-tip-text {
-  visibility: visible;
-}
 </style>

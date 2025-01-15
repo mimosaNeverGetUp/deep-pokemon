@@ -36,15 +36,15 @@ function getDecorateClass(data) {
 <template>
   <div :class="getDecorateClass(data)"></div>
   <div class="battle-table text-lg">
-    <p v-if="props.tourPlayer" class="font-sans font-bold dark:text-[#EBEBEBA3]">{{ data.tourId + ' ' + data.stage }}</p>
+    <p v-if="props.tourPlayer" class="font-sans font-bold text-black">{{ data.tourId + ' ' + data.stage }}</p>
     <a style="display:block" target="_blank" :href="`https://replay.pokemonshowdown.com/${data.id}`"
-       class="text-black dark:text-[#EBEBEBA3]">
+       class="text-black">
       {{ data.id }}
     </a>
-    <p>{{ data.date }}</p>
+    <p class="text-black">{{ data.date }}</p>
     <div class="team-match">
       <div class="team-info" v-for="team in data.teams">
-              <span>
+              <span class="text-black">
                 {{
                   (team.playerName !== null && team.playerName !== undefined && team.playerName !== "")
                       ? team.playerName : "null"

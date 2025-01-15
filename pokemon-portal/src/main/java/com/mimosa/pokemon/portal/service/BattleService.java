@@ -88,6 +88,7 @@ public class BattleService {
     protected static final String POKEPASTS = "pokepasts";
     protected static final String POKEMON_SETS = "pokemonSets";
     protected static final String TOTAL = "total";
+    protected static final String PLAYER_ICONS = "playerIcons";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -108,7 +109,7 @@ public class BattleService {
         query.with(Sort.by(Sort.Order.desc(DATE)));
         query.skip((long) (page) * row);
         query.limit(row);
-        query.fields().include(ID, TYPE, AVAGE_RATING, WINNER, DATE);
+        query.fields().include(ID, TYPE, AVAGE_RATING, WINNER, DATE, PLAYER_ICONS);
         List<BattleDto> battles = mongoTemplate.find(query, BattleDto.class, BATTLE);
 
         Query statQuery = new Query(Criteria.where(BATTLE_ID).in(battles.stream().map(BattleDto::getId).toList()));
@@ -132,7 +133,7 @@ public class BattleService {
         MatchOperation matchOperation = Aggregation.match(criteria);
         SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC, DATE);
         ProjectionOperation projectionOperation = Aggregation.project(ID, TYPE, AVAGE_RATING, WINNER, DATE,
-                TOUR_ID, STAGE, WIN_SMOGON_PLAYER_NAME, SMOGON_PLAYER);
+                TOUR_ID, STAGE, WIN_SMOGON_PLAYER_NAME, SMOGON_PLAYER, PLAYER_ICONS);
         LookupOperation lookupOperation = LookupOperation.newLookup()
                 .from(TOUR_TEAM)
                 .localField(ID)
@@ -451,7 +452,7 @@ public class BattleService {
         return battleStat;
     }
 
-    @RegisterReflectionForBinding(Battle.class)
+    @RegisterReflectionForBinding(value = {Battle.class, PlayerIcon.class})
     public Battle battle(String battleId) {
         return crawlerApi.battle(battleId);
     }

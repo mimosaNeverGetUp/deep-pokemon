@@ -7,6 +7,7 @@
 package com.mimosa.pokemon.portal.dto;
 
 import com.mimosa.deeppokemon.entity.BattleTeam;
+import com.mimosa.deeppokemon.entity.PlayerIcon;
 import com.mimosa.deeppokemon.entity.tour.TourPlayer;
 
 import java.io.Serializable;
@@ -24,6 +25,7 @@ public final class BattleDto implements Serializable {
     private String stage;
     private List<TourPlayer> smogonPlayer;
     private String winSmogonPlayerName;
+    private List<PlayerIcon> playerIcons;
 
     public String getId() {
         return id;
@@ -103,5 +105,13 @@ public final class BattleDto implements Serializable {
 
     public void setWinSmogonPlayerName(String winSmogonPlayerName) {
         this.winSmogonPlayerName = winSmogonPlayerName;
+    }
+
+    public List<PlayerIcon> getPlayerIcons() {
+        return playerIcons;
+    }
+
+    public void setPlayerIcons(List<PlayerIcon> playerIcons) {
+        this.playerIcons = playerIcons;
     }
 }

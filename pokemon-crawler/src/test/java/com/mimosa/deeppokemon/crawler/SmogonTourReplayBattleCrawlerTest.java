@@ -72,6 +72,17 @@ class SmogonTourReplayBattleCrawlerTest {
         List<TourPlayer> smogonPlayers = tourBattle.getSmogonPlayer();
         assertNotNull(smogonPlayers);
         assertEquals(2, smogonPlayers.size());
+
+        List<PlayerIcon> playerIcons = tourBattle.getPlayerIcons();
+        assertEquals(2, playerIcons.size());
+        PlayerIcon playerIconA = playerIcons.get(0);
+        PlayerIcon playerIconB = playerIcons.get(1);
+        assertEquals("a1", playerIconA.name());
+        assertEquals("a", playerIconA.forumName());
+        assertEquals("a1Icon", playerIconA.icon());
+        assertEquals("b1", playerIconB.name());
+        assertEquals("b", playerIconB.forumName());
+        assertEquals("b1Icon", playerIconB.icon());
     }
 
     @Test
@@ -103,7 +114,7 @@ class SmogonTourReplayBattleCrawlerTest {
             tourBattles = crawler.craw(replaySource);
         }
 
-        for(Battle battle : tourBattles) {
+        for (Battle battle : tourBattles) {
             TourBattle tourBattle = (TourBattle) battle;
             if (tourBattle.getWinner().equals("a1")) {
                 assertEquals("a", tourBattle.getWinSmogonPlayerName());
@@ -130,6 +141,7 @@ class SmogonTourReplayBattleCrawlerTest {
         battle.setWinner("a1");
         battle.setLog("log");
         battle.setType(List.of("WCOP 2024"));
+        battle.setPlayerIcons(List.of(new PlayerIcon("a1", "a1Icon", null), new PlayerIcon("b1", "b1Icon", null)));
 
         BattleTeam teamA = new BattleTeam();
         teamA.setId("team_1");

@@ -138,6 +138,7 @@ public class PokemonPortalApplication {
                     .registerType(TypeReference.of("java.util.Collections$EmptyList"))
                     .registerType(TypeReference.of("java.util.Collections$EmptySet"))
                     .registerType(TypeReference.of(PokePastTeam.class))
+                    .registerType(TypeReference.of(PlayerIcon.class))
                     .registerType(TypeReference.of("java.util.Collections$EmptyMap"));
         }
     }

@@ -61,7 +61,7 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
             List<PlayerIcon> playerIcons = new ArrayList<>();
             playerIcons.add(new PlayerIcon(name, icon, null));
             battle.setPlayerIcons(playerIcons);
-        } else {
+        } else if (battle.getPlayerIcons().size() < 2) {
             battle.getPlayerIcons().add(new PlayerIcon(name, icon, null));
         }
     }

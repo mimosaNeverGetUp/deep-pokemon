@@ -6,5 +6,7 @@
 
 package com.mimosa.deeppokemon.entity;
 
-public record PlayerIcon(String name, String icon, String forumName) {
+import java.io.Serializable;
+
+public record PlayerIcon(String name, String icon, String forumName) implements Serializable {
 }

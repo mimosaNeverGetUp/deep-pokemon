@@ -33,7 +33,7 @@ const plugins = [
       ctx.save();
 
       // 设置背景颜色
-      ctx.fillStyle = 'rgb(245 245 244)';
+      ctx.fillStyle = 'rgb(245 245 245)';
       ctx.fillRect(chartArea.left, yZero, chartArea.right - chartArea.left, chartArea.bottom - yZero);
 
       // 恢复之前状态
@@ -368,7 +368,7 @@ watch(() => props.data, async (newBattle) => {
         <div class="flex justify-center items-center">
           <Chart :key="data.battleID" type="line" :plugins="plugins"
                  :data="battleChartData(data)" :options="battleChartOption(battleStat)"
-                 class="size-3/4"/>
+                 class="size-full bg-neutral-100"/>
         </div>
       </TabPanel>
       <TabPanel headerClass="w-1/2">
@@ -408,7 +408,7 @@ watch(() => props.data, async (newBattle) => {
           <Column field="healthValue" :sortable="true" :style="{ width:'5%'}">
             <template #header>
               <span>{{ "正负值(+/-)" }}</span>
-              <i class="ml-2 pi pi-question-circle text-black"
+              <i class="ml-2 pi pi-question-circle"
                  v-tooltip.top="'宝可梦在场(或不在场通过状态、场地)造成的双方HP变化差，值越大表示作用越大。' +
                   '\n\n特殊场景：\n' +
                   '1. 换人被认为是宝可梦4个招式以外的一种特殊招式，所以换人回合已方受到的伤害，计入换人前宝可梦的正负值'"

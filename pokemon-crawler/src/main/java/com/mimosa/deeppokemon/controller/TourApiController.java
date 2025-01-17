@@ -66,6 +66,12 @@ public class TourApiController {
         return true;
     }
 
+    @PostMapping("/splXvi/battle")
+    public boolean crawSplIvi(@RequestParam("format") String format) {
+        tourService.crawSplXvi(format);
+        return true;
+    }
+
     @PostMapping("/ouplViii/battle")
     public boolean crawOuplViii(@RequestParam("format") String format) {
         tourService.crawOuplViii(format);

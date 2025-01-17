@@ -83,6 +83,11 @@ public class TourService {
             List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9",
                     "Semifinals", "Finals");
 
+    protected static final String SPL_XVI = "SPL XVI";
+    protected static final String SMOGON_PREMIER_LEAGUE_XVI = "Smogon Premier League XVI";
+    protected static final String SPL_XVI_REPLAY_URL =
+            "https://www.smogon.com/forums/threads/smogon-premier-league-xvi-replays.3758078/";
+
     protected static final String OUPL_VIII = "OUPL VIII";
     protected static final String OUPL_FORUMS_URL =
             "https://www.smogon.com/forums/forums/gen-9-ou-archive.841/";
@@ -231,6 +236,15 @@ public class TourService {
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_PREMIER_LEAGUE_XV, SPL_XV_REPLAY_URL,
                 format, SPL_STAGES, winPlayerExtractor);
         return crawTour(SMOGON_PREMIER_LEAGUE_XV, SPL_XV, format, provider);
+    }
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawSplXvi(String format) {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(SPL_FORUMS_URL,
+                SMOGON_PREMIER_LEAGUE_XVI, SPL_STAGES);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_PREMIER_LEAGUE_XVI, SPL_XVI_REPLAY_URL,
+                format, SPL_STAGES, winPlayerExtractor);
+        return crawTour(SMOGON_PREMIER_LEAGUE_XVI, SPL_XVI, format, provider);
     }
 
     @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)

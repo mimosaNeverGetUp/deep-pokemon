@@ -13,6 +13,8 @@ import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
+import com.mimosa.deeppokemon.entity.tour.TourBattle;
+import com.mimosa.deeppokemon.entity.tour.TourPlayer;
 import com.mimosa.deeppokemon.utils.MatcherUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,11 +61,27 @@ public class PlayerEventAnalyzer implements BattleEventAnalyzer {
         Battle battle = battleContext.getBattle();
         if (battle.getPlayerIcons() == null) {
             List<PlayerIcon> playerIcons = new ArrayList<>();
-            playerIcons.add(new PlayerIcon(name, icon, null));
+            playerIcons.add(new PlayerIcon(name, icon, getForumName(battle, name)));
             battle.setPlayerIcons(playerIcons);
         } else if (battle.getPlayerIcons().size() < 2) {
-            battle.getPlayerIcons().add(new PlayerIcon(name, icon, null));
+            battle.getPlayerIcons().add(new PlayerIcon(name, icon, getForumName(battle, name)));
         }
+    }
+
+    private String getForumName(Battle battle, String name) {
+        if (battle instanceof TourBattle tourBattle) {
+            String winSmogonPlayerName = tourBattle.getWinSmogonPlayerName();
+            if (name.equals(tourBattle.getWinner())) {
+                return winSmogonPlayerName;
+            } else {
+                TourPlayer losePlayer = tourBattle.getSmogonPlayer().stream()
+                        .filter(tourPlayer -> !org.apache.commons.lang.StringUtils.equalsIgnoreCase(winSmogonPlayerName, tourPlayer.getName()))
+                        .findFirst()
+                        .orElse(null);
+                return losePlayer != null ? losePlayer.getName() : winSmogonPlayerName;
+            }
+        }
+        return null;
     }
 
     @Override

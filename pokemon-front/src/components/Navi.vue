@@ -6,17 +6,17 @@ import NaviItem from '@/components/NaviItem.vue'
   <nav>
     <NaviItem url="/ladder">
       <img class="navi-label-icon" src="/pokemonicon/Kingambit.png" alt="deep-pokemon">
-      <p>排行榜</p>
+      <p class="font-sans">排行榜</p>
     </NaviItem>
 
     <NaviItem url="/teamSearch">
       <img class="navi-label-icon" src="/pokemonicon/Maushold-Four.png" alt="deep-pokemon">
-      <p>队伍</p>
+      <p class="font-sans">队伍</p>
     </NaviItem>
 
     <NaviItem url="/stats?format=gen9ou">
       <img class="navi-label-icon" src="/pokemonicon/Ribombee.png" alt="deep-pokemon">
-      <p>环境</p>
+      <p class="font-sans">环境</p>
     </NaviItem>
   </nav>
 </template>

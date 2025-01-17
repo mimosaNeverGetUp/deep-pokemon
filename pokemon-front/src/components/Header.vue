@@ -56,6 +56,13 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2024/11/4 tour：</span>
+          <a target="_blank" href="https://www.smogon.com/forums/threads/smogon-premier-league-xvi-replays.3758078//">Smogon Premier League XVI</a></p>
+        <br/>
+
+        <p><span class="font-bold">2025/01/17 优化：</span>调整部分页面UI</p>
+        <br/>
+
         <p><span class="font-bold">2025/01/12 feat：</span>新增队伍排序模式：意外性</p>
         <br/>
 
@@ -109,7 +116,7 @@ header {
   left: 0;
   display: flex;
   z-index: 1;
-  background-color: #333;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
   justify-content: space-between;
   width: 100%;
 }

@@ -72,17 +72,6 @@ class SmogonTourReplayBattleCrawlerTest {
         List<TourPlayer> smogonPlayers = tourBattle.getSmogonPlayer();
         assertNotNull(smogonPlayers);
         assertEquals(2, smogonPlayers.size());
-
-        List<PlayerIcon> playerIcons = tourBattle.getPlayerIcons();
-        assertEquals(2, playerIcons.size());
-        PlayerIcon playerIconA = playerIcons.get(0);
-        PlayerIcon playerIconB = playerIcons.get(1);
-        assertEquals("a1", playerIconA.name());
-        assertEquals("a", playerIconA.forumName());
-        assertEquals("a1Icon", playerIconA.icon());
-        assertEquals("b1", playerIconB.name());
-        assertEquals("b", playerIconB.forumName());
-        assertEquals("b1Icon", playerIconB.icon());
     }
 
     @Test

@@ -1,5 +1,4 @@
 <script setup>
-import Avatar from 'primevue/avatar';
 import {avatar} from "@/components/data/avatar.js";
 
 import {ref} from "vue";
@@ -52,8 +51,8 @@ queryPlayer();
 
 <template>
   <div class="player-bar">
-    <Avatar :image="getPlayerIcon()"
-            class="player-avatar"/>
+    <img :src="getPlayerIcon()"
+            class="player-avatar bg-slate-400"/>
     <div class="player-info">
       <p style="font-weight:bold">
         {{ player?.name }}
@@ -83,6 +82,10 @@ queryPlayer();
 .player-avatar {
   width: 86px;
   height: 90px;
+  border: 5px solid rgb(148 163 184);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 
 .player-info {

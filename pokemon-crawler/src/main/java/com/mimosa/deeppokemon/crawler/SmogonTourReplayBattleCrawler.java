@@ -73,16 +73,6 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
                         .findFirst()
                         .orElse(null);
                 tourBattle.setWinSmogonPlayerName(winPlayer.getName());
-
-                // set tour player icon
-                PlayerIcon winnerIcon = new PlayerIcon(battle.getWinner(), getPlayerIcon(battle.getPlayerIcons(),
-                        battle.getWinner()), winPlayer.getName());
-                PlayerIcon loserIcon = new PlayerIcon(getLosePlayerName(battle), getPlayerIcon(battle.getPlayerIcons(),
-                        getLosePlayerName(battle)), losePlayer.getName());
-                List<PlayerIcon> icons = new ArrayList<>();
-                icons.add(winnerIcon);
-                icons.add(loserIcon);
-                tourBattle.setPlayerIcons(icons);
             } else {
                 log.warn("tour {} {} battle {} can not get win smogon player", tourReplay.getTourName(),
                         tourReplay.getStage(), battle.getBattleID());
@@ -119,26 +109,6 @@ public class SmogonTourReplayBattleCrawler implements BattleCrawler {
             setSeriesBattlesWin(battles);
         }
         return new ArrayList<>(battles);
-    }
-
-    private String getLosePlayerName(Battle battle) {
-        String winPlayerName = battle.getWinner();
-        for (String player : battle.getPlayers()) {
-            if (!StringUtils.equals(winPlayerName, player)) {
-                return player;
-            }
-        }
-        return null;
-    }
-
-    private String getPlayerIcon(List<PlayerIcon> playerIcons, String playerName) {
-        for (PlayerIcon playerIcon : playerIcons) {
-            if (StringUtils.equals(playerIcon.name(), playerName)) {
-                return playerIcon.icon();
-
-            }
-        }
-        return null;
     }
 
     private void setSeriesBattlesWin(List<TourBattle> battles) {

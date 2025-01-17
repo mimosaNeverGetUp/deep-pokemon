@@ -74,7 +74,7 @@ queryBattle(page.value, row.value);
 </script>
 
 <template>
-  <PlayerBar :name="playerName" :icon="getPlayerIcon()"></PlayerBar>
+  <PlayerBar :name="playerName" :icon="getPlayerIcon()" :tourPlayer="tourPlayer"></PlayerBar>
   <DataTable :value="battleList" class="min-w-max" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
              :totalRecords="totalRecords" @page="onPage($event)" :scrollable="false"
              tableStyle="min-width: 50rem" :row-style="rowStyle">

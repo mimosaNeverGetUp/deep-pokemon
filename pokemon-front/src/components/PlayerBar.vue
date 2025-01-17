@@ -11,6 +11,11 @@ const props = defineProps({
   icon: {
     type: String,
     required: false
+  },
+  tourPlayer: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 });
 
@@ -54,16 +59,16 @@ queryPlayer();
     <img :src="getPlayerIcon()"
             class="player-avatar bg-slate-400"/>
     <div class="player-info">
-      <p style="font-weight:bold">
+      <p class="font-bold text-2xl font-serif	">
         {{ player?.name }}
       </p>
-      <p>
+      <p v-if="!tourPlayer">
         {{ player?.elo }}
       </p>
-      <p>
+      <p v-if="!tourPlayer">
         {{ "排行第" + player?.rank + "位" }}
       </p>
-      <p text="'Gxe: ' + ${playerRank.getGxe()}">
+      <p v-if="!tourPlayer" text="'Gxe: ' + ${playerRank.getGxe()}">
         {{ "Gxe: " + player?.gxe }}
       </p>
     </div>
@@ -76,6 +81,7 @@ queryPlayer();
   margin-top: 60px;
   display: flex;
   width: 100%;
+  align-items: center;
   justify-content: flex-start;
 }
 

@@ -14,6 +14,7 @@ import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -22,6 +23,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,5 +86,91 @@ class MoveEventAnalyzerTest {
         moveEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
         Assertions.assertEquals("Rocky Helmet", battle.getBattleTeams().get(0).findPokemon("Amoonguss").getItem());
         Assertions.assertEquals("Choice Scarf", battle.getBattleTeams().get(1).findPokemon("Gholdengo").getItem());
+    }
+
+    @Test
+    void analyzeExplosion() {
+        BattleEvent damageEvent = new BattleEvent("damage", List.of("p1a: Darkrai", "9/100"),
+                null, null);
+        BattleEvent battleEvent = new BattleEvent("move", List.of("p2a: Garganacl", "Explosion", "p1a: Darkrai"),
+                null, List.of(damageEvent));
+
+        String darkrai = "Darkrai";
+        String garganacl = "Garganacl";
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, darkrai)
+                .addPokemonStat(2, garganacl)
+                .build();
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, darkrai)
+                .addPokemon(2, garganacl)
+                .build();
+
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, garganacl, garganacl)
+                .addPokemon(1, darkrai, darkrai)
+                .setHealth(2, garganacl, BigDecimal.valueOf(100))
+                .setHealth(1, darkrai, BigDecimal.valueOf(100))
+                .setTurnStartPokemon(1, darkrai)
+                .setTurnStartPokemon(2, garganacl)
+                .setBattle(battle)
+                .build();
+
+        Assertions.assertTrue(moveEventAnalyzer.supportAnalyze(battleEvent));
+        moveEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        Assertions.assertEquals(0, battleContext.getPlayerStatusList().get(1).getPokemonStatus(garganacl).getHealth().intValue());
+        Assertions.assertEquals(-100, battleStat.playerStatList().get(1).getPokemonBattleStat(garganacl).getHealthValue().intValue());
+        Assertions.assertEquals(0, battleStat.playerStatList().get(1).getPokemonBattleStat(garganacl).getAttackValue().intValue());
+
+        Assertions.assertEquals(100, battleContext.getPlayerStatusList().get(0).getPokemonStatus(darkrai).getHealth().intValue());
+        Assertions.assertEquals(100, battleStat.playerStatList().get(0).getPokemonBattleStat(darkrai).getHealthValue().intValue());
+        Assertions.assertEquals(100, battleStat.playerStatList().get(0).getPokemonBattleStat(darkrai).getAttackValue().intValue());
+
+        List<BattleDamageStat> battleDamageStats = battleStat.playerStatList().get(0).getPokemonBattleStat(darkrai).getBattleDamageStats();
+        assertEquals(1, battleDamageStats.size());
+        BattleDamageStat battleDamageStat = battleDamageStats.get(0);
+        assertEquals(100, battleDamageStat.getDamage().intValue());
+        assertEquals(1, battleDamageStat.getTriggerCount());
+        assertEquals("Explosion", battleDamageStat.getDamageFrom());
+        assertEquals("Garganacl", battleDamageStat.getDamageTarget());
+
+        assertEquals(0, battleStat.playerStatList().get(1).getPokemonBattleStat(garganacl).getBattleDamageStats().size());
+    }
+
+    @Test
+    void analyzeLunarFail() {
+        BattleEvent damageEvent = new BattleEvent("fail", List.of("p1a: Darkrai", "9/100"),
+                null, null);
+        BattleEvent battleEvent = new BattleEvent("move", List.of("p2a: Garganacl", "Lunar Dance", "p1a: Darkrai"),
+                null, List.of(damageEvent));
+
+        String darkrai = "Darkrai";
+        String garganacl = "Garganacl";
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, darkrai)
+                .addPokemonStat(2, garganacl)
+                .build();
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, darkrai)
+                .addPokemon(2, garganacl)
+                .build();
+
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, garganacl, garganacl)
+                .addPokemon(1, darkrai, darkrai)
+                .setHealth(2, garganacl, BigDecimal.valueOf(100))
+                .setHealth(1, darkrai, BigDecimal.valueOf(100))
+                .setTurnStartPokemon(1, darkrai)
+                .setTurnStartPokemon(2, garganacl)
+                .setBattle(battle)
+                .build();
+        moveEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        Assertions.assertEquals(100, battleContext.getPlayerStatusList().get(1).getPokemonStatus(garganacl).getHealth().intValue());
+        Assertions.assertEquals(0, battleStat.playerStatList().get(1).getPokemonBattleStat(garganacl).getHealthValue().intValue());
+        Assertions.assertEquals(0, battleStat.playerStatList().get(1).getPokemonBattleStat(garganacl).getAttackValue().intValue());
+
+        Assertions.assertEquals(100, battleContext.getPlayerStatusList().get(0).getPokemonStatus(darkrai).getHealth().intValue());
+        Assertions.assertEquals(0, battleStat.playerStatList().get(0).getPokemonBattleStat(darkrai).getHealthValue().intValue());
+        Assertions.assertEquals(0, battleStat.playerStatList().get(0).getPokemonBattleStat(darkrai).getAttackValue().intValue());
     }
 }

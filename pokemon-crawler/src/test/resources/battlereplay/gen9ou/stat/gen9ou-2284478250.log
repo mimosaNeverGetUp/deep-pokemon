@@ -1,0 +1,171 @@
+|j|☆PO KD8 专围吹飞
+|j|☆just a passer
+|t:|1737353496
+|gametype|singles
+|player|p1|PO KD8 专围吹飞|lyra|
+|player|p2|just a passer|265|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] OU
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Sleep Moves Clause: Sleep-inducing moves are banned
+|clearpoke
+|poke|p1|Gholdengo|
+|poke|p1|Darkrai|
+|poke|p1|Skeledirge, F|
+|poke|p1|Skarmory, F|
+|poke|p1|Clodsire, M|
+|poke|p1|Moltres|
+|poke|p2|Staraptor, F|
+|poke|p2|Enamorus, F|
+|poke|p2|Garganacl, F|
+|poke|p2|Gholdengo|
+|poke|p2|Blissey, F|
+|poke|p2|Cresselia, F|
+|teampreview
+|
+|t:|1737353501
+|start
+|switch|p1a: Gholdengo|Gholdengo, shiny|100/100
+|switch|p2a: Staraptor|Staraptor, F|100/100
+|-ability|p2a: Staraptor|Intimidate|boost
+|-unboost|p1a: Gholdengo|atk|1
+|turn|1
+|
+|t:|1737353506
+|move|p2a: Staraptor|Final Gambit|p1a: Gholdengo
+|-immune|p1a: Gholdengo
+|move|p1a: Gholdengo|Shadow Ball|p2a: Staraptor
+|-immune|p2a: Staraptor
+|
+|upkeep
+|turn|2
+|
+|t:|1737353512
+|switch|p1a: Skarmory|Skarmory, F|100/100
+|move|p2a: Staraptor|Final Gambit|p1a: Skarmory
+|-ability|p1a: Skarmory|Sturdy
+|-damage|p1a: Skarmory|1/100
+|faint|p2a: Staraptor
+|
+|upkeep
+|
+|t:|1737353515
+|switch|p2a: Enamorus|Enamorus, F|100/100
+|turn|3
+|
+|t:|1737353519
+|move|p2a: Enamorus|Misty Explosion|p1a: Skarmory
+|-resisted|p1a: Skarmory
+|-damage|p1a: Skarmory|0 fnt
+|faint|p2a: Enamorus
+|faint|p1a: Skarmory
+|
+|upkeep
+|
+|t:|1737353523
+|switch|p2a: Garganacl|Garganacl, F|100/100
+|switch|p1a: Darkrai|Darkrai|100/100
+|turn|4
+|
+|t:|1737353526
+|move|p1a: Darkrai|Dark Pulse|p2a: Garganacl
+|-damage|p2a: Garganacl|60/100
+|move|p2a: Garganacl|Explosion|p1a: Darkrai
+|-damage|p1a: Darkrai|9/100
+|faint|p2a: Garganacl
+|
+|upkeep
+|
+|t:|1737353530
+|switch|p2a: Gholdengo|Gholdengo|100/100
+|turn|5
+|
+|t:|1737353533
+|move|p1a: Darkrai|Dark Pulse|p2a: Gholdengo
+|-supereffective|p2a: Gholdengo
+|-damage|p2a: Gholdengo|14/100
+|move|p2a: Gholdengo|Memento|p1a: Darkrai
+|-unboost|p1a: Darkrai|atk|2
+|-unboost|p1a: Darkrai|spa|2
+|faint|p2a: Gholdengo
+|
+|upkeep
+|
+|t:|1737353536
+|switch|p2a: Blissey|Blissey, F|100/100
+|turn|6
+|
+|t:|1737353539
+|move|p1a: Darkrai|Dark Pulse|p2a: Blissey
+|-damage|p2a: Blissey|92/100
+|cant|p2a: Blissey|flinch
+|
+|upkeep
+|turn|7
+|
+|t:|1737353543
+|move|p1a: Darkrai|Dark Pulse|p2a: Blissey
+|-damage|p2a: Blissey|85/100
+|move|p2a: Blissey|Healing Wish|p2a: Blissey
+|faint|p2a: Blissey
+|
+|upkeep
+|
+|t:|1737353545
+|switch|p2a: Cresselia|Cresselia, F|100/100
+|turn|8
+|
+|t:|1737353548
+|move|p1a: Darkrai|Dark Pulse|p2a: Cresselia
+|-supereffective|p2a: Cresselia
+|-damage|p2a: Cresselia|72/100
+|move|p2a: Cresselia|Lunar Dance||[still]
+|-fail|p2a: Cresselia
+|
+|upkeep
+|turn|9
+|
+|t:|1737353556
+|move|p1a: Darkrai|Knock Off|p2a: Cresselia
+|-supereffective|p2a: Cresselia
+|-damage|p2a: Cresselia|60/100
+|move|p2a: Cresselia|Lunar Dance||[still]
+|-fail|p2a: Cresselia
+|
+|upkeep
+|turn|10
+|
+|t:|1737353560
+|move|p1a: Darkrai|Dark Pulse|p2a: Cresselia
+|-supereffective|p2a: Cresselia
+|-damage|p2a: Cresselia|29/100
+|move|p2a: Cresselia|Lunar Dance||[still]
+|-fail|p2a: Cresselia
+|
+|upkeep
+|turn|11
+|
+|t:|1737353568
+|move|p1a: Darkrai|Dark Pulse|p2a: Cresselia
+|-supereffective|p2a: Cresselia
+|-damage|p2a: Cresselia|3/100
+|move|p2a: Cresselia|Lunar Dance||[still]
+|-fail|p2a: Cresselia
+|
+|upkeep
+|turn|12
+|
+|t:|1737353574
+|move|p1a: Darkrai|Dark Pulse|p2a: Cresselia
+|-supereffective|p2a: Cresselia
+|-damage|p2a: Cresselia|0 fnt
+|faint|p2a: Cresselia
+|
+|win|PO KD8 专围吹飞

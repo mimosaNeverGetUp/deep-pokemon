@@ -24,8 +24,6 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
             <span class="text-[#80DAF6]">minasa</span>
           </a>
         </span>
-
-
       </div>
     </footer>
   </div>

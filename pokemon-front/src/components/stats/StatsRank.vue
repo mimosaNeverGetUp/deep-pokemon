@@ -17,7 +17,6 @@ import {zh_translation_text} from "@/components/data/translationText.js";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const usages = ref(null)
-const row = ref(20);
 const totalRecords = ref(null);
 
 const props = defineProps({
@@ -100,9 +99,9 @@ fetchStatsData(props.format);
 </script>
 
 <template>
-  <DataTable v-model:filters="filters" :value="usages" paginator :rows="row" :rowsPerPageOptions="[20, 30, 40 ,50, 100]"
-             :totalRecords="totalRecords" @page="onPage($event)" :scrollable="false" selectionMode="single" dataKey="id"
-             @rowSelect="onRowSelect" filterDisplay="row">
+  <DataTable v-model:filters="filters" :value="usages" :totalRecords="totalRecords" @page="onPage($event)" scrollable
+             scrollHeight="720px" selectionMode="single" dataKey="id" @rowSelect="onRowSelect" filterDisplay="row"
+             pt:wrapper:class="no-scrollbar">
     <Column field="rank" header="rank" :style="{ width:'5%' }">
       <template #body="{data}">{{ data.rank }}</template>
     </Column>
@@ -122,7 +121,7 @@ fetchStatsData(props.format);
     <Column field="usage.weighted" header="weighted" :style="{ width:'5%' }">
       <template #body="{data}">{{ convertToPercentage(data.usage.weighted) }}</template>
     </Column>
-    <Column field="usage.raw" header="raw" :style="{ width:'5%' }">
+    <Column field="usage.raw" header="raw" :style="{ width:'1%' }">
       <template #body="{data}">{{ convertToPercentage(data.usage.raw) }}</template>
     </Column>
     <Column field="types" header="types" :style="{ width:'5%' }" :showFilterMenu="false" >
@@ -140,3 +139,14 @@ fetchStatsData(props.format);
     </Column>
   </DataTable>
 </template>
+<style>
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>

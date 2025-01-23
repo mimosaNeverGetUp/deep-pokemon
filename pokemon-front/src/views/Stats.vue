@@ -18,6 +18,7 @@ import {useRoute, useRouter} from "vue-router";
 const route = useRoute();
 const router = useRouter();
 const selectPokemon = ref();
+const rankComponentRef = ref();
 const formatNodes = [];
 
 function getFormatNode() {
@@ -45,19 +46,31 @@ function getStatsLink() {
   return `/stats?format=${format}&language=${language}`
 }
 
+function redirectPositionFunction() {
+  if (window.scrollY && window.scrollY > 0) {
+    rankComponentRef.value.scrollIntoView();
+  }
+}
+
+
 getFormatNode();
 </script>
 <template>
-  <div class="mt-[30px] gap-1 flex items-center justify-end">
-    <router-link :to="getStatsLink()">
-      <Avatar icon="pi pi-language" class="bg-white dark:bg-[#181818] dark:text-[#EBEBEBA3]" size="large"/>
-    </router-link>
-    <TreeSelect filter :options="formatNodes" :placeholder="route.query.format" @node-select="onNodeSelect"/>
-  </div>
-  <MetaStat :format="route.query.format" class="mb-4"/>
-  <div class="flex gap-2">
-    <StatsRank :updateSelectPokemon="updateSelectPokemon" :format="route.query.format"
-               :language="route.query.language"/>
-    <PokemonStat :pokemon="selectPokemon" :format="route.query.format" :language="route.query.language"/>
+  <div>
+    <div class="mt-[30px]">
+      <div class="gap-1 flex items-center justify-end">
+        <router-link :to="getStatsLink()">
+          <Avatar icon="pi pi-language" class="bg-white dark:bg-[#181818] dark:text-[#EBEBEBA3]" size="large"/>
+        </router-link>
+        <TreeSelect filter :options="formatNodes" :placeholder="route.query.format" @node-select="onNodeSelect"/>
+      </div>
+      <MetaStat :format="route.query.format" class="mb-4"/>
+    </div>
+    <div ref="rankComponentRef" class="relative flex gap-2 scroll-mt-20">
+      <StatsRank  class="sticky top-20 h-fit" :updateSelectPokemon="updateSelectPokemon"
+                 :format="route.query.format" :language="route.query.language"/>
+      <PokemonStat :pokemon="selectPokemon" :format="route.query.format" :language="route.query.language"
+          :redirectPositionFunction="redirectPositionFunction"/>
+    </div>
   </div>
 </template>

@@ -362,7 +362,7 @@ watch(() => props.data, async (newBattle) => {
       <TabPanel headerClass="w-1/2">
         <template #header>
           <div class="flex justify-center items-center gap-2 w-full">
-            <span class="text-lg text-black dark:text-[#EBEBEBA3]">trend</span>
+            <span class="text-lg dynamicThemeText">trend</span>
           </div>
         </template>
         <div class="flex justify-center items-center">
@@ -374,7 +374,7 @@ watch(() => props.data, async (newBattle) => {
       <TabPanel headerClass="w-1/2">
         <template #header>
           <div class="flex justify-center items-center gap-2 w-full">
-            <span class="text-lg text-black dark:text-[#EBEBEBA3]">stat</span>
+            <span class="text-lg dynamicThemeText">stat</span>
           </div>
         </template>
         <DataTable :value="playerPokemonBattleStat" :scrollable="false"

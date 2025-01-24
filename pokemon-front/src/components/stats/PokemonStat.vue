@@ -525,11 +525,10 @@ function onNodeSelect(event) {
             </template>
             <div class="">
               <Textarea v-model="analysis.setChineseAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dark:bg-[#181818] dark:text-[#EBEBEBA3]"/>
+                        class="font-mono leading-loose rounded-3xl text-lg dynamicThemeText analysis-Bg"/>
               <Textarea v-model="analysis.setAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dark:bg-[#181818] dark:text-[#EBEBEBA3]"/>
+                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dynamicThemeText analysis-Bg"/>
             </div>
-
           </AccordionTab>
         </Accordion>
       </div>
@@ -556,3 +555,9 @@ function onNodeSelect(event) {
     </div>
   </Dialog>
 </template>
+
+<style>
+.analysis-Bg {
+  background-color: var(--analysis-bg-color);
+}
+</style>

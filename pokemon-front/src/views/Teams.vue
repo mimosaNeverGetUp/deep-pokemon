@@ -172,14 +172,14 @@ queryTeams(page.value, row.value);
           <Column v-if="tour" field="player.name" header="playerName" :style="{ width:'15%'}">
             <template #body="{data}">
               <router-link :to="`/player-record?name=${data.player?.name}&tourPlayer=true`"
-                           class="text-black dark:text-[#EBEBEBA3]">
+                           class="dynamicThemeText">
                 {{ data.player?.name }}
               </router-link>
             </template>
           </Column>
           <Column v-else field="playerName" header="playerName" :style="{ width:'10%'}">
             <template #body="{data}">
-              <router-link :to="`/player-record?name=${data.playerName}`" class="text-black dark:text-[#EBEBEBA3]">
+              <router-link :to="`/player-record?name=${data.playerName}`" class="dynamicThemeText">
                 {{ data.playerName }}
               </router-link>
             </template>
@@ -195,7 +195,7 @@ queryTeams(page.value, row.value);
           <Column field="battleDate" sortable header="date" :style="{ width:'10%'}"/>
           <Column field="battle-example" header="replay" :style="{ width:'20%'}">
             <template #body="{data}">
-              <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="text-black dark:text-[#EBEBEBA3]">
+              <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="dynamicThemeText">
                 {{ data.battleId }}
               </a>
             </template>

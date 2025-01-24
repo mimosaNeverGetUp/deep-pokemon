@@ -1,11 +1,34 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Divider from "primevue/divider";
-import { usePrimeVue } from 'primevue/config';
+import {usePrimeVue} from 'primevue/config';
+import {useRoute} from "vue-router";
 
+const route = useRoute();
 const PrimeVue = usePrimeVue();
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  PrimeVue.changeTheme('aura-light-green', 'aura-dark-green', 'theme-link', () => {});
+
+detectTheme();
+
+function detectTheme() {
+  let theme = "light";
+  if (localStorage.getItem("theme") === "dark") {
+    theme = "dark";
+  } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    theme = "dark";
+  }
+  if (theme === "dark") {
+    document.documentElement.setAttribute("page-theme", "dark");
+    PrimeVue.changeTheme('aura-light-green', 'aura-dark-green', 'theme-link', () => {
+    });
+  }else {
+    document.documentElement.setAttribute("page-theme", "light");
+    PrimeVue.changeTheme('aura-dark-green', 'aura-light-green', 'theme-link', () => {
+    });
+  }
+
+  if (localStorage.getItem("theme") !== theme) {
+    localStorage.setItem('theme', theme);
+  }
 }
 
 </script>
@@ -20,7 +43,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
       <div class="flex">
         <span class="text-gray-600">
           © 2024-2025
-          <a target="_blank" :href="`https://space.bilibili.com/37832209`" >
+          <a target="_blank" :href="`https://space.bilibili.com/37832209`">
             <span class="text-[#80DAF6]">minasa</span>
           </a>
         </span>

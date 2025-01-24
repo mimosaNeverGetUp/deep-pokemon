@@ -121,7 +121,7 @@ fetchStatsData(props.format);
     <Column field="usage.weighted" header="weighted" :style="{ width:'5%' }">
       <template #body="{data}">{{ convertToPercentage(data.usage.weighted) }}</template>
     </Column>
-    <Column field="usage.raw" header="raw" :style="{ width:'1%' }">
+    <Column field="usage.raw" header="raw" :style="{ width:'5%' }">
       <template #body="{data}">{{ convertToPercentage(data.usage.raw) }}</template>
     </Column>
     <Column field="types" header="types" :style="{ width:'5%' }" :showFilterMenu="false" >

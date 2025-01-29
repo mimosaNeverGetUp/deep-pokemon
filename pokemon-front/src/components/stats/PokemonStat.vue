@@ -26,12 +26,13 @@ const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const props = defineProps({
   pokemon: Object,
   format: String,
+  redirectPositionFunction: Function,
   language: {
     type: String,
     required: false,
     default: "en"
   }
-})
+});
 
 // get current tier
 const genRegex = /gen([0-9]+)/g;
@@ -93,10 +94,7 @@ watch(() => props.pokemon, async (newPokemon) => {
   spreadStatMap = {};
 
   await fetchStatsData(props.format, newPokemon.name);
-  window.scrollTo({
-    top: 0,
-    behavior: 'auto'
-  });
+  props.redirectPositionFunction();
   await queryPokemonSet(props.format, newPokemon.name);
   await queryTeams(0, 5, newPokemon.name);
   await queryPokemonAnalysis(props.format, newPokemon.name);
@@ -354,18 +352,16 @@ function onNodeSelect(event) {
   <div class="w-full" v-if="moveset">
     <div class="flex justify-start items-center mb-3">
       <img width="120" height="120"
-           :src="getPsIconUrl(currentForm)"
-           :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
+           :src="getPsIconUrl(currentForm)" :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
       <div class="flex justify-start items-center">
         <p class="text-3xl font-bold mr-1 text-center items-center">{{ getTranslation(currentForm) }}</p>
         <img v-if="Dex.forGen(currentTierNumber).species.get(currentForm)"
-             v-for="type in getPokemonTypes(currentForm)"
-             :src="`/types/${type}.png`" height="17" width="40" :alt="type"/>
+             v-for="type in getPokemonTypes(currentForm)" :src="`/types/${type}.png`" height="17" width="40" :alt="type"/>
         <TreeSelect v-if="getFormNodes(pokemon?.name).length > 1" @node-select="onNodeSelect"
                     :options="getFormNodes(pokemon?.name)" class="max-w-12 ml-2"/>
         <div class="ml-4 w-56" v-if="Dex.forGen(currentTierNumber).species.get(currentForm)">
           <div v-for="(value, key) in getPokemonStats(currentForm)" class="flex gap-1 items-center text-center">
-            <span class="font-mono  text-sm w-6">{{ key }}</span>
+            <span class="font-mono text-sm w-6">{{ key }}</span>
             <span :style="getStatStyle(key,value)" class="size-3.5"></span>
             <span class="text-sm">{{ value }}</span>
           </div>
@@ -529,11 +525,10 @@ function onNodeSelect(event) {
             </template>
             <div class="">
               <Textarea v-model="analysis.setChineseAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dark:bg-[#181818] dark:text-[#EBEBEBA3]"/>
+                        class="font-mono leading-loose rounded-3xl text-lg dynamicThemeText analysis-Bg"/>
               <Textarea v-model="analysis.setAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dark:bg-[#181818] dark:text-[#EBEBEBA3]"/>
+                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dynamicThemeText analysis-Bg"/>
             </div>
-
           </AccordionTab>
         </Accordion>
       </div>
@@ -560,3 +555,9 @@ function onNodeSelect(event) {
     </div>
   </Dialog>
 </template>
+
+<style>
+.analysis-Bg {
+  background-color: var(--analysis-bg-color);
+}
+</style>

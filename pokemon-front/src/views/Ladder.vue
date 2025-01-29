@@ -56,7 +56,7 @@ fetchData(page.value, row.value)
             :style="{ width:'5%' }"></Column>
     <Column field="name" header="Player" :style="{ width:'10%' }">
       <template #body="{data}">
-        <router-link :to="`/player-record?name=${data.name}`" class="text-black dark:text-[#EBEBEBA3]">
+        <router-link :to="`/player-record?name=${data.name}`" class="dynamicThemeText">
           {{ data.name }}
         </router-link>
       </template>

@@ -47,15 +47,16 @@ queryUpdateDate()
         <p>4. 不定期更新Smogon Analysis、PokePaste等资源</p>
         <br/>
 
-        <p>如有建议和反馈(特别是BUG)，欢迎通过qq或邮箱联系2070132549@qq.com</p>
-        <br/>
-
         <p class="font-bold">特别感谢：</p>
         <p>1. <a target="_blank" href="https://github.com/pkmn/smogon">@pkmn</a>的数据API</p>
         <p>2. <a target="_blank" href="https://pschina.one/topic/2087/%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E4%B8%8E%E5%8F%8D%E9%A6%88">PS China</a>的汉化脚本</p>
+        <p class="font-bold font-serif">以及，谢谢曾陪我走过这段路的你</p>
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2025/01/28 优化：</span>夜间模式开关</p>
+        <br/>
+
         <p><span class="font-bold">2025/01/17 tour：</span>
           <a target="_blank" href="https://www.smogon.com/forums/threads/smogon-premier-league-xvi-replays.3758078//">Smogon Premier League XVI</a></p>
         <br/>

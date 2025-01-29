@@ -44,13 +44,12 @@ queryUpdateDate()
         <p>3. 不定期更新Tour队伍，一般在主办方更新轮次后的一天内</p>
         <br/>
 
-        <p>4. 不定期更新Smogon Analysis、PokePaste等资源</p>
+        <p>4. 不定期更新Smogon Analysis、PokePaste等数据</p>
         <br/>
 
         <p class="font-bold">特别感谢：</p>
         <p>1. <a target="_blank" href="https://github.com/pkmn/smogon">@pkmn</a>的数据API</p>
         <p>2. <a target="_blank" href="https://pschina.one/topic/2087/%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E4%B8%8E%E5%8F%8D%E9%A6%88">PS China</a>的汉化脚本</p>
-        <p class="font-bold font-serif">以及，谢谢曾陪我走过这段路的你</p>
         <br/>
 
         <p class="font-bold">Release Note：</p>

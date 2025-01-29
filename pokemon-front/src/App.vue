@@ -13,7 +13,9 @@ function detectTheme() {
   let theme = "light";
   if (localStorage.getItem("theme") === "dark") {
     theme = "dark";
-  } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  } else  if (localStorage.getItem("theme") === "light") {
+    theme = "light";
+  }else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
     theme = "dark";
   }
   if (theme === "dark") {
@@ -44,7 +46,7 @@ function detectTheme() {
         <span class="text-gray-600">
           © 2024-2025
           <a target="_blank" :href="`https://space.bilibili.com/37832209`">
-            <span class="text-[#80DAF6]">minasa</span>
+            <span class="text-[#80DAF6]">mimosa</span>
           </a>
         </span>
       </div>

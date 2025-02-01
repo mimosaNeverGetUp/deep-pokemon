@@ -22,6 +22,7 @@ const battleList = ref()
 const totalRecords = ref();
 const page = ref(0);
 const row = ref(25);
+const playerIcon = ref();
 
 async function queryBattle(page, row) {
   let encodeName = encodeURIComponent(props.playerName);
@@ -55,6 +56,10 @@ function rowStyle(row) {
 }
 
 function getPlayerIcon() {
+  if (playerIcon.value) {
+    return playerIcon.value;
+  }
+
   if (!battleList.value || battleList.value.length === 0) {
     return null;
   }
@@ -63,9 +68,10 @@ function getPlayerIcon() {
     return null;
   }
 
-  for (let playerIcon of firstBattle.playerIcons) {
-    if (playerIcon.name === props.playerName || playerIcon.forumName === props.playerName) {
-      return playerIcon.icon;
+  for (let battlePlayerIcon of firstBattle.playerIcons) {
+    if (battlePlayerIcon.name === props.playerName || battlePlayerIcon.forumName === props.playerName) {
+      playerIcon.value = battlePlayerIcon.icon;
+      return battlePlayerIcon.icon;
     }
   }
 }

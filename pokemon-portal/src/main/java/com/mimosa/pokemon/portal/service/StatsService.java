@@ -157,16 +157,14 @@ public class StatsService {
             return latestId;
         }
 
-        if (isLatestStatUpdate()) {
-            log.info("try craw latest stat {}", latestId);
-            try {
-                boolean crawResult = tryCrawLatestStat(format);
-                if (crawResult || isStatsExist(latestId)) {
-                    return latestId;
-                }
-            } catch (Exception e) {
-                log.warn("craw latest stat {} fail", latestId);
+        log.info("try craw latest stat {}", latestId);
+        try {
+            boolean crawResult = tryCrawLatestStat(format);
+            if (crawResult || isStatsExist(latestId)) {
+                return latestId;
             }
+        } catch (Exception e) {
+            log.warn("craw latest stat {} fail", latestId);
         }
 
         log.warn("try craw latest stat {} failed, use last stat in db", latestId);
@@ -180,10 +178,6 @@ public class StatsService {
             throw new ServerErrorException("can not get latest stat", null);
         }
         return latestStat.id();
-    }
-
-    private boolean isLatestStatUpdate() {
-        return LocalDate.now().getDayOfMonth() != 1;
     }
 
     @Cacheable("monthlyPokemonSet")

@@ -69,7 +69,8 @@ function getPlayerIcon() {
   }
 
   for (let battlePlayerIcon of firstBattle.playerIcons) {
-    if (battlePlayerIcon.name === props.playerName || battlePlayerIcon.forumName === props.playerName) {
+    if (battlePlayerIcon.name?.toUpperCase() === props.playerName?.toUpperCase()
+        || battlePlayerIcon.forumName?.toUpperCase() === props.playerName?.toUpperCase()) {
       playerIcon.value = battlePlayerIcon.icon;
       return battlePlayerIcon.icon;
     }

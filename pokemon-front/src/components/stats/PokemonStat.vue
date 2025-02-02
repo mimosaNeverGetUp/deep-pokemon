@@ -8,7 +8,6 @@
 import {ref, watch} from "vue";
 
 import Divider from 'primevue/divider';
-import ProgressSpinner from 'primevue/progressspinner';
 import Textarea from 'primevue/textarea';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
@@ -21,6 +20,7 @@ import {nature} from "@/components/data/nature.js";
 import Team from "@/components/Team.vue";
 import Dialog from "primevue/dialog";
 import TeamInfo from "@/components/TeamInfo.vue";
+import LoadingIcon from "@/views/LoadingIcon.vue";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const props = defineProps({
@@ -548,7 +548,7 @@ function onNodeSelect(event) {
     </div>
   </div>
   <span v-else-if="loadFail">load move set fail.</span>
-  <ProgressSpinner v-else/>
+  <LoadingIcon v-else/>
   <Dialog v-model:visible="teamInfoDialogVisible" modal header="Team Info" class="size-3/4">
     <div class="">
       <TeamInfo :teamId="teamInfoId"></TeamInfo>

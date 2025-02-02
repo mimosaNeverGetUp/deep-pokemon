@@ -9,10 +9,10 @@ import {ref} from "vue";
 import Column from "primevue/column";
 import Team from "@/components/Team.vue";
 import DataTable from "primevue/datatable";
-import ProgressSpinner from 'primevue/progressspinner';
 import Dialog from 'primevue/dialog';
 import {useRoute} from "vue-router";
 import TeamInfo from "@/components/TeamInfo.vue";
+import LoadingIcon from "@/views/LoadingIcon.vue";
 
 const route = useRoute();
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
@@ -210,7 +210,7 @@ queryTeams(page.value, row.value);
       <TeamInfo :teamId="teamInfoId"></TeamInfo>
     </div>
   </Dialog>
-  <ProgressSpinner v-if="loading"/>
+  <LoadingIcon v-if="loading"/>
   <p v-if="loadFail" class="mt-[60px]">load team fail.</p>
 </template>
 

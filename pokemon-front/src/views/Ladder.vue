@@ -3,7 +3,7 @@ import {ref} from "vue";
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Team from '@/components/Team.vue'
-import ProgressSpinner from "primevue/progressspinner";
+import LoadingIcon from "@/views/LoadingIcon.vue";
 
 
 // 在需要使用后端 URL 的地方
@@ -79,7 +79,7 @@ fetchData(page.value, row.value)
       </template>
     </Column>
   </DataTable>
-  <ProgressSpinner v-if="loading"/>
+  <LoadingIcon v-if="loading"/>
   <p v-if="loadFail" class="mt-[60px]">load ladder fail.</p>
 </template>
 

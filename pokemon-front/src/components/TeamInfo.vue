@@ -12,7 +12,7 @@ import DataTable from "primevue/datatable";
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import {Dex} from '@pkmn/dex';
-import ProgressSpinner from "primevue/progressspinner";
+import LoadingIcon from "@/views/LoadingIcon.vue";
 
 const props = defineProps({
   teamId: {
@@ -218,6 +218,6 @@ watch(() => props.teamId, async (newTeamId) => {
       </Column>
     </DataTable>
   </div>
-  <ProgressSpinner v-if="loading"/>
+  <LoadingIcon v-if="loading"/>
   <p v-if="loadFail" class="mt-[60px]">load team fail.</p>
 </template>

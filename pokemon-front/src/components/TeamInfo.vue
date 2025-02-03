@@ -118,6 +118,14 @@ function getTypeColor(Types) {
   }
 }
 
+function getPlayerUrl(data) {
+  if (data.battleId?.includes("smogtours")) {
+    return `/player-record?name=${data.playerName.toLowerCase()}&tourPlayer=true`;
+  }
+
+  return `/player-record?name=${data.playerName}`;
+}
+
 queryTeam(props.teamId);
 
 watch(() => props.teamId, async (newTeamId) => {
@@ -201,9 +209,10 @@ watch(() => props.teamId, async (newTeamId) => {
       </Column>
       <Column field="playerName" header="player name" :style="{ width:'10%'}">
         <template #body="{data}">
-          <router-link :to="`/player-record?name=${data.playerName}`" class="dynamicThemeText">
+          <a :href="getPlayerUrl(data)" target="_blank"
+             class="dynamicThemeText">
             {{ data.playerName }}
-          </router-link>
+          </a>
         </template>
       </Column>
       <Column field="battleDate" sortable header="date" :style="{ width:'10%'}"/>

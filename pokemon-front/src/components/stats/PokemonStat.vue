@@ -372,7 +372,7 @@ function onNodeSelect(event) {
     <div class="flex justify-start items-center gap-2 mb-5">
       <Divider layout="vertical" type="solid"/>
       <div class="ml-3 items-center">
-        <p class="text-xl text-gray-500">{{ getTranslation("weight") }}</p>
+        <p class="text-xl text-gray-500">{{ getTranslation("weighted") }}</p>
         <div class="flex gap-5 w-44 min-w-44 items-center">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.weighted) }}</p>
           <UsageDif :newValue="pokemon.usage.weighted" :oldValue="pokemon.lastMonthUsage?.usage.weighted"/>

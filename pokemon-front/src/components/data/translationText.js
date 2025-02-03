@@ -364,7 +364,7 @@ export const zh_translation_text ={
     "Spe": "速度",
     "spa": "特攻",
     "hp": "HP",
-    "weight": "加权",
+    "weighted": "加权",
     "raw": "原始",
     "spd": "特防",
     "atk": "攻击",

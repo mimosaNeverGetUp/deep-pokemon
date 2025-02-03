@@ -199,7 +199,7 @@ watch(() => props.teamId, async (newTeamId) => {
           </div>
         </template>
       </Column>
-      <Column field="playerName" header="playerName" :style="{ width:'10%'}">
+      <Column field="playerName" header="player name" :style="{ width:'10%'}">
         <template #body="{data}">
           <router-link :to="`/player-record?name=${data.playerName}`" class="dynamicThemeText">
             {{ data.playerName }}

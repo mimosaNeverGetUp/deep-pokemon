@@ -52,20 +52,20 @@ fetchData(page.value, row.value)
 <template>
   <DataTable :value="rank" v-show="loading===false && loadFail===false" class="ladder" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
              :totalRecords="totalRecords" @page="onPage($event)" tableStyle="min-width: 50rem">
-    <Column field="rank" header="Rank"
+    <Column field="rank" header="rank"
             :style="{ width:'5%' }"></Column>
-    <Column field="name" header="Player" :style="{ width:'10%' }">
+    <Column field="name" header="player name" :style="{ width:'10%' }">
       <template #body="{data}">
         <router-link :to="`/player-record?name=${data.name}`" class="dynamicThemeText">
           {{ data.name }}
         </router-link>
       </template>
     </Column>
-    <Column field="elo" header="Elo" :style="{ width:'5%' }"></Column>
-    <Column field="gxe" header="GXE" :style="{ width:'5%' }"></Column>
+    <Column field="elo" header="elo" :style="{ width:'5%' }"></Column>
+    <Column field="gxe" header="gxe" :style="{ width:'5%' }"></Column>
     <Column field="recentTeam" :style="{ width:'20%', 'text-align': 'center'}">
       <template #header>
-        <div class="flex-1 text-center">Recent Teams</div>
+        <div class="flex-1 text-center">recent teams</div>
       </template>
       <template #body="{data}">
         <div class="flex justify-center overflow-visible">

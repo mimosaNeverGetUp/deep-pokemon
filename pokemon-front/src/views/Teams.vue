@@ -167,19 +167,19 @@ queryTeams(page.value, row.value);
     </Column>
     <Column field="uniquePlayerNum" header="use(unique)" :style="{ width:'5%'}"/>
 
-    <Column v-if="!tour" field="maxRating" header="maxRating" :style="{ width:'10%'}"/>
+    <Column v-if="!tour" field="maxRating" header="max rating" :style="{ width:'10%'}"/>
 
     <Column field="teams" header="" :style="{ width:'60%'}">
       <template #body="{data}">
         <DataTable :value="data.teams" :sortField="getSort()" :sortOrder="-1" paginator :rows="7">
-          <Column v-if="tour" field="player.name" header="playerName" :style="{ width:'15%'}">
+          <Column v-if="tour" field="player.name" header="player name" :style="{ width:'15%'}">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank" class="dynamicThemeText">
                 {{ data.player?.name }}
               </a>
             </template>
           </Column>
-          <Column v-else field="playerName" header="playerName" :style="{ width:'10%'}">
+          <Column v-else field="playerName" header="player name" :style="{ width:'10%'}">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.playerName}`" target="_blank" class="dynamicThemeText">
                 {{ data.playerName }}

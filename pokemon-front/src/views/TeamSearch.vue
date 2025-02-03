@@ -149,8 +149,7 @@ function getTeamSearchUrl(pokemons, tags, range, month, sort) {
       tourGroupName = "tour_" + tourShortName.value + "_" + selectedTier.value;
     }
 
-    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${tourGroupName}&tour=true
-    &players=${selectPlayers}&stages=${selectStage}`;
+    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${tourGroupName}&tour=true&players=${selectPlayers}&stages=${selectStage}`;
   }
 
   if (useMonthRange.value) {

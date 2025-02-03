@@ -10,7 +10,7 @@ import Column from "primevue/column";
 import Team from "@/components/Team.vue";
 import DataTable from "primevue/datatable";
 import Dialog from 'primevue/dialog';
-import {useRoute} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import TeamInfo from "@/components/TeamInfo.vue";
 import LoadingIcon from "@/views/LoadingIcon.vue";
 
@@ -21,10 +21,12 @@ const loading = ref(true);
 const loadFail = ref(false);
 const tour = ref(route.query.tour !== undefined);
 const teams = ref();
-const page = ref(0);
-const row = ref(7);
+const router = useRouter();
+const page = ref(route.query.page ? Number.parseInt(route.query.page) : 0);
+const row = ref(route.query.row ? Number.parseInt(route.query.row) : 7);
 const teamInfoDialogVisible = ref(false);
 const teamInfoId = ref();
+const first = ref(page.value * row.value);
 
 async function queryTeams(page, row) {
   let url = new URL(`${apiUrl}/api/v2/teams?page=${page}&row=${row}`);
@@ -70,6 +72,9 @@ async function queryTeams(page, row) {
     loadFail.value = true;
     loading.value = false;
   }
+  window.scrollTo({
+    top: 0
+  });
 }
 
 function getSortFiled(sortMode) {
@@ -131,10 +136,7 @@ function getSort() {
 async function onPage(event) {
   loading.value = true;
   await queryTeams(event.page, event.rows);
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+  await router.push({path: route.path, query: {...route.query, page: event.page, row: event.rows}});
 }
 
 function toggleTeamInfoDialog(teamId) {
@@ -147,7 +149,8 @@ queryTeams(page.value, row.value);
 
 <template>
   <DataTable v-if="teams" v-show="loading===false && loadFail===false" :value="teams.data" class="ladder"
-             lazy paginator :rows="row" :rowsPerPageOptions="[7, 10, 15]" :totalRecords="teams.totalRecords"
+             lazy paginator :first="first" :rows="row" :rowsPerPageOptions="[7, 10, 15]"
+             :totalRecords="teams.totalRecords"
              @page="onPage($event)" :scrollable="false" tableStyle="min-width: 50rem">
     <Column field="teamId" header="team" :style="{ width:'20%'}">
       <template #body="slotProps">
@@ -171,17 +174,16 @@ queryTeams(page.value, row.value);
         <DataTable :value="data.teams" :sortField="getSort()" :sortOrder="-1" paginator :rows="7">
           <Column v-if="tour" field="player.name" header="playerName" :style="{ width:'15%'}">
             <template #body="{data}">
-              <router-link :to="`/player-record?name=${data.player?.name}&tourPlayer=true`"
-                           class="dynamicThemeText">
+              <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank" class="dynamicThemeText">
                 {{ data.player?.name }}
-              </router-link>
+              </a>
             </template>
           </Column>
           <Column v-else field="playerName" header="playerName" :style="{ width:'10%'}">
             <template #body="{data}">
-              <router-link :to="`/player-record?name=${data.playerName}`" class="dynamicThemeText">
+              <a :href="`/player-record?name=${data.playerName}`" target="_blank" class="dynamicThemeText">
                 {{ data.playerName }}
-              </router-link>
+              </a>
             </template>
           </Column>
           <Column v-if="tour" field="playerRecord.winDif" sortable header="record" :style="{ width:'10%'}">
@@ -204,7 +206,6 @@ queryTeams(page.value, row.value);
       </template>
     </Column>
   </DataTable>
-
   <Dialog v-model:visible="teamInfoDialogVisible" modal header="Team Info" class="size-3/4">
     <div class="">
       <TeamInfo :teamId="teamInfoId"></TeamInfo>

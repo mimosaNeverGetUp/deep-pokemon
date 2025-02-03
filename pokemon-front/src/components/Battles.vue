@@ -39,6 +39,9 @@ async function queryBattle(page, row) {
   const response = await res.json();
   battleList.value = response.data;
   totalRecords.value = response.totalRecords;
+  window.scrollTo({
+    top: 0
+  });
 }
 
 function onPage(event) {

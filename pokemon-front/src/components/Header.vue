@@ -53,6 +53,9 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2025/02/06 优化：</span>显示全部努力值使用率</p>
+        <br/>
+
         <p><span class="font-bold">2025/01/28 优化：</span>夜间模式开关</p>
         <br/>
 

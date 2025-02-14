@@ -119,7 +119,7 @@ header {
   left: 0;
   display: flex;
   z-index: 1;
-  background: #FF9AA2;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
   justify-content: space-between;
   width: 100%;
 }

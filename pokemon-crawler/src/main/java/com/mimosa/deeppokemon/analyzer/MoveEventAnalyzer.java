@@ -13,10 +13,7 @@ import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
-import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
-import com.mimosa.deeppokemon.entity.stat.PlayerStat;
-import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.*;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -79,6 +76,7 @@ public class MoveEventAnalyzer implements BattleEventAnalyzer {
                 .getPokemonBattleStat(eventTarget.targetName());
         faintPokemonStat.setHealthValue(faintPokemonStat.getHealthValue().subtract(healthDiff));
 
+        addPokemonHealthValueStat(faintPokemonStat, healthDiff, damageOfPokemonStat);
         return new DamageEventStat(eventTarget, damageOf, damageFrom, healthDiff);
     }
 
@@ -120,6 +118,60 @@ public class MoveEventAnalyzer implements BattleEventAnalyzer {
         // sort damage by damage target
         Collections.sort(existBattleDamageStats, Comparator.comparing(BattleDamageStat::getDamageTarget)
                 .thenComparing(BattleDamageStat::getDamage, Comparator.reverseOrder()));
+    }
+
+    private void addPokemonHealthValueStat(PokemonBattleStat pokemonBattleStat, BigDecimal healthDiff,
+                                           PokemonBattleStat opponentPokemonStat) {
+        addPokemonHealthValueStat(pokemonBattleStat, opponentPokemonStat.getName(), healthDiff);
+        addPokemonOpponentLossHealthValueStat(opponentPokemonStat, pokemonBattleStat.getName(), healthDiff);
+    }
+    private void addPokemonHealthValueStat(PokemonBattleStat pokemonStat, String opponentPokemon,
+                                           BigDecimal healthDiff) {
+        List<HealthValueStat> healthValueStats = pokemonStat.getHealthValueStats();
+        HealthValueStat targetHealthValueStat = null;
+        for (HealthValueStat healthValueStat : healthValueStats) {
+            if (StringUtils.equals(healthValueStat.getOpponentPokemon(), opponentPokemon)) {
+                targetHealthValueStat = healthValueStat;
+            }
+        }
+
+
+        if (targetHealthValueStat == null) {
+            targetHealthValueStat = new HealthValueStat();
+            targetHealthValueStat.setOpponentPokemon(opponentPokemon);
+            targetHealthValueStat.setHealthValue(BigDecimal.valueOf(0.0));
+            targetHealthValueStat.setLossHealthValue(BigDecimal.valueOf(0.0));
+            targetHealthValueStat.setOpponentLossHealthValue(BigDecimal.valueOf(0.0));
+            healthValueStats.add(targetHealthValueStat);
+        }
+
+        targetHealthValueStat.setHealthValue(targetHealthValueStat.getHealthValue().subtract(healthDiff));
+        targetHealthValueStat.setLossHealthValue(targetHealthValueStat.getLossHealthValue().add(healthDiff));
+
+    }
+
+    private void addPokemonOpponentLossHealthValueStat(PokemonBattleStat pokemonStat, String opponentPokemon,
+                                                       BigDecimal healthDiff) {
+        List<HealthValueStat> healthValueStats = pokemonStat.getHealthValueStats();
+        HealthValueStat targetHealthValueStat = null;
+        for (HealthValueStat healthValueStat : healthValueStats) {
+            if (StringUtils.equals(healthValueStat.getOpponentPokemon(), opponentPokemon)) {
+                targetHealthValueStat = healthValueStat;
+            }
+        }
+
+
+        if (targetHealthValueStat == null) {
+            targetHealthValueStat = new HealthValueStat();
+            targetHealthValueStat.setOpponentPokemon(opponentPokemon);
+            targetHealthValueStat.setHealthValue(BigDecimal.valueOf(0.0));
+            targetHealthValueStat.setLossHealthValue(BigDecimal.valueOf(0.0));
+            targetHealthValueStat.setOpponentLossHealthValue(BigDecimal.valueOf(0.0));
+            healthValueStats.add(targetHealthValueStat);
+        }
+
+        targetHealthValueStat.setHealthValue(targetHealthValueStat.getHealthValue().add(healthDiff));
+        targetHealthValueStat.setOpponentLossHealthValue(targetHealthValueStat.getOpponentLossHealthValue().add(healthDiff));
     }
 
     private boolean isMoveSucceess(BattleEvent battleEvent) {

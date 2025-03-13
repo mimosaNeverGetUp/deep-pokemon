@@ -17,6 +17,7 @@ public class PokemonBattleStat {
     private BigDecimal healthValue;
     private BigDecimal attackValue;
     private List<BattleDamageStat> battleDamageStats;
+    private List<HealthValueStat> healthValueStats;
 
     public PokemonBattleStat() {
         battleDamageStats = new ArrayList<>();
@@ -27,6 +28,7 @@ public class PokemonBattleStat {
         healthValue = BigDecimal.valueOf(0.0);
         attackValue = BigDecimal.valueOf(0.0);
         battleDamageStats = new ArrayList<>();
+        healthValueStats = new ArrayList<>();
     }
 
     public String getName() {
@@ -83,6 +85,14 @@ public class PokemonBattleStat {
 
     public void setBattleDamageStats(List<BattleDamageStat> battleDamageStats) {
         this.battleDamageStats = battleDamageStats;
+    }
+
+    public List<HealthValueStat> getHealthValueStats() {
+        return healthValueStats;
+    }
+
+    public void setHealthValueStats(List<HealthValueStat> healthValueStats) {
+        this.healthValueStats = healthValueStats;
     }
 
     @Override

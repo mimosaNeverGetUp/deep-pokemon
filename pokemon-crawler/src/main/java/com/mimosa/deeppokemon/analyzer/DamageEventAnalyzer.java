@@ -18,10 +18,7 @@ import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
-import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
-import com.mimosa.deeppokemon.entity.stat.PlayerStat;
-import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.*;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -120,7 +117,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
 
         // sort damage by damage target
         Collections.sort(existBattleDamageStats, Comparator.comparing(BattleDamageStat::getDamageTarget)
-                .thenComparing(BattleDamageStat::getDamage,Comparator.reverseOrder()));
+                .thenComparing(BattleDamageStat::getDamage, Comparator.reverseOrder()));
     }
 
     private static void setPokemonItem(BattleContext battleContext, DamageEventStat damageEventStat,
@@ -208,10 +205,16 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                 damageOfPokemonStat.setHealthValue(damageOfPokemonStat.getHealthValue().add(healthDiff));
                 damageOfPokemonStat.setAttackValue(damageOfPokemonStat.getAttackValue().add(healthDiff));
                 minusTurnStartPokemonHealthStat(battleStat, battleContext, eventTarget.playerNumber(), healthDiff);
+
+                addPokemonHealthValueStat(damageOfPokemonStat, healthDiff, battleStat,
+                        battleContext, eventTarget.playerNumber());
             } else {
                 damageOfPokemonStat.setHealthValue(damageOfPokemonStat.getHealthValue().subtract(healthDiff));
                 addTurnStartPokemonHealthStat(battleStat, battleContext, 3 - eventTarget.playerNumber(),
                         healthDiff);
+
+                addPokemonHealthValueStat(damageOfPokemonStat, healthDiff.negate(), battleStat,
+                        battleContext, 3 - eventTarget.playerNumber());
             }
         } else {
             // default damage of opponent turn start pokemon
@@ -221,6 +224,64 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                     healthDiff);
         }
         return new DamageEventStat(eventTarget, damageOf, damageFrom, healthDiff);
+    }
+
+    private void addPokemonHealthValueStat(PokemonBattleStat damageOfPokemonStat, BigDecimal healthDiff,
+                                           BattleStat battleStat, BattleContext battleContext, int playerNumber) {
+        PokemonBattleStat turnStartPokemonBattleStat =
+                getTurnStartPokemonBattleStat(battleStat, battleContext, playerNumber);
+
+        addPokemonOpponentLossHealthValueStat(damageOfPokemonStat, turnStartPokemonBattleStat.getName(), healthDiff);
+        addPokemonLossHealthValueStat(turnStartPokemonBattleStat, damageOfPokemonStat.getName(), healthDiff);
+    }
+
+    private void addPokemonOpponentLossHealthValueStat(PokemonBattleStat pokemonStat, String opponentPokemon,
+                                                       BigDecimal healthDiff) {
+        List<HealthValueStat> healthValueStats = pokemonStat.getHealthValueStats();
+        HealthValueStat targetHealthValueStat = null;
+        for (HealthValueStat healthValueStat : healthValueStats) {
+            if (StringUtils.equals(healthValueStat.getOpponentPokemon(), opponentPokemon)) {
+                targetHealthValueStat = healthValueStat;
+            }
+        }
+
+
+        if (targetHealthValueStat == null) {
+            targetHealthValueStat = new HealthValueStat();
+            targetHealthValueStat.setOpponentPokemon(opponentPokemon);
+            targetHealthValueStat.setHealthValue(BigDecimal.valueOf(0.0));
+            targetHealthValueStat.setLossHealthValue(BigDecimal.valueOf(0.0));
+            targetHealthValueStat.setOpponentLossHealthValue(BigDecimal.valueOf(0.0));
+            healthValueStats.add(targetHealthValueStat);
+        }
+
+        targetHealthValueStat.setHealthValue(targetHealthValueStat.getHealthValue().add(healthDiff));
+        targetHealthValueStat.setOpponentLossHealthValue(targetHealthValueStat.getOpponentLossHealthValue().add(healthDiff));
+
+    }
+
+    private void addPokemonLossHealthValueStat(PokemonBattleStat pokemonStat, String opponentPokemon,
+                                                       BigDecimal healthDiff) {
+        List<HealthValueStat> healthValueStats = pokemonStat.getHealthValueStats();
+        HealthValueStat targetHealthValueStat = null;
+        for (HealthValueStat healthValueStat : healthValueStats) {
+            if (StringUtils.equals(healthValueStat.getOpponentPokemon(), opponentPokemon)) {
+                targetHealthValueStat = healthValueStat;
+            }
+        }
+
+
+        if (targetHealthValueStat == null) {
+            targetHealthValueStat = new HealthValueStat();
+            targetHealthValueStat.setOpponentPokemon(opponentPokemon);
+            targetHealthValueStat.setHealthValue(BigDecimal.valueOf(0.0));
+            targetHealthValueStat.setLossHealthValue(BigDecimal.valueOf(0.0));
+            targetHealthValueStat.setOpponentLossHealthValue(BigDecimal.valueOf(0.0));
+            healthValueStats.add(targetHealthValueStat);
+        }
+
+        targetHealthValueStat.setHealthValue(targetHealthValueStat.getHealthValue().subtract(healthDiff));
+        targetHealthValueStat.setLossHealthValue(targetHealthValueStat.getLossHealthValue().add(healthDiff));
     }
 
     private void minusTurnStartPokemonHealthStat(BattleStat battleStat, BattleContext battleContext, int playerNumber,

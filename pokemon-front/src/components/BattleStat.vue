@@ -7,6 +7,7 @@ import TabPanel from 'primevue/tabpanel';
 import Column from "primevue/column";
 import DataTable from "primevue/datatable";
 import PokemonBattleAttackValue from "@/components/PokemonBattleAttackValue.vue";
+import PokemonHealthValueStat from "@/components/PokemonHealthValueStat.vue";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -415,7 +416,7 @@ watch(() => props.data, async (newBattle) => {
                  style="font-size: 1rem"/>
             </template>
             <template #body="{data}">
-              <span class="text-black">{{ data.healthValue }}</span>
+              <PokemonHealthValueStat :data="data"/>
             </template>
           </Column>
           <Column field="attackValue" :sortable="true" :style="{ width:'10%' }">

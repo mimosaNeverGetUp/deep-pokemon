@@ -212,9 +212,6 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                 damageOfPokemonStat.setHealthValue(damageOfPokemonStat.getHealthValue().subtract(healthDiff));
                 addTurnStartPokemonHealthStat(battleStat, battleContext, 3 - eventTarget.playerNumber(),
                         healthDiff);
-
-                addPokemonHealthValueStat(damageOfPokemonStat, healthDiff.negate(), battleStat,
-                        battleContext, 3 - eventTarget.playerNumber());
             }
         } else {
             // default damage of opponent turn start pokemon

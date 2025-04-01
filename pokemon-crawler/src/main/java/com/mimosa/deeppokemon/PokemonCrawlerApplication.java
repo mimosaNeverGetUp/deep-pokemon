@@ -80,6 +80,7 @@ public class PokemonCrawlerApplication {
                             TypeHint.builtWith(INVOKE_PUBLIC_CONSTRUCTORS, INVOKE_PUBLIC_METHODS));
             hints.resources().registerPattern("tourReplay/");
             hints.resources().registerPattern("tourReplay/oupl.csv");
+            hints.resources().registerPattern("tourReplay/splxvi.csv");
         }
     }
 }

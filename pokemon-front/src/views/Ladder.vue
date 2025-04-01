@@ -53,17 +53,17 @@ fetchData(page.value, row.value)
   <DataTable :value="rank" v-show="loading===false && loadFail===false" class="ladder" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
              :totalRecords="totalRecords" @page="onPage($event)" tableStyle="min-width: 50rem">
     <Column field="rank" header="rank"
-            :style="{ width:'5%' }"></Column>
-    <Column field="name" header="player name" :style="{ width:'10%' }">
+            :style="{ width:'2%' }"></Column>
+    <Column field="name" header="player name" :style="{ width:'2%' }">
       <template #body="{data}">
         <router-link :to="`/player-record?name=${data.name}`" class="dynamicThemeText">
           {{ data.name }}
         </router-link>
       </template>
     </Column>
-    <Column field="elo" header="elo" :style="{ width:'5%' }"></Column>
-    <Column field="gxe" header="gxe" :style="{ width:'5%' }"></Column>
-    <Column field="recentTeam" :style="{ width:'20%', 'text-align': 'center'}">
+    <Column field="elo" header="elo" :style="{ width:'1%' }"></Column>
+    <Column field="gxe" header="gxe" :style="{ width:'1%' }"></Column>
+    <Column field="recentTeam" :style="{ width:'10%', 'text-align': 'center'}">
       <template #header>
         <div class="flex-1 text-center">recent teams</div>
       </template>
@@ -87,7 +87,7 @@ fetchData(page.value, row.value)
 /*排行榜表格样式*/
 .ladder {
   min-width: max-content;
-  width: 90%;
+  width: 85%;
   margin: 60px auto 0; /*表格下移以适应绝对定位的导航栏*/
 }
 

@@ -14,6 +14,7 @@ import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.entity.stat.*;
+import com.mimosa.deeppokemon.utils.MatcherUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.regex.Pattern;
 
 @Component
 public class HealEventAnalyzer implements BattleEventAnalyzer {
@@ -34,6 +36,8 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
     protected static final String ITEM = "item";
     protected static final String WISH = "Wish";
     protected static final String HEALING_WISH = "Healing Wish";
+    protected static final String ABILITY = "ability";
+    private static final Pattern ABILITY_PATTERN = Pattern.compile(Pattern.quote("ability: ") + "(.+)");
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -61,6 +65,12 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
             pokemonStatus.setHealth(health);
             setHealthStat(battleEvent, battleStat, battleContext, healthFrom, eventTarget, healthDiff);
             setPokemonItem(battleContext, healthFrom, eventTarget);
+
+            if (battleEvent.getContents().size() > FROM_INDEX && battleEvent.getContents().get(FROM_INDEX).contains(ABILITY)) {
+                log.debug("set heal ability");
+                String ability = MatcherUtil.groupMatch(ABILITY_PATTERN, battleEvent.getContents().get(FROM_INDEX), 1);
+                battleContext.setPokemonAbility(eventTarget.playerNumber(), eventTarget.targetName(), ability);
+            }
         }
     }
 
@@ -133,7 +143,7 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
 
         // sort damage by damage target
         Collections.sort(existBattleDamageStats, Comparator.comparing(BattleDamageStat::getDamageTarget)
-                .thenComparing(BattleDamageStat::getDamage,Comparator.reverseOrder()));
+                .thenComparing(BattleDamageStat::getDamage, Comparator.reverseOrder()));
     }
 
     private void addPokemonHealthValueStat(PokemonBattleStat pokemonBattleStat, BigDecimal healthDiff,

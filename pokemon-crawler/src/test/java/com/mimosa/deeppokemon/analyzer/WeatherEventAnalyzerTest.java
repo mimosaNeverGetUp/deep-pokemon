@@ -8,7 +8,10 @@ package com.mimosa.deeppokemon.analyzer;
 
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
+import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
+import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Pokemon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +33,12 @@ class WeatherEventAnalyzerTest {
         BattleEvent weatherKeepEvent = new BattleEvent("weather", List.of(rainDance, "upkeep"), null, null);
         BattleEvent weatherEndEvent = new BattleEvent("weather", List.of("none"), null, null);
 
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, pelipper)
+                .build();
         BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, pelipper, pelipper)
+                .setBattle(battle)
                 .build();
         Assertions.assertTrue(weatherEventAnalyzer.supportAnalyze(weatherStartEvent));
         weatherEventAnalyzer.analyze(weatherStartEvent, null, battleContext);
@@ -47,5 +54,7 @@ class WeatherEventAnalyzerTest {
         Assertions.assertEquals(pelipper, battleContext.getWeather().ofTarget().targetName());
         weatherEventAnalyzer.analyze(weatherEndEvent, null, battleContext);
         Assertions.assertNull(battleContext.getWeather());
+        Pokemon pokemon = battleContext.getBattle().getBattleTeams().get(0).findPokemon(pelipper);
+        Assertions.assertEquals("Drizzle", pokemon.getAbility());
     }
 }

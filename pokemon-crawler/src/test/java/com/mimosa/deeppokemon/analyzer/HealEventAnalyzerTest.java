@@ -16,6 +16,7 @@ import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
@@ -129,11 +130,16 @@ class HealEventAnalyzerTest {
                 .addPokemonStat(2, TING_LU)
                 .addPokemonStat(1, GLISCOR)
                 .build();
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, GLISCOR)
+                .build();
+
         BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(2, TING_LU, TING_LU)
                 .addPokemon(1, GLISCOR, GLISCOR)
                 .setTurnStartPokemon(2, TING_LU)
                 .setHealth(1, GLISCOR, BigDecimal.valueOf(84))
+                .setBattle(battle)
                 .build();
         assertTrue(healEventAnalyzer.supportAnalyze(healthEvent));
         healEventAnalyzer.analyze(healthEvent, battleStat, battleContext);
@@ -155,6 +161,8 @@ class HealEventAnalyzerTest {
         Assertions.assertEquals(GLISCOR, battleDamageStat.getDamageTarget());
         Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
         Assertions.assertEquals("ability: Poison Heal", battleDamageStat.getDamageFrom());
+        Pokemon pokemon = battleContext.getBattle().getBattleTeams().get(0).findPokemon(GLISCOR);
+        assertEquals("Poison Heal", pokemon.getAbility());
     }
 
     @Test

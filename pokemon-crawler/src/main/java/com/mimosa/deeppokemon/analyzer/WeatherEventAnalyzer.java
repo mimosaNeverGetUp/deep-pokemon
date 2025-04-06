@@ -12,11 +12,13 @@ import com.mimosa.deeppokemon.analyzer.entity.Weather;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
+import com.mimosa.deeppokemon.utils.MatcherUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
+import java.util.regex.Pattern;
 
 @Component
 public class WeatherEventAnalyzer implements BattleEventAnalyzer {
@@ -27,6 +29,9 @@ public class WeatherEventAnalyzer implements BattleEventAnalyzer {
     private static final String UPKEEP = "upkeep";
     private static final int WEATHER_INDEX = 0;
     private static final int OF_INDEX = 2;
+    protected static final String ABILITY = "ability";
+    private static final Pattern ABILITY_PATTERN = Pattern.compile(Pattern.quote("ability: ") + "(.+)");
+
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -48,6 +53,12 @@ public class WeatherEventAnalyzer implements BattleEventAnalyzer {
 
         EventTarget ofTarget = BattleEventUtil.getEventTarget(battleEvent.getContents().get(OF_INDEX), battleContext);
         battleContext.setWeather(new Weather(weather, ofTarget));
+
+        if (battleEvent.getContents().get(1).contains(ABILITY)) {
+            log.debug("set weather ability");
+            String ability = MatcherUtil.groupMatch(ABILITY_PATTERN, battleEvent.getContents().get(1), 1);
+            battleContext.setPokemonAbility(ofTarget.playerNumber(), ofTarget.targetName(), ability);
+        }
     }
 
     @Override

@@ -85,6 +85,15 @@ public class BattleContext {
         }
     }
 
+    public void setPokemonAbility(int playerNumber, String pokemonName, String ability) {
+        Pokemon pokemon = findPokemon(playerNumber, pokemonName);
+        if (pokemon == null) return;
+
+        if (pokemon.getAbility() == null) {
+            pokemon.setAbility(ability);
+        }
+    }
+
     public void setPokemonTeraType(int playerNumber, String pokemonName, String teraType) {
         Pokemon pokemon = findPokemon(playerNumber, pokemonName);
         if (pokemon == null) return;

@@ -19,6 +19,7 @@ import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.stat.*;
+import com.mimosa.deeppokemon.utils.MatcherUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.regex.Pattern;
 
 @Component
 public class DamageEventAnalyzer implements BattleEventAnalyzer {
@@ -48,6 +50,8 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
     private static final Map<String, String> statusFromMap = new HashMap<>();
     private static final String OF = "of";
     protected static final String STICKY_BARB = "Sticky Barb";
+    protected static final String ABILITY = "ability";
+    private static final Pattern ABILITY_PATTERN = Pattern.compile(Pattern.quote("ability: ") + "(.+)");
 
     static {
         statusFromMap.put("tox", "psn");
@@ -76,6 +80,7 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
             setPlayerSwitchDamageStat(battleEvent, battleStat, eventTarget, healthDiff);
 
             setPokemonItem(battleContext, damageEventStat, eventTarget);
+            setPokemonAbility(battleContext, damageEventStat);
             setBattleDamageStat(battleStat, damageEventStat);
         }
     }
@@ -149,6 +154,16 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
         }
     }
 
+    private static void setPokemonAbility(BattleContext battleContext, DamageEventStat damageEventStat) {
+        String damageFrom = damageEventStat.damageFrom();
+        EventTarget damageOf = damageEventStat.damageOf();
+        if (damageFrom != null && damageFrom.contains(ABILITY) && damageOf != null) {
+            log.debug("set damage ability");
+            String ability = MatcherUtil.groupMatch(ABILITY_PATTERN, damageFrom, 1);
+            battleContext.setPokemonAbility(damageOf.playerNumber(), damageOf.targetName(), ability);
+        }
+    }
+
     private static boolean opponentIsAllNotSetStickyBarb(Battle battle, int opponentPlayerNumber) {
         for (Pokemon pokemon : battle.getBattleTeams().get(opponentPlayerNumber - 1).getPokemons()) {
             if (StringUtils.equals(pokemon.getItem(), STICKY_BARB)) {
@@ -212,9 +227,6 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                 damageOfPokemonStat.setHealthValue(damageOfPokemonStat.getHealthValue().subtract(healthDiff));
                 addTurnStartPokemonHealthStat(battleStat, battleContext, 3 - eventTarget.playerNumber(),
                         healthDiff);
-
-                addPokemonHealthValueStat(damageOfPokemonStat, healthDiff.negate(), battleStat,
-                        battleContext, 3 - eventTarget.playerNumber());
             }
         } else {
             // default damage of opponent turn start pokemon

@@ -184,6 +184,11 @@ public class SmogonTourReplayProvider implements ReplayProvider {
                 if (existBattleIds.add(id)) {
                     String replayText = aElement.ownText();
                     List<TourPlayer> tourPlayers = getPlayersByReplayText(replayText);
+                    if (tourPlayers.isEmpty()) {
+                        log.error("can not find player of replay {}, ignore", id);
+                        continue;
+                    }
+
                     SmogonTourReplay smogonTourReplay = new SmogonTourReplay(id);
                     smogonTourReplay.setTourName(tourName);
                     smogonTourReplay.setTourPlayers(tourPlayers);

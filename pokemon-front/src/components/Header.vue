@@ -53,6 +53,10 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2025/03/14 feat：</span>悬浮在正负值上可以查看明细（2025/03/14前已爬取的replay不支持）</p>
+        <br/>
+
+
         <p><span class="font-bold">2025/02/06 优化：</span>显示全部努力值使用率</p>
         <br/>
 

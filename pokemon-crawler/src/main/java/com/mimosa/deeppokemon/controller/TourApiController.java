@@ -28,6 +28,10 @@ public class TourApiController {
     protected static final String OLT_XI_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XI";
     protected static final String SCL_IV = "SCL IV";
     protected static final String SMOGON_CHAMPIONS_LEAGUE_IV = "Smogon Champions League IV";
+
+    protected static final String SMOGON_PREMIER_LEAGUE_XVI = "Smogon Premier League XVI";
+    protected static final String SPL_XVI = "SPL XVI";
+
     protected static final String OUPL_VIII = "OUPL VIII";
     protected static final String GEN_9_OU = "gen9ou";
 
@@ -36,6 +40,9 @@ public class TourApiController {
 
     @Value("classpath:tourReplay/oupl.csv")
     Resource ouplReplayCsvResource;
+
+    @Value("classpath:tourReplay/splxvi.csv")
+    Resource splXVIReplayCsvResource;
 
     public TourApiController(TourService tourService, BattleService battleService) {
         this.tourService = tourService;
@@ -69,6 +76,13 @@ public class TourApiController {
     @PostMapping("/splXvi/battle")
     public boolean crawSplIvi(@RequestParam("format") String format) {
         tourService.crawSplXvi(format);
+        return true;
+    }
+
+    @PostMapping("/splXvi/battleByCsv")
+    public boolean crawSplIviByCsv(@RequestParam("format") String format) throws IOException {
+        tourService.crawTourByCsv(SMOGON_PREMIER_LEAGUE_XVI, SPL_XVI, format,
+                splXVIReplayCsvResource.getContentAsString(StandardCharsets.UTF_8));
         return true;
     }
 

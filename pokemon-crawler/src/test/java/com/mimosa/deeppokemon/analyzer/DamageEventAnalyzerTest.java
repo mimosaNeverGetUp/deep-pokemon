@@ -36,6 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 class DamageEventAnalyzerTest {
     public static final String HIPPOWDONW = "Hippowdonw";
@@ -52,6 +54,7 @@ class DamageEventAnalyzerTest {
     private static final String DRAGONITE = "Dragonite";
     private static final String PECHARUNT = "Pecharunt";
     private static final String IRON_TREADS = "Iron Treads";
+    protected static final String GARCHOMP = "Garchomp";
 
     @Autowired
     private DamageEventAnalyzer damageEventAnalyzer;
@@ -563,6 +566,47 @@ class DamageEventAnalyzerTest {
                 battleContext.getPlayerStatusList().get(0).getPokemonStatus(darkrai).getHealth());
         Assertions.assertEquals(BigDecimal.valueOf(61.0),
                 battleContext.getPlayerStatusList().get(1).getPokemonStatus(hatterene).getHealth());
+    }
+
+    @Test
+    void analyzeAbilityDamage() {
+        BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Zapdos", "69/100", "[from] ability: Rough " +
+                "Skin","[of] p2a: Garchomp"), null, null);
+        Battle battle = new BattleBuilder()
+                .addPokemon(2, GARCHOMP)
+                .build();
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, GARCHOMP, GARCHOMP)
+                .addPokemon(1, ZAPDOS, ZAPDOS)
+                .setHealth(1, ZAPDOS, BigDecimal.valueOf(100))
+                .setTurnStartPokemon(1, ZAPDOS)
+                .setBattle(battle)
+                .build();
+        BattleStat battleStat = new BattleStatBuilder()
+                .addPokemonStat(1, ZAPDOS)
+                .addPokemonStat(2, GARCHOMP)
+                .build();
+
+        damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+        PokemonBattleStat garchompStat = battleStat.playerStatList().get(1)
+                .getPokemonBattleStat(GARCHOMP);
+        Assertions.assertEquals(BigDecimal.valueOf(31.0), garchompStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(31.0), garchompStat.getHealthValue());
+
+        PokemonBattleStat zapdosStat = battleStat.playerStatList().get(0)
+                .getPokemonBattleStat(ZAPDOS);
+        Assertions.assertEquals(BigDecimal.valueOf(0.0), zapdosStat.getAttackValue());
+        Assertions.assertEquals(BigDecimal.valueOf(-31.0), zapdosStat.getHealthValue());
+
+        Assertions.assertEquals(1, garchompStat.getBattleDamageStats().size());
+        BattleDamageStat battleDamageStat = garchompStat.getBattleDamageStats().get(0);
+        Assertions.assertEquals(BigDecimal.valueOf(31.0), battleDamageStat.getDamage());
+        Assertions.assertEquals(GARCHOMP, battleDamageStat.getDamageOf());
+        Assertions.assertEquals(ZAPDOS, battleDamageStat.getDamageTarget());
+        Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
+        Assertions.assertEquals("ability: Rough Skin", battleDamageStat.getDamageFrom());
+        Pokemon pokemon = battleContext.getBattle().getBattleTeams().get(1).findPokemon(GARCHOMP);
+        assertEquals("Rough Skin", pokemon.getAbility());
     }
 
     private static Arguments buildSwitchDamageEvent() {

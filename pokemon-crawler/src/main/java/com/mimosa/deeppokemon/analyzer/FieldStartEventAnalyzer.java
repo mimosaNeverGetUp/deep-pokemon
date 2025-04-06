@@ -14,19 +14,23 @@ import com.mimosa.deeppokemon.analyzer.entity.event.MoveEventStat;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.utils.BattleEventUtil;
 import com.mimosa.deeppokemon.analyzer.utils.EventConstants;
+import com.mimosa.deeppokemon.utils.MatcherUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
+import java.util.regex.Pattern;
 
 @Component
-public class FieldStartEventAnalyzer implements BattleEventAnalyzer{
+public class FieldStartEventAnalyzer implements BattleEventAnalyzer {
     private static final Logger log = LoggerFactory.getLogger(FieldStartEventAnalyzer.class);
     private static final String FIELD_START = "fieldstart";
     private static final Set<String> SUPPORT_EVENT_TYPE = Set.of(FIELD_START);
     private static final int FIELD_INDEX = 0;
     private static final int OF_INDEX = 2;
+    protected static final String ABILITY = "ability";
+    private static final Pattern ABILITY_PATTERN = Pattern.compile(Pattern.quote("ability: ") + "(.+)");
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -49,6 +53,12 @@ public class FieldStartEventAnalyzer implements BattleEventAnalyzer{
             ofTarget = moveEventStat.eventTarget();
         }
         battleContext.setField(new Field(field, ofTarget));
+
+        if (battleEvent.getContents().size() > 1 && battleEvent.getContents().get(1).contains(ABILITY) && ofTarget != null) {
+            log.debug("set field ability");
+            String ability = MatcherUtil.groupMatch(ABILITY_PATTERN, battleEvent.getContents().get(1), 1);
+            battleContext.setPokemonAbility(ofTarget.playerNumber(), ofTarget.targetName(), ability);
+        }
     }
 
     @Override

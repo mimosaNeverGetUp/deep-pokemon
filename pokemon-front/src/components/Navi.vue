@@ -15,7 +15,7 @@ import NaviItem from '@/components/NaviItem.vue'
     </NaviItem>
 
     <NaviItem url="/stats?format=gen9ou">
-      <img class="navi-label-icon" src="/pokemonicon/Ribombee.png" alt="deep-pokemon">
+      <img class="navi-label-icon" src="/pokemonicon/Ninetales-Alola.png" alt="deep-pokemon">
       <p class="font-sans">环境</p>
     </NaviItem>
   </nav>
@@ -26,12 +26,6 @@ nav {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
-
-.navi-logo {
-  height: 30px;
-  width: 30px;
-  object-fit: cover;
 }
 
 .navi-label-icon {

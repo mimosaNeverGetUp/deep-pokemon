@@ -77,4 +77,27 @@ class ActivateEventAnalyzerTest {
         Pokemon pokemon = battleContext.getBattle().getBattleTeams().get(0).findPokemon("Urshifu-*");
         assertEquals("Protective Pads", pokemon.getItem());
     }
+
+    @Test
+    void analyzeAbility() {
+        BattleEvent battleEvent = new BattleEvent("activate", List.of("p2a: Kingambit", "ability: Supreme Overlord"), null,
+                null);
+        Battle battle = new BattleBuilder()
+                .addPokemon(2, "Kingambit")
+                .build();
+
+        BattleContext battleContext = new BattleContextBuilder()
+                .addPokemon(2, "Kingambit", "Kingambit")
+                .setBattle(battle)
+                .build();
+
+
+        BattleStat battleStat = new BattleStatBuilder().build();
+        assertTrue(activateEventAnalyzer.supportAnalyze(battleEvent));
+        activateEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+
+        Pokemon pokemon = battleContext.getBattle().getBattleTeams().get(1).findPokemon("Kingambit");
+        assertEquals("Supreme Overlord", pokemon.getAbility());
+        assertNull(pokemon.getItem());
+    }
 }

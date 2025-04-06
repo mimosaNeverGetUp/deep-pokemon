@@ -32,6 +32,7 @@ public class ActivateEventAnalyzer implements BattleEventAnalyzer {
     private static final int OF_INDEX = 2;
     private static final Pattern ACTIVATE_PATTERN = Pattern.compile("([^:]+)" + Pattern.quote(": ") + "(.+)");
     protected static final String ITEM = "item";
+    protected static final String ABILITY = "ability";
 
     @Override
     public void analyze(BattleEvent battleEvent, BattleStat battleStat, BattleContext battleContext) {
@@ -53,6 +54,8 @@ public class ActivateEventAnalyzer implements BattleEventAnalyzer {
 
             if (StringUtils.equals(ITEM, type)) {
                 battleContext.setPokemonItem(eventTarget.playerNumber(), eventTarget.targetName(), status);
+            } else if (StringUtils.equals(ABILITY, type)) {
+                battleContext.setPokemonAbility(eventTarget.playerNumber(), eventTarget.targetName(), status);
             } else {
                 battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).getPokemonStatus(eventTarget.targetName())
                         .addActivateStatus(new ActivateStatus(content, type, status, ofTarget));

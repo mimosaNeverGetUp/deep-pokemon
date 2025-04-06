@@ -6,6 +6,7 @@
 <script setup>
 import {ref} from "vue";
 import OverlayPanel from 'primevue/overlaypanel';
+import {Dex} from '@pkmn/dex';
 
 const props = defineProps({
   pokemon: Object,
@@ -42,6 +43,30 @@ function getPokemonItemText(pokemon) {
   }
   return " " + (pokemon.item == null ? "???" : pokemon.item);
 }
+
+function getPokemonAbilityText(pokemon) {
+  if (uniquePokemonAbility(pokemon.name)) {
+    return uniquePokemonAbility(pokemon.name);
+  }
+
+  if (props.pokemonConfigMap) {
+    let pokemonConfig = props.pokemonConfigMap[pokemon.name];
+    if (pokemonConfig && pokemonConfig.abilities) {
+      return " " + (pokemonConfig.abilities.length === 0 ? "???" : pokemonConfig.abilities.join("/"));
+    }
+  }
+  return " " + (pokemon.ability == null ? "???" : pokemon.ability);
+}
+
+function uniquePokemonAbility(pokemon) {
+  let abilities = Dex.forGen(9).species.get(pokemon)?.abilities;
+  if (abilities && Object.keys(abilities).length === 1) {
+    let abilityKey = Object.keys(abilities)[0];
+    return abilities[abilityKey];
+  }
+  return null;
+}
+
 </script>
 
 <template>
@@ -60,11 +85,14 @@ function getPokemonItemText(pokemon) {
           <span>Item:</span>
           <span class="font-sans">{{ getPokemonItemText(pokemon) }}</span>
         </div>
-
         <div v-if="pokemon.teraType" class="flex items-center gap-1">
           <p>Tera:</p>
           <img height="17" width="40" v-for="tera in pokemon.teraType.split('/')" :src="getTeraIcon(tera)"
                :alt="pokemon.teraType" :title="pokemon.teraType">
+        </div>
+        <div v-if="pokemon.ability || uniquePokemonAbility(pokemon.name)">
+          <span>Ability:</span>
+          <span class="font-sans">{{ getPokemonAbilityText(pokemon) }}</span>
         </div>
         <div v-if="pokemon.moves && pokemon.moves.length !==0">
           <hr>
@@ -83,5 +111,3 @@ function getPokemonItemText(pokemon) {
     </OverlayPanel>
   </div>
 </template>
-<style scoped>
-</style>

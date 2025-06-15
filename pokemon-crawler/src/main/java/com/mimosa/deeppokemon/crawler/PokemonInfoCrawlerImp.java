@@ -40,10 +40,7 @@ import org.springframework.stereotype.Component;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -60,7 +57,7 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
 
     private static final Logger logger = LoggerFactory.getLogger(PokemonInfoCrawlerImp.class);
     public static final String FORMES_PATTERN = "-";
-    private final String dataPath = "pokemon/pokemoninfo.txt";
+    private static final String dataPath = "pokemon/pokemoninfo.txt";
     private final HashMap<String, PokemonInfo> infoHashMap = new HashMap<>(900);
 
     public PokemonInfoCrawlerImp() {
@@ -87,7 +84,7 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
             info = infoHashMap.get(name.substring(0, name.indexOf(FORMES_PATTERN)));
         }
         if (info != null) {
-            info.getTags().clear();//清理之前贴上的标签
+            info.setTags(new HashSet<>());//清理之前贴上的标签
         }
         return info;
     }

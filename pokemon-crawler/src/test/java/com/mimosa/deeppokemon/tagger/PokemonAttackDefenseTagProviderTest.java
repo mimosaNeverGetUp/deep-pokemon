@@ -52,7 +52,7 @@ class PokemonAttackDefenseTagProviderTest {
         Assertions.assertTrue(pokemonAttackDefenseTagProvider.supportTag("gen9ou"));
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (PokemonInfo pokemonInfo : pokemonInfoList) {
-            pokemonAttackDefenseTagProvider.tag(pokemonInfo, null);
+            pokemonAttackDefenseTagProvider.tag(pokemonInfo, null,"gen9ou");
             Assertions.assertEquals(1, pokemonInfo.getTags().size());
             Assertions.assertTrue(tagSet.contains(pokemonInfo.getTags().stream().findFirst().orElseThrow()));
         }
@@ -167,7 +167,7 @@ class PokemonAttackDefenseTagProviderTest {
 
     public void assertTag(String name, Tag tag, PokemonBuildSet pokemonBuildSet) {
         PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(name);
-        pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSet);
+        pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSet,"gen9ou");
         Assertions.assertEquals(1, pokemonInfo.getTags().size());
         Assertions.assertTrue(pokemonInfo.getTags().contains(tag));
     }

@@ -26,6 +26,7 @@ const page = ref(route.query.page ? Number.parseInt(route.query.page) : 0);
 const row = ref(route.query.row ? Number.parseInt(route.query.row) : 7);
 const teamInfoDialogVisible = ref(false);
 const teamInfoId = ref();
+const teamTier = ref();
 const first = ref(page.value * row.value);
 
 async function queryTeams(page, row) {
@@ -139,9 +140,10 @@ async function onPage(event) {
   await router.push({path: route.path, query: {...route.query, page: event.page, row: event.rows}});
 }
 
-function toggleTeamInfoDialog(teamId) {
-  teamInfoDialogVisible.value = true;
+function toggleTeamInfoDialog(teamId, tier) {
   teamInfoId.value = teamId;
+  teamTier.value = tier;
+  teamInfoDialogVisible.value = true;
 }
 
 queryTeams(page.value, row.value);
@@ -157,7 +159,7 @@ queryTeams(page.value, row.value);
         <div class="flex items-center gap-1">
           <Team :team="slotProps.data" :compact="true" :teamSet="slotProps.data.teamSet"></Team>
           <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
-             @click="toggleTeamInfoDialog(slotProps.data.id.data)"/>
+             @click="toggleTeamInfoDialog(slotProps.data.id.data, slotProps.data.tier)"/>
           <a class="ml-2" target="_blank" v-if="slotProps.data.pokepasts?.length > 0" v-for="pokepast in slotProps.data.pokepasts"
              :href="pokepast.url" >
             <i class="pi pi-link" style="color: darkblue"></i>
@@ -208,7 +210,7 @@ queryTeams(page.value, row.value);
   </DataTable>
   <Dialog v-model:visible="teamInfoDialogVisible" modal header="Team Info" class="size-3/4">
     <div class="">
-      <TeamInfo :teamId="teamInfoId"></TeamInfo>
+      <TeamInfo :teamId="teamInfoId" :teamTier="teamTier"></TeamInfo>
     </div>
   </Dialog>
   <LoadingIcon v-if="loading"/>

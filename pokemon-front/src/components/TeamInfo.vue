@@ -18,6 +18,10 @@ const props = defineProps({
   teamId: {
     type: String,
     required: true
+  },
+  teamTier: {
+    type: String,
+    required: true
   }
 });
 
@@ -26,10 +30,10 @@ const teamInfo = ref()
 const loading = ref(true);
 const loadFail = ref(false);
 
-async function queryTeam(teamId) {
+async function queryTeam(teamId, teamTier) {
   loading.value = true;
   teamInfo.value = null
-  const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30`, {
+  const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30&format=${teamTier}`, {
         method: "GET"
       }
   )
@@ -143,10 +147,10 @@ function uniquePokemonAbility(pokemon) {
   return null;
 }
 
-queryTeam(props.teamId);
+queryTeam(props.teamId, props.teamTier);
 
 watch(() => props.teamId, async (newTeamId) => {
-  await queryTeam(newTeamId);
+  await queryTeam(newTeamId, props.teamTier);
 });
 </script>
 
@@ -208,7 +212,7 @@ watch(() => props.teamId, async (newTeamId) => {
       <div class="flex items-center gap-1">
         <Team :team="similarTeam" :compact="true" :teamSet="similarTeam?.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
-           @click="queryTeam(similarTeam.id.data)"/>
+           @click="queryTeam(similarTeam.id.data, similarTeam.tier)"/>
         <a class="ml-2" target="_blank" v-if="similarTeam.pokepasts?.length > 0"
            v-for="pokepast in similarTeam.pokepasts"
            :href="pokepast.url">

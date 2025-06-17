@@ -54,7 +54,8 @@ public class TeamApiController {
 
     @GetMapping("/team/{teamId}")
     public TeamGroupDto team(@PathVariable("teamId") String teamId,
-                             @RequestParam(required = false, name = "replayNum", defaultValue = "20") int replayNum) {
-        return battleService.searchTeam(new Binary(Base64.getDecoder().decode(teamId)), replayNum);
+                             @RequestParam(required = false, name = "replayNum", defaultValue = "20") int replayNum,
+                             @RequestParam(required = false, name = "format") String format) {
+        return battleService.searchTeam(new Binary(Base64.getDecoder().decode(teamId)), replayNum, format);
     }
 }

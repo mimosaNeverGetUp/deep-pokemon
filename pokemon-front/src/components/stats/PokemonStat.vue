@@ -58,6 +58,7 @@ const loadFail = ref(false)
 const spreadsShowThreshold = ref(0.01)
 const teamInfoDialogVisible = ref(false);
 const teamInfoId = ref();
+const teamTier = ref();
 const currentForm = ref(props.pokemon?.name);
 let spreadStatMap = {};
 let hoverSpreadStatMap = ref({});
@@ -321,9 +322,10 @@ function getStatStyle(stat, value) {
   return `width:${width}px;background:${bg}`
 }
 
-function toggleTeamInfoDialog(teamId) {
-  teamInfoDialogVisible.value = true;
+function toggleTeamInfoDialog(teamId, tier) {
   teamInfoId.value = teamId;
+  teamTier.value = tier;
+  teamInfoDialogVisible.value = true;
 }
 
 function getTranslation(text) {
@@ -611,7 +613,7 @@ function getShowSpreads(spreads) {
       <div class="mb-3 flex items-center text-center" v-for="teamGroup in teams">
         <Team class="" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
-           @click="toggleTeamInfoDialog(teamGroup.id.data)"/>
+           @click="toggleTeamInfoDialog(teamGroup.id.data, teamGroup.tier)"/>
         <a class="ml-2" target="_blank" v-if="teamGroup.pokepasts?.length > 0" v-for="pokepast in teamGroup.pokepasts"
            :href="pokepast.url">
           <i class="pi pi-link" style="color: darkblue"></i>
@@ -623,7 +625,7 @@ function getShowSpreads(spreads) {
   <LoadingIcon v-else/>
   <Dialog v-model:visible="teamInfoDialogVisible" modal header="Team Info" class="size-3/4">
     <div class="">
-      <TeamInfo :teamId="teamInfoId"></TeamInfo>
+      <TeamInfo :teamId="teamInfoId" :teamTier="teamTier"></TeamInfo>
     </div>
   </Dialog>
 </template>

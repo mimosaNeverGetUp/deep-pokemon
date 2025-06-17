@@ -89,6 +89,7 @@ public class BattleService {
     protected static final String POKEMON_SETS = "pokemonSets";
     protected static final String TOTAL = "total";
     protected static final String PLAYER_ICONS = "playerIcons";
+    protected static final String TIER = "tier";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -154,7 +155,7 @@ public class BattleService {
 
     public List<BattleTeam> listRecentTeam(String playerName) {
         Criteria criteria = Criteria.where("playerName").is(playerName)
-                .andOperator(Criteria.where("tier").in("gen9ou", "[Gen 9] OU"));
+                .andOperator(Criteria.where(TIER).in("gen9ou", "[Gen 9] OU"));
         Query query = new Query(criteria)
                 .with(Sort.by(Sort.Order.desc(BATTLE_DATE)))
                 .limit(2);
@@ -299,12 +300,21 @@ public class BattleService {
 
     @Cacheable("teamInfo")
     @RegisterReflectionForBinding({TourTeam.class, BattleTeam.class})
-    public TeamGroupDto searchTeam(Binary teamId, int replayLimit) {
+    public TeamGroupDto searchTeam(Binary teamId, int replayLimit,String format) {
         List<BattleTeam> teamList = new ArrayList<>();
-        Query ladderTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId)).with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
+        Query ladderTeamQuery =
+                new Query(Criteria.where(TEAM_ID).is(teamId));
+        if (format != null && !format.isEmpty()) {
+            ladderTeamQuery.addCriteria(Criteria.where(TIER).is(format));
+        }
+        ladderTeamQuery.with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
         ladderTeamQuery.limit(replayLimit);
         teamList.addAll(mongoTemplate.find(ladderTeamQuery, BattleTeam.class));
         Query tourTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId));
+        if (format != null && !format.isEmpty()) {
+            tourTeamQuery.addCriteria(Criteria.where(TIER).is(format));
+        }
+        tourTeamQuery.with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
         tourTeamQuery.limit(replayLimit);
         teamList.addAll(mongoTemplate.find(tourTeamQuery, TourTeam.class));
 

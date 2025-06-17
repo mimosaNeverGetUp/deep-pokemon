@@ -35,6 +35,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,7 @@ import java.util.List;
 
 @Service
 public class PlayerService {
+    protected static final String FORMAT = "format";
     private final MongoTemplate mongoTemplate;
     private final BattleService battleService;
 
@@ -55,19 +57,20 @@ public class PlayerService {
     }
 
     @Cacheable("playerRank")
-    public PlayerRankDTO queryPlayerLadderRank(@NonNull String playerName) {
-        Ladder ladder = getLatestLadder();
+    public PlayerRankDTO queryPlayerLadderRank(@NonNull String playerName, String format) {
+        Ladder ladder = getLatestLadder(format);
         LadderRank playerRank =
                 ladder.getLadderRankList().stream().filter(ladderRank -> playerName.equals(ladderRank.getName()))
                         .findFirst().orElse(new LadderRank(playerName, 0, 0, 0.0F));
         return new PlayerRankDTO(ladder.getDate(), playerRank.getName(), playerRank.getElo(),
-                playerRank.getRank(), playerRank.getGxe(), null);
+                playerRank.getRank(), playerRank.getGxe(), format);
     }
 
     @RegisterReflectionForBinding({Ladder.class})
-    public Ladder getLatestLadder() {
+    public Ladder getLatestLadder(String format) {
         //查询数据库里储存的最新的日期
         Query query = new BasicQuery("{}")
+                .addCriteria(Criteria.where(FORMAT).is(format))
                 .with(Sort.by(Sort.Order.desc("date")))
                 .limit(1);
         return mongoTemplate.findOne(query, Ladder.class, "ladder");
@@ -75,6 +78,7 @@ public class PlayerService {
 
     public LocalDate getUpdateTime() {
         Query query = new BasicQuery("{}")
+                .addCriteria(Criteria.where(FORMAT).is("gen9ou"))
                 .with(Sort.by(Sort.Order.desc("date")))
                 .limit(1);
         query.fields().include("date");
@@ -82,10 +86,10 @@ public class PlayerService {
     }
 
     @Cacheable("rank")
-    public PageResponse<PlayerRankDTO> rank(@Min(0) int page, @Min(1) @Max(100) int row) {
+    public PageResponse<PlayerRankDTO> rank(@Min(0) int page, @Min(1) @Max(100) int row, String format) {
         int start = page * row;
         int end = start + row;
-        Ladder ladder = getLatestLadder();
+        Ladder ladder = getLatestLadder(format);
         List<LadderRank> ladderRank = ladder.getLadderRankList();
         ladderRank.sort(Comparator.comparingInt(LadderRank::getRank));
         List<LadderRank> segmentLadderRank = new ArrayList<>(ladderRank.subList(start, end));
@@ -96,10 +100,11 @@ public class PlayerService {
             var playerRankDTO = new PlayerRankDTO();
             playerRankDTO.setRank(rank.getRank());
             playerRankDTO.setElo(rank.getElo());
+            playerRankDTO.setFormat(format);
             playerRankDTO.setName(rank.getName());
             playerRankDTO.setGxe(rank.getGxe());
             playerRankDTO.setInfoDate(ladder.getDate());
-            playerRankDTO.setRecentTeam(battleService.listRecentTeam(rank.getName()));
+            playerRankDTO.setRecentTeam(battleService.listRecentTeam(rank.getName(), format));
             playerRankDTOS.add(playerRankDTO);
         }
         return new PageResponse<>(ladderRank.size(), page, row, playerRankDTOS);

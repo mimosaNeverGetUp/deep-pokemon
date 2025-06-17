@@ -24,6 +24,7 @@ public class CacheService {
     protected static final String UNIQUE_PLAYER_NUM = "uniquePlayerNum";
     protected static final String LATEST_BATTLE_DATE = "latestBattleDate";
     protected static final String MAX_PLAYER_WIN_DIF = "maxPlayerWinDif";
+    protected static final String GEN_9_OU = "gen9ou";
 
     private final BattleService battleService;
     private final PlayerService playerService;
@@ -103,10 +104,10 @@ public class CacheService {
     public boolean loadRankAndPlayer(int page, int row) {
         try {
             log.info("load rank, page {},row {}", page, row);
-            PageResponse<PlayerRankDTO> players = playerService.rank(page, row);
+            PageResponse<PlayerRankDTO> players = playerService.rank(page, row, GEN_9_OU);
             for (var player : players.data()) {
-                playerService.queryPlayerLadderRank(player.getName());
-                battleService.listBattleByName(player.getName(), 0, 25);
+                playerService.queryPlayerLadderRank(player.getName(), GEN_9_OU);
+                battleService.listBattleByName(player.getName(), 0, 25, GEN_9_OU);
             }
         } catch (Exception e) {
             log.error("load rank and player fail", e);
@@ -117,7 +118,7 @@ public class CacheService {
 
     public boolean loadMonthlyStat() {
         log.info("start load monthly stat");
-        boolean res = loadMonthlyStat("gen9ou");
+        boolean res = loadMonthlyStat(GEN_9_OU);
         res &= loadMonthlyStat("gen9uu");
         res &= loadMonthlyStat("gen9ubers");
         res &= loadMonthlyStat("gen9vgc2024");

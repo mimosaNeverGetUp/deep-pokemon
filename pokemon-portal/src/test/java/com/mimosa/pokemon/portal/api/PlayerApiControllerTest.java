@@ -42,10 +42,10 @@ class PlayerApiControllerTest {
     @Test
     void rankList() throws Exception {
         mockMvc.perform(get("/api/rank")
-                        .queryParam("page", "1")
+                        .queryParam("page", "0")
                         .queryParam("row", "15"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.page").value(1))
+                .andExpect(jsonPath("$.page").value(0))
                 .andExpect(jsonPath("$.row").value(15))
                 .andExpect(jsonPath("$.totalRecords", Matchers.not(0)))
                 .andExpect(jsonPath("$.data").isNotEmpty())
@@ -57,7 +57,7 @@ class PlayerApiControllerTest {
 
     @Test
     void getPlayerRank() throws Exception {
-        mockMvc.perform(get(String.format("/api/player/%s", "switchbladess")))
+        mockMvc.perform(get(String.format("/api/player/%s", "butts99999")))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", PlayerMatcher.isValidPlayer()))
                 .andDo(print());
@@ -77,6 +77,7 @@ class PlayerApiControllerTest {
                         Matchers.everyItem(Matchers.allOf(
                                 Matchers.hasEntry(Matchers.equalTo("id"), Matchers.notNullValue()),
                                 Matchers.hasEntry(Matchers.equalTo("date"), Matchers.notNullValue()),
+                                Matchers.hasEntry(Matchers.equalTo("format"), Matchers.hasItem("gen9ou")),
                                 Matchers.hasEntry(Matchers.equalTo("avageRating"), Matchers.notNullValue()),
                                 Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.iterableWithSize(2)),
                                 Matchers.hasEntry(Matchers.equalTo("winner"), Matchers.notNullValue())

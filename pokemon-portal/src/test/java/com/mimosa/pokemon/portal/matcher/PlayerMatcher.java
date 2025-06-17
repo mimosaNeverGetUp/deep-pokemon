@@ -17,9 +17,11 @@ public class PlayerMatcher {
     public static final String RANK = "rank";
     public static final String GXE = "gxe";
     public static final String RECENT_TEAM = "recentTeam";
+    protected static final String FORMAT = "format";
     private static final Matcher<?> PLAYER_MATCHER = Matchers.allOf(
             Matchers.hasEntry(Matchers.equalTo(NAME), Matchers.notNullValue()),
             Matchers.hasEntry(Matchers.equalTo(INFO_DATE), Matchers.notNullValue()),
+            Matchers.hasEntry(Matchers.equalTo(FORMAT), Matchers.notNullValue()),
             Matchers.hasEntry(Matchers.equalTo(ELO), Matchers.notNullValue()),
             Matchers.hasEntry(Matchers.equalTo(RANK), Matchers.notNullValue()),
             Matchers.hasEntry(Matchers.equalTo(GXE), Matchers.notNullValue()),

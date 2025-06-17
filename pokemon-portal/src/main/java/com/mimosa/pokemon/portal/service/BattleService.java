@@ -90,6 +90,7 @@ public class BattleService {
     protected static final String TOTAL = "total";
     protected static final String PLAYER_ICONS = "playerIcons";
     protected static final String TIER = "tier";
+    protected static final String FORMAT = "format";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -99,9 +100,10 @@ public class BattleService {
     }
 
     @Cacheable("playerBattle")
-    public PageResponse<BattleDto> listBattleByName(String playerName, int page, int row) {
+    public PageResponse<BattleDto> listBattleByName(String playerName, int page, int row, String format) {
         Criteria criteria = Criteria.where("players").is(playerName);
         Query query = new Query(criteria);
+        query.addCriteria(Criteria.where(FORMAT).is(format));
         query.collation(Collation.of("en").strength(2));
         long count = mongoTemplate.count(query, Battle.class);
         if (count == 0) {
@@ -153,9 +155,9 @@ public class BattleService {
         return new PageResponse<>(count, page, row, battles);
     }
 
-    public List<BattleTeam> listRecentTeam(String playerName) {
+    public List<BattleTeam> listRecentTeam(String playerName, String format) {
         Criteria criteria = Criteria.where("playerName").is(playerName)
-                .andOperator(Criteria.where(TIER).in("gen9ou", "[Gen 9] OU"));
+                .andOperator(Criteria.where(TIER).in(format));
         Query query = new Query(criteria)
                 .with(Sort.by(Sort.Order.desc(BATTLE_DATE)))
                 .limit(2);
@@ -300,7 +302,7 @@ public class BattleService {
 
     @Cacheable("teamInfo")
     @RegisterReflectionForBinding({TourTeam.class, BattleTeam.class})
-    public TeamGroupDto searchTeam(Binary teamId, int replayLimit,String format) {
+    public TeamGroupDto searchTeam(Binary teamId, int replayLimit, String format) {
         List<BattleTeam> teamList = new ArrayList<>();
         Query ladderTeamQuery =
                 new Query(Criteria.where(TEAM_ID).is(teamId));

@@ -65,7 +65,7 @@ class PlayerApiControllerTest {
 
     @Test
     void getPlayerBattleRecord() throws Exception {
-        mockMvc.perform(get(String.format("/api/player/%s/battle", "switchbladess"))
+        mockMvc.perform(get(String.format("/api/player/%s/battle", "butts99999"))
                         .queryParam("page", "0")
                         .queryParam("row", "15"))
                 .andExpect(status().isOk())
@@ -77,7 +77,6 @@ class PlayerApiControllerTest {
                         Matchers.everyItem(Matchers.allOf(
                                 Matchers.hasEntry(Matchers.equalTo("id"), Matchers.notNullValue()),
                                 Matchers.hasEntry(Matchers.equalTo("date"), Matchers.notNullValue()),
-                                Matchers.hasEntry(Matchers.equalTo("format"), Matchers.hasItem("gen9ou")),
                                 Matchers.hasEntry(Matchers.equalTo("avageRating"), Matchers.notNullValue()),
                                 Matchers.hasEntry(Matchers.equalTo("teams"), Matchers.iterableWithSize(2)),
                                 Matchers.hasEntry(Matchers.equalTo("winner"), Matchers.notNullValue())

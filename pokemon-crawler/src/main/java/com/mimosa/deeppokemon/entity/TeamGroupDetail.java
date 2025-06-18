@@ -34,6 +34,7 @@ public class TeamGroupDetail {
     private final LocalDateTime end;
     private final String teamGroupCollectionName;
     private final String teamSetCollectionName;
+    private String format;
 
     public TeamGroupDetail(LocalDateTime start, LocalDateTime end, String teamGroupCollectionName,
                            String teamSetCollectionName) {
@@ -41,6 +42,15 @@ public class TeamGroupDetail {
         this.end = end;
         this.teamGroupCollectionName = teamGroupCollectionName;
         this.teamSetCollectionName = teamSetCollectionName;
+    }
+
+    public TeamGroupDetail(LocalDateTime start, LocalDateTime end, String teamGroupCollectionName,
+                           String teamSetCollectionName, String format) {
+        this.start = start;
+        this.end = end;
+        this.teamGroupCollectionName = teamGroupCollectionName;
+        this.teamSetCollectionName = teamSetCollectionName;
+        this.format = format;
     }
 
     public LocalDateTime start() {
@@ -64,8 +74,12 @@ public class TeamGroupDetail {
     }
 
     public List<AggregationOperation> buildTeamGroupAggregations() {
+        Criteria criteria = Criteria.where(BATTLE_DATE).gte(start).lte(end);
+        if (format != null && !format.isEmpty()) {
+            criteria.and(TIER).is(format);
+        }
         MatchOperation matchOperation = Aggregation.match(
-                Criteria.where(BATTLE_DATE).gte(start).lte(end));
+                criteria);
         GroupOperation groupOperation = Aggregation.group(TEAM_ID)
                 .max(BATTLE_DATE).as(LATEST_BATTLE_DATE)
                 .max(RATING).as(MAX_RATING)

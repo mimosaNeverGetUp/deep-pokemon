@@ -44,7 +44,7 @@ public class BattleApiController {
 
     @PostMapping("/team/update")
     public String updateTeam() {
-        battleService.updateTeam();
+        battleService.updateTeam("gen9ou");
         return "success";
     }
 

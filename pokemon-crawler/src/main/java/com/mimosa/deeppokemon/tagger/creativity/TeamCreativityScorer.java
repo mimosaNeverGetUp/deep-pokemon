@@ -95,18 +95,23 @@ public class TeamCreativityScorer {
             return monthlyPokemonMoveSetMap.get(statId + pokemon);
         }
 
-        Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId).and(NAME).is(pokemon));
-        MonthlyPokemonMoveSet pokemonMoveSet = mongoTemplate.findOne(query, MonthlyPokemonMoveSet.class);
+        MonthlyPokemonMoveSet pokemonMoveSet = getPokemonMoveSet(statId, pokemon);
         if (pokemonMoveSet == null) {
             if (pokemon.contains("-")) {
                 // maybe is special form
-                pokemonMoveSet = getMonthlyPokemonMoveSet(statId, pokemon.substring(0, pokemon.indexOf("-")));
+                pokemonMoveSet = getPokemonMoveSet(statId, pokemon.substring(0, pokemon.indexOf("-")));
             } else if (getBlurPokemonSpecialForm(pokemon) != null) {
-                pokemonMoveSet = getMonthlyPokemonMoveSet(statId, getBlurPokemonSpecialForm(pokemon));
+                pokemonMoveSet = getPokemonMoveSet(statId, getBlurPokemonSpecialForm(pokemon));
             }
         }
 
         monthlyPokemonMoveSetMap.put(statId + pokemon, pokemonMoveSet);
+        return pokemonMoveSet;
+    }
+
+    private @Nullable MonthlyPokemonMoveSet getPokemonMoveSet(String statId, String pokemon) {
+        Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId).and(NAME).is(pokemon));
+        MonthlyPokemonMoveSet pokemonMoveSet = mongoTemplate.findOne(query, MonthlyPokemonMoveSet.class);
         return pokemonMoveSet;
     }
 
@@ -155,19 +160,23 @@ public class TeamCreativityScorer {
             return monthlyPokemonUsageMap.get(statId + pokemon);
         }
 
-        Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId).and(NAME).is(pokemon));
-        MonthlyPokemonUsage pokemonUsage = mongoTemplate.findOne(query, MonthlyPokemonUsage.class);
+        MonthlyPokemonUsage pokemonUsage = getPokemonUsage(pokemon, statId);
         if (pokemonUsage == null) {
             if (pokemon.contains("-")) {
                 // maybe is special form
-                pokemonUsage = getMonthlyPokemonUsage(pokemon.substring(0, pokemon.indexOf("-")), statId);
+                pokemonUsage = getPokemonUsage(pokemon.substring(0, pokemon.indexOf("-")), statId);
             } else if (getBlurPokemonSpecialForm(pokemon) != null) {
-                pokemonUsage = getMonthlyPokemonUsage(getBlurPokemonSpecialForm(pokemon), statId);
+                pokemonUsage = getPokemonUsage(getBlurPokemonSpecialForm(pokemon), statId);
             }
         }
 
         monthlyPokemonUsageMap.put(statId + pokemon, pokemonUsage);
         return pokemonUsage;
+    }
+
+    private @Nullable MonthlyPokemonUsage getPokemonUsage(String pokemon, String statId) {
+        Query query = new Query().addCriteria(Criteria.where(STAT_ID).is(statId).and(NAME).is(pokemon));
+        return mongoTemplate.findOne(query, MonthlyPokemonUsage.class);
     }
 
     private boolean isMonthStatLatest() {

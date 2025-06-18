@@ -72,7 +72,7 @@ public class ScheduledConfig {
         cacheService.clearPlayerBattle();
 
         log.info("craw ladder success");
-        battleService.updateTeam();
+        battleService.updateTeam("gen9ou");
         log.info("update team success");
     }
 

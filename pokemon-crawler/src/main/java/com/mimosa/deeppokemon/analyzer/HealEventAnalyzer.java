@@ -113,10 +113,12 @@ public class HealEventAnalyzer implements BattleEventAnalyzer {
                         battleContext.getPlayerStatusList().get(opponentPlayerNumber - 1);
                 PokemonBattleStat opponentPokemonStat =
                         opponentPlayerStat.getPokemonBattleStat(opponentPlayerStatus.getTurnStartPokemonName());
-                opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue().subtract(healthDiff));
-                opponentPokemonStat.setAttackValue(opponentPokemonStat.getAttackValue().subtract(healthDiff));
-                setBattleDamageStat(opponentPokemonStat, healthFrom, eventTarget, healthOfTarget, healthDiff);
-                addPokemonHealthValueStat(healthPokemonStat, healthDiff, opponentPokemonStat);
+                if (opponentPokemonStat != null) {
+                    opponentPokemonStat.setHealthValue(opponentPokemonStat.getHealthValue().subtract(healthDiff));
+                    opponentPokemonStat.setAttackValue(opponentPokemonStat.getAttackValue().subtract(healthDiff));
+                    setBattleDamageStat(opponentPokemonStat, healthFrom, eventTarget, healthOfTarget, healthDiff);
+                    addPokemonHealthValueStat(healthPokemonStat, healthDiff, opponentPokemonStat);
+                }
             }
         }
     }

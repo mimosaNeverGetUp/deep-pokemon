@@ -1,0 +1,327 @@
+|html|<div class="broadcast-blue"><strong>[Gen 9] National Dex is currently suspecting Roaring Moon! For information on how to participate check out the <a href="undefined">suspect thread</a>.</strong></div>
+|raw|<div class="broadcast-blue"><strong>This battle is required to be public due to a player having a name starting with 'nd1lt3a'.</div>
+|j|☆Undskyld
+|j|☆nd1lt3a judgment
+|t:|1749191580
+|gametype|singles
+|player|p1|Undskyld|battlegirl-gen4|1820
+|player|p2|nd1lt3a judgment|lyra|1853
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] National Dex
+|rated|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Clause: Evasion abilities, items, and moves are banned
+|rule|Evasion Abilities Clause: Evasion abilities are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Terastal Clause: You cannot Terastallize
+|clearpoke
+|poke|p1|Zamazenta-*|
+|poke|p1|Slowking-Galar, M|
+|poke|p1|Cinderace, M|
+|poke|p1|Landorus-Therian, M|
+|poke|p1|Rotom-Wash|
+|poke|p1|Kartana|
+|poke|p2|Great Tusk|
+|poke|p2|Iron Moth|
+|poke|p2|Terapagos, M|
+|poke|p2|Scizor, F|
+|poke|p2|Roaring Moon|
+|poke|p2|Gholdengo|
+|teampreview
+|
+|t:|1749191587
+|start
+|switch|p1a: Rotom|Rotom-Wash|100/100
+|switch|p2a: Terapagos|Terapagos, M|100/100
+|-activate|p2a: Terapagos|ability: Tera Shift
+|detailschange|p2a: Terapagos|Terapagos-Terastal, M
+|-heal|p2a: Terapagos|100/100|[silent]
+|turn|1
+|
+|t:|1749191592
+|move|p2a: Terapagos|Tera Starstorm|p1a: Rotom
+|-damage|p1a: Rotom|30/100
+|move|p1a: Rotom|Volt Switch|p2a: Terapagos
+|-activate|p2a: Terapagos|ability: Tera Shell
+|-resisted|p2a: Terapagos
+|-damage|p2a: Terapagos|90/100
+|
+|t:|1749191596
+|switch|p1a: Slowking|Slowking-Galar, M|100/100|[from] Volt Switch
+|
+|upkeep
+|turn|2
+|
+|t:|1749191601
+|move|p2a: Terapagos|Stealth Rock|p1a: Slowking
+|-sidestart|p1: Undskyld|move: Stealth Rock
+|move|p1a: Slowking|Sludge Bomb|p2a: Terapagos
+|-damage|p2a: Terapagos|60/100
+|
+|upkeep
+|turn|3
+|
+|t:|1749191604
+|move|p2a: Terapagos|Tera Starstorm|p1a: Slowking
+|-damage|p1a: Slowking|77/100
+|move|p1a: Slowking|Sludge Bomb|p2a: Terapagos
+|-damage|p2a: Terapagos|30/100
+|-status|p2a: Terapagos|psn
+|
+|-damage|p2a: Terapagos|18/100 psn|[from] psn
+|upkeep
+|turn|4
+|
+|t:|1749191611
+|move|p2a: Terapagos|Tera Starstorm|p1a: Slowking
+|-damage|p1a: Slowking|51/100
+|move|p1a: Slowking|Sludge Bomb|p2a: Terapagos
+|-damage|p2a: Terapagos|0 fnt
+|faint|p2a: Terapagos
+|
+|upkeep
+|j| ND1LT3A Akaza
+|
+|t:|1749191618
+|switch|p2a: Roaring Moon|Roaring Moon|100/100
+|turn|5
+|
+|t:|1749191630
+|move|p2a: Roaring Moon|Dragon Dance|p2a: Roaring Moon
+|-boost|p2a: Roaring Moon|atk|1
+|-boost|p2a: Roaring Moon|spe|1
+|move|p1a: Slowking|Ice Beam|p2a: Roaring Moon
+|-supereffective|p2a: Roaring Moon
+|-damage|p2a: Roaring Moon|54/100
+|
+|upkeep
+|turn|6
+|
+|t:|1749191637
+|switch|p1a: Rotom|Rotom-Wash|30/100
+|-damage|p1a: Rotom|18/100|[from] Stealth Rock
+|move|p2a: Roaring Moon|Knock Off|p1a: Rotom
+|-damage|p1a: Rotom|0 fnt
+|-enditem|p1a: Rotom|Leftovers|[from] move: Knock Off|[of] p2a: Roaring Moon
+|faint|p1a: Rotom
+|
+|upkeep
+|
+|t:|1749191641
+|switch|p1a: Landorus|Landorus-Therian, M|100/100
+|-damage|p1a: Landorus|88/100|[from] Stealth Rock
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Roaring Moon|atk|1
+|turn|7
+|
+|t:|1749191644
+|-zpower|p2a: Roaring Moon
+|move|p2a: Roaring Moon|Devastating Drake|p1a: Landorus|[zeffect]
+|-damage|p1a: Landorus|0 fnt
+|faint|p1a: Landorus
+|
+|upkeep
+|
+|t:|1749191660
+|switch|p1a: Kartana|Kartana|100/100
+|-damage|p1a: Kartana|94/100|[from] Stealth Rock
+|turn|8
+|
+|t:|1749191673
+|move|p2a: Roaring Moon|Knock Off|p1a: Kartana
+|-damage|p1a: Kartana|37/100
+|-enditem|p1a: Kartana|Choice Scarf|[from] move: Knock Off|[of] p2a: Roaring Moon
+|move|p1a: Kartana|Sacred Sword|p2a: Roaring Moon
+|-supereffective|p2a: Roaring Moon
+|-damage|p2a: Roaring Moon|0 fnt
+|faint|p2a: Roaring Moon
+|-end|p2a: Roaring Moon|Protosynthesis|[silent]
+|-ability|p1a: Kartana|Beast Boost|boost
+|-boost|p1a: Kartana|atk|1
+|
+|upkeep
+|
+|t:|1749191681
+|switch|p2a: Iron Moth|Iron Moth|100/100
+|-enditem|p2a: Iron Moth|Booster Energy
+|-activate|p2a: Iron Moth|ability: Quark Drive|[fromitem]
+|-start|p2a: Iron Moth|quarkdrivespe
+|turn|9
+|
+|t:|1749191683
+|move|p2a: Iron Moth|Fiery Dance|p1a: Kartana
+|-supereffective|p1a: Kartana
+|-damage|p1a: Kartana|0 fnt
+|-boost|p2a: Iron Moth|spa|1
+|faint|p1a: Kartana
+|
+|upkeep
+|
+|t:|1749191685
+|switch|p1a: Slowking|Slowking-Galar, M|85/100
+|-damage|p1a: Slowking|72/100|[from] Stealth Rock
+|turn|10
+|
+|t:|1749191689
+|move|p2a: Iron Moth|Fiery Dance|p1a: Slowking
+|-damage|p1a: Slowking|48/100
+|move|p1a: Slowking|Psyshock|p2a: Iron Moth
+|-supereffective|p2a: Iron Moth
+|-damage|p2a: Iron Moth|15/100
+|
+|upkeep
+|turn|11
+|
+|t:|1749191694
+|move|p2a: Iron Moth|Fiery Dance|p1a: Slowking
+|-damage|p1a: Slowking|22/100
+|move|p1a: Slowking|Psyshock|p2a: Iron Moth
+|-supereffective|p2a: Iron Moth
+|-damage|p2a: Iron Moth|0 fnt
+|faint|p2a: Iron Moth
+|-end|p2a: Iron Moth|Quark Drive|[silent]
+|
+|upkeep
+|
+|t:|1749191701
+|switch|p2a: Great Tusk|Great Tusk|100/100
+|-enditem|p2a: Great Tusk|Booster Energy
+|-activate|p2a: Great Tusk|ability: Protosynthesis|[fromitem]
+|-start|p2a: Great Tusk|protosynthesisatk
+|turn|12
+|
+|t:|1749191704
+|move|p2a: Great Tusk|Rapid Spin|p1a: Slowking
+|-damage|p1a: Slowking|0 fnt
+|-boost|p2a: Great Tusk|spe|1
+|faint|p1a: Slowking
+|
+|upkeep
+|
+|t:|1749191707
+|switch|p1a: Zamazenta|Zamazenta|100/100
+|-damage|p1a: Zamazenta|94/100|[from] Stealth Rock
+|-ability|p1a: Zamazenta|Dauntless Shield|boost
+|-boost|p1a: Zamazenta|def|1
+|turn|13
+|
+|t:|1749191711
+|move|p1a: Zamazenta|Iron Defense|p1a: Zamazenta
+|-boost|p1a: Zamazenta|def|2
+|move|p2a: Great Tusk|Headlong Rush|p1a: Zamazenta
+|-damage|p1a: Zamazenta|64/100
+|-unboost|p2a: Great Tusk|def|1
+|-unboost|p2a: Great Tusk|spd|1
+|
+|-heal|p1a: Zamazenta|70/100|[from] item: Leftovers
+|upkeep
+|turn|14
+|
+|t:|1749191719
+|-end|p2a: Great Tusk|Protosynthesis|[silent]
+|switch|p2a: Gholdengo|Gholdengo|100/100
+|-item|p2a: Gholdengo|Air Balloon
+|move|p1a: Zamazenta|Body Press|p2a: Gholdengo
+|-immune|p2a: Gholdengo
+|
+|-heal|p1a: Zamazenta|76/100|[from] item: Leftovers
+|upkeep
+|turn|15
+|
+|t:|1749191727
+|move|p1a: Zamazenta|Substitute|p1a: Zamazenta
+|-start|p1a: Zamazenta|Substitute
+|-damage|p1a: Zamazenta|51/100
+|move|p2a: Gholdengo|Shadow Ball|p1a: Zamazenta
+|-end|p1a: Zamazenta|Substitute
+|
+|-heal|p1a: Zamazenta|57/100|[from] item: Leftovers
+|upkeep
+|turn|16
+|
+|t:|1749191731
+|move|p1a: Zamazenta|Crunch|p2a: Gholdengo
+|-supereffective|p2a: Gholdengo
+|-damage|p2a: Gholdengo|67/100
+|-enditem|p2a: Gholdengo|Air Balloon
+|move|p2a: Gholdengo|Shadow Ball|p1a: Zamazenta
+|-damage|p1a: Zamazenta|24/100
+|
+|-heal|p1a: Zamazenta|30/100|[from] item: Leftovers
+|upkeep
+|turn|17
+|
+|t:|1749191738
+|switch|p1a: Cinderace|Cinderace, M|100/100
+|move|p2a: Gholdengo|Shadow Ball|p1a: Cinderace
+|-damage|p1a: Cinderace|54/100
+|
+|upkeep
+|turn|18
+|
+|t:|1749191766
+|move|p1a: Cinderace|Pyro Ball|p2a: Gholdengo|[miss]
+|-miss|p1a: Cinderace|p2a: Gholdengo
+|move|p2a: Gholdengo|Shadow Ball|p1a: Cinderace
+|-damage|p1a: Cinderace|2/100
+|
+|upkeep
+|turn|19
+|
+|t:|1749191780
+|switch|p2a: Great Tusk|Great Tusk|100/100
+|move|p1a: Cinderace|Pyro Ball|p2a: Great Tusk
+|-damage|p2a: Great Tusk|35/100
+|-status|p2a: Great Tusk|brn
+|
+|-damage|p2a: Great Tusk|29/100 brn|[from] brn
+|upkeep
+|turn|20
+|
+|t:|1749191784
+|move|p1a: Cinderace|Pyro Ball|p2a: Great Tusk
+|-damage|p2a: Great Tusk|0 fnt
+|faint|p2a: Great Tusk
+|-end|p2a: Great Tusk|Protosynthesis|[silent]
+|
+|upkeep
+|
+|t:|1749191791
+|switch|p2a: Scizor|Scizor, F|100/100
+|turn|21
+|c|☆Undskyld|Would have preferred to hit that bug gg
+|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by nd1lt3a judgment)
+|c|☆Undskyld|But
+|c|☆nd1lt3a judgment|gg
+|
+|t:|1749191822
+|detailschange|p2a: Scizor|Scizor-Mega, F
+|-mega|p2a: Scizor|Scizor|Scizorite
+|move|p2a: Scizor|Bullet Punch|p1a: Cinderace
+|-resisted|p1a: Cinderace
+|-damage|p1a: Cinderace|0 fnt
+|faint|p1a: Cinderace
+|
+|upkeep
+|
+|t:|1749191823
+|switch|p1a: Zamazenta|Zamazenta|30/100
+|-damage|p1a: Zamazenta|24/100|[from] Stealth Rock
+|turn|22
+|-message|Undskyld forfeited.
+|
+|win|nd1lt3a judgment
+|raw|Undskyld's rating: 1820 &rarr; <strong>1802</strong><br />(-18 for losing)
+|raw|nd1lt3a judgment's rating: 1853 &rarr; <strong>1871</strong><br />(+18 for winning)
+|l|☆Undskyld
+|player|p1|
+|l|☆nd1lt3a judgment
+|player|p2|
+|l| ND1LT3A Akaza

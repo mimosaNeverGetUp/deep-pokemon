@@ -22,8 +22,13 @@ const toggle = (event) => {
 };
 
 function getIconUrl(pokemon) {
-  const iconName = pokemon.name.replace(" ", "").replace("-*", "");
-  return "/pokemonicon/" + encodeURIComponent(iconName) + ".png";
+  if (pokemon.detailChange) {
+    const iconName = pokemon.detailChange.replace(" ", "").replace("-*", "");
+    return "/pokemonicon/" + encodeURIComponent(iconName) + ".png";
+  } else {
+    const iconName = pokemon.name.replace(" ", "").replace("-*", "");
+    return "/pokemonicon/" + encodeURIComponent(iconName) + ".png";
+  }
 }
 
 function getItemUrl(item) {

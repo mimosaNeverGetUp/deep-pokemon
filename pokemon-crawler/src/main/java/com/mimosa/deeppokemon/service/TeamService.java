@@ -236,8 +236,9 @@ public class TeamService {
         Map<String, Map<String, Integer>> itemsMap = new HashMap<>();
         Map<String, Map<String, Integer>> abilityMap = new HashMap<>();
         Map<String, Map<String, Integer>> teraTypes = new HashMap<>();
+        Map<String, String> detailChangeMap = new HashMap<>();
         for (BattleTeam team : teamGroup.teams()) {
-            countPokemonSet(team, moveMap, itemsMap, abilityMap, teraTypes);
+            countPokemonSet(team, moveMap, itemsMap, abilityMap, teraTypes, detailChangeMap);
         }
 
         List<PokemonBuildSet> pokemonBuildSets = new ArrayList<>();
@@ -245,7 +246,7 @@ public class TeamService {
             String pokemon = entrySet.getKey();
             pokemonBuildSets.add(new PokemonBuildSet(pokemon, descSortByValue(moveMap.get(pokemon)),
                     descSortByValue(abilityMap.get(pokemon)), descSortByValue(itemsMap.get(pokemon)),
-                    descSortByValue(teraTypes.get(pokemon))));
+                    descSortByValue(teraTypes.get(pokemon)), detailChangeMap.get(pokemon)));
         }
 
         LocalDateTime minReplayDate = teamGroup.teams().stream()
@@ -288,7 +289,8 @@ public class TeamService {
                                         Map<String, Map<String, Integer>> moveMap,
                                         Map<String, Map<String, Integer>> itemsMap,
                                         Map<String, Map<String, Integer>> abilityMap,
-                                        Map<String, Map<String, Integer>> teraTypes) {
+                                        Map<String, Map<String, Integer>> teraTypes,
+                                        Map<String, String> detailChangeMap) {
         for (Pokemon pokemon : team.getPokemons()) {
             if (!moveMap.containsKey(pokemon.getName())) {
                 moveMap.put(pokemon.getName(), new HashMap<>());
@@ -311,6 +313,10 @@ public class TeamService {
 
             for (String move : pokemon.getMoves()) {
                 moveMap.get(pokemon.getName()).merge(move.trim(), 1, Integer::sum);
+            }
+
+            if (pokemon.getDetailChange() != null) {
+                detailChangeMap.put(pokemon.getName(), pokemon.getDetailChange());
             }
         }
     }

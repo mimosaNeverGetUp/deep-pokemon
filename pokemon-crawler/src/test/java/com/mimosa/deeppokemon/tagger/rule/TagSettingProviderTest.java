@@ -116,6 +116,6 @@ class TagSettingProviderTest {
     }
 
     public PokemonBuildSet buildSet(String name, String item, String... moves) {
-        return new PokemonBuildSet(name, List.of(moves), null, Collections.singletonList(item), null);
+        return new PokemonBuildSet(name, List.of(moves), null, Collections.singletonList(item), null, null);
     }
 }

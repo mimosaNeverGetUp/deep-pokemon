@@ -25,6 +25,7 @@
 package com.mimosa.deeppokemon.crawler;
 
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.info.MoveInfoProvider;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,10 +48,13 @@ import java.util.regex.Pattern;
 @Component
 public class BattleReplayExtractor {
     private static final Logger logger = LoggerFactory.getLogger(BattleReplayExtractor.class);
+    protected static final String PREFIX_Z_MOVE = "Z-";
     private final TeamTagger teamTagger;
+    private final MoveInfoProvider moveInfoProvider;
 
-    public BattleReplayExtractor(TeamTagger teamTagger) {
+    public BattleReplayExtractor(TeamTagger teamTagger, MoveInfoProvider moveInfoProvider) {
         this.teamTagger = teamTagger;
+        this.moveInfoProvider = moveInfoProvider;
     }
 
     public Battle extract(BattleReplayData battleReplayData) {
@@ -89,7 +93,7 @@ public class BattleReplayExtractor {
         return battle;
     }
 
-    private static List<BattleTeam> extractTeam(String html) {
+    private List<BattleTeam> extractTeam(String html) {
         Pattern pattern = Pattern.compile("\\|poke\\|p([12])\\|([^//|,]*)[\\|,]");
         Matcher matcher = pattern.matcher(html);
         List<Pokemon> pokemons1 = new ArrayList<>(6);
@@ -121,7 +125,7 @@ public class BattleReplayExtractor {
         return teams;
     }
 
-    private static Pokemon extractPokemon(String html, String pokemonName, int playerNumber) {
+    private Pokemon extractPokemon(String html, String pokemonName, int playerNumber) {
         Pokemon pokemon = new Pokemon(pokemonName);
         String pokemonMoveName = extractMoveName(html, pokemonName, playerNumber);
         if ("Ditto".equals(pokemonName)) {
@@ -138,6 +142,14 @@ public class BattleReplayExtractor {
                 if (other.contains("Magic Bounce")) {
                     logger.debug("match {} move {} but it is use via magic bounce", pokemonName, move);
                     continue;
+                }
+                if (moveInfoProvider.isZMove(move)) {
+                    logger.debug("match {} move {} but it is z move", pokemonName, move);
+                    pokemon.setItem(moveInfoProvider.getZMoveItem(move));
+                    if (!move.startsWith(PREFIX_Z_MOVE)) {
+                        continue;
+                    }
+                    move = move.substring(PREFIX_Z_MOVE.length());
                 }
                 if (moves.add(move)) {
                     logger.debug("match {} move:{}", pokemonName, move);

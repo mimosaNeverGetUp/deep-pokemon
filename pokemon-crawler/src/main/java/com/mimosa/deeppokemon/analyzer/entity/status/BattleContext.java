@@ -85,6 +85,15 @@ public class BattleContext {
         }
     }
 
+    public void setPokemonDetailChange(int playerNumber, String pokemonName, String detailChange) {
+        Pokemon pokemon = findPokemon(playerNumber, pokemonName);
+        if (pokemon == null) return;
+
+        if (pokemon.getDetailChange() == null) {
+            pokemon.setDetailChange(detailChange);
+        }
+    }
+
     public void setPokemonAbility(int playerNumber, String pokemonName, String ability) {
         Pokemon pokemon = findPokemon(playerNumber, pokemonName);
         if (pokemon == null) return;

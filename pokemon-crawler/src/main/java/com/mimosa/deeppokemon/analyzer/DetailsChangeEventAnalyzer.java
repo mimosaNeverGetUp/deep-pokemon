@@ -38,8 +38,9 @@ public class DetailsChangeEventAnalyzer implements BattleEventAnalyzer {
                 battleContext);
         String detailChangeName = battleEvent.getContents().get(CHANGE_NAME_INDEX).split(EventConstants.NAME_SPLIT)[0];
         if (eventTarget != null) {
-            battleContext.getPlayerStatusList().get(eventTarget.playerNumber()-1).
+            battleContext.getPlayerStatusList().get(eventTarget.playerNumber() - 1).
                     setDetailChangeName(eventTarget.nickName(), detailChangeName);
+            battleContext.setPokemonDetailChange(eventTarget.playerNumber(), eventTarget.targetName(), detailChangeName);
         }
     }
 

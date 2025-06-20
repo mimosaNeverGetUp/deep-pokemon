@@ -13,6 +13,7 @@ import com.mimosa.deeppokemon.entity.Tag;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
@@ -32,6 +33,8 @@ public class TagSettingProvider {
 
     private volatile Map<String, TagSetting> tagSettingMap = new HashMap<>();
 
+    @RegisterReflectionForBinding(value = {TagSetting.class, AbilityValue.class, ItemValue.class, MoveValue.class,
+            SpecifyPokemonRule.class, TagRule.class, Condition.class, SetCondition.class})
     public TagSetting getTagSetting(String format) {
         if (tagSettingMap.isEmpty()) {
             synchronized (this) {

@@ -7,3 +7,11 @@ spring:
 eureka:
   client:
     enabled: false
+
+logging:
+  level:
+    com:
+      mimosa:
+        deeppokemon:
+          tagger:
+            PokemonAttackDefenseTagProvider: debug

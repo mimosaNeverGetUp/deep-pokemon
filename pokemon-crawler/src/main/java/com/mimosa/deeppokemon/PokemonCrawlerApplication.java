@@ -80,6 +80,7 @@ public class PokemonCrawlerApplication {
                                     TreeSet.class,
                                     ConcurrentHashMap.class,
                                     LinkedHashMap.class,
+                                    Double.class,
                                     TreeMap.class,
                                     Replay.class),
                             TypeHint.builtWith(INVOKE_PUBLIC_CONSTRUCTORS, INVOKE_PUBLIC_METHODS));

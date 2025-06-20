@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
@@ -31,7 +32,7 @@ public class MoveInfoProvider {
     static {
         TYPE_Z_ITEM_MAP.put("Bug", "Buginium Z");
         TYPE_Z_ITEM_MAP.put("Dark", "Darkinium Z");
-        TYPE_Z_ITEM_MAP.put("Dragon", "Dragonium");
+        TYPE_Z_ITEM_MAP.put("Dragon", "Dragonium Z");
         TYPE_Z_ITEM_MAP.put("Electric", "Electrium Z");
         TYPE_Z_ITEM_MAP.put("Fairy", "Fairium Z");
         TYPE_Z_ITEM_MAP.put("Fighting", "Fightinium Z");
@@ -60,6 +61,7 @@ public class MoveInfoProvider {
         this.itemInfoProvider = itemInfoProvider;
     }
 
+    @RegisterReflectionForBinding(value = MoveInfo.class)
     public MoveInfo getMoveInfo(String move) {
         if (moveInfos.isEmpty()) {
             load();

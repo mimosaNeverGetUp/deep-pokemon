@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,7 @@ public class ItemInfoProvider {
 
     private Map<String, ItemInfo> itemInfos = new HashMap<>();
 
+    @RegisterReflectionForBinding(value = ItemInfo.class)
     public ItemInfo getItemInfo(String move) {
         if (itemInfos.isEmpty()) {
             load();

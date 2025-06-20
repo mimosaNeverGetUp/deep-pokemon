@@ -95,11 +95,11 @@ class Gen8OUPokemonAttackDefenseTagProviderTest {
         assertTag("Aegislash", Tag.ATTACK_MIX_SET, null);
         assertTag("Dracozolt", Tag.ATTACK_SET, null);
         assertTag("Cloyster", Tag.ATTACK_SET, null);
+        assertTag("Hoopa-Unbound", Tag.ATTACK_MIX_SET, null);
 
         assertTag("Landorus-Therian", Tag.DEFENSE_MIX_SET, buildSet("Landorus-Therian", "Rocky Helmet", ""));
         assertTag("Landorus-Therian", Tag.DEFENSE_MIX_SET, buildSet("Landorus-Therian", "Leftovers", ""));
         assertTag("Zapdos", Tag.DEFENSE_MIX_SET, buildSet("Zapdos", "Heavy-Duty Boots", "Roost"));
-        assertTag("Zapdos", Tag.ATTACK_MIX_SET, buildSet("Zapdos", "Heavy-Duty Boots", ""));
         assertTag("Zapdos", Tag.ATTACK_MIX_SET, buildSet("Zapdos", "Heavy-Duty Boots", ""));
 
         assertTag("Garchomp", Tag.DEFENSE_MIX_SET, buildSet("Garchomp", "Leftovers", ""));

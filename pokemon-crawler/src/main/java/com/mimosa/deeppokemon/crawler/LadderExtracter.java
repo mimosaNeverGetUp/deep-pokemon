@@ -43,13 +43,14 @@ public class LadderExtracter {
             Pattern.compile("<td>(\\d{1,3})</td>[^<]*<td>([^<]*)</td>[^<]*<td><strong>(\\d{4})" +
                     "</strong></td>[^<]*<td>([^<]*)<small>");
 
-    private LadderExtracter() {}
+    private LadderExtracter() {
+    }
 
     public static Ladder extract(String html, int rankMoreThan, int minElo, float minGxe, String format) {
         LocalDate date = LocalDate.now();
         Matcher matcher = pattern.matcher(html);
         Ladder ladder = new Ladder();
-        ladder.setId(DateTimeFormatter.BASIC_ISO_DATE.format(date));
+        ladder.setId(DateTimeFormatter.BASIC_ISO_DATE.format(date) + format);
         ladder.setDate(date);
         ladder.setFormat(format);
         List<LadderRank> ladderRankList = new ArrayList<>();

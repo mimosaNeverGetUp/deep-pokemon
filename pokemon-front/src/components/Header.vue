@@ -53,6 +53,9 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2025/06/21 beat feat：</span>支持爬取gen9nationaldex天梯队伍</p>
+        <br/>
+
         <p><span class="font-bold">2025/04/06 feat：</span>支持爬取特性（2025/04/06前已爬取的replay不支持）</p>
         <br/>
 

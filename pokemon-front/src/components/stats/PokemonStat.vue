@@ -232,10 +232,11 @@ function getStat(pokemon, natureName, spread, isMinus, isPlus) {
 }
 
 async function queryTeams(page, row, pokemon) {
-  if (props.format !== 'gen9ou') {
+  if (props.format !== 'gen9ou' && props.format !== 'gen9nationaldex') {
     return
   }
-  let url = new URL(`${apiUrl}/api/v2/teams?page=${page}&row=${row}&pokemons=${pokemon}&sort=maxRating&groupName=last_90_days`);
+  let groupName = props.format === "gen9ou" ? "last_90_days" : "last_90_days_gen9nationaldex";
+  let url = new URL(`${apiUrl}/api/v2/teams?page=${page}&row=${row}&pokemons=${pokemon}&sort=maxRating&groupName=${groupName}`);
 
   const res = await fetch(url,
       {

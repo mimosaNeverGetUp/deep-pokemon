@@ -84,6 +84,9 @@ public class PokemonCrawlerApplication {
                                     TreeMap.class,
                                     Replay.class),
                             TypeHint.builtWith(INVOKE_PUBLIC_CONSTRUCTORS, INVOKE_PUBLIC_METHODS));
+            hints.resources().registerPattern("tagSetting/gen8ou.json");
+            hints.resources().registerPattern("tagSetting/gen9ou.json");
+            hints.resources().registerPattern("tagSetting/gen9nationaldex.json");
             hints.resources().registerPattern("tourReplay/");
             hints.resources().registerPattern("tourReplay/oupl.csv");
             hints.resources().registerPattern("tourReplay/splxvi.csv");

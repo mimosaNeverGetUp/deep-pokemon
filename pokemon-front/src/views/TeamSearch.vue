@@ -6,7 +6,6 @@
 
 <script setup>
 import Button from 'primevue/button';
-import Calendar from 'primevue/calendar';
 import MultiSelect from 'primevue/multiselect';
 import SelectButton from 'primevue/selectbutton';
 import Accordion from 'primevue/accordion';
@@ -27,6 +26,7 @@ const selectedTier = ref("gen9ou")
 const selectedRange = ref("Last week")
 const tags = ref(["Offense", "Balance", "HO", "Stall"]);
 const ranges = ref(["Last 3 days", "Last week", "Last month", "Last 3 months"]);
+const ladderTier = ref(["gen9ou", "gen9nationaldex"]);
 const sortModes = ref(["rating", "popularity", "date", "unexpectedness"])
 const ladderSortModes = ref(["rating", "popularity", "date", "unexpectedness"])
 const pokepastesOptions = ref(["exist"])
@@ -47,8 +47,6 @@ const stagesMap = {};
 let tourPlayersMap = {}
 let tourTiersMap = {}
 
-
-const useMonthRange = ref(false)
 const maxMonth = ref(new Date())
 const minMonth = ref(new Date())
 maxMonth.value.setMonth(maxMonth.value.getMonth() - 1);
@@ -93,11 +91,6 @@ async function queryAllTour() {
   } else {
     tourPlaceHolder.value = "query tour fail."
   }
-
-}
-
-function changeShowMode() {
-  useMonthRange.value = !useMonthRange.value;
 }
 
 function changeBattleType(event) {
@@ -149,16 +142,33 @@ function getTeamSearchUrl(pokemons, tags, range, month, sort) {
       tourGroupName = "tour_" + tourShortName.value + "_" + selectedTier.value;
     }
 
-    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${tourGroupName}&tour=true&players=${selectPlayers}&stages=${selectStage}`;
+    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${tourGroupName}&tour=true&players=${selectPlayers}&stages=${selectStage}&tier=${selectedTier.value}`;
   }
 
-  if (useMonthRange.value) {
-    let date = new Date(month);
-    let monthNumber = date.getMonth() + 1;
-    let monthId = date.getFullYear() + monthNumber.toString().padStart(2, "0");
-    return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${monthId}`;
+  let teamGroupName = getTeamGroupName(range, selectedTier.value);
+  return`/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${teamGroupName}&tier=${selectedTier.value}`;
+}
+
+function getTeamGroupName(range, tier) {
+  let name = "";
+  switch (range) {
+    case "Last 3 days":
+      name = "last_3_days";
+      break;
+    case "Last week":
+      name = "last_7_days";
+      break;
+    case "Last month":
+      name = "last_30_days";
+      break;
+    case "Last 3 months":
+      name = "last_90_days";
+      break;
   }
-  return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${range}`;
+  if (tier !== "gen9ou") {
+    name = name + "_" + tier;
+  }
+  return name;
 }
 
 queryAllTour();
@@ -177,16 +187,15 @@ queryAllTour();
       <span>Sort</span>
       <SelectButton v-model="selectedSort" :options="sortModes" aria-labelledby="basic"/>
       <div v-if="!searchTour" class="mt-2">
-        <span class="items-center text-center">Range</span>
-        <i class="ml-2 pi pi-calendar cursor-pointer hover:bg-green-500" style="font-size: 1.5rem"
-           @click="changeShowMode"></i>
+        <div class="mb-2">
+          <span>Tier</span>
+          <SelectButton v-model="selectedTier" :options="ladderTier" aria-labelledby="basic"/>
+        </div>
       </div>
 
       <div class="mt-2">
-        <Calendar v-if="useMonthRange && !searchTour" class="w-96" v-model="selectMonth" view="month" dateFormat="dd/mm"
-                  :maxDate="maxMonth"
-                  :minDate="minMonth" inline/>
-        <SelectButton v-else-if="!searchTour" v-model="selectedRange" :options="ranges" aria-labelledby="basic"/>
+        <span>Range</span>
+        <SelectButton v-if="!searchTour" v-model="selectedRange" :options="ranges" aria-labelledby="basic"/>
         <div v-else>
           <div v-if="tourTiers.length >=1" class="mb-2">
             <span>tier</span>

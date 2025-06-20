@@ -52,7 +52,7 @@ async function queryTeams(page, row) {
   }
 
   if (route.query.range) {
-    url.searchParams.set('groupName', getTeamGroupName(route.query.range));
+    url.searchParams.set('groupName', route.query.range);
   }
 
   if (route.query.pokepaste) {
@@ -106,20 +106,6 @@ function getTeamTagFiled(teamTag) {
     case "Stall":
       return ["STAFF", "BALANCE_STAFF"];
   }
-}
-
-function getTeamGroupName(range) {
-  switch (range) {
-    case "Last 3 days":
-      return "last_3_days";
-    case "Last week":
-      return "last_7_days";
-    case "Last month":
-      return "last_30_days";
-    case "Last 3 months":
-      return "last_90_days";
-  }
-  return range;
 }
 
 function getSort() {

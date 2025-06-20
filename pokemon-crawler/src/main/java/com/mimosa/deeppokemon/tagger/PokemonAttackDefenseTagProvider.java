@@ -61,6 +61,11 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
     @Override
     public void tag(PokemonInfo pokemonInfo, PokemonBuildSet pokemonBuildSet, String format) {
         TagSetting tagSetting = tagSettingProvider.getTagSetting(format);
+        if (tagSetting == null) {
+            log.debug("can not get {} tag setting, use default setting", format);
+            tagSetting = tagSettingProvider.getTagSetting("gen9ou");
+        }
+
         if (tagSpecifyPokemon(pokemonInfo, pokemonBuildSet, tagSetting)) {
             log.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
             return;
@@ -233,7 +238,8 @@ public class PokemonAttackDefenseTagProvider implements PokemonTagProvider {
             AbilityValue abilityValue = tagSettingProvider.getAbilityValue(tagSetting, ability);
             if (abilityValue != null) {
                 maxDefLevel = Math.max(maxDefLevel, abilityValue.defValue().floatValue());
-            } else {                log.debug("Unknown ability:{}", ability);
+            } else {
+                log.debug("Unknown ability:{}", ability);
             }
         }
         return maxDefLevel;

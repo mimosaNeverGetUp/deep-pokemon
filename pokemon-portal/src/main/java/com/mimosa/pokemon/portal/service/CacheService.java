@@ -107,7 +107,7 @@ public class CacheService {
             PageResponse<PlayerRankDTO> players = playerService.rank(page, row, GEN_9_OU);
             for (var player : players.data()) {
                 playerService.queryPlayerLadderRank(player.getName(), GEN_9_OU);
-                battleService.listBattleByName(player.getName(), 0, 25, GEN_9_OU);
+                battleService.listBattleByName(player.getName(), 0, 25);
             }
         } catch (Exception e) {
             log.error("load rank and player fail", e);

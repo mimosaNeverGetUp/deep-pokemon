@@ -100,10 +100,9 @@ public class BattleService {
     }
 
     @Cacheable("playerBattle")
-    public PageResponse<BattleDto> listBattleByName(String playerName, int page, int row, String format) {
+    public PageResponse<BattleDto> listBattleByName(String playerName, int page, int row) {
         Criteria criteria = Criteria.where("players").is(playerName);
         Query query = new Query(criteria);
-        query.addCriteria(Criteria.where(FORMAT).is(format));
         query.collation(Collation.of("en").strength(2));
         long count = mongoTemplate.count(query, Battle.class);
         if (count == 0) {

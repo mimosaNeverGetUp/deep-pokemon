@@ -42,15 +42,16 @@ public class CrawLadderRunner {
     private static final Logger logger = LoggerFactory.getLogger(CrawLadderRunner.class);
 
     LadderCrawler ladderCrawler;
-
+    LadderCrawler gen9NdladderCrawler;
     BattleService battleService;
-
     LadderService ladderService;
 
     private static final Logger log = LoggerFactory.getLogger(CrawLadderRunner.class);
 
-    public CrawLadderRunner(LadderCrawler ladderCrawler, BattleService battleService, LadderService ladderService) {
+    public CrawLadderRunner(LadderCrawler ladderCrawler, @Qualifier("gen9NdLadderCrawler") LadderCrawler gen9NdladderCrawler,
+                            BattleService battleService, LadderService ladderService) {
         this.ladderCrawler = ladderCrawler;
+        this.gen9NdladderCrawler = gen9NdladderCrawler;
         this.battleService = battleService;
         this.ladderService = ladderService;
     }
@@ -60,12 +61,23 @@ public class CrawLadderRunner {
      */
     @EventListener(value = ApplicationReadyEvent.class)
     public void crawLadder() {
-        log.info("craw start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
+        log.info("craw gen9 ou start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
                 ladderCrawler.getFormat(), ladderCrawler.getPageLimit(), ladderCrawler.getRankMoreThan(),
                 ladderCrawler.getMinElo(), ladderCrawler.getMinGxe(), ladderCrawler.getDateAfter());
         try {
             ladderCrawler.crawLadder(true).crawFuture().join();
             battleService.updateTeam("gen9ou");
+        } catch (Exception e) {
+            logger.error("craw ladder exception", e);
+            Thread.currentThread().interrupt();
+        }
+
+        log.info("craw gen9 nd start: format:{} pageLimit:{} rankLimit:{} eloLimit:{} gxeLimit:{} dateLimit:{}",
+                gen9NdladderCrawler.getFormat(), gen9NdladderCrawler.getPageLimit(), gen9NdladderCrawler.getRankMoreThan(),
+                gen9NdladderCrawler.getMinElo(), gen9NdladderCrawler.getMinGxe(), gen9NdladderCrawler.getDateAfter());
+        try {
+            gen9NdladderCrawler.crawLadder(true).crawFuture().join();
+            battleService.updateTeam("gen9nationaldex");
         } catch (Exception e) {
             logger.error("craw ladder exception", e);
             Thread.currentThread().interrupt();

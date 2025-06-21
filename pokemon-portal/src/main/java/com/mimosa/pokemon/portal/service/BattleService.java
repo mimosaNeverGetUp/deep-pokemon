@@ -263,14 +263,26 @@ public class BattleService {
         }
 
         if (CollectionUtils.hasNotNullObject(pokemonNames)) {
-            List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
-            criteria.and("pokemons.name").all(puzzlePokemonNames);
+            if (isDetailChangeName(pokemonNames)) {
+                List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
+                criteria.and("pokemons.detailChange").all(puzzlePokemonNames);
+            } else {
+                List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
+                criteria.and("pokemons.name").all(puzzlePokemonNames);
+            }
         }
 
         if (pokepaste) {
             criteria.and(POKEPASTS).ne(List.of());
         }
         return criteria;
+    }
+
+    private boolean isDetailChangeName(List<String> pokemonNames) {
+        if(!CollectionUtils.hasNotNullObject(pokemonNames)){
+            return false;
+        }
+        return pokemonNames.stream().allMatch(pokemonName -> pokemonName.contains("-Mega"));
     }
 
     private List<String> getPuzzlePokemonNames(List<String> pokemonNames) {

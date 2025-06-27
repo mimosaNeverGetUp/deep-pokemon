@@ -23,12 +23,15 @@ public class BattleApiController {
 
     private final LadderCrawler ladderCrawler;
     private final LadderCrawler gen9NdladderCrawler;
+    private final LadderCrawler gen9UUladderCrawler;
 
     public BattleApiController(BattleService battleService, LadderCrawler ladderCrawler,
-                               @Qualifier("gen9NdLadderCrawler") LadderCrawler gen9NdladderCrawler) {
+                               @Qualifier("gen9NdLadderCrawler") LadderCrawler gen9NdladderCrawler,
+                               @Qualifier("gen9UULadderCrawler") LadderCrawler gen9UUladderCrawler) {
         this.battleService = battleService;
         this.ladderCrawler = ladderCrawler;
         this.gen9NdladderCrawler = gen9NdladderCrawler;
+        this.gen9UUladderCrawler = gen9UUladderCrawler;
     }
 
     @GetMapping("/battle/{battleid}")
@@ -45,6 +48,8 @@ public class BattleApiController {
     public String crawLadder(@RequestParam String format) {
         if (StringUtils.equals("gen9nationaldex", format)) {
             gen9NdladderCrawler.crawLadder(true);
+        } else if (StringUtils.equals("gen9uu", format)) {
+            gen9UUladderCrawler.crawLadder(true);
         } else {
             ladderCrawler.crawLadder(true);
         }

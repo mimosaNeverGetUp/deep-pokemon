@@ -1,5 +1,5 @@
 {
-  "format": "gen9nationaldex",
+  "format": "gen9uu",
   "bulk_def_threshold": 4.25,
   "good_def_threshold": 3.5,
   "bulk_atk_threshold": 4.25,
@@ -374,12 +374,12 @@
       "moves": [
         "Swords Dance",
         "Dragon Dance",
-        "Shift Gear",
         "Shell Smash",
         "Nasty Plot",
         "Tail Glow",
         "Quiver Dance",
         "Tidy Up",
+        "Shift Gear",
         "Clangorous Soul"
       ],
       "def_value": 0.0,
@@ -1333,30 +1333,10 @@
               "operator": "and",
               "set": [
                 {
-                  "move": [
-                    "Roost"
-                  ],
+                  "move": [],
                   "item": [
-                    "Scizorite"
-                  ],
-                  "type": "in"
-                }
-              ]
-            }
-          ],
-          "tag": "defense_bulk_set"
-        },
-        {
-          "condition": [
-            {
-              "operator": "and",
-              "set": [
-                {
-                  "move": [
-                    "Swords Dance"
-                  ],
-                  "item": [
-                    "Scizorite"
+                    "Heavy-Duty Boots",
+                    "Leftovers"
                   ],
                   "type": "in"
                 }
@@ -1364,23 +1344,6 @@
             }
           ],
           "tag": "attack_mix_set"
-        },
-        {
-          "condition": [
-            {
-              "operator": "and",
-              "set": [
-                {
-                  "move": [],
-                  "item": [
-                    "Scizorite"
-                  ],
-                  "type": "in"
-                }
-              ]
-            }
-          ],
-          "tag": "defense_bulk_set"
         }
       ]
     },
@@ -1443,39 +1406,7 @@
       ],
       "rules": [
         {
-          "condition": [
-            {
-              "operator": "and",
-              "set": [
-                {
-                  "move": [
-                    "Roost"
-                  ],
-                  "item": [
-                    "Latiosite"
-                  ],
-                  "type": "in"
-                }
-              ]
-            }
-          ],
-          "tag": "attack_bulk_set"
-        },
-        {
-          "condition": [
-            {
-              "operator": "and",
-              "set": [
-                {
-                  "move": [],
-                  "item": [
-                    "Latiosite"
-                  ],
-                  "type": "in"
-                }
-              ]
-            }
-          ],
+          "condition": [],
           "tag": "attack_mix_set"
         }
       ]
@@ -1491,12 +1422,10 @@
               "operator": "and",
               "set": [
                 {
-                  "move": [],
-                  "item": [
-                    "Flyinium Z",
-                    "Firium Z",
-                    "Fightinium Z"
+                  "move": [
+                    "Nasty Plot"
                   ],
+                  "item": [],
                   "type": "in"
                 }
               ]
@@ -1505,28 +1434,34 @@
           "tag": "attack_mix_set"
         },
         {
+          "condition": [],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Deoxys-Speed"
+      ],
+      "rules": [
+        {
           "condition": [
             {
               "operator": "and",
               "set": [
                 {
-                  "move": [
-                    "Taunt"
+                  "move": [],
+                  "item": [
+                    "Rocky Helmet",
+                    "Red Card",
+                    "Light Clay"
                   ],
-                  "item": [],
                   "type": "in"
-                },
-                {
-                  "move": [
-                    "Nasty Plot"
-                  ],
-                  "item": [],
-                  "type": "not in"
                 }
               ]
             }
           ],
-          "tag": "defense_mix_set"
+          "tag": "attack_mix_set"
         }
       ]
     },
@@ -1641,7 +1576,9 @@
                 {
                   "move": [],
                   "item": [
-                    "Leftovers"
+                    "Leftovers",
+                    "Heavy-Duty Boots",
+                    "Assault Vest"
                   ],
                   "type": "in"
                 }
@@ -1834,6 +1771,29 @@
     {
       "names": [
         "Keldeo"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },{
+      "names": [
+        "Conkeldurr"
       ],
       "rules": [
         {

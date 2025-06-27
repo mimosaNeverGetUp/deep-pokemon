@@ -65,6 +65,12 @@ public class PokemonCrawlerApplication {
                 200, 1750, LocalDate.now().minusMonths(1), 60.0f);
     }
 
+    @Bean(name = "gen9UULadderCrawler")
+    LadderCrawler gen9UUCrawler() {
+        return new LadderCrawler("gen9uu", 1,
+                450, 1500, LocalDate.now().minusMonths(3), 60.0f);
+    }
+
     /**
      * graalvm runtime hint
      */

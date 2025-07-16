@@ -12,9 +12,11 @@ import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.ReplaySource;
 import com.mimosa.deeppokemon.entity.SmogonTourReplay;
 import com.mimosa.deeppokemon.entity.tour.TourPlayer;
+import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,10 +43,12 @@ public class SmogonTourReplayProvider implements ReplayProvider {
             Pattern.compile("(.+)" + Pattern.quote("[") + "(.+)" + Pattern.quote("]"));
     protected static final String VS = "vs.";
     protected static final String SUFFIX_TB = " TB";
+    protected static final String TB = "TB";
     protected static final String THREAD_REPLAY_STAGE_CLASS = "div.bbWrapper";
     protected static final String GEN_9_OU = "gen9ou";
     protected static final String PLAYER_ID_FORMAT = "%s_%s_%s";
     protected static final String SUFFIX_TIEBREAKER = " Tiebreaker";
+    protected static final String TIEBREAKER = "Tiebreaker";
 
     private boolean initialized = false;
     private final String tourName;
@@ -92,8 +96,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
             String stageTitle = "";
 
             for (Element stage : stages) {
-                Elements aElements = stage.select("a");
-                List<Replay> replays = extractReplays(aElements, existBattleIds);
+                List<Replay> replays = extractReplays(stage, existBattleIds);
                 if (replays.isEmpty()) {
                     continue;
                 }
@@ -112,7 +115,7 @@ public class SmogonTourReplayProvider implements ReplayProvider {
 
                 for (Replay replay : replays) {
                     SmogonTourReplay tourReplay = (SmogonTourReplay) replay;
-                    tourReplay.setStage(stageTitle);
+                    tourReplay.setStage(getStageTitle(stageTitle, tourReplay));
                     if (winPlayerExtractor != null) {
                         tourReplay.setWinPlayer(winPlayerExtractor.getWinSmogonPlayer(stageTitle,
                                 tourReplay.getTourPlayers()));
@@ -123,6 +126,13 @@ public class SmogonTourReplayProvider implements ReplayProvider {
         } catch (IOException e) {
             log.error("extract replay thread fail", e);
         }
+    }
+
+    private String getStageTitle(String stageTitle, SmogonTourReplay smogonTourReplay) {
+        if (smogonTourReplay.isTierBreaker() && !stageTitle.endsWith(TB)) {
+            return String.format("%s TB", stageTitle);
+        }
+        return stageTitle;
     }
 
     private List<Replay> filterUUReplay(List<Replay> replays, Element stage) {
@@ -175,14 +185,15 @@ public class SmogonTourReplayProvider implements ReplayProvider {
         return uuBattleMatch;
     }
 
-    private List<Replay> extractReplays(Elements aElements, Set<String> existBattleIds) {
+    private List<Replay> extractReplays(Element stage, Set<String> existBattleIds) {
         List<Replay> replays = new ArrayList<>();
-        for (Element aElement : aElements) {
-            String replay = aElement.attr("abs:href");
+        int tbIndex = getTBIndex(stage);
+        for (Element element : stage.select("a")) {
+            String replay = element.attr("abs:href");
             if (replay.contains(REPLAY_POKEMONSHOWDOWN_COM) && replay.contains(format)) {
                 String id = extractBattleId(replay);
                 if (existBattleIds.add(id)) {
-                    String replayText = aElement.ownText();
+                    String replayText = element.ownText();
                     List<TourPlayer> tourPlayers = getPlayersByReplayText(replayText);
                     if (tourPlayers.isEmpty()) {
                         log.error("can not find player of replay {}, ignore", id);
@@ -192,11 +203,21 @@ public class SmogonTourReplayProvider implements ReplayProvider {
                     SmogonTourReplay smogonTourReplay = new SmogonTourReplay(id);
                     smogonTourReplay.setTourName(tourName);
                     smogonTourReplay.setTourPlayers(tourPlayers);
+                    smogonTourReplay.setTierBreaker(element.siblingIndex() > tbIndex);
                     replays.add(smogonTourReplay);
                 }
             }
         }
         return replays;
+    }
+
+    private int getTBIndex(Element stage) {
+        for (TextNode textNode : stage.textNodes()) {
+            if (textNode.text().contains(TIEBREAKER)) {
+                return textNode.siblingIndex();
+            }
+        }
+        return Integer.MAX_VALUE;
     }
 
     private List<TourPlayer> getPlayersByReplayText(String replayText) {
@@ -274,6 +295,9 @@ public class SmogonTourReplayProvider implements ReplayProvider {
         for (Element element : replayContent.getAllElements()) {
             String text = element.ownText();
             if ((text.endsWith(SUFFIX_TB) || text.endsWith(SUFFIX_TIEBREAKER)) && !element.is("a")) {
+                return true;
+            }
+            if (element.is("b") && StringUtils.equals(TB, text) && !element.select("b").isEmpty()) {
                 return true;
             }
         }

@@ -19,10 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.server.ServerErrorException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,22 +34,31 @@ public class SmogonTourWinPlayerExtractor {
     private static final Pattern DID_NOT_PLAYER_PATTERN =
             Pattern.compile("Did Not Play: (.*)" + Pattern.quote("*"));
     private static final Pattern TB_URL_PATTERN =
-            Pattern.compile("(" + Pattern.quote("-tb-") + "|" + Pattern.quote("-tiebreaker-post-") + ")" + "(\\d+)" + Pattern.quote("."));
+            Pattern.compile("(" + Pattern.quote("-tb-") + "|" + Pattern.quote("-tb-at-") + "|" + Pattern.quote(
+                    "-tiebreaker-post-") + "|" + Pattern.quote("-tiebreak-") + ")" + "(\\d+)" + "("
+                    + Pattern.quote("-") + "(\\d+)" + "|" + Pattern.quote(".") + ")");
     private static final Pattern ROUND_2_URL_PATTERN =
-            Pattern.compile(Pattern.quote("round-2-") + "(\\d+)" + Pattern.quote("."));
+            Pattern.compile("(" + Pattern.quote("round-2-") + "|" + Pattern.quote("-r2-") + ")" + "(\\d+)" + Pattern.quote("."));
 
     private String tourForumsUrl;
     private String tourName;
     private List<String> threadSuffixStages;
     private final Map<String, Map<BattleMatch, String>> battleWinMap;
+    private Set<String> tourHostName;
     private boolean init = false;
 
 
     public SmogonTourWinPlayerExtractor(String tourForumsUrl, String tourName, List<String> threadSuffixStages) {
+        this(tourForumsUrl, tourName, threadSuffixStages, new HashSet<>());
+    }
+
+    public SmogonTourWinPlayerExtractor(String tourForumsUrl, String tourName, List<String> threadSuffixStages,
+                                        Set<String> tourHostName) {
         this.tourForumsUrl = tourForumsUrl;
         this.tourName = tourName;
         this.threadSuffixStages = threadSuffixStages;
         this.battleWinMap = new HashMap<>();
+        this.tourHostName = tourHostName;
     }
 
     public TourPlayer getWinSmogonPlayer(String stage, List<TourPlayer> tourPlayers) {
@@ -119,11 +125,15 @@ public class SmogonTourWinPlayerExtractor {
         if (matcher.find()) {
             int tbFloor = Integer.parseInt(matcher.group(2));
             extractMoreBattleMatchUpInMatchThread(absoluteUrl, String.format("%s TB", threadSuffixStage), tbFloor);
+            if (matcher.groupCount() >= 4 && matcher.group(4) != null) {
+                int tbSecondFloor = Integer.parseInt(matcher.group(4));
+                extractMoreBattleMatchUpInMatchThread(absoluteUrl, String.format("%s TB", threadSuffixStage), tbSecondFloor);
+            }
         }
 
         matcher = ROUND_2_URL_PATTERN.matcher(relativeUrl);
         if (matcher.find()) {
-            int tbFloor = Integer.parseInt(matcher.group(1));
+            int tbFloor = Integer.parseInt(matcher.group(2));
             extractMoreBattleMatchUpInMatchThread(absoluteUrl, String.format("%s Round 2", threadSuffixStage), tbFloor);
         }
     }
@@ -146,7 +156,13 @@ public class SmogonTourWinPlayerExtractor {
                     log.error("can no find pair in url {}", tbPageUrl);
                     throw new ServerErrorException("can no find battle pair in match thread" + tbPageUrl, null);
                 }
-                battleWinMap.put(stage, battleWinner);
+                if (!battleWinMap.containsKey(stage)) {
+                    battleWinMap.put(stage, battleWinner);
+                } else {
+                    Map<BattleMatch, String> existBattleWinner = battleWinMap.get(stage);
+                    existBattleWinner.putAll(battleWinner);
+                    battleWinMap.put(stage, existBattleWinner);
+                }
             }
         }
     }
@@ -213,7 +229,7 @@ public class SmogonTourWinPlayerExtractor {
         }
 
         String playerName = href.text();
-        return !didNotPlayers.contains(playerName);
+        return !didNotPlayers.contains(playerName) && !tourHostName.contains(playerName);
     }
 
     private List<String> getDidNotPlay(Element matchDoc) {

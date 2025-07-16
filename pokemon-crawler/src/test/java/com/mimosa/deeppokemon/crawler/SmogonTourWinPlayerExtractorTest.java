@@ -20,9 +20,13 @@ import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootTest
 class SmogonTourWinPlayerExtractorTest {
+    private static final Set<String> WCOP_2025_TOUR_HOST_NAME = Set.of("ken", "Vertigo", "Syrinix", "UT", "goldmason",
+            "mimi", "Larry");
+
     @Value("classpath:api/WcopForum.html")
     private Resource forumsResource;
 
@@ -40,6 +44,33 @@ class SmogonTourWinPlayerExtractorTest {
 
     @Value("classpath:api/2024WcopRound1.html")
     private Resource round1Resource;
+
+    @Value("classpath:api/2025WcopQualifiers.html")
+    private Resource wcop2025QualifiersResource;
+
+    @Value("classpath:api/2025WcopQualifiersPage12.html")
+    private Resource wcop2025QualifiersPage12Resource;
+
+    @Value("classpath:api/2025WcopQualifiersPage14.html")
+    private Resource wcop2025QualifiersPage14Resource;
+
+    @Value("classpath:api/2025WcopQualifiersPage15.html")
+    private Resource wcop2025QualifiersPage15Resource;
+
+    @Value("classpath:api/2025WcopRound1.html")
+    private Resource wcop2025Round1Resource;
+
+    @Value("classpath:api/2025WcopRound1Page17.html")
+    private Resource wcop2025Round1Page17Resource;
+
+    @Value("classpath:api/2025WcopQuarterfinals.html")
+    private Resource wcop2025QuarterfinalsResource;
+
+    @Value("classpath:api/2025WcopQuarterfinalsPage4.html")
+    private Resource wcop2025QuarterfinalsPage4Resource;
+
+    @Value("classpath:api/2025WcopSemifinals.html")
+    private Resource wcop2025SemifinalsResource;
 
     @Value("classpath:api/OltForum.html")
     private Resource oltForumsResource;
@@ -223,4 +254,114 @@ class SmogonTourWinPlayerExtractorTest {
         }
     }
 
+
+    @Test
+    void getWCoP2025QualifiersWinSmogonPlayer() throws IOException {
+        String tourForumsUrl = "http1s://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
+        Document forumDoc = Jsoup.parse(forumsResource.getFile());
+        Document qualifiersDoc = Jsoup.parse(wcop2025QualifiersResource.getFile());
+        Document qualifiersPage12Doc = Jsoup.parse(wcop2025QualifiersPage12Resource.getFile());
+        Document qualifiersPage14Doc = Jsoup.parse(wcop2025QualifiersPage14Resource.getFile());
+        Document qualifiersPage15Doc = Jsoup.parse(wcop2025QualifiersPage15Resource.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(forumDoc, qualifiersDoc, qualifiersPage12Doc,
+                    qualifiersPage14Doc, qualifiersPage15Doc);
+
+            SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "The World Cup " +
+                    "of Pokémon 2025", List.of("Qualifiers"), WCOP_2025_TOUR_HOST_NAME);
+
+            assertWinner(extractor, "Qualifiers Round 2", "stareal", "luisin", "stareal");
+            assertWinner(extractor, "Qualifiers Round 2", "xavgb", "ikaishi", "xavgb");
+            assertWinner(extractor, "Qualifiers Round 2", "jj09lie", "ivar57", "ivar57");
+            assertWinner(extractor, "Qualifiers", "acr1", "asmiredx", "acr1");
+            assertWinner(extractor, "Qualifiers", "astoria", "kevman", "astoria");
+            assertWinner(extractor, "Qualifiers", "storm zone", "adpg.2007", "storm zone");
+            assertWinner(extractor, "Qualifiers", "maxisc23", "jyusaan", "maxisc23");
+            assertWinner(extractor, "Qualifiers", "kaif", "someone random", "kaif");
+            assertWinner(extractor, "Qualifiers TB", "jj09lie", "xavgb", "xavgb");
+            assertWinner(extractor, "Qualifiers TB", "justfranco", "xavgb", "justfranco");
+        }
+    }
+
+    @Test
+    void getWCoP2025Round1WinSmogonPlayer() throws IOException {
+        String tourForumsUrl = "http1s://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
+        Document forumDoc = Jsoup.parse(forumsResource.getFile());
+        Document round1Doc = Jsoup.parse(wcop2025Round1Resource.getFile());
+        Document round1Page17Doc = Jsoup.parse(wcop2025Round1Page17Resource.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(forumDoc, round1Doc, round1Page17Doc);
+
+            SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "The World Cup " +
+                    "of Pokémon 2025", List.of("Round 1"), WCOP_2025_TOUR_HOST_NAME);
+
+            assertWinner(extractor, "Round 1 TB", "piyu", "separation", "separation");
+            assertWinner(extractor, "Round 1 TB", "hiko", "ewin", "hiko");
+            assertWinner(extractor, "Round 1 TB", "ox the fox", "avarice", "ox the fox");
+            assertWinner(extractor, "Round 1", "ash ketchumgamer", "maverick shooters", "ash ketchumgamer");
+            assertWinner(extractor, "Round 1", "acr1", "terribleplayer17", "acr1");
+            assertWinner(extractor, "Round 1", "s1nn0hc0nfirm3d", "leng loi", "leng loi");
+            assertWinner(extractor, "Round 1", "axzel", "star", "axzel");
+            assertWinner(extractor, "Round 1", "lza", "fish anemometer", "lza");
+            assertWinner(extractor, "Round 1", "elodin", "maxisc23", "elodin");
+            assertWinner(extractor, "Round 1", "freezai", "mister mclovin", "freezai");
+            assertWinner(extractor, "Round 1", "separation", "gxe", "gxe");
+            assertWinner(extractor, "Round 1", "suzuya", "chaitanya", "suzuya");
+            assertWinner(extractor, "Round 1", "myjava", "bhkg", "bhkg");
+            assertWinner(extractor, "Round 1", "pawchete", "xuwu", "xuwu");
+            assertWinner(extractor, "Round 1", "piyu", "alhen", "piyu");
+            assertWinner(extractor, "Round 1", "ewin", "chansey and lulu", "ewin");
+            assertWinner(extractor, "Round 1", "juyenfun", "chaos23333", "juyenfun");
+        }
+    }
+
+    @Test
+    void getQuarterFinalsWinSmogonPlayer() throws IOException {
+        String tourForumsUrl = "http1s://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
+        Document forumDoc = Jsoup.parse(forumsResource.getFile());
+        Document semiFinalDoc = Jsoup.parse(wcop2025QuarterfinalsResource.getFile());
+        Document semiFinalPage4Doc = Jsoup.parse(wcop2025QuarterfinalsPage4Resource.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(forumDoc, semiFinalDoc, semiFinalPage4Doc);
+
+            SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "The World Cup of Pokémon 2025",
+                    List.of("Quarterfinals"));
+
+            assertWinner(extractor, "Quarterfinals", "fusien", "myjava", "fusien");
+            assertWinner(extractor, "Quarterfinals", "z0mog", "ipf", "ipf");
+            assertWinner(extractor, "Quarterfinals", "tricking", "hiko", "tricking");
+            assertWinner(extractor, "Quarterfinals", "suzuya", "blunder", "blunder");
+            assertWinner(extractor, "Quarterfinals TB", "santu", "ayk", "santu");
+        }
+    }
+
+    @Test
+    void getSemiFinalsWinSmogonPlayer() throws IOException {
+        String tourForumsUrl = "http1s://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
+        Document forumDoc = Jsoup.parse(forumsResource.getFile());
+        Document semiFinalDoc = Jsoup.parse(wcop2025SemifinalsResource.getFile());
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.when(connection.get()).thenReturn(forumDoc, semiFinalDoc);
+
+            SmogonTourWinPlayerExtractor extractor = new SmogonTourWinPlayerExtractor(tourForumsUrl, "The World Cup of Pokémon 2025",
+                    List.of("Semifinals"));
+
+            assertWinner(extractor, "Semifinals", "attribute", "lax", "lax");
+            assertWinner(extractor, "Semifinals", "emforbes", "blunder", "emforbes");
+            assertWinner(extractor, "Semifinals", "tricking", "mako", "tricking");
+            assertWinner(extractor, "Semifinals", "raiza", "mendeez", "mendeez");
+        }
+    }
 }

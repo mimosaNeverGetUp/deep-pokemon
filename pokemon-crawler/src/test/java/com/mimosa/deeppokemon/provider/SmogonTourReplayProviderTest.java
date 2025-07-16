@@ -33,6 +33,9 @@ class SmogonTourReplayProviderTest {
     @Value("classpath:api/2024WcopReplay.html")
     private Resource replayDocument;
 
+    @Value("classpath:api/2025WcopReplay.html")
+    private Resource wcop2025replayDocument;
+
     @Value("classpath:api/2024SplReplay.html")
     private Resource splReplayDocument;
 
@@ -89,6 +92,62 @@ class SmogonTourReplayProviderTest {
             assertTrue(entry.getValue());
         }
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"gen9ou", "gen8ou"})
+    void Wcop2025(String format) throws IOException {
+        String replayThreadUrl = "http1s://www.smogon" +
+                ".com/forums/threads/the-world-cup-of-pok%C3%A9mon-2024-replays.3742226/";
+        List<String> stageTitles = List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Quarterfinals", "Semifinals", "Finals");
+
+        Document document = Jsoup.parse(wcop2025replayDocument.getFile());
+        SmogonTourReplayProvider smogonTourReplayProvider;
+
+        try (var mockJsoup = Mockito.mockStatic(Jsoup.class)) {
+            Connection connection = Mockito.mock(Connection.class);
+            mockJsoup.when(() -> Jsoup.connect(Mockito.any())).thenReturn(connection);
+            Mockito.doAnswer(InvocationOnMock::getMock).when(connection).timeout(Mockito.anyInt());
+            Mockito.doReturn(document).when(connection).get();
+            SmogonTourWinPlayerExtractor winPlayerExtractor = Mockito.mock(SmogonTourWinPlayerExtractor.class);
+            Mockito.doReturn(new TourPlayer("a", null, null)).when(winPlayerExtractor)
+                    .getWinSmogonPlayer(Mockito.any(), Mockito.anyList());
+
+            smogonTourReplayProvider = new SmogonTourReplayProvider("WCOP2025", replayThreadUrl,
+                    format, stageTitles, winPlayerExtractor);
+            assertTrue(smogonTourReplayProvider.hasNext());
+        }
+        List<String> exceptStageTitles = format.equals("gen9ou") ?
+                List.of("Qualifiers", "Qualifiers TB", "Qualifiers Round 2", "Round 1", "Round 1 TB", "Quarterfinals", "Semifinals")
+                : List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Round 1 TB", "Quarterfinals", "Quarterfinals TB", "Semifinals");
+        Map<String, Boolean> stageMap = new HashMap<>();
+        for (String exceptStageTitle : exceptStageTitles) {
+            stageMap.put(exceptStageTitle, false);
+        }
+        while (smogonTourReplayProvider.hasNext()) {
+            List<Replay> replays = smogonTourReplayProvider.next().replayList();
+            for (Replay replay : replays) {
+                SmogonTourReplay smogonTourReplay = (SmogonTourReplay) replay;
+                stageMap.put(smogonTourReplay.getStage(), true);
+                assertNotNull(smogonTourReplay.getTourName());
+                assertNotNull(smogonTourReplay.getTourPlayers());
+                assertNotNull(smogonTourReplay.getId());
+                assertNotNull(smogonTourReplay.getWinPlayer());
+                for (var player : smogonTourReplay.getTourPlayers()) {
+                    assertNotNull(player.getName());
+                    assertNotNull(player.getTourPlayerId());
+                    assertEquals(player.getName(), player.getName().trim().toLowerCase());
+                }
+            }
+        }
+        assertEquals(exceptStageTitles.size(), stageMap.size());
+        for (var entry : stageMap.entrySet()) {
+            if (entry.getKey().equals("Round 1 TB") && !format.equals("gen9ou")) {
+                continue;
+            }
+            assertTrue(entry.getValue());
+        }
+    }
+
     @ParameterizedTest
     @CsvSource(value = {"gen9ou", "gen8ou"})
     void SplXv(String format) throws IOException {

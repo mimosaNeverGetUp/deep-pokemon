@@ -15,6 +15,7 @@ public class SmogonTourReplay extends Replay{
     protected String stage;
     protected List<TourPlayer> tourPlayers;
     protected TourPlayer winPlayer;
+    protected boolean isTierBreaker;
 
     public SmogonTourReplay() {
         super();
@@ -54,5 +55,13 @@ public class SmogonTourReplay extends Replay{
 
     public void setWinPlayer(TourPlayer winPlayer) {
         this.winPlayer = winPlayer;
+    }
+
+    public boolean isTierBreaker() {
+        return isTierBreaker;
+    }
+
+    public void setTierBreaker(boolean tierBreaker) {
+        isTierBreaker = tierBreaker;
     }
 }

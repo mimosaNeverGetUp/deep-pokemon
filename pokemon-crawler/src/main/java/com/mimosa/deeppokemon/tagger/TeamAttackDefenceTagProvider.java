@@ -31,7 +31,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -39,12 +38,13 @@ import java.util.Set;
 public class TeamAttackDefenceTagProvider implements TeamTagProvider {
     private static final Logger logger = LoggerFactory.getLogger(TeamAttackDefenceTagProvider.class);
 
-    private final List<PokemonAttackDefenseTagProvider> pokemonAttackDefenseTagProviders;
+    private final PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider;
 
     private final PokemonInfoCrawlerImp pokemonInfoCrawlerImp;
 
-    public TeamAttackDefenceTagProvider(List<PokemonAttackDefenseTagProvider> pokemonAttackDefenseTagProviders, PokemonInfoCrawlerImp pokemonInfoCrawlerImp) {
-        this.pokemonAttackDefenseTagProviders = pokemonAttackDefenseTagProviders;
+
+    public TeamAttackDefenceTagProvider(PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider, PokemonInfoCrawlerImp pokemonInfoCrawlerImp) {
+        this.pokemonAttackDefenseTagProvider = pokemonAttackDefenseTagProvider;
         this.pokemonInfoCrawlerImp = pokemonInfoCrawlerImp;
     }
 
@@ -67,11 +67,8 @@ public class TeamAttackDefenceTagProvider implements TeamTagProvider {
                     logger.error("pokemoninfo {} not found and team tag fail", pokemon.getName());
                     return;
                 }
-                for (PokemonAttackDefenseTagProvider pokemonAttackDefenseTagProvider : pokemonAttackDefenseTagProviders) {
-                    if (pokemonAttackDefenseTagProvider.supportTag(team.getTier())) {
-                        pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSetMap.get(pokemon.getName()));
-                    }
-                }
+                pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSetMap.get(pokemon.getName()),
+                        team.getTier());
                 logger.debug("pokemon {} tag {}", pokemonInfo.getName(), pokemonInfo.getTags());
 
                 //手动神经元，加权求和大于阈值进行分类...

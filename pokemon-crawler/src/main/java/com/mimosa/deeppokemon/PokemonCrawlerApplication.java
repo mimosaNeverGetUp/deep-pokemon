@@ -59,6 +59,17 @@ public class PokemonCrawlerApplication {
                 200, 1750, LocalDate.now().minusMonths(1), 60.0f);
     }
 
+    @Bean(name = "gen9NdLadderCrawler")
+    LadderCrawler gen9NdCrawler() {
+        return new LadderCrawler("gen9nationaldex", 1,
+                200, 1750, LocalDate.now().minusMonths(1), 60.0f);
+    }
+
+    @Bean(name = "gen9UULadderCrawler")
+    LadderCrawler gen9UUCrawler() {
+        return new LadderCrawler("gen9uu", 1,
+                450, 1500, LocalDate.now().minusMonths(3), 60.0f);
+    }
 
     /**
      * graalvm runtime hint
@@ -75,9 +86,13 @@ public class PokemonCrawlerApplication {
                                     TreeSet.class,
                                     ConcurrentHashMap.class,
                                     LinkedHashMap.class,
+                                    Double.class,
                                     TreeMap.class,
                                     Replay.class),
                             TypeHint.builtWith(INVOKE_PUBLIC_CONSTRUCTORS, INVOKE_PUBLIC_METHODS));
+            hints.resources().registerPattern("tagSetting/gen8ou.json");
+            hints.resources().registerPattern("tagSetting/gen9ou.json");
+            hints.resources().registerPattern("tagSetting/gen9nationaldex.json");
             hints.resources().registerPattern("tourReplay/");
             hints.resources().registerPattern("tourReplay/oupl.csv");
             hints.resources().registerPattern("tourReplay/splxvi.csv");

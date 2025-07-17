@@ -27,7 +27,7 @@ import java.util.Set;
 @SpringBootTest
 class Gen8OUPokemonAttackDefenseTagProviderTest {
     @Autowired
-    private Gen8OUPokemonAttackDefenseTagProvider tagProvider;
+    private PokemonAttackDefenseTagProvider tagProvider;
 
     @Autowired
     private PokemonInfoCrawler pokemonInfoCrawler;
@@ -39,12 +39,10 @@ class Gen8OUPokemonAttackDefenseTagProviderTest {
     void test() throws IOException {
         Set<Tag> tagSet = Set.of(Tag.ATTACK_SET, Tag.DEFENSE_SET, Tag.DEFENSE_MIX_SET, Tag.DEFENSE_BULK_SET,
                 Tag.ATTACK_MIX_SET, Tag.ATTACK_BULK_SET, Tag.BALANCE_SET, Tag.BALANCE_BULK_SET);
-        Assertions.assertTrue(tagProvider.supportTag("gen8ou"));
-        Assertions.assertFalse(tagProvider.supportTag("gen9ou"));
         List<String> pokemons = Files.readAllLines(resource.getFile().toPath());
         for (String pokemon : pokemons) {
             PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(pokemon);
-            tagProvider.tag(pokemonInfo, null);
+            tagProvider.tag(pokemonInfo, null,"gen8ou");
             Assertions.assertEquals(1, pokemonInfo.getTags().size());
             Assertions.assertTrue(tagSet.contains(pokemonInfo.getTags().stream().findFirst().orElseThrow()));
         }
@@ -97,11 +95,11 @@ class Gen8OUPokemonAttackDefenseTagProviderTest {
         assertTag("Aegislash", Tag.ATTACK_MIX_SET, null);
         assertTag("Dracozolt", Tag.ATTACK_SET, null);
         assertTag("Cloyster", Tag.ATTACK_SET, null);
+        assertTag("Hoopa-Unbound", Tag.ATTACK_MIX_SET, null);
 
         assertTag("Landorus-Therian", Tag.DEFENSE_MIX_SET, buildSet("Landorus-Therian", "Rocky Helmet", ""));
         assertTag("Landorus-Therian", Tag.DEFENSE_MIX_SET, buildSet("Landorus-Therian", "Leftovers", ""));
         assertTag("Zapdos", Tag.DEFENSE_MIX_SET, buildSet("Zapdos", "Heavy-Duty Boots", "Roost"));
-        assertTag("Zapdos", Tag.ATTACK_MIX_SET, buildSet("Zapdos", "Heavy-Duty Boots", ""));
         assertTag("Zapdos", Tag.ATTACK_MIX_SET, buildSet("Zapdos", "Heavy-Duty Boots", ""));
 
         assertTag("Garchomp", Tag.DEFENSE_MIX_SET, buildSet("Garchomp", "Leftovers", ""));
@@ -185,13 +183,13 @@ class Gen8OUPokemonAttackDefenseTagProviderTest {
 
     public void assertTag(String name, Tag tag, PokemonBuildSet pokemonBuildSet) {
         PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(name);
-        tagProvider.tag(pokemonInfo, pokemonBuildSet);
+        tagProvider.tag(pokemonInfo, pokemonBuildSet,"gen8ou");
         Assertions.assertEquals(1, pokemonInfo.getTags().size());
         Assertions.assertTrue(pokemonInfo.getTags().contains(tag));
     }
 
     public PokemonBuildSet buildSet(String name, String item, String... moves) {
-        return new PokemonBuildSet(name, List.of(moves), null, Collections.singletonList(item), null);
+        return new PokemonBuildSet(name, List.of(moves), null, Collections.singletonList(item), null, null);
     }
 
 }

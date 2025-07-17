@@ -217,6 +217,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         pokemonBattleStat.setSwitchCount(pokemonBattleStat.getSwitchCount() + 1);
         // pokemon maybe is Regenerator ability, set health value
         if (healthDiff.compareTo(BigDecimal.ZERO) != 0) {
+            battleContext.setPokemonAbility(eventTarget.playerNumber(), pokemonName, "Regenerator");
             pokemonBattleStat.setHealthValue(pokemonBattleStat.getHealthValue().add(healthDiff));
 
             // pokemon which stand with switch pokemon in opponent also should set health value

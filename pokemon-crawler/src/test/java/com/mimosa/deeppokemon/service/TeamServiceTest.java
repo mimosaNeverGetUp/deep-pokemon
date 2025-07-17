@@ -63,11 +63,11 @@ class TeamServiceTest {
     @Test
     void buildTeamSet() {
         List<Pokemon> pokemonsA = Collections.singletonList(buildPokemon("Clefable", "Magic gurad", "Leftovers",
-                List.of("Stealth Rock"), "Steel"));
+                List.of("Stealth Rock"), "Steel",null));
         List<Pokemon> pokemonsB = Collections.singletonList(buildPokemon("Clefable", "Magic gurad", "Leftovers",
-                List.of("Stealth Rock", "MoonBlast"), null));
+                List.of("Stealth Rock", "MoonBlast"), null,null));
         List<Pokemon> pokemonsC = Collections.singletonList(buildPokemon("Clefable", "Unware", "Heavy-Duty Boots",
-                List.of("Stealth Rock", "Wish", "MoonBlast"), "Water"));
+                List.of("Stealth Rock", "Wish", "MoonBlast"), "Water","Clefable-mega"));
         BattleTeam battleTeamA = new BattleTeam("1", "1", "1".getBytes(), null, null,
                 0, null, "gen9ou", pokemonsA, null);
         battleTeamA.setTier("gen9ou");
@@ -95,6 +95,7 @@ class TeamServiceTest {
         assertEquals(3, pokemonBuildSet.moves().size());
         assertEquals("Stealth Rock", pokemonBuildSet.moves().get(0));
         assertEquals("MoonBlast", pokemonBuildSet.moves().get(1));
+        assertEquals("Clefable-mega", pokemonBuildSet.detailChange());
         assertEquals("Wish", pokemonBuildSet.moves().get(2));
         assertEquals(2, pokemonBuildSet.teraTypes().size());
         assertTrue(pokemonBuildSet.teraTypes().contains("Steel"));
@@ -111,12 +112,14 @@ class TeamServiceTest {
 
     }
 
-    private Pokemon buildPokemon(String name, String ability, String item, List<String> move, String tera) {
+    private Pokemon buildPokemon(String name, String ability, String item, List<String> move, String tera,
+                                 String detailChange) {
         Pokemon pokemon = new Pokemon(name);
         pokemon.setMoves(new HashSet<>(move));
         pokemon.setItem(item);
         pokemon.setTeraType(tera);
         pokemon.setAbility(ability);
+        pokemon.setDetailChange(detailChange);
         return pokemon;
     }
 }

@@ -49,10 +49,9 @@ class PokemonAttackDefenseTagProviderTest {
     void tag() throws Exception {
         Set<Tag> tagSet = Set.of(Tag.ATTACK_SET, Tag.DEFENSE_SET, Tag.DEFENSE_MIX_SET, Tag.DEFENSE_BULK_SET,
                 Tag.ATTACK_MIX_SET, Tag.ATTACK_BULK_SET, Tag.BALANCE_SET, Tag.BALANCE_BULK_SET);
-        Assertions.assertTrue(pokemonAttackDefenseTagProvider.supportTag("gen9ou"));
         List<PokemonInfo> pokemonInfoList = pokemonInfoCrawler.craw();
         for (PokemonInfo pokemonInfo : pokemonInfoList) {
-            pokemonAttackDefenseTagProvider.tag(pokemonInfo, null);
+            pokemonAttackDefenseTagProvider.tag(pokemonInfo, null,"gen9ou");
             Assertions.assertEquals(1, pokemonInfo.getTags().size());
             Assertions.assertTrue(tagSet.contains(pokemonInfo.getTags().stream().findFirst().orElseThrow()));
         }
@@ -167,12 +166,12 @@ class PokemonAttackDefenseTagProviderTest {
 
     public void assertTag(String name, Tag tag, PokemonBuildSet pokemonBuildSet) {
         PokemonInfo pokemonInfo = pokemonInfoCrawler.getPokemonInfo(name);
-        pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSet);
+        pokemonAttackDefenseTagProvider.tag(pokemonInfo, pokemonBuildSet,"gen9ou");
         Assertions.assertEquals(1, pokemonInfo.getTags().size());
         Assertions.assertTrue(pokemonInfo.getTags().contains(tag));
     }
 
     public PokemonBuildSet buildSet(String name, String item, String... moves) {
-        return new PokemonBuildSet(name, List.of(moves), null, Collections.singletonList(item), null);
+        return new PokemonBuildSet(name, List.of(moves), null, Collections.singletonList(item), null, null);
     }
 }

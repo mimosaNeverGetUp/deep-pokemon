@@ -15,10 +15,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
@@ -45,13 +42,15 @@ public class PlayerApiController {
     }
 
     @GetMapping("/rank")
-    public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) @Max(100) int row) {
-        return playerService.rank(page, row);
+    public PageResponse<PlayerRankDTO> rankList(@Min(0) int page, @Min(1) @Max(100) int row,
+                                                @RequestParam(value = "format", required = false, defaultValue = "gen9ou") String format) {
+        return playerService.rank(page, row, format);
     }
 
     @GetMapping("/player/{username}")
-    public PlayerRankDTO getPlayerRank(@PathVariable("username") @NotNull String name) {
-        return playerService.queryPlayerLadderRank(name);
+    public PlayerRankDTO getPlayerRank(@PathVariable("username") @NotNull String name, @RequestParam(value = "format",
+            required = false, defaultValue = "gen9ou") String format) {
+        return playerService.queryPlayerLadderRank(name, format);
     }
 
     @GetMapping("/player/{username}/battle")
@@ -62,7 +61,7 @@ public class PlayerApiController {
 
     @GetMapping("/tour/player/{username}/battle")
     public PageResponse<BattleDto> getTourPlayerBattleRecord(@PathVariable("username") @NotNull String name,
-                                                         @Min(0) int page, @Min(1) int row) {
+                                                             @Min(0) int page, @Min(1) int row) {
         return battleService.listTourBattle(name, page, row);
     }
 }

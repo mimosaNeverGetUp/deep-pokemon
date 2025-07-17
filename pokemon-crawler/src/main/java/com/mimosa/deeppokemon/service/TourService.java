@@ -46,12 +46,17 @@ public class TourService {
     protected static final String WCOP_2024 = "wcop_2024";
     protected static final String WCOP_2024_FULL_TOUR_NAME = "The World Cup of Pokémon 2024";
     protected static final String WCOP_2024_REPLAY_URL = "https://www.smogon.com/forums/threads/the-world-cup-of-pok%C3%A9mon-2024-replays.3742226/";
+    protected static final String WCOP_2025_FULL_TOUR_NAME = "The World Cup of Pokémon 2025";
+    protected static final String WCOP_2025 = "wcop_2025";
+    protected static final String WCOP_2025_REPLAY_URL = "https://www.smogon.com/forums/threads/the-world-cup-of-pok%C3%A9mon-2025-replays.3763185/";
+    private static final Set<String> WCOP_2025_TOUR_HOST_NAME = Set.of("ken", "Vertigo", "Syrinix", "UT", "goldmason",
+            "mimi", "Larry");
+
     protected static final String WCOP_FORUMS_URL = "https://www.smogon.com/forums/forums/world-cup-of-pokemon.234/";
     protected static final List<String> WCOP_FORUMS_THREAD_SUFFIX_STAGES =
             List.of("Qualifiers", "Round 1", "Quarterfinals", "Semifinals", "Finals");
     protected static final List<String> WCOP_REPLAY_STAGES =
             List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Quarterfinals", "Semifinals", "Finals");
-
 
     protected static final String OLT_XI = "olt_xi";
     protected static final String OLT_XI_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XI";
@@ -208,6 +213,15 @@ public class TourService {
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(WCOP_2024_FULL_TOUR_NAME, WCOP_2024_REPLAY_URL,
                 format, WCOP_REPLAY_STAGES, winPlayerExtractor);
         return crawTour(WCOP_2024_FULL_TOUR_NAME, WCOP_2024, format, provider);
+    }
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawWcop2025(String format) {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(WCOP_FORUMS_URL,
+                WCOP_2025_FULL_TOUR_NAME, WCOP_FORUMS_THREAD_SUFFIX_STAGES, WCOP_2025_TOUR_HOST_NAME);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(WCOP_2025_FULL_TOUR_NAME, WCOP_2025_REPLAY_URL,
+                format, WCOP_REPLAY_STAGES, winPlayerExtractor);
+        return crawTour(WCOP_2025_FULL_TOUR_NAME, WCOP_2025, format, provider);
     }
 
     @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)

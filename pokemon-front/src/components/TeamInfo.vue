@@ -18,6 +18,10 @@ const props = defineProps({
   teamId: {
     type: String,
     required: true
+  },
+  teamTier: {
+    type: String,
+    required: true
   }
 });
 
@@ -26,10 +30,10 @@ const teamInfo = ref()
 const loading = ref(true);
 const loadFail = ref(false);
 
-async function queryTeam(teamId) {
+async function queryTeam(teamId, teamTier) {
   loading.value = true;
   teamInfo.value = null
-  const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30`, {
+  const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30&format=${teamTier}`, {
         method: "GET"
       }
   )
@@ -126,10 +130,27 @@ function getPlayerUrl(data) {
   return `/player-record?name=${data.playerName}`;
 }
 
-queryTeam(props.teamId);
+function getPokemonAbilityText(pokemon, abilities) {
+  if (uniquePokemonAbility(pokemon)) {
+    return uniquePokemonAbility(pokemon);
+  }
+
+  return abilities?.length === 0 ? "???" : abilities[0];
+}
+
+function uniquePokemonAbility(pokemon) {
+  let abilities = Dex.forGen(9).species.get(pokemon)?.abilities;
+  if (abilities && Object.keys(abilities).length === 1) {
+    let abilityKey = Object.keys(abilities)[0];
+    return abilities[abilityKey];
+  }
+  return null;
+}
+
+queryTeam(props.teamId, props.teamTier);
 
 watch(() => props.teamId, async (newTeamId) => {
-  await queryTeam(newTeamId);
+  await queryTeam(newTeamId, props.teamTier);
 });
 </script>
 
@@ -150,7 +171,7 @@ watch(() => props.teamId, async (newTeamId) => {
                 </span>
               </div>
               <div>
-                {{ "Ability: ???" }}
+                {{ "Ability: " + getPokemonAbilityText(pokemon.name, pokemon.abilities) }}
               </div>
               <div class="flex items-center gap-1">
                 <span> {{ "Tera Type: " + (pokemon.teraTypes?.length === 0 ? "???" : pokemon.teraTypes[0]) }}</span>
@@ -172,6 +193,9 @@ watch(() => props.teamId, async (newTeamId) => {
               <p v-if="pokemon.teraTypes.length > 1" class="font-light">
                 {{ "Tera Type: " + pokemon.teraTypes.slice(1, pokemon.teraTypes.length) }}
               </p>
+              <p v-if="pokemon.abilities.length > 1" class="font-light">
+                {{ "Ability: " + pokemon.abilities.slice(1, pokemon.abilities.length) }}
+              </p>
               <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="font-light">
                 {{ "-" + move }}
               </p>
@@ -188,7 +212,7 @@ watch(() => props.teamId, async (newTeamId) => {
       <div class="flex items-center gap-1">
         <Team :team="similarTeam" :compact="true" :teamSet="similarTeam?.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
-           @click="queryTeam(similarTeam.id.data)"/>
+           @click="queryTeam(similarTeam.id.data, similarTeam.tier)"/>
         <a class="ml-2" target="_blank" v-if="similarTeam.pokepasts?.length > 0"
            v-for="pokepast in similarTeam.pokepasts"
            :href="pokepast.url">

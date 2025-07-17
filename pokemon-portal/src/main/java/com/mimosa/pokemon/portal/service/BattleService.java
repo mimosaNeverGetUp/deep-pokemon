@@ -89,6 +89,8 @@ public class BattleService {
     protected static final String POKEMON_SETS = "pokemonSets";
     protected static final String TOTAL = "total";
     protected static final String PLAYER_ICONS = "playerIcons";
+    protected static final String TIER = "tier";
+    protected static final String FORMAT = "format";
     private final MongoTemplate mongoTemplate;
     private final CrawlerApi crawlerApi;
 
@@ -152,9 +154,9 @@ public class BattleService {
         return new PageResponse<>(count, page, row, battles);
     }
 
-    public List<BattleTeam> listRecentTeam(String playerName) {
+    public List<BattleTeam> listRecentTeam(String playerName, String format) {
         Criteria criteria = Criteria.where("playerName").is(playerName)
-                .andOperator(Criteria.where("tier").in("gen9ou", "[Gen 9] OU"));
+                .andOperator(Criteria.where(TIER).in(format));
         Query query = new Query(criteria)
                 .with(Sort.by(Sort.Order.desc(BATTLE_DATE)))
                 .limit(2);
@@ -261,14 +263,26 @@ public class BattleService {
         }
 
         if (CollectionUtils.hasNotNullObject(pokemonNames)) {
-            List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
-            criteria.and("pokemons.name").all(puzzlePokemonNames);
+            if (isDetailChangeName(pokemonNames)) {
+                List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
+                criteria.and("pokemons.detailChange").all(puzzlePokemonNames);
+            } else {
+                List<String> puzzlePokemonNames = getPuzzlePokemonNames(pokemonNames);
+                criteria.and("pokemons.name").all(puzzlePokemonNames);
+            }
         }
 
         if (pokepaste) {
             criteria.and(POKEPASTS).ne(List.of());
         }
         return criteria;
+    }
+
+    private boolean isDetailChangeName(List<String> pokemonNames) {
+        if(!CollectionUtils.hasNotNullObject(pokemonNames)){
+            return false;
+        }
+        return pokemonNames.stream().allMatch(pokemonName -> pokemonName.contains("-Mega"));
     }
 
     private List<String> getPuzzlePokemonNames(List<String> pokemonNames) {
@@ -299,12 +313,21 @@ public class BattleService {
 
     @Cacheable("teamInfo")
     @RegisterReflectionForBinding({TourTeam.class, BattleTeam.class})
-    public TeamGroupDto searchTeam(Binary teamId, int replayLimit) {
+    public TeamGroupDto searchTeam(Binary teamId, int replayLimit, String format) {
         List<BattleTeam> teamList = new ArrayList<>();
-        Query ladderTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId)).with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
+        Query ladderTeamQuery =
+                new Query(Criteria.where(TEAM_ID).is(teamId));
+        if (format != null && !format.isEmpty()) {
+            ladderTeamQuery.addCriteria(Criteria.where(TIER).is(format));
+        }
+        ladderTeamQuery.with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
         ladderTeamQuery.limit(replayLimit);
         teamList.addAll(mongoTemplate.find(ladderTeamQuery, BattleTeam.class));
         Query tourTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId));
+        if (format != null && !format.isEmpty()) {
+            tourTeamQuery.addCriteria(Criteria.where(TIER).is(format));
+        }
+        tourTeamQuery.with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
         tourTeamQuery.limit(replayLimit);
         teamList.addAll(mongoTemplate.find(tourTeamQuery, TourTeam.class));
 
@@ -367,8 +390,9 @@ public class BattleService {
         Map<String, Map<String, Integer>> itemsMap = new HashMap<>();
         Map<String, Map<String, Integer>> abilityMap = new HashMap<>();
         Map<String, Map<String, Integer>> teraTypes = new HashMap<>();
+        Map<String, String> detailChangeMap = new HashMap<>();
         for (BattleTeam team : teams) {
-            countPokemonSet(team, moveMap, itemsMap, abilityMap, teraTypes);
+            countPokemonSet(team, moveMap, itemsMap, abilityMap, teraTypes, detailChangeMap);
         }
 
         List<PokemonBuildSet> pokemonBuildSets = new ArrayList<>();
@@ -376,7 +400,7 @@ public class BattleService {
             String pokemon = entrySet.getKey();
             pokemonBuildSets.add(new PokemonBuildSet(pokemon, descSortByValue(moveMap.get(pokemon)),
                     descSortByValue(abilityMap.get(pokemon)), descSortByValue(itemsMap.get(pokemon)),
-                    descSortByValue(teraTypes.get(pokemon))));
+                    descSortByValue(teraTypes.get(pokemon)), detailChangeMap.get(pokemon)));
         }
 
         LocalDateTime minReplayDate = teams.stream()
@@ -392,7 +416,8 @@ public class BattleService {
                                         Map<String, Map<String, Integer>> moveMap,
                                         Map<String, Map<String, Integer>> itemsMap,
                                         Map<String, Map<String, Integer>> abilityMap,
-                                        Map<String, Map<String, Integer>> teraTypes) {
+                                        Map<String, Map<String, Integer>> teraTypes,
+                                        Map<String, String> detailChangeMap) {
         for (Pokemon pokemon : team.getPokemons()) {
             if (!moveMap.containsKey(pokemon.getName())) {
                 moveMap.put(pokemon.getName(), new HashMap<>());
@@ -415,6 +440,10 @@ public class BattleService {
 
             for (String move : pokemon.getMoves()) {
                 moveMap.get(pokemon.getName()).merge(move.trim(), 1, Integer::sum);
+            }
+
+            if (pokemon.getDetailChange() != null) {
+                detailChangeMap.put(pokemon.getName(), pokemon.getDetailChange());
             }
         }
     }

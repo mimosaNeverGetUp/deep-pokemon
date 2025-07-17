@@ -10,6 +10,8 @@ import com.mimosa.deeppokemon.crawler.LadderCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.service.BattleService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -20,10 +22,16 @@ public class BattleApiController {
     private final BattleService battleService;
 
     private final LadderCrawler ladderCrawler;
+    private final LadderCrawler gen9NdladderCrawler;
+    private final LadderCrawler gen9UUladderCrawler;
 
-    public BattleApiController(BattleService battleService, LadderCrawler ladderCrawler) {
+    public BattleApiController(BattleService battleService, LadderCrawler ladderCrawler,
+                               @Qualifier("gen9NdLadderCrawler") LadderCrawler gen9NdladderCrawler,
+                               @Qualifier("gen9UULadderCrawler") LadderCrawler gen9UUladderCrawler) {
         this.battleService = battleService;
         this.ladderCrawler = ladderCrawler;
+        this.gen9NdladderCrawler = gen9NdladderCrawler;
+        this.gen9UUladderCrawler = gen9UUladderCrawler;
     }
 
     @GetMapping("/battle/{battleid}")
@@ -37,14 +45,20 @@ public class BattleApiController {
     }
 
     @PostMapping("/ladder/craw")
-    public String crawLadder() {
-        ladderCrawler.crawLadder(true);
+    public String crawLadder(@RequestParam String format) {
+        if (StringUtils.equals("gen9nationaldex", format)) {
+            gen9NdladderCrawler.crawLadder(true);
+        } else if (StringUtils.equals("gen9uu", format)) {
+            gen9UUladderCrawler.crawLadder(true);
+        } else {
+            ladderCrawler.crawLadder(true);
+        }
         return "success trigger";
     }
 
     @PostMapping("/team/update")
-    public String updateTeam() {
-        battleService.updateTeam();
+    public String updateTeam(@RequestParam String format) {
+        battleService.updateTeam(format);
         return "success";
     }
 

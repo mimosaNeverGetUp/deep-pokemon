@@ -36,6 +36,7 @@ import com.mimosa.deeppokemon.task.entity.CrawBattleFuture;
 import com.mongodb.bulk.BulkWriteError;
 import com.mongodb.bulk.BulkWriteInsert;
 import com.mongodb.bulk.BulkWriteResult;
+import org.apache.commons.lang.StringUtils;
 import org.bson.Document;
 import org.bson.types.Binary;
 import org.slf4j.Logger;
@@ -218,7 +219,7 @@ public class BattleService {
 
     public byte[] calTeamId(Collection<String> pokemons) {
         List<Pokemon> pokemonList = new ArrayList<>();
-        for(String pokemon : pokemons) {
+        for (String pokemon : pokemons) {
             pokemonList.add(new Pokemon(pokemon));
         }
         return calTeamId(pokemonList);
@@ -279,7 +280,7 @@ public class BattleService {
         List<Battle> battles = battleCrawler.craw(fixedReplayProvider.next());
         battleAnalyzer.analyze(battles);
 
-        return battles.isEmpty()? null: battles.get(0).getBattleStat();
+        return battles.isEmpty() ? null : battles.get(0).getBattleStat();
     }
 
     @RegisterReflectionForBinding(Battle.class)
@@ -287,7 +288,7 @@ public class BattleService {
         FixedReplayProvider fixedReplayProvider = new FixedReplayProvider(Collections.singletonList(battleId));
         List<Battle> battles = battleCrawler.craw(fixedReplayProvider.next());
         battleAnalyzer.analyze(battles);
-        if(battles.isEmpty()) {
+        if (battles.isEmpty()) {
             return null;
         }
         Battle battle = battles.get(0);
@@ -301,15 +302,33 @@ public class BattleService {
     }
 
     @CacheEvict(value = {"teamGroup", "teamInfo"}, allEntries = true)
-    public synchronized void updateTeam() {
-        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(3).atStartOfDay(), LocalDateTime.now()
-                , "team_group_last_3_days", "team_set_last_3_days"));
-        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(7).atStartOfDay(), LocalDateTime.now()
-                , "team_group_last_7_days", "team_set_last_7_days"));
-        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(30).atStartOfDay(), LocalDateTime.now()
-                , "team_group_last_30_days", "team_set_last_30_days"));
-        updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(90).atStartOfDay(), LocalDateTime.now()
-                , "team_group_last_90_days", "team_set_last_90_days"));
+    public synchronized void updateTeam(String format) {
+        if (StringUtils.equals(format, "gen9ou")) {
+            updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(3).atStartOfDay(), LocalDateTime.now()
+                    , "team_group_last_3_days", "team_set_last_3_days", format));
+            updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(7).atStartOfDay(), LocalDateTime.now()
+                    , "team_group_last_7_days", "team_set_last_7_days", format));
+            updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(30).atStartOfDay(), LocalDateTime.now()
+                    , "team_group_last_30_days", "team_set_last_30_days", format));
+            updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(90).atStartOfDay(), LocalDateTime.now()
+                    , "team_group_last_90_days", "team_set_last_90_days", format));
+        } else {
+            updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(3).atStartOfDay(), LocalDateTime.now()
+                    , "team_group_last_3_days_" + format,
+                    "team_set_last_3_days_" + format, format));
+
+            updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(7).atStartOfDay(), LocalDateTime.now()
+                    , "team_group_last_7_days_" + format,
+                    "team_set_last_7_days_" + format, format));
+
+            updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(30).atStartOfDay(), LocalDateTime.now()
+                    , "team_group_last_30_days_" + format,
+                    "team_set_last_30_days_" + format, format));
+
+            updateTeam(new TeamGroupDetail(LocalDate.now().minusDays(90).atStartOfDay(), LocalDateTime.now()
+                    , "team_group_last_90_days_" + format,
+                    "team_set_last_90_days_" + format, format));
+        }
     }
 
     public synchronized void updateTeam(TeamGroupDetail teamGroupDetail) {

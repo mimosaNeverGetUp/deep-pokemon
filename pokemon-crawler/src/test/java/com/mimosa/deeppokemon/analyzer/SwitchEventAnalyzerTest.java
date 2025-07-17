@@ -14,6 +14,7 @@ import com.mimosa.deeppokemon.analyzer.util.BattleBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleContextBuilder;
 import com.mimosa.deeppokemon.analyzer.util.BattleStatBuilder;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.entity.Pokemon;
 import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
@@ -26,6 +27,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class SwitchEventAnalyzerTest {
@@ -88,12 +91,18 @@ class SwitchEventAnalyzerTest {
     void analyzeRegeneratorSwitch() {
         BattleEvent switchEvent = new BattleEvent("switch", List.of("p1a: Slowking", "Slowking-Galar, M", "100/100"),
                 null, null);
+        Battle battle = new BattleBuilder()
+                .addPokemon(1, SLOWKING_GALAR)
+                .build();
+
+
         BattleContext battleContext = new BattleContextBuilder()
                 .addPokemon(1, SLOWKING_GALAR, "Slowking")
                 .addPokemon(2, DRAGAPULT, DRAGAPULT)
                 .setHealth(1, SLOWKING_GALAR, BigDecimal.valueOf(80.0))
                 .setTurnStartPokemon(1, 2, DRAGAPULT)
                 .setLastActivateTurn(1, SLOWKING_GALAR, 1)
+                .setBattle(battle)
                 .build();
 
         BattleStat battleStat = new BattleStatBuilder()
@@ -116,6 +125,9 @@ class SwitchEventAnalyzerTest {
         Assertions.assertEquals(SLOWKING_GALAR, battleDamageStat.getDamageTarget());
         Assertions.assertEquals(1, battleDamageStat.getTriggerCount());
         Assertions.assertEquals("Regenerator", battleDamageStat.getDamageFrom());
+
+        Pokemon pokemon = battleContext.getBattle().getBattleTeams().get(0).findPokemon(SLOWKING_GALAR);
+        assertEquals("Regenerator", pokemon.getAbility());
     }
 
     @Test

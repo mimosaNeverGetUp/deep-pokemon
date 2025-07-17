@@ -41,7 +41,7 @@ import java.util.List;
 @SpringBootTest
 @ContextConfiguration(classes = MongodbTestConfig.class)
 class BattleServiceTest {
-    public static final String EXIST_PLAYER_NAME = "lt111vz mimilimi";
+    public static final String EXIST_PLAYER_NAME = "Yuuho Kitazawa";
     @Autowired
     BattleService battleService;
 
@@ -53,7 +53,7 @@ class BattleServiceTest {
 
     @Test
     void listPlayer() {
-        PlayerRankDTO playerRankDTO = playerService.queryPlayerLadderRank(EXIST_PLAYER_NAME);
+        PlayerRankDTO playerRankDTO = playerService.queryPlayerLadderRank(EXIST_PLAYER_NAME, "gen9ou");
         Assertions.assertAll(
                 () -> Assertions.assertNotNull(playerRankDTO),
                 () -> Assertions.assertNotEquals(0, playerRankDTO.getRank()),

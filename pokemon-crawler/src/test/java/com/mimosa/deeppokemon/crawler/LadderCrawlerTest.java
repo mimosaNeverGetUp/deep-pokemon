@@ -70,7 +70,7 @@ class LadderCrawlerTest {
     @Test
     void crawLadderRank() throws IOException {
         LocalDate today = LocalDate.now();
-        String exceptId = DateTimeFormatter.BASIC_ISO_DATE.format(today);
+        String exceptId = DateTimeFormatter.BASIC_ISO_DATE.format(today)+"gen9ou";
 
         Ladder ladder;
         try (var mockHttpUtil = Mockito.mockStatic(HttpUtil.class)) {

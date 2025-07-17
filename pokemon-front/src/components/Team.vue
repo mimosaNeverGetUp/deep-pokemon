@@ -35,6 +35,10 @@ function getPokemonConfigMap() {
       pokemon.teraType = pokemonConfig.teraTypes.join("/");
     }
 
+    if (pokemonConfig.detailChange) {
+      pokemon.detailChange = pokemonConfig.detailChange;
+    }
+
     if (pokemonConfig.moves) {
       pokemon.moves = pokemonConfig.moves;
     }

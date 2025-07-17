@@ -149,7 +149,7 @@ class BattleServiceTest {
     @Test
     void updateTeam() {
         battleService.updateTeam(new TeamGroupDetail(LocalDateTime.now().minusYears(99), LocalDateTime.now(),
-                TEAM_GROUP_LAST_99_Y, TEAM_SET_LAST_99_Y));
+                TEAM_GROUP_LAST_99_Y, TEAM_SET_LAST_99_Y, "gen9ou"));
         TeamGroup teamGroup = mongoTemplate.findOne(new Query(), TeamGroup.class, TEAM_GROUP_LAST_99_Y);
         Assertions.assertNotNull(teamGroup);
         Assertions.assertNotNull(teamGroup.pokemons());

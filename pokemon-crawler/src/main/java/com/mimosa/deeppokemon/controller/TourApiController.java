@@ -55,6 +55,12 @@ public class TourApiController {
         return true;
     }
 
+    @PostMapping("/wcop2025/battle")
+    public boolean crawWcop2025Tour(@RequestParam("format") String format) {
+        tourService.crawWcop2025(format);
+        return true;
+    }
+
     @PostMapping("/wcopOltXi/battle")
     public boolean crawOltXiTour() {
         tourService.crawOltXI();

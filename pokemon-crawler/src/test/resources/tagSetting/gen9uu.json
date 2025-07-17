@@ -1,0 +1,2029 @@
+{
+  "format": "gen9uu",
+  "bulk_def_threshold": 4.25,
+  "good_def_threshold": 3.5,
+  "bulk_atk_threshold": 4.25,
+  "good_atk_threshold": 3.5,
+  "ability_value": [
+    {
+      "abilities": [
+        "Defiant",
+        "Infiltrator",
+        "Clear Body",
+        "Torrent",
+        "Blaze",
+        "Overgrow",
+        "Technician",
+        "Guard Dog",
+        "Iron Fist",
+        "Reckless",
+        "Normalize",
+        "Tough Claws",
+        "Aerilate",
+        "Soul-Heart",
+        "Beast Boost",
+        "Berserk"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.25
+    },
+    {
+      "abilities": [
+        "Sharpness",
+        "Toxic Debris",
+        "Libero",
+        "Contrary",
+        "Protean",
+        "Mold Breaker",
+        "Unburden",
+        "Battle Bond",
+        "Swift Swim",
+        "Snow Warning",
+        "Tinted Lens",
+        "Neutralizing Gas",
+        "Weak Armor",
+        "Chlorophyll",
+        "Sand Rush",
+        "Speed Boost",
+        "Toxic Chain",
+        "Skill Link",
+        "Moxie",
+        "Pixilate",
+        "Psychic Surge",
+        "Electric Surge",
+        "Punk Rock",
+        "Transistor",
+        "Water Bubble"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.5
+    },
+    {
+      "abilities": [
+        "Magnet Pull",
+        "Supreme Overlord",
+        "Slush Rush"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.75
+    },
+    {
+      "abilities": [
+        "Drought",
+        "Drizzle",
+        "Guts",
+        "Adaptability",
+        "Huge Power",
+        "Stance Change"
+      ],
+      "def_value": 0.0,
+      "atk_value": 1.0
+    },
+    {
+      "abilities": [
+        "Sturdy",
+        "Static",
+        "Water Absorb",
+        "Flash Fire",
+        "Rough Skin",
+        "Natural Cure",
+        "Thick Fat",
+        "Flame Body",
+        "Marvel Scale",
+        "Storm Drain",
+        "Sap Sipper",
+        "Triage",
+        "Heatproof",
+        "Bulletproof",
+        "Overcoat",
+        "Soundproof",
+        "Disguise"
+      ],
+      "def_value": 0.25,
+      "atk_value": 0.0
+    },
+    {
+      "abilities": [
+        "Volt Absorb",
+        "Levitate",
+        "Stamina",
+        "Dauntless Shield",
+        "Multiscale",
+        "Unaware",
+        "Fluffy",
+        "Vessel of Ruin"
+      ],
+      "def_value": 0.5,
+      "atk_value": 0.0
+    },
+    {
+      "abilities": [
+        "Regenerator",
+        ""
+      ],
+      "def_value": 0.75,
+      "atk_value": 0.0
+    },
+    {
+      "abilities": [
+        "Intimidate"
+      ],
+      "def_value": 1.0,
+      "atk_value": 0.0
+    },
+    {
+      "abilities": [
+        "Wonder Guard"
+      ],
+      "def_value": 2.0,
+      "atk_value": 0.0
+    },
+    {
+      "abilities": [
+        "Hydration",
+        "Grassy Terrain"
+      ],
+      "def_value": 0.25,
+      "atk_value": 0.25
+    },
+    {
+      "abilities": [
+        "Good as Gold",
+        "Grassy Surge",
+        "Sand Stream"
+      ],
+      "def_value": 0.25,
+      "atk_value": 0.5
+    },
+    {
+      "abilities": [
+        "Poison Heal"
+      ],
+      "def_value": 1.0,
+      "atk_value": 0.5
+    },
+    {
+      "abilities": [
+        "Magic Bounce",
+        "Magic Guard"
+      ],
+      "def_value": 0.5,
+      "atk_value": 0.5
+    },
+    {
+      "abilities": [
+        "Purifying Salt"
+      ],
+      "def_value": 0.75,
+      "atk_value": 0.5
+    }
+  ],
+  "item_value": [
+    {
+      "items": [
+        "Kommonium Z"
+      ],
+      "def_value": 0.0,
+      "atk_value": 1.5
+    },
+    {
+      "items": [
+        "Choice Band",
+        "Choice Specs",
+        "Booster Energy",
+        "Weakness Policy",
+        "Life Orb"
+      ],
+      "def_value": 0.0,
+      "atk_value": 1.0
+    },
+    {
+      "items": [
+        "Muscle Band",
+        "Punching Glove",
+        "Wise Glasses",
+        "Loaded Dice",
+        "Eject Button",
+        "Focus Sash",
+        "Grassy Seed"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.5
+    },
+    {
+      "items": [
+        "Buginium Z",
+        "Darkinium Z",
+        "Dragonium Z",
+        "Electrium Z",
+        "Fairium Z",
+        "Fightinium Z",
+        "Firium Z",
+        "Flyinium Z",
+        "Ghostium Z",
+        "Grassium Z",
+        "Groundium Z",
+        "Icium Z",
+        "Normalium Z",
+        "Poisonium Z",
+        "Psychium Z",
+        "Steelium Z",
+        "Waterium Z",
+        "Rockium Z",
+        "Eevium Z",
+        "Incinium Z",
+        "Lunalium Z",
+        "Lycanium Z",
+        "Marshadium Z",
+        "Mewnium Z",
+        "Mimikium Z",
+        "Pikanium Z",
+        "Pikashunium Z",
+        "Primarium Z",
+        "Snorlium Z",
+        "Solganium Z",
+        "Tapunium Z",
+        "Aloraichium Z",
+        "Decidium Z",
+        "Ultranecrozium Z"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.75
+    },
+    {
+      "items": [
+        "Black Belt",
+        "Black Glasses",
+        "Charcoal",
+        "Draco Plate",
+        "Dragon Fang",
+        "Dread Plate",
+        "Earth Plate",
+        "Expert Belt",
+        "Fairy Feather",
+        "Fist Plate",
+        "Flame Plate",
+        "Hard Stone",
+        "Icicle Plate",
+        "Insect Plate",
+        "Iron Plate",
+        "Magnet",
+        "Meadow Plate",
+        "Metal Coat",
+        "Mind Plate",
+        "Miracle Seed",
+        "Mystic Water",
+        "Never-Melt Ice",
+        "Odd Incense",
+        "Pixie Plate",
+        "Poison Barb",
+        "Rock Incense",
+        "Rose Incense",
+        "Sea Incense",
+        "Sharp Beak",
+        "Silk Scarf",
+        "Silver Powder",
+        "Soft Sand",
+        "Soul Dew",
+        "Spell Tag",
+        "Splash Plate",
+        "Spooky Plate",
+        "Stone Plate",
+        "Toxic Plate",
+        "Twisted Spoon",
+        "Wave Incense",
+        "Zap Plate",
+        "Sky Plate"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.5
+    },
+    {
+      "items": [
+        "Power Herb"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.25
+    },
+    {
+      "items": [
+        "Leftovers",
+        "Heavy-Duty Boots",
+        "Rocky Helmet"
+      ],
+      "def_value": 0.25,
+      "atk_value": 0.0
+    },
+    {
+      "items": [
+        "Assault Vest"
+      ],
+      "def_value": 0.5,
+      "atk_value": 0.0
+    },
+    {
+      "items": [
+        "Eviolite"
+      ],
+      "def_value": 1.0,
+      "atk_value": 0.0
+    }
+  ],
+  "move_value": [
+    {
+      "moves": [
+        "Scale Shot"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.25,
+      "extra": false
+    },
+    {
+      "moves": [
+        "Taunt"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.25,
+      "extra": true
+    },
+    {
+      "moves": [
+        "Bulk Up",
+        "Growth",
+        "Coil",
+        "Hone Claws",
+        "No Retreat",
+        "Victory Dance",
+        "Work Up",
+        "Curse",
+        "Gear Up",
+        "Howl",
+        "Calm Mind",
+        "Take Heart",
+        "Meteor Beam",
+        "Fiery Dance",
+        "Electro Shot",
+        "Geomancy",
+        "Torch Song"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.5,
+      "extra": false
+    },
+    {
+      "moves": [
+        "Swords Dance",
+        "Dragon Dance",
+        "Shell Smash",
+        "Nasty Plot",
+        "Tail Glow",
+        "Quiver Dance",
+        "Tidy Up",
+        "Shift Gear",
+        "Clangorous Soul"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.75,
+      "extra": false
+    },
+    {
+      "moves": [
+        "Belly Drum"
+      ],
+      "def_value": 0.0,
+      "atk_value": 1.0,
+      "extra": false
+    },
+    {
+      "moves": [
+        "Chilly Reception",
+        "Volt Switch",
+        "U-turn",
+        "Flip Turn",
+        "Future Sight",
+        "Brave Bird",
+        "Head Smash",
+        "Chloroblast",
+        "Mind Blown",
+        "Wood Hammer",
+        "Wave Crash",
+        "Head Charge",
+        "Light of Ruin",
+        "Double-Edge",
+        "Steel Beam",
+        "Flare Blitz",
+        "High Jump Kick",
+        "Outrage",
+        "Explosion",
+        "Self-Destruct",
+        "Hyper Beam",
+        "Thrash",
+        "Petal Dance",
+        "V-create",
+        "Gigaton Hammer",
+        "Eruption",
+        "Blast Burn",
+        "Hydro Cannon",
+        "Water Spout",
+        "Frenzy Plant",
+        "Giga Impact",
+        "Psycho Boost",
+        "Boomburst",
+        "Fleur Cannon",
+        "Close Combat",
+        "Raging Fury",
+        "Population Bomb",
+        "Double Iron Bash",
+        "Stored Power",
+        "Luster Purge",
+        "Psychic Noise"
+      ],
+      "def_value": 0.0,
+      "atk_value": 0.25,
+      "extra": true
+    },
+    {
+      "moves": [
+        "Jungle Healing",
+        "Slack Off",
+        "Synthesis",
+        "Strength Sap",
+        "Milk Drink",
+        "Heal Order",
+        "Ingrain",
+        "Morning Sun",
+        "Moonlight",
+        "Aqua Ring",
+        "Life Dew",
+        "Soft-Boiled",
+        "Rest",
+        "Wish",
+        "Roost",
+        "Recover",
+        "Shore Up"
+      ],
+      "def_value": 0.5,
+      "atk_value": 0.0,
+      "extra": false
+    },
+    {
+      "moves": [
+        "Will-O-Wisp",
+        "Pain Split",
+        "Thunder Wave"
+      ],
+      "def_value": 0.25,
+      "atk_value": 0.0,
+      "extra": false
+    }
+  ],
+  "specify_pokemon_rule": [
+    {
+      "names": [
+        "Porygon2"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "defense_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Ninetales",
+        "Ribombee",
+        "Dracozolt",
+        "Arctozolt",
+        "Ninetales-Alola"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Torkoal",
+        "Grimmsnarl",
+        "Shuckle",
+        "Araquanid"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Great Tusk"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Booster Energy"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_bulk_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Landorus-Therian"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Rocky Helmet",
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Earth Power"
+                  ],
+                  "item": [],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Earthquake"
+                  ],
+                  "item": [],
+                  "type": "not in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Hatterene"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers",
+                    "Assault Vest",
+                    "Rocky Helmet",
+                    "Eject Button"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Clefable"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "or",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Choice Scarf",
+                    "Sticky Barb"
+                  ],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Calm Mind"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Iron Treads"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers",
+                    "Heavy-Duty Boots",
+                    "Assault Vest"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Booster Energy"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Zamazenta"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Close Combat"
+                  ],
+                  "item": [],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Iron Defense",
+                    "Body Press"
+                  ],
+                  "item": [],
+                  "type": "not in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers",
+                    "Chesto Berry"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_bulk_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Mew"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Stealth Rock",
+                    "Spikes"
+                  ],
+                  "item": [
+                    "Focus Sash",
+                    "Colbur Berry",
+                    "Red Card"
+                  ],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Soft-Boiled",
+                    "Roost"
+                  ],
+                  "item": [],
+                  "type": "not in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Cosmic Power",
+                    "Soft-Boiled",
+                    "Roost"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Garchomp"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Rocky Helmet"
+                  ],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Swords Dance"
+                  ],
+                  "item": [],
+                  "type": "not in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Protect",
+                    "Toxic"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Garchompite"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Serperior"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Synthesis"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Azumarill"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "or",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Sitrus Berry",
+                    "Choice Band"
+                  ],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Belly Drum"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Whirlpool",
+                    "Perish Song",
+                    "Rest"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Rotom-Wash"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers",
+                    "Heavy-Duty Boots",
+                    "Rocky Helmet"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Choice Scarf"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Manaphy"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Take Heart"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Tail Glow"
+                  ],
+                  "item": [],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Rest"
+                  ],
+                  "item": [],
+                  "type": "not in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Samurott-Hisui"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "or",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Assault Vest"
+                  ],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Rest"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Heatran"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Taunt",
+                    "Magma Storm"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_bulk_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Tyranitar"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers",
+                    "Assault Vest",
+                    "Heavy-Duty Boots"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_bulk_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_bulk_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Terapagos"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Charizard"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Roost"
+                  ],
+                  "item": [
+                    "Charizardite Y"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Charizardite Y"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Roost"
+                  ],
+                  "item": [
+                    "Charizardite X"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Charizardite X"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Diancie"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Diancite"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Gliscor"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Swords Dance"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Scizor"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Heavy-Duty Boots",
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Melmetal"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_bulk_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Lopunny"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Kyurem"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Roost"
+                  ],
+                  "item": [
+                    "Heavy-Duty Boots",
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_bulk_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Latios"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Tornadus-Therian"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Nasty Plot"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Deoxys-Speed"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Rocky Helmet",
+                    "Red Card",
+                    "Light Clay"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Victini"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Assault Vest",
+                    "Heavy-Duty Boots",
+                    "Leftovers",
+                    "Iron Ball"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Choice Scarf",
+                    "Choice Band",
+                    "Normalium Z"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Pecharunt"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Nasty Plot"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Swampert"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Swampertite"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_bulk_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Excadrill"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers",
+                    "Heavy-Duty Boots",
+                    "Assault Vest"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Venusaur"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Venusaurite"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_bulk_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Mawile"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Mawilite"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Archaludon"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_bulk_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Medicham"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Aegislash"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_bulk_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Swords Dance",
+                    "Steel Beam"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Gyarados"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Celesteela"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "or",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Power Herb"
+                  ],
+                  "type": "in"
+                },
+                {
+                  "move": [
+                    "Autotomize"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Keldeo"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },{
+      "names": [
+        "Conkeldurr"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Banette"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Altaria"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Sableye"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Beedrill"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Latias"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Latiasite"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_bulk_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Gallade"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Aggron"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "defense_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Manectric"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Camerupt"
+      ],
+      "rules": [
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Cloyster"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Heavy-Duty Boots"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Jirachi"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Leftovers"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        },
+        {
+          "condition": [],
+          "tag": "attack_mix_set"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Tapu Fini"
+      ],
+      "rules": [
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [
+                    "Taunt",
+                    "Calm Mind"
+                  ],
+                  "item": [],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "defense_mix_set"
+        },
+        {
+          "condition": [
+            {
+              "operator": "and",
+              "set": [
+                {
+                  "move": [],
+                  "item": [
+                    "Choice Scarf"
+                  ],
+                  "type": "in"
+                }
+              ]
+            }
+          ],
+          "tag": "attack_mix_set"
+        }
+      ]
+    }
+  ]
+}

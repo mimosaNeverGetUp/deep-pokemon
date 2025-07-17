@@ -32,6 +32,7 @@ import com.mimosa.deeppokemon.service.StatsService;
 import com.mimosa.deeppokemon.service.TourService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -45,14 +46,16 @@ import java.time.LocalDate;
 public class ScheduledConfig {
     private static final Logger log = LoggerFactory.getLogger(ScheduledConfig.class);
     private final LadderCrawler battleCrawler;
+    private final LadderCrawler gen9NdladderCrawler;
     private final BattleService battleService;
     private final StatsService statsService;
     private final CacheService cacheService;
     private final TourService tourService;
 
-    public ScheduledConfig(LadderCrawler battleCrawler, StatsService statsService, BattleService battleService,
-                           CacheService cacheService, TourService tourService) {
+    public ScheduledConfig(LadderCrawler battleCrawler, @Qualifier("gen9NdLadderCrawler") LadderCrawler gen9NdladderCrawler,
+                           StatsService statsService, BattleService battleService, CacheService cacheService, TourService tourService) {
         this.battleCrawler = battleCrawler;
+        this.gen9NdladderCrawler = gen9NdladderCrawler;
         this.statsService = statsService;
         this.battleService = battleService;
         this.cacheService = cacheService;
@@ -66,14 +69,19 @@ public class ScheduledConfig {
      */
     @Scheduled(cron = "0 0 1 * * ?")
     private void crawLadder() {
-        log.info("start craw ladder");
+        log.info("start craw gen9 ou ladder");
         battleCrawler.crawLadder(false).crawFuture().join();
+        log.info("craw gen9 ou ladder success");
+        battleService.updateTeam("gen9ou");
+        log.info("update gen9 ou team success");
+
+        log.info("start craw gen9 nd ladder");
+        gen9NdladderCrawler.crawLadder(false).crawFuture().join();
+        log.info("craw gen9 nd ladder success");
+        battleService.updateTeam("gen9nationaldex");
+        log.info("update gen9 nd team success");
         cacheService.clearRank();
         cacheService.clearPlayerBattle();
-
-        log.info("craw ladder success");
-        battleService.updateTeam();
-        log.info("update team success");
     }
 
     @Scheduled(cron = "0 15 0 * * ?")

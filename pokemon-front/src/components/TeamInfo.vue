@@ -153,8 +153,8 @@ function uniquePokemonAbility(pokemon) {
 
 queryTeam(props.teamId, props.teamTier);
 
-watch(() => props.teamId, async (newTeamId) => {
-  await queryTeam(newTeamId, props.teamTier);
+watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => {
+  await queryTeam(newTeamId, newTeamTier);
 });
 </script>
 
@@ -162,7 +162,7 @@ watch(() => props.teamId, async (newTeamId) => {
   <div v-if="teamInfo" v-show="loading===false && loadFail===false">
     <!--team-->
     <div>
-      <i v-if="isLoadSimilarTeam" class="mr-2 pi pi-step-backward cursor-pointer"
+      <i v-if="isLoadSimilarTeam" class="mr-2 pi pi-backward cursor-pointer"
          @click="queryTeam(props.teamId, props.teamTier)"/>
       <a class="font-bold">team</a>
     </div>

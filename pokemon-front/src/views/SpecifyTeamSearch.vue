@@ -10,6 +10,7 @@ import {ref} from "vue";
 import Button from 'primevue/button';
 import {Dex} from '@pkmn/dex';
 import TeamInfo from "@/components/TeamInfo.vue";
+import TreeSelect from "primevue/treeselect";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -17,6 +18,23 @@ const input = ref();
 const load = ref()
 const teamInfoId = ref();
 const teamTier = ref("gen9ou");
+const teamTierNodes = [
+  {
+    key: "gen9ou",
+    label: "gen9ou",
+    children: []
+  },
+  {
+    key: "gen8ou",
+    label: "gen8ou",
+    children: []
+  },
+  {
+    key: "gen9nationaldex",
+    label: "gen9nationaldex",
+    children: []
+  }
+];
 
 async function queryTeam() {
   if (input.value) {
@@ -46,6 +64,10 @@ function getTeamId(team) {
   return btoa(teamId);
 }
 
+function onNodeSelect(event) {
+  teamTier.value = event.key;
+}
+
 </script>
 
 <template>
@@ -53,7 +75,11 @@ function getTeamId(team) {
     <InputText class="w-1/2" type="text" v-model="input"
                placeholder="paste full team (format: pokemon1 / pokemon2 ... / pokemon6)"
                @keyup.enter="queryTeam"/>
-    <Button label="Submit" @click="queryTeam"/>
-    <TeamInfo :teamId="teamInfoId" :teamTier="teamTier" v-if="teamInfoId"></TeamInfo>
+    <TreeSelect filter :options="teamTierNodes" :placeholder="teamTier" @node-select="onNodeSelect"/>
+    <div class="mt-2">
+      <Button label="Submit" @click="queryTeam"/>
+      <TeamInfo :teamId="teamInfoId" :teamTier="teamTier" v-if="teamInfoId"></TeamInfo>
+    </div>
   </div>
+
 </template>

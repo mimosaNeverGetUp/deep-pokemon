@@ -194,11 +194,11 @@ queryAllTour();
       </div>
 
       <div class="mt-2">
-        <span>Range</span>
+        <span v-if="!searchTour">Range</span>
         <SelectButton v-if="!searchTour" v-model="selectedRange" :options="ranges" aria-labelledby="basic"/>
         <div v-else>
           <div v-if="tourTiers.length >=1" class="mb-2">
-            <span>tier</span>
+            <span>Tier</span>
             <SelectButton v-model="selectedTier" :options="tourTiers" aria-labelledby="basic" @change="onTierChange"/>
           </div>
           <p class="items-center">Tour</p>

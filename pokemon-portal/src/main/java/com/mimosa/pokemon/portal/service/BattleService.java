@@ -338,7 +338,7 @@ public class BattleService {
         List<TeamGroupDto> similarTeams = searchSimilarTeam(teamSet.id(), teamList.get(0).getFeatureIds());
         return new TeamGroupDto(teamSet.id(), teamSet.tier(), null, teamList.size(), null,
                 null, null, teamList.get(0).getPokemons(), null,
-                null, null, convert(teamList), teamSet, similarTeams, null);
+                null, null, convert(teamList), teamSet, similarTeams, getPokepasts(teamId));
     }
 
     public List<TeamGroupDto> searchSimilarTeam(Binary teamId, List<Binary> teamFeatureIds) {
@@ -368,6 +368,12 @@ public class BattleService {
                     null, null, teamSet, null, pokepastMap.get(similarTeamId)));
         }
         return similarTeams;
+    }
+
+    private List<PokePastTeam> getPokepasts(Binary teamId) {
+        Query query = new Query(Criteria.where(TEAM_ID).is(teamId));
+        query.fields().exclude(POKEMON_SETS);
+        return mongoTemplate.find(query, PokePastTeam.class);
     }
 
     private Map<Binary, List<PokePastTeam>> getPokepastMap(List<TeamGroup> similarTeams) {

@@ -5,6 +5,7 @@ import Teams from '@/views/Teams.vue'
 import PlayerRecord from '@/views/Player.vue'
 import Stats from '@/views/Stats.vue'
 import BattleAnalysis from '@/views/BattleAnalysis.vue'
+import SpecifyTeamSearch from '@/views/SpecifyTeamSearch.vue'
 
 
 const routes = [
@@ -37,6 +38,11 @@ const routes = [
         path: '/battleAnalysis',
         name: 'BattleAnalysis',
         component: BattleAnalysis
+    },
+    {
+        path: '/teamInfo',
+        name: 'SpecifyTeamSearch',
+        component: SpecifyTeamSearch
     },
     {
         path: '/',

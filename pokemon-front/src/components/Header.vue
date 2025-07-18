@@ -53,7 +53,11 @@ queryUpdateDate()
         <br/>
 
         <p class="font-bold">Release Note：</p>
-        <p><span class="font-bold">2025/06/21 beat feat：</span>支持爬取gen9nationaldex天梯队伍</p>
+        <p><span class="font-bold">2025/07/17 tour：</span>
+          <a target="_blank" href="https://www.smogon.com/forums/threads/the-world-cup-of-pok%C3%A9mon-2025-replays.3763185/">The World Cup of Pokémon 2025</a></p>
+        <br/>
+
+        <p><span class="font-bold">2025/06/21 beta feat：</span>支持爬取gen9nationaldex天梯队伍</p>
         <br/>
 
         <p><span class="font-bold">2025/04/06 feat：</span>支持爬取特性（2025/04/06前已爬取的replay不支持）</p>

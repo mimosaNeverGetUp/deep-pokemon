@@ -29,6 +29,7 @@ const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const teamInfo = ref()
 const loading = ref(true);
 const loadFail = ref(false);
+const isLoadSimilarTeam = ref(false);
 
 async function queryTeam(teamId, teamTier) {
   loading.value = true;
@@ -41,6 +42,7 @@ async function queryTeam(teamId, teamTier) {
     if (res.ok) {
       teamInfo.value = await res.json();
       loading.value = false;
+      loadFail.value = false;
 
       // 让每支队伍里面的宝可梦按同种顺序排列，避免混乱
       sortPokemons(teamInfo.value.pokemons);
@@ -60,6 +62,8 @@ async function queryTeam(teamId, teamTier) {
     console.log("query team fail")
     loading.value = false;
     loadFail.value = true;
+  } finally {
+    isLoadSimilarTeam.value = teamId !== props.teamId;
   }
 }
 
@@ -157,8 +161,19 @@ watch(() => props.teamId, async (newTeamId) => {
 <template>
   <div v-if="teamInfo" v-show="loading===false && loadFail===false">
     <!--team-->
-    <p class="font-bold">team</p>
-    <Team :team="teamInfo" :compact="true" :teamSet="teamInfo?.teamSet"></Team>
+    <div>
+      <i v-if="isLoadSimilarTeam" class="mr-2 pi pi-step-backward cursor-pointer"
+         @click="queryTeam(props.teamId, props.teamTier)"/>
+      <a class="font-bold">team</a>
+    </div>
+    <div class="flex items-center gap-1">
+      <Team :team="teamInfo" :compact="true" :teamSet="teamInfo?.teamSet"></Team>
+      <a class="ml-2" target="_blank" v-if="teamInfo?.pokepasts?.length > 0"
+         v-for="pokepast in teamInfo?.pokepasts"
+         :href="pokepast.url">
+        <i class="pi pi-link" style="color: darkblue"></i>
+      </a>
+    </div>
     <Accordion>
       <AccordionTab header="export" :headerStyle='{"font-weight": 700}'>
         <div class="">
@@ -212,7 +227,7 @@ watch(() => props.teamId, async (newTeamId) => {
       <div class="flex items-center gap-1">
         <Team :team="similarTeam" :compact="true" :teamSet="similarTeam?.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
-           @click="queryTeam(similarTeam.id.data, similarTeam.tier)"/>
+           @click="queryTeam(similarTeam.id.data, props.teamTier)"/>
         <a class="ml-2" target="_blank" v-if="similarTeam.pokepasts?.length > 0"
            v-for="pokepast in similarTeam.pokepasts"
            :href="pokepast.url">
@@ -252,5 +267,5 @@ watch(() => props.teamId, async (newTeamId) => {
     </DataTable>
   </div>
   <LoadingIcon v-if="loading"/>
-  <p v-if="loadFail" class="mt-[60px]">load team fail.</p>
+  <p v-if="loadFail" class="mt-[60px]">No results found.</p>
 </template>

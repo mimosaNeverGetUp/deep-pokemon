@@ -34,6 +34,8 @@ const isLoadSimilarTeam = ref(false);
 async function queryTeam(teamId, teamTier) {
   loading.value = true;
   teamInfo.value = null
+  loadFail.value = false;
+
   const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30&format=${teamTier}`, {
         method: "GET"
       }
@@ -42,7 +44,6 @@ async function queryTeam(teamId, teamTier) {
     if (res.ok) {
       teamInfo.value = await res.json();
       loading.value = false;
-      loadFail.value = false;
 
       // 让每支队伍里面的宝可梦按同种顺序排列，避免混乱
       sortPokemons(teamInfo.value.pokemons);

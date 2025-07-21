@@ -2,6 +2,7 @@
 import Navi from '@/components/Navi.vue'
 import Sidebar from 'primevue/sidebar';
 import {ref} from "vue";
+import Divider from "primevue/divider";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -29,10 +30,12 @@ queryUpdateDate()
 
     <div class="global-info" v-if="showUpdateDate">
       <p>{{ "更新日期: " + updateDate }}</p>
-      <i class="pi pi-question-circle ml-1" @click="visible = true" />
-      <Sidebar v-model:visible="visible" header="关于本站" position="right" >
-        <p>一个整合<span class="font-bold">PokemonShowdown</span>相关数据及资源的网站，以<span class="font-bold">Gen9 OU</span>为主。</p>
+      <i class="pi pi-question-circle ml-1" @click="visible = true"/>
+      <Sidebar v-model:visible="visible" header="关于本站" position="right">
+        <p>一个整合<span class="font-bold">PokemonShowdown</span>相关数据及资源的网站，以<span
+            class="font-bold">Gen9 OU</span>为主。</p>
         <br/>
+        <Divider type="solid" class="mb-2"/>
 
         <p class="font-bold">数据更新时间：</p>
         <p>1. 每天早上9点更新Ladder</p>
@@ -46,15 +49,46 @@ queryUpdateDate()
 
         <p>4. 不定期更新Smogon Analysis、PokePaste等数据</p>
         <br/>
+        <Divider type="solid" class="mb-2"/>
 
-        <p class="font-bold">特别感谢：</p>
-        <p>1. <a target="_blank" href="https://github.com/pkmn/smogon">@pkmn</a>的数据API</p>
-        <p>2. <a target="_blank" href="https://pschina.one/topic/2087/%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E4%B8%8E%E5%8F%8D%E9%A6%88">PS China</a>的汉化脚本</p>
+        <p class="font-bold">本网站使用了以下开源项目 ：</p>
+        <p>1. <a target="_blank" href="https://github.com/pkmn/smogon">@pkmn</a></p>
+        <p>2. <a target="_blank"
+                 href="https://pschina.one/topic/2087/%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E4%B8%8E%E5%8F%8D%E9%A6%88">PS
+          China 汉化脚本</a></p>
         <br/>
 
+        <p class="font-bold">感谢各位朋友的支持~</p>
+        <p class="font-bold">特别感谢 ：</p>
+        <p class="font-mono">- Whitepureloli</p>
+        <p class="font-mono">- Xuwueryi</p>
+        <p class="font-mono">- HanFong</p>
+        <p class="font-mono">- Jesse Pirnat</p>
+        <p class="font-mono">- Apple</p>
+        <br/>
+
+        <p>
+          如果有相关疑问或建议，请在b站私信
+          <a target="_blank" :href="`https://space.bilibili.com/37832209`">
+            <span class="text-[#80DAF6] font-mono">mimosa</span>
+          </a>
+        </p>
+        <br/>
+
+        <Divider type="solid" class="mb-2"/>
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2025/07/21 beta feat：</span>
+          可以搜索指定队伍信息(道具、技能、太晶、replay等)           <a target="_blank" href="/teamInfo">测试入口</a>
+          <p class="font-bold text-sm">
+            PS: 仅测试，计划保留到月底。
+          </p>
+        </p>
+        <br/>
+
         <p><span class="font-bold">2025/07/17 tour：</span>
-          <a target="_blank" href="https://www.smogon.com/forums/threads/the-world-cup-of-pok%C3%A9mon-2025-replays.3763185/">The World Cup of Pokémon 2025</a></p>
+          <a target="_blank"
+             href="https://www.smogon.com/forums/threads/the-world-cup-of-pok%C3%A9mon-2025-replays.3763185/">The World
+            Cup of Pokémon 2025</a></p>
         <br/>
 
         <p><span class="font-bold">2025/06/21 beta feat：</span>支持爬取gen9nationaldex天梯队伍</p>
@@ -73,7 +107,8 @@ queryUpdateDate()
         <br/>
 
         <p><span class="font-bold">2025/01/17 tour：</span>
-          <a target="_blank" href="https://www.smogon.com/forums/threads/smogon-premier-league-xvi-replays.3758078//">Smogon Premier League XVI</a></p>
+          <a target="_blank" href="https://www.smogon.com/forums/threads/smogon-premier-league-xvi-replays.3758078//">Smogon
+            Premier League XVI</a></p>
         <br/>
 
         <p><span class="font-bold">2025/01/17 优化：</span>UI调整</p>
@@ -91,7 +126,8 @@ queryUpdateDate()
         <p><span class="font-bold">2024/12/23 优化：</span>宝可梦努力值右侧显示对应能力值</p>
         <br/>
 
-        <p><span class="font-bold">2024/12/21 feat：</span>悬浮在进攻贡献值上可以查看伤害明细（2024/12/21前已爬取的replay不支持）</p>
+        <p><span class="font-bold">2024/12/21 feat：</span>悬浮在进攻贡献值上可以查看伤害明细（2024/12/21前已爬取的replay不支持）
+        </p>
         <br/>
 
         <p><span class="font-bold">2024/12/1 beta feat：</span>
@@ -113,7 +149,8 @@ queryUpdateDate()
           <a target="_blank" href="https://www.smogon.com/forums/threads/oupl-viii-replays.3754001/">OUPL VIII</a></p>
         <br/>
 
-        <p><span class="font-bold">2024/10/29 修复：</span>正确显示旧世代特性、道具、招式文本，正确显示旧世代宝可梦的属性及种族值</p>
+        <p><span class="font-bold">2024/10/29 修复：</span>正确显示旧世代特性、道具、招式文本，正确显示旧世代宝可梦的属性及种族值
+        </p>
         <br/>
 
         <p><span class="font-bold">2024/10/24 优化：</span>Similar Teams存在对应PokePaste时，队伍右侧显示链接按钮</p>

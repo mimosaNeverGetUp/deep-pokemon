@@ -77,6 +77,9 @@ queryUpdateDate()
 
         <Divider type="solid" class="mb-2"/>
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2025/07/25 优化：文本国际化</span></p>
+        <br/>
+
         <p><span class="font-bold">2025/07/21 beta feat：</span>
           可以搜索指定队伍信息(道具、技能、太晶、replay等)           <a target="_blank" href="/teamInfo">测试入口</a>
           <p class="font-bold text-sm">

@@ -22,6 +22,6 @@ function getRandomGif() {
     <div>
       <img :src="getRandomGif()" alt="loading...">
     </div>
-    <p class="font-bold font-sans">loading...</p>
+    <p class="font-bold font-sans">{{$t('loading')}}</p>
   </div>
 </template>

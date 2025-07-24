@@ -8,6 +8,9 @@ import Column from "primevue/column";
 import DataTable from "primevue/datatable";
 import PokemonBattleAttackValue from "@/components/PokemonBattleAttackValue.vue";
 import PokemonHealthValueStat from "@/components/PokemonHealthValueStat.vue";
+import {useI18n} from 'vue-i18n'
+
+const {t} = useI18n()
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -100,7 +103,7 @@ function battleChartOption(battleStat) {
       },
       title: {
         display: true, // 显示标题
-        text: 'Turn',
+        text: t('Turn'),
         font: {
           size: 16,
           family: 'Arial',
@@ -129,7 +132,7 @@ function battleChartOption(battleStat) {
       },
       title: {
         display: true, // 显示标题
-        text: 'HP',
+        text: t('team hp'),
         font: {
           size: 16,
           family: 'Arial',
@@ -363,7 +366,7 @@ watch(() => props.data, async (newBattle) => {
       <TabPanel headerClass="w-1/2">
         <template #header>
           <div class="flex justify-center items-center gap-2 w-full">
-            <span class="text-lg dynamicThemeText">trend</span>
+            <span class="text-lg dynamicThemeText">{{$t('trend')}}</span>
           </div>
         </template>
         <div class="flex justify-center items-center">
@@ -375,40 +378,40 @@ watch(() => props.data, async (newBattle) => {
       <TabPanel headerClass="w-1/2">
         <template #header>
           <div class="flex justify-center items-center gap-2 w-full">
-            <span class="text-lg dynamicThemeText">stat</span>
+            <span class="text-lg dynamicThemeText">{{$t('battle stat')}}</span>
           </div>
         </template>
         <DataTable :value="playerPokemonBattleStat" :scrollable="false"
                    tableStyle="min-width: 50rem" :row-style="rowStyle">
-          <Column field="name" header="pokemon" :style="{ width:'10%'}">
+          <Column field="name" :header="$t('pokemon')" :style="{ width:'10%'}">
             <template #body="{data}">
               <img :src="getIconUrl(data.name)" :alt="data.name"/>
               <span class="text-black">{{ data.name }}</span>
             </template>
           </Column>
-          <Column field="playerName" header="player" :style="{ width:'5%' }">
+          <Column field="playerName" :header="$t('player')" :style="{ width:'5%' }">
             <template #body="{data}">
               <span class="text-black">{{ data.playerName }}</span>
             </template>
           </Column>
-          <Column field="switchCount" header="switch" :sortable="true" :style="{ width:'5%'}">
+          <Column field="switchCount" :header="$t('battle switch')" :sortable="true" :style="{ width:'5%'}">
             <template #body="{data}">
               <span class="text-black">{{ data.switchCount }}</span>
             </template>
           </Column>
-          <Column field="moveCount" header="move" :sortable="true" :style="{ width:'5%'}">
+          <Column field="moveCount" :header="$t('battle move')" :sortable="true" :style="{ width:'5%'}">
             <template #body="{data}">
               <span class="text-black">{{ data.moveCount }}</span>
             </template>
           </Column>
-          <Column field="killCount" header="kill" :sortable="true" :style="{ width:'5%'}">
+          <Column field="killCount" :header="$t('battle kill')" :sortable="true" :style="{ width:'5%'}">
             <template #body="{data}">
               <span class="text-black">{{ data.killCount }}</span>
             </template>
           </Column>
           <Column field="healthValue" :sortable="true" :style="{ width:'5%'}">
             <template #header>
-              <span>{{ "正负值(+/-)" }}</span>
+              <span>{{ $t('plus minus') }}</span>
               <i class="ml-2 pi pi-question-circle"
                  v-tooltip.top="'宝可梦在场(或不在场通过状态、场地)造成的双方HP变化差，值越大表示作用越大。' +
                   '\n\n特殊场景：\n' +
@@ -421,7 +424,7 @@ watch(() => props.data, async (newBattle) => {
           </Column>
           <Column field="attackValue" :sortable="true" :style="{ width:'10%' }">
             <template #header>
-              <span>{{ "进攻贡献值" }}</span>
+              <span>{{ $t('battle damage') }}</span>
               <i class="ml-2 pi pi-question-circle" v-tooltip.top="'宝可梦通过招式、状态、场地等方式造成的敌方HP变化总和。' +
                '\n\n值越大表示进攻贡献越大，负数表示已方造成的伤害小于敌方恢复'"
                  style="font-size: 1rem"/>

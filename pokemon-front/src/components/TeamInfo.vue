@@ -165,7 +165,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
     <div>
       <i v-if="isLoadSimilarTeam" class="mr-2 pi pi-backward cursor-pointer"
          @click="queryTeam(props.teamId, props.teamTier)"/>
-      <a class="font-bold">team</a>
+      <a class="font-bold">{{$t('team')}}</a>
     </div>
     <div class="flex items-center gap-1">
       <Team :team="teamInfo" :compact="true" :teamSet="teamInfo?.teamSet"></Team>
@@ -176,7 +176,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
       </a>
     </div>
     <Accordion>
-      <AccordionTab header="export" :headerStyle='{"font-weight": 700}'>
+      <AccordionTab :header="$t('export')" :headerStyle='{"font-weight": 700}'>
         <div class="">
           <div v-for="pokemon in teamInfo?.teamSet.pokemons" class="flex gap-1">
             <div class="">
@@ -202,7 +202,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
             </div>
 
             <div class="select-none font-light">
-              <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="font-bold">alternative sets</p>
+              <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="font-bold">{{ $t('alternative sets')}}</p>
               <p v-for="item in pokemon.items.slice(1, pokemon.items.length)" class="font-light">
                 {{ "@" + item }}
               </p>
@@ -222,7 +222,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
     </Accordion>
 
     <!--similar teams-->
-    <p class="font-bold mt-3">similar teams</p>
+    <p class="font-bold mt-3">{{$t('similar teams')}}</p>
     <span v-if="!teamInfo.similarTeams || teamInfo.similarTeams.length ===0">NA</span>
     <div v-else class="mt-2" v-for="similarTeam in teamInfo.similarTeams">
       <div class="flex items-center gap-1">
@@ -238,16 +238,16 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
     </div>
 
     <!--recent replays-->
-    <p class="font-bold mt-3">recent replays</p>
+    <p class="font-bold mt-3">{{$t('recent replays')}}</p>
     <DataTable :value="teamInfo.teams" sortField="battleDate" :sortOrder="-1" paginator :rows="10">
-      <Column field="teamId" header="team" :style="{ width:'20%'}">
+      <Column field="teamId" :header="$t('team')" :style="{ width:'20%'}">
         <template #body="slotProps">
           <div class="overflow-visible flex items-center gap-1">
             <Team :team="slotProps.data" :compact="true"></Team>
           </div>
         </template>
       </Column>
-      <Column field="playerName" header="player name" :style="{ width:'10%'}">
+      <Column field="playerName" :header="$t('player name')" :style="{ width:'10%'}">
         <template #body="{data}">
           <a :href="getPlayerUrl(data)" target="_blank"
              class="dynamicThemeText">
@@ -255,9 +255,9 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
           </a>
         </template>
       </Column>
-      <Column field="battleDate" sortable header="date" :style="{ width:'10%'}"/>
-      <Column field="rating" sortable header="rating" :style="{ width:'10%'}"/>
-      <Column field="battle-example" header="replay" :style="{ width:'20%'}">
+      <Column field="battleDate" sortable :header="$t('replay date')" :style="{ width:'10%'}"/>
+      <Column field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}"/>
+      <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}">
         <template #body="{data}">
           <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
              class="dynamicThemeText">

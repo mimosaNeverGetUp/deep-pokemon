@@ -57,16 +57,16 @@ queryPlayer();
 <template>
   <div class="player-bar">
     <img :src="getPlayerIcon()"
-            class="player-avatar bg-slate-400"/>
+         class="player-avatar bg-slate-400"/>
     <div class="player-info">
       <p class="font-bold text-2xl font-serif	">
         {{ player?.name }}
       </p>
       <p v-if="!tourPlayer">
-        {{ player?.elo }}
+        {{ "Elo: " + player?.elo }}
       </p>
       <p v-if="!tourPlayer">
-        {{ "排行第" + player?.rank + "位" }}
+        {{ $t('player rank', {rank: player?.rank}) }}
       </p>
       <p v-if="!tourPlayer" text="'Gxe: ' + ${playerRank.getGxe()}">
         {{ "Gxe: " + player?.gxe }}

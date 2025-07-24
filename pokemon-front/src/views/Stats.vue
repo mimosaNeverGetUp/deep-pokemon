@@ -15,6 +15,8 @@ import {formats} from "@/components/data/format.js";
 import {ref} from "vue";
 import {usePrimeVue} from 'primevue/config';
 import {useRoute, useRouter} from "vue-router";
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
 
 const route = useRoute();
 const PrimeVue = usePrimeVue();
@@ -43,10 +45,9 @@ async function onNodeSelect(event) {
   router.go(0);
 }
 
-function getStatsLink() {
-  let language = route.query.language === "zh" ? "en" : "zh";
-  let format = route.query.format;
-  return `/stats?format=${format}&language=${language}`
+function changeLocales() {
+  locale.value = locale.value === "zh" ? "en" : "zh";
+  localStorage.setItem('locale', locale.value);
 }
 
 function redirectPositionFunction() {
@@ -77,14 +78,11 @@ getFormatNode();
   <div>
     <div class="mt-[30px]">
       <div class="gap-1 flex items-center justify-end">
-        <Avatar v-if="isDarkMode" icon="pi pi-sun" class="dynamicThemeBg dynamicThemeText" size="large"
+        <Avatar v-if="isDarkMode" icon="pi pi-sun" class="dynamicThemeBg dynamicThemeText cursor-pointer" size="large"
                 @click="changeSunTheme()"/>
-        <Avatar v-else icon="pi pi-moon" class="dynamicThemeBg dynamicThemeText"
+        <Avatar v-else icon="pi pi-moon" class="dynamicThemeBg dynamicThemeText cursor-pointer"
                 size="large" @click="changeDarkTheme()"/>
-
-        <router-link :to="getStatsLink()">
-          <Avatar icon="pi pi-language" class="dynamicThemeBg dynamicThemeText" size="large"/>
-        </router-link>
+        <Avatar icon="pi pi-language" class="dynamicThemeBg dynamicThemeText cursor-pointer" size="large" @click="changeLocales()"/>
         <TreeSelect filter :options="formatNodes" :placeholder="route.query.format" @node-select="onNodeSelect"/>
       </div>
       <MetaStat :format="route.query.format" class="mb-4"/>

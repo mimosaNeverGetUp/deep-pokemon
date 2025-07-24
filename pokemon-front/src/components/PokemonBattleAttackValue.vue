@@ -6,7 +6,9 @@
 <script setup>
 import OverlayPanel from 'primevue/overlaypanel';
 import {ref} from "vue";
+import {useI18n} from 'vue-i18n'
 
+const {t} = useI18n()
 const props = defineProps({
   data: Object
 })
@@ -47,6 +49,13 @@ function getIconUrl(pokemonName) {
   return "pokemonicon/" + iconName + ".png"
 }
 
+function getDamageFromText(damageFrom) {
+  if (!damageFrom.includes(":")) {
+    return t(damageFrom)
+  }
+  return  damageFrom.split(":").map(a => t(a.trim())).join(":");
+}
+
 </script>
 <template>
   <div class="set-tip text-black">
@@ -59,7 +68,7 @@ function getIconUrl(pokemonName) {
           <p v-for="battleDamageStat in damageTargetStats" class="flex gap-2">
             <span>{{ battleDamageStat.triggerCount }}</span>
             <span>{{ "x" }}</span>
-            <span>{{ battleDamageStat.damageFrom }}</span>
+            <span>{{ getDamageFromText(battleDamageStat.damageFrom) }}</span>
             <span>{{ battleDamageStat.damage + "%" }}</span>
           </p>
         </div>

@@ -29,8 +29,8 @@ queryUpdateDate()
     <Navi class="Navi"></Navi>
 
     <div class="global-info" v-if="showUpdateDate">
-      <p>{{ "更新日期: " + updateDate }}</p>
-      <i class="pi pi-question-circle ml-1" @click="visible = true"/>
+      <p>{{ $t('Recent update Date') + updateDate }}</p>
+      <i class="pi pi-question-circle ml-1 cursor-pointer" @click="visible = true"/>
       <Sidebar v-model:visible="visible" header="关于本站" position="right">
         <p>一个整合<span class="font-bold">PokemonShowdown</span>相关数据及资源的网站，以<span
             class="font-bold">Gen9 OU</span>为主。</p>

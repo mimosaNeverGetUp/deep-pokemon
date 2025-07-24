@@ -1,4 +1,4 @@
-export const zh_translation_text ={
+export const zh_ps ={
     /// 系统
     "Connecting...": "连接中...",
     "Searching...": "搜索中...",

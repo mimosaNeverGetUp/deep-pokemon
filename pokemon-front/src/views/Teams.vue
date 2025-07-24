@@ -140,7 +140,7 @@ queryTeams(page.value, row.value);
              lazy paginator :first="first" :rows="row" :rowsPerPageOptions="[7, 10, 15]"
              :totalRecords="teams.totalRecords"
              @page="onPage($event)" :scrollable="false" tableStyle="min-width: 50rem">
-    <Column field="teamId" header="team" :style="{ width:'20%'}">
+    <Column field="teamId" :header="$t('team')" :style="{ width:'20%'}">
       <template #body="slotProps">
         <div class="flex items-center gap-1">
           <Team :team="slotProps.data" :compact="true" :teamSet="slotProps.data.teamSet"></Team>
@@ -153,37 +153,37 @@ queryTeams(page.value, row.value);
         </div>
       </template>
     </Column>
-    <Column field="uniquePlayerNum" header="use(unique)" :style="{ width:'5%'}"/>
+    <Column field="uniquePlayerNum" :header="$t('use unique')" :style="{ width:'10%'}"/>
 
-    <Column v-if="!tour" field="maxRating" header="max rating" :style="{ width:'10%'}"/>
+    <Column v-if="!tour" field="maxRating" :header="$t('max rating')" :style="{ width:'10%'}"/>
 
     <Column field="teams" header="" :style="{ width:'60%'}">
       <template #body="{data}">
         <DataTable :value="data.teams" :sortField="getSort()" :sortOrder="-1" paginator :rows="7">
-          <Column v-if="tour" field="player.name" header="player name" :style="{ width:'15%'}">
+          <Column v-if="tour" field="player.name" :header="$t('player name')" :style="{ width:'15%'}">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank" class="dynamicThemeText">
                 {{ data.player?.name }}
               </a>
             </template>
           </Column>
-          <Column v-else field="playerName" header="player name" :style="{ width:'10%'}">
+          <Column v-else field="playerName" :header="$t('player name')" :style="{ width:'10%'}">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.playerName}`" target="_blank" class="dynamicThemeText">
                 {{ data.playerName }}
               </a>
             </template>
           </Column>
-          <Column v-if="tour" field="playerRecord.winDif" sortable header="record" :style="{ width:'10%'}">
+          <Column v-if="tour" field="playerRecord.winDif" sortable :header="$t('record')" :style="{ width:'10%'}">
             <template #body="{data}">
               <span>{{ data.playerRecord?.win + "-" + data.playerRecord?.loss }}</span>
             </template>
           </Column>
-          <Column v-if="tour" field="player.team" header="team" :style="{ width:'10%'}"/>
-          <Column v-if="tour" field="stage" header="stage" :style="{ width:'10%'}"/>
-          <Column v-else field="rating" sortable header="rating" :style="{ width:'10%'}"/>
-          <Column field="battleDate" sortable header="date" :style="{ width:'10%'}"/>
-          <Column field="battle-example" header="replay" :style="{ width:'20%'}">
+          <Column v-if="tour" field="player.team" :header="$t('team')" :style="{ width:'10%'}"/>
+          <Column v-if="tour" field="stage" :header="$t('stage')" :style="{ width:'10%'}"/>
+          <Column v-else field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}"/>
+          <Column field="battleDate" sortable :header="$t('date')" :style="{ width:'10%'}"/>
+          <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}">
             <template #body="{data}">
               <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="dynamicThemeText">
                 {{ data.battleId }}
@@ -194,7 +194,7 @@ queryTeams(page.value, row.value);
       </template>
     </Column>
   </DataTable>
-  <Dialog v-model:visible="teamInfoDialogVisible" modal header="Team Info" class="size-3/4">
+  <Dialog v-model:visible="teamInfoDialogVisible" modal :header="$t('Team Info')" class="size-3/4">
     <div class="">
       <TeamInfo :teamId="teamInfoId" :teamTier="teamTier"></TeamInfo>
     </div>

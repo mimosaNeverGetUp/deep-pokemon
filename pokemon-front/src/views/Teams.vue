@@ -160,32 +160,35 @@ queryTeams(page.value, row.value);
     <Column field="teams" header="" :style="{ width:'60%'}">
       <template #body="{data}">
         <DataTable :value="data.teams" :sortField="getSort()" :sortOrder="-1" paginator :rows="7">
-          <Column v-if="tour" field="player.name" :header="$t('player name')" :style="{ width:'15%'}">
+          <Column v-if="tour" field="player.name" :header="$t('player name')" :style="{ width:'15%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
-              <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank" class="dynamicThemeText">
+              <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank"
+                 class="dynamicThemeText underline">
                 {{ data.player?.name }}
               </a>
             </template>
           </Column>
-          <Column v-else field="playerName" :header="$t('player name')" :style="{ width:'10%'}">
+          <Column v-else field="playerName" :header="$t('player name')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
-              <a :href="`/player-record?name=${data.playerName}`" target="_blank" class="dynamicThemeText">
+              <a :href="`/player-record?name=${data.playerName}`" target="_blank"
+                 class="dynamicThemeText text-blue-400">
                 {{ data.playerName }}
               </a>
             </template>
           </Column>
-          <Column v-if="tour" field="playerRecord.winDif" sortable :header="$t('record')" :style="{ width:'10%'}">
+          <Column v-if="tour" field="playerRecord.winDif" sortable :header="$t('record')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <span>{{ data.playerRecord?.win + "-" + data.playerRecord?.loss }}</span>
             </template>
           </Column>
-          <Column v-if="tour" field="player.team" :header="$t('team')" :style="{ width:'10%'}"/>
-          <Column v-if="tour" field="stage" :header="$t('stage')" :style="{ width:'10%'}"/>
-          <Column v-else field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}"/>
-          <Column field="battleDate" sortable :header="$t('date')" :style="{ width:'10%'}"/>
-          <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}">
+          <Column v-if="tour" field="player.team" :header="$t('team')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm"/>
+          <Column v-if="tour" field="stage" :header="$t('stage')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm"/>
+          <Column v-else field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm"/>
+          <Column field="battleDate" sortable :header="$t('date')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm"/>
+          <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
-              <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank" class="dynamicThemeText">
+              <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
+                 class="dynamicThemeText">
                 {{ data.battleId }}
               </a>
             </template>

@@ -202,17 +202,17 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
             </div>
 
             <div class="select-none font-light">
-              <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="font-bold">{{ $t('alternative sets')}}</p>
-              <p v-for="item in pokemon.items.slice(1, pokemon.items.length)" class="font-light">
+              <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="text-gray-500 text-sm">{{ $t('alternative sets')}}</p>
+              <p v-for="item in pokemon.items.slice(1, pokemon.items.length)" class="text-gray-500">
                 {{ "@" + item }}
               </p>
-              <p v-if="pokemon.teraTypes.length > 1" class="font-light">
+              <p v-if="pokemon.teraTypes.length > 1" class="text-gray-500">
                 {{ "Tera Type: " + pokemon.teraTypes.slice(1, pokemon.teraTypes.length) }}
               </p>
-              <p v-if="pokemon.abilities.length > 1" class="font-light">
+              <p v-if="pokemon.abilities.length > 1" class="text-gray-500">
                 {{ "Ability: " + pokemon.abilities.slice(1, pokemon.abilities.length) }}
               </p>
-              <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="font-light">
+              <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="text-gray-500">
                 {{ "-" + move }}
               </p>
             </div>
@@ -250,7 +250,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
       <Column field="playerName" :header="$t('player name')" :style="{ width:'10%'}">
         <template #body="{data}">
           <a :href="getPlayerUrl(data)" target="_blank"
-             class="dynamicThemeText">
+             class="dynamicThemeText text-blue-600">
             {{ data.playerName }}
           </a>
         </template>
@@ -260,7 +260,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
       <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}">
         <template #body="{data}">
           <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
-             class="dynamicThemeText">
+             class="dynamicThemeText text-blue-600">
             {{ data.battleId }}
           </a>
         </template>

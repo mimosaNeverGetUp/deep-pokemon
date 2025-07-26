@@ -383,33 +383,33 @@ watch(() => props.data, async (newBattle) => {
         </template>
         <DataTable :value="playerPokemonBattleStat" :scrollable="false"
                    tableStyle="min-width: 50rem" :row-style="rowStyle">
-          <Column field="name" :header="$t('pokemon')" :style="{ width:'10%'}">
+          <Column field="name" :header="$t('pokemon')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <img :src="getIconUrl(data.name)" :alt="data.name"/>
               <span class="text-black">{{ data.name }}</span>
             </template>
           </Column>
-          <Column field="playerName" :header="$t('player')" :style="{ width:'5%' }">
+          <Column field="playerName" :header="$t('player')" :style="{ width:'5%' }" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <span class="text-black">{{ data.playerName }}</span>
             </template>
           </Column>
-          <Column field="switchCount" :header="$t('battle switch')" :sortable="true" :style="{ width:'5%'}">
+          <Column field="switchCount" :header="$t('battle switch')" :sortable="true" :style="{ width:'5%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <span class="text-black">{{ data.switchCount }}</span>
             </template>
           </Column>
-          <Column field="moveCount" :header="$t('battle move')" :sortable="true" :style="{ width:'5%'}">
+          <Column field="moveCount" :header="$t('battle move')" :sortable="true" :style="{ width:'5%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <span class="text-black">{{ data.moveCount }}</span>
             </template>
           </Column>
-          <Column field="killCount" :header="$t('battle kill')" :sortable="true" :style="{ width:'5%'}">
+          <Column field="killCount" :header="$t('battle kill')" :sortable="true" :style="{ width:'5%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <span class="text-black">{{ data.killCount }}</span>
             </template>
           </Column>
-          <Column field="healthValue" :sortable="true" :style="{ width:'5%'}">
+          <Column field="healthValue" :sortable="true" :style="{ width:'5%'}" headerClass="text-gray-500 text-sm">
             <template #header>
               <span>{{ $t('plus minus') }}</span>
               <i class="ml-2 pi pi-question-circle"
@@ -422,7 +422,7 @@ watch(() => props.data, async (newBattle) => {
               <PokemonHealthValueStat :data="data"/>
             </template>
           </Column>
-          <Column field="attackValue" :sortable="true" :style="{ width:'10%' }">
+          <Column field="attackValue" :sortable="true" :style="{ width:'10%' }" headerClass="text-gray-500 text-sm">
             <template #header>
               <span>{{ $t('battle damage') }}</span>
               <i class="ml-2 pi pi-question-circle" v-tooltip.top="'宝可梦通过招式、状态、场地等方式造成的敌方HP变化总和。' +

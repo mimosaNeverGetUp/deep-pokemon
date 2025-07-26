@@ -22,7 +22,7 @@ function getDifTextClass(newValue, oldValue) {
     return "w-1.5 text-red-600"
   }
 
-  return newValue > oldValue ? "w-1.5 text-green-600" : "w-1.5 text-red-600";
+  return newValue > oldValue ? "w-1.5 text-green-600 text-sm" : "w-1.5 text-red-600 text-sm";
 }
 </script>
 

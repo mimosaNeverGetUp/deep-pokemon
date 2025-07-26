@@ -96,26 +96,28 @@ fetchStatsData(props.format);
     <Column field="rank" header=" " :style="{ width:'10%' }">
       <template #body="{data}">{{ data.rank }}</template>
     </Column>
-    <Column field="name" :header="$t('pokemon')" :style="{ width:'35%' }" :showFilterMenu="false" >
+    <Column field="name" :header="$t('pokemon')" :style="{ width:'35%' }" headerClass="text-gray-500 text-sm"
+            :showFilterMenu="false" >
       <template #body="{data}">
         <div class="flex gap-1 items-center justify-start">
           <img :src="getIconUrl(data.name)" :alt="data.name" :title="data.name"/>
-          <span class=" w-full min-w-24"> {{ $t(data.name) }}</span>
+          <span class=" w-full min-w-24 font-bold"> {{ $t(data.name) }}</span>
           <RankDif :newValue="data.rank" :oldValue="data.lastMonthUsage?.rank"/>
         </div>
       </template>
       <template #filter="{ filterModel, filterCallback }">
-        <InputText class="min-w-24 max-w-24" v-model="filterModel.value" type="text" @input="filterCallback()"
+        <InputText class="min-w-24 max-w-24 text-gray-500 text-sm" v-model="filterModel.value" type="text" @input="filterCallback()"
                    :placeholder="$t('filter')" />
       </template>
     </Column>
-    <Column field="usage.weighted" :header="$t('weighted')" :style="{ width:'5%' }">
-      <template #body="{data}">{{ convertToPercentage(data.usage.weighted) }}</template>
+    <Column field="usage.weighted" :header="$t('weighted')" :style="{ width:'5%' }" headerClass="text-gray-500 text-sm">
+      <template  #body="{data}">
+        <span class="text-gray-500">
+          {{ convertToPercentage(data.usage.weighted) }}
+        </span>
+      </template>
     </Column>
-    <Column field="usage.raw" :header="$t('raw')" :style="{ width:'5%' }">
-      <template #body="{data}">{{ convertToPercentage(data.usage.raw) }}</template>
-    </Column>
-    <Column field="types" :header="$t('types')" :style="{ width:'5%' }" :showFilterMenu="false" >
+    <Column field="types" :header="$t('types')" :style="{ width:'5%' }" :showFilterMenu="false" headerClass="text-gray-500 text-sm">
       <template #body="{data}">
         <div class="flex gap-1">
           <img v-for="type in data.types"

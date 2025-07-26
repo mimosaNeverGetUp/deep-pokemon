@@ -204,32 +204,32 @@ queryAllTour();
 <template>
   <div class="min-w-max">
     <div class="flex flex-col gap-2 mt-[40px]">
-      <span>{{ $t('Type') }}</span>
+      <span class="text-gray-500 text-sm">{{ $t('Type') }}</span>
       <SelectButton v-model="selectType" :options="types" optionLabel="name" optionValue="value" aria-labelledby="basic"
                     @change="changeBattleType"/>
     </div>
 
     <div class="flex flex-col gap-2 mt-2">
-      <span>{{ $t('Tag') }}</span>
+      <span class="text-gray-500 text-sm">{{ $t('Tag') }}</span>
       <SelectButton v-model="selectTags" :options="tags" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
-      <span>{{ $t('Sort') }}</span>
+      <span class="text-gray-500 text-sm">{{ $t('Sort') }}</span>
       <SelectButton v-model="selectedSort" :options="sortModes" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
       <div v-if="!searchTour" class="mt-2">
         <div class="mb-2">
-          <span>{{ $t('Tier') }}</span>
+          <span class="text-gray-500 text-sm">{{ $t('Tier') }}</span>
           <SelectButton v-model="selectedTier" :options="ladderTier" aria-labelledby="basic"/>
         </div>
       </div>
 
       <div class="mt-2">
-        <span v-if="!searchTour">{{ $t('Range') }}</span>
+        <span v-if="!searchTour" class="text-gray-500 text-sm">{{ $t('Range') }}</span>
         <SelectButton v-if="!searchTour" v-model="selectedRange" :options="ranges" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
         <div v-else>
           <div v-if="tourTiers.length >=1" class="mb-2">
-            <span>{{ $t('Tier') }}</span>
+            <span class="text-gray-500 text-sm">{{ $t('Tier') }}</span>
             <SelectButton v-model="selectedTier" :options="tourTiers" aria-labelledby="basic" @change="onTierChange"/>
           </div>
-          <p class="items-center">{{ $t('Tour') }}</p>
+          <p class="items-center text-gray-500 text-sm">{{ $t('Tour') }}</p>
           <TreeSelect v-model="selectTour" filter :options="tourNodes" :placeholder="tourPlaceHolder"
                       class="w-80 mt-1.5" @node-select="onNodeSelect"/>
         </div>
@@ -240,7 +240,7 @@ queryAllTour();
       <AccordionTab :header="$t('Advanced search')">
         <div class="flex flex-col w-full justify-start gap-2 mt-3">
           <div>
-            <span>{{ $t('pokemons') }}</span>
+            <span class="text-gray-500 text-sm">{{ $t('pokemons') }}</span>
             <MultiSelect v-model="pokemons" :options=" Object.values(pokemoninfo).map(item => item.name)" display="chip"
                          filter
                          :placeholder="$t('select pokemons')" variant="filled"
@@ -249,13 +249,13 @@ queryAllTour();
           </div>
 
           <div v-if="searchTour">
-            <p>{{$t('include stages')}}</p>
+            <p class="text-gray-500 text-sm">{{$t('include stages')}}</p>
             <MultiSelect v-model="selectStages" :options="stages"
                          display="chip" filter
                          :placeholder="t('select stages')" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
                          :virtualScrollerOptions="{ itemSize: 44 }"/>
 
-            <p class="mt-1">{{$t('include players')}}</p>
+            <p class="mt-1 text-gray-500 text-sm">{{$t('include players')}}</p>
             <MultiSelect v-model="players" :options="tourPlayers"
                          display="chip" filter
                          :placeholder="t('select players')" variant="filled"
@@ -263,7 +263,7 @@ queryAllTour();
                          :virtualScrollerOptions="{ itemSize: 44 }"/>
           </div>
           <div>
-            <p class="mt-1">{{ $t('pokepaste') }}</p>
+            <p class="mt-1 text-gray-500 text-sm">{{ $t('pokepaste') }}</p>
             <SelectButton v-model="selectPokepastes" :options="pokepastesOptions" optionLabel="name" optionValue="value"
                           aria-labelledby="basic"/>
           </div>

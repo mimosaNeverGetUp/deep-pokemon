@@ -55,4 +55,7 @@ export const zh_page_team_search ={
     "similar teams": "相似队伍",
     "recent replays": "最近回放",
     "alternative sets": "其他配置",
+    "copy team": "复制",
+    "copy success": "复制成功",
+    "copy success detail": "队伍已复制到剪贴板",
 }

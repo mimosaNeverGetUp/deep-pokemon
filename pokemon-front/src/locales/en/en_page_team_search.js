@@ -55,4 +55,7 @@ export const en_page_team_search ={
     "similar teams": "similar teams",
     "recent replays": "recent replays",
     "alternative sets": "alternative sets",
+    "copy team": "copy",
+    "copy success": "copy success",
+    "copy success detail": "Team has been copied to the clipboard.",
 }

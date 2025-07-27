@@ -11,8 +11,13 @@ import Column from "primevue/column";
 import DataTable from "primevue/datatable";
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
 import {Dex} from '@pkmn/dex';
 import LoadingIcon from "@/views/LoadingIcon.vue";
+import {useI18n} from 'vue-i18n'
+
+const {t} = useI18n()
 
 const props = defineProps({
   teamId: {
@@ -26,6 +31,12 @@ const props = defineProps({
 });
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
+const toast = useToast();
+const show = () => {
+  toast.add({ severity: 'success', summary: t('copy success'), detail: t('copy success detail'), life: 3000 });
+};
+
+
 const teamInfo = ref()
 const loading = ref(true);
 const loadFail = ref(false);
@@ -135,12 +146,17 @@ function getPlayerUrl(data) {
   return `/player-record?name=${data.playerName}`;
 }
 
-function getPokemonAbilityText(pokemon, abilities) {
+function getPokemonAbility(pokemon, abilities) {
   if (uniquePokemonAbility(pokemon)) {
     return uniquePokemonAbility(pokemon);
   }
 
   return abilities?.length === 0 ? "???" : abilities[0];
+}
+
+function getPokemonAbilityText(pokemon, abilities) {
+  let pokemonAbility = getPokemonAbility(pokemon, abilities);
+  return pokemonAbility === "???" ? pokemonAbility:t(pokemonAbility);
 }
 
 function uniquePokemonAbility(pokemon) {
@@ -150,6 +166,36 @@ function uniquePokemonAbility(pokemon) {
     return abilities[abilityKey];
   }
   return null;
+}
+
+function copyToClip() {
+  let text = '';
+  for (let pokemon of teamInfo.value.teamSet.pokemons) {
+    text += pokemon.name;
+    text += " @ ";
+    text += pokemon.items?.length === 0 ? "???" : pokemon.items[0];
+    text += "\n";
+    text += "Ability: " + getPokemonAbility(pokemon.name, pokemon.abilities);
+    text += "\n";
+    text += "Tera Type: " + (pokemon.teraTypes?.length === 0 ? "???" : pokemon.teraTypes[0]);
+    text += "\n";
+    if (pokemon.moves.length !== 0) {
+      for (let move of pokemon.moves.slice(0, 4)) {
+        text += "-" + move;
+        text += "\n";
+      }
+    }
+    text += "\n"
+  }
+
+  if (text.length !== 0) {
+    navigator.clipboard.writeText(text)
+        .then(() => {
+          show();
+        })
+        .catch(err => {
+        });
+  }
 }
 
 queryTeam(props.teamId, props.teamTier);
@@ -177,43 +223,49 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
     </div>
     <Accordion>
       <AccordionTab :header="$t('export')" :headerStyle='{"font-weight": 700}'>
+        <Toast />
         <div class="">
+          <div class="cursor-pointer hover:bg-green-200 rounded w-14">
+            <i class="pi pi-copy" ></i>
+            <span @click="copyToClip()" class="text-gray-500 text-sm">{{$t('copy team')}}</span>
+          </div>
+
           <div v-for="pokemon in teamInfo?.teamSet.pokemons" class="flex gap-1">
             <div class="">
               <div class="min-w-80">
-                <span :class="getPokemonNameColor(pokemon.name)">{{ pokemon.name }}</span>
+                <span :class="getPokemonNameColor(pokemon.name)">{{ $t(pokemon.name) }}</span>
                 <span v-if="pokemon.items" class="">
-                  {{ " @ " + (pokemon.items?.length === 0 ? "???" : pokemon.items[0]) }}
+                  {{ " @ " + (pokemon.items?.length === 0 ? "???" : $t(pokemon.items[0])) }}
                 </span>
               </div>
               <div>
-                {{ "Ability: " + getPokemonAbilityText(pokemon.name, pokemon.abilities) }}
+                {{ $t('set tip ability') + getPokemonAbilityText(pokemon.name, pokemon.abilities) }}
               </div>
               <div class="flex items-center gap-1">
-                <span> {{ "Tera Type: " + (pokemon.teraTypes?.length === 0 ? "???" : pokemon.teraTypes[0]) }}</span>
+                <span> {{ $t('set tip tera') + (pokemon.teraTypes?.length === 0 ? "???" : $t(pokemon.teraTypes[0])) }}</span>
               </div>
               <div v-if="pokemon.moves && pokemon.moves.length !==0">
                 <div v-for="move in pokemon.moves.slice(0, 4)">
-                  {{ "-" + move }}
+                  {{ "-" + $t(move) }}
                 </div>
                 <br/>
               </div>
               <br v-else>
             </div>
 
-            <div class="select-none font-light">
+            <div class="font-light">
               <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="text-gray-500 text-sm">{{ $t('alternative sets')}}</p>
               <p v-for="item in pokemon.items.slice(1, pokemon.items.length)" class="text-gray-500">
-                {{ "@" + item }}
+                {{ "@" + $t(item) }}
               </p>
               <p v-if="pokemon.teraTypes.length > 1" class="text-gray-500">
-                {{ "Tera Type: " + pokemon.teraTypes.slice(1, pokemon.teraTypes.length) }}
+                {{ $t('set tip tera') + pokemon.teraTypes.slice(1, pokemon.teraTypes.length) }}
               </p>
               <p v-if="pokemon.abilities.length > 1" class="text-gray-500">
-                {{ "Ability: " + pokemon.abilities.slice(1, pokemon.abilities.length) }}
+                {{ $t('set tip ability') + pokemon.abilities.slice(1, pokemon.abilities.length) }}
               </p>
               <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="text-gray-500">
-                {{ "-" + move }}
+                {{ "-" + $t(move) }}
               </p>
             </div>
           </div>
@@ -250,7 +302,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
       <Column field="playerName" :header="$t('player name')" :style="{ width:'10%'}">
         <template #body="{data}">
           <a :href="getPlayerUrl(data)" target="_blank"
-             class="dynamicThemeText text-blue-600">
+             class="dynamicThemeText text-blue-400">
             {{ data.playerName }}
           </a>
         </template>
@@ -260,7 +312,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
       <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}">
         <template #body="{data}">
           <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
-             class="dynamicThemeText text-blue-600">
+             class="dynamicThemeText">
             {{ data.battleId }}
           </a>
         </template>

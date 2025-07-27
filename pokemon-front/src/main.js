@@ -9,6 +9,7 @@ import App from './App.vue'
 import router from './router';
 import PrimeVue from 'primevue/config';
 import { createI18n } from 'vue-i18n'
+import ToastService from 'primevue/toastservice';
 import { zh } from './locales/zh/zh.js'
 import { en } from './locales/en/en.js'
 
@@ -36,4 +37,5 @@ createApp(App)
         }
     })
     .use(i18n)
+    .use(ToastService)
     .mount('#app')

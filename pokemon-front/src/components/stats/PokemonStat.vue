@@ -590,7 +590,7 @@ function getSpreadTextClass() {
       </div>
     </div>
     <Divider type="solid" v-if="sets"/>
-    <div class="ml-5 my-3" v-if="sets">
+    <div class="ml-5 my-3 min-w-[800px]" v-if="sets">
       <p class="text-sm text-gray-500">{{ $t("sets") }}</p>
       <div class="mt-3 mb-10" v-for=" [setName, set] in Object.entries(sets)">
         <p class="font-bold">{{ setName }}</p>

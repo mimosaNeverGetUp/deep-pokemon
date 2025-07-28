@@ -125,7 +125,7 @@ fetchStatsData(props.format);
         </div>
       </template>
       <template #filter="{ filterModel, filterCallback }">
-        <MultiSelect class="max-w-12" v-model="filterModel.value" @change="filterCallback()" :options="types"
+        <MultiSelect class="size-10" v-model="filterModel.value" @change="filterCallback()" :options="types"
                      placeholder="filter">
         </MultiSelect>
       </template>

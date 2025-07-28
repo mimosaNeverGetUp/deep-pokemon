@@ -87,7 +87,7 @@ getFormatNode();
       </div>
       <MetaStat :format="route.query.format" class="mb-4"/>
     </div>
-    <div ref="rankComponentRef" class="relative flex gap-2 scroll-mt-20">
+    <div ref="rankComponentRef" class="relative flex gap-20 scroll-mt-20 mt-16">
       <StatsRank class="sticky top-20 h-fit" :updateSelectPokemon="updateSelectPokemon"
                  :format="route.query.format" :language="route.query.language"/>
       <PokemonStat :pokemon="selectPokemon" :format="route.query.format" :language="route.query.language"

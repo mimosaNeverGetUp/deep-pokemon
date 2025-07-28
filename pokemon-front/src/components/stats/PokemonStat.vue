@@ -605,10 +605,9 @@ function getSpreadTextClass() {
               <i class="pi pi-chevron-down"></i>
             </template>
             <div class="">
-              <Textarea v-if="locale==='zh'" v-model="analysis.setChineseAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-mono leading-loose rounded-3xl text-lg dynamicThemeText analysis-Bg"/>
-              <Textarea v-if="locale==='en'" v-model="analysis.setAnalyzes[setName]" disabled rows="20" cols="60"
-                        class="font-mono leading-loose rounded-3xl bg-gray-50 text-lg dynamicThemeText analysis-Bg"/>
+              <p class="font-sans text-base leading-loose dynamicThemeText  whitespace-pre-line max-w-[50rem]">
+                {{locale==='en' ? analysis.setAnalyzes[setName]:analysis.setChineseAnalyzes[setName]}}
+              </p>
             </div>
           </AccordionTab>
         </Accordion>

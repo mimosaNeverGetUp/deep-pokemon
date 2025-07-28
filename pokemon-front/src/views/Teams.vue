@@ -163,7 +163,7 @@ queryTeams(page.value, row.value);
           <Column v-if="tour" field="player.name" :header="$t('player name')" :style="{ width:'15%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank"
-                 class="dynamicThemeText underline">
+                 class="text-blue-400">
                 {{ data.player?.name }}
               </a>
             </template>
@@ -171,7 +171,7 @@ queryTeams(page.value, row.value);
           <Column v-else field="playerName" :header="$t('player name')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.playerName}`" target="_blank"
-                 class="dynamicThemeText text-blue-400">
+                 class="text-blue-400">
                 {{ data.playerName }}
               </a>
             </template>

@@ -605,7 +605,7 @@ function getSpreadTextClass() {
               <i class="pi pi-chevron-down"></i>
             </template>
             <div class="">
-              <p class="font-sans text-base leading-loose dynamicThemeText  whitespace-pre-line max-w-[50rem]">
+              <p class="font-sans text-base leading-loose dynamicThemeText  whitespace-pre-line max-w-200">
                 {{locale==='en' ? analysis.setAnalyzes[setName]:analysis.setChineseAnalyzes[setName]}}
               </p>
             </div>

@@ -225,7 +225,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
       <AccordionTab :header="$t('export')" :headerStyle='{"font-weight": 700}'>
         <Toast />
         <div class="">
-          <div class="cursor-pointer hover:bg-green-200 rounded w-14">
+          <div class="cursor-pointer hover:bg-green-200 rounded-sm w-14">
             <i class="pi pi-copy" ></i>
             <span @click="copyToClip()" class="text-gray-500 text-sm">{{$t('copy team')}}</span>
           </div>
@@ -302,7 +302,7 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
       <Column field="playerName" :header="$t('player name')" :style="{ width:'10%'}">
         <template #body="{data}">
           <a :href="getPlayerUrl(data)" target="_blank"
-             class="dynamicThemeText text-blue-400">
+             class="text-blue-400">
             {{ data.playerName }}
           </a>
         </template>

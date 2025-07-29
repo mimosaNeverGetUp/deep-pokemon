@@ -95,6 +95,7 @@ public class PokemonCrawlerApplication {
             hints.resources().registerPattern("tagSetting/gen9nationaldex.json");
             hints.resources().registerPattern("tourReplay/");
             hints.resources().registerPattern("tourReplay/oupl.csv");
+            hints.resources().registerPattern("tourReplay/wcop2025.csv");
             hints.resources().registerPattern("tourReplay/splxvi.csv");
         }
     }

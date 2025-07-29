@@ -5,18 +5,18 @@ import NaviItem from '@/components/NaviItem.vue'
 <template>
   <nav>
     <NaviItem url="/ladder">
-      <img class="navi-label-icon" src="/pokemonicon/Kingambit.png" alt="deep-pokemon">
-      <p class="font-sans">{{$t('Ladder')}}</p>
+      <img class="max-sm:w-[32px] max-sm:h-[24px]" src="/pokemonicon/Kingambit.png" alt="deep-pokemon">
+      <p class="font-sans max-sm:text-base">{{$t('Ladder')}}</p>
     </NaviItem>
 
     <NaviItem url="/teamSearch">
-      <img class="navi-label-icon" src="/pokemonicon/Maushold-Four.png" alt="deep-pokemon">
-      <p class="font-sans">{{$t('Teams')}}</p>
+      <img class="max-sm:w-[32px] max-sm:h-[24px]" src="/pokemonicon/Maushold-Four.png" alt="deep-pokemon">
+      <p class="font-sans max-sm:text-base">{{$t('Teams')}}</p>
     </NaviItem>
 
     <NaviItem url="/stats?format=gen9ou">
-      <img class="navi-label-icon" src="/pokemonicon/Ninetales-Alola.png" alt="deep-pokemon">
-      <p class="font-sans">{{ $t('Stats')}}</p>
+      <img class="max-sm:w-[32px] max-sm:h-[24px]" src="/pokemonicon/Ninetales-Alola.png" alt="deep-pokemon">
+      <p class="font-sans max-sm:text-base">{{ $t('Stats')}}</p>
     </NaviItem>
   </nav>
 </template>
@@ -26,11 +26,5 @@ nav {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
-
-.navi-label-icon {
-  height: 30px;
-  width: 40px;
-  margin-right:5px
 }
 </style>

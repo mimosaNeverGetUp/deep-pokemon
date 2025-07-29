@@ -34,7 +34,6 @@ const tags = ref([
   {name: t('Stall'), value: "Stall"}]
 );
 const ranges = ref([
-  {name: t('Last 3 days'), value: "Last 3 days"},
   {name: t('Last week'), value: "Last week"},
   {name: t('Last month'), value: "Last month"},
   {name: t('Last 3 months'), value: "Last 3 months"}]);
@@ -203,25 +202,29 @@ queryAllTour();
 
 <template>
   <div class="min-w-max">
-    <div class="flex flex-col gap-2 mt-[40px]">
+    <div class="flex flex-col gap-2 mt-[2rem]">
       <span class="text-gray-500 text-sm">{{ $t('Type') }}</span>
       <SelectButton v-model="selectType" :options="types" optionLabel="name" optionValue="value" aria-labelledby="basic"
                     @change="changeBattleType"/>
     </div>
 
     <div class="flex flex-col gap-2 mt-2">
-      <span class="text-gray-500 text-sm">{{ $t('Tag') }}</span>
-      <SelectButton v-model="selectTags" :options="tags" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
-      <span class="text-gray-500 text-sm">{{ $t('Sort') }}</span>
-      <SelectButton v-model="selectedSort" :options="sortModes" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
-      <div v-if="!searchTour" class="mt-2">
-        <div class="mb-2">
-          <span class="text-gray-500 text-sm">{{ $t('Tier') }}</span>
-          <SelectButton v-model="selectedTier" :options="ladderTier" aria-labelledby="basic"/>
-        </div>
+      <div>
+        <span class="text-gray-500 text-sm">{{ $t('Tag') }}</span>
+        <SelectButton v-model="selectTags" :options="tags" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
       </div>
 
-      <div class="mt-2">
+      <div>
+        <span class="text-gray-500 text-sm">{{ $t('Sort') }}</span>
+        <SelectButton v-model="selectedSort" :options="sortModes" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
+      </div>
+
+      <div v-if="!searchTour">
+        <p class="text-gray-500 text-sm">{{ $t('Tier') }}</p>
+        <SelectButton v-model="selectedTier" :options="ladderTier" aria-labelledby="basic"/>
+      </div>
+
+      <div>
         <span v-if="!searchTour" class="text-gray-500 text-sm">{{ $t('Range') }}</span>
         <SelectButton v-if="!searchTour" v-model="selectedRange" :options="ranges" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
         <div v-else>
@@ -236,34 +239,31 @@ queryAllTour();
       </div>
     </div>
 
-    <Accordion class=" w-96 mt-12">
+    <Accordion class="w-56 mt-12">
       <AccordionTab :header="$t('Advanced search')">
         <div class="flex flex-col w-full justify-start gap-2 mt-3">
           <div>
             <span class="text-gray-500 text-sm">{{ $t('pokemons') }}</span>
             <MultiSelect v-model="pokemons" :options=" Object.values(pokemoninfo).map(item => item.name)" display="chip"
-                         filter
-                         :placeholder="$t('select pokemons')" variant="filled"
-                         class="size-auto font-normal min-w-80 min-h-9"
-                         :virtualScrollerOptions="{ itemSize: 44 }"/>
+                         filter :placeholder="$t('select pokemons')" variant="filled"
+                         class="font-normal max-w-56" :virtualScrollerOptions="{ itemSize: 44 }"/>
           </div>
 
           <div v-if="searchTour">
             <p class="text-gray-500 text-sm">{{$t('include stages')}}</p>
             <MultiSelect v-model="selectStages" :options="stages"
                          display="chip" filter
-                         :placeholder="t('select stages')" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
+                         :placeholder="t('select stages')" variant="filled" class="font-normal max-w-56"
                          :virtualScrollerOptions="{ itemSize: 44 }"/>
 
-            <p class="mt-1 text-gray-500 text-sm">{{$t('include players')}}</p>
+            <p class="mt-2 text-gray-500 text-sm">{{$t('include players')}}</p>
             <MultiSelect v-model="players" :options="tourPlayers"
                          display="chip" filter
                          :placeholder="t('select players')" variant="filled"
-                         class="size-auto font-normal min-w-80 min-h-9"
-                         :virtualScrollerOptions="{ itemSize: 44 }"/>
+                         class="font-normal max-w-56" :virtualScrollerOptions="{ itemSize: 44 }"/>
           </div>
           <div>
-            <p class="mt-1 text-gray-500 text-sm">{{ $t('pokepaste') }}</p>
+            <p class="text-gray-500 text-sm">{{ $t('pokepaste') }}</p>
             <SelectButton v-model="selectPokepastes" :options="pokepastesOptions" optionLabel="name" optionValue="value"
                           aria-labelledby="basic"/>
           </div>

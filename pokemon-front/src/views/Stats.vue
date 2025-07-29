@@ -76,7 +76,7 @@ getFormatNode();
 </script>
 <template>
   <div>
-    <div class="mt-[30px]">
+    <div class="mt-[2rem]">
       <div class="gap-1 flex items-center justify-end">
         <Avatar v-if="isDarkMode" icon="pi pi-sun" class="dynamicThemeBg dynamicThemeText cursor-pointer" size="large"
                 @click="changeSunTheme()"/>

@@ -208,7 +208,7 @@ queryTeams(page.value, row.value);
   </DataTable>
   <DataView v-if="teams" v-show="loading===false && loadFail===false" :value="teams.data"
             class="lg:hidden mt-[3rem]" layout="list"
-            lazy paginator :first="first" :rows="row" :rowsPerPageOptions="[7, 10, 15]"
+            lazy paginator :first="first" :rows="row" paginatorTemplate="FirstPageLink PageLinks LastPageLink"
             :totalRecords="teams.totalRecords" @page="onPage($event)" :scrollable="false">
     <template #list="slotProps">
       <div v-for="(item, index) in slotProps.items" :key="index" class="">
@@ -235,7 +235,7 @@ queryTeams(page.value, row.value);
                   headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank"
-                 class="text-blue-400 text-sm">
+                 class="block max-sm:w-24 break-all text-blue-400 text-sm">
                 {{ data.player?.name }}
               </a>
             </template>
@@ -244,7 +244,7 @@ queryTeams(page.value, row.value);
                   headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.playerName}`" target="_blank"
-                 class="text-blue-400 text-sm">
+                 class="block max-sm:w-24 break-all text-blue-400 text-sm">
                 {{ data.playerName }}
               </a>
             </template>

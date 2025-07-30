@@ -292,24 +292,29 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
     <!--recent replays-->
     <p class="font-bold mt-3">{{$t('recent replays')}}</p>
     <DataTable :value="teamInfo.teams" sortField="battleDate" :sortOrder="-1" paginator :rows="10">
-      <Column field="teamId" :header="$t('team')" :style="{ width:'20%'}" class="max-md:hidden">
+      <Column field="teamId" :header="$t('team')" :style="{ width:'20%'}" class="max-md:hidden"
+              headerClass="text-gray-500">
         <template #body="slotProps">
           <div class="overflow-visible flex items-center gap-1">
             <Team :team="slotProps.data" :compact="true"></Team>
           </div>
         </template>
       </Column>
-      <Column field="playerName" :header="$t('player name')" :style="{ width:'10%'}">
+      <Column field="playerName" :header="$t('player name')" class="max-md:text-sm"
+              headerClass="text-gray-500">
         <template #body="{data}">
-          <a :href="getPlayerUrl(data)" target="_blank"
-             class="text-blue-400">
-            {{ data.playerName }}
-          </a>
+            <a :href="getPlayerUrl(data)" target="_blank"
+               class="block max-sm:max-w-44 text-blue-400 break-all">
+              {{ data.playerName }}
+            </a>
         </template>
       </Column>
-      <Column field="battleDate" sortable :header="$t('replay date')" :style="{ width:'10%'}" class="max-md:hidden"/>
-      <Column field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}"/>
-      <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}">
+      <Column field="battleDate" sortable :header="$t('replay date')" :style="{ width:'10%'}" class="max-md:hidden"
+              headerClass="text-gray-500"/>
+      <Column field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}" class="max-md:text-sm"
+              headerClass="text-gray-500"/>
+      <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}" class="max-md:text-sm"
+              headerClass="text-gray-500">
         <template #body="{data}">
           <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
              class="dynamicThemeText line-clamp-1">

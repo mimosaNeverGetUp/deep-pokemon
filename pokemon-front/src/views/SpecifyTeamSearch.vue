@@ -71,7 +71,7 @@ function onNodeSelect(event) {
 </script>
 
 <template>
-  <div class="mt-[100px] min-w-max">
+  <div class="mt-[100px]">
     <InputText class="w-1/2" type="text" v-model="input"
                placeholder="paste full team (format: pokemon1 / pokemon2 ... / pokemon6)"
                @keyup.enter="queryTeam"/>

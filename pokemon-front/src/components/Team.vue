@@ -49,31 +49,7 @@ function getPokemonConfigMap() {
 </script>
 
 <template>
-  <div :class="compact? 'pokemon-list-compact':'pokemon-list'">
-    <div class="set-tip" v-for="pokemon in team.pokemons">
-      <PokemonSetTip :pokemon="pokemon" :pokemonConfigMap="getPokemonConfigMap()"/>
-    </div>
+  <div class="list-none flex justify-start gap-[15px]">
+    <PokemonSetTip :pokemon="pokemon" :pokemonConfigMap="getPokemonConfigMap()" v-for="pokemon in team.pokemons"/>
   </div>
 </template>
-
-<style scoped>
-.pokemon-list {
-  display: flex;
-  list-style-type: none;
-  justify-content: flex-start;
-  gap: 30px;
-}
-
-.pokemon-list-compact {
-  display: flex;
-  list-style-type: none;
-  justify-content: flex-start;
-  gap: 15px;
-}
-
-.set-tip {
-  position: relative;
-  display: inline-block;
-}
-
-</style>

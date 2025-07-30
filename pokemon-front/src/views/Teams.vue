@@ -13,6 +13,9 @@ import Dialog from 'primevue/dialog';
 import {useRoute, useRouter} from "vue-router";
 import TeamInfo from "@/components/TeamInfo.vue";
 import LoadingIcon from "@/views/LoadingIcon.vue";
+import DataView from 'primevue/dataview';
+import Divider from "primevue/divider";
+import Button from 'primevue/button';
 
 const route = useRoute();
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
@@ -136,31 +139,30 @@ queryTeams(page.value, row.value);
 </script>
 
 <template>
-  <DataTable v-if="teams" v-show="loading===false && loadFail===false" :value="teams.data" class="ladder"
+  <DataTable v-if="teams" v-show="loading===false && loadFail===false" :value="teams.data"
+             class="w-5/6 mt-[60px] mx-auto max-lg:hidden"
              lazy paginator :first="first" :rows="row" :rowsPerPageOptions="[7, 10, 15]"
-             :totalRecords="teams.totalRecords"
-             @page="onPage($event)" :scrollable="false" tableStyle="min-width: 50rem">
-    <Column field="teamId" :header="$t('team')" :style="{ width:'20%'}">
+             :totalRecords="teams.totalRecords" @page="onPage($event)" :scrollable="false">
+    <Column field="teamId" :header="$t('team')" headerClass="whitespace-nowrap">
       <template #body="slotProps">
         <div class="flex items-center gap-1">
           <Team :team="slotProps.data" :compact="true" :teamSet="slotProps.data.teamSet"></Team>
           <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
              @click="toggleTeamInfoDialog(slotProps.data.id.data, slotProps.data.tier)"/>
-          <a class="ml-2" target="_blank" v-if="slotProps.data.pokepasts?.length > 0" v-for="pokepast in slotProps.data.pokepasts"
-             :href="pokepast.url" >
-            <i class="pi pi-link" style="color: darkblue"></i>
+          <a class="ml-2" target="_blank" v-if="slotProps.data.pokepasts?.length > 0"
+             v-for="pokepast in slotProps.data.pokepasts" :href="pokepast.url">
+            <i class="pi pi-link text-blue-400" ></i>
           </a>
         </div>
       </template>
     </Column>
-    <Column field="uniquePlayerNum" :header="$t('use unique')" :style="{ width:'10%'}"/>
-
-    <Column v-if="!tour" field="maxRating" :header="$t('max rating')" :style="{ width:'10%'}"/>
-
-    <Column field="teams" header="" :style="{ width:'60%'}">
+    <Column v-if="!tour" field="maxRating" :header="$t('max rating')" headerClass="whitespace-nowrap"/>
+    <Column field="uniquePlayerNum" :header="$t('use unique')" headerClass="whitespace-nowrap"/>
+    <Column field="teams" header="">
       <template #body="{data}">
         <DataTable :value="data.teams" :sortField="getSort()" :sortOrder="-1" paginator :rows="7">
-          <Column v-if="tour" field="player.name" :header="$t('player name')" :style="{ width:'15%'}" headerClass="text-gray-500 text-sm">
+          <Column v-if="tour" field="player.name" :header="$t('player name')" :style="{ width:'15%'}"
+                  headerClass="text-gray-500 text-sm whitespace-nowrap">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank"
                  class="text-blue-400">
@@ -168,7 +170,8 @@ queryTeams(page.value, row.value);
               </a>
             </template>
           </Column>
-          <Column v-else field="playerName" :header="$t('player name')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm">
+          <Column v-else field="playerName" :header="$t('player name')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm whitespace-nowrap">
             <template #body="{data}">
               <a :href="`/player-record?name=${data.playerName}`" target="_blank"
                  class="text-blue-400">
@@ -176,19 +179,25 @@ queryTeams(page.value, row.value);
               </a>
             </template>
           </Column>
-          <Column v-if="tour" field="playerRecord.winDif" sortable :header="$t('record')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm">
+          <Column v-if="tour" field="playerRecord.winDif" sortable :header="$t('record')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm whitespace-nowrap">
             <template #body="{data}">
               <span>{{ data.playerRecord?.win + "-" + data.playerRecord?.loss }}</span>
             </template>
           </Column>
-          <Column v-if="tour" field="player.team" :header="$t('team')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm"/>
-          <Column v-if="tour" field="stage" :header="$t('stage')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm"/>
-          <Column v-else field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm"/>
-          <Column field="battleDate" sortable :header="$t('date')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm"/>
-          <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}" headerClass="text-gray-500 text-sm">
+          <Column v-if="tour" field="player.team" :header="$t('team')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm whitespace-nowrap" bodyClass="text-gray-500 text-sm"/>
+          <Column v-if="tour" field="stage" :header="$t('stage')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm whitespace-nowrap" bodyClass="text-gray-500 text-sm"/>
+          <Column v-else field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm whitespace-nowrap"/>
+          <Column field="battleDate" sortable :header="$t('date')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm whitespace-nowrap" bodyClass="text-gray-500 text-sm"/>
+          <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}"
+                  headerClass="text-gray-500 text-sm whitespace-nowrap">
             <template #body="{data}">
               <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
-                 class="dynamicThemeText">
+                 class="text-gray-500 text-sm">
                 {{ data.battleId }}
               </a>
             </template>
@@ -197,7 +206,81 @@ queryTeams(page.value, row.value);
       </template>
     </Column>
   </DataTable>
-  <Dialog v-model:visible="teamInfoDialogVisible" modal :header="$t('Team Info')" class="size-3/4">
+  <DataView v-if="teams" v-show="loading===false && loadFail===false" :value="teams.data"
+            class="lg:hidden mt-[3rem]" layout="list"
+            lazy paginator :first="first" :rows="row" :rowsPerPageOptions="[7, 10, 15]"
+            :totalRecords="teams.totalRecords" @page="onPage($event)" :scrollable="false">
+    <template #list="slotProps">
+      <div v-for="(item, index) in slotProps.items" :key="index" class="">
+        <div class="mb-1">
+          <Team :team="item" :compact="true" :teamSet="item.teamSet"></Team>
+
+          <p v-if="!tour" class="ml-2 mt-2 font-sans text-gray-500">
+            {{ $t('max rating description', {rating: item.maxRating})}}
+          </p>
+          <p class="ml-2 mt-2 font-sans text-gray-500"> {{ $t('unique use description', {uniquePlayerNum: item.uniquePlayerNum}) }} </p>
+          <p class="ml-2 mt-2 font-sans text-gray-500" v-if="item.pokepasts?.length > 0">
+            {{$t('pokepaste url')}}
+            <a class="ml-2" target="_blank" v-for="pokepast in item.pokepasts" :href="pokepast.url">
+              <i class="pi pi-link text-blue-400" ></i>
+            </a>
+          </p>
+          <Button class="border-blue-400 font-sans text-sm text-blue-400 ml-2 mt-2  px-2 py-1"
+                  outlined :label="$t('team detail')" @click="toggleTeamInfoDialog(item.id.data, item.tier)" />
+        </div>
+
+        <DataTable :value="item.teams" :sortField="getSort()" :sortOrder="-1"
+                   paginator :rows="4" paginatorTemplate="PageLinks NextPageLink" class="">
+          <Column v-if="tour" field="player.name" :header="$t('player name')" :style="{ width:'15%'}"
+                  headerClass="text-gray-500 text-sm">
+            <template #body="{data}">
+              <a :href="`/player-record?name=${data.player?.name}&tourPlayer=true`" target="_blank"
+                 class="text-blue-400 text-sm">
+                {{ data.player?.name }}
+              </a>
+            </template>
+          </Column>
+          <Column v-else field="playerName" :header="$t('player name')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm">
+            <template #body="{data}">
+              <a :href="`/player-record?name=${data.playerName}`" target="_blank"
+                 class="text-blue-400 text-sm">
+                {{ data.playerName }}
+              </a>
+            </template>
+          </Column>
+          <Column v-if="tour" field="playerRecord.winDif" sortable :header="$t('record')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm">
+            <template #body="{data}">
+              <span class="text-gray-500 text-sm">{{ data.playerRecord?.win + "-" + data.playerRecord?.loss }}</span>
+            </template>
+          </Column>
+          <Column v-if="tour" field="stage" :header="$t('stage')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm">
+            <template #body="{data}">
+              <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
+                 class="text-blue-400 text-sm">
+                {{ data.stage }}
+              </a>
+            </template>
+          </Column>
+          <Column v-else field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm" bodyClass="text-gray-500 text-sm"/>
+          <Column v-if="!tour" field="battleDate" sortable :header="$t('date')" :style="{ width:'10%'}"
+                  headerClass="text-gray-500 text-sm" >
+            <template #body="{data}">
+              <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
+                 class="text-blue-400 text-sm">
+                {{ data.battleDate }}
+              </a>
+            </template>
+          </Column>
+        </DataTable>
+        <Divider type="solid" class="mb-8"/>
+      </div>
+    </template>
+  </DataView>
+  <Dialog v-model:visible="teamInfoDialogVisible" modal :header="$t('Team Info')" class="">
     <div class="">
       <TeamInfo :teamId="teamInfoId" :teamTier="teamTier"></TeamInfo>
     </div>

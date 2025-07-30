@@ -79,8 +79,8 @@ function uniquePokemonAbility(pokemon) {
 
 <template>
   <div>
-    <div class="relative inline-block">
-      <img :src="getIconUrl(pokemon)" :alt="pokemon.name" @mouseover="toggle" @mouseleave="toggle"/>
+    <div class="relative inline-block" @mouseover="toggle" @mouseout="toggle">
+      <img :src="getIconUrl(pokemon)" :alt="pokemon.name"/>
       <img class="absolute h-4 w-4 bottom-0 right-0" v-if="pokemon.item" :src="getItemUrl(pokemon.item)"
            :alt="pokemon.item"/>
     </div>

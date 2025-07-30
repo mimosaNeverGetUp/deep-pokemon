@@ -44,6 +44,10 @@ export const en_page_team_search ={
     "replay": "replay",
     "stage": "stage",
     "record": "record",
+    "max rating description": "{rating} elo",
+    "unique use description": "{uniquePlayerNum} people use",
+    "pokepaste url": "pokepaste url:",
+    "team detail": "team detail",
 
     "set tip item": "Item: ",
     "set tip tera": "Tera: ",

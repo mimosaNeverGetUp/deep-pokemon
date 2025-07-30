@@ -43,7 +43,11 @@ export const zh_page_team_search ={
     "replay date": "日期",
     "replay": "回放",
     "stage": "轮次",
-    "record": "玩家战绩",
+    "record": "战绩",
+    "max rating description": "{rating}分",
+    "unique use description": "{uniquePlayerNum}人使用",
+    "pokepaste url": "pokepaste链接:",
+    "team detail": "队伍详情",
 
     "set tip item": "道具：",
     "set tip tera": "太晶：",

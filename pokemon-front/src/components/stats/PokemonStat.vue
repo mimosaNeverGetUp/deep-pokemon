@@ -622,7 +622,7 @@ function getSpreadTextClass() {
            @click="toggleTeamInfoDialog(teamGroup.id.data, teamGroup.tier)"/>
         <a class="ml-2" target="_blank" v-if="teamGroup.pokepasts?.length > 0" v-for="pokepast in teamGroup.pokepasts"
            :href="pokepast.url">
-          <i class="pi pi-link" style="color: darkblue"></i>
+          <i class="pi pi-link text-blue-400"></i>
         </a>
       </div>
     </div>

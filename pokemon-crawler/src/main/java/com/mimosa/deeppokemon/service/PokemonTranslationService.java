@@ -86,6 +86,11 @@ public class PokemonTranslationService {
         return context;
     }
 
+    public String getWordTranslationIfPresent(String word) {
+        String wordTranslation = getWordTranslation(word);
+        return wordTranslation == null ? word : wordTranslation;
+    }
+
     public String getWordTranslation(String word) {
         if (translationMaps.get(word) != null) {
             return translationMaps.get(word);

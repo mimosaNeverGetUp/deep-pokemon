@@ -9,6 +9,7 @@ package com.mimosa.deeppokemon.crawler.stat;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.mimosa.deeppokemon.crawler.stat.dto.PokemonSetDto;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
+import com.mimosa.deeppokemon.service.PokemonTranslationService;
 import com.mimosa.deeppokemon.utils.HttpProxy;
 import org.apache.hc.core5.net.URIBuilder;
 import org.slf4j.Logger;
@@ -38,14 +39,27 @@ public class PokemonSetCrawler {
             - %s
             - %s
             """;
+    private static final String POKEMON_SET_CHINESE_TEXT_TEMPLATE = """
+            %s @ %s
+            特性: %s
+            太晶: %s
+            努力值: %s
+            %s 性格
+            - %s
+            - %s
+            - %s
+            - %s
+            """;
     protected static final String EVS_DELIMITER = "/";
     protected static final String SET_LIST_JOIN = EVS_DELIMITER;
     protected static final String EVS_SET_DELIMITER = " | ";
 
     private final HttpProxy httpProxy;
+    private final PokemonTranslationService pokemonTranslationService;
 
-    public PokemonSetCrawler(HttpProxy httpProxy) {
+    public PokemonSetCrawler(HttpProxy httpProxy, PokemonTranslationService pokemonTranslationService) {
         this.httpProxy = httpProxy;
+        this.pokemonTranslationService = pokemonTranslationService;
     }
 
     @RegisterReflectionForBinding(PokemonSetDto.class)
@@ -67,13 +81,15 @@ public class PokemonSetCrawler {
         for (Map.Entry<String, Map<String, PokemonSetDto>> entry : pokemonSetMap.entrySet()) {
             String name = entry.getKey();
             Map<String, String> setMap = new LinkedHashMap<>();
+            Map<String, String> chineseSetMap = new LinkedHashMap<>();
             try {
                 for (Map.Entry<String, PokemonSetDto> setEntry : entry.getValue().entrySet()) {
                     String setName = setEntry.getKey();
                     PokemonSetDto set = setEntry.getValue();
                     setMap.put(setName, convertPokemonSetText(name, set));
+                    chineseSetMap.put(setName, convertPokemonSetChineseText(name, set));
                 }
-                PokemonSet pokemonSet = new PokemonSet(statId + name, name, statId, setMap);
+                PokemonSet pokemonSet = new PokemonSet(statId + name, name, statId, setMap, chineseSetMap);
                 pokemonSets.add(pokemonSet);
             } catch (Exception e) {
                 log.error("error occurred while parsing pokemon set {}", name, e);
@@ -89,7 +105,7 @@ public class PokemonSetCrawler {
                 convertCommonSetText(set.item(), SET_LIST_JOIN),
                 convertCommonSetText(set.ability(), SET_LIST_JOIN),
                 convertCommonSetText(set.teratypes(), SET_LIST_JOIN),
-                convertEvsSetText(set.evs()),
+                convertEvsSetText(set.evs(), false),
                 convertCommonSetText(set.nature(), SET_LIST_JOIN),
                 convertCommonSetText(set.moves().get(0), SET_LIST_JOIN),
                 moves.size() < 2 ? null : convertCommonSetText(moves.get(1), SET_LIST_JOIN),
@@ -98,15 +114,31 @@ public class PokemonSetCrawler {
         );
     }
 
-    private String convertEvsSetText(Object evs) {
+
+    private String convertPokemonSetChineseText(String name, PokemonSetDto set) {
+        List<Object> moves = set.moves();
+        return String.format(POKEMON_SET_CHINESE_TEXT_TEMPLATE, pokemonTranslationService.getWordTranslationIfPresent(name),
+                convertCommonSetText(set.item(), SET_LIST_JOIN, true),
+                convertCommonSetText(set.ability(), SET_LIST_JOIN, true),
+                convertCommonSetText(set.teratypes(), SET_LIST_JOIN, true),
+                convertEvsSetText(set.evs(), true),
+                convertCommonSetText(set.nature(), SET_LIST_JOIN, true),
+                convertCommonSetText(set.moves().get(0), SET_LIST_JOIN, true),
+                moves.size() < 2 ? null : convertCommonSetText(moves.get(1), SET_LIST_JOIN, true),
+                moves.size() < 3 ? null : convertCommonSetText(set.moves().get(2), SET_LIST_JOIN, true),
+                moves.size() < 4 ? null : convertCommonSetText(set.moves().get(3), SET_LIST_JOIN, true)
+        );
+    }
+
+    private String convertEvsSetText(Object evs, boolean translate) {
         if (evs instanceof Map<?, ?>) {
             Map<String, Integer> evsMap = (Map<String, Integer>) evs;
-            return convertEvsSetTextByMap(evsMap);
+            return convertEvsSetTextByMap(evsMap, translate);
         } else if (evs instanceof List<?> list) {
             List<String> evsSetTextList = new ArrayList<>(list.size());
             for (Object o : list) {
                 Map<String, Integer> evsMap = (Map<String, Integer>) o;
-                evsSetTextList.add(convertEvsSetTextByMap(evsMap));
+                evsSetTextList.add(convertEvsSetTextByMap(evsMap, translate));
             }
             return String.join(EVS_SET_DELIMITER, evsSetTextList);
         } else if (evs == null) {
@@ -116,21 +148,30 @@ public class PokemonSetCrawler {
         throw new IllegalArgumentException("unknown evs type: " + evs);
     }
 
-    private String convertEvsSetTextByMap(Map<String, Integer> evs) {
+    private String convertEvsSetTextByMap(Map<String, Integer> evs, boolean translate) {
         List<String> evsItemTexts = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : evs.entrySet()) {
             String evsItem = entry.getKey();
             int evsValue = entry.getValue();
-            evsItemTexts.add(String.format(" %d %s ", evsValue, evsItem.toLowerCase(Locale.ROOT)));
+            evsItemTexts.add(String.format(" %d %s ", evsValue, translate ?
+                    pokemonTranslationService.getWordTranslationIfPresent(evsItem.toUpperCase(Locale.ROOT)) :
+                    evsItem.toLowerCase(Locale.ROOT)));
         }
         return String.join(EVS_DELIMITER, evsItemTexts).strip();
     }
 
     private String convertCommonSetText(Object set, String join) {
+        return convertCommonSetText(set, join, false);
+    }
+
+    private String convertCommonSetText(Object set, String join, boolean translate) {
         if (set instanceof String s) {
-            return s;
+            return translate ? pokemonTranslationService.getWordTranslationIfPresent(s) : s;
         } else if (set instanceof List<?>) {
             List<String> setList = (List<String>) set;
+            if (translate) {
+                setList = setList.stream().map(pokemonTranslationService::getWordTranslationIfPresent).toList();
+            }
             return String.join(join, setList);
         } else if (set == null) {
             log.warn("set type is null");

@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 @Document("pokemon_set")
-public record PokemonSet(@MongoId String id, String name, String statId, Map<String, String> sets) implements Serializable {
+public record PokemonSet(@MongoId String id, String name, String statId, Map<String, String> sets, Map<String,
+        String> chineseSets) implements Serializable {
 
 }

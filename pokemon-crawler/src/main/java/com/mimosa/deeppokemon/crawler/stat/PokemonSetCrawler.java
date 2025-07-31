@@ -86,8 +86,10 @@ public class PokemonSetCrawler {
                 for (Map.Entry<String, PokemonSetDto> setEntry : entry.getValue().entrySet()) {
                     String setName = setEntry.getKey();
                     PokemonSetDto set = setEntry.getValue();
-                    setMap.put(setName, convertPokemonSetText(name, set));
-                    chineseSetMap.put(setName, convertPokemonSetChineseText(name, set));
+                    setMap.put(setName, convertPokemonSetText(name, set).replace("Ability: null\n","")
+                            .replace("Tera Type: null\n",""));
+                    chineseSetMap.put(setName, convertPokemonSetChineseText(name, set).replace("特性: null\n","")
+                            .replace("太晶: null\n",""));
                 }
                 PokemonSet pokemonSet = new PokemonSet(statId + name, name, statId, setMap, chineseSetMap);
                 pokemonSets.add(pokemonSet);

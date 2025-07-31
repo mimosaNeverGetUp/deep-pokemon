@@ -265,7 +265,7 @@ async function queryPokemonSet(format, pokemon) {
   if (res.ok) {
     try {
       let result = await res.json();
-      sets.value = result.sets;
+      sets.value = result;
     } catch (e) {
       console.log("response is empty or invalid")
     }
@@ -390,6 +390,13 @@ function getShowSpreads(spreads) {
 
 function getSpreadTextClass() {
   return "16 min-w-16";
+}
+
+function getLocaleSets(set) {
+  if (locale.value === "zh" && set.chineseSets) {
+    return Object.entries(set.chineseSets);
+  }
+  return Object.entries(set.sets);
 }
 
 </script>
@@ -592,7 +599,7 @@ function getSpreadTextClass() {
     <Divider type="solid" v-if="sets"/>
     <div class="ml-5 my-3 min-w-[800px]" v-if="sets">
       <p class="text-sm text-gray-500">{{ $t("sets") }}</p>
-      <div class="mt-3 mb-10" v-for=" [setName, set] in Object.entries(sets)">
+      <div class="mt-3 mb-10" v-for=" [setName, set] in getLocaleSets(sets)">
         <p class="font-bold">{{ setName }}</p>
         <pre>{{ set }}</pre>
 

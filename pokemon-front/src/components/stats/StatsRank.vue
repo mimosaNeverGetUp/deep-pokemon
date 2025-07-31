@@ -13,7 +13,6 @@ import Column from 'primevue/column';
 import MultiSelect from 'primevue/multiselect';
 import RankDif from "@/components/stats/RankDif.vue";
 import {Dex} from '@pkmn/dex';
-import {zh_translation_text} from "@/components/data/translationText.js";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const usages = ref(null)
@@ -87,14 +86,6 @@ function onRowSelect(row) {
   props.updateSelectPokemon(row.data);
 }
 
-function getTranslation(text) {
-  if (props.language === "zh" && zh_translation_text[text]) {
-    return zh_translation_text[text];
-  }
-
-  return text;
-}
-
 fetchStatsData(props.format);
 </script>
 
@@ -102,29 +93,31 @@ fetchStatsData(props.format);
   <DataTable v-model:filters="filters" :value="usages" :totalRecords="totalRecords" @page="onPage($event)" scrollable
              scrollHeight="720px" selectionMode="single" dataKey="id" @rowSelect="onRowSelect" filterDisplay="row"
              pt:wrapper:class="no-scrollbar">
-    <Column field="rank" header="rank" :style="{ width:'5%' }">
+    <Column field="rank" header=" " :style="{ width:'10%' }">
       <template #body="{data}">{{ data.rank }}</template>
     </Column>
-    <Column field="name" header="pokemon" :style="{ width:'35%' }" :showFilterMenu="false" >
+    <Column field="name" :header="$t('pokemon')" :style="{ width:'35%' }" headerClass="text-gray-500 text-sm"
+            :showFilterMenu="false" >
       <template #body="{data}">
         <div class="flex gap-1 items-center justify-start">
           <img :src="getIconUrl(data.name)" :alt="data.name" :title="data.name"/>
-          <span class=" w-full min-w-24"> {{ getTranslation(data.name) }}</span>
+          <span class=" w-full min-w-24 font-bold"> {{ $t(data.name) }}</span>
           <RankDif :newValue="data.rank" :oldValue="data.lastMonthUsage?.rank"/>
         </div>
       </template>
       <template #filter="{ filterModel, filterCallback }">
-        <InputText class="min-w-24 max-w-24" v-model="filterModel.value" type="text" @input="filterCallback()"
-                   placeholder="filter" />
+        <InputText class="min-w-24 max-w-24 text-gray-500 text-sm" v-model="filterModel.value" type="text" @input="filterCallback()"
+                   :placeholder="$t('filter')" />
       </template>
     </Column>
-    <Column field="usage.weighted" header="weighted" :style="{ width:'5%' }">
-      <template #body="{data}">{{ convertToPercentage(data.usage.weighted) }}</template>
+    <Column field="usage.weighted" :header="$t('weighted')" :style="{ width:'5%' }" headerClass="text-gray-500 text-sm">
+      <template  #body="{data}">
+        <span class="text-gray-500">
+          {{ convertToPercentage(data.usage.weighted) }}
+        </span>
+      </template>
     </Column>
-    <Column field="usage.raw" header="raw" :style="{ width:'5%' }">
-      <template #body="{data}">{{ convertToPercentage(data.usage.raw) }}</template>
-    </Column>
-    <Column field="types" header="types" :style="{ width:'5%' }" :showFilterMenu="false" >
+    <Column field="types" :header="$t('types')" :style="{ width:'5%' }" :showFilterMenu="false" headerClass="text-gray-500 text-sm">
       <template #body="{data}">
         <div class="flex gap-1">
           <img v-for="type in data.types"
@@ -132,7 +125,7 @@ fetchStatsData(props.format);
         </div>
       </template>
       <template #filter="{ filterModel, filterCallback }">
-        <MultiSelect class="max-w-12" v-model="filterModel.value" @change="filterCallback()" :options="types"
+        <MultiSelect class="size-10" v-model="filterModel.value" @change="filterCallback()" :options="types"
                      placeholder="filter">
         </MultiSelect>
       </template>

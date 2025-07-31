@@ -27,9 +27,9 @@ function getIconUrl(pokemonName) {
     <span @mouseover="toggle" @mouseleave="toggle">{{ data.healthValue }}</span>
     <OverlayPanel ref="op" pt:content:class="bg-[#F0F0F0E6]" v-if="data.healthValueStats?.length >0">
       <div class="flex text-black">
-        <span class="ml-12 w-16 min-w-16">{{ "dif" }}</span>
-        <span class="w-16 min-w-16">{{ "dealt" }}</span>
-        <span class="w-16 min-w-16">{{ "taken" }}</span>
+        <span class="ml-12 w-16 min-w-16">{{ $t('battle dif') }}</span>
+        <span class="w-16 min-w-16">{{ $t('battle dealt') }}</span>
+        <span class="w-16 min-w-16">{{ $t('battle taken') }}</span>
       </div>
       <div class="text-left text-black">
         <div v-for="healthValueStat in data.healthValueStats" class="flex">

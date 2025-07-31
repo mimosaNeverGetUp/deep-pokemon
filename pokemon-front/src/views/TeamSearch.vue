@@ -14,6 +14,9 @@ import TreeSelect from 'primevue/treeselect';
 
 import {pokemoninfo} from "@/components/data/pokemoninfo.js"
 import {ref} from "vue";
+import {useI18n} from 'vue-i18n'
+
+const {t} = useI18n()
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -24,21 +27,44 @@ const selectTags = ref()
 const selectedSort = ref("rating")
 const selectedTier = ref("gen9ou")
 const selectedRange = ref("Last week")
-const tags = ref(["Offense", "Balance", "HO", "Stall"]);
-const ranges = ref(["Last 3 days", "Last week", "Last month", "Last 3 months"]);
+const tags = ref([
+  {name: t('Offense'), value: "Offense"},
+  {name: t('Balance'), value: "Balance"},
+  {name: t('HO'), value: "HO"},
+  {name: t('Stall'), value: "Stall"}]
+);
+const ranges = ref([
+  {name: t('Last week'), value: "Last week"},
+  {name: t('Last month'), value: "Last month"},
+  {name: t('Last 3 months'), value: "Last 3 months"}]);
 const ladderTier = ref(["gen9ou", "gen9nationaldex"]);
-const sortModes = ref(["rating", "popularity", "date", "unexpectedness"])
-const ladderSortModes = ref(["rating", "popularity", "date", "unexpectedness"])
-const pokepastesOptions = ref(["exist"])
+const sortModes = ref([
+  {name: t('rating'), value: "rating"},
+  {name: t('popularity'), value: "popularity"},
+  {name: t('date'), value: "date"},
+  {name: t('unexpectedness'), value: "unexpectedness"}])
+const ladderSortModes = ref([
+  {name: t('rating'), value: "rating"},
+  {name: t('popularity'), value: "popularity"},
+  {name: t('date'), value: "date"},
+  {name: t('unexpectedness'), value: "unexpectedness"}])
+const pokepastesOptions = ref([  {name: t('exist'), value: "exist"}])
 
-const types = ref(["ladder", "tour"]);
+const types = ref([
+  {name: t('ladder'), value: "ladder"},
+  {name: t('tour'), value: "tour"}]
+);
 const selectType = ref("ladder")
 const searchTour = ref(false);
 const selectTour = ref()
 const selectPokepastes = ref();
 const tourShortName = ref()
-const tourPlaceHolder = ref("loading...");
-const tourSortModes = ref(["win dif", "popularity", "date", "unexpectedness"])
+const tourPlaceHolder = ref(t('loading'));
+const tourSortModes = ref([
+    {name: t('win dif'), value: "win dif"},
+    {name: t('popularity'), value: "popularity"},
+    {name: t('date'), value: "date"},
+    {name: t('unexpectedness'), value: "unexpectedness"}])
 const tourNodes = [];
 const tourPlayers = ref([]);
 const tourTiers = ref([]);
@@ -83,10 +109,10 @@ async function queryAllTour() {
         stagesMap[tour.shortName] = tour.stages;
         tourTiersMap[tour.shortName] = tour.tires;
       }
-      tourPlaceHolder.value = "select tour";
+      tourPlaceHolder.value = t('select tour');
     } catch (e) {
       console.log("response is empty or invalid");
-      tourPlaceHolder.value = "query tour fail."
+      tourPlaceHolder.value = t('query tour fail')
     }
   } else {
     tourPlaceHolder.value = "query tour fail."
@@ -146,7 +172,7 @@ function getTeamSearchUrl(pokemons, tags, range, month, sort) {
   }
 
   let teamGroupName = getTeamGroupName(range, selectedTier.value);
-  return`/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${teamGroupName}&tier=${selectedTier.value}`;
+  return `/teams?pokemons=${pokemons}&tags=${tags}&sort=${sort}&pokepaste=${pokepaste}&range=${teamGroupName}&tier=${selectedTier.value}`;
 }
 
 function getTeamGroupName(range, tier) {
@@ -176,72 +202,77 @@ queryAllTour();
 
 <template>
   <div class="min-w-max">
-    <div class="flex flex-col gap-2 mt-[40px]">
-      <span>Type</span>
-      <SelectButton v-model="selectType" :options="types" aria-labelledby="basic" @change="changeBattleType"/>
+    <div class="flex flex-col gap-2 mt-[2rem]">
+      <span class="text-gray-500 text-sm">{{ $t('Type') }}</span>
+      <SelectButton v-model="selectType" :options="types" optionLabel="name" optionValue="value" aria-labelledby="basic"
+                    @change="changeBattleType"/>
     </div>
 
     <div class="flex flex-col gap-2 mt-2">
-      <span>Tag</span>
-      <SelectButton v-model="selectTags" :options="tags" aria-labelledby="basic"/>
-      <span>Sort</span>
-      <SelectButton v-model="selectedSort" :options="sortModes" aria-labelledby="basic"/>
-      <div v-if="!searchTour" class="mt-2">
-        <div class="mb-2">
-          <span>Tier</span>
-          <SelectButton v-model="selectedTier" :options="ladderTier" aria-labelledby="basic"/>
-        </div>
+      <div>
+        <span class="text-gray-500 text-sm">{{ $t('Tag') }}</span>
+        <SelectButton v-model="selectTags" :options="tags" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
       </div>
 
-      <div class="mt-2">
-        <span>Range</span>
-        <SelectButton v-if="!searchTour" v-model="selectedRange" :options="ranges" aria-labelledby="basic"/>
+      <div>
+        <span class="text-gray-500 text-sm">{{ $t('Sort') }}</span>
+        <SelectButton v-model="selectedSort" :options="sortModes" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
+      </div>
+
+      <div v-if="!searchTour">
+        <p class="text-gray-500 text-sm">{{ $t('Tier') }}</p>
+        <SelectButton v-model="selectedTier" :options="ladderTier" aria-labelledby="basic"/>
+      </div>
+
+      <div>
+        <span v-if="!searchTour" class="text-gray-500 text-sm">{{ $t('Range') }}</span>
+        <SelectButton v-if="!searchTour" v-model="selectedRange" :options="ranges" optionLabel="name" optionValue="value" aria-labelledby="basic"/>
         <div v-else>
           <div v-if="tourTiers.length >=1" class="mb-2">
-            <span>tier</span>
+            <span class="text-gray-500 text-sm">{{ $t('Tier') }}</span>
             <SelectButton v-model="selectedTier" :options="tourTiers" aria-labelledby="basic" @change="onTierChange"/>
           </div>
-          <p class="items-center">Tour</p>
+          <p class="items-center text-gray-500 text-sm">{{ $t('Tour') }}</p>
           <TreeSelect v-model="selectTour" filter :options="tourNodes" :placeholder="tourPlaceHolder"
                       class="w-80 mt-1.5" @node-select="onNodeSelect"/>
         </div>
       </div>
     </div>
 
-    <Accordion class=" w-96 mt-12">
-      <AccordionTab header="Advanced search">
+    <Accordion class="w-56 mt-12">
+      <AccordionTab :header="$t('Advanced search')">
         <div class="flex flex-col w-full justify-start gap-2 mt-3">
           <div>
-            <span>pokemons</span>
+            <span class="text-gray-500 text-sm">{{ $t('pokemons') }}</span>
             <MultiSelect v-model="pokemons" :options=" Object.values(pokemoninfo).map(item => item.name)" display="chip"
-                         filter
-                         placeholder="select pokemons" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
-                         :virtualScrollerOptions="{ itemSize: 44 }"/>
+                         filter :placeholder="$t('select pokemons')" variant="filled"
+                         class="font-normal max-w-56" :virtualScrollerOptions="{ itemSize: 44 }"/>
           </div>
 
           <div v-if="searchTour">
-            <span>stages</span>
+            <p class="text-gray-500 text-sm">{{$t('include stages')}}</p>
             <MultiSelect v-model="selectStages" :options="stages"
                          display="chip" filter
-                         placeholder="select stages" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
+                         :placeholder="t('select stages')" variant="filled" class="font-normal max-w-56"
                          :virtualScrollerOptions="{ itemSize: 44 }"/>
 
-            <span>players</span>
+            <p class="mt-2 text-gray-500 text-sm">{{$t('include players')}}</p>
             <MultiSelect v-model="players" :options="tourPlayers"
                          display="chip" filter
-                         placeholder="select players" variant="filled" class="size-auto font-normal min-w-80 min-h-9"
-                         :virtualScrollerOptions="{ itemSize: 44 }"/>
+                         :placeholder="t('select players')" variant="filled"
+                         class="font-normal max-w-56" :virtualScrollerOptions="{ itemSize: 44 }"/>
           </div>
           <div>
-            <span>pokepaste</span>
-            <SelectButton v-model="selectPokepastes" :options="pokepastesOptions" aria-labelledby="basic"/>
+            <p class="text-gray-500 text-sm">{{ $t('pokepaste') }}</p>
+            <SelectButton v-model="selectPokepastes" :options="pokepastesOptions" optionLabel="name" optionValue="value"
+                          aria-labelledby="basic"/>
           </div>
         </div>
       </AccordionTab>
     </Accordion>
 
     <router-link :to="getTeamSearchUrl(pokemons, selectTags, selectedRange, selectMonth, selectedSort)">
-      <Button class="mt-3" icon="pi pi-search" label="Submit"/>
+      <Button class="mt-3" icon="pi pi-search" :label="$t('Submit')"/>
     </router-link>
   </div>
 

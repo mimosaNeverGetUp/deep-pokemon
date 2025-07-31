@@ -11,8 +11,13 @@ import Column from "primevue/column";
 import DataTable from "primevue/datatable";
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
 import {Dex} from '@pkmn/dex';
 import LoadingIcon from "@/views/LoadingIcon.vue";
+import {useI18n} from 'vue-i18n'
+
+const {t} = useI18n()
 
 const props = defineProps({
   teamId: {
@@ -26,6 +31,12 @@ const props = defineProps({
 });
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
+const toast = useToast();
+const show = () => {
+  toast.add({ severity: 'success', summary: t('copy success'), detail: t('copy success detail'), life: 3000 });
+};
+
+
 const teamInfo = ref()
 const loading = ref(true);
 const loadFail = ref(false);
@@ -34,6 +45,8 @@ const isLoadSimilarTeam = ref(false);
 async function queryTeam(teamId, teamTier) {
   loading.value = true;
   teamInfo.value = null
+  loadFail.value = false;
+
   const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30&format=${teamTier}`, {
         method: "GET"
       }
@@ -42,7 +55,6 @@ async function queryTeam(teamId, teamTier) {
     if (res.ok) {
       teamInfo.value = await res.json();
       loading.value = false;
-      loadFail.value = false;
 
       // 让每支队伍里面的宝可梦按同种顺序排列，避免混乱
       sortPokemons(teamInfo.value.pokemons);
@@ -134,12 +146,17 @@ function getPlayerUrl(data) {
   return `/player-record?name=${data.playerName}`;
 }
 
-function getPokemonAbilityText(pokemon, abilities) {
+function getPokemonAbility(pokemon, abilities) {
   if (uniquePokemonAbility(pokemon)) {
     return uniquePokemonAbility(pokemon);
   }
 
   return abilities?.length === 0 ? "???" : abilities[0];
+}
+
+function getPokemonAbilityText(pokemon, abilities) {
+  let pokemonAbility = getPokemonAbility(pokemon, abilities);
+  return pokemonAbility === "???" ? pokemonAbility:t(pokemonAbility);
 }
 
 function uniquePokemonAbility(pokemon) {
@@ -151,10 +168,40 @@ function uniquePokemonAbility(pokemon) {
   return null;
 }
 
+function copyToClip() {
+  let text = '';
+  for (let pokemon of teamInfo.value.teamSet.pokemons) {
+    text += pokemon.name;
+    text += " @ ";
+    text += pokemon.items?.length === 0 ? "???" : pokemon.items[0];
+    text += "\n";
+    text += "Ability: " + getPokemonAbility(pokemon.name, pokemon.abilities);
+    text += "\n";
+    text += "Tera Type: " + (pokemon.teraTypes?.length === 0 ? "???" : pokemon.teraTypes[0]);
+    text += "\n";
+    if (pokemon.moves.length !== 0) {
+      for (let move of pokemon.moves.slice(0, 4)) {
+        text += "-" + move;
+        text += "\n";
+      }
+    }
+    text += "\n"
+  }
+
+  if (text.length !== 0) {
+    navigator.clipboard.writeText(text)
+        .then(() => {
+          show();
+        })
+        .catch(err => {
+        });
+  }
+}
+
 queryTeam(props.teamId, props.teamTier);
 
-watch(() => props.teamId, async (newTeamId) => {
-  await queryTeam(newTeamId, props.teamTier);
+watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => {
+  await queryTeam(newTeamId, newTeamTier);
 });
 </script>
 
@@ -162,57 +209,63 @@ watch(() => props.teamId, async (newTeamId) => {
   <div v-if="teamInfo" v-show="loading===false && loadFail===false">
     <!--team-->
     <div>
-      <i v-if="isLoadSimilarTeam" class="mr-2 pi pi-step-backward cursor-pointer"
+      <i v-if="isLoadSimilarTeam" class="mr-2 pi pi-backward cursor-pointer"
          @click="queryTeam(props.teamId, props.teamTier)"/>
-      <a class="font-bold">team</a>
+      <a class="font-bold">{{$t('team')}}</a>
     </div>
     <div class="flex items-center gap-1">
       <Team :team="teamInfo" :compact="true" :teamSet="teamInfo?.teamSet"></Team>
       <a class="ml-2" target="_blank" v-if="teamInfo?.pokepasts?.length > 0"
          v-for="pokepast in teamInfo?.pokepasts"
          :href="pokepast.url">
-        <i class="pi pi-link" style="color: darkblue"></i>
+        <i class="pi pi-link text-blue-400"></i>
       </a>
     </div>
     <Accordion>
-      <AccordionTab header="export" :headerStyle='{"font-weight": 700}'>
+      <AccordionTab :header="$t('export')" :headerStyle='{"font-weight": 700}'>
+        <Toast class="max-sm:w-50"/>
         <div class="">
-          <div v-for="pokemon in teamInfo?.teamSet.pokemons" class="flex gap-1">
-            <div class="">
-              <div class="min-w-80">
-                <span :class="getPokemonNameColor(pokemon.name)">{{ pokemon.name }}</span>
+          <div class="cursor-pointer hover:bg-green-200 rounded-sm w-14">
+            <i class="pi pi-copy" ></i>
+            <span @click="copyToClip()" class="text-gray-500 text-sm">{{$t('copy team')}}</span>
+          </div>
+
+          <div v-for="pokemon in teamInfo?.teamSet.pokemons" class="flex gap-3">
+            <div class="w-60 max-sm:w-44">
+              <div>
+                <span :class="getPokemonNameColor(pokemon.name)">{{ $t(pokemon.name) }}</span>
                 <span v-if="pokemon.items" class="">
-                  {{ " @ " + (pokemon.items?.length === 0 ? "???" : pokemon.items[0]) }}
+                  {{ " @ " + (pokemon.items?.length === 0 ? "???" : $t(pokemon.items[0])) }}
                 </span>
               </div>
               <div>
-                {{ "Ability: " + getPokemonAbilityText(pokemon.name, pokemon.abilities) }}
+                {{ $t('set tip ability') + getPokemonAbilityText(pokemon.name, pokemon.abilities) }}
               </div>
               <div class="flex items-center gap-1">
-                <span> {{ "Tera Type: " + (pokemon.teraTypes?.length === 0 ? "???" : pokemon.teraTypes[0]) }}</span>
+                <span> {{ $t('set tip tera') + (pokemon.teraTypes?.length === 0 ? "???" : $t(pokemon.teraTypes[0])) }}</span>
               </div>
               <div v-if="pokemon.moves && pokemon.moves.length !==0">
                 <div v-for="move in pokemon.moves.slice(0, 4)">
-                  {{ "-" + move }}
+                  {{ "-" + $t(move) }}
                 </div>
                 <br/>
               </div>
               <br v-else>
             </div>
 
-            <div class="select-none font-light">
-              <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="font-bold">alternative sets</p>
-              <p v-for="item in pokemon.items.slice(1, pokemon.items.length)" class="font-light">
-                {{ "@" + item }}
+            <div class="font-light">
+              <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="text-gray-500 text-sm">{{ $t('alternative sets')}}</p>
+              <p v-for="item in pokemon.items.slice(1, pokemon.items.length)" class="text-gray-500 text-sm">
+                {{ "@" + $t(item) }}
               </p>
-              <p v-if="pokemon.teraTypes.length > 1" class="font-light">
-                {{ "Tera Type: " + pokemon.teraTypes.slice(1, pokemon.teraTypes.length) }}
+              <p v-if="pokemon.teraTypes.length > 1" class="text-gray-500 text-sm">
+                {{ $t('set tip tera') + pokemon.teraTypes.slice(1, pokemon.teraTypes.length).map(a => $t(a)) }}
               </p>
-              <p v-if="pokemon.abilities.length > 1" class="font-light">
-                {{ "Ability: " + pokemon.abilities.slice(1, pokemon.abilities.length) }}
+              <p v-if="pokemon.abilities.length > 1" class="text-gray-500 text-sm">
+                {{ $t('set tip ability') + pokemon.abilities.slice(1, pokemon.abilities.length).map(a => $t(a)) }}
               </p>
-              <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="font-light">
-                {{ "-" + move }}
+              <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="text-gray-500 text-sm">
+                {{ "-" + $t(move) }}
               </p>
             </div>
           </div>
@@ -221,45 +274,50 @@ watch(() => props.teamId, async (newTeamId) => {
     </Accordion>
 
     <!--similar teams-->
-    <p class="font-bold mt-3">similar teams</p>
+    <p class="font-bold mt-3">{{$t('similar teams')}}</p>
     <span v-if="!teamInfo.similarTeams || teamInfo.similarTeams.length ===0">NA</span>
     <div v-else class="mt-2" v-for="similarTeam in teamInfo.similarTeams">
       <div class="flex items-center gap-1">
         <Team :team="similarTeam" :compact="true" :teamSet="similarTeam?.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
            @click="queryTeam(similarTeam.id.data, props.teamTier)"/>
-        <a class="ml-2" target="_blank" v-if="similarTeam.pokepasts?.length > 0"
+        <a class="ml-2 max-sm:hidden" target="_blank" v-if="similarTeam.pokepasts?.length > 0"
            v-for="pokepast in similarTeam.pokepasts"
            :href="pokepast.url">
-          <i class="pi pi-link" style="color: darkblue"></i>
+          <i class="pi pi-link text-blue-400"></i>
         </a>
       </div>
     </div>
 
     <!--recent replays-->
-    <p class="font-bold mt-3">recent replays</p>
+    <p class="font-bold mt-3">{{$t('recent replays')}}</p>
     <DataTable :value="teamInfo.teams" sortField="battleDate" :sortOrder="-1" paginator :rows="10">
-      <Column field="teamId" header="team" :style="{ width:'20%'}">
+      <Column field="teamId" :header="$t('team')" :style="{ width:'20%'}" class="max-md:hidden"
+              headerClass="text-gray-500">
         <template #body="slotProps">
           <div class="overflow-visible flex items-center gap-1">
             <Team :team="slotProps.data" :compact="true"></Team>
           </div>
         </template>
       </Column>
-      <Column field="playerName" header="player name" :style="{ width:'10%'}">
+      <Column field="playerName" :header="$t('player name')" class="max-md:text-sm"
+              headerClass="text-gray-500">
         <template #body="{data}">
-          <a :href="getPlayerUrl(data)" target="_blank"
-             class="dynamicThemeText">
-            {{ data.playerName }}
-          </a>
+            <a :href="getPlayerUrl(data)" target="_blank"
+               class="block max-sm:max-w-44 text-blue-400 break-all">
+              {{ data.playerName }}
+            </a>
         </template>
       </Column>
-      <Column field="battleDate" sortable header="date" :style="{ width:'10%'}"/>
-      <Column field="rating" sortable header="rating" :style="{ width:'10%'}"/>
-      <Column field="battle-example" header="replay" :style="{ width:'20%'}">
+      <Column field="battleDate" sortable :header="$t('replay date')" :style="{ width:'10%'}" class="max-md:hidden"
+              headerClass="text-gray-500"/>
+      <Column field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}" class="max-md:text-sm"
+              headerClass="text-gray-500"/>
+      <Column field="battle-example" :header="$t('replay')" :style="{ width:'20%'}" class="max-md:text-sm"
+              headerClass="text-gray-500">
         <template #body="{data}">
           <a :href="`https://replay.pokemonshowdown.com/${data.battleId}`" target="_blank"
-             class="dynamicThemeText">
+             class="dynamicThemeText line-clamp-1">
             {{ data.battleId }}
           </a>
         </template>

@@ -38,7 +38,7 @@ function getDecorateClass(data) {
   <div class="battle-table text-lg">
     <p v-if="props.tourPlayer" class="font-sans font-bold text-black">{{ data.tourId + ' ' + data.stage }}</p>
     <a style="display:block" target="_blank" :href="`https://replay.pokemonshowdown.com/${data.id}`"
-       class="text-black">
+       class="text-black underline">
       {{ data.id }}
     </a>
     <p class="text-black">{{ data.date }}</p>

@@ -17,9 +17,9 @@ const props = defineProps({
 <template>
   <Card>
     <template #title>
-      <p class="font-bold text-center">{{ metric }}</p></template>
+      <p class="text-sm  text-center text-gray-500">{{ $t(metric) }}</p></template>
     <template #content>
-      <p class="text-center">{{ value }}</p>
+      <p class="text-center text-sm">{{ value }}</p>
     </template>
   </Card>
 </template>

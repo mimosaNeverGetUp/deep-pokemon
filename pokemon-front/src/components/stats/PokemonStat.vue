@@ -388,7 +388,15 @@ function getShowSpreads(spreads) {
 }
 
 function getSpreadTextClass() {
-  return "16 min-w-16";
+  return "w-16 min-w-16 max-lg:w-1/7 max-lg:min-w-1/7";
+}
+
+function getSpreadValueTextClass() {
+  return "w-16 min-w-16 font-mono text-xs text-sky-500 max-lg:w-1/7 max-lg:min-w-1/7";
+}
+
+function getSpreadDivClass() {
+  return "flex justify-start items-center w-32 min-w-32 max-lg:w-1/7 max-lg:min-w-1/7 max-lg:flex-col max-lg:items-start max-lg:mb-4 max-lg:min-h-10";
 }
 
 function getLocaleSets(set) {
@@ -401,39 +409,38 @@ function getLocaleSets(set) {
 
 <template>
   <div class="w-full" v-if="moveset">
-    <div class="flex justify-start items-center mb-3">
-      <img width="120" height="120"
-           :src="getPsIconUrl(currentForm)" :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
+    <div class="flex justify-start items-center mb-3 max-sm:flex-col max-sm:items-start max-sm:gap-2">
       <div class="flex justify-start items-center">
+        <img width="120" height="120"
+             :src="getPsIconUrl(currentForm)" :alt="pokemon.name" :title="pokemon.name" @error="showDefaultIcon"/>
         <p class="text-2xl font-bold mr-1 text-center items-center">{{ $t(currentForm) }}</p>
         <img v-if="Dex.forGen(currentTierNumber).species.get(currentForm)"
              v-for="type in getPokemonTypes(currentForm)" :src="`/types/${type}.png`" height="17" width="40"
              :alt="type"/>
         <TreeSelect v-if="getFormNodes(pokemon?.name).length > 1" @node-select="onNodeSelect"
                     :options="getFormNodes(pokemon?.name)" class="max-w-12 ml-2"/>
-        <div class="ml-4 w-56" v-if="Dex.forGen(currentTierNumber).species.get(currentForm)">
-          <div v-for="(value, key) in getPokemonStats(currentForm)" class="flex gap-1 items-center text-center">
-            <span class="text-gray-500 text-xs w-8">{{ $t(key) }}</span>
-            <span :style="getStatStyle(key,value)" class="size-3.5"></span>
-            <span class="text-sm">{{ value }}</span>
-          </div>
+      </div>
+      <div class="ml-4 w-56" v-if="Dex.forGen(currentTierNumber).species.get(currentForm)">
+        <div v-for="(value, key) in getPokemonStats(currentForm)" class="flex gap-1 items-center text-center">
+          <span class="text-gray-500 text-xs w-8">{{ $t(key) }}</span>
+          <span :style="getStatStyle(key,value)" class="size-3.5"></span>
+          <span class="text-sm">{{ value }}</span>
         </div>
       </div>
-
     </div>
-    <div class="flex justify-start items-center gap-2 mb-5">
+    <div class="flex justify-start items-center gap-2 mb-5 max-sm:gap-1">
       <Divider layout="vertical" type="solid"/>
-      <div class="ml-3 items-center">
+      <div class="ml-3 items-center max-sm:ml-1">
         <p class="text-sm text-gray-500">{{ $t("weighted") }}</p>
-        <div class="flex gap-5 w-44 min-w-44 items-center">
+        <div class="flex gap-5 w-44 min-w-44 items-center max-sm:w-40 max-sm:min-w-40">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.weighted) }}</p>
           <UsageDif :newValue="pokemon.usage.weighted" :oldValue="pokemon.lastMonthUsage?.usage.weighted"/>
         </div>
       </div>
       <Divider layout="vertical" type="solid"/>
-      <div class="items-center">
+      <div class="items-center max-sm:ml-1">
         <p class="text-sm text-gray-500">{{ $t("raw") }}</p>
-        <div class="flex gap-5 items-center">
+        <div class="flex gap-5 w-44 min-w-44 items-center max-sm:w-40 max-sm:min-w-40">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.raw) }}</p>
           <UsageDif :newValue="pokemon.usage.raw" :oldValue="pokemon.lastMonthUsage?.usage.raw"/>
         </div>
@@ -441,41 +448,48 @@ function getLocaleSets(set) {
       <Divider layout="vertical"/>
     </div>
     <Divider type="solid"/>
-    <div class="ml-5 my-3">
+    <div class="ml-5 my-3 max-sm:ml-1">
       <p class="text-sm text-gray-500">{{ $t("abilities") }}</p>
-      <div class="flex justify-start items-center gap-2 mb-1"
+      <div class="flex justify-start items-center max-lg:flex-col max-lg:items-start max-lg:mb-1"
            v-for=" [ability, value] in Object.entries(moveset.abilities)">
-        <span class="w-44 min-w-44">{{ $t(ability) }}</span>
-        <div class="flex gap-5 w-44 min-w-44 items-center">
-          <span class="font-bold w-20">{{ convertToPercentage(value) }}</span>
-          <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.abilities[ability]"/>
+        <div class="flex justify-start items-center gap-2 mb-1 max-sm:gap-1">
+          <span class="w-44 min-w-44 max-sm:w-36 max-sm:min-w-36 max-sm:text-base">{{ $t(ability) }}</span>
+          <div class="flex gap-5 w-44 min-w-44 items-center">
+            <span class="font-bold w-20 max-sm:text-base">{{ convertToPercentage(value) }}</span>
+            <UsageDif :newValue="value" :oldValue="moveset.lastMonthMoveSet?.abilities[ability]"/>
+          </div>
         </div>
-        <span class="whitespace-nowrap text-gray-500 text-sm">{{
+        <p class="text-gray-500 text-sm max-sm:text-xs max-lg:break-all max-lg:ml-6 lg:whitespace-nowrap">{{
             $t(Dex.forGen(currentTierNumber).abilities.get(ability)?.shortDesc)
-          }}</span>
+          }}</p>
       </div>
+
     </div>
     <Divider type="solid"/>
-    <div class="ml-5 my-3">
+    <div class="ml-5 my-3 max-sm:ml-1">
       <p class="text-sm text-gray-500">{{ $t("items") }}</p>
-      <div class="flex justify-start gap-2 mb-1" v-for=" (item) in filterPopularSet(moveset.items,0.01)">
-        <div class="w-44 items-center min-w-44">
-          <img :src="`/itemicon/${item.name}.png`" :alt="item.name"/>
-          <span>{{ $t(item.name) }}</span>
+      <div class="flex justify-start items-center max-lg:flex-col max-lg:items-start max-lg:mb-1"
+           v-for=" (item) in filterPopularSet(moveset.items,0.01)">
+        <div class="flex justify-start gap-2 mb-1 max-sm:gap-1">
+          <div class="w-44 items-center min-w-44 max-sm:w-36 max-sm:min-w-36 max-sm:text-base">
+            <img :src="`/itemicon/${item.name}.png`" :alt="item.name"/>
+            <span>{{ $t(item.name) }}</span>
+          </div>
+          <div class="flex gap-5 w-44 min-w-44 items-center">
+            <span class="font-bold w-20 max-sm:text-base">{{ convertToPercentage(item.usage) }}</span>
+            <UsageDif :newValue="item.usage" :oldValue="moveset.lastMonthMoveSet?.items[item.name]"/>
+          </div>
         </div>
-        <div class="flex gap-5 w-44 min-w-44 items-center">
-          <span class="font-bold w-20">{{ convertToPercentage(item.usage) }}</span>
-          <UsageDif :newValue="item.usage" :oldValue="moveset.lastMonthMoveSet?.items[item.name]"/>
-        </div>
-        <span class="whitespace-nowrap text-gray-500 text-sm">{{
-            $t(Dex.forGen(currentTierNumber).items.get(item.name)?.desc) }}</span>
+        <p class="text-gray-500 text-sm max-sm:text-xs max-lg:break-all max-lg:ml-6 lg:whitespace-nowrap">{{
+            $t(Dex.forGen(currentTierNumber).items.get(item.name)?.desc)
+          }}</p>
       </div>
     </div>
     <Divider type="solid"/>
-    <div v-if="props.format.includes('gen9') && moveset.teraTypes" class="ml-5 my-3">
+    <div v-if="props.format.includes('gen9') && moveset.teraTypes" class="ml-5 my-3 max-sm:ml-1">
       <p class="text-sm text-gray-500">{{ $t("tera types") }}</p>
-      <div class="flex justify-start gap-2 mb-1" v-for=" (tera) in filterPopularSet(moveset.teraTypes,0.01)">
-        <div class="w-44 items-center min-w-44">
+      <div class="flex justify-start gap-2 mb-1 max-sm:gap-1" v-for=" (tera) in filterPopularSet(moveset.teraTypes,0.01)">
+        <div class="w-44 items-center min-w-44 max-sm:w-36 max-sm:min-w-36 max-sm:text-base">
           <img :src="`/types/${tera.name}.png`" :alt="tera.name"/>
           <span>{{ $t(tera.name) }}</span>
         </div>
@@ -486,106 +500,140 @@ function getLocaleSets(set) {
       </div>
     </div>
     <Divider type="solid"/>
-    <div class="ml-5 my-3">
+    <div class="ml-5 my-3 max-sm:ml-1">
       <p class="text-sm text-gray-500">{{ $t("moves") }}</p>
-      <div class="flex justify-start items-center gap-2 mb-1"
+      <div class="flex justify-start items-center max-lg:flex-col max-lg:items-start max-lg:mb-1"
            v-for=" (move) in filterPopularSet(moveset.moves,0.01)">
-        <span class="w-44 min-w-44">{{ $t(move.name) }}</span>
-        <div class="flex gap-5 w-44 min-w-44 items-center">
-          <span class="font-bold w-20">{{ convertToPercentage(move.usage) }}</span>
-          <UsageDif :newValue="move.usage" :oldValue="moveset.lastMonthMoveSet?.moves[move.name]"/>
+        <div class="flex justify-start items-center gap-2 mb-1">
+          <span class="w-44 min-w-44 max-sm:w-36 max-sm:min-w-3 max-sm:text-base">{{ $t(move.name) }}</span>
+          <div class="flex gap-5 w-44 min-w-44 items-center">
+            <span class="font-bold w-20 max-sm:text-base">{{ convertToPercentage(move.usage) }}</span>
+            <UsageDif :newValue="move.usage" :oldValue="moveset.lastMonthMoveSet?.moves[move.name]"/>
+          </div>
+          <img :src="getMoveTypeIconUrl(move.name)" :alt="move" class="max-lg:hidden"/>
+          <img :src="getMoveCategoryIconUrl(move.name)" :alt="move" class="max-lg:hidden"/>
+          <span class="w-7 min-w-7 text-center text-gray-500 text-sm max-lg:hidden">{{
+              getMoveBasePower(move.name)
+            }}</span>
+          <span class="w-12 min-w-12 text-center text-gray-500 text-sm max-lg:hidden">{{
+              getAccuracyText(move.name)
+            }}</span>
+          <span class="w-7 min-w-7 text-center text-gray-500 text-sm max-lg:hidden">{{ getMovePP(move.name) }}</span>
         </div>
-        <img :src="getMoveTypeIconUrl(move.name)" :alt="move"/>
-        <img :src="getMoveCategoryIconUrl(move.name)" :alt="move"/>
-        <span class="w-7 min-w-7 text-center text-gray-500 text-sm">{{ getMoveBasePower(move.name) }}</span>
-        <span class="w-12 min-w-12 text-center text-gray-500 text-sm">{{ getAccuracyText(move.name) }}</span>
-        <span class="w-7 min-w-7 text-center text-gray-500 text-sm">{{ getMovePP(move.name) }}</span>
-        <span class="whitespace-nowrap text-gray-500 text-sm">{{
+        <p class="text-gray-500 text-sm  max-sm:text-xs max-lg:break-all max-lg:ml-6 lg:whitespace-nowrap">{{
             $t(Dex.forGen(currentTierNumber).moves.get(move.name)?.shortDesc)
-          }}</span>
+          }}
+        </p>
       </div>
+
     </div>
     <Divider type="solid"/>
-    <div class="ml-5 my-3">
-      <p class="text-sm text-gray-500">{{ $t("spreads") }}</p>
+    <div class="ml-5 my-3 max-sm:ml-1">
+      <p class="text-sm text-gray-500 max-sm:text-xs">{{ $t("spreads") }}</p>
       <div class="flex">
-        <span class="w-32 min-w-32 text-sm text-gray-500">{{ $t('Hp') }}</span>
-        <span class="w-32 min-w-32 text-sm text-gray-500">{{ $t('Atk') }}</span>
-        <span class="w-32 min-w-32 text-sm text-gray-500">{{ $t('Def') }}</span>
-        <span class="w-32 min-w-32 text-sm text-gray-500">{{ $t('SpA') }}</span>
-        <span class="w-32 min-w-32 text-sm text-gray-500">{{ $t('SpD') }}</span>
-        <span class="w-32 min-w-32 text-sm text-gray-500">{{ $t('Spe') }}</span>
+        <span class="w-32 min-w-32 text-sm text-gray-500 max-lg:w-1/7 max-lg:min-w-1/7 max-sm:text-xs">{{
+            $t('Hp')
+          }}</span>
+        <span class="w-32 min-w-32 text-sm text-gray-500 max-lg:w-1/7 max-lg:min-w-1/7 max-sm:text-xs">{{
+            $t('Atk')
+          }}</span>
+        <span class="w-32 min-w-32 text-sm text-gray-500 max-lg:w-1/7 max-lg:min-w-1/7 max-sm:text-xs">{{
+            $t('Def')
+          }}</span>
+        <span class="w-32 min-w-32 text-sm text-gray-500 max-lg:w-1/7 max-lg:min-w-1/7 max-sm:text-xs">{{
+            $t('SpA')
+          }}</span>
+        <span class="w-32 min-w-32 text-sm text-gray-500 max-lg:w-1/7 max-lg:min-w-1/7 max-sm:text-xs">{{
+            $t('SpD')
+          }}</span>
+        <span class="w-32 min-w-32 text-sm text-gray-500 max-lg:w-1/7 max-lg:min-w-1/7 max-sm:text-xs">{{
+            $t('Spe')
+          }}</span>
       </div>
-      <div class="flex justify-start items-center mb-1" v-for=" (spread, index) in
-      getShowSpreads(moveset.spreads)">
-        <span :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 0, 'hp', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name, 0, 'hp', currentForm, index)">
-          {{ getSpreadText(spread.name, 0, 'hp') }}
-        </span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-500"
-              @mouseover="toggleSpreadText(spread.name, 0, 'hp', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name, 0, 'hp', currentForm, index)">{{
-            getBaseStat(spread.name, 0, 'hp', currentForm, index)
-          }}</span>
+      <div class="flex justify-start items-center mb-1 max-sm:text-sm"
+           v-for="(spread, index) in getShowSpreads(moveset.spreads)">
+        <div :class="getSpreadDivClass()">
+          <p :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 0, 'hp', currentForm, index)"
+             @mouseleave="toggleSpreadText(spread.name, 0, 'hp', currentForm, index)">
+            {{ getSpreadText(spread.name, 0, 'hp') }}
+          </p>
+          <p :class="getSpreadValueTextClass()"
+             @mouseover="toggleSpreadText(spread.name, 0, 'hp', currentForm, index)"
+             @mouseleave="toggleSpreadText(spread.name, 0, 'hp', currentForm, index)">
+            {{ getBaseStat(spread.name, 0, 'hp', currentForm, index) }}
+          </p>
+        </div>
 
-        <span :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 1, 'atk',
-        currentForm, index)" @mouseleave="toggleSpreadText(spread.name, 1, 'atk', currentForm, index)">
-          {{ getSpreadText(spread.name, 1, 'atk') }}
-        </span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-500"
-              @mouseover="toggleSpreadText(spread.name, 1, 'atk', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name, 1, 'atk', currentForm, index)">{{
-            getBaseStat(spread.name, 1, 'atk', currentForm, index)
-          }}</span>
+        <div :class="getSpreadDivClass()">
+          <p :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 1, 'atk',currentForm, index)"
+                @mouseleave="toggleSpreadText(spread.name, 1, 'atk', currentForm, index)">
+            {{ getSpreadText(spread.name, 1, 'atk') }}
+          </p>
+          <span :class="getSpreadValueTextClass()"
+                @mouseover="toggleSpreadText(spread.name, 1, 'atk', currentForm, index)"
+                @mouseleave="toggleSpreadText(spread.name, 1, 'atk', currentForm, index)">
+            {{ getBaseStat(spread.name, 1, 'atk', currentForm, index) }}
+          </span>
+        </div>
 
-        <span :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 2, 'def',
+
+        <div :class="getSpreadDivClass()">
+          <p :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 2, 'def',
         currentForm, index)" @mouseleave="toggleSpreadText(spread.name, 2, 'def', currentForm, index)">
           {{ getSpreadText(spread.name, 2, 'def') }}
-        </span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-500"
-              @mouseover="toggleSpreadText(spread.name, 2, 'def', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name, 2, 'def', currentForm, index)">{{
-            getBaseStat(spread.name, 2, 'def', currentForm, index)
-          }}</span>
+          </p>
+          <p :class="getSpreadValueTextClass()"
+                @mouseover="toggleSpreadText(spread.name, 2, 'def', currentForm, index)"
+                @mouseleave="toggleSpreadText(spread.name, 2, 'def', currentForm, index)">{{
+              getBaseStat(spread.name, 2, 'def', currentForm, index)
+            }}
+          </p>
+        </div>
 
-        <span :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 3, 'spa', currentForm, index)"
+        <div :class="getSpreadDivClass()">
+          <p :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 3, 'spa', currentForm, index)"
               @mouseleave="toggleSpreadText(spread.name, 3, 'spa', currentForm, index)">
-          {{ getSpreadText(spread.name, 3, 'spa') }}
-        </span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-500"
-              @mouseover="toggleSpreadText(spread.name, 3, 'spa', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name, 3, 'spa', currentForm, index)">{{
-            getBaseStat(spread.name, 3, 'spa', currentForm, index)
-          }}</span>
+            {{ getSpreadText(spread.name, 3, 'spa') }}
+          </p>
+          <p :class="getSpreadValueTextClass()"
+                @mouseover="toggleSpreadText(spread.name, 3, 'spa', currentForm, index)"
+                @mouseleave="toggleSpreadText(spread.name, 3, 'spa', currentForm, index)">
+            {{getBaseStat(spread.name, 3, 'spa', currentForm, index)}}
+          </p>
+        </div>
 
-        <span :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 4, 'spd', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name, 4, 'spd', currentForm, index)">
-          {{ getSpreadText(spread.name, 4, 'spd') }}
-        </span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-500"
-              @mouseover="toggleSpreadText(spread.name, 4, 'spd', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name, 4, 'spd', currentForm, index)">{{
-            getBaseStat(spread.name, 4, 'spd', currentForm, index)
-          }}</span>
+        <div :class="getSpreadDivClass()">
+            <p :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name, 4, 'spd', currentForm, index)"
+                  @mouseleave="toggleSpreadText(spread.name, 4, 'spd', currentForm, index)">
+              {{ getSpreadText(spread.name, 4, 'spd') }}
+            </p>
+            <p :class="getSpreadValueTextClass()"
+                @mouseover="toggleSpreadText(spread.name, 4, 'spd', currentForm, index)"
+                @mouseleave="toggleSpreadText(spread.name, 4, 'spd', currentForm, index)">
+              {{getBaseStat(spread.name, 4, 'spd', currentForm, index) }}
+            </p>
+        </div>
 
-        <span :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name,  5, 'spe', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name,  5, 'spe', currentForm, index)">
-          {{ getSpreadText(spread.name, 5, 'spe') }}
-        </span>
-        <span class="w-16 min-w-16 font-mono text-xs text-sky-500"
-              @mouseover="toggleSpreadText(spread.name,  5, 'spe', currentForm, index)"
-              @mouseleave="toggleSpreadText(spread.name,  5, 'spe', currentForm, index)">{{
-            getBaseStat(spread.name, 5, 'spe', currentForm, index)
-          }}</span>
-        <span class="w-20 font-bold">{{ convertToPercentage(spread.usage) }}</span>
+        <div :class="getSpreadDivClass()">
+            <span :class="getSpreadTextClass()" @mouseover="toggleSpreadText(spread.name,  5, 'spe', currentForm, index)"
+                  @mouseleave="toggleSpreadText(spread.name,  5, 'spe', currentForm, index)">
+              {{ getSpreadText(spread.name, 5, 'spe') }}
+            </span>
+          <span :class="getSpreadValueTextClass()"
+                @mouseover="toggleSpreadText(spread.name,  5, 'spe', currentForm, index)"
+                @mouseleave="toggleSpreadText(spread.name,  5, 'spe', currentForm, index)">
+              {{getBaseStat(spread.name, 5, 'spe', currentForm, index)}}
+          </span>
+        </div>
+        <span class="w-20 font-bold max-lg:w-1/7 max-lg:min-w-1/7 max-lg:min-h-10 max-lg:mb-4">{{ convertToPercentage(spread.usage) }}</span>
       </div>
-      <Button class="ml-[384px]" :icon="allSpreadsButtonIcon()" severity="secondary"
+      <Button class="ml-[384px] max-lg:hidden" :icon="allSpreadsButtonIcon()" severity="secondary"
               @click="toggleSpreadsVisibility()" rounded text/>
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3">
       <p class="text-sm text-gray-500">{{ $t("teammate") }}</p>
-      <div class="flex justify-start items-center gap-2 mb-1" v-for=" (teammate) in
+      <div class="flex justify-start items-center gap-2 mb-1 max-sm:text-base" v-for=" (teammate) in
       filterPopularSet(moveset.teammates,0.20)">
         <div class="w-60   ">
           <img :src="getIconUrl(teammate.name)" :alt="teammate.name"/>
@@ -599,7 +647,7 @@ function getLocaleSets(set) {
       <p class="text-sm text-gray-500">{{ $t("sets") }}</p>
       <div class="mt-3 mb-10" v-for=" [setName, set] in getLocaleSets(sets)">
         <p class="font-bold">{{ setName }}</p>
-        <pre>{{ set }}</pre>
+        <pre class="max-sm:text-base max-sm:whitespace-pre-line">{{ set }}</pre>
 
         <Accordion :multiple="true" v-if="analysis?.setAnalyzes?.[setName]" class="mt-7">
           <AccordionTab>
@@ -611,7 +659,7 @@ function getLocaleSets(set) {
             </template>
             <div class="">
               <p class="font-sans text-base leading-loose dynamicThemeText  whitespace-pre-line max-w-200">
-                {{locale==='en' ? analysis.setAnalyzes[setName]:analysis.setChineseAnalyzes[setName]}}
+                {{ locale === 'en' ? analysis.setAnalyzes[setName] : analysis.setChineseAnalyzes[setName] }}
               </p>
             </div>
           </AccordionTab>
@@ -619,14 +667,14 @@ function getLocaleSets(set) {
       </div>
     </div>
     <Divider type="solid"/>
-    <div class="ml-5 my-3 whitespace-nowrap" v-if="teams && teams.length !== 0">
-      <p class="text-sm  mb-3">{{$t("teams")}}</p>
+    <div class="ml-5 my-3 whitespace-nowrap  max-sm:ml-0" v-if="teams && teams.length !== 0">
+      <p class="text-sm mb-3">{{ $t("teams") }}</p>
       <div class="mb-3 flex items-center text-center" v-for="teamGroup in teams">
-        <Team class="" :team="teamGroup" :compact="true" :teamSet="teamGroup.teamSet"></Team>
+        <Team :team="teamGroup" :compact="false" :teamSet="teamGroup.teamSet"></Team>
         <i class="ml-2 pi pi-eye cursor-pointer" style="font-size: 1rem"
            @click="toggleTeamInfoDialog(teamGroup.id.data, teamGroup.tier)"/>
-        <a class="ml-2" target="_blank" v-if="teamGroup.pokepasts?.length > 0" v-for="pokepast in teamGroup.pokepasts"
-           :href="pokepast.url">
+        <a class="ml-2 max-sm:hidden" target="_blank" v-if="teamGroup.pokepasts?.length > 0"
+           v-for="pokepast in teamGroup.pokepasts" :href="pokepast.url">
           <i class="pi pi-link text-blue-400"></i>
         </a>
       </div>
@@ -634,7 +682,7 @@ function getLocaleSets(set) {
   </div>
   <span v-else-if="loadFail">load move set fail.</span>
   <LoadingIcon v-else/>
-  <Dialog v-model:visible="teamInfoDialogVisible" modal :header="$t('Team Info')" class="size-3/4">
+  <Dialog v-model:visible="teamInfoDialogVisible" modal :header="$t('Team Info')" class="">
     <div class="">
       <TeamInfo :teamId="teamInfoId" :teamTier="teamTier"></TeamInfo>
     </div>

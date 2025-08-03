@@ -7,6 +7,12 @@
     padding: 2rem;
 }
 
+@media (max-width: 639.98px) {
+    #app {
+        padding-inline: 1rem;
+    }
+}
+
 a,
 .green {
     text-decoration: none;

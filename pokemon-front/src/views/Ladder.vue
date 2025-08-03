@@ -70,10 +70,10 @@ fetchData(page.value, row.value)
       <template #body="{data}">
         <div class="flex justify-center overflow-visible">
           <div class="team-list" v-if="data.recentTeam.length !== 0">
-            <Team v-for="team in data.recentTeam" :team="team" :compact="false"></Team>
+            <Team v-for="team in data.recentTeam" :team="team" :compact="true"></Team>
           </div>
           <div v-else>
-            <Team :team="emptyTeam" :compact="false"></Team>
+            <Team :team="emptyTeam" :compact="true"></Team>
           </div>
         </div>
       </template>

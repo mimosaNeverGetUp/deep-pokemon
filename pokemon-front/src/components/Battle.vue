@@ -50,7 +50,7 @@ function getDecorateClass(data) {
                       ? team.playerName : "null"
                 }}
               </span>
-        <Team :team="team"></Team>
+        <Team :team="team" :compact="true"></Team>
       </div>
     </div>
     <Button :icon="battleButtonIcon()" severity="secondary" @click="toggleBattleStatVisibility()" rounded text/>

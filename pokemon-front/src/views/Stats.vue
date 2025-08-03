@@ -118,7 +118,7 @@ getFormatNode();
       </div>
       <div class="flex items-center mt-2 mb-2 xl:hidden">
         <i class="pi pi-bars cursor-pointer hover:bg-green-200" @click="clickMenu()"></i>
-        <p class="ml-4">{{ route.query.format }}</p>
+        <p class="ml-4 cursor-pointer hover:bg-green-200" @click="clickMenu()">{{ route.query.format }}</p>
         <i v-if="showPokemonStat" class="pi pi-angle-right ml-4"></i>
         <p v-if="showPokemonStat" class="ml-4">{{ selectPokemon?.name ? $t(selectPokemon?.name) : '' }}</p>
       </div>
@@ -131,7 +131,7 @@ getFormatNode();
       <StatsRank :class="showPokemonStat? 'max-xl:hidden sticky h-fit max-xl:w-full':'sticky h-fit max-xl:w-full'"
                  :style="getStickyRankNaviStyle()" :updateSelectPokemon="updateSelectPokemon"
                  :format="route.query.format" :language="route.query.language"/>
-      <div :class="showPokemonStat? 'overflow-hidden':'max-xl:hidden'">
+      <div :class="showPokemonStat? 'max-lg:overflow-hidden':'max-xl:hidden'">
         <PokemonStat :pokemon="selectPokemon" :format="route.query.format" :language="route.query.language"
                      :redirectPositionFunction="redirectPositionFunction"/>
       </div>

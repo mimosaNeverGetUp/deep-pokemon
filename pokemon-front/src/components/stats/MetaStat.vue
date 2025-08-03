@@ -47,18 +47,23 @@ fetchMeta();
 </script>
 
 <template>
-  <div class="flex gap-4 flex-nowrap">
-    <MetaStatCard class="ml-auto min-w-32" metric="Date" :value="getYearMonth(meta?.date)"></MetaStatCard>
+  <div class="justify-center flex gap-4 flex-nowrap max-md:hidden">
+    <MetaStatCard class="min-w-32" metric="Date" :value="getYearMonth(meta?.date)"></MetaStatCard>
     <MetaStatCard class="min-w-28" metric="Battle" :value="convertString(meta?.total)"></MetaStatCard>
-    <MetaStatCard class="min-w-28" metric="Offense" :value="convertPercentageString(meta?.tags['offense'])"></MetaStatCard>
-    <MetaStatCard class="min-w-28" metric="Balance" :value="convertPercentageString(meta?.tags['balance'])"></MetaStatCard>
-    <MetaStatCard class="min-w-28" metric="HO" :value="convertPercentageString(meta?.tags['hyperoffense'])"></MetaStatCard>
-    <MetaStatCard class="min-w-28" metric="Stall" :value="convertPercentageString(meta?.tags['stall'])"></MetaStatCard>
-    <MetaStatCard class="min-w-28" metric="Sun" :value="convertPercentageString(meta?.tags['sun'])"></MetaStatCard>
-    <MetaStatCard class="min-w-28" metric="Hail" :value="convertPercentageString(meta?.tags['hail'])"></MetaStatCard>
-    <MetaStatCard class="min-w-28" metric="Rain" :value="convertPercentageString(meta?.tags['rain'])"></MetaStatCard>
-    <MetaStatCard class="min-w-28" metric="Sand" :value="convertPercentageString(meta?.tags['sand'])"></MetaStatCard>
-    <MetaStatCard class="mr-auto min-w-32" metric="Trickroom" :value="convertPercentageString(meta?.tags['trickroom'])"></MetaStatCard>
+    <MetaStatCard class="min-w-24" metric="Offense" :value="convertPercentageString(meta?.tags['offense'])"></MetaStatCard>
+    <MetaStatCard class="min-w-24" metric="Balance" :value="convertPercentageString(meta?.tags['balance'])"></MetaStatCard>
+    <MetaStatCard class="min-w-24" metric="HO" :value="convertPercentageString(meta?.tags['hyperoffense'])"></MetaStatCard>
+    <MetaStatCard class="min-w-24" metric="Stall" :value="convertPercentageString(meta?.tags['stall'])"></MetaStatCard>
+    <MetaStatCard class="min-w-24 max-xl:hidden" metric="Sun" :value="convertPercentageString(meta?.tags['sun'])"></MetaStatCard>
+    <MetaStatCard class="min-w-24 max-xl:hidden" metric="Hail" :value="convertPercentageString(meta?.tags['hail'])"></MetaStatCard>
+    <MetaStatCard class="min-w-24 max-xl:hidden" metric="Rain" :value="convertPercentageString(meta?.tags['rain'])"></MetaStatCard>
+    <MetaStatCard class="min-w-24 max-xl:hidden" metric="Sand" :value="convertPercentageString(meta?.tags['sand'])"></MetaStatCard>
+    <MetaStatCard class="min-w-32 max-xl:hidden" metric="Trickroom" :value="convertPercentageString(meta?.tags['trickroom'])"></MetaStatCard>
+  </div>
+
+  <div class="md:hidden grid grid-cols-2 gap-x-4 gap-y-2 pl-2 w-60 mx-auto">
+    <MetaStatCard class="p-y-1" metric="Date" :value="getYearMonth(meta?.date)"></MetaStatCard>
+    <MetaStatCard class="p-y-1" metric="Battle" :value="convertString(meta?.total)"></MetaStatCard>
   </div>
 
 </template>

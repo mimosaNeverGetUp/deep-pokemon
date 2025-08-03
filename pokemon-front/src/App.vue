@@ -2,10 +2,10 @@
 import Header from "@/components/Header.vue";
 import Divider from "primevue/divider";
 import {usePrimeVue} from 'primevue/config';
-import {useRoute} from "vue-router";
+import {onMounted, provide, ref } from "vue";
 
-const route = useRoute();
 const PrimeVue = usePrimeVue();
+const headerRef = ref(null);
 
 detectTheme();
 
@@ -33,11 +33,17 @@ function detectTheme() {
   }
 }
 
+onMounted(()=>{
+  if (headerRef.value) {
+    provide("headerHeight", headerRef.value?.ref?.offsetHeight);
+  }
+})
 </script>
 
 <template>
-  <Header class="text-lg" show-update-date="true">
+  <Header class="text-lg" show-update-date="true" ref="headerRef">
   </Header>
+
   <div class="main">
     <router-view></router-view>
     <footer class="footer">

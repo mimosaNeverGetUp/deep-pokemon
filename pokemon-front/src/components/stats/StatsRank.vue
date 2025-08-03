@@ -66,11 +66,11 @@ async function fetchStatsData(format) {
   }
   usages.value = response.data;
   totalRecords.value = response.totalRecords;
-  props.updateSelectPokemon(usages.value[0]);
+  props.updateSelectPokemon(usages.value[0], false);
 }
 
 function onPage(event) {
-  props.updateSelectPokemon(usages.value[event.first]);
+  props.updateSelectPokemon(usages.value[event.first], false);
 }
 
 function convertToPercentage(f) {
@@ -83,7 +83,7 @@ function getIconUrl(pokemon) {
 }
 
 function onRowSelect(row) {
-  props.updateSelectPokemon(row.data);
+  props.updateSelectPokemon(row.data, true);
 }
 
 fetchStatsData(props.format);
@@ -93,15 +93,15 @@ fetchStatsData(props.format);
   <DataTable v-model:filters="filters" :value="usages" :totalRecords="totalRecords" @page="onPage($event)" scrollable
              scrollHeight="720px" selectionMode="single" dataKey="id" @rowSelect="onRowSelect" filterDisplay="row"
              pt:wrapper:class="no-scrollbar">
-    <Column field="rank" header=" " :style="{ width:'10%' }">
+    <Column field="rank" class="max-sm:p-1 text-sm text-gray-500">
       <template #body="{data}">{{ data.rank }}</template>
     </Column>
-    <Column field="name" :header="$t('pokemon')" :style="{ width:'35%' }" headerClass="text-gray-500 text-sm"
+    <Column field="name" :header="$t('pokemon')" headerClass="text-gray-500 text-sm"
             :showFilterMenu="false" >
       <template #body="{data}">
         <div class="flex gap-1 items-center justify-start">
           <img :src="getIconUrl(data.name)" :alt="data.name" :title="data.name"/>
-          <span class=" w-full min-w-24 font-bold"> {{ $t(data.name) }}</span>
+          <span class=" w-full min-w-24 max-w-24 font-bold"> {{ $t(data.name) }}</span>
           <RankDif :newValue="data.rank" :oldValue="data.lastMonthUsage?.rank"/>
         </div>
       </template>
@@ -110,14 +110,15 @@ fetchStatsData(props.format);
                    :placeholder="$t('filter')" />
       </template>
     </Column>
-    <Column field="usage.weighted" :header="$t('weighted')" :style="{ width:'5%' }" headerClass="text-gray-500 text-sm">
+    <Column field="usage.weighted" :header="$t('weighted')" headerClass="text-gray-500 text-sm" class="max-sm:p-1">
       <template  #body="{data}">
-        <span class="text-gray-500">
+        <span class="text-gray-500 text-sm">
           {{ convertToPercentage(data.usage.weighted) }}
         </span>
       </template>
     </Column>
-    <Column field="types" :header="$t('types')" :style="{ width:'5%' }" :showFilterMenu="false" headerClass="text-gray-500 text-sm">
+    <Column field="types" :header="$t('types')" :showFilterMenu="false" headerClass="text-gray-500 text-sm"
+            class="max-sm:hidden">
       <template #body="{data}">
         <div class="flex gap-1">
           <img v-for="type in data.types"

@@ -8,7 +8,6 @@
 import {ref, watch} from "vue";
 
 import Divider from 'primevue/divider';
-import Textarea from 'primevue/textarea';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import TreeSelect from 'primevue/treeselect';
@@ -398,7 +397,6 @@ function getLocaleSets(set) {
   }
   return Object.entries(set.sets);
 }
-
 </script>
 
 <template>
@@ -597,7 +595,7 @@ function getLocaleSets(set) {
       </div>
     </div>
     <Divider type="solid" v-if="sets"/>
-    <div class="ml-5 my-3 min-w-[800px]" v-if="sets">
+    <div class="ml-5 my-3 w-full lg:min-w-[800px]" v-if="sets">
       <p class="text-sm text-gray-500">{{ $t("sets") }}</p>
       <div class="mt-3 mb-10" v-for=" [setName, set] in getLocaleSets(sets)">
         <p class="font-bold">{{ setName }}</p>

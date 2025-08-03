@@ -12,19 +12,23 @@ import TreeSelect from 'primevue/treeselect';
 import Avatar from 'primevue/avatar';
 
 import {formats} from "@/components/data/format.js";
-import {ref} from "vue";
+import {ref, inject} from "vue";
 import {usePrimeVue} from 'primevue/config';
 import {useRoute, useRouter} from "vue-router";
-import { useI18n } from 'vue-i18n'
-const { locale } = useI18n()
+import {useI18n} from 'vue-i18n'
+
+const {locale} = useI18n()
 
 const route = useRoute();
 const PrimeVue = usePrimeVue();
 const router = useRouter();
 const selectPokemon = ref();
 const rankComponentRef = ref();
+const statHeaderRef = ref();
+const showPokemonStat = ref(false);
 const formatNodes = [];
 const isDarkMode = ref(localStorage.getItem("theme") === "dark");
+const headerHeight = inject("headerHeight");
 
 function getFormatNode() {
   for (const formatKey in formats) {
@@ -36,8 +40,9 @@ function getFormatNode() {
   }
 }
 
-function updateSelectPokemon(pokemon) {
+function updateSelectPokemon(pokemon, showStat) {
   selectPokemon.value = pokemon;
+  showPokemonStat.value = showStat;
 }
 
 async function onNodeSelect(event) {
@@ -72,26 +77,64 @@ async function changeSunTheme() {
   isDarkMode.value = false;
 }
 
+function getStickyHeaderStyle() {
+  return {
+    top: `${headerHeight}px`
+  }
+}
+
+function getStickyRankNaviStyle() {
+  const top = statHeaderRef.value ? statHeaderRef.value.offsetHeight + headerHeight : 80;
+  return {
+    top: `${top}px`
+  }
+}
+
+function clickMenu() {
+  showPokemonStat.value = false;
+  redirectPositionFunction();
+}
+
+function getScrollHeaderMargin() {
+  const margin = statHeaderRef.value ? statHeaderRef.value.offsetHeight + headerHeight : 80;
+  return {
+    "scroll-margin-top": `${margin}px`
+  }
+}
+
 getFormatNode();
 </script>
 <template>
-  <div>
-    <div class="mt-[2rem]">
-      <div class="gap-1 flex items-center justify-end">
+  <div class="relative">
+    <div class="w-full z-1 sticky dark:bg-(--surface-0) pb-4 pt-4" :style="getStickyHeaderStyle()" ref="statHeaderRef">
+      <div class="flex gap-1 items-center justify-end">
         <Avatar v-if="isDarkMode" icon="pi pi-sun" class="dynamicThemeBg dynamicThemeText cursor-pointer" size="large"
                 @click="changeSunTheme()"/>
         <Avatar v-else icon="pi pi-moon" class="dynamicThemeBg dynamicThemeText cursor-pointer"
                 size="large" @click="changeDarkTheme()"/>
-        <Avatar icon="pi pi-language" class="dynamicThemeBg dynamicThemeText cursor-pointer" size="large" @click="changeLocales()"/>
+        <Avatar icon="pi pi-language" class="dynamicThemeBg dynamicThemeText cursor-pointer" size="large"
+                @click="changeLocales()"/>
         <TreeSelect filter :options="formatNodes" :placeholder="route.query.format" @node-select="onNodeSelect"/>
       </div>
-      <MetaStat :format="route.query.format" class="mb-4"/>
+      <div class="flex items-center mt-2 mb-2 xl:hidden">
+        <i class="pi pi-bars cursor-pointer hover:bg-green-200" @click="clickMenu()"></i>
+        <p class="ml-4">{{ route.query.format }}</p>
+        <i v-if="showPokemonStat" class="pi pi-angle-right ml-4"></i>
+        <p v-if="showPokemonStat" class="ml-4">{{ selectPokemon?.name ? $t(selectPokemon?.name) : '' }}</p>
+      </div>
     </div>
-    <div ref="rankComponentRef" class="relative flex gap-20 scroll-mt-20 mt-16">
-      <StatsRank class="sticky top-20 h-fit" :updateSelectPokemon="updateSelectPokemon"
+    <div :class="showPokemonStat? 'max-xl:hidden':''">
+      <MetaStat :format="route.query.format"/>
+    </div>
+
+    <div ref="rankComponentRef" class="relative flex gap-20 mt-16 max-xl:mt-4" :style="getScrollHeaderMargin()">
+      <StatsRank :class="showPokemonStat? 'max-xl:hidden sticky h-fit max-xl:w-full':'sticky h-fit max-xl:w-full'"
+                 :style="getStickyRankNaviStyle()" :updateSelectPokemon="updateSelectPokemon"
                  :format="route.query.format" :language="route.query.language"/>
-      <PokemonStat :pokemon="selectPokemon" :format="route.query.format" :language="route.query.language"
-                   :redirectPositionFunction="redirectPositionFunction"/>
+      <div :class="showPokemonStat? 'overflow-hidden':'max-xl:hidden'">
+        <PokemonStat :pokemon="selectPokemon" :format="route.query.format" :language="route.query.language"
+                     :redirectPositionFunction="redirectPositionFunction"/>
+      </div>
     </div>
   </div>
 </template>

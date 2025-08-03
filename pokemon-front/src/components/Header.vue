@@ -1,7 +1,7 @@
 <script setup>
 import Navi from '@/components/Navi.vue'
 import Sidebar from 'primevue/sidebar';
-import {ref} from "vue";
+import {ref, defineExpose} from "vue";
 import Divider from "primevue/divider";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
@@ -11,6 +11,7 @@ defineProps({
 })
 const updateDate = ref(null)
 const visible = ref()
+const headerRef = ref()
 
 async function queryUpdateDate() {
   const res = await fetch(`${apiUrl}/api/rank/update-time`, {
@@ -22,10 +23,13 @@ async function queryUpdateDate() {
 }
 
 queryUpdateDate()
+
+defineExpose({"ref": headerRef});
+
 </script>
 
 <template>
-  <header>
+  <header ref="headerRef">
     <Navi class="Navi"></Navi>
 
     <div class="global-info" v-if="showUpdateDate">
@@ -81,7 +85,7 @@ queryUpdateDate()
         <br/>
 
         <p><span class="font-bold">2025/07/21 beta feat：</span>
-          可以搜索指定队伍信息(道具、技能、太晶、replay等)           <a target="_blank" href="/teamInfo">测试入口</a>
+          可以搜索指定队伍信息(道具、技能、太晶、replay等) <a target="_blank" href="/teamInfo">测试入口</a>
           <p class="font-bold text-sm">
             PS: 仅测试，计划保留到月底。
           </p>
@@ -100,7 +104,8 @@ queryUpdateDate()
         <p><span class="font-bold">2025/04/06 feat：</span>支持爬取特性（2025/04/06前已爬取的replay不支持）</p>
         <br/>
 
-        <p><span class="font-bold">2025/03/14 feat：</span>悬浮在正负值上可以查看明细（2025/03/14前已爬取的replay不支持）</p>
+        <p><span class="font-bold">2025/03/14 feat：</span>悬浮在正负值上可以查看明细（2025/03/14前已爬取的replay不支持）
+        </p>
         <br/>
 
         <p><span class="font-bold">2025/02/06 优化：</span>显示全部努力值使用率</p>
@@ -171,7 +176,7 @@ header {
   top: 0;
   left: 0;
   display: flex;
-  z-index: 1;
+  z-index: 10;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
   justify-content: space-between;
   width: 100%;

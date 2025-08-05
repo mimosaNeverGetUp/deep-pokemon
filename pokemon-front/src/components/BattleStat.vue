@@ -372,7 +372,7 @@ watch(() => props.data, async (newBattle) => {
         <div class="flex justify-center items-center">
           <Chart :key="data.battleID" type="line" :plugins="plugins"
                  :data="battleChartData(data)" :options="battleChartOption(battleStat)"
-                 class="size-full bg-neutral-100"/>
+                 class="max-lg:min-w-[800px] size-full bg-neutral-100"/>
         </div>
       </TabPanel>
       <TabPanel headerClass="w-1/2">
@@ -381,35 +381,37 @@ watch(() => props.data, async (newBattle) => {
             <span class="text-lg dynamicThemeText">{{$t('battle stat')}}</span>
           </div>
         </template>
-        <DataTable :value="playerPokemonBattleStat" :scrollable="false"
-                   tableStyle="min-width: 50rem" :row-style="rowStyle">
-          <Column field="name" :header="$t('pokemon')" :style="{ width:'10%'}" headerClass="text-gray-500 text-sm">
+        <DataTable :value="playerPokemonBattleStat" :scrollable="false" :row-style="rowStyle">
+          <Column field="name" :header="$t('pokemon')" headerClass="text-gray-500 text-sm" >
             <template #body="{data}">
-              <img :src="getIconUrl(data.name)" :alt="data.name"/>
-              <span class="text-black">{{ data.name }}</span>
+              <div class="flex items-center justify-start">
+                <img :src="getIconUrl(data.name)" :alt="data.name"/>
+                <p class="text-black min-w-24 max-w-24">{{ data.name }}</p>
+              </div>
             </template>
           </Column>
-          <Column field="playerName" :header="$t('player')" :style="{ width:'5%' }" headerClass="text-gray-500 text-sm">
+          <Column field="playerName" :header="$t('player')" headerClass="text-gray-500 text-sm" class="max-sm:hidden">
             <template #body="{data}">
               <span class="text-black">{{ data.playerName }}</span>
             </template>
           </Column>
-          <Column field="switchCount" :header="$t('battle switch')" :sortable="true" :style="{ width:'5%'}" headerClass="text-gray-500 text-sm">
+          <Column field="switchCount" :header="$t('battle switch')" :sortable="true"
+                  headerClass="text-gray-500 text-sm max-sm:p-1">
             <template #body="{data}">
               <span class="text-black">{{ data.switchCount }}</span>
             </template>
           </Column>
-          <Column field="moveCount" :header="$t('battle move')" :sortable="true" :style="{ width:'5%'}" headerClass="text-gray-500 text-sm">
+          <Column field="moveCount" :header="$t('battle move')" :sortable="true" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <span class="text-black">{{ data.moveCount }}</span>
             </template>
           </Column>
-          <Column field="killCount" :header="$t('battle kill')" :sortable="true" :style="{ width:'5%'}" headerClass="text-gray-500 text-sm">
+          <Column field="killCount" :header="$t('battle kill')" :sortable="true" headerClass="text-gray-500 text-sm">
             <template #body="{data}">
               <span class="text-black">{{ data.killCount }}</span>
             </template>
           </Column>
-          <Column field="healthValue" :sortable="true" :style="{ width:'5%'}" headerClass="text-gray-500 text-sm">
+          <Column field="healthValue" :sortable="true" headerClass="text-gray-500 text-sm">
             <template #header>
               <span>{{ $t('plus minus') }}</span>
               <i class="ml-2 pi pi-question-circle"
@@ -422,7 +424,7 @@ watch(() => props.data, async (newBattle) => {
               <PokemonHealthValueStat :data="data"/>
             </template>
           </Column>
-          <Column field="attackValue" :sortable="true" :style="{ width:'10%' }" headerClass="text-gray-500 text-sm">
+          <Column field="attackValue" :sortable="true" headerClass="text-gray-500 text-sm" class="max-sm:p-1">
             <template #header>
               <span>{{ $t('battle damage') }}</span>
               <i class="ml-2 pi pi-question-circle" v-tooltip.top="'宝可梦通过招式、状态、场地等方式造成的敌方HP变化总和。' +

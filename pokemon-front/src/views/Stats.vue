@@ -109,11 +109,11 @@ getFormatNode();
     <div class="w-full z-1 sticky dark:bg-(--surface-0) pb-4 pt-4" :style="getStickyHeaderStyle()" ref="statHeaderRef">
       <div class="flex gap-1 items-center justify-end">
         <Avatar v-if="isDarkMode" icon="pi pi-sun" class="dynamicThemeBg dynamicThemeText cursor-pointer" size="large"
-                @click="changeSunTheme()"/>
+                @click="changeSunTheme()" @keyup.enter="changeSunTheme()" role="button" tabindex="0"/>
         <Avatar v-else icon="pi pi-moon" class="dynamicThemeBg dynamicThemeText cursor-pointer"
-                size="large" @click="changeDarkTheme()"/>
+                size="large" @click="changeDarkTheme()" @keyup.enter="changeDarkTheme()" role="button" tabindex="0"/>
         <Avatar icon="pi pi-language" class="dynamicThemeBg dynamicThemeText cursor-pointer" size="large"
-                @click="changeLocales()"/>
+                @click="changeLocales()"  @keyup.enter="changeLocales()" role="button" tabindex="0"/>
         <TreeSelect filter :options="formatNodes" :placeholder="route.query.format" @node-select="onNodeSelect"/>
       </div>
       <div class="flex items-center mt-2 mb-2 xl:hidden">

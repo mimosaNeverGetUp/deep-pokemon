@@ -50,20 +50,23 @@ fetchData(page.value, row.value)
 </script>
 
 <template>
-  <DataTable :value="rank" v-show="loading===false && loadFail===false" class="ladder" lazy paginator :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]"
-             :totalRecords="totalRecords" @page="onPage($event)" tableStyle="min-width: 50rem">
-    <Column field="rank" :header="$t('rank')" :style="{ width:'2%' }" bodyClass="text-gray-500"
+  <DataTable :value="rank" v-show="loading===false && loadFail===false" class="ladder lg:w-3/4" lazy paginator
+             :rows="20" :totalRecords="totalRecords" @page="onPage($event)" >
+    <Column field="rank" :header="$t('rank')" class="text-gray-500 max-sm:p-1"
             headerClass="text-gray-500 text-sm"></Column>
-    <Column field="name" :header="$t('player name')" :style="{ width:'2%' }" headerClass="text-gray-500 text-sm">
+    <Column field="name" :header="$t('player name')" headerClass="text-gray-500 text-sm">
       <template #body="{data}">
-        <router-link :to="`/player-record?name=${data.name}`" class="text-blue-400">
-          {{ data.name }}
+        <router-link :to="`/player-record?name=${data.name}`" class="" target="_blank">
+          <p class="max-sm:max-w-44 text-blue-400 break-all">
+            {{ data.name }}
+          </p>
         </router-link>
       </template>
     </Column>
-    <Column field="elo" :header="$t('elo')" :style="{ width:'1%' }" headerClass="text-gray-500 text-sm"></Column>
-    <Column field="gxe" :header="$t('gxe')" :style="{ width:'1%' }" headerClass="text-gray-500 text-sm"></Column>
-    <Column field="recentTeam" :style="{ width:'10%', 'text-align': 'center'}" headerClass="text-gray-500 text-sm">
+    <Column field="elo" :header="$t('elo')" headerClass="text-gray-500 text-sm" class="max-sm:p-1"></Column>
+    <Column field="gxe" :header="$t('gxe')" headerClass="text-gray-500 text-sm" class="max-sm:p-1"></Column>
+    <Column field="recentTeam" class="text-center max-md:hidden"
+            headerClass="text-gray-500 text-sm">
       <template #header>
         <div class="flex-1 text-center">{{$t('recent teams')}}</div>
       </template>
@@ -87,7 +90,6 @@ fetchData(page.value, row.value)
 /*排行榜表格样式*/
 .ladder {
   min-width: max-content;
-  width: 85%;
   margin: 60px auto 0; /*表格下移以适应绝对定位的导航栏*/
 }
 

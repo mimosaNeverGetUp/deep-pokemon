@@ -5,8 +5,8 @@ import Battles from "@/components/Battles.vue";
 
 <template>
   <Header></Header>
-  <div class="w-5/6 mx-auto">
-    <Battles class="mx-auto w-full" :playerName="$route.query.name"
+  <div class="max-lg:w-full lg:w-3/4 mx-auto">
+    <Battles :playerName="$route.query.name"
              :tourPlayer="$route.query.tourPlayer==='true'"></Battles>
   </div>
 </template>

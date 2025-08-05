@@ -38,6 +38,7 @@ import com.mimosa.pokemon.portal.entity.MongodbQueryCount;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.bson.types.Binary;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.cache.annotation.Cacheable;
@@ -490,5 +491,17 @@ public class BattleService {
     @RegisterReflectionForBinding(value = {Battle.class, PlayerIcon.class})
     public Battle battle(String battleId) {
         return crawlerApi.battle(battleId);
+    }
+
+    public PlayerIcon getPlayerIcon(String name, BattleTeam battleTeam) {
+        Battle battle = mongoTemplate.findById(battleTeam.getBattleId(), Battle.class);
+        if(battle!=null && battle.getPlayerIcons()!=null){
+            for (var icon : battle.getPlayerIcons()) {
+                if(StringUtils.equals(icon.name(), name)){
+                    return icon;
+                }
+            }
+        }
+        return null;
     }
 }

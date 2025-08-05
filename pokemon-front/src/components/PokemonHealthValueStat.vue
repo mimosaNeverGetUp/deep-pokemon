@@ -33,7 +33,7 @@ function getIconUrl(pokemonName) {
       </div>
       <div class="text-left text-black">
         <div v-for="healthValueStat in data.healthValueStats" class="flex">
-          <img :src="getIconUrl(healthValueStat.opponentPokemon)" :alt="pokemon" :title="pokemon"/>
+          <img :src="getIconUrl(healthValueStat.opponentPokemon)" :alt="healthValueStat.opponentPokemon" :title="healthValueStat.opponentPokemon"/>
           <span class="ml-2 w-16 min-w-16"> {{ healthValueStat.healthValue + "%"}}</span>
           <span class="w-16 min-w-16"> {{(healthValueStat.opponentLossHealthValue) + "%"}}</span>
           <span class="w-16 min-w-16"> {{(healthValueStat.lossHealthValue) + "%"}}</span>

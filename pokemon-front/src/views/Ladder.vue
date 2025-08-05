@@ -4,6 +4,7 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Team from '@/components/Team.vue'
 import LoadingIcon from "@/views/LoadingIcon.vue";
+import {avatar} from "@/components/data/avatar.js";
 
 
 // 在需要使用后端 URL 的地方
@@ -46,6 +47,26 @@ async function onPage(event) {
   });
 }
 
+function getDefaultPlayerImage() {
+  return "unknownf.png";
+}
+
+function getPlayerIcon(playerIcon) {
+  if (!playerIcon) {
+    return getDefaultPlayerImage();
+  }
+
+  if (playerIcon.icon in avatar) {
+    return `https://play.pokemonshowdown.com/sprites/trainers/${avatar[playerIcon.icon]}.png`;
+  }
+
+  if (playerIcon.icon.charAt(0) === '#') {
+    return `https://play.pokemonshowdown.com/sprites/trainers-custom/${playerIcon.icon.substr(1)}.png`;
+  }
+
+  return `https://play.pokemonshowdown.com/sprites/trainers/${playerIcon.icon}.png`;
+}
+
 fetchData(page.value, row.value)
 </script>
 
@@ -57,9 +78,13 @@ fetchData(page.value, row.value)
     <Column field="name" :header="$t('player name')" headerClass="text-gray-500 text-sm">
       <template #body="{data}">
         <router-link :to="`/player-record?name=${data.name}`" class="" target="_blank">
-          <p class="max-sm:max-w-44 text-blue-400 break-all">
-            {{ data.name }}
-          </p>
+          <div class="flex items-center gap-1">
+            <img :src="getPlayerIcon(data.playerIcon)"
+                 class="ladder-player-avatar bg-slate-400" alt=""/>
+            <p class="max-sm:max-w-44 text-blue-400 break-all">
+              {{ data.name }}
+            </p>
+          </div>
         </router-link>
       </template>
     </Column>
@@ -96,5 +121,14 @@ fetchData(page.value, row.value)
 .team-list {
   border: 0;
   margin: 0;
+}
+
+.ladder-player-avatar {
+  width: 55px;
+  height: 55px;
+  border: 1px solid rgb(148 163 184);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 </style>

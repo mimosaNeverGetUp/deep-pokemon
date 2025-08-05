@@ -369,10 +369,10 @@ watch(() => props.data, async (newBattle) => {
             <span class="text-lg dynamicThemeText">{{$t('trend')}}</span>
           </div>
         </template>
-        <div class="flex justify-center items-center">
+        <div>
           <Chart :key="data.battleID" type="line" :plugins="plugins"
                  :data="battleChartData(data)" :options="battleChartOption(battleStat)"
-                 class="max-lg:min-w-[800px] size-full bg-neutral-100"/>
+                 class="max-lg:min-w-[800px] lg:size-full bg-neutral-100"/>
         </div>
       </TabPanel>
       <TabPanel headerClass="w-1/2">

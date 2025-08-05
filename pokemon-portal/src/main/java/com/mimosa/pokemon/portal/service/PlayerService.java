@@ -24,6 +24,7 @@
 
 package com.mimosa.pokemon.portal.service;
 
+import com.mimosa.deeppokemon.entity.BattleTeam;
 import com.mimosa.deeppokemon.entity.Ladder;
 import com.mimosa.deeppokemon.entity.LadderRank;
 import com.mimosa.pokemon.portal.dto.PlayerRankDTO;
@@ -104,7 +105,11 @@ public class PlayerService {
             playerRankDTO.setName(rank.getName());
             playerRankDTO.setGxe(rank.getGxe());
             playerRankDTO.setInfoDate(ladder.getDate());
-            playerRankDTO.setRecentTeam(battleService.listRecentTeam(rank.getName(), format));
+            List<BattleTeam> recentTeam = battleService.listRecentTeam(rank.getName(), format);
+            playerRankDTO.setRecentTeam(recentTeam);
+            if (!recentTeam.isEmpty()) {
+                playerRankDTO.setPlayerIcon(battleService.getPlayerIcon(rank.getName(), recentTeam.get(0)));
+            }
             playerRankDTOS.add(playerRankDTO);
         }
         return new PageResponse<>(ladderRank.size(), page, row, playerRankDTOS);

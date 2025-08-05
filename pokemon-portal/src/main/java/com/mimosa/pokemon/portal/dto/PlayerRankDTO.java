@@ -25,6 +25,7 @@
 package com.mimosa.pokemon.portal.dto;
 
 import com.mimosa.deeppokemon.entity.BattleTeam;
+import com.mimosa.deeppokemon.entity.PlayerIcon;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -38,6 +39,7 @@ public class PlayerRankDTO implements Serializable {
     private int rank;
     private float gxe;
     private List<BattleTeam> recentTeam;
+    private PlayerIcon playerIcon;
 
     public PlayerRankDTO() {
     }
@@ -105,5 +107,13 @@ public class PlayerRankDTO implements Serializable {
 
     public void setRecentTeam(List<BattleTeam> recentTeam) {
         this.recentTeam = recentTeam;
+    }
+
+    public PlayerIcon getPlayerIcon() {
+        return playerIcon;
+    }
+
+    public void setPlayerIcon(PlayerIcon playerIcon) {
+        this.playerIcon = playerIcon;
     }
 }

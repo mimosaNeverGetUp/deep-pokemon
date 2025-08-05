@@ -497,7 +497,7 @@ public class BattleService {
         Battle battle = mongoTemplate.findById(battleTeam.getBattleId(), Battle.class);
         if(battle!=null && battle.getPlayerIcons()!=null){
             for (var icon : battle.getPlayerIcons()) {
-                if(StringUtils.equals(icon.name(), name)){
+                if(StringUtils.equalsIgnoreCase(icon.name(), name)){
                     return icon;
                 }
             }

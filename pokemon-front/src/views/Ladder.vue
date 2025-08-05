@@ -72,16 +72,16 @@ fetchData(page.value, row.value)
 
 <template>
   <DataTable :value="rank" v-show="loading===false && loadFail===false" class="ladder lg:w-3/4" lazy paginator
-             :rows="20" :totalRecords="totalRecords" @page="onPage($event)" >
-    <Column field="rank" :header="$t('rank')" class="text-gray-500 max-sm:p-1"
+             :rows="20" :totalRecords="totalRecords" @page="onPage($event)" paginatorTemplate="PageLinks NextPageLink">
+    <Column field="rank" :header="$t('rank')" class="text-gray-500 text-sm max-sm:p-1"
             headerClass="text-gray-500 text-sm"></Column>
     <Column field="name" :header="$t('player name')" headerClass="text-gray-500 text-sm">
       <template #body="{data}">
         <router-link :to="`/player-record?name=${data.name}`" class="" target="_blank">
           <div class="flex items-center gap-1">
             <img :src="getPlayerIcon(data.playerIcon)"
-                 class="ladder-player-avatar bg-slate-400" alt=""/>
-            <p class="max-sm:max-w-44 text-blue-400 break-all">
+                 class="ladder-player-avatar bg-transparent" alt=""/>
+            <p class="max-sm:max-w-36 text-blue-400 break-all">
               {{ data.name }}
             </p>
           </div>
@@ -126,7 +126,7 @@ fetchData(page.value, row.value)
 .ladder-player-avatar {
   width: 55px;
   height: 55px;
-  border: 1px solid rgb(148 163 184);
+  border: 1px solid black;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

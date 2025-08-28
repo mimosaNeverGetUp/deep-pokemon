@@ -85,9 +85,8 @@ defineExpose({"ref": headerRef});
         <br/>
 
         <p><span class="font-bold">2025/07/21 beta feat：</span>
-          可以搜索指定队伍信息(道具、技能、太晶、replay等) <a target="_blank" href="/teamInfo">测试入口</a>
+          可以搜索指定队伍信息(道具、技能、太晶、replay等) <a target="_blank" href="/teamInfo">测试入口(功能已下线)</a>
           <p class="font-bold text-sm">
-            PS: 仅测试，计划保留到月底。
           </p>
         </p>
         <br/>

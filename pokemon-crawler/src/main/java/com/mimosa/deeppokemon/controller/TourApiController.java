@@ -80,9 +80,21 @@ public class TourApiController {
         return true;
     }
 
+    @PostMapping("/wcopOltXii/battle")
+    public boolean crawOltXiiTour() {
+        tourService.crawOltXII();
+        return true;
+    }
+
     @PostMapping("/sclIv/battle")
     public boolean crawSclIv() {
         tourService.crawSclIv();
+        return true;
+    }
+
+    @PostMapping("/sclV/battle")
+    public boolean crawSclV() {
+        tourService.crawSclV();
         return true;
     }
 

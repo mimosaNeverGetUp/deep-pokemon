@@ -59,21 +59,29 @@ public class TourService {
             List.of("Qualifiers", "Qualifiers Round 2", "Round 1", "Quarterfinals", "Semifinals", "Finals");
 
     protected static final String OLT_XI = "olt_xi";
+    protected static final String OLT_XII = "olt_xii";
     protected static final String OLT_XI_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XI";
+    protected static final String OLT_XII_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XII";
     protected static final String OLT_FORUMS_URL =
             "https://www.smogon.com/forums/forums/official-ladder-tournament.465/";
     protected static final String OLT_XI_REPLAY_URL =
             "https://www.smogon.com/forums/threads/smogons-official-ladder-tournament-xi-replay-thread.3750361//";
+    protected static final String OLT_XII_REPLAY_URL =
+            "https://www.smogon.com/forums/threads/smogons-official-ladder-tournament-xii-replay-thread.3770499/";
     protected static final List<String> OLT_STAGES =
             List.of("Round 1", "Round 2", "Round 3", "Round 4", "Round 5", "Top 16",
                     "Quarterfinals", "Semifinals", "Finals");
 
     protected static final String SCL_IV = "SCL IV";
+    protected static final String SCL_V = "SCL V";
     protected static final String SMOGON_CHAMPIONS_LEAGUE_IV = "Smogon Champions League IV";
+    protected static final String SMOGON_CHAMPIONS_LEAGUE_V = "Smogon Champions League V";
     protected static final String SCL_FORUMS_URL =
             "https://www.smogon.com/forums/forums/smogon-champions-league.453/";
     protected static final String SCL_IV_REPLAY_URL =
             "https://www.smogon.com/forums/threads/scl-iv-replays.3750816/";
+    protected static final String SCL_V_REPLAY_URL =
+            "https://www.smogon.com/forums/threads/scl-v-replays.3770676/";
     protected static final List<String> SCL_STAGES =
             List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9",
                     "Semifinals", "Finals");
@@ -234,12 +242,30 @@ public class TourService {
     }
 
     @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawOltXII() {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(OLT_FORUMS_URL,
+                OLT_XII_FULL_TOUR_NAME, OLT_STAGES);
+        OltTourReplayProvider provider = new OltTourReplayProvider(OLT_XII_FULL_TOUR_NAME, OLT_XII_REPLAY_URL,
+                GEN_9_OU, new HashSet<>(OLT_STAGES), winPlayerExtractor);
+        return crawTour(OLT_XII_FULL_TOUR_NAME, OLT_XII, GEN_9_OU, provider);
+    }
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
     public List<Battle> crawSclIv() {
         SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(SCL_FORUMS_URL,
                 SMOGON_CHAMPIONS_LEAGUE_IV, SCL_STAGES);
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV_REPLAY_URL,
                 GEN_9_OU, SCL_STAGES, winPlayerExtractor);
         return crawTour(SMOGON_CHAMPIONS_LEAGUE_IV, SCL_IV, GEN_9_OU, provider);
+    }
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawSclV() {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(SCL_FORUMS_URL,
+                SMOGON_CHAMPIONS_LEAGUE_V, SCL_STAGES);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_CHAMPIONS_LEAGUE_V, SCL_V_REPLAY_URL,
+                GEN_9_OU, SCL_STAGES, winPlayerExtractor);
+        return crawTour(SMOGON_CHAMPIONS_LEAGUE_V, SCL_V, GEN_9_OU, provider);
     }
 
 

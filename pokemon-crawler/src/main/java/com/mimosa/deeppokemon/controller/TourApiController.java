@@ -26,6 +26,8 @@ public class TourApiController {
     protected static final String WCOP_2024 = "wcop_2024";
     protected static final String OLT_XI = "olt_xi";
     protected static final String OLT_XI_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XI";
+    protected static final String OLT_XII = "olt_xii";
+    protected static final String OLT_XII_FULL_TOUR_NAME = "Smogon's Official Ladder Tournament XII";
     protected static final String SCL_IV = "SCL IV";
     protected static final String SMOGON_CHAMPIONS_LEAGUE_IV = "Smogon Champions League IV";
 
@@ -50,6 +52,9 @@ public class TourApiController {
     @Value("classpath:tourReplay/wcop2025.csv")
     Resource wcop2025ReplayCsvResource;
 
+    @Value("classpath:tourReplay/oltvii.csv")
+    Resource oltXiiReplayCsvResource;
+
     public TourApiController(TourService tourService, BattleService battleService) {
         this.tourService = tourService;
         this.battleService = battleService;
@@ -71,6 +76,13 @@ public class TourApiController {
     public boolean crawWcop2025ByCsv(@RequestParam("format") String format) throws IOException {
         tourService.crawTourByCsv(WCOP_2025_FULL_TOUR_NAME, WCOP_2025, format,
                 wcop2025ReplayCsvResource.getContentAsString(StandardCharsets.UTF_8));
+        return true;
+    }
+
+    @PostMapping("/oltXii/battleByCsv")
+    public boolean crawOltXiiByCsv() throws IOException {
+        tourService.crawTourByCsv(OLT_XII_FULL_TOUR_NAME, OLT_XII, GEN_9_OU,
+                oltXiiReplayCsvResource.getContentAsString(StandardCharsets.UTF_8));
         return true;
     }
 

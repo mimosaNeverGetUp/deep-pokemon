@@ -137,5 +137,7 @@ export const formats = {
     "gen9uu.json": [2090923, 395739],
     "gen9vgc2023.json": [3552643, 677565],
     "gen9vgc2024.json": [4832523, 935417],
+    "gen9vgc2025.json": [3098484, 598092],
+    "gen9vgc2026.json": [4083321, 786752],
     "gen9zu.json": [1311505, 243425]
 }

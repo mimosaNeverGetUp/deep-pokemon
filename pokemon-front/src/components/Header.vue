@@ -81,6 +81,9 @@ defineExpose({"ref": headerRef});
 
         <Divider type="solid" class="mb-2"/>
         <p class="font-bold">Release Note：</p>
+        <p><span class="font-bold">2025/12/02 feat：</span>新增统计分级gen9vgc2025 & gen9vgc2026</p>
+        <br/>
+
         <p><span class="font-bold">2025/09/25 tour team：</span>
           <a target="_blank"
              href="/teams?pokemons=&tags=&sort=win%20dif&pokepaste=false&range=tour_SCL%20V&tour=true&players=&stages=&tier=gen9ou">Smogon Champions League V</a></p>

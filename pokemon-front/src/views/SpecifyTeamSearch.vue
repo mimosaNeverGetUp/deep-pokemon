@@ -11,6 +11,7 @@ import Button from 'primevue/button';
 import {Dex} from '@pkmn/dex';
 import TeamInfo from "@/components/TeamInfo.vue";
 import TreeSelect from "primevue/treeselect";
+import {zh_ps} from '@/locales/zh/zh_ps.js'
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -35,6 +36,7 @@ const teamTierNodes = [
     children: []
   }
 ];
+const zh_reverse_en_locales = buildReverseIndexMap(zh_ps);
 
 async function queryTeam() {
   if (input.value) {
@@ -46,9 +48,13 @@ async function queryTeam() {
 function getTeamId(team) {
   let numbers = [];
   for (let pokemon of team) {
-    let name = pokemon;
-    if (pokemon.includes("-*")) {
-      name = pokemon.substring(0, pokemon.lastIndexOf('-*'));
+    let name = pokemon.trim();
+
+    if (hasChinese(name) && zh_reverse_en_locales[name]) {
+      name = zh_reverse_en_locales[name]
+    }
+    if (name.includes("-*")) {
+      name = name.substring(0, name.lastIndexOf('-*'));
     }
     let species = Dex.forGen(9).species.get(name);
     if (species) {
@@ -66,6 +72,18 @@ function getTeamId(team) {
 
 function onNodeSelect(event) {
   teamTier.value = event.key;
+}
+
+function buildReverseIndexMap(map) {
+  const reverseMap = {};
+  for (const key in map) {
+    reverseMap[map[key]] = key;
+  }
+  return reverseMap;
+}
+
+function hasChinese(str) {
+  return /[\u4e00-\u9fa5]/.test(str)
 }
 
 </script>

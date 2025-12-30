@@ -38,13 +38,15 @@ const show = () => {
 
 
 const teamInfo = ref()
+const teamPokepasts = ref()
 const loading = ref(true);
 const loadFail = ref(false);
 const isLoadSimilarTeam = ref(false);
 
 async function queryTeam(teamId, teamTier) {
   loading.value = true;
-  teamInfo.value = null
+  teamInfo.value = null;
+  teamPokepasts.value = null;
   loadFail.value = false;
 
   const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30&format=${teamTier}`, {
@@ -53,7 +55,20 @@ async function queryTeam(teamId, teamTier) {
   )
   try {
     if (res.ok) {
-      teamInfo.value = await res.json();
+      let responseJson = await res.json();
+      if (responseJson.replayNum === 0) {
+        if (responseJson.pokepasts?.length > 0) {
+          teamPokepasts.value = responseJson.pokepasts;
+          loading.value = false;
+          return;
+        } else {
+          loading.value = false;
+          loadFail.value = true;
+          return;
+        }
+      }
+
+      teamInfo.value = responseJson;
       loading.value = false;
 
       // 让每支队伍里面的宝可梦按同种顺序排列，避免混乱
@@ -206,6 +221,15 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
 </script>
 
 <template>
+  <div v-if="teamPokepasts">
+    <p class="ml-2 mt-2 font-sans">
+      {{$t('无replay，仅发现pokepasts：')}}
+      <a class="ml-2" target="_blank" v-for="pokepast in teamPokepasts" :href="pokepast.url">
+        <i class="pi pi-link text-blue-400" ></i>
+      </a>
+    </p>
+  </div>
+
   <div v-if="teamInfo" v-show="loading===false && loadFail===false">
     <!--team-->
     <div>

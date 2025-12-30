@@ -333,7 +333,9 @@ public class BattleService {
         teamList.addAll(mongoTemplate.find(tourTeamQuery, TourTeam.class));
 
         if (teamList.isEmpty()) {
-            return null;
+            return new TeamGroupDto(null, null, null, 0, null,
+                    null, null, null, null,
+                    null, null, convert(teamList), null, null, getPokepasts(teamId));
         }
         TeamSet teamSet = buildTeamSet(teamList);
         List<TeamGroupDto> similarTeams = searchSimilarTeam(teamSet.id(), teamList.get(0).getFeatureIds());

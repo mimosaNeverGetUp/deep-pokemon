@@ -31,8 +31,9 @@ import java.util.Set;
 @Component
 public class SmogonPokePastTeamCrawler {
     private static final Logger log = LoggerFactory.getLogger(SmogonPokePastTeamCrawler.class);
-    private static final int TIMEOUT_MS = 60000;
-    private static final String HOST_POKEPAST_ES = "https://pokepast.es/";
+    protected static final String THREAD_MESSAGE_CLASS = "div.message-cell--main";
+    protected static final int TIMEOUT_MS = 60000;
+    protected static final String HOST_POKEPAST_ES = "https://pokepast.es/";
 
     private final PokePastTeamCrawler pokePastTeamCrawler;
     private final MongoTemplate mongoTemplate;
@@ -42,13 +43,15 @@ public class SmogonPokePastTeamCrawler {
         this.mongoTemplate = mongoTemplate;
     }
 
-    public List<PokePastTeam> craw(String threadUrl) {
+    public List<PokePastTeam> craw(String threadUrl, boolean includeComment) {
         List<PokePastTeam> pokePastTeamList = new ArrayList<>();
         Set<String> existPokePastTeamIdSet = new HashSet<>();
         try {
             Document document = Jsoup.connect(threadUrl).timeout(TIMEOUT_MS).get();
-            pokePastTeamList.addAll(crawPokePastTeamFromPage(document, existPokePastTeamIdSet));
-            pokePastTeamList.addAll(extractAnotherPage(threadUrl, document, existPokePastTeamIdSet));
+            pokePastTeamList.addAll(crawPokePastTeamFromPage(document, existPokePastTeamIdSet,includeComment));
+            if(includeComment){
+                pokePastTeamList.addAll(extractAnotherPage(threadUrl, document, existPokePastTeamIdSet));
+            }
         } catch (Exception e) {
             log.error("craw pokepast from page {} fail", threadUrl, e);
         }
@@ -56,9 +59,21 @@ public class SmogonPokePastTeamCrawler {
         return pokePastTeamList;
     }
 
-    private List<PokePastTeam> crawPokePastTeamFromPage(Document page, Set<String> existPokePastTeamIdSet) {
+    private List<PokePastTeam> crawPokePastTeamFromPage(Document page, Set<String> existPokePastTeamIdSet,
+                                                        boolean includeComment) {
         List<PokePastTeam> pokePastTeamList = new ArrayList<>();
-        Elements hrefs = page.select("a");
+
+        Elements hrefs;
+        if (includeComment) {
+            hrefs = page.select("a");
+        } else {
+            Element main = page.selectFirst(THREAD_MESSAGE_CLASS);
+            if (main == null) {
+                return pokePastTeamList;
+            }
+            hrefs = main.select("a");
+        }
+
         for (Element href : hrefs) {
             try {
                 String url = href.attr("abs:href");
@@ -93,7 +108,7 @@ public class SmogonPokePastTeamCrawler {
         while (isUriExist(uri, document)) {
             try {
                 document = Jsoup.connect(uri.toString()).timeout(TIMEOUT_MS).get();
-                pokePastTeamList.addAll(crawPokePastTeamFromPage(document, existPokePastTeamIdSet));
+                pokePastTeamList.addAll(crawPokePastTeamFromPage(document, existPokePastTeamIdSet, true));
                 uri = URI.create(threadUrl).resolve(String.format("page-%d", ++page));
             } catch (IOException e) {
                 log.error("craw pokepast from {} fail", uri);

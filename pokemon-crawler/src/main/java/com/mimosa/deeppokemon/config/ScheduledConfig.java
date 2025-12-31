@@ -26,10 +26,8 @@ package com.mimosa.deeppokemon.config;
 
 
 import com.mimosa.deeppokemon.crawler.LadderCrawler;
-import com.mimosa.deeppokemon.service.BattleService;
-import com.mimosa.deeppokemon.service.CacheService;
-import com.mimosa.deeppokemon.service.StatsService;
-import com.mimosa.deeppokemon.service.TourService;
+import com.mimosa.deeppokemon.entity.pokepast.PokePastTeam;
+import com.mimosa.deeppokemon.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -39,6 +37,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Configuration
 @EnableScheduling
@@ -51,15 +50,18 @@ public class ScheduledConfig {
     private final StatsService statsService;
     private final CacheService cacheService;
     private final TourService tourService;
+    private final PokePasteService pokePasteService;
 
     public ScheduledConfig(LadderCrawler battleCrawler, @Qualifier("gen9NdLadderCrawler") LadderCrawler gen9NdladderCrawler,
-                           StatsService statsService, BattleService battleService, CacheService cacheService, TourService tourService) {
+                           StatsService statsService, BattleService battleService, CacheService cacheService,
+                           TourService tourService, PokePasteService pokePasteService) {
         this.battleCrawler = battleCrawler;
         this.gen9NdladderCrawler = gen9NdladderCrawler;
         this.statsService = statsService;
         this.battleService = battleService;
         this.cacheService = cacheService;
         this.tourService = tourService;
+        this.pokePasteService = pokePasteService;
     }
 
     /**
@@ -102,5 +104,12 @@ public class ScheduledConfig {
     private void crawMonthlyTeam() {
         LocalDate lastMonth = LocalDate.now().minusMonths(1);
         battleService.updateMonthTeam(lastMonth);
+    }
+
+    @Scheduled(cron = "0 30 1 * * ?")
+    private void crawRmt() {
+        log.info("start craw gen9 ou rmt");
+        List<PokePastTeam> pokePastTeams = pokePasteService.crawGen9OuRmtByRss();
+        log.info("finish craw gen9 ou rmt, insert size {}", pokePastTeams.size());
     }
 }

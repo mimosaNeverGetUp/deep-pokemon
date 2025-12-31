@@ -213,6 +213,20 @@ function copyToClip() {
   }
 }
 
+function getIconUrl(pokemon) {
+  if (pokemon.detailChange) {
+    const iconName = pokemon.detailChange.replace(" ", "").replace("-*", "");
+    return "/pokemonicon/" + encodeURIComponent(iconName) + ".png";
+  } else {
+    const iconName = pokemon.name.replace(" ", "").replace("-*", "");
+    return "/pokemonicon/" + encodeURIComponent(iconName) + ".png";
+  }
+}
+
+function getItemUrl(item) {
+  return "/itemicon/" + item + ".png";
+}
+
 queryTeam(props.teamId, props.teamTier);
 
 watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => {
@@ -248,49 +262,68 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
     <Accordion>
       <AccordionTab :header="$t('export')" :headerStyle='{"font-weight": 700}'>
         <Toast class="max-sm:w-50"/>
-        <div class="">
+        <div class="max-w-200">
           <div class="cursor-pointer hover:bg-green-200 rounded-sm w-14">
             <i class="pi pi-copy" ></i>
             <span @click="copyToClip()" class="text-gray-500 text-sm">{{$t('copy team')}}</span>
           </div>
-
-          <div v-for="pokemon in teamInfo?.teamSet.pokemons" class="flex gap-3">
-            <div class="w-60 max-sm:w-44">
-              <div>
-                <span :class="getPokemonNameColor(pokemon.name)">{{ $t(pokemon.name) }}</span>
-                <span v-if="pokemon.items" class="">
-                  {{ " @ " + (pokemon.items?.length === 0 ? "???" : $t(pokemon.items[0])) }}
-                </span>
-              </div>
-              <div>
-                {{ $t('set tip ability') + getPokemonAbilityText(pokemon.name, pokemon.abilities) }}
-              </div>
-              <div class="flex items-center gap-1">
-                <span> {{ $t('set tip tera') + (pokemon.teraTypes?.length === 0 ? "???" : $t(pokemon.teraTypes[0])) }}</span>
-              </div>
-              <div v-if="pokemon.moves && pokemon.moves.length !==0">
-                <div v-for="move in pokemon.moves.slice(0, 4)">
-                  {{ "-" + $t(move) }}
+          <div class="grid grid-cols-2 gap-y-1 justify-start items-center max-sm:grid-cols-1">
+            <div v-for="pokemon in teamInfo?.teamSet.pokemons">
+              <div class="w-72 h-62">
+                <div class="flex justify-start items-center gap-1">
+                  <div class="relative inline-block">
+                    <img :src="getIconUrl(pokemon)" :alt="pokemon.name"/>
+                    <img class="absolute h-4 w-4 bottom-0 right-0" v-if="pokemon.items.length !==0"
+                         :src="getItemUrl(pokemon.items[0])" :alt="pokemon.item"/>
+                  </div>
+                  <span :class="getPokemonNameColor(pokemon.name)">{{ $t(pokemon.name) }}</span>
                 </div>
-                <br/>
-              </div>
-              <br v-else>
-            </div>
 
-            <div class="font-light">
-              <p v-if="pokemon.moves.length > 4 || pokemon.items.length > 1" class="text-gray-500 text-sm">{{ $t('alternative sets')}}</p>
-              <p v-for="item in pokemon.items.slice(1, pokemon.items.length)" class="text-gray-500 text-sm">
-                {{ "@" + $t(item) }}
-              </p>
-              <p v-if="pokemon.teraTypes.length > 1" class="text-gray-500 text-sm">
-                {{ $t('set tip tera') + pokemon.teraTypes.slice(1, pokemon.teraTypes.length).map(a => $t(a)) }}
-              </p>
-              <p v-if="pokemon.abilities.length > 1" class="text-gray-500 text-sm">
-                {{ $t('set tip ability') + pokemon.abilities.slice(1, pokemon.abilities.length).map(a => $t(a)) }}
-              </p>
-              <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="text-gray-500 text-sm">
-                {{ "-" + $t(move) }}
-              </p>
+                <div class="flex truncate">
+                  <p v-if="pokemon.items">
+                    {{ " @ " + (pokemon.items?.length === 0 ? "???" : $t(pokemon.items[0])) }}
+                  </p>
+
+                  <p v-if="pokemon.items.length > 1" class="text-gray-500 ml-3">
+                    {{ '/' + pokemon.items.slice(1, pokemon.items.length).map(a => $t(a)).join("/") }}
+                  </p>
+                </div>
+
+                <div class="flex truncate">
+                  <p>
+                    {{ $t('set tip ability') + getPokemonAbilityText(pokemon.name, pokemon.abilities) }}
+                  </p>
+
+                  <p v-if="pokemon.abilities.length > 1" class="text-gray-500 ml-3">
+                    {{ '/' + pokemon.abilities.slice(1, pokemon.abilities.length).map(a => $t(a)).join("/") }}
+                  </p>
+                </div>
+
+                <div class="flex truncate">
+                  <p>
+                    {{ $t('set tip tera') + (pokemon.teraTypes?.length === 0 ? "???" : $t(pokemon.teraTypes[0])) }}
+                  </p>
+
+                  <p v-if="pokemon.teraTypes.length > 1" class="text-gray-500 ml-3">
+                    {{ '/' + pokemon.teraTypes.slice(1, pokemon.teraTypes.length).map(a => $t(a)).join("/") }}
+                  </p>
+                </div>
+
+                <div v-if="pokemon.moves && pokemon.moves.length !==0" class="flex truncate">
+                  <div>
+                    <div v-for="move in pokemon.moves.slice(0, 4)">
+                      {{ "-" + $t(move) }}
+                    </div>
+                  </div>
+
+                  <div class="ml-5">
+                    <p v-for="move in pokemon.moves.slice(4, pokemon.moves.length)" class="text-gray-500">
+                      {{ "-" + $t(move) }}
+                    </p>
+                  </div>
+                </div>
+                <br v-else>
+              </div>
             </div>
           </div>
         </div>

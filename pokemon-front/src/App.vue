@@ -50,7 +50,7 @@ onMounted(()=>{
       <Divider type="solid"/>
       <div class="flex">
         <span class="text-gray-600">
-          © 2024-2025
+          © 2024-2026
             <span class="">mimosa</span>
         </span>
       </div>

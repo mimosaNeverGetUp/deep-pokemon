@@ -40,6 +40,11 @@ const routes = [
         component: BattleAnalysis
     },
     {
+        path: '/teamInfo',
+        name: 'SpecifyTeamSearch',
+        component: SpecifyTeamSearch
+    },
+    {
         path: '/',
         name: 'default',
         component: Ladder

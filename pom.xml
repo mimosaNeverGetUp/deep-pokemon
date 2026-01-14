@@ -151,7 +151,7 @@
                         </env>
                         <buildpacks>
                             <buildpack>urn:cnb:builder:paketo-buildpacks/java-native-image</buildpack>
-                            <buildpack>gcr.io/paketo-buildpacks/health-checker:latest</buildpack>
+                            <buildpack>docker.io/paketobuildpacks/health-checker:latest</buildpack>
                         </buildpacks>
                     </image>
                     <docker>

@@ -15,6 +15,7 @@ import com.mimosa.deeppokemon.crawler.stat.dto.PokemonAnalyzeDto;
 import com.mimosa.deeppokemon.entity.stat.PokemonAnalyze;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.*;
+import com.mongodb.client.result.DeleteResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Sort;
@@ -26,10 +27,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class StatsService {
@@ -151,6 +149,23 @@ public class StatsService {
         mongoTemplate.insert(monthlyMetaStat);
         mongoTemplate.insertAll(pokemonUsages);
         mongoTemplate.insertAll(pokemonMoveSets);
+
+        removeUselessMonthlyStat(format, date);
+    }
+
+    public void removeUselessMonthlyStat(String format, LocalDate latestDate) {
+        log.info("remove use less monthly stat {}, latest date {}", format, latestDate);
+        LocalDate uselessMonthlyDate = latestDate.minusMonths(2);
+
+        Criteria criteria = Criteria.where(FORMAT).is(format).and(DATE).lt(uselessMonthlyDate);
+        DeleteResult result = mongoTemplate.remove(new Query(criteria), MonthlyPokemonMoveSet.class);
+        log.info("useless pokemon moves have been deleted, count {}", result.getDeletedCount());
+
+        result = mongoTemplate.remove(new Query(criteria), MonthlyPokemonUsage.class);
+        log.info("useless pokemon usage have been deleted, count {}", result.getDeletedCount());
+
+        result = mongoTemplate.remove(new Query(criteria), MonthlyMetaStat.class);
+        log.info("useless pokemon meta have been deleted, count {}", result.getDeletedCount());
     }
 
     /**

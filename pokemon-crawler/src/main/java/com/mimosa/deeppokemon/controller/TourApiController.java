@@ -122,6 +122,12 @@ public class TourApiController {
         return true;
     }
 
+    @PostMapping("/splXvii/battle")
+    public boolean crawSplIvii(@RequestParam("format") String format) {
+        tourService.crawSplXvii(format);
+        return true;
+    }
+
     @PostMapping("/splXvi/battleByCsv")
     public boolean crawSplIviByCsv(@RequestParam("format") String format) throws IOException {
         tourService.crawTourByCsv(SMOGON_PREMIER_LEAGUE_XVI, SPL_XVI, format,

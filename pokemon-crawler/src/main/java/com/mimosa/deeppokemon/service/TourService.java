@@ -109,6 +109,11 @@ public class TourService {
     protected static final List<String> OUPL_STAGES =
             List.of("Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Semifinals", "Finals");
 
+    protected static final String SPL_XVII = "SPL XVII";
+    protected static final String SMOGON_PREMIER_LEAGUE_XVII = "Smogon Premier League XVII";
+    protected static final String SPL_XVII_REPLAY_URL =
+            "https://www.smogon.com/forums/threads/spl-xvii-replays-and-usage-stats.3776148/";
+
     private final BattleService battleService;
     private final MongoTemplate mongoTemplate;
     private final ReplayBattleCrawler replayBattleCrawler;
@@ -285,6 +290,15 @@ public class TourService {
         SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_PREMIER_LEAGUE_XVI, SPL_XVI_REPLAY_URL,
                 format, SPL_STAGES, winPlayerExtractor);
         return crawTour(SMOGON_PREMIER_LEAGUE_XVI, SPL_XVI, format, provider);
+    }
+
+    @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)
+    public List<Battle> crawSplXvii(String format) {
+        SmogonTourWinPlayerExtractor winPlayerExtractor = new SmogonTourWinPlayerExtractor(SPL_FORUMS_URL,
+                SMOGON_PREMIER_LEAGUE_XVII, SPL_STAGES);
+        SmogonTourReplayProvider provider = new SmogonTourReplayProvider(SMOGON_PREMIER_LEAGUE_XVII,
+                SPL_XVII_REPLAY_URL, format, SPL_STAGES, winPlayerExtractor);
+        return crawTour(SMOGON_PREMIER_LEAGUE_XVII, SPL_XVII, format, provider);
     }
 
     @CacheEvict(value = {"tours", "teamGroup", "teamInfo"}, allEntries = true)

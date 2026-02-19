@@ -40,7 +40,7 @@ const routes = [
         component: BattleAnalysis
     },
     {
-        path: '/teamInfo',
+        path: '/a7b3c9d1e5f2a8b4c6d0e3f1a9b2c4d6e8f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4',
         name: 'SpecifyTeamSearch',
         component: SpecifyTeamSearch
     },

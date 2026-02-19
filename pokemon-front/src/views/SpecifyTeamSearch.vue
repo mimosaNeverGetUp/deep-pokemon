@@ -96,7 +96,7 @@ function hasChinese(str) {
     <TreeSelect filter :options="teamTierNodes" :placeholder="teamTier" @node-select="onNodeSelect"/>
     <div class="mt-2">
       <Button label="Submit" @click="queryTeam"/>
-      <TeamInfo :teamId="teamInfoId" :teamTier="teamTier" v-if="teamInfoId"></TeamInfo>
+      <TeamInfo :teamId="teamInfoId" :teamTier="teamTier" :searchPrivate="true" v-if="teamInfoId"></TeamInfo>
     </div>
   </div>
 

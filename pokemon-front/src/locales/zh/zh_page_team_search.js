@@ -41,6 +41,7 @@ export const zh_page_team_search ={
     "max rating": "最高分数",
     "player name": "玩家名",
     "replay date": "日期",
+    "replay type": "类型",
     "replay": "回放",
     "stage": "轮次",
     "record": "战绩",

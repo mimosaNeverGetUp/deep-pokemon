@@ -41,6 +41,7 @@ export const en_page_team_search ={
     "max rating": "max rating",
     "player name": "player name",
     "replay date": "date",
+    "replay type": "type",
     "replay": "replay",
     "stage": "stage",
     "record": "record",

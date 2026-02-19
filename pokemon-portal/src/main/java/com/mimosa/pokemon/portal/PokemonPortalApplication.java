@@ -27,6 +27,8 @@ package com.mimosa.pokemon.portal;
 
 import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.pokepast.PokePastTeam;
+import com.mimosa.deeppokemon.entity.privcy.PrivateBattle;
+import com.mimosa.deeppokemon.entity.privcy.PrivateTeam;
 import com.mimosa.deeppokemon.entity.stat.PokemonSet;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
 import com.mimosa.deeppokemon.entity.stat.monthly.Usage;
@@ -106,6 +108,8 @@ public class PokemonPortalApplication {
                     .registerType(BattleTeamDto.class)
                     .registerType(Tour.class)
                     .registerType(TourTeam.class)
+                    .registerType(PrivateTeam.class)
+                    .registerType(PrivateBattle.class)
                     .registerType(TourPlayer.class)
                     .registerType(TourPlayerRecord.class)
                     .registerType(ArrayList.class)

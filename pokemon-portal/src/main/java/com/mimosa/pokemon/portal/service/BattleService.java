@@ -26,6 +26,8 @@ package com.mimosa.pokemon.portal.service;
 
 import com.mimosa.deeppokemon.entity.*;
 import com.mimosa.deeppokemon.entity.pokepast.PokePastTeam;
+import com.mimosa.deeppokemon.entity.privcy.PrivateBattle;
+import com.mimosa.deeppokemon.entity.privcy.PrivateTeam;
 import com.mimosa.deeppokemon.entity.stat.*;
 import com.mimosa.deeppokemon.entity.tour.TourBattle;
 import com.mimosa.deeppokemon.entity.tour.TourPlayer;
@@ -38,6 +40,7 @@ import com.mimosa.pokemon.portal.entity.MongodbQueryCount;
 import com.mimosa.pokemon.portal.entity.PageResponse;
 import com.mimosa.pokemon.portal.service.microservice.CrawlerApi;
 import com.mimosa.pokemon.portal.util.CollectionUtils;
+import com.netflix.servo.util.Strings;
 import org.apache.commons.lang.StringUtils;
 import org.bson.types.Binary;
 import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
@@ -313,24 +316,21 @@ public class BattleService {
     }
 
     @Cacheable("teamInfo")
-    @RegisterReflectionForBinding({TourTeam.class, BattleTeam.class})
-    public TeamGroupDto searchTeam(Binary teamId, int replayLimit, String format) {
+    @RegisterReflectionForBinding({TourTeam.class, BattleTeam.class, PrivateTeam.class, PrivateBattle.class})
+    public TeamGroupDto searchTeam(Binary teamId, int replayLimit, String format, boolean searchPrivate) {
         List<BattleTeam> teamList = new ArrayList<>();
-        Query ladderTeamQuery =
+        Query teamQuery =
                 new Query(Criteria.where(TEAM_ID).is(teamId));
         if (format != null && !format.isEmpty()) {
-            ladderTeamQuery.addCriteria(Criteria.where(TIER).is(format));
+            teamQuery.addCriteria(Criteria.where(TIER).is(format));
         }
-        ladderTeamQuery.with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
-        ladderTeamQuery.limit(replayLimit);
-        teamList.addAll(mongoTemplate.find(ladderTeamQuery, BattleTeam.class));
-        Query tourTeamQuery = new Query(Criteria.where(TEAM_ID).is(teamId));
-        if (format != null && !format.isEmpty()) {
-            tourTeamQuery.addCriteria(Criteria.where(TIER).is(format));
+        teamQuery.with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
+        teamQuery.limit(replayLimit);
+        teamList.addAll(mongoTemplate.find(teamQuery, BattleTeam.class));
+        teamList.addAll(mongoTemplate.find(teamQuery, TourTeam.class));
+        if (searchPrivate) {
+            teamList.addAll(mongoTemplate.find(teamQuery, PrivateTeam.class));
         }
-        tourTeamQuery.with(Sort.by(Sort.Order.desc(BATTLE_DATE)));
-        tourTeamQuery.limit(replayLimit);
-        teamList.addAll(mongoTemplate.find(tourTeamQuery, TourTeam.class));
 
         if (teamList.isEmpty()) {
             return new TeamGroupDto(null, null, null, 0, null,
@@ -473,8 +473,10 @@ public class BattleService {
         List<BattleTeamDto> battleTeamDtos = new ArrayList<>();
         for (BattleTeam battleTeam : battleTeams) {
             LocalDateTime battleDateTime = battleTeam.getBattleDate();
+            String tourId = battleTeam.getBattleType() == null || battleTeam.getBattleType().isEmpty() ? "ladder" :
+                    Strings.join("_", battleTeam.getBattleType().iterator());
             battleTeamDtos.add(new BattleTeamDto(battleTeam.getBattleId(), battleDateTime == null ? null : battleDateTime.toLocalDate(),
-                    (int) battleTeam.getRating(), battleTeam.getPlayerName(), null, null, null,
+                    (int) battleTeam.getRating(), battleTeam.getPlayerName(), tourId , null, null,
                     null, battleTeam.getPokemons()));
         }
         return battleTeamDtos;

@@ -27,6 +27,11 @@ const props = defineProps({
   teamTier: {
     type: String,
     required: true
+  },
+  searchPrivate: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 });
 
@@ -49,10 +54,11 @@ async function queryTeam(teamId, teamTier) {
   teamPokepasts.value = null;
   loadFail.value = false;
 
-  const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30&format=${teamTier}`, {
+  const res = await fetch(`${apiUrl}/api/team/${teamId}?replayNum=30&format=${teamTier}&searchPrivate=${props.searchPrivate}`, {
         method: "GET"
       }
-  )
+  );
+
   try {
     if (res.ok) {
       let responseJson = await res.json();
@@ -366,6 +372,8 @@ watch(() => [props.teamId, props.teamTier], async ([newTeamId, newTeamTier]) => 
             </a>
         </template>
       </Column>
+      <Column field="tourId" sortable :header="$t('replay type')" :style="{ width:'10%'}" class="max-md:hidden"
+              headerClass="text-gray-500"/>
       <Column field="battleDate" sortable :header="$t('replay date')" :style="{ width:'10%'}" class="max-md:hidden"
               headerClass="text-gray-500"/>
       <Column field="rating" sortable :header="$t('rating')" :style="{ width:'10%'}" class="max-md:text-sm"

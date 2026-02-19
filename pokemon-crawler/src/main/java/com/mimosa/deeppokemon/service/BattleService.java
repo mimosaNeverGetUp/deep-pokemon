@@ -79,6 +79,7 @@ public class BattleService {
     protected static final String REPLAY_NUM = "replayNum";
     protected static final String POKEMONS_NAME = "pokemons.name";
     protected static final String TOUR_BATTLE = "tour_battle";
+    protected static final String PRIVATE_BATTLE = "private_battle";
 
     private final int crawPeriodMillisecond;
     private final ThreadPoolExecutor crawBattleExecutor;
@@ -240,6 +241,7 @@ public class BattleService {
         List<Battle> battleList = new ArrayList<>();
         battleList.addAll(mongoTemplate.aggregate(aggregation, BATTLE, Battle.class).getMappedResults());
         battleList.addAll(mongoTemplate.aggregate(aggregation, TOUR_BATTLE, Battle.class).getMappedResults());
+        battleList.addAll(mongoTemplate.aggregate(aggregation, PRIVATE_BATTLE, Battle.class).getMappedResults());
 
         return battleList.stream().map(Battle::getBattleID).collect(Collectors.toSet());
     }

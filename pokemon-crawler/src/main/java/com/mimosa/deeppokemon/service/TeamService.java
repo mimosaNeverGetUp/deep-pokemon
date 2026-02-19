@@ -8,6 +8,8 @@ package com.mimosa.deeppokemon.service;
 
 import com.google.common.collect.Lists;
 import com.mimosa.deeppokemon.entity.*;
+import com.mimosa.deeppokemon.entity.privcy.PrivateBattle;
+import com.mimosa.deeppokemon.entity.privcy.PrivateTeam;
 import com.mimosa.deeppokemon.entity.tour.TourTeam;
 import com.mimosa.deeppokemon.tagger.TeamTagger;
 import com.mimosa.deeppokemon.tagger.creativity.TeamCreativityScorer;
@@ -53,7 +55,7 @@ public class TeamService {
     }
 
     @RegisterReflectionForBinding({TeamGroup.class, BattleTeam.class, TourTeam.class, TeamSet.class,
-            PokemonBuildSet.class})
+            PokemonBuildSet.class, PrivateTeam.class, PrivateBattle.class})
     public void updateTeamSet(TeamGroupDetail teamGroupDetail) {
         List<Binary> needUpdateTeamGroup = new ArrayList<>();
 

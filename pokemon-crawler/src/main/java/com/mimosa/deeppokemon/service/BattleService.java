@@ -253,8 +253,14 @@ public class BattleService {
 
     public CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider, BattleCrawler crawler,
                                                       BattleAnalyzer analyzer, boolean isForkTask) {
+        return crawBattle(replayProvider, crawler, analyzer, isForkTask, true);
+    }
+
+    public CompletableFuture<List<Battle>> crawBattle(ReplayProvider replayProvider, BattleCrawler crawler,
+                                                      BattleAnalyzer analyzer, boolean isForkTask,
+                                                      boolean saveBattleStat) {
         CrawBattleTask crawBattleTask = new CrawBattleTask(replayProvider, crawler, analyzer, this,
-                false, crawPeriodMillisecond);
+                false, crawPeriodMillisecond, saveBattleStat);
         return CompletableFuture.supplyAsync(crawBattleTask::call, isForkTask ? forkCrawBattleExecutor : crawBattleExecutor);
     }
 

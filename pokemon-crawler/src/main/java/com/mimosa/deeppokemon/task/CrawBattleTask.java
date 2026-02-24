@@ -38,6 +38,7 @@ public class CrawBattleTask implements Callable<List<Battle>> {
 
     private final boolean update;
     private long crawPeriod;
+    private final boolean saveBattleStat;
 
     public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler,
                           BattleAnalyzer battleAnalyzer, BattleService battleService,
@@ -48,6 +49,12 @@ public class CrawBattleTask implements Callable<List<Battle>> {
     public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler,
                           BattleAnalyzer battleAnalyzer, BattleService battleService,
                           boolean update, long crawPeriod) {
+        this(replayProvider, battleCrawler, battleAnalyzer, battleService, update, crawPeriod, true);
+    }
+
+    public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler,
+                          BattleAnalyzer battleAnalyzer, BattleService battleService,
+                          boolean update, long crawPeriod, boolean saveBattleStat) {
         this.replayProvider = replayProvider;
         this.battleCrawler = battleCrawler;
         this.battleAnalyzer = battleAnalyzer;
@@ -55,6 +62,7 @@ public class CrawBattleTask implements Callable<List<Battle>> {
         this.update = update;
         this.holdBattleLocks = new ArrayList<>();
         this.crawPeriod = crawPeriod;
+        this.saveBattleStat = saveBattleStat;
     }
 
     public CrawBattleTask(ReplayProvider replayProvider, BattleCrawler battleCrawler,
@@ -94,11 +102,14 @@ public class CrawBattleTask implements Callable<List<Battle>> {
             log.error("save battle team fail", e);
         }
 
-        try {
-            battleService.insertBattleStat(saveSuccessBattles);
-        } catch (Exception e) {
-            log.error("save battle stat fail", e);
+        if (saveBattleStat) {
+            try {
+                battleService.insertBattleStat(saveSuccessBattles);
+            } catch (Exception e) {
+                log.error("save battle stat fail", e);
+            }
         }
+
         return saveSuccessBattles;
     }
 

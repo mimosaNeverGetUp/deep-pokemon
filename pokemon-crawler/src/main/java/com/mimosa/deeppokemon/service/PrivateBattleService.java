@@ -11,6 +11,7 @@ import com.mimosa.deeppokemon.PrivateBattleCrawler;
 import com.mimosa.deeppokemon.analyzer.BattleAnalyzer;
 import com.mimosa.deeppokemon.crawler.ReplayBattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
+import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
 import com.mimosa.deeppokemon.provider.ThreadReplayProvider;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +37,12 @@ public class PrivateBattleService {
                 format);
         PrivateBattleCrawler privateBattleCrawler = new PrivateBattleCrawler(replayBattleCrawler, sourceName, describe);
         return battleService.crawBattle(threadReplayProvider, privateBattleCrawler, battleAnalyzer, false, false);
+    }
+
+    public CompletableFuture<List<Battle>> crawPlayerPrivateBattle(String player, String sourceName, String describe,
+                                                                   String format, long uploadTimeAfter) {
+        PlayerReplayProvider playerReplayProvider = new PlayerReplayProvider(player, format, uploadTimeAfter);
+        PrivateBattleCrawler privateBattleCrawler = new PrivateBattleCrawler(replayBattleCrawler, sourceName, describe);
+        return battleService.crawBattle(playerReplayProvider, privateBattleCrawler, battleAnalyzer, false, false);
     }
 }

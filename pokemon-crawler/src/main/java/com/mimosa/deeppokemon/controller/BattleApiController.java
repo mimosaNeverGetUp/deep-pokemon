@@ -87,4 +87,17 @@ public class BattleApiController {
         map.put("result", "success");
         return map;
     }
+
+    @PostMapping("/player/craw")
+    public Map<String, String> crawPrivatePlayerBattle(@RequestParam String player, @RequestParam String sourceName,
+                                                       @RequestParam String describe, @RequestParam String format,
+                                                       @RequestParam(value = "uploadTimeAfter",defaultValue = "2024/09/01") LocalDate uploadTimeAfter) {
+        CompletableFuture<List<Battle>> future = privateBattleService.crawPlayerPrivateBattle(player, sourceName, describe
+                , format, uploadTimeAfter.toEpochDay());
+        List<Battle> battles = future.join();
+        Map<String, String> map = new HashMap<>();
+        map.put("insertSize", Integer.toString(battles.size()));
+        map.put("result", "success");
+        return map;
+    }
 }

@@ -41,7 +41,8 @@ public class PrivateBattleService {
 
     public CompletableFuture<List<Battle>> crawPlayerPrivateBattle(String player, String sourceName, String describe,
                                                                    String format, long uploadTimeAfter) {
-        PlayerReplayProvider playerReplayProvider = new PlayerReplayProvider(player, format, uploadTimeAfter);
+        PlayerReplayProvider playerReplayProvider = new PlayerReplayProvider(player, format, uploadTimeAfter,0,
+                sourceName);
         PrivateBattleCrawler privateBattleCrawler = new PrivateBattleCrawler(replayBattleCrawler, sourceName, describe);
         return battleService.crawBattle(playerReplayProvider, privateBattleCrawler, battleAnalyzer, false, false);
     }

@@ -46,21 +46,28 @@ public class PlayerReplayProvider implements ReplayProvider {
 
     private final int minRating;
 
+    private final String type;
+
     private int bufferPage;
 
     private final Queue<ReplaySource> replaySourceBuffer;
 
     public PlayerReplayProvider(String name, String format, long uploadTimeAfter, int minRating) {
+        this(name, format, uploadTimeAfter, minRating, LADDER);
+    }
+
+    public PlayerReplayProvider(String name, String format, long uploadTimeAfter, int minRating, String type) {
         this.name = name;
         this.format = format;
         bufferPage = 1;
         this.uploadTimeAfter = uploadTimeAfter;
         this.minRating = minRating;
+        this.type = type;
         replaySourceBuffer = new LinkedList<>();
     }
 
     public PlayerReplayProvider(String name, String format, long uploadTimeAfter) {
-        this(name, format, uploadTimeAfter, 0);
+        this(name, format, uploadTimeAfter, 0, LADDER);
     }
 
     @Override
@@ -99,7 +106,7 @@ public class PlayerReplayProvider implements ReplayProvider {
             return replays.stream()
                     .filter(replay -> replay.getUploadTime() > uploadTimeAfter)
                     .filter(replay -> replay.getRating() >= minRating)
-                    .map(replay -> new ReplaySource(Collections.singletonList(LADDER), Collections.singletonList(replay)))
+                    .map(replay -> new ReplaySource(Collections.singletonList(type), Collections.singletonList(replay)))
                     .toList();
         } catch (URISyntaxException e) {
             throw new ServerErrorException("build query replay uri occur error", e);

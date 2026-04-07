@@ -97,6 +97,7 @@ public class PokemonCrawlerApplication {
             hints.resources().registerPattern("tourReplay/oupl.csv");
             hints.resources().registerPattern("tourReplay/wcop2025.csv");
             hints.resources().registerPattern("tourReplay/splxvi.csv");
+            hints.resources().registerPattern("tourReplay/splxvii.csv");
             hints.resources().registerPattern("tourReplay/oltvii.csv");
         }
     }

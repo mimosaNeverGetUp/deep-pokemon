@@ -34,6 +34,9 @@ public class TourApiController {
     protected static final String SMOGON_PREMIER_LEAGUE_XVI = "Smogon Premier League XVI";
     protected static final String SPL_XVI = "SPL XVI";
 
+    protected static final String SMOGON_PREMIER_LEAGUE_XVII = "Smogon Premier League XVII";
+    protected static final String SPL_XVII = "SPL XVII";
+
     protected static final String WCOP_2025_FULL_TOUR_NAME = "The World Cup of Pokémon 2025";
     protected static final String WCOP_2025 = "wcop_2025";
 
@@ -48,6 +51,9 @@ public class TourApiController {
 
     @Value("classpath:tourReplay/splxvi.csv")
     Resource splXVIReplayCsvResource;
+
+    @Value("classpath:tourReplay/splxvii.csv")
+    Resource splXVIIReplayCsvResource;
 
     @Value("classpath:tourReplay/wcop2025.csv")
     Resource wcop2025ReplayCsvResource;
@@ -132,6 +138,13 @@ public class TourApiController {
     public boolean crawSplIviByCsv(@RequestParam("format") String format) throws IOException {
         tourService.crawTourByCsv(SMOGON_PREMIER_LEAGUE_XVI, SPL_XVI, format,
                 splXVIReplayCsvResource.getContentAsString(StandardCharsets.UTF_8));
+        return true;
+    }
+
+    @PostMapping("/splXvii/battleByCsv")
+    public boolean crawSplXviiByCsv(@RequestParam("format") String format) throws IOException {
+        tourService.crawTourByCsv(SMOGON_PREMIER_LEAGUE_XVII, SPL_XVII, format,
+                splXVIIReplayCsvResource.getContentAsString(StandardCharsets.UTF_8));
         return true;
     }
 

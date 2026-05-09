@@ -1,5 +1,5 @@
 {
-  "10,000,000 Volt Thunderbolt": {
+  "10000000voltthunderbolt": {
     "num": 719,
     "accuracy": true,
     "basePower": 195,
@@ -16,7 +16,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Absorb": {
+  "absorb": {
     "num": 71,
     "accuracy": 100,
     "basePower": 20,
@@ -39,7 +39,7 @@
     "type": "Grass",
     "contestType": "Clever"
   },
-  "Accelerock": {
+  "accelerock": {
     "num": 709,
     "accuracy": 100,
     "basePower": 40,
@@ -58,7 +58,7 @@
     "type": "Rock",
     "contestType": "Cool"
   },
-  "Acid": {
+  "acid": {
     "num": 51,
     "accuracy": 100,
     "basePower": 40,
@@ -81,7 +81,7 @@
     "type": "Poison",
     "contestType": "Clever"
   },
-  "Acid Armor": {
+  "acidarmor": {
     "num": 151,
     "accuracy": true,
     "basePower": 0,
@@ -104,7 +104,7 @@
     },
     "contestType": "Tough"
   },
-  "Acid Downpour": {
+  "aciddownpour": {
     "num": 628,
     "accuracy": true,
     "basePower": 1,
@@ -120,7 +120,7 @@
     "type": "Poison",
     "contestType": "Cool"
   },
-  "Acid Spray": {
+  "acidspray": {
     "num": 491,
     "accuracy": 100,
     "basePower": 40,
@@ -144,7 +144,7 @@
     "type": "Poison",
     "contestType": "Beautiful"
   },
-  "Acrobatics": {
+  "acrobatics": {
     "num": 512,
     "accuracy": 100,
     "basePower": 55,
@@ -164,7 +164,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Acupressure": {
+  "acupressure": {
     "num": 367,
     "accuracy": true,
     "basePower": 0,
@@ -183,7 +183,7 @@
     },
     "contestType": "Tough"
   },
-  "Aerial Ace": {
+  "aerialace": {
     "num": 332,
     "accuracy": true,
     "basePower": 60,
@@ -204,7 +204,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Aeroblast": {
+  "aeroblast": {
     "num": 177,
     "accuracy": 95,
     "basePower": 100,
@@ -225,7 +225,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "After You": {
+  "afteryou": {
     "num": 495,
     "accuracy": true,
     "basePower": 0,
@@ -247,7 +247,7 @@
     },
     "contestType": "Cute"
   },
-  "Agility": {
+  "agility": {
     "num": 97,
     "accuracy": true,
     "basePower": 0,
@@ -270,7 +270,7 @@
     },
     "contestType": "Cool"
   },
-  "Air Cutter": {
+  "aircutter": {
     "num": 314,
     "accuracy": 95,
     "basePower": 60,
@@ -291,7 +291,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Air Slash": {
+  "airslash": {
     "num": 403,
     "accuracy": 95,
     "basePower": 75,
@@ -314,7 +314,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "All-Out Pummeling": {
+  "alloutpummeling": {
     "num": 624,
     "accuracy": true,
     "basePower": 1,
@@ -330,7 +330,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Alluring Voice": {
+  "alluringvoice": {
     "num": 914,
     "accuracy": 100,
     "basePower": 80,
@@ -351,7 +351,7 @@
     "target": "normal",
     "type": "Fairy"
   },
-  "Ally Switch": {
+  "allyswitch": {
     "num": 502,
     "accuracy": true,
     "basePower": 0,
@@ -376,7 +376,7 @@
     },
     "contestType": "Clever"
   },
-  "Amnesia": {
+  "amnesia": {
     "num": 133,
     "accuracy": true,
     "basePower": 0,
@@ -399,7 +399,7 @@
     },
     "contestType": "Cute"
   },
-  "Anchor Shot": {
+  "anchorshot": {
     "num": 677,
     "accuracy": 100,
     "basePower": 80,
@@ -421,7 +421,7 @@
     "type": "Steel",
     "contestType": "Tough"
   },
-  "Ancient Power": {
+  "ancientpower": {
     "num": 246,
     "accuracy": 100,
     "basePower": 60,
@@ -450,7 +450,7 @@
     "type": "Rock",
     "contestType": "Tough"
   },
-  "Apple Acid": {
+  "appleacid": {
     "num": 787,
     "accuracy": 100,
     "basePower": 80,
@@ -471,7 +471,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Aqua Cutter": {
+  "aquacutter": {
     "num": 895,
     "accuracy": 100,
     "basePower": 70,
@@ -491,7 +491,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Aqua Jet": {
+  "aquajet": {
     "num": 453,
     "accuracy": 100,
     "basePower": 40,
@@ -510,7 +510,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Aqua Ring": {
+  "aquaring": {
     "num": 392,
     "accuracy": true,
     "basePower": 0,
@@ -536,7 +536,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Aqua Step": {
+  "aquastep": {
     "num": 872,
     "accuracy": 100,
     "basePower": 80,
@@ -563,7 +563,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Aqua Tail": {
+  "aquatail": {
     "num": 401,
     "accuracy": 90,
     "basePower": 90,
@@ -582,7 +582,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Armor Cannon": {
+  "armorcannon": {
     "num": 890,
     "accuracy": 100,
     "basePower": 120,
@@ -604,7 +604,7 @@
     "target": "normal",
     "type": "Fire"
   },
-  "Arm Thrust": {
+  "armthrust": {
     "num": 292,
     "accuracy": 100,
     "basePower": 15,
@@ -627,7 +627,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Aromatherapy": {
+  "aromatherapy": {
     "num": 312,
     "accuracy": true,
     "basePower": 0,
@@ -648,7 +648,7 @@
     },
     "contestType": "Clever"
   },
-  "Aromatic Mist": {
+  "aromaticmist": {
     "num": 597,
     "accuracy": true,
     "basePower": 0,
@@ -673,7 +673,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Assist": {
+  "assist": {
     "num": 274,
     "accuracy": true,
     "basePower": 0,
@@ -695,7 +695,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Assurance": {
+  "assurance": {
     "num": 372,
     "accuracy": 100,
     "basePower": 60,
@@ -714,7 +714,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Astonish": {
+  "astonish": {
     "num": 310,
     "accuracy": 100,
     "basePower": 30,
@@ -736,7 +736,7 @@
     "type": "Ghost",
     "contestType": "Cute"
   },
-  "Astral Barrage": {
+  "astralbarrage": {
     "num": 825,
     "accuracy": 100,
     "basePower": 120,
@@ -752,7 +752,7 @@
     "target": "allAdjacentFoes",
     "type": "Ghost"
   },
-  "Attack Order": {
+  "attackorder": {
     "num": 454,
     "accuracy": 100,
     "basePower": 90,
@@ -771,7 +771,7 @@
     "type": "Bug",
     "contestType": "Clever"
   },
-  "Attract": {
+  "attract": {
     "num": 213,
     "accuracy": 100,
     "basePower": 0,
@@ -799,7 +799,7 @@
     },
     "contestType": "Cute"
   },
-  "Aura Sphere": {
+  "aurasphere": {
     "num": 396,
     "accuracy": true,
     "basePower": 80,
@@ -820,7 +820,7 @@
     "type": "Fighting",
     "contestType": "Beautiful"
   },
-  "Aura Wheel": {
+  "aurawheel": {
     "num": 783,
     "accuracy": 100,
     "basePower": 110,
@@ -843,7 +843,7 @@
     "target": "normal",
     "type": "Electric"
   },
-  "Aurora Beam": {
+  "aurorabeam": {
     "num": 62,
     "accuracy": 100,
     "basePower": 65,
@@ -866,7 +866,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Aurora Veil": {
+  "auroraveil": {
     "num": 694,
     "accuracy": true,
     "basePower": 0,
@@ -894,7 +894,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Autotomize": {
+  "autotomize": {
     "num": 475,
     "accuracy": true,
     "basePower": 0,
@@ -918,7 +918,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Avalanche": {
+  "avalanche": {
     "num": 419,
     "accuracy": 100,
     "basePower": 60,
@@ -937,7 +937,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Axe Kick": {
+  "axekick": {
     "num": 853,
     "accuracy": 90,
     "basePower": 120,
@@ -959,7 +959,7 @@
     "target": "normal",
     "type": "Fighting"
   },
-  "Baby-Doll Eyes": {
+  "babydolleyes": {
     "num": 608,
     "accuracy": 100,
     "basePower": 0,
@@ -987,7 +987,7 @@
     },
     "contestType": "Cute"
   },
-  "Baddy Bad": {
+  "baddybad": {
     "num": 737,
     "accuracy": 95,
     "basePower": 80,
@@ -1008,7 +1008,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Baneful Bunker": {
+  "banefulbunker": {
     "num": 661,
     "accuracy": true,
     "basePower": 0,
@@ -1036,7 +1036,7 @@
     },
     "contestType": "Tough"
   },
-  "Barb Barrage": {
+  "barbbarrage": {
     "num": 839,
     "accuracy": 100,
     "basePower": 60,
@@ -1056,7 +1056,7 @@
     "target": "normal",
     "type": "Poison"
   },
-  "Barrage": {
+  "barrage": {
     "num": 140,
     "accuracy": 85,
     "basePower": 15,
@@ -1080,7 +1080,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Barrier": {
+  "barrier": {
     "num": 112,
     "accuracy": true,
     "basePower": 0,
@@ -1104,7 +1104,7 @@
     },
     "contestType": "Cool"
   },
-  "Baton Pass": {
+  "batonpass": {
     "num": 226,
     "accuracy": true,
     "basePower": 0,
@@ -1125,7 +1125,7 @@
     },
     "contestType": "Cute"
   },
-  "Beak Blast": {
+  "beakblast": {
     "num": 690,
     "accuracy": 100,
     "basePower": 100,
@@ -1150,7 +1150,7 @@
     "type": "Flying",
     "contestType": "Tough"
   },
-  "Beat Up": {
+  "beatup": {
     "num": 251,
     "accuracy": 100,
     "basePower": 0,
@@ -1169,7 +1169,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Behemoth Bash": {
+  "behemothbash": {
     "num": 782,
     "accuracy": 100,
     "basePower": 100,
@@ -1188,7 +1188,7 @@
     "target": "normal",
     "type": "Steel"
   },
-  "Behemoth Blade": {
+  "behemothblade": {
     "num": 781,
     "accuracy": 100,
     "basePower": 100,
@@ -1208,7 +1208,7 @@
     "target": "normal",
     "type": "Steel"
   },
-  "Belch": {
+  "belch": {
     "num": 562,
     "accuracy": 90,
     "basePower": 120,
@@ -1230,7 +1230,7 @@
     "type": "Poison",
     "contestType": "Tough"
   },
-  "Belly Drum": {
+  "bellydrum": {
     "num": 187,
     "accuracy": true,
     "basePower": 0,
@@ -1250,7 +1250,7 @@
     },
     "contestType": "Cute"
   },
-  "Bestow": {
+  "bestow": {
     "num": 516,
     "accuracy": true,
     "basePower": 0,
@@ -1276,7 +1276,7 @@
     },
     "contestType": "Cute"
   },
-  "Bide": {
+  "bide": {
     "num": 117,
     "accuracy": true,
     "basePower": 0,
@@ -1304,7 +1304,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Bind": {
+  "bind": {
     "num": 20,
     "accuracy": 85,
     "basePower": 15,
@@ -1324,7 +1324,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Bite": {
+  "bite": {
     "num": 44,
     "accuracy": 100,
     "basePower": 60,
@@ -1347,7 +1347,7 @@
     "type": "Dark",
     "contestType": "Tough"
   },
-  "Bitter Blade": {
+  "bitterblade": {
     "num": 891,
     "accuracy": 100,
     "basePower": 90,
@@ -1371,7 +1371,7 @@
     "target": "normal",
     "type": "Fire"
   },
-  "Bitter Malice": {
+  "bittermalice": {
     "num": 841,
     "accuracy": 100,
     "basePower": 75,
@@ -1393,7 +1393,7 @@
     "target": "normal",
     "type": "Ghost"
   },
-  "Black Hole Eclipse": {
+  "blackholeeclipse": {
     "num": 654,
     "accuracy": true,
     "basePower": 1,
@@ -1409,7 +1409,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "Blast Burn": {
+  "blastburn": {
     "num": 307,
     "accuracy": 90,
     "basePower": 150,
@@ -1431,7 +1431,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Blaze Kick": {
+  "blazekick": {
     "num": 299,
     "accuracy": 90,
     "basePower": 85,
@@ -1454,7 +1454,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "Blazing Torque": {
+  "blazingtorque": {
     "num": 896,
     "accuracy": 100,
     "basePower": 80,
@@ -1481,7 +1481,7 @@
     "target": "normal",
     "type": "Fire"
   },
-  "Bleakwind Storm": {
+  "bleakwindstorm": {
     "num": 846,
     "accuracy": 80,
     "basePower": 100,
@@ -1504,7 +1504,7 @@
     "target": "allAdjacentFoes",
     "type": "Flying"
   },
-  "Blizzard": {
+  "blizzard": {
     "num": 59,
     "accuracy": 70,
     "basePower": 110,
@@ -1526,7 +1526,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Block": {
+  "block": {
     "num": 335,
     "accuracy": true,
     "basePower": 0,
@@ -1549,7 +1549,7 @@
     },
     "contestType": "Cute"
   },
-  "Blood Moon": {
+  "bloodmoon": {
     "num": 901,
     "accuracy": 100,
     "basePower": 140,
@@ -1567,7 +1567,7 @@
     "target": "normal",
     "type": "Normal"
   },
-  "Bloom Doom": {
+  "bloomdoom": {
     "num": 644,
     "accuracy": true,
     "basePower": 1,
@@ -1583,7 +1583,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Blue Flare": {
+  "blueflare": {
     "num": 551,
     "accuracy": 85,
     "basePower": 130,
@@ -1604,7 +1604,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Body Press": {
+  "bodypress": {
     "num": 776,
     "accuracy": 100,
     "basePower": 80,
@@ -1622,7 +1622,7 @@
     "target": "normal",
     "type": "Fighting"
   },
-  "Body Slam": {
+  "bodyslam": {
     "num": 34,
     "accuracy": 100,
     "basePower": 85,
@@ -1645,7 +1645,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Bolt Beak": {
+  "boltbeak": {
     "num": 754,
     "accuracy": 100,
     "basePower": 85,
@@ -1664,7 +1664,7 @@
     "target": "normal",
     "type": "Electric"
   },
-  "Bolt Strike": {
+  "boltstrike": {
     "num": 550,
     "accuracy": 85,
     "basePower": 130,
@@ -1686,7 +1686,7 @@
     "type": "Electric",
     "contestType": "Beautiful"
   },
-  "Bone Club": {
+  "boneclub": {
     "num": 125,
     "accuracy": 85,
     "basePower": 65,
@@ -1708,7 +1708,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "Bonemerang": {
+  "bonemerang": {
     "num": 155,
     "accuracy": 90,
     "basePower": 50,
@@ -1731,7 +1731,7 @@
     },
     "contestType": "Tough"
   },
-  "Bone Rush": {
+  "bonerush": {
     "num": 198,
     "accuracy": 90,
     "basePower": 25,
@@ -1759,7 +1759,7 @@
     },
     "contestType": "Tough"
   },
-  "Boomburst": {
+  "boomburst": {
     "num": 586,
     "accuracy": 100,
     "basePower": 140,
@@ -1779,7 +1779,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Bounce": {
+  "bounce": {
     "num": 340,
     "accuracy": 85,
     "basePower": 85,
@@ -1810,7 +1810,7 @@
     "type": "Flying",
     "contestType": "Cute"
   },
-  "Bouncy Bubble": {
+  "bouncybubble": {
     "num": 733,
     "accuracy": 100,
     "basePower": 60,
@@ -1833,7 +1833,7 @@
     "type": "Water",
     "contestType": "Clever"
   },
-  "Branch Poke": {
+  "branchpoke": {
     "num": 785,
     "accuracy": 100,
     "basePower": 40,
@@ -1850,7 +1850,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Brave Bird": {
+  "bravebird": {
     "num": 413,
     "accuracy": 100,
     "basePower": 120,
@@ -1874,7 +1874,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Breaking Swipe": {
+  "breakingswipe": {
     "num": 784,
     "accuracy": 100,
     "basePower": 60,
@@ -1896,7 +1896,7 @@
     "target": "allAdjacentFoes",
     "type": "Dragon"
   },
-  "Breakneck Blitz": {
+  "breakneckblitz": {
     "num": 622,
     "accuracy": true,
     "basePower": 1,
@@ -1912,7 +1912,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Brick Break": {
+  "brickbreak": {
     "num": 280,
     "accuracy": 100,
     "basePower": 75,
@@ -1931,7 +1931,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Brine": {
+  "brine": {
     "num": 362,
     "accuracy": 100,
     "basePower": 65,
@@ -1949,7 +1949,7 @@
     "type": "Water",
     "contestType": "Tough"
   },
-  "Brutal Swing": {
+  "brutalswing": {
     "num": 693,
     "accuracy": 100,
     "basePower": 60,
@@ -1968,7 +1968,7 @@
     "type": "Dark",
     "contestType": "Tough"
   },
-  "Bubble": {
+  "bubble": {
     "num": 145,
     "accuracy": 100,
     "basePower": 40,
@@ -1992,7 +1992,7 @@
     "type": "Water",
     "contestType": "Cute"
   },
-  "Bubble Beam": {
+  "bubblebeam": {
     "num": 61,
     "accuracy": 100,
     "basePower": 65,
@@ -2015,7 +2015,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Bug Bite": {
+  "bugbite": {
     "num": 450,
     "accuracy": 100,
     "basePower": 60,
@@ -2034,7 +2034,7 @@
     "type": "Bug",
     "contestType": "Cute"
   },
-  "Bug Buzz": {
+  "bugbuzz": {
     "num": 405,
     "accuracy": 100,
     "basePower": 90,
@@ -2059,7 +2059,7 @@
     "type": "Bug",
     "contestType": "Beautiful"
   },
-  "Bulk Up": {
+  "bulkup": {
     "num": 339,
     "accuracy": true,
     "basePower": 0,
@@ -2085,7 +2085,7 @@
     },
     "contestType": "Cool"
   },
-  "Bulldoze": {
+  "bulldoze": {
     "num": 523,
     "accuracy": 100,
     "basePower": 60,
@@ -2109,7 +2109,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "Bullet Punch": {
+  "bulletpunch": {
     "num": 418,
     "accuracy": 100,
     "basePower": 40,
@@ -2129,7 +2129,7 @@
     "type": "Steel",
     "contestType": "Tough"
   },
-  "Bullet Seed": {
+  "bulletseed": {
     "num": 331,
     "accuracy": 100,
     "basePower": 25,
@@ -2158,7 +2158,7 @@
     },
     "contestType": "Cool"
   },
-  "Burning Bulwark": {
+  "burningbulwark": {
     "num": 908,
     "accuracy": true,
     "basePower": 0,
@@ -2181,7 +2181,7 @@
     "target": "self",
     "type": "Fire"
   },
-  "Burning Jealousy": {
+  "burningjealousy": {
     "num": 807,
     "accuracy": 100,
     "basePower": 70,
@@ -2201,7 +2201,7 @@
     "type": "Fire",
     "contestType": "Tough"
   },
-  "Burn Up": {
+  "burnup": {
     "num": 682,
     "accuracy": 100,
     "basePower": 130,
@@ -2222,7 +2222,7 @@
     "type": "Fire",
     "contestType": "Clever"
   },
-  "Buzzy Buzz": {
+  "buzzybuzz": {
     "num": 734,
     "accuracy": 100,
     "basePower": 60,
@@ -2243,7 +2243,7 @@
     "type": "Electric",
     "contestType": "Clever"
   },
-  "Calm Mind": {
+  "calmmind": {
     "num": 347,
     "accuracy": true,
     "basePower": 0,
@@ -2267,7 +2267,7 @@
     },
     "contestType": "Clever"
   },
-  "Camouflage": {
+  "camouflage": {
     "num": 293,
     "accuracy": true,
     "basePower": 0,
@@ -2290,7 +2290,7 @@
     },
     "contestType": "Clever"
   },
-  "Captivate": {
+  "captivate": {
     "num": 445,
     "accuracy": 100,
     "basePower": 0,
@@ -2318,7 +2318,7 @@
     },
     "contestType": "Cute"
   },
-  "Catastropika": {
+  "catastropika": {
     "num": 658,
     "accuracy": true,
     "basePower": 210,
@@ -2336,7 +2336,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Ceaseless Edge": {
+  "ceaselessedge": {
     "num": 845,
     "accuracy": 90,
     "basePower": 65,
@@ -2355,7 +2355,7 @@
     "target": "normal",
     "type": "Dark"
   },
-  "Celebrate": {
+  "celebrate": {
     "num": 606,
     "accuracy": true,
     "basePower": 0,
@@ -2384,7 +2384,7 @@
     },
     "contestType": "Cute"
   },
-  "Charge": {
+  "charge": {
     "num": 268,
     "accuracy": true,
     "basePower": 0,
@@ -2413,7 +2413,7 @@
     },
     "contestType": "Clever"
   },
-  "Charge Beam": {
+  "chargebeam": {
     "num": 451,
     "accuracy": 90,
     "basePower": 50,
@@ -2438,7 +2438,7 @@
     "type": "Electric",
     "contestType": "Beautiful"
   },
-  "Charm": {
+  "charm": {
     "num": 204,
     "accuracy": 100,
     "basePower": 0,
@@ -2466,7 +2466,7 @@
     },
     "contestType": "Cute"
   },
-  "Chatter": {
+  "chatter": {
     "num": 448,
     "accuracy": 100,
     "basePower": 65,
@@ -2496,7 +2496,7 @@
     "type": "Flying",
     "contestType": "Cute"
   },
-  "Chilling Water": {
+  "chillingwater": {
     "num": 886,
     "accuracy": 100,
     "basePower": 50,
@@ -2518,7 +2518,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Chilly Reception": {
+  "chillyreception": {
     "num": 881,
     "accuracy": true,
     "basePower": 0,
@@ -2533,7 +2533,7 @@
     "target": "all",
     "type": "Ice"
   },
-  "Chip Away": {
+  "chipaway": {
     "num": 498,
     "accuracy": 100,
     "basePower": 70,
@@ -2555,7 +2555,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Chloroblast": {
+  "chloroblast": {
     "num": 835,
     "accuracy": 95,
     "basePower": 150,
@@ -2572,7 +2572,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Circle Throw": {
+  "circlethrow": {
     "num": 509,
     "accuracy": 90,
     "basePower": 60,
@@ -2593,7 +2593,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Clamp": {
+  "clamp": {
     "num": 128,
     "accuracy": 85,
     "basePower": 35,
@@ -2614,7 +2614,7 @@
     "type": "Water",
     "contestType": "Tough"
   },
-  "Clanging Scales": {
+  "clangingscales": {
     "num": 691,
     "accuracy": 100,
     "basePower": 110,
@@ -2639,7 +2639,7 @@
     "type": "Dragon",
     "contestType": "Tough"
   },
-  "Clangorous Soul": {
+  "clangoroussoul": {
     "num": 775,
     "accuracy": 100,
     "basePower": 0,
@@ -2663,7 +2663,7 @@
     "target": "self",
     "type": "Dragon"
   },
-  "Clangorous Soulblaze": {
+  "clangoroussoulblaze": {
     "num": 728,
     "accuracy": true,
     "basePower": 185,
@@ -2691,7 +2691,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "Clear Smog": {
+  "clearsmog": {
     "num": 499,
     "accuracy": true,
     "basePower": 50,
@@ -2709,7 +2709,7 @@
     "type": "Poison",
     "contestType": "Beautiful"
   },
-  "Close Combat": {
+  "closecombat": {
     "num": 370,
     "accuracy": 100,
     "basePower": 120,
@@ -2734,7 +2734,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Coaching": {
+  "coaching": {
     "num": 811,
     "accuracy": true,
     "basePower": 0,
@@ -2755,7 +2755,7 @@
     "target": "adjacentAlly",
     "type": "Fighting"
   },
-  "Coil": {
+  "coil": {
     "num": 489,
     "accuracy": true,
     "basePower": 0,
@@ -2780,7 +2780,7 @@
     },
     "contestType": "Tough"
   },
-  "Collision Course": {
+  "collisioncourse": {
     "num": 878,
     "accuracy": 100,
     "basePower": 100,
@@ -2798,7 +2798,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Combat Torque": {
+  "combattorque": {
     "num": 899,
     "accuracy": 100,
     "basePower": 100,
@@ -2825,7 +2825,7 @@
     "target": "normal",
     "type": "Fighting"
   },
-  "Comet Punch": {
+  "cometpunch": {
     "num": 4,
     "accuracy": 85,
     "basePower": 18,
@@ -2853,7 +2853,7 @@
     },
     "contestType": "Tough"
   },
-  "Comeuppance": {
+  "comeuppance": {
     "num": 894,
     "accuracy": 100,
     "basePower": 0,
@@ -2872,7 +2872,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "Confide": {
+  "confide": {
     "num": 590,
     "accuracy": true,
     "basePower": 0,
@@ -2900,7 +2900,7 @@
     },
     "contestType": "Cute"
   },
-  "Confuse Ray": {
+  "confuseray": {
     "num": 109,
     "accuracy": 100,
     "basePower": 0,
@@ -2925,7 +2925,7 @@
     },
     "contestType": "Clever"
   },
-  "Confusion": {
+  "confusion": {
     "num": 93,
     "accuracy": 100,
     "basePower": 50,
@@ -2946,7 +2946,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Constrict": {
+  "constrict": {
     "num": 132,
     "accuracy": 100,
     "basePower": 10,
@@ -2971,7 +2971,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Continental Crush": {
+  "continentalcrush": {
     "num": 632,
     "accuracy": true,
     "basePower": 1,
@@ -2987,7 +2987,7 @@
     "type": "Rock",
     "contestType": "Cool"
   },
-  "Conversion": {
+  "conversion": {
     "num": 160,
     "accuracy": true,
     "basePower": 0,
@@ -3013,7 +3013,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Conversion 2": {
+  "conversion2": {
     "num": 176,
     "accuracy": true,
     "basePower": 0,
@@ -3033,7 +3033,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Copycat": {
+  "copycat": {
     "num": 383,
     "accuracy": true,
     "basePower": 0,
@@ -3059,7 +3059,7 @@
     },
     "contestType": "Cute"
   },
-  "Core Enforcer": {
+  "coreenforcer": {
     "num": 687,
     "accuracy": 100,
     "basePower": 100,
@@ -3081,7 +3081,7 @@
     },
     "contestType": "Tough"
   },
-  "Corkscrew Crash": {
+  "corkscrewcrash": {
     "num": 638,
     "accuracy": true,
     "basePower": 1,
@@ -3097,7 +3097,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Corrosive Gas": {
+  "corrosivegas": {
     "num": 810,
     "accuracy": 100,
     "basePower": 0,
@@ -3117,7 +3117,7 @@
     "target": "allAdjacent",
     "type": "Poison"
   },
-  "Cosmic Power": {
+  "cosmicpower": {
     "num": 322,
     "accuracy": true,
     "basePower": 0,
@@ -3143,7 +3143,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Cotton Guard": {
+  "cottonguard": {
     "num": 538,
     "accuracy": true,
     "basePower": 0,
@@ -3166,7 +3166,7 @@
     },
     "contestType": "Cute"
   },
-  "Cotton Spore": {
+  "cottonspore": {
     "num": 178,
     "accuracy": 100,
     "basePower": 0,
@@ -3192,7 +3192,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Counter": {
+  "counter": {
     "num": 68,
     "accuracy": 100,
     "basePower": 0,
@@ -3220,7 +3220,7 @@
     },
     "contestType": "Tough"
   },
-  "Court Change": {
+  "courtchange": {
     "num": 756,
     "accuracy": 100,
     "basePower": 0,
@@ -3236,7 +3236,7 @@
     "target": "all",
     "type": "Normal"
   },
-  "Covet": {
+  "covet": {
     "num": 343,
     "accuracy": 100,
     "basePower": 60,
@@ -3257,7 +3257,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Crabhammer": {
+  "crabhammer": {
     "num": 152,
     "accuracy": 90,
     "basePower": 100,
@@ -3277,7 +3277,7 @@
     "type": "Water",
     "contestType": "Tough"
   },
-  "Crafty Shield": {
+  "craftyshield": {
     "num": 578,
     "accuracy": true,
     "basePower": 0,
@@ -3302,7 +3302,7 @@
     },
     "contestType": "Clever"
   },
-  "Cross Chop": {
+  "crosschop": {
     "num": 238,
     "accuracy": 80,
     "basePower": 100,
@@ -3322,7 +3322,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Cross Poison": {
+  "crosspoison": {
     "num": 440,
     "accuracy": 100,
     "basePower": 70,
@@ -3346,7 +3346,7 @@
     "type": "Poison",
     "contestType": "Cool"
   },
-  "Crunch": {
+  "crunch": {
     "num": 242,
     "accuracy": 100,
     "basePower": 80,
@@ -3371,7 +3371,7 @@
     "type": "Dark",
     "contestType": "Tough"
   },
-  "Crush Claw": {
+  "crushclaw": {
     "num": 306,
     "accuracy": 95,
     "basePower": 75,
@@ -3395,7 +3395,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Crush Grip": {
+  "crushgrip": {
     "num": 462,
     "accuracy": 100,
     "basePower": 0,
@@ -3420,7 +3420,7 @@
     },
     "contestType": "Tough"
   },
-  "Curse": {
+  "curse": {
     "num": 174,
     "accuracy": true,
     "basePower": 0,
@@ -3445,7 +3445,7 @@
     },
     "contestType": "Tough"
   },
-  "Cut": {
+  "cut": {
     "num": 15,
     "accuracy": 95,
     "basePower": 50,
@@ -3466,7 +3466,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Darkest Lariat": {
+  "darkestlariat": {
     "num": 663,
     "accuracy": 100,
     "basePower": 85,
@@ -3487,7 +3487,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "Dark Pulse": {
+  "darkpulse": {
     "num": 399,
     "accuracy": 100,
     "basePower": 80,
@@ -3510,7 +3510,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "Dark Void": {
+  "darkvoid": {
     "num": 464,
     "accuracy": 50,
     "basePower": 0,
@@ -3534,7 +3534,7 @@
     },
     "contestType": "Clever"
   },
-  "Dazzling Gleam": {
+  "dazzlinggleam": {
     "num": 605,
     "accuracy": 100,
     "basePower": 80,
@@ -3552,7 +3552,7 @@
     "type": "Fairy",
     "contestType": "Beautiful"
   },
-  "Decorate": {
+  "decorate": {
     "num": 777,
     "accuracy": true,
     "basePower": 0,
@@ -3571,7 +3571,7 @@
     "target": "normal",
     "type": "Fairy"
   },
-  "Defend Order": {
+  "defendorder": {
     "num": 455,
     "accuracy": true,
     "basePower": 0,
@@ -3597,7 +3597,7 @@
     },
     "contestType": "Clever"
   },
-  "Defense Curl": {
+  "defensecurl": {
     "num": 111,
     "accuracy": true,
     "basePower": 0,
@@ -3626,7 +3626,7 @@
     },
     "contestType": "Cute"
   },
-  "Defog": {
+  "defog": {
     "num": 432,
     "accuracy": true,
     "basePower": 0,
@@ -3651,7 +3651,7 @@
     },
     "contestType": "Cool"
   },
-  "Destiny Bond": {
+  "destinybond": {
     "num": 194,
     "accuracy": true,
     "basePower": 0,
@@ -3676,7 +3676,7 @@
     },
     "contestType": "Clever"
   },
-  "Detect": {
+  "detect": {
     "num": 197,
     "accuracy": true,
     "basePower": 0,
@@ -3700,7 +3700,7 @@
     },
     "contestType": "Cool"
   },
-  "Devastating Drake": {
+  "devastatingdrake": {
     "num": 652,
     "accuracy": true,
     "basePower": 1,
@@ -3716,7 +3716,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "Diamond Storm": {
+  "diamondstorm": {
     "num": 591,
     "accuracy": 95,
     "basePower": 100,
@@ -3739,7 +3739,7 @@
     "type": "Rock",
     "contestType": "Beautiful"
   },
-  "Dig": {
+  "dig": {
     "num": 91,
     "accuracy": 100,
     "basePower": 80,
@@ -3766,7 +3766,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "Disable": {
+  "disable": {
     "num": 50,
     "accuracy": 100,
     "basePower": 0,
@@ -3796,7 +3796,7 @@
     },
     "contestType": "Clever"
   },
-  "Disarming Voice": {
+  "disarmingvoice": {
     "num": 574,
     "accuracy": true,
     "basePower": 40,
@@ -3816,7 +3816,7 @@
     "type": "Fairy",
     "contestType": "Cute"
   },
-  "Discharge": {
+  "discharge": {
     "num": 435,
     "accuracy": 100,
     "basePower": 80,
@@ -3837,7 +3837,7 @@
     "type": "Electric",
     "contestType": "Beautiful"
   },
-  "Dire Claw": {
+  "direclaw": {
     "num": 827,
     "accuracy": 100,
     "basePower": 80,
@@ -3857,7 +3857,7 @@
     "target": "normal",
     "type": "Poison"
   },
-  "Dive": {
+  "dive": {
     "num": 291,
     "accuracy": 100,
     "basePower": 80,
@@ -3885,7 +3885,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Dizzy Punch": {
+  "dizzypunch": {
     "num": 146,
     "accuracy": 100,
     "basePower": 70,
@@ -3909,7 +3909,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Doodle": {
+  "doodle": {
     "num": 867,
     "accuracy": 100,
     "basePower": 0,
@@ -3922,7 +3922,7 @@
     "target": "adjacentFoe",
     "type": "Normal"
   },
-  "Doom Desire": {
+  "doomdesire": {
     "num": 353,
     "accuracy": 100,
     "basePower": 140,
@@ -3939,7 +3939,7 @@
     "type": "Steel",
     "contestType": "Beautiful"
   },
-  "Double-Edge": {
+  "doubleedge": {
     "num": 38,
     "accuracy": 100,
     "basePower": 120,
@@ -3962,7 +3962,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Double Hit": {
+  "doublehit": {
     "num": 458,
     "accuracy": 90,
     "basePower": 35,
@@ -3988,7 +3988,7 @@
     },
     "contestType": "Cool"
   },
-  "Double Iron Bash": {
+  "doubleironbash": {
     "num": 742,
     "accuracy": 100,
     "basePower": 60,
@@ -4018,7 +4018,7 @@
     },
     "contestType": "Clever"
   },
-  "Double Kick": {
+  "doublekick": {
     "num": 24,
     "accuracy": 100,
     "basePower": 30,
@@ -4041,7 +4041,7 @@
     },
     "contestType": "Cool"
   },
-  "Double Shock": {
+  "doubleshock": {
     "num": 892,
     "accuracy": 100,
     "basePower": 120,
@@ -4060,7 +4060,7 @@
     "type": "Electric",
     "contestType": "Clever"
   },
-  "Double Slap": {
+  "doubleslap": {
     "num": 3,
     "accuracy": 85,
     "basePower": 15,
@@ -4084,7 +4084,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Double Team": {
+  "doubleteam": {
     "num": 104,
     "accuracy": true,
     "basePower": 0,
@@ -4107,7 +4107,7 @@
     },
     "contestType": "Cool"
   },
-  "Draco Meteor": {
+  "dracometeor": {
     "num": 434,
     "accuracy": 90,
     "basePower": 130,
@@ -4130,7 +4130,7 @@
     "type": "Dragon",
     "contestType": "Beautiful"
   },
-  "Dragon Ascent": {
+  "dragonascent": {
     "num": 620,
     "accuracy": 100,
     "basePower": 120,
@@ -4154,7 +4154,7 @@
     "type": "Flying",
     "contestType": "Beautiful"
   },
-  "Dragon Breath": {
+  "dragonbreath": {
     "num": 225,
     "accuracy": 100,
     "basePower": 60,
@@ -4175,7 +4175,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "Dragon Cheer": {
+  "dragoncheer": {
     "num": 913,
     "accuracy": true,
     "basePower": 0,
@@ -4194,7 +4194,7 @@
     "target": "adjacentAlly",
     "type": "Dragon"
   },
-  "Dragon Claw": {
+  "dragonclaw": {
     "num": 337,
     "accuracy": 100,
     "basePower": 80,
@@ -4213,7 +4213,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "Dragon Dance": {
+  "dragondance": {
     "num": 349,
     "accuracy": true,
     "basePower": 0,
@@ -4238,7 +4238,7 @@
     },
     "contestType": "Cool"
   },
-  "Dragon Darts": {
+  "dragondarts": {
     "num": 751,
     "accuracy": 100,
     "basePower": 50,
@@ -4261,7 +4261,7 @@
       "basePower": 130
     }
   },
-  "Dragon Energy": {
+  "dragonenergy": {
     "num": 820,
     "accuracy": 100,
     "basePower": 150,
@@ -4277,7 +4277,7 @@
     "target": "allAdjacentFoes",
     "type": "Dragon"
   },
-  "Dragon Hammer": {
+  "dragonhammer": {
     "num": 692,
     "accuracy": 100,
     "basePower": 90,
@@ -4296,7 +4296,7 @@
     "type": "Dragon",
     "contestType": "Tough"
   },
-  "Dragon Pulse": {
+  "dragonpulse": {
     "num": 406,
     "accuracy": 100,
     "basePower": 85,
@@ -4316,7 +4316,7 @@
     "type": "Dragon",
     "contestType": "Beautiful"
   },
-  "Dragon Rage": {
+  "dragonrage": {
     "num": 82,
     "accuracy": 100,
     "basePower": 0,
@@ -4336,7 +4336,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "Dragon Rush": {
+  "dragonrush": {
     "num": 407,
     "accuracy": 75,
     "basePower": 100,
@@ -4358,7 +4358,7 @@
     "type": "Dragon",
     "contestType": "Tough"
   },
-  "Dragon Tail": {
+  "dragontail": {
     "num": 525,
     "accuracy": 90,
     "basePower": 60,
@@ -4379,7 +4379,7 @@
     "type": "Dragon",
     "contestType": "Tough"
   },
-  "Draining Kiss": {
+  "drainingkiss": {
     "num": 577,
     "accuracy": 100,
     "basePower": 50,
@@ -4403,7 +4403,7 @@
     "type": "Fairy",
     "contestType": "Cute"
   },
-  "Drain Punch": {
+  "drainpunch": {
     "num": 409,
     "accuracy": 100,
     "basePower": 75,
@@ -4428,7 +4428,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Dream Eater": {
+  "dreameater": {
     "num": 138,
     "accuracy": 100,
     "basePower": 100,
@@ -4451,7 +4451,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Drill Peck": {
+  "drillpeck": {
     "num": 65,
     "accuracy": 100,
     "basePower": 80,
@@ -4471,7 +4471,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Drill Run": {
+  "drillrun": {
     "num": 529,
     "accuracy": 95,
     "basePower": 80,
@@ -4491,7 +4491,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "Drum Beating": {
+  "drumbeating": {
     "num": 778,
     "accuracy": 100,
     "basePower": 80,
@@ -4512,7 +4512,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Dual Chop": {
+  "dualchop": {
     "num": 530,
     "accuracy": 90,
     "basePower": 40,
@@ -4536,7 +4536,7 @@
     },
     "contestType": "Tough"
   },
-  "Dual Wingbeat": {
+  "dualwingbeat": {
     "num": 814,
     "accuracy": 90,
     "basePower": 40,
@@ -4558,7 +4558,7 @@
       "basePower": 130
     }
   },
-  "Dynamax Cannon": {
+  "dynamaxcannon": {
     "num": 744,
     "accuracy": 100,
     "basePower": 100,
@@ -4579,7 +4579,7 @@
     "target": "normal",
     "type": "Dragon"
   },
-  "Dynamic Punch": {
+  "dynamicpunch": {
     "num": 223,
     "accuracy": 50,
     "basePower": 100,
@@ -4602,7 +4602,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Earth Power": {
+  "earthpower": {
     "num": 414,
     "accuracy": 100,
     "basePower": 90,
@@ -4626,7 +4626,7 @@
     "type": "Ground",
     "contestType": "Beautiful"
   },
-  "Earthquake": {
+  "earthquake": {
     "num": 89,
     "accuracy": 100,
     "basePower": 100,
@@ -4645,7 +4645,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "Echoed Voice": {
+  "echoedvoice": {
     "num": 497,
     "accuracy": 100,
     "basePower": 40,
@@ -4668,7 +4668,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Eerie Impulse": {
+  "eerieimpulse": {
     "num": 598,
     "accuracy": 100,
     "basePower": 0,
@@ -4695,7 +4695,7 @@
     },
     "contestType": "Clever"
   },
-  "Eerie Spell": {
+  "eeriespell": {
     "num": 826,
     "accuracy": 100,
     "basePower": 80,
@@ -4716,7 +4716,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Egg Bomb": {
+  "eggbomb": {
     "num": 121,
     "accuracy": 75,
     "basePower": 100,
@@ -4736,7 +4736,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Electric Terrain": {
+  "electricterrain": {
     "num": 604,
     "accuracy": true,
     "basePower": 0,
@@ -4765,7 +4765,7 @@
     },
     "contestType": "Clever"
   },
-  "Electrify": {
+  "electrify": {
     "num": 582,
     "accuracy": true,
     "basePower": 0,
@@ -4795,7 +4795,7 @@
     },
     "contestType": "Clever"
   },
-  "Electro Ball": {
+  "electroball": {
     "num": 486,
     "accuracy": 100,
     "basePower": 0,
@@ -4820,7 +4820,7 @@
     },
     "contestType": "Cool"
   },
-  "Electro Drift": {
+  "electrodrift": {
     "num": 879,
     "accuracy": 100,
     "basePower": 100,
@@ -4838,7 +4838,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Electro Shot": {
+  "electroshot": {
     "num": 905,
     "accuracy": 100,
     "basePower": 130,
@@ -4857,7 +4857,7 @@
     "target": "normal",
     "type": "Electric"
   },
-  "Electroweb": {
+  "electroweb": {
     "num": 527,
     "accuracy": 95,
     "basePower": 55,
@@ -4880,7 +4880,7 @@
     "type": "Electric",
     "contestType": "Beautiful"
   },
-  "Embargo": {
+  "embargo": {
     "num": 373,
     "accuracy": 100,
     "basePower": 0,
@@ -4910,7 +4910,7 @@
     },
     "contestType": "Clever"
   },
-  "Ember": {
+  "ember": {
     "num": 52,
     "accuracy": 100,
     "basePower": 40,
@@ -4931,7 +4931,7 @@
     "type": "Fire",
     "contestType": "Cute"
   },
-  "Encore": {
+  "encore": {
     "num": 227,
     "accuracy": 100,
     "basePower": 0,
@@ -4963,7 +4963,7 @@
     },
     "contestType": "Cute"
   },
-  "Endeavor": {
+  "endeavor": {
     "num": 283,
     "accuracy": 100,
     "basePower": 0,
@@ -4989,7 +4989,7 @@
     },
     "contestType": "Tough"
   },
-  "Endure": {
+  "endure": {
     "num": 203,
     "accuracy": true,
     "basePower": 0,
@@ -5015,7 +5015,7 @@
     },
     "contestType": "Tough"
   },
-  "Energy Ball": {
+  "energyball": {
     "num": 412,
     "accuracy": 100,
     "basePower": 90,
@@ -5039,7 +5039,7 @@
     "type": "Grass",
     "contestType": "Beautiful"
   },
-  "Entrainment": {
+  "entrainment": {
     "num": 494,
     "accuracy": 100,
     "basePower": 0,
@@ -5064,7 +5064,7 @@
     },
     "contestType": "Cute"
   },
-  "Eruption": {
+  "eruption": {
     "num": 284,
     "accuracy": 100,
     "basePower": 150,
@@ -5082,7 +5082,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Esper Wing": {
+  "esperwing": {
     "num": 840,
     "accuracy": 100,
     "basePower": 80,
@@ -5107,7 +5107,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Eternabeam": {
+  "eternabeam": {
     "num": 795,
     "accuracy": 90,
     "basePower": 160,
@@ -5128,7 +5128,7 @@
     "target": "normal",
     "type": "Dragon"
   },
-  "Expanding Force": {
+  "expandingforce": {
     "num": 797,
     "accuracy": 100,
     "basePower": 80,
@@ -5145,7 +5145,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Explosion": {
+  "explosion": {
     "num": 153,
     "accuracy": 100,
     "basePower": 250,
@@ -5165,7 +5165,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Extrasensory": {
+  "extrasensory": {
     "num": 326,
     "accuracy": 100,
     "basePower": 80,
@@ -5186,7 +5186,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Extreme Evoboost": {
+  "extremeevoboost": {
     "num": 702,
     "accuracy": true,
     "basePower": 0,
@@ -5209,7 +5209,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Extreme Speed": {
+  "extremespeed": {
     "num": 245,
     "accuracy": 100,
     "basePower": 80,
@@ -5228,7 +5228,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Facade": {
+  "facade": {
     "num": 263,
     "accuracy": 100,
     "basePower": 70,
@@ -5247,7 +5247,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Fairy Lock": {
+  "fairylock": {
     "num": 587,
     "accuracy": true,
     "basePower": 0,
@@ -5274,7 +5274,7 @@
     },
     "contestType": "Clever"
   },
-  "Fairy Wind": {
+  "fairywind": {
     "num": 584,
     "accuracy": 100,
     "basePower": 40,
@@ -5293,7 +5293,7 @@
     "type": "Fairy",
     "contestType": "Beautiful"
   },
-  "Fake Out": {
+  "fakeout": {
     "num": 252,
     "accuracy": 100,
     "basePower": 40,
@@ -5315,7 +5315,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Fake Tears": {
+  "faketears": {
     "num": 313,
     "accuracy": 100,
     "basePower": 0,
@@ -5343,7 +5343,7 @@
     },
     "contestType": "Cute"
   },
-  "False Surrender": {
+  "falsesurrender": {
     "num": 793,
     "accuracy": true,
     "basePower": 80,
@@ -5360,7 +5360,7 @@
     "target": "normal",
     "type": "Dark"
   },
-  "False Swipe": {
+  "falseswipe": {
     "num": 206,
     "accuracy": 100,
     "basePower": 40,
@@ -5380,7 +5380,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Feather Dance": {
+  "featherdance": {
     "num": 297,
     "accuracy": 100,
     "basePower": 0,
@@ -5409,7 +5409,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Feint": {
+  "feint": {
     "num": 364,
     "accuracy": 100,
     "basePower": 30,
@@ -5428,7 +5428,7 @@
     "type": "Normal",
     "contestType": "Clever"
   },
-  "Feint Attack": {
+  "feintattack": {
     "num": 185,
     "accuracy": true,
     "basePower": 60,
@@ -5448,7 +5448,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Fell Stinger": {
+  "fellstinger": {
     "num": 565,
     "accuracy": 100,
     "basePower": 50,
@@ -5467,7 +5467,7 @@
     "type": "Bug",
     "contestType": "Cool"
   },
-  "Fickle Beam": {
+  "ficklebeam": {
     "num": 907,
     "accuracy": 100,
     "basePower": 80,
@@ -5484,7 +5484,7 @@
     "target": "normal",
     "type": "Dragon"
   },
-  "Fiery Dance": {
+  "fierydance": {
     "num": 552,
     "accuracy": 100,
     "basePower": 80,
@@ -5510,7 +5510,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Fiery Wrath": {
+  "fierywrath": {
     "num": 822,
     "accuracy": 100,
     "basePower": 90,
@@ -5529,7 +5529,7 @@
     "target": "allAdjacentFoes",
     "type": "Dark"
   },
-  "Fillet Away": {
+  "filletaway": {
     "num": 868,
     "accuracy": true,
     "basePower": 0,
@@ -5549,7 +5549,7 @@
     "target": "self",
     "type": "Normal"
   },
-  "Final Gambit": {
+  "finalgambit": {
     "num": 515,
     "accuracy": 100,
     "basePower": 0,
@@ -5571,7 +5571,7 @@
     },
     "contestType": "Tough"
   },
-  "Fire Blast": {
+  "fireblast": {
     "num": 126,
     "accuracy": 85,
     "basePower": 110,
@@ -5592,7 +5592,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Fire Fang": {
+  "firefang": {
     "num": 424,
     "accuracy": 95,
     "basePower": 65,
@@ -5621,7 +5621,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "Fire Lash": {
+  "firelash": {
     "num": 680,
     "accuracy": 100,
     "basePower": 80,
@@ -5645,7 +5645,7 @@
     "type": "Fire",
     "contestType": "Cute"
   },
-  "Fire Pledge": {
+  "firepledge": {
     "num": 519,
     "accuracy": 100,
     "basePower": 80,
@@ -5672,7 +5672,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Fire Punch": {
+  "firepunch": {
     "num": 7,
     "accuracy": 100,
     "basePower": 75,
@@ -5695,7 +5695,7 @@
     "type": "Fire",
     "contestType": "Tough"
   },
-  "Fire Spin": {
+  "firespin": {
     "num": 83,
     "accuracy": 85,
     "basePower": 35,
@@ -5714,7 +5714,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "First Impression": {
+  "firstimpression": {
     "num": 660,
     "accuracy": 100,
     "basePower": 90,
@@ -5733,7 +5733,7 @@
     "type": "Bug",
     "contestType": "Cute"
   },
-  "Fishious Rend": {
+  "fishiousrend": {
     "num": 755,
     "accuracy": 100,
     "basePower": 85,
@@ -5753,7 +5753,7 @@
     "target": "normal",
     "type": "Water"
   },
-  "Fissure": {
+  "fissure": {
     "num": 90,
     "accuracy": 30,
     "basePower": 0,
@@ -5779,7 +5779,7 @@
     },
     "contestType": "Tough"
   },
-  "Flail": {
+  "flail": {
     "num": 175,
     "accuracy": 100,
     "basePower": 0,
@@ -5804,7 +5804,7 @@
     },
     "contestType": "Cute"
   },
-  "Flame Burst": {
+  "flameburst": {
     "num": 481,
     "accuracy": 100,
     "basePower": 70,
@@ -5823,7 +5823,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Flame Charge": {
+  "flamecharge": {
     "num": 488,
     "accuracy": 100,
     "basePower": 50,
@@ -5849,7 +5849,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "Flame Wheel": {
+  "flamewheel": {
     "num": 172,
     "accuracy": 100,
     "basePower": 60,
@@ -5872,7 +5872,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Flamethrower": {
+  "flamethrower": {
     "num": 53,
     "accuracy": 100,
     "basePower": 90,
@@ -5893,7 +5893,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Flare Blitz": {
+  "flareblitz": {
     "num": 394,
     "accuracy": 100,
     "basePower": 120,
@@ -5920,7 +5920,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "Flash": {
+  "flash": {
     "num": 148,
     "accuracy": 100,
     "basePower": 0,
@@ -5948,7 +5948,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Flash Cannon": {
+  "flashcannon": {
     "num": 430,
     "accuracy": 100,
     "basePower": 80,
@@ -5971,7 +5971,7 @@
     "type": "Steel",
     "contestType": "Beautiful"
   },
-  "Flatter": {
+  "flatter": {
     "num": 260,
     "accuracy": 100,
     "basePower": 0,
@@ -6000,7 +6000,7 @@
     },
     "contestType": "Clever"
   },
-  "Fleur Cannon": {
+  "fleurcannon": {
     "num": 705,
     "accuracy": 90,
     "basePower": 130,
@@ -6022,7 +6022,7 @@
     "type": "Fairy",
     "contestType": "Beautiful"
   },
-  "Fling": {
+  "fling": {
     "num": 374,
     "accuracy": 100,
     "basePower": 0,
@@ -6043,7 +6043,7 @@
     "type": "Dark",
     "contestType": "Cute"
   },
-  "Flip Turn": {
+  "flipturn": {
     "num": 812,
     "accuracy": 100,
     "basePower": 60,
@@ -6062,7 +6062,7 @@
     "target": "normal",
     "type": "Water"
   },
-  "Floaty Fall": {
+  "floatyfall": {
     "num": 731,
     "accuracy": 95,
     "basePower": 90,
@@ -6085,7 +6085,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Floral Healing": {
+  "floralhealing": {
     "num": 666,
     "accuracy": true,
     "basePower": 0,
@@ -6108,7 +6108,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Flower Shield": {
+  "flowershield": {
     "num": 579,
     "accuracy": true,
     "basePower": 0,
@@ -6131,7 +6131,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Flower Trick": {
+  "flowertrick": {
     "num": 870,
     "accuracy": true,
     "basePower": 70,
@@ -6149,7 +6149,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Fly": {
+  "fly": {
     "num": 19,
     "accuracy": 95,
     "basePower": 90,
@@ -6177,7 +6177,7 @@
     "type": "Flying",
     "contestType": "Clever"
   },
-  "Flying Press": {
+  "flyingpress": {
     "num": 560,
     "accuracy": 95,
     "basePower": 100,
@@ -6202,7 +6202,7 @@
     },
     "contestType": "Tough"
   },
-  "Focus Blast": {
+  "focusblast": {
     "num": 411,
     "accuracy": 70,
     "basePower": 120,
@@ -6226,7 +6226,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Focus Energy": {
+  "focusenergy": {
     "num": 116,
     "accuracy": true,
     "basePower": 0,
@@ -6250,7 +6250,7 @@
     },
     "contestType": "Cool"
   },
-  "Focus Punch": {
+  "focuspunch": {
     "num": 264,
     "accuracy": 100,
     "basePower": 150,
@@ -6276,7 +6276,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Follow Me": {
+  "followme": {
     "num": 266,
     "accuracy": true,
     "basePower": 0,
@@ -6301,7 +6301,7 @@
     },
     "contestType": "Cute"
   },
-  "Force Palm": {
+  "forcepalm": {
     "num": 395,
     "accuracy": 100,
     "basePower": 60,
@@ -6323,7 +6323,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Foresight": {
+  "foresight": {
     "num": 193,
     "accuracy": true,
     "basePower": 0,
@@ -6351,7 +6351,7 @@
     },
     "contestType": "Clever"
   },
-  "Forest's Curse": {
+  "forestscurse": {
     "num": 571,
     "accuracy": 100,
     "basePower": 0,
@@ -6380,7 +6380,7 @@
     },
     "contestType": "Clever"
   },
-  "Foul Play": {
+  "foulplay": {
     "num": 492,
     "accuracy": 100,
     "basePower": 95,
@@ -6400,7 +6400,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Freeze-Dry": {
+  "freezedry": {
     "num": 573,
     "accuracy": 100,
     "basePower": 70,
@@ -6421,7 +6421,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Freeze Shock": {
+  "freezeshock": {
     "num": 553,
     "accuracy": 90,
     "basePower": 140,
@@ -6444,7 +6444,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Freezing Glare": {
+  "freezingglare": {
     "num": 821,
     "accuracy": 100,
     "basePower": 90,
@@ -6463,7 +6463,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Freezy Frost": {
+  "freezyfrost": {
     "num": 739,
     "accuracy": 90,
     "basePower": 100,
@@ -6481,7 +6481,7 @@
     "type": "Ice",
     "contestType": "Clever"
   },
-  "Frenzy Plant": {
+  "frenzyplant": {
     "num": 338,
     "accuracy": 90,
     "basePower": 150,
@@ -6504,7 +6504,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Frost Breath": {
+  "frostbreath": {
     "num": 524,
     "accuracy": 90,
     "basePower": 60,
@@ -6523,7 +6523,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Frustration": {
+  "frustration": {
     "num": 218,
     "accuracy": 100,
     "basePower": 0,
@@ -6549,7 +6549,7 @@
     },
     "contestType": "Cute"
   },
-  "Fury Attack": {
+  "furyattack": {
     "num": 31,
     "accuracy": 85,
     "basePower": 15,
@@ -6572,7 +6572,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Fury Cutter": {
+  "furycutter": {
     "num": 210,
     "accuracy": 95,
     "basePower": 40,
@@ -6595,7 +6595,7 @@
     "type": "Bug",
     "contestType": "Cool"
   },
-  "Fury Swipes": {
+  "furyswipes": {
     "num": 154,
     "accuracy": 80,
     "basePower": 18,
@@ -6621,7 +6621,7 @@
     },
     "contestType": "Tough"
   },
-  "Fusion Bolt": {
+  "fusionbolt": {
     "num": 559,
     "accuracy": 100,
     "basePower": 100,
@@ -6639,7 +6639,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Fusion Flare": {
+  "fusionflare": {
     "num": 558,
     "accuracy": 100,
     "basePower": 100,
@@ -6658,7 +6658,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Future Sight": {
+  "futuresight": {
     "num": 248,
     "accuracy": 100,
     "basePower": 120,
@@ -6677,7 +6677,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Gastro Acid": {
+  "gastroacid": {
     "num": 380,
     "accuracy": 100,
     "basePower": 0,
@@ -6704,7 +6704,7 @@
     },
     "contestType": "Tough"
   },
-  "Gear Grind": {
+  "geargrind": {
     "num": 544,
     "accuracy": 85,
     "basePower": 50,
@@ -6731,7 +6731,7 @@
     },
     "contestType": "Clever"
   },
-  "Gear Up": {
+  "gearup": {
     "num": 674,
     "accuracy": true,
     "basePower": 0,
@@ -6755,7 +6755,7 @@
     },
     "contestType": "Clever"
   },
-  "Genesis Supernova": {
+  "genesissupernova": {
     "num": 703,
     "accuracy": true,
     "basePower": 185,
@@ -6774,7 +6774,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Geomancy": {
+  "geomancy": {
     "num": 601,
     "accuracy": true,
     "basePower": 0,
@@ -6809,7 +6809,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Giga Drain": {
+  "gigadrain": {
     "num": 202,
     "accuracy": 100,
     "basePower": 75,
@@ -6832,7 +6832,7 @@
     "type": "Grass",
     "contestType": "Clever"
   },
-  "Giga Impact": {
+  "gigaimpact": {
     "num": 416,
     "accuracy": 90,
     "basePower": 150,
@@ -6855,7 +6855,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Gigaton Hammer": {
+  "gigatonhammer": {
     "num": 893,
     "accuracy": 100,
     "basePower": 160,
@@ -6873,7 +6873,7 @@
     "target": "normal",
     "type": "Steel"
   },
-  "Gigavolt Havoc": {
+  "gigavolthavoc": {
     "num": 646,
     "accuracy": true,
     "basePower": 1,
@@ -6889,7 +6889,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Glacial Lance": {
+  "glaciallance": {
     "num": 824,
     "accuracy": 100,
     "basePower": 120,
@@ -6905,7 +6905,7 @@
     "target": "allAdjacentFoes",
     "type": "Ice"
   },
-  "Glaciate": {
+  "glaciate": {
     "num": 549,
     "accuracy": 95,
     "basePower": 65,
@@ -6928,7 +6928,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Glaive Rush": {
+  "glaiverush": {
     "num": 862,
     "accuracy": 100,
     "basePower": 120,
@@ -6953,7 +6953,7 @@
     "target": "normal",
     "type": "Dragon"
   },
-  "Glare": {
+  "glare": {
     "num": 137,
     "accuracy": 100,
     "basePower": 0,
@@ -6978,7 +6978,7 @@
     },
     "contestType": "Tough"
   },
-  "Glitzy Glow": {
+  "glitzyglow": {
     "num": 736,
     "accuracy": 95,
     "basePower": 80,
@@ -6999,7 +6999,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "G-Max Befuddle": {
+  "gmaxbefuddle": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7015,7 +7015,7 @@
     "type": "Bug",
     "contestType": "Cool"
   },
-  "G-Max Cannonade": {
+  "gmaxcannonade": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7039,7 +7039,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "G-Max Centiferno": {
+  "gmaxcentiferno": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7056,7 +7056,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "G-Max Chi Strike": {
+  "gmaxchistrike": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7076,7 +7076,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "G-Max Cuddle": {
+  "gmaxcuddle": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7093,7 +7093,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "G-Max Depletion": {
+  "gmaxdepletion": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7110,7 +7110,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "G-Max Drum Solo": {
+  "gmaxdrumsolo": {
     "num": 1000,
     "accuracy": true,
     "basePower": 160,
@@ -7127,7 +7127,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "G-Max Finale": {
+  "gmaxfinale": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7144,7 +7144,7 @@
     "type": "Fairy",
     "contestType": "Cool"
   },
-  "G-Max Fireball": {
+  "gmaxfireball": {
     "num": 1000,
     "accuracy": true,
     "basePower": 160,
@@ -7161,7 +7161,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "G-Max Foam Burst": {
+  "gmaxfoamburst": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7178,7 +7178,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "G-Max Gold Rush": {
+  "gmaxgoldrush": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7195,7 +7195,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "G-Max Gravitas": {
+  "gmaxgravitas": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7213,7 +7213,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "G-Max Hydrosnipe": {
+  "gmaxhydrosnipe": {
     "num": 1000,
     "accuracy": true,
     "basePower": 160,
@@ -7230,7 +7230,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "G-Max Malodor": {
+  "gmaxmalodor": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7246,7 +7246,7 @@
     "type": "Poison",
     "contestType": "Cool"
   },
-  "G-Max Meltdown": {
+  "gmaxmeltdown": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7263,7 +7263,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "G-Max One Blow": {
+  "gmaxoneblow": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7279,7 +7279,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "G-Max Rapid Flow": {
+  "gmaxrapidflow": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7295,7 +7295,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "G-Max Replenish": {
+  "gmaxreplenish": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7312,7 +7312,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "G-Max Resonance": {
+  "gmaxresonance": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7331,7 +7331,7 @@
     "type": "Ice",
     "contestType": "Cool"
   },
-  "G-Max Sandblast": {
+  "gmaxsandblast": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7348,7 +7348,7 @@
     "type": "Ground",
     "contestType": "Cool"
   },
-  "G-Max Smite": {
+  "gmaxsmite": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7365,7 +7365,7 @@
     "type": "Fairy",
     "contestType": "Cool"
   },
-  "G-Max Snooze": {
+  "gmaxsnooze": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7381,7 +7381,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "G-Max Steelsurge": {
+  "gmaxsteelsurge": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7399,7 +7399,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "G-Max Stonesurge": {
+  "gmaxstonesurge": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7416,7 +7416,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "G-Max Stun Shock": {
+  "gmaxstunshock": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7433,7 +7433,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "G-Max Sweetness": {
+  "gmaxsweetness": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7450,7 +7450,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "G-Max Tartness": {
+  "gmaxtartness": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7467,7 +7467,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "G-Max Terror": {
+  "gmaxterror": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7484,7 +7484,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "G-Max Vine Lash": {
+  "gmaxvinelash": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7508,7 +7508,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "G-Max Volcalith": {
+  "gmaxvolcalith": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7532,7 +7532,7 @@
     "type": "Rock",
     "contestType": "Cool"
   },
-  "G-Max Volt Crash": {
+  "gmaxvoltcrash": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7549,7 +7549,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "G-Max Wildfire": {
+  "gmaxwildfire": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7573,7 +7573,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "G-Max Wind Rage": {
+  "gmaxwindrage": {
     "num": 1000,
     "accuracy": true,
     "basePower": 10,
@@ -7590,7 +7590,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Grass Knot": {
+  "grassknot": {
     "num": 447,
     "accuracy": 100,
     "basePower": 0,
@@ -7616,7 +7616,7 @@
     },
     "contestType": "Cute"
   },
-  "Grass Pledge": {
+  "grasspledge": {
     "num": 520,
     "accuracy": 100,
     "basePower": 80,
@@ -7641,7 +7641,7 @@
     "type": "Grass",
     "contestType": "Beautiful"
   },
-  "Grass Whistle": {
+  "grasswhistle": {
     "num": 320,
     "accuracy": 55,
     "basePower": 0,
@@ -7669,7 +7669,7 @@
     },
     "contestType": "Clever"
   },
-  "Grassy Glide": {
+  "grassyglide": {
     "num": 803,
     "accuracy": 100,
     "basePower": 55,
@@ -7688,7 +7688,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Grassy Terrain": {
+  "grassyterrain": {
     "num": 580,
     "accuracy": true,
     "basePower": 0,
@@ -7719,7 +7719,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Grav Apple": {
+  "gravapple": {
     "num": 788,
     "accuracy": 100,
     "basePower": 80,
@@ -7740,7 +7740,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Gravity": {
+  "gravity": {
     "num": 356,
     "accuracy": true,
     "basePower": 0,
@@ -7769,7 +7769,7 @@
     },
     "contestType": "Clever"
   },
-  "Growl": {
+  "growl": {
     "num": 45,
     "accuracy": 100,
     "basePower": 0,
@@ -7798,7 +7798,7 @@
     },
     "contestType": "Cute"
   },
-  "Growth": {
+  "growth": {
     "num": 74,
     "accuracy": true,
     "basePower": 0,
@@ -7824,7 +7824,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Grudge": {
+  "grudge": {
     "num": 288,
     "accuracy": true,
     "basePower": 0,
@@ -7849,7 +7849,7 @@
     },
     "contestType": "Tough"
   },
-  "Guardian of Alola": {
+  "guardianofalola": {
     "num": 698,
     "accuracy": true,
     "basePower": 0,
@@ -7865,7 +7865,7 @@
     "type": "Fairy",
     "contestType": "Tough"
   },
-  "Guard Split": {
+  "guardsplit": {
     "num": 470,
     "accuracy": true,
     "basePower": 0,
@@ -7888,7 +7888,7 @@
     },
     "contestType": "Clever"
   },
-  "Guard Swap": {
+  "guardswap": {
     "num": 385,
     "accuracy": true,
     "basePower": 0,
@@ -7913,7 +7913,7 @@
     },
     "contestType": "Clever"
   },
-  "Guillotine": {
+  "guillotine": {
     "num": 12,
     "accuracy": 30,
     "basePower": 0,
@@ -7939,7 +7939,7 @@
     },
     "contestType": "Cool"
   },
-  "Gunk Shot": {
+  "gunkshot": {
     "num": 441,
     "accuracy": 80,
     "basePower": 120,
@@ -7960,7 +7960,7 @@
     "type": "Poison",
     "contestType": "Tough"
   },
-  "Gust": {
+  "gust": {
     "num": 16,
     "accuracy": 100,
     "basePower": 40,
@@ -7980,7 +7980,7 @@
     "type": "Flying",
     "contestType": "Clever"
   },
-  "Gyro Ball": {
+  "gyroball": {
     "num": 360,
     "accuracy": 100,
     "basePower": 0,
@@ -8006,7 +8006,7 @@
     },
     "contestType": "Cool"
   },
-  "Hail": {
+  "hail": {
     "num": 258,
     "accuracy": true,
     "basePower": 0,
@@ -8029,7 +8029,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Hammer Arm": {
+  "hammerarm": {
     "num": 359,
     "accuracy": 90,
     "basePower": 100,
@@ -8054,7 +8054,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Happy Hour": {
+  "happyhour": {
     "num": 603,
     "accuracy": true,
     "basePower": 0,
@@ -8079,7 +8079,7 @@
     },
     "contestType": "Cute"
   },
-  "Harden": {
+  "harden": {
     "num": 106,
     "accuracy": true,
     "basePower": 0,
@@ -8104,7 +8104,7 @@
     },
     "contestType": "Tough"
   },
-  "Hard Press": {
+  "hardpress": {
     "num": 912,
     "accuracy": 100,
     "basePower": 0,
@@ -8122,7 +8122,7 @@
     "target": "normal",
     "type": "Steel"
   },
-  "Haze": {
+  "haze": {
     "num": 114,
     "accuracy": true,
     "basePower": 0,
@@ -8142,7 +8142,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Headbutt": {
+  "headbutt": {
     "num": 29,
     "accuracy": 100,
     "basePower": 70,
@@ -8164,7 +8164,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Head Charge": {
+  "headcharge": {
     "num": 543,
     "accuracy": 100,
     "basePower": 120,
@@ -8188,7 +8188,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Headlong Rush": {
+  "headlongrush": {
     "num": 838,
     "accuracy": 100,
     "basePower": 120,
@@ -8213,7 +8213,7 @@
     "target": "normal",
     "type": "Ground"
   },
-  "Head Smash": {
+  "headsmash": {
     "num": 457,
     "accuracy": 80,
     "basePower": 150,
@@ -8236,7 +8236,7 @@
     "type": "Rock",
     "contestType": "Tough"
   },
-  "Heal Bell": {
+  "healbell": {
     "num": 215,
     "accuracy": true,
     "basePower": 0,
@@ -8258,7 +8258,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Heal Block": {
+  "healblock": {
     "num": 377,
     "accuracy": 100,
     "basePower": 0,
@@ -8289,7 +8289,7 @@
     },
     "contestType": "Clever"
   },
-  "Healing Wish": {
+  "healingwish": {
     "num": 361,
     "accuracy": true,
     "basePower": 0,
@@ -8310,7 +8310,7 @@
     "type": "Psychic",
     "contestType": "Beautiful"
   },
-  "Heal Order": {
+  "healorder": {
     "num": 456,
     "accuracy": true,
     "basePower": 0,
@@ -8336,7 +8336,7 @@
     },
     "contestType": "Clever"
   },
-  "Heal Pulse": {
+  "healpulse": {
     "num": 505,
     "accuracy": true,
     "basePower": 0,
@@ -8361,7 +8361,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Heart Stamp": {
+  "heartstamp": {
     "num": 531,
     "accuracy": 100,
     "basePower": 60,
@@ -8384,7 +8384,7 @@
     "type": "Psychic",
     "contestType": "Cute"
   },
-  "Heart Swap": {
+  "heartswap": {
     "num": 391,
     "accuracy": true,
     "basePower": 0,
@@ -8407,7 +8407,7 @@
     },
     "contestType": "Clever"
   },
-  "Heat Crash": {
+  "heatcrash": {
     "num": 535,
     "accuracy": 100,
     "basePower": 0,
@@ -8433,7 +8433,7 @@
     },
     "contestType": "Tough"
   },
-  "Heat Wave": {
+  "heatwave": {
     "num": 257,
     "accuracy": 90,
     "basePower": 95,
@@ -8455,7 +8455,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Heavy Slam": {
+  "heavyslam": {
     "num": 484,
     "accuracy": 100,
     "basePower": 0,
@@ -8481,7 +8481,7 @@
     },
     "contestType": "Tough"
   },
-  "Helping Hand": {
+  "helpinghand": {
     "num": 270,
     "accuracy": true,
     "basePower": 0,
@@ -8507,7 +8507,7 @@
     },
     "contestType": "Clever"
   },
-  "Hex": {
+  "hex": {
     "num": 506,
     "accuracy": 100,
     "basePower": 65,
@@ -8528,7 +8528,7 @@
     },
     "contestType": "Clever"
   },
-  "Hidden Power": {
+  "hiddenpower": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8547,7 +8547,7 @@
     "type": "Normal",
     "contestType": "Clever"
   },
-  "Hidden Power Bug": {
+  "hiddenpowerbug": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8566,7 +8566,7 @@
     "type": "Bug",
     "contestType": "Clever"
   },
-  "Hidden Power Dark": {
+  "hiddenpowerdark": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8585,7 +8585,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Hidden Power Dragon": {
+  "hiddenpowerdragon": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8604,7 +8604,7 @@
     "type": "Dragon",
     "contestType": "Clever"
   },
-  "Hidden Power Electric": {
+  "hiddenpowerelectric": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8623,7 +8623,7 @@
     "type": "Electric",
     "contestType": "Clever"
   },
-  "Hidden Power Fighting": {
+  "hiddenpowerfighting": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8642,7 +8642,7 @@
     "type": "Fighting",
     "contestType": "Clever"
   },
-  "Hidden Power Fire": {
+  "hiddenpowerfire": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8661,7 +8661,7 @@
     "type": "Fire",
     "contestType": "Clever"
   },
-  "Hidden Power Flying": {
+  "hiddenpowerflying": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8680,7 +8680,7 @@
     "type": "Flying",
     "contestType": "Clever"
   },
-  "Hidden Power Ghost": {
+  "hiddenpowerghost": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8699,7 +8699,7 @@
     "type": "Ghost",
     "contestType": "Clever"
   },
-  "Hidden Power Grass": {
+  "hiddenpowergrass": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8718,7 +8718,7 @@
     "type": "Grass",
     "contestType": "Clever"
   },
-  "Hidden Power Ground": {
+  "hiddenpowerground": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8737,7 +8737,7 @@
     "type": "Ground",
     "contestType": "Clever"
   },
-  "Hidden Power Ice": {
+  "hiddenpowerice": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8756,7 +8756,7 @@
     "type": "Ice",
     "contestType": "Clever"
   },
-  "Hidden Power Poison": {
+  "hiddenpowerpoison": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8775,7 +8775,7 @@
     "type": "Poison",
     "contestType": "Clever"
   },
-  "Hidden Power Psychic": {
+  "hiddenpowerpsychic": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8794,7 +8794,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Hidden Power Rock": {
+  "hiddenpowerrock": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8813,7 +8813,7 @@
     "type": "Rock",
     "contestType": "Clever"
   },
-  "Hidden Power Steel": {
+  "hiddenpowersteel": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8832,7 +8832,7 @@
     "type": "Steel",
     "contestType": "Clever"
   },
-  "Hidden Power Water": {
+  "hiddenpowerwater": {
     "num": 237,
     "accuracy": 100,
     "basePower": 60,
@@ -8851,7 +8851,7 @@
     "type": "Water",
     "contestType": "Clever"
   },
-  "High Horsepower": {
+  "highhorsepower": {
     "num": 667,
     "accuracy": 95,
     "basePower": 95,
@@ -8870,7 +8870,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "High Jump Kick": {
+  "highjumpkick": {
     "num": 136,
     "accuracy": 90,
     "basePower": 130,
@@ -8891,7 +8891,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Hold Back": {
+  "holdback": {
     "num": 610,
     "accuracy": 100,
     "basePower": 40,
@@ -8912,7 +8912,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Hold Hands": {
+  "holdhands": {
     "num": 607,
     "accuracy": true,
     "basePower": 0,
@@ -8943,7 +8943,7 @@
     },
     "contestType": "Cute"
   },
-  "Hone Claws": {
+  "honeclaws": {
     "num": 468,
     "accuracy": true,
     "basePower": 0,
@@ -8969,7 +8969,7 @@
     },
     "contestType": "Cute"
   },
-  "Horn Attack": {
+  "hornattack": {
     "num": 30,
     "accuracy": 100,
     "basePower": 65,
@@ -8988,7 +8988,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Horn Drill": {
+  "horndrill": {
     "num": 32,
     "accuracy": 30,
     "basePower": 0,
@@ -9014,7 +9014,7 @@
     },
     "contestType": "Cool"
   },
-  "Horn Leech": {
+  "hornleech": {
     "num": 532,
     "accuracy": 100,
     "basePower": 75,
@@ -9038,7 +9038,7 @@
     "type": "Grass",
     "contestType": "Tough"
   },
-  "Howl": {
+  "howl": {
     "num": 336,
     "accuracy": true,
     "basePower": 0,
@@ -9064,7 +9064,7 @@
     },
     "contestType": "Cool"
   },
-  "Hurricane": {
+  "hurricane": {
     "num": 542,
     "accuracy": 70,
     "basePower": 110,
@@ -9087,7 +9087,7 @@
     "type": "Flying",
     "contestType": "Tough"
   },
-  "Hydro Cannon": {
+  "hydrocannon": {
     "num": 308,
     "accuracy": 90,
     "basePower": 150,
@@ -9109,7 +9109,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Hydro Pump": {
+  "hydropump": {
     "num": 56,
     "accuracy": 80,
     "basePower": 110,
@@ -9127,7 +9127,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Hydro Steam": {
+  "hydrosteam": {
     "num": 876,
     "accuracy": 100,
     "basePower": 80,
@@ -9146,7 +9146,7 @@
     "target": "normal",
     "type": "Water"
   },
-  "Hydro Vortex": {
+  "hydrovortex": {
     "num": 642,
     "accuracy": true,
     "basePower": 1,
@@ -9162,7 +9162,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Hyper Beam": {
+  "hyperbeam": {
     "num": 63,
     "accuracy": 90,
     "basePower": 150,
@@ -9184,7 +9184,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Hyper Drill": {
+  "hyperdrill": {
     "num": 887,
     "accuracy": 100,
     "basePower": 100,
@@ -9201,7 +9201,7 @@
     "type": "Normal",
     "contestType": "Clever"
   },
-  "Hyper Fang": {
+  "hyperfang": {
     "num": 158,
     "accuracy": 90,
     "basePower": 80,
@@ -9225,7 +9225,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Hyperspace Fury": {
+  "hyperspacefury": {
     "num": 621,
     "accuracy": true,
     "basePower": 100,
@@ -9249,7 +9249,7 @@
     "type": "Dark",
     "contestType": "Tough"
   },
-  "Hyperspace Hole": {
+  "hyperspacehole": {
     "num": 593,
     "accuracy": true,
     "basePower": 80,
@@ -9267,7 +9267,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Hyper Voice": {
+  "hypervoice": {
     "num": 304,
     "accuracy": 100,
     "basePower": 90,
@@ -9287,7 +9287,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Hypnosis": {
+  "hypnosis": {
     "num": 95,
     "accuracy": 60,
     "basePower": 0,
@@ -9312,7 +9312,7 @@
     },
     "contestType": "Clever"
   },
-  "Ice Ball": {
+  "iceball": {
     "num": 301,
     "accuracy": 90,
     "basePower": 30,
@@ -9339,7 +9339,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Ice Beam": {
+  "icebeam": {
     "num": 58,
     "accuracy": 100,
     "basePower": 90,
@@ -9360,7 +9360,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Ice Burn": {
+  "iceburn": {
     "num": 554,
     "accuracy": 90,
     "basePower": 140,
@@ -9383,7 +9383,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Ice Fang": {
+  "icefang": {
     "num": 423,
     "accuracy": 95,
     "basePower": 65,
@@ -9412,7 +9412,7 @@
     "type": "Ice",
     "contestType": "Cool"
   },
-  "Ice Hammer": {
+  "icehammer": {
     "num": 665,
     "accuracy": 90,
     "basePower": 100,
@@ -9437,7 +9437,7 @@
     "type": "Ice",
     "contestType": "Tough"
   },
-  "Ice Punch": {
+  "icepunch": {
     "num": 8,
     "accuracy": 100,
     "basePower": 75,
@@ -9460,7 +9460,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Ice Shard": {
+  "iceshard": {
     "num": 420,
     "accuracy": 100,
     "basePower": 40,
@@ -9478,7 +9478,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Ice Spinner": {
+  "icespinner": {
     "num": 861,
     "accuracy": 100,
     "basePower": 80,
@@ -9496,7 +9496,7 @@
     "target": "normal",
     "type": "Ice"
   },
-  "Icicle Crash": {
+  "iciclecrash": {
     "num": 556,
     "accuracy": 90,
     "basePower": 85,
@@ -9517,7 +9517,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Icicle Spear": {
+  "iciclespear": {
     "num": 333,
     "accuracy": 100,
     "basePower": 25,
@@ -9545,7 +9545,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Icy Wind": {
+  "icywind": {
     "num": 196,
     "accuracy": 95,
     "basePower": 55,
@@ -9569,7 +9569,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Imprison": {
+  "imprison": {
     "num": 286,
     "accuracy": true,
     "basePower": 0,
@@ -9598,7 +9598,7 @@
     },
     "contestType": "Clever"
   },
-  "Incinerate": {
+  "incinerate": {
     "num": 510,
     "accuracy": 100,
     "basePower": 60,
@@ -9616,7 +9616,7 @@
     "type": "Fire",
     "contestType": "Tough"
   },
-  "Infernal Parade": {
+  "infernalparade": {
     "num": 844,
     "accuracy": 100,
     "basePower": 60,
@@ -9636,7 +9636,7 @@
     "target": "normal",
     "type": "Ghost"
   },
-  "Inferno": {
+  "inferno": {
     "num": 517,
     "accuracy": 50,
     "basePower": 100,
@@ -9657,7 +9657,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Inferno Overdrive": {
+  "infernooverdrive": {
     "num": 640,
     "accuracy": true,
     "basePower": 1,
@@ -9673,7 +9673,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "Infestation": {
+  "infestation": {
     "num": 611,
     "accuracy": 100,
     "basePower": 20,
@@ -9693,7 +9693,7 @@
     "type": "Bug",
     "contestType": "Cute"
   },
-  "Ingrain": {
+  "ingrain": {
     "num": 275,
     "accuracy": true,
     "basePower": 0,
@@ -9720,7 +9720,7 @@
     },
     "contestType": "Clever"
   },
-  "Instruct": {
+  "instruct": {
     "num": 689,
     "accuracy": true,
     "basePower": 0,
@@ -9744,7 +9744,7 @@
     },
     "contestType": "Clever"
   },
-  "Ion Deluge": {
+  "iondeluge": {
     "num": 569,
     "accuracy": true,
     "basePower": 0,
@@ -9771,7 +9771,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Iron Defense": {
+  "irondefense": {
     "num": 334,
     "accuracy": true,
     "basePower": 0,
@@ -9794,7 +9794,7 @@
     },
     "contestType": "Tough"
   },
-  "Iron Head": {
+  "ironhead": {
     "num": 442,
     "accuracy": 100,
     "basePower": 80,
@@ -9816,7 +9816,7 @@
     "type": "Steel",
     "contestType": "Tough"
   },
-  "Iron Tail": {
+  "irontail": {
     "num": 231,
     "accuracy": 75,
     "basePower": 100,
@@ -9840,7 +9840,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Ivy Cudgel": {
+  "ivycudgel": {
     "num": 904,
     "accuracy": 100,
     "basePower": 100,
@@ -9858,7 +9858,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Jaw Lock": {
+  "jawlock": {
     "num": 746,
     "accuracy": 100,
     "basePower": 80,
@@ -9877,7 +9877,7 @@
     "target": "normal",
     "type": "Dark"
   },
-  "Jet Punch": {
+  "jetpunch": {
     "num": 857,
     "accuracy": 100,
     "basePower": 60,
@@ -9896,7 +9896,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Judgment": {
+  "judgment": {
     "num": 449,
     "accuracy": 100,
     "basePower": 100,
@@ -9914,7 +9914,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Jump Kick": {
+  "jumpkick": {
     "num": 26,
     "accuracy": 95,
     "basePower": 100,
@@ -9936,7 +9936,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Jungle Healing": {
+  "junglehealing": {
     "num": 816,
     "accuracy": true,
     "basePower": 0,
@@ -9953,7 +9953,7 @@
     "target": "allies",
     "type": "Grass"
   },
-  "Karate Chop": {
+  "karatechop": {
     "num": 2,
     "accuracy": 100,
     "basePower": 50,
@@ -9974,7 +9974,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Kinesis": {
+  "kinesis": {
     "num": 134,
     "accuracy": 80,
     "basePower": 0,
@@ -10002,7 +10002,7 @@
     },
     "contestType": "Clever"
   },
-  "King's Shield": {
+  "kingsshield": {
     "num": 588,
     "accuracy": true,
     "basePower": 0,
@@ -10030,7 +10030,7 @@
     },
     "contestType": "Cool"
   },
-  "Knock Off": {
+  "knockoff": {
     "num": 282,
     "accuracy": 100,
     "basePower": 65,
@@ -10049,7 +10049,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Kowtow Cleave": {
+  "kowtowcleave": {
     "num": 869,
     "accuracy": true,
     "basePower": 85,
@@ -10068,7 +10068,7 @@
     "target": "normal",
     "type": "Dark"
   },
-  "Land's Wrath": {
+  "landswrath": {
     "num": 616,
     "accuracy": 100,
     "basePower": 90,
@@ -10091,7 +10091,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Laser Focus": {
+  "laserfocus": {
     "num": 673,
     "accuracy": true,
     "basePower": 0,
@@ -10118,7 +10118,7 @@
     },
     "contestType": "Cool"
   },
-  "Lash Out": {
+  "lashout": {
     "num": 808,
     "accuracy": 100,
     "basePower": 75,
@@ -10136,7 +10136,7 @@
     "target": "normal",
     "type": "Dark"
   },
-  "Last Resort": {
+  "lastresort": {
     "num": 387,
     "accuracy": 100,
     "basePower": 140,
@@ -10155,7 +10155,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Last Respects": {
+  "lastrespects": {
     "num": 854,
     "accuracy": 100,
     "basePower": 50,
@@ -10172,7 +10172,7 @@
     "target": "normal",
     "type": "Ghost"
   },
-  "Lava Plume": {
+  "lavaplume": {
     "num": 436,
     "accuracy": 100,
     "basePower": 80,
@@ -10193,7 +10193,7 @@
     "type": "Fire",
     "contestType": "Tough"
   },
-  "Leafage": {
+  "leafage": {
     "num": 670,
     "accuracy": 100,
     "basePower": 40,
@@ -10211,7 +10211,7 @@
     "type": "Grass",
     "contestType": "Tough"
   },
-  "Leaf Blade": {
+  "leafblade": {
     "num": 348,
     "accuracy": 100,
     "basePower": 90,
@@ -10232,7 +10232,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Leaf Storm": {
+  "leafstorm": {
     "num": 437,
     "accuracy": 90,
     "basePower": 130,
@@ -10255,7 +10255,7 @@
     "type": "Grass",
     "contestType": "Beautiful"
   },
-  "Leaf Tornado": {
+  "leaftornado": {
     "num": 536,
     "accuracy": 90,
     "basePower": 65,
@@ -10279,7 +10279,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Leech Life": {
+  "leechlife": {
     "num": 141,
     "accuracy": 100,
     "basePower": 80,
@@ -10303,7 +10303,7 @@
     "type": "Bug",
     "contestType": "Clever"
   },
-  "Leech Seed": {
+  "leechseed": {
     "num": 73,
     "accuracy": 90,
     "basePower": 0,
@@ -10329,7 +10329,7 @@
     },
     "contestType": "Clever"
   },
-  "Leer": {
+  "leer": {
     "num": 43,
     "accuracy": 100,
     "basePower": 0,
@@ -10356,7 +10356,7 @@
     },
     "contestType": "Cool"
   },
-  "Let's Snuggle Forever": {
+  "letssnuggleforever": {
     "num": 726,
     "accuracy": true,
     "basePower": 190,
@@ -10374,7 +10374,7 @@
     "type": "Fairy",
     "contestType": "Cool"
   },
-  "Lick": {
+  "lick": {
     "num": 122,
     "accuracy": 100,
     "basePower": 30,
@@ -10396,7 +10396,7 @@
     "type": "Ghost",
     "contestType": "Cute"
   },
-  "Life Dew": {
+  "lifedew": {
     "num": 791,
     "accuracy": true,
     "basePower": 0,
@@ -10417,7 +10417,7 @@
     "target": "allies",
     "type": "Water"
   },
-  "Light of Ruin": {
+  "lightofruin": {
     "num": 617,
     "accuracy": 90,
     "basePower": 140,
@@ -10439,7 +10439,7 @@
     "type": "Fairy",
     "contestType": "Beautiful"
   },
-  "Light Screen": {
+  "lightscreen": {
     "num": 113,
     "accuracy": true,
     "basePower": 0,
@@ -10467,7 +10467,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Light That Burns the Sky": {
+  "lightthatburnsthesky": {
     "num": 723,
     "accuracy": true,
     "basePower": 200,
@@ -10484,7 +10484,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Liquidation": {
+  "liquidation": {
     "num": 710,
     "accuracy": 100,
     "basePower": 85,
@@ -10508,7 +10508,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Lock-On": {
+  "lockon": {
     "num": 199,
     "accuracy": true,
     "basePower": 0,
@@ -10536,7 +10536,7 @@
     },
     "contestType": "Clever"
   },
-  "Lovely Kiss": {
+  "lovelykiss": {
     "num": 142,
     "accuracy": 75,
     "basePower": 0,
@@ -10562,7 +10562,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Low Kick": {
+  "lowkick": {
     "num": 67,
     "accuracy": 100,
     "basePower": 0,
@@ -10584,7 +10584,7 @@
     },
     "contestType": "Tough"
   },
-  "Low Sweep": {
+  "lowsweep": {
     "num": 490,
     "accuracy": 100,
     "basePower": 65,
@@ -10608,7 +10608,7 @@
     "type": "Fighting",
     "contestType": "Clever"
   },
-  "Lucky Chant": {
+  "luckychant": {
     "num": 381,
     "accuracy": true,
     "basePower": 0,
@@ -10638,7 +10638,7 @@
     },
     "contestType": "Cute"
   },
-  "Lumina Crash": {
+  "luminacrash": {
     "num": 855,
     "accuracy": 100,
     "basePower": 80,
@@ -10660,7 +10660,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Lunar Blessing": {
+  "lunarblessing": {
     "num": 849,
     "accuracy": true,
     "basePower": 0,
@@ -10677,7 +10677,7 @@
     "target": "allies",
     "type": "Psychic"
   },
-  "Lunar Dance": {
+  "lunardance": {
     "num": 461,
     "accuracy": true,
     "basePower": 0,
@@ -10699,7 +10699,7 @@
     "type": "Psychic",
     "contestType": "Beautiful"
   },
-  "Lunge": {
+  "lunge": {
     "num": 679,
     "accuracy": 100,
     "basePower": 80,
@@ -10723,7 +10723,7 @@
     "type": "Bug",
     "contestType": "Cute"
   },
-  "Luster Purge": {
+  "lusterpurge": {
     "num": 295,
     "accuracy": 100,
     "basePower": 95,
@@ -10746,7 +10746,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Mach Punch": {
+  "machpunch": {
     "num": 183,
     "accuracy": 100,
     "basePower": 40,
@@ -10766,7 +10766,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Magical Leaf": {
+  "magicalleaf": {
     "num": 345,
     "accuracy": true,
     "basePower": 60,
@@ -10784,7 +10784,7 @@
     "type": "Grass",
     "contestType": "Beautiful"
   },
-  "Magical Torque": {
+  "magicaltorque": {
     "num": 900,
     "accuracy": 100,
     "basePower": 100,
@@ -10811,7 +10811,7 @@
     "target": "normal",
     "type": "Fairy"
   },
-  "Magic Coat": {
+  "magiccoat": {
     "num": 277,
     "accuracy": true,
     "basePower": 0,
@@ -10838,7 +10838,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Magic Powder": {
+  "magicpowder": {
     "num": 750,
     "accuracy": 100,
     "basePower": 0,
@@ -10858,7 +10858,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Magic Room": {
+  "magicroom": {
     "num": 478,
     "accuracy": true,
     "basePower": 0,
@@ -10886,7 +10886,7 @@
     },
     "contestType": "Clever"
   },
-  "Magma Storm": {
+  "magmastorm": {
     "num": 463,
     "accuracy": 75,
     "basePower": 100,
@@ -10905,7 +10905,7 @@
     "type": "Fire",
     "contestType": "Tough"
   },
-  "Magnet Bomb": {
+  "magnetbomb": {
     "num": 443,
     "accuracy": true,
     "basePower": 60,
@@ -10925,7 +10925,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Magnetic Flux": {
+  "magneticflux": {
     "num": 602,
     "accuracy": true,
     "basePower": 0,
@@ -10949,7 +10949,7 @@
     },
     "contestType": "Clever"
   },
-  "Magnet Rise": {
+  "magnetrise": {
     "num": 393,
     "accuracy": true,
     "basePower": 0,
@@ -10977,7 +10977,7 @@
     },
     "contestType": "Clever"
   },
-  "Magnitude": {
+  "magnitude": {
     "num": 222,
     "accuracy": 100,
     "basePower": 0,
@@ -11003,7 +11003,7 @@
     },
     "contestType": "Tough"
   },
-  "Make It Rain": {
+  "makeitrain": {
     "num": 874,
     "accuracy": 100,
     "basePower": 120,
@@ -11025,7 +11025,7 @@
     "type": "Steel",
     "contestType": "Beautiful"
   },
-  "Malicious Moonsault": {
+  "maliciousmoonsault": {
     "num": 696,
     "accuracy": true,
     "basePower": 180,
@@ -11043,7 +11043,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "Malignant Chain": {
+  "malignantchain": {
     "num": 919,
     "accuracy": 100,
     "basePower": 100,
@@ -11063,7 +11063,7 @@
     "target": "normal",
     "type": "Poison"
   },
-  "Mat Block": {
+  "matblock": {
     "num": 561,
     "accuracy": true,
     "basePower": 0,
@@ -11094,7 +11094,7 @@
     },
     "contestType": "Cool"
   },
-  "Matcha Gotcha": {
+  "matchagotcha": {
     "num": 902,
     "accuracy": 90,
     "basePower": 80,
@@ -11121,7 +11121,7 @@
     "target": "allAdjacentFoes",
     "type": "Grass"
   },
-  "Max Airstream": {
+  "maxairstream": {
     "num": 766,
     "accuracy": true,
     "basePower": 10,
@@ -11137,7 +11137,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Max Darkness": {
+  "maxdarkness": {
     "num": 772,
     "accuracy": true,
     "basePower": 10,
@@ -11153,7 +11153,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "Max Flare": {
+  "maxflare": {
     "num": 757,
     "accuracy": true,
     "basePower": 100,
@@ -11169,7 +11169,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "Max Flutterby": {
+  "maxflutterby": {
     "num": 758,
     "accuracy": true,
     "basePower": 10,
@@ -11185,7 +11185,7 @@
     "type": "Bug",
     "contestType": "Cool"
   },
-  "Max Geyser": {
+  "maxgeyser": {
     "num": 765,
     "accuracy": true,
     "basePower": 10,
@@ -11201,7 +11201,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Max Guard": {
+  "maxguard": {
     "num": 743,
     "accuracy": true,
     "basePower": 0,
@@ -11223,7 +11223,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Max Hailstorm": {
+  "maxhailstorm": {
     "num": 763,
     "accuracy": true,
     "basePower": 10,
@@ -11239,7 +11239,7 @@
     "type": "Ice",
     "contestType": "Cool"
   },
-  "Max Knuckle": {
+  "maxknuckle": {
     "num": 761,
     "accuracy": true,
     "basePower": 10,
@@ -11255,7 +11255,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Max Lightning": {
+  "maxlightning": {
     "num": 759,
     "accuracy": true,
     "basePower": 10,
@@ -11271,7 +11271,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Max Mindstorm": {
+  "maxmindstorm": {
     "num": 769,
     "accuracy": true,
     "basePower": 10,
@@ -11287,7 +11287,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Max Ooze": {
+  "maxooze": {
     "num": 764,
     "accuracy": true,
     "basePower": 10,
@@ -11303,7 +11303,7 @@
     "type": "Poison",
     "contestType": "Cool"
   },
-  "Max Overgrowth": {
+  "maxovergrowth": {
     "num": 773,
     "accuracy": true,
     "basePower": 10,
@@ -11319,7 +11319,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Max Phantasm": {
+  "maxphantasm": {
     "num": 762,
     "accuracy": true,
     "basePower": 10,
@@ -11335,7 +11335,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Max Quake": {
+  "maxquake": {
     "num": 771,
     "accuracy": true,
     "basePower": 10,
@@ -11351,7 +11351,7 @@
     "type": "Ground",
     "contestType": "Cool"
   },
-  "Max Rockfall": {
+  "maxrockfall": {
     "num": 770,
     "accuracy": true,
     "basePower": 10,
@@ -11367,7 +11367,7 @@
     "type": "Rock",
     "contestType": "Cool"
   },
-  "Max Starfall": {
+  "maxstarfall": {
     "num": 767,
     "accuracy": true,
     "basePower": 10,
@@ -11383,7 +11383,7 @@
     "type": "Fairy",
     "contestType": "Cool"
   },
-  "Max Steelspike": {
+  "maxsteelspike": {
     "num": 774,
     "accuracy": true,
     "basePower": 10,
@@ -11399,7 +11399,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Max Strike": {
+  "maxstrike": {
     "num": 760,
     "accuracy": true,
     "basePower": 10,
@@ -11415,7 +11415,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Max Wyrmwind": {
+  "maxwyrmwind": {
     "num": 768,
     "accuracy": true,
     "basePower": 10,
@@ -11431,7 +11431,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "Mean Look": {
+  "meanlook": {
     "num": 212,
     "accuracy": true,
     "basePower": 0,
@@ -11454,7 +11454,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Meditate": {
+  "meditate": {
     "num": 96,
     "accuracy": true,
     "basePower": 0,
@@ -11480,7 +11480,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Me First": {
+  "mefirst": {
     "num": 382,
     "accuracy": true,
     "basePower": 0,
@@ -11514,7 +11514,7 @@
     },
     "contestType": "Clever"
   },
-  "Mega Drain": {
+  "megadrain": {
     "num": 72,
     "accuracy": 100,
     "basePower": 40,
@@ -11540,7 +11540,7 @@
     },
     "contestType": "Clever"
   },
-  "Megahorn": {
+  "megahorn": {
     "num": 224,
     "accuracy": 85,
     "basePower": 120,
@@ -11559,7 +11559,7 @@
     "type": "Bug",
     "contestType": "Cool"
   },
-  "Mega Kick": {
+  "megakick": {
     "num": 25,
     "accuracy": 75,
     "basePower": 120,
@@ -11578,7 +11578,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Mega Punch": {
+  "megapunch": {
     "num": 5,
     "accuracy": 85,
     "basePower": 80,
@@ -11598,7 +11598,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Memento": {
+  "memento": {
     "num": 262,
     "accuracy": 100,
     "basePower": 0,
@@ -11624,7 +11624,7 @@
     },
     "contestType": "Tough"
   },
-  "Menacing Moonraze Maelstrom": {
+  "menacingmoonrazemaelstrom": {
     "num": 725,
     "accuracy": true,
     "basePower": 200,
@@ -11641,7 +11641,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Metal Burst": {
+  "metalburst": {
     "num": 368,
     "accuracy": 100,
     "basePower": 0,
@@ -11660,7 +11660,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Metal Claw": {
+  "metalclaw": {
     "num": 232,
     "accuracy": 95,
     "basePower": 50,
@@ -11686,7 +11686,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Metal Sound": {
+  "metalsound": {
     "num": 319,
     "accuracy": 85,
     "basePower": 0,
@@ -11716,7 +11716,7 @@
     },
     "contestType": "Clever"
   },
-  "Meteor Assault": {
+  "meteorassault": {
     "num": 794,
     "accuracy": 100,
     "basePower": 150,
@@ -11738,7 +11738,7 @@
     "target": "normal",
     "type": "Fighting"
   },
-  "Meteor Beam": {
+  "meteorbeam": {
     "num": 800,
     "accuracy": 90,
     "basePower": 120,
@@ -11756,7 +11756,7 @@
     "target": "normal",
     "type": "Rock"
   },
-  "Meteor Mash": {
+  "meteormash": {
     "num": 309,
     "accuracy": 90,
     "basePower": 90,
@@ -11783,7 +11783,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Metronome": {
+  "metronome": {
     "num": 118,
     "accuracy": true,
     "basePower": 0,
@@ -11804,7 +11804,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Mighty Cleave": {
+  "mightycleave": {
     "num": 910,
     "accuracy": 100,
     "basePower": 95,
@@ -11822,7 +11822,7 @@
     "target": "normal",
     "type": "Rock"
   },
-  "Milk Drink": {
+  "milkdrink": {
     "num": 208,
     "accuracy": true,
     "basePower": 0,
@@ -11847,7 +11847,7 @@
     },
     "contestType": "Cute"
   },
-  "Mimic": {
+  "mimic": {
     "num": 102,
     "accuracy": true,
     "basePower": 0,
@@ -11876,7 +11876,7 @@
     },
     "contestType": "Cute"
   },
-  "Mind Blown": {
+  "mindblown": {
     "num": 720,
     "accuracy": 100,
     "basePower": 150,
@@ -11895,7 +11895,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "Mind Reader": {
+  "mindreader": {
     "num": 170,
     "accuracy": true,
     "basePower": 0,
@@ -11919,7 +11919,7 @@
     },
     "contestType": "Clever"
   },
-  "Minimize": {
+  "minimize": {
     "num": 107,
     "accuracy": true,
     "basePower": 0,
@@ -11946,7 +11946,7 @@
     },
     "contestType": "Cute"
   },
-  "Miracle Eye": {
+  "miracleeye": {
     "num": 357,
     "accuracy": true,
     "basePower": 0,
@@ -11976,7 +11976,7 @@
     },
     "contestType": "Clever"
   },
-  "Mirror Coat": {
+  "mirrorcoat": {
     "num": 243,
     "accuracy": 100,
     "basePower": 0,
@@ -11999,7 +11999,7 @@
     "type": "Psychic",
     "contestType": "Beautiful"
   },
-  "Mirror Move": {
+  "mirrormove": {
     "num": 119,
     "accuracy": true,
     "basePower": 0,
@@ -12026,7 +12026,7 @@
     },
     "contestType": "Clever"
   },
-  "Mirror Shot": {
+  "mirrorshot": {
     "num": 429,
     "accuracy": 85,
     "basePower": 65,
@@ -12050,7 +12050,7 @@
     "type": "Steel",
     "contestType": "Beautiful"
   },
-  "Mist": {
+  "mist": {
     "num": 54,
     "accuracy": true,
     "basePower": 0,
@@ -12076,7 +12076,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Mist Ball": {
+  "mistball": {
     "num": 296,
     "accuracy": 100,
     "basePower": 95,
@@ -12100,7 +12100,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Misty Explosion": {
+  "mistyexplosion": {
     "num": 802,
     "accuracy": 100,
     "basePower": 100,
@@ -12118,7 +12118,7 @@
     "target": "allAdjacent",
     "type": "Fairy"
   },
-  "Misty Terrain": {
+  "mistyterrain": {
     "num": 581,
     "accuracy": true,
     "basePower": 0,
@@ -12147,7 +12147,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Moonblast": {
+  "moonblast": {
     "num": 585,
     "accuracy": 100,
     "basePower": 95,
@@ -12170,7 +12170,7 @@
     "type": "Fairy",
     "contestType": "Beautiful"
   },
-  "Moongeist Beam": {
+  "moongeistbeam": {
     "num": 714,
     "accuracy": 100,
     "basePower": 100,
@@ -12188,7 +12188,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Moonlight": {
+  "moonlight": {
     "num": 236,
     "accuracy": true,
     "basePower": 0,
@@ -12209,7 +12209,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Morning Sun": {
+  "morningsun": {
     "num": 234,
     "accuracy": true,
     "basePower": 0,
@@ -12230,7 +12230,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Mortal Spin": {
+  "mortalspin": {
     "num": 866,
     "accuracy": 100,
     "basePower": 30,
@@ -12251,7 +12251,7 @@
     "target": "allAdjacentFoes",
     "type": "Poison"
   },
-  "Mountain Gale": {
+  "mountaingale": {
     "num": 836,
     "accuracy": 85,
     "basePower": 100,
@@ -12271,7 +12271,7 @@
     "target": "normal",
     "type": "Ice"
   },
-  "Mud Bomb": {
+  "mudbomb": {
     "num": 426,
     "accuracy": 85,
     "basePower": 65,
@@ -12296,7 +12296,7 @@
     "type": "Ground",
     "contestType": "Cute"
   },
-  "Mud Shot": {
+  "mudshot": {
     "num": 341,
     "accuracy": 95,
     "basePower": 55,
@@ -12319,7 +12319,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "Mud-Slap": {
+  "mudslap": {
     "num": 189,
     "accuracy": 100,
     "basePower": 20,
@@ -12342,7 +12342,7 @@
     "type": "Ground",
     "contestType": "Cute"
   },
-  "Mud Sport": {
+  "mudsport": {
     "num": 300,
     "accuracy": true,
     "basePower": 0,
@@ -12372,7 +12372,7 @@
     },
     "contestType": "Cute"
   },
-  "Muddy Water": {
+  "muddywater": {
     "num": 330,
     "accuracy": 85,
     "basePower": 90,
@@ -12396,7 +12396,7 @@
     "type": "Water",
     "contestType": "Tough"
   },
-  "Multi-Attack": {
+  "multiattack": {
     "num": 718,
     "accuracy": 100,
     "basePower": 120,
@@ -12422,7 +12422,7 @@
     },
     "contestType": "Tough"
   },
-  "Mystical Fire": {
+  "mysticalfire": {
     "num": 595,
     "accuracy": 100,
     "basePower": 75,
@@ -12445,7 +12445,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Mystical Power": {
+  "mysticalpower": {
     "num": 832,
     "accuracy": 90,
     "basePower": 70,
@@ -12469,7 +12469,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Nasty Plot": {
+  "nastyplot": {
     "num": 417,
     "accuracy": true,
     "basePower": 0,
@@ -12492,7 +12492,7 @@
     },
     "contestType": "Clever"
   },
-  "Natural Gift": {
+  "naturalgift": {
     "num": 363,
     "accuracy": 100,
     "basePower": 0,
@@ -12517,7 +12517,7 @@
     },
     "contestType": "Clever"
   },
-  "Nature Power": {
+  "naturepower": {
     "num": 267,
     "accuracy": true,
     "basePower": 0,
@@ -12539,7 +12539,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Nature's Madness": {
+  "naturesmadness": {
     "num": 717,
     "accuracy": 90,
     "basePower": 0,
@@ -12557,7 +12557,7 @@
     "type": "Fairy",
     "contestType": "Tough"
   },
-  "Needle Arm": {
+  "needlearm": {
     "num": 302,
     "accuracy": 100,
     "basePower": 60,
@@ -12580,7 +12580,7 @@
     "type": "Grass",
     "contestType": "Clever"
   },
-  "Never-Ending Nightmare": {
+  "neverendingnightmare": {
     "num": 636,
     "accuracy": true,
     "basePower": 1,
@@ -12596,7 +12596,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Night Daze": {
+  "nightdaze": {
     "num": 539,
     "accuracy": 95,
     "basePower": 85,
@@ -12619,7 +12619,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "Nightmare": {
+  "nightmare": {
     "num": 171,
     "accuracy": 100,
     "basePower": 0,
@@ -12648,7 +12648,7 @@
     },
     "contestType": "Clever"
   },
-  "Night Shade": {
+  "nightshade": {
     "num": 101,
     "accuracy": 100,
     "basePower": 0,
@@ -12667,7 +12667,7 @@
     "type": "Ghost",
     "contestType": "Clever"
   },
-  "Night Slash": {
+  "nightslash": {
     "num": 400,
     "accuracy": 100,
     "basePower": 70,
@@ -12688,7 +12688,7 @@
     "type": "Dark",
     "contestType": "Cool"
   },
-  "Noble Roar": {
+  "nobleroar": {
     "num": 568,
     "accuracy": 100,
     "basePower": 0,
@@ -12718,7 +12718,7 @@
     },
     "contestType": "Tough"
   },
-  "No Retreat": {
+  "noretreat": {
     "num": 748,
     "accuracy": true,
     "basePower": 0,
@@ -12743,7 +12743,7 @@
     "target": "self",
     "type": "Fighting"
   },
-  "Noxious Torque": {
+  "noxioustorque": {
     "num": 898,
     "accuracy": 100,
     "basePower": 100,
@@ -12770,7 +12770,7 @@
     "target": "normal",
     "type": "Poison"
   },
-  "Nuzzle": {
+  "nuzzle": {
     "num": 609,
     "accuracy": 100,
     "basePower": 20,
@@ -12792,7 +12792,7 @@
     "type": "Electric",
     "contestType": "Cute"
   },
-  "Oblivion Wing": {
+  "oblivionwing": {
     "num": 613,
     "accuracy": 100,
     "basePower": 80,
@@ -12817,7 +12817,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Obstruct": {
+  "obstruct": {
     "num": 792,
     "accuracy": 100,
     "basePower": 0,
@@ -12839,7 +12839,7 @@
     "target": "self",
     "type": "Dark"
   },
-  "Oceanic Operetta": {
+  "oceanicoperetta": {
     "num": 697,
     "accuracy": true,
     "basePower": 195,
@@ -12855,7 +12855,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Octazooka": {
+  "octazooka": {
     "num": 190,
     "accuracy": 85,
     "basePower": 65,
@@ -12880,7 +12880,7 @@
     "type": "Water",
     "contestType": "Tough"
   },
-  "Octolock": {
+  "octolock": {
     "num": 753,
     "accuracy": 100,
     "basePower": 0,
@@ -12902,7 +12902,7 @@
     "target": "normal",
     "type": "Fighting"
   },
-  "Odor Sleuth": {
+  "odorsleuth": {
     "num": 316,
     "accuracy": true,
     "basePower": 0,
@@ -12930,7 +12930,7 @@
     },
     "contestType": "Clever"
   },
-  "Ominous Wind": {
+  "ominouswind": {
     "num": 466,
     "accuracy": 100,
     "basePower": 60,
@@ -12960,7 +12960,7 @@
     "type": "Ghost",
     "contestType": "Beautiful"
   },
-  "Order Up": {
+  "orderup": {
     "num": 856,
     "accuracy": 100,
     "basePower": 80,
@@ -12976,7 +12976,7 @@
     "target": "normal",
     "type": "Dragon"
   },
-  "Origin Pulse": {
+  "originpulse": {
     "num": 618,
     "accuracy": 85,
     "basePower": 110,
@@ -12993,7 +12993,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Outrage": {
+  "outrage": {
     "num": 200,
     "accuracy": 100,
     "basePower": 120,
@@ -13016,7 +13016,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "Overdrive": {
+  "overdrive": {
     "num": 786,
     "accuracy": 100,
     "basePower": 80,
@@ -13034,7 +13034,7 @@
     "target": "allAdjacentFoes",
     "type": "Electric"
   },
-  "Overheat": {
+  "overheat": {
     "num": 315,
     "accuracy": 90,
     "basePower": 130,
@@ -13057,7 +13057,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Pain Split": {
+  "painsplit": {
     "num": 220,
     "accuracy": true,
     "basePower": 0,
@@ -13081,7 +13081,7 @@
     },
     "contestType": "Clever"
   },
-  "Paleo Wave": {
+  "paleowave": {
     "num": 0,
     "accuracy": 100,
     "basePower": 85,
@@ -13104,7 +13104,7 @@
     "type": "Rock",
     "contestType": "Beautiful"
   },
-  "Parabolic Charge": {
+  "paraboliccharge": {
     "num": 570,
     "accuracy": 100,
     "basePower": 65,
@@ -13127,7 +13127,7 @@
     "type": "Electric",
     "contestType": "Clever"
   },
-  "Parting Shot": {
+  "partingshot": {
     "num": 575,
     "accuracy": 100,
     "basePower": 0,
@@ -13152,7 +13152,7 @@
     },
     "contestType": "Cool"
   },
-  "Payback": {
+  "payback": {
     "num": 371,
     "accuracy": 100,
     "basePower": 50,
@@ -13171,7 +13171,7 @@
     "type": "Dark",
     "contestType": "Tough"
   },
-  "Pay Day": {
+  "payday": {
     "num": 6,
     "accuracy": 100,
     "basePower": 40,
@@ -13189,7 +13189,7 @@
     "type": "Normal",
     "contestType": "Clever"
   },
-  "Peck": {
+  "peck": {
     "num": 64,
     "accuracy": 100,
     "basePower": 35,
@@ -13209,7 +13209,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Perish Song": {
+  "perishsong": {
     "num": 195,
     "accuracy": true,
     "basePower": 0,
@@ -13235,7 +13235,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Petal Blizzard": {
+  "petalblizzard": {
     "num": 572,
     "accuracy": 100,
     "basePower": 90,
@@ -13254,7 +13254,7 @@
     "type": "Grass",
     "contestType": "Beautiful"
   },
-  "Petal Dance": {
+  "petaldance": {
     "num": 80,
     "accuracy": 100,
     "basePower": 120,
@@ -13278,7 +13278,7 @@
     "type": "Grass",
     "contestType": "Beautiful"
   },
-  "Phantom Force": {
+  "phantomforce": {
     "num": 566,
     "accuracy": 100,
     "basePower": 90,
@@ -13305,7 +13305,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Photon Geyser": {
+  "photongeyser": {
     "num": 722,
     "accuracy": 100,
     "basePower": 100,
@@ -13323,7 +13323,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Pika Papow": {
+  "pikapapow": {
     "num": 732,
     "accuracy": true,
     "basePower": 0,
@@ -13341,7 +13341,7 @@
     "type": "Electric",
     "contestType": "Cute"
   },
-  "Pin Missile": {
+  "pinmissile": {
     "num": 42,
     "accuracy": 95,
     "basePower": 25,
@@ -13369,7 +13369,7 @@
     },
     "contestType": "Cool"
   },
-  "Plasma Fists": {
+  "plasmafists": {
     "num": 721,
     "accuracy": 100,
     "basePower": 100,
@@ -13390,7 +13390,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Play Nice": {
+  "playnice": {
     "num": 589,
     "accuracy": true,
     "basePower": 0,
@@ -13417,7 +13417,7 @@
     },
     "contestType": "Cute"
   },
-  "Play Rough": {
+  "playrough": {
     "num": 583,
     "accuracy": 90,
     "basePower": 90,
@@ -13441,7 +13441,7 @@
     "type": "Fairy",
     "contestType": "Cute"
   },
-  "Pluck": {
+  "pluck": {
     "num": 365,
     "accuracy": 100,
     "basePower": 60,
@@ -13461,7 +13461,7 @@
     "type": "Flying",
     "contestType": "Cute"
   },
-  "Poison Fang": {
+  "poisonfang": {
     "num": 305,
     "accuracy": 100,
     "basePower": 50,
@@ -13484,7 +13484,7 @@
     "type": "Poison",
     "contestType": "Clever"
   },
-  "Poison Gas": {
+  "poisongas": {
     "num": 139,
     "accuracy": 90,
     "basePower": 0,
@@ -13509,7 +13509,7 @@
     },
     "contestType": "Clever"
   },
-  "Poison Jab": {
+  "poisonjab": {
     "num": 398,
     "accuracy": 100,
     "basePower": 80,
@@ -13531,7 +13531,7 @@
     "type": "Poison",
     "contestType": "Tough"
   },
-  "Poison Powder": {
+  "poisonpowder": {
     "num": 77,
     "accuracy": 75,
     "basePower": 0,
@@ -13557,7 +13557,7 @@
     },
     "contestType": "Clever"
   },
-  "Poison Sting": {
+  "poisonsting": {
     "num": 40,
     "accuracy": 100,
     "basePower": 15,
@@ -13578,7 +13578,7 @@
     "type": "Poison",
     "contestType": "Clever"
   },
-  "Poison Tail": {
+  "poisontail": {
     "num": 342,
     "accuracy": 100,
     "basePower": 50,
@@ -13601,7 +13601,7 @@
     "type": "Poison",
     "contestType": "Clever"
   },
-  "Pollen Puff": {
+  "pollenpuff": {
     "num": 676,
     "accuracy": 100,
     "basePower": 90,
@@ -13621,7 +13621,7 @@
     "type": "Bug",
     "contestType": "Cute"
   },
-  "Poltergeist": {
+  "poltergeist": {
     "num": 809,
     "accuracy": 90,
     "basePower": 110,
@@ -13638,7 +13638,7 @@
     "target": "normal",
     "type": "Ghost"
   },
-  "Population Bomb": {
+  "populationbomb": {
     "num": 860,
     "accuracy": 90,
     "basePower": 20,
@@ -13658,7 +13658,7 @@
     "target": "normal",
     "type": "Normal"
   },
-  "Pounce": {
+  "pounce": {
     "num": 884,
     "accuracy": 100,
     "basePower": 50,
@@ -13681,7 +13681,7 @@
     "type": "Bug",
     "contestType": "Cute"
   },
-  "Pound": {
+  "pound": {
     "num": 1,
     "accuracy": 100,
     "basePower": 40,
@@ -13700,7 +13700,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Powder": {
+  "powder": {
     "num": 600,
     "accuracy": 100,
     "basePower": 0,
@@ -13732,7 +13732,7 @@
     },
     "contestType": "Clever"
   },
-  "Powder Snow": {
+  "powdersnow": {
     "num": 181,
     "accuracy": 100,
     "basePower": 40,
@@ -13753,7 +13753,7 @@
     "type": "Ice",
     "contestType": "Beautiful"
   },
-  "Power Gem": {
+  "powergem": {
     "num": 408,
     "accuracy": 100,
     "basePower": 80,
@@ -13771,7 +13771,7 @@
     "type": "Rock",
     "contestType": "Beautiful"
   },
-  "Power Shift": {
+  "powershift": {
     "num": 829,
     "accuracy": true,
     "basePower": 0,
@@ -13789,7 +13789,7 @@
     "target": "self",
     "type": "Normal"
   },
-  "Power Split": {
+  "powersplit": {
     "num": 471,
     "accuracy": true,
     "basePower": 0,
@@ -13812,7 +13812,7 @@
     },
     "contestType": "Clever"
   },
-  "Power Swap": {
+  "powerswap": {
     "num": 384,
     "accuracy": true,
     "basePower": 0,
@@ -13837,7 +13837,7 @@
     },
     "contestType": "Clever"
   },
-  "Power Trick": {
+  "powertrick": {
     "num": 379,
     "accuracy": true,
     "basePower": 0,
@@ -13861,7 +13861,7 @@
     },
     "contestType": "Clever"
   },
-  "Power Trip": {
+  "powertrip": {
     "num": 681,
     "accuracy": 100,
     "basePower": 20,
@@ -13886,7 +13886,7 @@
     },
     "contestType": "Clever"
   },
-  "Power-Up Punch": {
+  "poweruppunch": {
     "num": 612,
     "accuracy": 100,
     "basePower": 40,
@@ -13914,7 +13914,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Power Whip": {
+  "powerwhip": {
     "num": 438,
     "accuracy": 85,
     "basePower": 120,
@@ -13933,7 +13933,7 @@
     "type": "Grass",
     "contestType": "Tough"
   },
-  "Precipice Blades": {
+  "precipiceblades": {
     "num": 619,
     "accuracy": 85,
     "basePower": 120,
@@ -13950,7 +13950,7 @@
     "type": "Ground",
     "contestType": "Cool"
   },
-  "Present": {
+  "present": {
     "num": 217,
     "accuracy": 90,
     "basePower": 0,
@@ -13968,7 +13968,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Prismatic Laser": {
+  "prismaticlaser": {
     "num": 711,
     "accuracy": 100,
     "basePower": 160,
@@ -13990,7 +13990,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Protect": {
+  "protect": {
     "num": 182,
     "accuracy": true,
     "basePower": 0,
@@ -14016,7 +14016,7 @@
     },
     "contestType": "Cute"
   },
-  "Psybeam": {
+  "psybeam": {
     "num": 60,
     "accuracy": 100,
     "basePower": 65,
@@ -14037,7 +14037,7 @@
     "type": "Psychic",
     "contestType": "Beautiful"
   },
-  "Psyblade": {
+  "psyblade": {
     "num": 875,
     "accuracy": 100,
     "basePower": 80,
@@ -14056,7 +14056,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Psych Up": {
+  "psychup": {
     "num": 244,
     "accuracy": true,
     "basePower": 0,
@@ -14077,7 +14077,7 @@
     },
     "contestType": "Clever"
   },
-  "Psychic": {
+  "psychic": {
     "num": 94,
     "accuracy": 100,
     "basePower": 90,
@@ -14100,7 +14100,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Psychic Fangs": {
+  "psychicfangs": {
     "num": 706,
     "accuracy": 100,
     "basePower": 85,
@@ -14120,7 +14120,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Psychic Noise": {
+  "psychicnoise": {
     "num": 917,
     "accuracy": 100,
     "basePower": 75,
@@ -14142,7 +14142,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Psychic Terrain": {
+  "psychicterrain": {
     "num": 678,
     "accuracy": true,
     "basePower": 0,
@@ -14172,7 +14172,7 @@
     },
     "contestType": "Clever"
   },
-  "Psycho Boost": {
+  "psychoboost": {
     "num": 354,
     "accuracy": 90,
     "basePower": 140,
@@ -14195,7 +14195,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Psycho Cut": {
+  "psychocut": {
     "num": 427,
     "accuracy": 100,
     "basePower": 70,
@@ -14215,7 +14215,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Psycho Shift": {
+  "psychoshift": {
     "num": 375,
     "accuracy": 100,
     "basePower": 0,
@@ -14240,7 +14240,7 @@
     },
     "contestType": "Clever"
   },
-  "Psyshield Bash": {
+  "psyshieldbash": {
     "num": 828,
     "accuracy": 90,
     "basePower": 70,
@@ -14265,7 +14265,7 @@
     "target": "normal",
     "type": "Psychic"
   },
-  "Psyshock": {
+  "psyshock": {
     "num": 473,
     "accuracy": 100,
     "basePower": 80,
@@ -14284,7 +14284,7 @@
     "type": "Psychic",
     "contestType": "Beautiful"
   },
-  "Psystrike": {
+  "psystrike": {
     "num": 540,
     "accuracy": 100,
     "basePower": 100,
@@ -14303,7 +14303,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Psywave": {
+  "psywave": {
     "num": 149,
     "accuracy": 100,
     "basePower": 0,
@@ -14322,7 +14322,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Pulverizing Pancake": {
+  "pulverizingpancake": {
     "num": 701,
     "accuracy": true,
     "basePower": 210,
@@ -14340,7 +14340,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Punishment": {
+  "punishment": {
     "num": 386,
     "accuracy": 100,
     "basePower": 0,
@@ -14366,7 +14366,7 @@
     },
     "contestType": "Cool"
   },
-  "Purify": {
+  "purify": {
     "num": 685,
     "accuracy": true,
     "basePower": 0,
@@ -14395,7 +14395,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Pursuit": {
+  "pursuit": {
     "num": 228,
     "accuracy": 100,
     "basePower": 40,
@@ -14418,7 +14418,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Pyro Ball": {
+  "pyroball": {
     "num": 780,
     "accuracy": 90,
     "basePower": 120,
@@ -14439,7 +14439,7 @@
     "target": "normal",
     "type": "Fire"
   },
-  "Quash": {
+  "quash": {
     "num": 511,
     "accuracy": 100,
     "basePower": 0,
@@ -14461,7 +14461,7 @@
     },
     "contestType": "Clever"
   },
-  "Quick Attack": {
+  "quickattack": {
     "num": 98,
     "accuracy": 100,
     "basePower": 40,
@@ -14480,7 +14480,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Quick Guard": {
+  "quickguard": {
     "num": 501,
     "accuracy": true,
     "basePower": 0,
@@ -14506,7 +14506,7 @@
     },
     "contestType": "Cool"
   },
-  "Quiver Dance": {
+  "quiverdance": {
     "num": 483,
     "accuracy": true,
     "basePower": 0,
@@ -14532,7 +14532,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Rage": {
+  "rage": {
     "num": 99,
     "accuracy": 100,
     "basePower": 20,
@@ -14558,7 +14558,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Rage Fist": {
+  "ragefist": {
     "num": 889,
     "accuracy": 100,
     "basePower": 50,
@@ -14576,7 +14576,7 @@
     "target": "normal",
     "type": "Ghost"
   },
-  "Rage Powder": {
+  "ragepowder": {
     "num": 476,
     "accuracy": true,
     "basePower": 0,
@@ -14602,7 +14602,7 @@
     },
     "contestType": "Clever"
   },
-  "Raging Bull": {
+  "ragingbull": {
     "num": 873,
     "accuracy": 100,
     "basePower": 90,
@@ -14619,7 +14619,7 @@
     "target": "normal",
     "type": "Normal"
   },
-  "Raging Fury": {
+  "ragingfury": {
     "num": 833,
     "accuracy": 100,
     "basePower": 120,
@@ -14638,7 +14638,7 @@
     "target": "randomNormal",
     "type": "Fire"
   },
-  "Rain Dance": {
+  "raindance": {
     "num": 240,
     "accuracy": true,
     "basePower": 0,
@@ -14660,7 +14660,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Rapid Spin": {
+  "rapidspin": {
     "num": 229,
     "accuracy": 100,
     "basePower": 50,
@@ -14686,7 +14686,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Razor Leaf": {
+  "razorleaf": {
     "num": 75,
     "accuracy": 95,
     "basePower": 55,
@@ -14706,7 +14706,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Razor Shell": {
+  "razorshell": {
     "num": 534,
     "accuracy": 95,
     "basePower": 75,
@@ -14731,7 +14731,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Razor Wind": {
+  "razorwind": {
     "num": 13,
     "accuracy": 100,
     "basePower": 80,
@@ -14754,7 +14754,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Recover": {
+  "recover": {
     "num": 105,
     "accuracy": true,
     "basePower": 0,
@@ -14779,7 +14779,7 @@
     },
     "contestType": "Clever"
   },
-  "Recycle": {
+  "recycle": {
     "num": 278,
     "accuracy": true,
     "basePower": 0,
@@ -14801,7 +14801,7 @@
     },
     "contestType": "Clever"
   },
-  "Reflect": {
+  "reflect": {
     "num": 115,
     "accuracy": true,
     "basePower": 0,
@@ -14829,7 +14829,7 @@
     },
     "contestType": "Clever"
   },
-  "Reflect Type": {
+  "reflecttype": {
     "num": 513,
     "accuracy": true,
     "basePower": 0,
@@ -14853,7 +14853,7 @@
     },
     "contestType": "Clever"
   },
-  "Refresh": {
+  "refresh": {
     "num": 287,
     "accuracy": true,
     "basePower": 0,
@@ -14874,7 +14874,7 @@
     },
     "contestType": "Cute"
   },
-  "Relic Song": {
+  "relicsong": {
     "num": 547,
     "accuracy": 100,
     "basePower": 75,
@@ -14896,7 +14896,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Rest": {
+  "rest": {
     "num": 156,
     "accuracy": true,
     "basePower": 0,
@@ -14917,7 +14917,7 @@
     },
     "contestType": "Cute"
   },
-  "Retaliate": {
+  "retaliate": {
     "num": 514,
     "accuracy": 100,
     "basePower": 70,
@@ -14936,7 +14936,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Return": {
+  "return": {
     "num": 216,
     "accuracy": 100,
     "basePower": 0,
@@ -14962,7 +14962,7 @@
     },
     "contestType": "Cute"
   },
-  "Revelation Dance": {
+  "revelationdance": {
     "num": 686,
     "accuracy": 100,
     "basePower": 90,
@@ -14981,7 +14981,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Revenge": {
+  "revenge": {
     "num": 279,
     "accuracy": 100,
     "basePower": 60,
@@ -15001,7 +15001,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Reversal": {
+  "reversal": {
     "num": 179,
     "accuracy": 100,
     "basePower": 0,
@@ -15023,7 +15023,7 @@
     },
     "contestType": "Cool"
   },
-  "Revival Blessing": {
+  "revivalblessing": {
     "num": 863,
     "accuracy": true,
     "basePower": 0,
@@ -15045,7 +15045,7 @@
     "target": "self",
     "type": "Normal"
   },
-  "Rising Voltage": {
+  "risingvoltage": {
     "num": 804,
     "accuracy": 100,
     "basePower": 70,
@@ -15065,7 +15065,7 @@
       "basePower": 140
     }
   },
-  "Roar": {
+  "roar": {
     "num": 46,
     "accuracy": true,
     "basePower": 0,
@@ -15094,7 +15094,7 @@
     },
     "contestType": "Cool"
   },
-  "Roar of Time": {
+  "roaroftime": {
     "num": 459,
     "accuracy": 90,
     "basePower": 150,
@@ -15116,7 +15116,7 @@
     "type": "Dragon",
     "contestType": "Beautiful"
   },
-  "Rock Blast": {
+  "rockblast": {
     "num": 350,
     "accuracy": 90,
     "basePower": 25,
@@ -15145,7 +15145,7 @@
     },
     "contestType": "Tough"
   },
-  "Rock Climb": {
+  "rockclimb": {
     "num": 431,
     "accuracy": 85,
     "basePower": 90,
@@ -15168,7 +15168,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Rock Polish": {
+  "rockpolish": {
     "num": 397,
     "accuracy": true,
     "basePower": 0,
@@ -15191,7 +15191,7 @@
     },
     "contestType": "Tough"
   },
-  "Rock Slide": {
+  "rockslide": {
     "num": 157,
     "accuracy": 90,
     "basePower": 75,
@@ -15212,7 +15212,7 @@
     "type": "Rock",
     "contestType": "Tough"
   },
-  "Rock Smash": {
+  "rocksmash": {
     "num": 249,
     "accuracy": 100,
     "basePower": 40,
@@ -15236,7 +15236,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Rock Throw": {
+  "rockthrow": {
     "num": 88,
     "accuracy": 90,
     "basePower": 50,
@@ -15254,7 +15254,7 @@
     "type": "Rock",
     "contestType": "Tough"
   },
-  "Rock Tomb": {
+  "rocktomb": {
     "num": 317,
     "accuracy": 95,
     "basePower": 60,
@@ -15277,7 +15277,7 @@
     "type": "Rock",
     "contestType": "Clever"
   },
-  "Rock Wrecker": {
+  "rockwrecker": {
     "num": 439,
     "accuracy": 90,
     "basePower": 150,
@@ -15300,7 +15300,7 @@
     "type": "Rock",
     "contestType": "Tough"
   },
-  "Role Play": {
+  "roleplay": {
     "num": 272,
     "accuracy": true,
     "basePower": 0,
@@ -15323,7 +15323,7 @@
     },
     "contestType": "Cute"
   },
-  "Rolling Kick": {
+  "rollingkick": {
     "num": 27,
     "accuracy": 85,
     "basePower": 60,
@@ -15346,7 +15346,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Rollout": {
+  "rollout": {
     "num": 205,
     "accuracy": 90,
     "basePower": 30,
@@ -15371,7 +15371,7 @@
     "type": "Rock",
     "contestType": "Cute"
   },
-  "Roost": {
+  "roost": {
     "num": 355,
     "accuracy": true,
     "basePower": 0,
@@ -15404,7 +15404,7 @@
     },
     "contestType": "Clever"
   },
-  "Rototiller": {
+  "rototiller": {
     "num": 563,
     "accuracy": true,
     "basePower": 0,
@@ -15428,7 +15428,7 @@
     },
     "contestType": "Tough"
   },
-  "Round": {
+  "round": {
     "num": 496,
     "accuracy": 100,
     "basePower": 60,
@@ -15448,7 +15448,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Ruination": {
+  "ruination": {
     "num": 877,
     "accuracy": 90,
     "basePower": 0,
@@ -15465,7 +15465,7 @@
     "type": "Dark",
     "contestType": "Tough"
   },
-  "Sacred Fire": {
+  "sacredfire": {
     "num": 221,
     "accuracy": 95,
     "basePower": 100,
@@ -15487,7 +15487,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Sacred Sword": {
+  "sacredsword": {
     "num": 533,
     "accuracy": 100,
     "basePower": 90,
@@ -15509,7 +15509,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Safeguard": {
+  "safeguard": {
     "num": 219,
     "accuracy": true,
     "basePower": 0,
@@ -15537,7 +15537,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Salt Cure": {
+  "saltcure": {
     "num": 864,
     "accuracy": 100,
     "basePower": 40,
@@ -15560,7 +15560,7 @@
     "target": "normal",
     "type": "Rock"
   },
-  "Sand Attack": {
+  "sandattack": {
     "num": 28,
     "accuracy": 100,
     "basePower": 0,
@@ -15587,7 +15587,7 @@
     },
     "contestType": "Cute"
   },
-  "Sandsear Storm": {
+  "sandsearstorm": {
     "num": 848,
     "accuracy": 80,
     "basePower": 100,
@@ -15608,7 +15608,7 @@
     "target": "allAdjacentFoes",
     "type": "Ground"
   },
-  "Sandstorm": {
+  "sandstorm": {
     "num": 201,
     "accuracy": true,
     "basePower": 0,
@@ -15631,7 +15631,7 @@
     },
     "contestType": "Tough"
   },
-  "Sand Tomb": {
+  "sandtomb": {
     "num": 328,
     "accuracy": 85,
     "basePower": 35,
@@ -15650,7 +15650,7 @@
     "type": "Ground",
     "contestType": "Clever"
   },
-  "Sappy Seed": {
+  "sappyseed": {
     "num": 738,
     "accuracy": 90,
     "basePower": 100,
@@ -15669,7 +15669,7 @@
     "type": "Grass",
     "contestType": "Clever"
   },
-  "Savage Spin-Out": {
+  "savagespinout": {
     "num": 634,
     "accuracy": true,
     "basePower": 1,
@@ -15685,7 +15685,7 @@
     "type": "Bug",
     "contestType": "Cool"
   },
-  "Scald": {
+  "scald": {
     "num": 503,
     "accuracy": 100,
     "basePower": 80,
@@ -15708,7 +15708,7 @@
     "type": "Water",
     "contestType": "Tough"
   },
-  "Scale Shot": {
+  "scaleshot": {
     "num": 799,
     "accuracy": 90,
     "basePower": 25,
@@ -15741,7 +15741,7 @@
       "basePower": 130
     }
   },
-  "Scary Face": {
+  "scaryface": {
     "num": 184,
     "accuracy": 100,
     "basePower": 0,
@@ -15769,7 +15769,7 @@
     },
     "contestType": "Tough"
   },
-  "Scorching Sands": {
+  "scorchingsands": {
     "num": 815,
     "accuracy": 100,
     "basePower": 70,
@@ -15791,7 +15791,7 @@
     "target": "normal",
     "type": "Ground"
   },
-  "Scratch": {
+  "scratch": {
     "num": 10,
     "accuracy": 100,
     "basePower": 40,
@@ -15810,7 +15810,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Screech": {
+  "screech": {
     "num": 103,
     "accuracy": 85,
     "basePower": 0,
@@ -15840,7 +15840,7 @@
     },
     "contestType": "Clever"
   },
-  "Searing Shot": {
+  "searingshot": {
     "num": 545,
     "accuracy": 100,
     "basePower": 100,
@@ -15863,7 +15863,7 @@
     "type": "Fire",
     "contestType": "Cool"
   },
-  "Searing Sunraze Smash": {
+  "searingsunrazesmash": {
     "num": 724,
     "accuracy": true,
     "basePower": 200,
@@ -15882,7 +15882,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Secret Power": {
+  "secretpower": {
     "num": 290,
     "accuracy": 100,
     "basePower": 70,
@@ -15904,7 +15904,7 @@
     "type": "Normal",
     "contestType": "Clever"
   },
-  "Secret Sword": {
+  "secretsword": {
     "num": 548,
     "accuracy": 100,
     "basePower": 85,
@@ -15923,7 +15923,7 @@
     "type": "Fighting",
     "contestType": "Beautiful"
   },
-  "Seed Bomb": {
+  "seedbomb": {
     "num": 402,
     "accuracy": 100,
     "basePower": 80,
@@ -15942,7 +15942,7 @@
     "type": "Grass",
     "contestType": "Tough"
   },
-  "Seed Flare": {
+  "seedflare": {
     "num": 465,
     "accuracy": 85,
     "basePower": 120,
@@ -15965,7 +15965,7 @@
     "type": "Grass",
     "contestType": "Beautiful"
   },
-  "Seismic Toss": {
+  "seismictoss": {
     "num": 69,
     "accuracy": 100,
     "basePower": 0,
@@ -15989,7 +15989,7 @@
     },
     "contestType": "Tough"
   },
-  "Self-Destruct": {
+  "selfdestruct": {
     "num": 120,
     "accuracy": 100,
     "basePower": 200,
@@ -16009,7 +16009,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Shadow Ball": {
+  "shadowball": {
     "num": 247,
     "accuracy": 100,
     "basePower": 80,
@@ -16033,7 +16033,7 @@
     "type": "Ghost",
     "contestType": "Clever"
   },
-  "Shadow Bone": {
+  "shadowbone": {
     "num": 708,
     "accuracy": 100,
     "basePower": 85,
@@ -16057,7 +16057,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Shadow Claw": {
+  "shadowclaw": {
     "num": 421,
     "accuracy": 100,
     "basePower": 70,
@@ -16077,7 +16077,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Shadow Force": {
+  "shadowforce": {
     "num": 467,
     "accuracy": 100,
     "basePower": 120,
@@ -16104,7 +16104,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Shadow Punch": {
+  "shadowpunch": {
     "num": 325,
     "accuracy": true,
     "basePower": 60,
@@ -16124,7 +16124,7 @@
     "type": "Ghost",
     "contestType": "Clever"
   },
-  "Shadow Sneak": {
+  "shadowsneak": {
     "num": 425,
     "accuracy": 100,
     "basePower": 40,
@@ -16143,7 +16143,7 @@
     "type": "Ghost",
     "contestType": "Clever"
   },
-  "Shadow Strike": {
+  "shadowstrike": {
     "num": 0,
     "accuracy": 95,
     "basePower": 80,
@@ -16167,7 +16167,7 @@
     "type": "Ghost",
     "contestType": "Clever"
   },
-  "Sharpen": {
+  "sharpen": {
     "num": 159,
     "accuracy": true,
     "basePower": 0,
@@ -16193,7 +16193,7 @@
     },
     "contestType": "Cute"
   },
-  "Shattered Psyche": {
+  "shatteredpsyche": {
     "num": 648,
     "accuracy": true,
     "basePower": 1,
@@ -16209,7 +16209,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Shed Tail": {
+  "shedtail": {
     "num": 880,
     "accuracy": true,
     "basePower": 0,
@@ -16228,7 +16228,7 @@
       "effect": "clearnegativeboost"
     }
   },
-  "Sheer Cold": {
+  "sheercold": {
     "num": 329,
     "accuracy": 30,
     "basePower": 0,
@@ -16253,7 +16253,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Shell Side Arm": {
+  "shellsidearm": {
     "num": 801,
     "accuracy": 100,
     "basePower": 90,
@@ -16273,7 +16273,7 @@
     "target": "normal",
     "type": "Poison"
   },
-  "Shell Smash": {
+  "shellsmash": {
     "num": 504,
     "accuracy": true,
     "basePower": 0,
@@ -16300,7 +16300,7 @@
     },
     "contestType": "Tough"
   },
-  "Shell Trap": {
+  "shelltrap": {
     "num": 704,
     "accuracy": 100,
     "basePower": 150,
@@ -16325,7 +16325,7 @@
     "type": "Fire",
     "contestType": "Tough"
   },
-  "Shelter": {
+  "shelter": {
     "num": 842,
     "accuracy": true,
     "basePower": 0,
@@ -16344,7 +16344,7 @@
     "target": "self",
     "type": "Steel"
   },
-  "Shift Gear": {
+  "shiftgear": {
     "num": 508,
     "accuracy": true,
     "basePower": 0,
@@ -16368,7 +16368,7 @@
     },
     "contestType": "Clever"
   },
-  "Shock Wave": {
+  "shockwave": {
     "num": 351,
     "accuracy": true,
     "basePower": 60,
@@ -16386,7 +16386,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Shore Up": {
+  "shoreup": {
     "num": 659,
     "accuracy": true,
     "basePower": 0,
@@ -16407,7 +16407,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Signal Beam": {
+  "signalbeam": {
     "num": 324,
     "accuracy": 100,
     "basePower": 75,
@@ -16429,7 +16429,7 @@
     "type": "Bug",
     "contestType": "Beautiful"
   },
-  "Silk Trap": {
+  "silktrap": {
     "num": 852,
     "accuracy": true,
     "basePower": 0,
@@ -16447,7 +16447,7 @@
     "target": "self",
     "type": "Bug"
   },
-  "Silver Wind": {
+  "silverwind": {
     "num": 318,
     "accuracy": 100,
     "basePower": 60,
@@ -16477,7 +16477,7 @@
     "type": "Bug",
     "contestType": "Beautiful"
   },
-  "Simple Beam": {
+  "simplebeam": {
     "num": 493,
     "accuracy": 100,
     "basePower": 0,
@@ -16502,7 +16502,7 @@
     },
     "contestType": "Cute"
   },
-  "Sing": {
+  "sing": {
     "num": 47,
     "accuracy": 55,
     "basePower": 0,
@@ -16529,7 +16529,7 @@
     },
     "contestType": "Cute"
   },
-  "Sinister Arrow Raid": {
+  "sinisterarrowraid": {
     "num": 695,
     "accuracy": true,
     "basePower": 180,
@@ -16545,7 +16545,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Sizzly Slide": {
+  "sizzlyslide": {
     "num": 735,
     "accuracy": 100,
     "basePower": 60,
@@ -16568,7 +16568,7 @@
     "type": "Fire",
     "contestType": "Clever"
   },
-  "Sketch": {
+  "sketch": {
     "num": 166,
     "accuracy": true,
     "basePower": 0,
@@ -16602,7 +16602,7 @@
     },
     "contestType": "Clever"
   },
-  "Skill Swap": {
+  "skillswap": {
     "num": 285,
     "accuracy": true,
     "basePower": 0,
@@ -16627,7 +16627,7 @@
     },
     "contestType": "Clever"
   },
-  "Skitter Smack": {
+  "skittersmack": {
     "num": 806,
     "accuracy": 90,
     "basePower": 70,
@@ -16650,7 +16650,7 @@
     "target": "normal",
     "type": "Bug"
   },
-  "Skull Bash": {
+  "skullbash": {
     "num": 130,
     "accuracy": 100,
     "basePower": 130,
@@ -16673,7 +16673,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Sky Attack": {
+  "skyattack": {
     "num": 143,
     "accuracy": 90,
     "basePower": 140,
@@ -16699,7 +16699,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Sky Drop": {
+  "skydrop": {
     "num": 507,
     "accuracy": 100,
     "basePower": 60,
@@ -16731,7 +16731,7 @@
     "type": "Flying",
     "contestType": "Tough"
   },
-  "Sky Uppercut": {
+  "skyuppercut": {
     "num": 327,
     "accuracy": 90,
     "basePower": 85,
@@ -16752,7 +16752,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Slack Off": {
+  "slackoff": {
     "num": 303,
     "accuracy": true,
     "basePower": 0,
@@ -16777,7 +16777,7 @@
     },
     "contestType": "Cute"
   },
-  "Slam": {
+  "slam": {
     "num": 21,
     "accuracy": 75,
     "basePower": 80,
@@ -16797,7 +16797,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Slash": {
+  "slash": {
     "num": 163,
     "accuracy": 100,
     "basePower": 70,
@@ -16818,7 +16818,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Sleep Powder": {
+  "sleeppowder": {
     "num": 79,
     "accuracy": 75,
     "basePower": 0,
@@ -16844,7 +16844,7 @@
     },
     "contestType": "Clever"
   },
-  "Sleep Talk": {
+  "sleeptalk": {
     "num": 214,
     "accuracy": true,
     "basePower": 0,
@@ -16869,7 +16869,7 @@
     },
     "contestType": "Cute"
   },
-  "Sludge": {
+  "sludge": {
     "num": 124,
     "accuracy": 100,
     "basePower": 65,
@@ -16890,7 +16890,7 @@
     "type": "Poison",
     "contestType": "Tough"
   },
-  "Sludge Bomb": {
+  "sludgebomb": {
     "num": 188,
     "accuracy": 100,
     "basePower": 90,
@@ -16912,7 +16912,7 @@
     "type": "Poison",
     "contestType": "Tough"
   },
-  "Sludge Wave": {
+  "sludgewave": {
     "num": 482,
     "accuracy": 100,
     "basePower": 95,
@@ -16933,7 +16933,7 @@
     "type": "Poison",
     "contestType": "Tough"
   },
-  "Smack Down": {
+  "smackdown": {
     "num": 479,
     "accuracy": 100,
     "basePower": 50,
@@ -16956,7 +16956,7 @@
     "type": "Rock",
     "contestType": "Tough"
   },
-  "Smart Strike": {
+  "smartstrike": {
     "num": 684,
     "accuracy": true,
     "basePower": 70,
@@ -16975,7 +16975,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Smelling Salts": {
+  "smellingsalts": {
     "num": 265,
     "accuracy": 100,
     "basePower": 70,
@@ -16995,7 +16995,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Smog": {
+  "smog": {
     "num": 123,
     "accuracy": 70,
     "basePower": 30,
@@ -17016,7 +17016,7 @@
     "type": "Poison",
     "contestType": "Tough"
   },
-  "Smokescreen": {
+  "smokescreen": {
     "num": 108,
     "accuracy": 100,
     "basePower": 0,
@@ -17043,7 +17043,7 @@
     },
     "contestType": "Clever"
   },
-  "Snap Trap": {
+  "snaptrap": {
     "num": 779,
     "accuracy": 100,
     "basePower": 35,
@@ -17062,7 +17062,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Snarl": {
+  "snarl": {
     "num": 555,
     "accuracy": 95,
     "basePower": 55,
@@ -17086,7 +17086,7 @@
     "type": "Dark",
     "contestType": "Tough"
   },
-  "Snatch": {
+  "snatch": {
     "num": 289,
     "accuracy": true,
     "basePower": 0,
@@ -17116,7 +17116,7 @@
     },
     "contestType": "Clever"
   },
-  "Snipe Shot": {
+  "snipeshot": {
     "num": 745,
     "accuracy": 100,
     "basePower": 80,
@@ -17135,7 +17135,7 @@
     "target": "normal",
     "type": "Water"
   },
-  "Snore": {
+  "snore": {
     "num": 173,
     "accuracy": 100,
     "basePower": 50,
@@ -17158,7 +17158,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Snowscape": {
+  "snowscape": {
     "num": 883,
     "accuracy": true,
     "basePower": 0,
@@ -17172,7 +17172,7 @@
     "target": "all",
     "type": "Ice"
   },
-  "Soak": {
+  "soak": {
     "num": 487,
     "accuracy": 100,
     "basePower": 0,
@@ -17197,7 +17197,7 @@
     },
     "contestType": "Cute"
   },
-  "Soft-Boiled": {
+  "softboiled": {
     "num": 135,
     "accuracy": true,
     "basePower": 0,
@@ -17222,7 +17222,7 @@
     },
     "contestType": "Cute"
   },
-  "Solar Beam": {
+  "solarbeam": {
     "num": 76,
     "accuracy": 100,
     "basePower": 120,
@@ -17243,7 +17243,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Solar Blade": {
+  "solarblade": {
     "num": 669,
     "accuracy": 100,
     "basePower": 125,
@@ -17266,7 +17266,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Sonic Boom": {
+  "sonicboom": {
     "num": 49,
     "accuracy": 90,
     "basePower": 0,
@@ -17286,7 +17286,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Soul-Stealing 7-Star Strike": {
+  "soulstealing7starstrike": {
     "num": 699,
     "accuracy": true,
     "basePower": 195,
@@ -17304,7 +17304,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Spacial Rend": {
+  "spacialrend": {
     "num": 460,
     "accuracy": 95,
     "basePower": 100,
@@ -17323,7 +17323,7 @@
     "type": "Dragon",
     "contestType": "Beautiful"
   },
-  "Spark": {
+  "spark": {
     "num": 209,
     "accuracy": 100,
     "basePower": 65,
@@ -17345,7 +17345,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Sparkling Aria": {
+  "sparklingaria": {
     "num": 664,
     "accuracy": 100,
     "basePower": 90,
@@ -17369,7 +17369,7 @@
     "type": "Water",
     "contestType": "Tough"
   },
-  "Sparkly Swirl": {
+  "sparklyswirl": {
     "num": 740,
     "accuracy": 85,
     "basePower": 120,
@@ -17388,7 +17388,7 @@
     "type": "Fairy",
     "contestType": "Clever"
   },
-  "Spectral Thief": {
+  "spectralthief": {
     "num": 712,
     "accuracy": 100,
     "basePower": 90,
@@ -17409,7 +17409,7 @@
     "type": "Ghost",
     "contestType": "Cool"
   },
-  "Speed Swap": {
+  "speedswap": {
     "num": 683,
     "accuracy": true,
     "basePower": 0,
@@ -17434,7 +17434,7 @@
     },
     "contestType": "Clever"
   },
-  "Spicy Extract": {
+  "spicyextract": {
     "num": 858,
     "accuracy": true,
     "basePower": 0,
@@ -17455,7 +17455,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Spider Web": {
+  "spiderweb": {
     "num": 169,
     "accuracy": true,
     "basePower": 0,
@@ -17480,7 +17480,7 @@
     },
     "contestType": "Clever"
   },
-  "Spike Cannon": {
+  "spikecannon": {
     "num": 131,
     "accuracy": 100,
     "basePower": 20,
@@ -17506,7 +17506,7 @@
     },
     "contestType": "Cool"
   },
-  "Spikes": {
+  "spikes": {
     "num": 191,
     "accuracy": true,
     "basePower": 0,
@@ -17532,7 +17532,7 @@
     },
     "contestType": "Clever"
   },
-  "Spiky Shield": {
+  "spikyshield": {
     "num": 596,
     "accuracy": true,
     "basePower": 0,
@@ -17560,7 +17560,7 @@
     },
     "contestType": "Tough"
   },
-  "Spin Out": {
+  "spinout": {
     "num": 859,
     "accuracy": 100,
     "basePower": 100,
@@ -17583,7 +17583,7 @@
     "target": "normal",
     "type": "Steel"
   },
-  "Spirit Break": {
+  "spiritbreak": {
     "num": 789,
     "accuracy": 100,
     "basePower": 75,
@@ -17605,7 +17605,7 @@
     "target": "normal",
     "type": "Fairy"
   },
-  "Spirit Shackle": {
+  "spiritshackle": {
     "num": 662,
     "accuracy": 100,
     "basePower": 80,
@@ -17625,7 +17625,7 @@
     "type": "Ghost",
     "contestType": "Tough"
   },
-  "Spit Up": {
+  "spitup": {
     "num": 255,
     "accuracy": 100,
     "basePower": 0,
@@ -17642,7 +17642,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Spite": {
+  "spite": {
     "num": 180,
     "accuracy": 100,
     "basePower": 0,
@@ -17665,7 +17665,7 @@
     },
     "contestType": "Tough"
   },
-  "Splash": {
+  "splash": {
     "num": 150,
     "accuracy": true,
     "basePower": 0,
@@ -17687,7 +17687,7 @@
     },
     "contestType": "Cute"
   },
-  "Splintered Stormshards": {
+  "splinteredstormshards": {
     "num": 727,
     "accuracy": true,
     "basePower": 190,
@@ -17703,7 +17703,7 @@
     "type": "Rock",
     "contestType": "Cool"
   },
-  "Splishy Splash": {
+  "splishysplash": {
     "num": 730,
     "accuracy": 100,
     "basePower": 90,
@@ -17724,7 +17724,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Spore": {
+  "spore": {
     "num": 147,
     "accuracy": 100,
     "basePower": 0,
@@ -17748,7 +17748,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Spotlight": {
+  "spotlight": {
     "num": 671,
     "accuracy": true,
     "basePower": 0,
@@ -17779,7 +17779,7 @@
     },
     "contestType": "Cute"
   },
-  "Springtide Storm": {
+  "springtidestorm": {
     "num": 831,
     "accuracy": 80,
     "basePower": 100,
@@ -17801,7 +17801,7 @@
     "target": "allAdjacentFoes",
     "type": "Fairy"
   },
-  "Stealth Rock": {
+  "stealthrock": {
     "num": 446,
     "accuracy": true,
     "basePower": 0,
@@ -17826,7 +17826,7 @@
     },
     "contestType": "Cool"
   },
-  "Steam Eruption": {
+  "steameruption": {
     "num": 592,
     "accuracy": 95,
     "basePower": 110,
@@ -17848,7 +17848,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Steamroller": {
+  "steamroller": {
     "num": 537,
     "accuracy": 100,
     "basePower": 65,
@@ -17871,7 +17871,7 @@
     "type": "Bug",
     "contestType": "Tough"
   },
-  "Steel Beam": {
+  "steelbeam": {
     "num": 796,
     "accuracy": 95,
     "basePower": 140,
@@ -17888,7 +17888,7 @@
     "target": "normal",
     "type": "Steel"
   },
-  "Steel Roller": {
+  "steelroller": {
     "num": 798,
     "accuracy": 100,
     "basePower": 130,
@@ -17906,7 +17906,7 @@
     "target": "normal",
     "type": "Steel"
   },
-  "Steel Wing": {
+  "steelwing": {
     "num": 211,
     "accuracy": 90,
     "basePower": 70,
@@ -17932,7 +17932,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Sticky Web": {
+  "stickyweb": {
     "num": 564,
     "accuracy": true,
     "basePower": 0,
@@ -17956,7 +17956,7 @@
     },
     "contestType": "Tough"
   },
-  "Stockpile": {
+  "stockpile": {
     "num": 254,
     "accuracy": true,
     "basePower": 0,
@@ -17980,7 +17980,7 @@
     },
     "contestType": "Tough"
   },
-  "Stoked Sparksurfer": {
+  "stokedsparksurfer": {
     "num": 700,
     "accuracy": true,
     "basePower": 175,
@@ -17999,7 +17999,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Stomp": {
+  "stomp": {
     "num": 23,
     "accuracy": 100,
     "basePower": 65,
@@ -18022,7 +18022,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Stomping Tantrum": {
+  "stompingtantrum": {
     "num": 707,
     "accuracy": 100,
     "basePower": 75,
@@ -18041,7 +18041,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "Stone Axe": {
+  "stoneaxe": {
     "num": 830,
     "accuracy": 90,
     "basePower": 65,
@@ -18060,7 +18060,7 @@
     "target": "normal",
     "type": "Rock"
   },
-  "Stone Edge": {
+  "stoneedge": {
     "num": 444,
     "accuracy": 80,
     "basePower": 100,
@@ -18079,7 +18079,7 @@
     "type": "Rock",
     "contestType": "Tough"
   },
-  "Stored Power": {
+  "storedpower": {
     "num": 500,
     "accuracy": 100,
     "basePower": 20,
@@ -18103,7 +18103,7 @@
     },
     "contestType": "Clever"
   },
-  "Storm Throw": {
+  "stormthrow": {
     "num": 480,
     "accuracy": 100,
     "basePower": 60,
@@ -18124,7 +18124,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Strange Steam": {
+  "strangesteam": {
     "num": 790,
     "accuracy": 95,
     "basePower": 90,
@@ -18143,7 +18143,7 @@
     "target": "normal",
     "type": "Fairy"
   },
-  "Strength": {
+  "strength": {
     "num": 70,
     "accuracy": 100,
     "basePower": 80,
@@ -18162,7 +18162,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Strength Sap": {
+  "strengthsap": {
     "num": 668,
     "accuracy": 100,
     "basePower": 0,
@@ -18187,7 +18187,7 @@
     },
     "contestType": "Cute"
   },
-  "String Shot": {
+  "stringshot": {
     "num": 81,
     "accuracy": 95,
     "basePower": 0,
@@ -18214,7 +18214,7 @@
     },
     "contestType": "Clever"
   },
-  "Struggle": {
+  "struggle": {
     "num": 165,
     "accuracy": true,
     "basePower": 50,
@@ -18241,7 +18241,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Struggle Bug": {
+  "strugglebug": {
     "num": 522,
     "accuracy": 100,
     "basePower": 50,
@@ -18264,7 +18264,7 @@
     "type": "Bug",
     "contestType": "Cute"
   },
-  "Stuff Cheeks": {
+  "stuffcheeks": {
     "num": 747,
     "accuracy": true,
     "basePower": 0,
@@ -18280,7 +18280,7 @@
     "target": "self",
     "type": "Normal"
   },
-  "Stun Spore": {
+  "stunspore": {
     "num": 78,
     "accuracy": 75,
     "basePower": 0,
@@ -18306,7 +18306,7 @@
     },
     "contestType": "Clever"
   },
-  "Submission": {
+  "submission": {
     "num": 66,
     "accuracy": 80,
     "basePower": 80,
@@ -18330,7 +18330,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Substitute": {
+  "substitute": {
     "num": 164,
     "accuracy": true,
     "basePower": 0,
@@ -18355,7 +18355,7 @@
     },
     "contestType": "Cute"
   },
-  "Subzero Slammer": {
+  "subzeroslammer": {
     "num": 650,
     "accuracy": true,
     "basePower": 1,
@@ -18371,7 +18371,7 @@
     "type": "Ice",
     "contestType": "Cool"
   },
-  "Sucker Punch": {
+  "suckerpunch": {
     "num": 389,
     "accuracy": 100,
     "basePower": 70,
@@ -18390,7 +18390,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Sunny Day": {
+  "sunnyday": {
     "num": 241,
     "accuracy": true,
     "basePower": 0,
@@ -18412,7 +18412,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Sunsteel Strike": {
+  "sunsteelstrike": {
     "num": 713,
     "accuracy": 100,
     "basePower": 100,
@@ -18431,7 +18431,7 @@
     "type": "Steel",
     "contestType": "Cool"
   },
-  "Supercell Slam": {
+  "supercellslam": {
     "num": 916,
     "accuracy": 95,
     "basePower": 100,
@@ -18450,7 +18450,7 @@
     "target": "normal",
     "type": "Electric"
   },
-  "Super Fang": {
+  "superfang": {
     "num": 162,
     "accuracy": 90,
     "basePower": 0,
@@ -18469,7 +18469,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Superpower": {
+  "superpower": {
     "num": 276,
     "accuracy": 100,
     "basePower": 120,
@@ -18494,7 +18494,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Supersonic": {
+  "supersonic": {
     "num": 48,
     "accuracy": 55,
     "basePower": 0,
@@ -18521,7 +18521,7 @@
     },
     "contestType": "Clever"
   },
-  "Supersonic Skystrike": {
+  "supersonicskystrike": {
     "num": 626,
     "accuracy": true,
     "basePower": 1,
@@ -18537,7 +18537,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Surf": {
+  "surf": {
     "num": 57,
     "accuracy": 100,
     "basePower": 90,
@@ -18556,7 +18556,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Surging Strikes": {
+  "surgingstrikes": {
     "num": 818,
     "accuracy": 100,
     "basePower": 25,
@@ -18582,7 +18582,7 @@
       "basePower": 130
     }
   },
-  "Swagger": {
+  "swagger": {
     "num": 207,
     "accuracy": 85,
     "basePower": 0,
@@ -18609,7 +18609,7 @@
     },
     "contestType": "Cute"
   },
-  "Swallow": {
+  "swallow": {
     "num": 256,
     "accuracy": true,
     "basePower": 0,
@@ -18630,7 +18630,7 @@
     },
     "contestType": "Tough"
   },
-  "Sweet Kiss": {
+  "sweetkiss": {
     "num": 186,
     "accuracy": 75,
     "basePower": 0,
@@ -18655,7 +18655,7 @@
     },
     "contestType": "Cute"
   },
-  "Sweet Scent": {
+  "sweetscent": {
     "num": 230,
     "accuracy": 100,
     "basePower": 0,
@@ -18682,7 +18682,7 @@
     },
     "contestType": "Cute"
   },
-  "Swift": {
+  "swift": {
     "num": 129,
     "accuracy": true,
     "basePower": 60,
@@ -18700,7 +18700,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Switcheroo": {
+  "switcheroo": {
     "num": 415,
     "accuracy": 100,
     "basePower": 0,
@@ -18725,7 +18725,7 @@
     },
     "contestType": "Clever"
   },
-  "Swords Dance": {
+  "swordsdance": {
     "num": 14,
     "accuracy": true,
     "basePower": 0,
@@ -18749,7 +18749,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Synchronoise": {
+  "synchronoise": {
     "num": 485,
     "accuracy": 100,
     "basePower": 120,
@@ -18768,7 +18768,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Synthesis": {
+  "synthesis": {
     "num": 235,
     "accuracy": true,
     "basePower": 0,
@@ -18789,7 +18789,7 @@
     },
     "contestType": "Clever"
   },
-  "Syrup Bomb": {
+  "syrupbomb": {
     "num": 903,
     "accuracy": 85,
     "basePower": 60,
@@ -18815,7 +18815,7 @@
     "target": "normal",
     "type": "Grass"
   },
-  "Tachyon Cutter": {
+  "tachyoncutter": {
     "num": 911,
     "accuracy": true,
     "basePower": 50,
@@ -18841,7 +18841,7 @@
     },
     "contestType": "Clever"
   },
-  "Tackle": {
+  "tackle": {
     "num": 33,
     "accuracy": 100,
     "basePower": 40,
@@ -18860,7 +18860,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Tail Glow": {
+  "tailglow": {
     "num": 294,
     "accuracy": true,
     "basePower": 0,
@@ -18883,7 +18883,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Tail Slap": {
+  "tailslap": {
     "num": 541,
     "accuracy": 85,
     "basePower": 25,
@@ -18912,7 +18912,7 @@
     },
     "contestType": "Cute"
   },
-  "Tail Whip": {
+  "tailwhip": {
     "num": 39,
     "accuracy": 100,
     "basePower": 0,
@@ -18939,7 +18939,7 @@
     },
     "contestType": "Cute"
   },
-  "Tailwind": {
+  "tailwind": {
     "num": 366,
     "accuracy": true,
     "basePower": 0,
@@ -18966,7 +18966,7 @@
     },
     "contestType": "Cool"
   },
-  "Take Down": {
+  "takedown": {
     "num": 36,
     "accuracy": 85,
     "basePower": 90,
@@ -18989,7 +18989,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Take Heart": {
+  "takeheart": {
     "num": 850,
     "accuracy": true,
     "basePower": 0,
@@ -19005,7 +19005,7 @@
     "target": "self",
     "type": "Psychic"
   },
-  "Tar Shot": {
+  "tarshot": {
     "num": 749,
     "accuracy": 100,
     "basePower": 0,
@@ -19030,7 +19030,7 @@
     "target": "normal",
     "type": "Rock"
   },
-  "Taunt": {
+  "taunt": {
     "num": 269,
     "accuracy": 100,
     "basePower": 0,
@@ -19061,7 +19061,7 @@
     },
     "contestType": "Clever"
   },
-  "Tearful Look": {
+  "tearfullook": {
     "num": 715,
     "accuracy": true,
     "basePower": 0,
@@ -19088,7 +19088,7 @@
     },
     "contestType": "Cute"
   },
-  "Teatime": {
+  "teatime": {
     "num": 752,
     "accuracy": true,
     "basePower": 0,
@@ -19104,7 +19104,7 @@
     "target": "all",
     "type": "Normal"
   },
-  "Techno Blast": {
+  "technoblast": {
     "num": 546,
     "accuracy": 100,
     "basePower": 120,
@@ -19122,7 +19122,7 @@
     "type": "Normal",
     "contestType": "Cool"
   },
-  "Tectonic Rage": {
+  "tectonicrage": {
     "num": 630,
     "accuracy": true,
     "basePower": 1,
@@ -19138,7 +19138,7 @@
     "type": "Ground",
     "contestType": "Cool"
   },
-  "Teeter Dance": {
+  "teeterdance": {
     "num": 298,
     "accuracy": 100,
     "basePower": 0,
@@ -19163,7 +19163,7 @@
     },
     "contestType": "Cute"
   },
-  "Telekinesis": {
+  "telekinesis": {
     "num": 477,
     "accuracy": true,
     "basePower": 0,
@@ -19196,7 +19196,7 @@
     },
     "contestType": "Clever"
   },
-  "Teleport": {
+  "teleport": {
     "num": 100,
     "accuracy": true,
     "basePower": 0,
@@ -19216,7 +19216,7 @@
     },
     "contestType": "Cool"
   },
-  "Temper Flare": {
+  "temperflare": {
     "num": 915,
     "accuracy": 100,
     "basePower": 75,
@@ -19234,7 +19234,7 @@
     "target": "normal",
     "type": "Fire"
   },
-  "Tera Blast": {
+  "terablast": {
     "num": 851,
     "accuracy": 100,
     "basePower": 80,
@@ -19252,7 +19252,7 @@
     "target": "normal",
     "type": "Normal"
   },
-  "Tera Starstorm": {
+  "terastarstorm": {
     "num": 906,
     "accuracy": 100,
     "basePower": 120,
@@ -19272,7 +19272,7 @@
     "target": "normal",
     "type": "Normal"
   },
-  "Terrain Pulse": {
+  "terrainpulse": {
     "num": 805,
     "accuracy": 100,
     "basePower": 50,
@@ -19296,7 +19296,7 @@
       "basePower": 130
     }
   },
-  "Thief": {
+  "thief": {
     "num": 168,
     "accuracy": 100,
     "basePower": 60,
@@ -19317,7 +19317,7 @@
     "type": "Dark",
     "contestType": "Tough"
   },
-  "Thousand Arrows": {
+  "thousandarrows": {
     "num": 614,
     "accuracy": 100,
     "basePower": 90,
@@ -19343,7 +19343,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Thousand Waves": {
+  "thousandwaves": {
     "num": 615,
     "accuracy": 100,
     "basePower": 90,
@@ -19362,7 +19362,7 @@
     "type": "Ground",
     "contestType": "Tough"
   },
-  "Thrash": {
+  "thrash": {
     "num": 37,
     "accuracy": 100,
     "basePower": 120,
@@ -19385,7 +19385,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Throat Chop": {
+  "throatchop": {
     "num": 675,
     "accuracy": 100,
     "basePower": 80,
@@ -19411,7 +19411,7 @@
     "type": "Dark",
     "contestType": "Clever"
   },
-  "Thunder": {
+  "thunder": {
     "num": 87,
     "accuracy": 70,
     "basePower": 110,
@@ -19432,7 +19432,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Thunderbolt": {
+  "thunderbolt": {
     "num": 85,
     "accuracy": 100,
     "basePower": 90,
@@ -19453,7 +19453,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Thunder Cage": {
+  "thundercage": {
     "num": 819,
     "accuracy": 90,
     "basePower": 80,
@@ -19470,7 +19470,7 @@
     "target": "normal",
     "type": "Electric"
   },
-  "Thunderclap": {
+  "thunderclap": {
     "num": 909,
     "accuracy": 100,
     "basePower": 70,
@@ -19488,7 +19488,7 @@
     "type": "Electric",
     "contestType": "Clever"
   },
-  "Thunder Fang": {
+  "thunderfang": {
     "num": 422,
     "accuracy": 95,
     "basePower": 65,
@@ -19517,7 +19517,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Thunderous Kick": {
+  "thunderouskick": {
     "num": 823,
     "accuracy": 100,
     "basePower": 90,
@@ -19539,7 +19539,7 @@
     "target": "normal",
     "type": "Fighting"
   },
-  "Thunder Punch": {
+  "thunderpunch": {
     "num": 9,
     "accuracy": 100,
     "basePower": 75,
@@ -19562,7 +19562,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Thunder Shock": {
+  "thundershock": {
     "num": 84,
     "accuracy": 100,
     "basePower": 40,
@@ -19583,7 +19583,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Thunder Wave": {
+  "thunderwave": {
     "num": 86,
     "accuracy": 90,
     "basePower": 0,
@@ -19609,7 +19609,7 @@
     },
     "contestType": "Cool"
   },
-  "Tickle": {
+  "tickle": {
     "num": 321,
     "accuracy": 100,
     "basePower": 0,
@@ -19638,7 +19638,7 @@
     },
     "contestType": "Cute"
   },
-  "Tidy Up": {
+  "tidyup": {
     "num": 882,
     "accuracy": true,
     "basePower": 0,
@@ -19651,7 +19651,7 @@
     "target": "self",
     "type": "Normal"
   },
-  "Topsy-Turvy": {
+  "topsyturvy": {
     "num": 576,
     "accuracy": true,
     "basePower": 0,
@@ -19676,7 +19676,7 @@
     },
     "contestType": "Clever"
   },
-  "Torch Song": {
+  "torchsong": {
     "num": 871,
     "accuracy": 100,
     "basePower": 80,
@@ -19703,7 +19703,7 @@
     "type": "Fire",
     "contestType": "Beautiful"
   },
-  "Torment": {
+  "torment": {
     "num": 259,
     "accuracy": 100,
     "basePower": 0,
@@ -19732,7 +19732,7 @@
     },
     "contestType": "Tough"
   },
-  "Toxic": {
+  "toxic": {
     "num": 92,
     "accuracy": 90,
     "basePower": 0,
@@ -19757,7 +19757,7 @@
     },
     "contestType": "Clever"
   },
-  "Toxic Spikes": {
+  "toxicspikes": {
     "num": 390,
     "accuracy": true,
     "basePower": 0,
@@ -19783,7 +19783,7 @@
     },
     "contestType": "Clever"
   },
-  "Toxic Thread": {
+  "toxicthread": {
     "num": 672,
     "accuracy": 100,
     "basePower": 0,
@@ -19811,7 +19811,7 @@
     },
     "contestType": "Tough"
   },
-  "Trailblaze": {
+  "trailblaze": {
     "num": 885,
     "accuracy": 100,
     "basePower": 50,
@@ -19836,7 +19836,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Transform": {
+  "transform": {
     "num": 144,
     "accuracy": true,
     "basePower": 0,
@@ -19860,7 +19860,7 @@
     },
     "contestType": "Clever"
   },
-  "Tri Attack": {
+  "triattack": {
     "num": 161,
     "accuracy": 100,
     "basePower": 80,
@@ -19880,7 +19880,7 @@
     "type": "Normal",
     "contestType": "Beautiful"
   },
-  "Trick": {
+  "trick": {
     "num": 271,
     "accuracy": 100,
     "basePower": 0,
@@ -19905,7 +19905,7 @@
     },
     "contestType": "Clever"
   },
-  "Trick-or-Treat": {
+  "trickortreat": {
     "num": 567,
     "accuracy": 100,
     "basePower": 0,
@@ -19935,7 +19935,7 @@
     },
     "contestType": "Cute"
   },
-  "Trick Room": {
+  "trickroom": {
     "num": 433,
     "accuracy": true,
     "basePower": 0,
@@ -19963,7 +19963,7 @@
     },
     "contestType": "Clever"
   },
-  "Triple Arrows": {
+  "triplearrows": {
     "num": 843,
     "accuracy": 100,
     "basePower": 90,
@@ -19992,7 +19992,7 @@
     "target": "normal",
     "type": "Fighting"
   },
-  "Triple Axel": {
+  "tripleaxel": {
     "num": 813,
     "accuracy": 90,
     "basePower": 20,
@@ -20018,7 +20018,7 @@
       "basePower": 140
     }
   },
-  "Triple Dive": {
+  "tripledive": {
     "num": 865,
     "accuracy": 95,
     "basePower": 30,
@@ -20037,7 +20037,7 @@
     "target": "normal",
     "type": "Water"
   },
-  "Triple Kick": {
+  "triplekick": {
     "num": 167,
     "accuracy": 90,
     "basePower": 10,
@@ -20064,7 +20064,7 @@
     },
     "contestType": "Cool"
   },
-  "Trop Kick": {
+  "tropkick": {
     "num": 688,
     "accuracy": 100,
     "basePower": 70,
@@ -20088,7 +20088,7 @@
     "type": "Grass",
     "contestType": "Cute"
   },
-  "Trump Card": {
+  "trumpcard": {
     "num": 376,
     "accuracy": true,
     "basePower": 0,
@@ -20115,7 +20115,7 @@
     },
     "contestType": "Cool"
   },
-  "Twin Beam": {
+  "twinbeam": {
     "num": 888,
     "accuracy": 100,
     "basePower": 40,
@@ -20133,7 +20133,7 @@
     "type": "Psychic",
     "contestType": "Cool"
   },
-  "Twineedle": {
+  "twineedle": {
     "num": 41,
     "accuracy": 100,
     "basePower": 25,
@@ -20159,7 +20159,7 @@
     },
     "contestType": "Cool"
   },
-  "Twinkle Tackle": {
+  "twinkletackle": {
     "num": 656,
     "accuracy": true,
     "basePower": 1,
@@ -20175,7 +20175,7 @@
     "type": "Fairy",
     "contestType": "Cool"
   },
-  "Twister": {
+  "twister": {
     "num": 239,
     "accuracy": 100,
     "basePower": 40,
@@ -20197,7 +20197,7 @@
     "type": "Dragon",
     "contestType": "Cool"
   },
-  "U-turn": {
+  "uturn": {
     "num": 369,
     "accuracy": 100,
     "basePower": 70,
@@ -20217,7 +20217,7 @@
     "type": "Bug",
     "contestType": "Cute"
   },
-  "Upper Hand": {
+  "upperhand": {
     "num": 918,
     "accuracy": 100,
     "basePower": 65,
@@ -20238,7 +20238,7 @@
     "target": "normal",
     "type": "Fighting"
   },
-  "Uproar": {
+  "uproar": {
     "num": 253,
     "accuracy": 100,
     "basePower": 90,
@@ -20269,7 +20269,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Vacuum Wave": {
+  "vacuumwave": {
     "num": 410,
     "accuracy": 100,
     "basePower": 40,
@@ -20287,7 +20287,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "V-create": {
+  "vcreate": {
     "num": 557,
     "accuracy": 95,
     "basePower": 180,
@@ -20316,7 +20316,7 @@
     },
     "contestType": "Cool"
   },
-  "Veevee Volley": {
+  "veeveevolley": {
     "num": 741,
     "accuracy": true,
     "basePower": 0,
@@ -20335,7 +20335,7 @@
     "type": "Normal",
     "contestType": "Cute"
   },
-  "Venom Drench": {
+  "venomdrench": {
     "num": 599,
     "accuracy": 100,
     "basePower": 0,
@@ -20360,7 +20360,7 @@
     },
     "contestType": "Clever"
   },
-  "Venoshock": {
+  "venoshock": {
     "num": 474,
     "accuracy": 100,
     "basePower": 65,
@@ -20378,7 +20378,7 @@
     "type": "Poison",
     "contestType": "Beautiful"
   },
-  "Victory Dance": {
+  "victorydance": {
     "num": 837,
     "accuracy": true,
     "basePower": 0,
@@ -20400,7 +20400,7 @@
     "target": "self",
     "type": "Fighting"
   },
-  "Vine Whip": {
+  "vinewhip": {
     "num": 22,
     "accuracy": 100,
     "basePower": 45,
@@ -20419,7 +20419,7 @@
     "type": "Grass",
     "contestType": "Cool"
   },
-  "Vise Grip": {
+  "visegrip": {
     "num": 11,
     "accuracy": 100,
     "basePower": 55,
@@ -20438,7 +20438,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Vital Throw": {
+  "vitalthrow": {
     "num": 233,
     "accuracy": true,
     "basePower": 70,
@@ -20458,7 +20458,7 @@
     "type": "Fighting",
     "contestType": "Cool"
   },
-  "Volt Switch": {
+  "voltswitch": {
     "num": 521,
     "accuracy": 100,
     "basePower": 70,
@@ -20477,7 +20477,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Volt Tackle": {
+  "volttackle": {
     "num": 344,
     "accuracy": 100,
     "basePower": 120,
@@ -20503,7 +20503,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Wake-Up Slap": {
+  "wakeupslap": {
     "num": 358,
     "accuracy": 100,
     "basePower": 70,
@@ -20523,7 +20523,7 @@
     "type": "Fighting",
     "contestType": "Tough"
   },
-  "Waterfall": {
+  "waterfall": {
     "num": 127,
     "accuracy": 100,
     "basePower": 80,
@@ -20545,7 +20545,7 @@
     "type": "Water",
     "contestType": "Tough"
   },
-  "Water Gun": {
+  "watergun": {
     "num": 55,
     "accuracy": 100,
     "basePower": 40,
@@ -20563,7 +20563,7 @@
     "type": "Water",
     "contestType": "Cute"
   },
-  "Water Pledge": {
+  "waterpledge": {
     "num": 518,
     "accuracy": 100,
     "basePower": 80,
@@ -20588,7 +20588,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Water Pulse": {
+  "waterpulse": {
     "num": 352,
     "accuracy": 100,
     "basePower": 60,
@@ -20611,7 +20611,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Water Shuriken": {
+  "watershuriken": {
     "num": 594,
     "accuracy": 100,
     "basePower": 15,
@@ -20633,7 +20633,7 @@
     "type": "Water",
     "contestType": "Cool"
   },
-  "Water Sport": {
+  "watersport": {
     "num": 346,
     "accuracy": true,
     "basePower": 0,
@@ -20663,7 +20663,7 @@
     },
     "contestType": "Cute"
   },
-  "Water Spout": {
+  "waterspout": {
     "num": 323,
     "accuracy": 100,
     "basePower": 150,
@@ -20681,7 +20681,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Wave Crash": {
+  "wavecrash": {
     "num": 834,
     "accuracy": 100,
     "basePower": 120,
@@ -20703,7 +20703,7 @@
     "target": "normal",
     "type": "Water"
   },
-  "Weather Ball": {
+  "weatherball": {
     "num": 311,
     "accuracy": 100,
     "basePower": 50,
@@ -20728,7 +20728,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Whirlpool": {
+  "whirlpool": {
     "num": 250,
     "accuracy": 85,
     "basePower": 35,
@@ -20747,7 +20747,7 @@
     "type": "Water",
     "contestType": "Beautiful"
   },
-  "Whirlwind": {
+  "whirlwind": {
     "num": 18,
     "accuracy": true,
     "basePower": 0,
@@ -20776,7 +20776,7 @@
     },
     "contestType": "Clever"
   },
-  "Wicked Blow": {
+  "wickedblow": {
     "num": 817,
     "accuracy": 100,
     "basePower": 75,
@@ -20795,7 +20795,7 @@
     "target": "normal",
     "type": "Dark"
   },
-  "Wicked Torque": {
+  "wickedtorque": {
     "num": 897,
     "accuracy": 100,
     "basePower": 80,
@@ -20822,7 +20822,7 @@
     "target": "normal",
     "type": "Dark"
   },
-  "Wide Guard": {
+  "wideguard": {
     "num": 469,
     "accuracy": true,
     "basePower": 0,
@@ -20848,7 +20848,7 @@
     },
     "contestType": "Tough"
   },
-  "Wildbolt Storm": {
+  "wildboltstorm": {
     "num": 847,
     "accuracy": 80,
     "basePower": 100,
@@ -20869,7 +20869,7 @@
     "target": "allAdjacentFoes",
     "type": "Electric"
   },
-  "Wild Charge": {
+  "wildcharge": {
     "num": 528,
     "accuracy": 100,
     "basePower": 90,
@@ -20892,7 +20892,7 @@
     "type": "Electric",
     "contestType": "Tough"
   },
-  "Will-O-Wisp": {
+  "willowisp": {
     "num": 261,
     "accuracy": 85,
     "basePower": 0,
@@ -20917,7 +20917,7 @@
     },
     "contestType": "Beautiful"
   },
-  "Wing Attack": {
+  "wingattack": {
     "num": 17,
     "accuracy": 100,
     "basePower": 60,
@@ -20937,7 +20937,7 @@
     "type": "Flying",
     "contestType": "Cool"
   },
-  "Wish": {
+  "wish": {
     "num": 273,
     "accuracy": true,
     "basePower": 0,
@@ -20965,7 +20965,7 @@
     },
     "contestType": "Cute"
   },
-  "Withdraw": {
+  "withdraw": {
     "num": 110,
     "accuracy": true,
     "basePower": 0,
@@ -20990,7 +20990,7 @@
     },
     "contestType": "Cute"
   },
-  "Wonder Room": {
+  "wonderroom": {
     "num": 472,
     "accuracy": true,
     "basePower": 0,
@@ -21018,7 +21018,7 @@
     },
     "contestType": "Clever"
   },
-  "Wood Hammer": {
+  "woodhammer": {
     "num": 452,
     "accuracy": 100,
     "basePower": 120,
@@ -21041,7 +21041,7 @@
     "type": "Grass",
     "contestType": "Tough"
   },
-  "Work Up": {
+  "workup": {
     "num": 526,
     "accuracy": true,
     "basePower": 0,
@@ -21067,7 +21067,7 @@
     },
     "contestType": "Tough"
   },
-  "Worry Seed": {
+  "worryseed": {
     "num": 388,
     "accuracy": 100,
     "basePower": 0,
@@ -21092,7 +21092,7 @@
     },
     "contestType": "Clever"
   },
-  "Wrap": {
+  "wrap": {
     "num": 35,
     "accuracy": 90,
     "basePower": 15,
@@ -21112,7 +21112,7 @@
     "type": "Normal",
     "contestType": "Tough"
   },
-  "Wring Out": {
+  "wringout": {
     "num": 378,
     "accuracy": 100,
     "basePower": 0,
@@ -21138,7 +21138,7 @@
     },
     "contestType": "Tough"
   },
-  "X-Scissor": {
+  "xscissor": {
     "num": 404,
     "accuracy": 100,
     "basePower": 80,
@@ -21158,7 +21158,7 @@
     "type": "Bug",
     "contestType": "Cool"
   },
-  "Yawn": {
+  "yawn": {
     "num": 281,
     "accuracy": true,
     "basePower": 0,
@@ -21188,7 +21188,7 @@
     },
     "contestType": "Cute"
   },
-  "Zap Cannon": {
+  "zapcannon": {
     "num": 192,
     "accuracy": 50,
     "basePower": 120,
@@ -21210,7 +21210,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Zen Headbutt": {
+  "zenheadbutt": {
     "num": 428,
     "accuracy": 90,
     "basePower": 80,
@@ -21232,7 +21232,7 @@
     "type": "Psychic",
     "contestType": "Clever"
   },
-  "Zing Zap": {
+  "zingzap": {
     "num": 716,
     "accuracy": 100,
     "basePower": 80,
@@ -21254,7 +21254,7 @@
     "type": "Electric",
     "contestType": "Cool"
   },
-  "Zippy Zap": {
+  "zippyzap": {
     "num": 729,
     "accuracy": 100,
     "basePower": 80,

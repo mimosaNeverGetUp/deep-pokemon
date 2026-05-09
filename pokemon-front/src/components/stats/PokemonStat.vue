@@ -438,14 +438,14 @@ function getLocaleSets(set) {
         </div>
       </div>
       <Divider layout="vertical" type="solid"/>
-      <div class="items-center max-sm:ml-1">
+      <div v-if="pokemon.usage.raw !== 0" class="items-center max-sm:ml-1">
         <p class="text-sm text-gray-500">{{ $t("raw") }}</p>
         <div class="flex gap-5 w-44 min-w-44 items-center max-sm:w-40 max-sm:min-w-40">
           <p class="text-xl font-bold">{{ convertToPercentage(pokemon.usage.raw) }}</p>
           <UsageDif :newValue="pokemon.usage.raw" :oldValue="pokemon.lastMonthUsage?.usage.raw"/>
         </div>
       </div>
-      <Divider layout="vertical"/>
+      <Divider v-if="pokemon.usage.raw !== 0" layout="vertical"/>
     </div>
     <Divider type="solid"/>
     <div class="ml-5 my-3 max-sm:ml-1">

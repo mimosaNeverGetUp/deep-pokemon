@@ -9,6 +9,7 @@ package com.mimosa.deeppokemon.service;
 import com.mimosa.deeppokemon.crawler.stat.MonthlyStatCrawler;
 import com.mimosa.deeppokemon.crawler.stat.PokemonAnalyzeCrawler;
 import com.mimosa.deeppokemon.crawler.stat.PokemonSetCrawler;
+import com.mimosa.deeppokemon.crawler.stat.SmogonMonthlyStatCrawler;
 import com.mimosa.deeppokemon.crawler.stat.dto.MonthlyBattleStatDto;
 import com.mimosa.deeppokemon.crawler.stat.dto.MonthlyPokemonStatDto;
 import com.mimosa.deeppokemon.crawler.stat.dto.PokemonAnalyzeDto;
@@ -39,16 +40,19 @@ public class StatsService {
     protected static final String DATE = "date";
     private final MongoTemplate mongoTemplate;
     private final MonthlyStatCrawler monthlyStatCrawler;
+    private final SmogonMonthlyStatCrawler smogonMonthlyStatCrawler;
     private final PokemonSetCrawler pokemonSetCrawler;
     private final PokemonAnalyzeCrawler pokemonAnalyzeCrawler;
     private final Map<String, LocalDateTime> crawStatTimeMap;
 
     public StatsService(MongoTemplate mongoTemplate, MonthlyStatCrawler monthlyStatCrawler,
-                        PokemonSetCrawler pokemonSetCrawler, PokemonAnalyzeCrawler pokemonAnalyzeCrawler) {
+                        PokemonSetCrawler pokemonSetCrawler, PokemonAnalyzeCrawler pokemonAnalyzeCrawler,
+                        SmogonMonthlyStatCrawler smogonMonthlyStatCrawler) {
         this.mongoTemplate = mongoTemplate;
         this.monthlyStatCrawler = monthlyStatCrawler;
         this.pokemonSetCrawler = pokemonSetCrawler;
         this.pokemonAnalyzeCrawler = pokemonAnalyzeCrawler;
+        this.smogonMonthlyStatCrawler = smogonMonthlyStatCrawler;
         crawStatTimeMap = new HashMap<>();
     }
 
@@ -77,15 +81,16 @@ public class StatsService {
             log.info("stat {} is already exist", statId);
             return true;
         }
-        log.info("start craw {} stat", statId);
         try {
-            MonthlyBattleStatDto statDto = monthlyStatCrawler.craw(format);
+            log.info("try to craw {} stat from smogon monthly stat", format);
+            MonthlyBattleStatDto statDto = smogonMonthlyStatCrawler.craw(format, statId);
             MonthlyMetaStat latestMetaStat = getLatestMetaStat(format);
             if (latestMetaStat != null && latestMetaStat.total() == statDto.battles()) {
                 log.info("{} stat battle count is same with latest stat {}, maybe data is not update, no save", statId,
                         latestMetaStat.id());
                 return false;
             }
+
             save(format, statDto);
         } catch (Exception e) {
             log.error("craw {} stat failed", statId, e);

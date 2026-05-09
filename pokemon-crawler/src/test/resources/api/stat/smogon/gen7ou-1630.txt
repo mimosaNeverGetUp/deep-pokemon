@@ -1,0 +1,65 @@
+weatherless.......74.71838%
+offense...........44.15994%
+balance...........32.10865%
+voltturn..........11.73661%
+sand..............11.51935%
+stall.............8.43045%
+rain..............7.78649%
+hyperoffense......7.72513%
+semistall.........7.57583%
+sun...............6.28094%
+trickroom.........1.20765%
+monotype..........1.17074%
+multiweather......0.99447%
+sandstall.........0.78471%
+hail..............0.70523%
+monowater.........0.37579%
+monofire..........0.33181%
+sunoffense........0.31140%
+monoflying........0.30511%
+sandoffense.......0.26541%
+hailoffense.......0.22519%
+choice............0.15285%
+monofairy.........0.04687%
+trickhail.........0.04310%
+rainstall.........0.04123%
+monoground........0.04096%
+rainoffense.......0.03826%
+dragmag...........0.03094%
+tailwind..........0.02829%
+sunstall..........0.01732%
+tricksun..........0.01719%
+monosteel.........0.01321%
+monoice...........0.01252%
+tricksand.........0.01011%
+monodragon........0.00827%
+monobug...........0.00792%
+monopoison........0.00769%
+monopsychic.......0.00559%
+trickrain.........0.00555%
+monoghost.........0.00435%
+mononormal........0.00392%
+monorock..........0.00215%
+monoelectric......0.00177%
+gravity...........0.00175%
+monograss.........0.00139%
+monodark..........0.00095%
+monofighting......0.00052%
+trapper...........0.00050%
+hailstall.........0.00008%
+fear..............0.00000%
+
+Stalliness (mean: 0.133)
+    |#####
+-1.0|#############
+    |##############################
+ 0.0|#######################
+    |####################
++1.0|###########
+    |######
++2.0|####
+    |##
++3.0|#
+    |#
+more negative = more offensive, more positive = more stall
+one # = 0.86%

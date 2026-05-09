@@ -55,7 +55,8 @@ public class MoveInfoProvider {
 
     private final ItemInfoProvider itemInfoProvider;
 
-    private Map<String, MoveInfo> moveInfos = new HashMap<>();
+    private final Map<String, MoveInfo> moveInfos = new HashMap<>();
+    private final Map<String, MoveInfo> shortNameMap = new HashMap<>();
 
     public MoveInfoProvider(ItemInfoProvider itemInfoProvider) {
         this.itemInfoProvider = itemInfoProvider;
@@ -66,15 +67,23 @@ public class MoveInfoProvider {
         if (moveInfos.isEmpty()) {
             load();
         }
-        return moveInfos.get(move);
+        MoveInfo moveInfo = moveInfos.get(move);
+        if (moveInfo == null) {
+            moveInfo = shortNameMap.get(move);
+        }
+        return moveInfo;
     }
 
     private void load() {
         if (moveInfos.isEmpty()) {
             try {
-                moveInfos = OBJECT_MAPPER.readValue(moveInfoData.getInputStream(),
+                Map<String, MoveInfo> tmp = OBJECT_MAPPER.readValue(moveInfoData.getInputStream(),
                         new TypeReference<>() {
                         });
+                for (var entry : tmp.entrySet()) {
+                    moveInfos.put(entry.getValue().name(), entry.getValue());
+                    shortNameMap.put(entry.getKey(), entry.getValue());
+                }
             } catch (IOException e) {
                 LOGGER.error("Failed to load moveInfos", e);
             }
@@ -105,5 +114,10 @@ public class MoveInfoProvider {
             }
             return TYPE_Z_ITEM_MAP.get(moveInfo.type());
         }
+    }
+
+    public String getName(String shortName) {
+        MoveInfo moveInfo = getMoveInfo(shortName);
+        return moveInfo == null ? null : moveInfo.name();
     }
 }

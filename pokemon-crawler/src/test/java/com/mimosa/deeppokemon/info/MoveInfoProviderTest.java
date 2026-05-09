@@ -43,4 +43,10 @@ class MoveInfoProviderTest {
         assertEquals("Icium Z", moveInfoProvider.getZMoveItem("Z-Haze"));
         assertNull(moveInfoProvider.getZMoveItem("Haze"));
     }
+
+    @Test
+    void getName() {
+        assertEquals("Rapid Spin", moveInfoProvider.getName("rapidspin"));
+        assertNull(moveInfoProvider.getName("test"));
+    }
 }

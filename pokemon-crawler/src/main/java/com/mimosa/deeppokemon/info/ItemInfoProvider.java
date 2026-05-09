@@ -50,4 +50,9 @@ public class ItemInfoProvider {
             }
         }
     }
+
+    public String getName(String shortName) {
+        ItemInfo itemInfo = getItemInfo(shortName);
+        return itemInfo == null ? null : itemInfo.name();
+    }
 }

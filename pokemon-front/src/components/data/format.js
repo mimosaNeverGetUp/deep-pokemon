@@ -139,5 +139,19 @@ export const formats = {
     "gen9vgc2024.json": [4832523, 935417],
     "gen9vgc2025.json": [3098484, 598092],
     "gen9vgc2026.json": [4083321, 786752],
-    "gen9zu.json": [1311505, 243425]
+    "gen9zu.json": [1311505, 243425],
+    "gen9championsou.json": [1311505, 243425],
+    "gen9championsvgc2026regma.json": [1311505, 243425],
+    "gen9championsvgc2026regmabo3.json": [1311505, 243425],
+    "gen9champoinsou.json": [1311505, 243425],
+    "gen9championsbssregma.json": [1311505, 243425],
+    "gen9crossevolution.json": [1311505, 243425],
+    "gen9chatbats.json": [1311505, 243425],
+    "gen9legendszaou.json": [1311505, 243425],
+    "gen9metronomebattle.json": [1311505, 243425],
+    "gen9nationaldex35pokes.json": [1311505, 243425],
+    "gen9sharedpower.json": [1311505, 243425],
+    "gen9350cup.json": [1311505, 243425],
+    "gen9alphabetcup.json": [1311505, 243425],
+    "gen9bssregi.json": [1311505, 243425]
 }

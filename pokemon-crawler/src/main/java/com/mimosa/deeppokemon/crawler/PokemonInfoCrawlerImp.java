@@ -101,7 +101,9 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
         while (iterator.hasNext()) {
             String id = iterator.next();
             PokemonInfo pokemonInfo = extractPokeInfo(id, jsonObject);
-            pokemonInfos.add(pokemonInfo);
+            if (pokemonInfo != null) {
+                pokemonInfos.add(pokemonInfo);
+            }
         }
         logger.info("pokemoninfo create and craw successfully, total {} pokemonInfo", pokemonInfos.size());
         return pokemonInfos;
@@ -109,6 +111,11 @@ public class PokemonInfoCrawlerImp implements PokemonInfoCrawler {
 
     private PokemonInfo extractPokeInfo(String id, JSONObject jsonObject) {
         JSONObject pokemonJson = jsonObject.getJSONObject(id);
+        if (!pokemonJson.has("num")) {
+            // special form
+            return null;
+        }
+
         //提取名字和分级
         String name = pokemonJson.getString("name");
         Integer num = pokemonJson.getInt("num");

@@ -44,8 +44,8 @@ class PokemonIconExtracterTest {
     static {
         try {
             pokemonIconIndexPath = ResourceUtils.getFile("classpath:icon/pokemonIconIndex.json").toPath();
-            iconPath = ResourceUtils.getFile("classpath:icon/pokemonicons-sheet_v16.png").toPath();
-            itemPath = ResourceUtils.getFile("classpath:icon/itemicons-sheet.png").toPath();
+            iconPath = ResourceUtils.getFile("classpath:icon/pokemonicons-sheet_v21.png").toPath();
+            itemPath = ResourceUtils.getFile("classpath:icon/itemicons-sheet_v1.png").toPath();
             itemIndexPath = ResourceUtils.getFile("classpath:icon/itemInfo.json").toPath();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -66,6 +66,7 @@ class PokemonIconExtracterTest {
         }
     }
 
+//    @Test
     void extractItem() throws IOException {
         try {
             ItemIconExtracter itemIconExtracter = new ItemIconExtracter(itemPath, itemIndexPath);

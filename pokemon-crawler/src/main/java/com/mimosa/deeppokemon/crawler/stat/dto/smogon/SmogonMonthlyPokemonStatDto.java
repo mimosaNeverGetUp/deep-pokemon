@@ -18,5 +18,6 @@ public record SmogonMonthlyPokemonStatDto(
                                           @JsonProperty("Spreads") LinkedHashMap<String, BigDecimal> spreads,
                                           @JsonProperty("Moves") LinkedHashMap<String, BigDecimal> moves,
                                           @JsonProperty("Tera Types") LinkedHashMap<String, BigDecimal> teraTypes,
+                                          @JsonProperty("Teammates") LinkedHashMap<String, BigDecimal> teammates,
                                           @JsonProperty("Happiness") LinkedHashMap<String, BigDecimal> happinesses) {
 }

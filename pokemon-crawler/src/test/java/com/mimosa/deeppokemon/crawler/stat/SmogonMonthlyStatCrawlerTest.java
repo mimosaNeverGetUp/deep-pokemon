@@ -109,13 +109,17 @@ class SmogonMonthlyStatCrawlerTest {
         assertTrue(spreads.containsKey("Jolly:0/252/4/0/0/252"));
         assertEquals(0.2695D, spreads.get("Jolly:0/252/4/0/0/252"));
 
+        LinkedHashMap<String, Double> teammates = greatTusk.teammates();
+        assertNotNull(teammates);
+        assertTrue(teammates.containsKey("Kingambit"));
+        assertEquals(0.2799D, teammates.get("Kingambit"));
+
         Usage usage = greatTusk.usage();
         assertNotNull(usage);
         assertEquals(0.3458D, usage.weighted());
 
         assertEquals(0D, greatTusk.weight());
         assertTrue(greatTusk.viability() != null && greatTusk.viability().isEmpty());
-        assertTrue(greatTusk.teammates() != null && greatTusk.teammates().isEmpty());
         assertTrue(greatTusk.counters() != null && greatTusk.counters().isEmpty());
         assertEquals(0D, greatTusk.weight());
 
@@ -129,40 +133,62 @@ class SmogonMonthlyStatCrawlerTest {
         LinkedHashMap<String, Double> moves;
         LinkedHashMap<String, Double> items;
         LinkedHashMap<String, Double> teraTypes;
+        LinkedHashMap<String, Double> teammates;
         for (var entry : pokemon.entrySet()) {
             assertNotNull(entry.getKey());
             MonthlyPokemonStatDto pokemonStatDto = entry.getValue();
             assertNotNull(pokemonStatDto);
             assertNull(pokemonStatDto.lead());
             assertTrue(pokemonStatDto.viability() != null && pokemonStatDto.viability().isEmpty());
-            assertTrue(pokemonStatDto.teammates() != null && pokemonStatDto.teammates().isEmpty());
             assertTrue(pokemonStatDto.counters() != null && pokemonStatDto.counters().isEmpty());
 
             abilities = pokemonStatDto.abilities();
             assertNotNull(abilities);
             assertFalse(abilities.isEmpty());
+            for (var ability : abilities.values()) {
+                assertTrue(ability > 0D);
+            }
 
             moves = pokemonStatDto.moves();
             assertNotNull(moves);
             assertFalse(moves.isEmpty());
+            for (var move : moves.values()) {
+                assertTrue(move > 0D);
+            }
 
             items = pokemonStatDto.items();
             assertNotNull(items);
             assertFalse(items.isEmpty());
+            for (var item : items.values()) {
+                assertTrue(item > 0D);
+            }
 
             teraTypes = pokemonStatDto.teraTypes();
             assertNotNull(teraTypes);
             assertFalse(teraTypes.isEmpty());
+            for (var teraType : teraTypes.values()) {
+                assertTrue(teraType > 0D);
+            }
 
             spreads = pokemonStatDto.spreads();
             assertNotNull(spreads);
             assertFalse(spreads.isEmpty());
+            for (var spread : spreads.values()) {
+                assertTrue(spread > 0D);
+            }
 
             usage = pokemonStatDto.usage();
             assertNotNull(usage);
             assertNotEquals(0D, usage.weighted());
             assertEquals(0D, usage.raw());
             assertEquals(0D, usage.real());
+
+            teammates = pokemonStatDto.teammates();
+            assertNotNull(teammates);
+            assertFalse(teammates.isEmpty());
+            for (var teammate : teammates.values()) {
+                assertTrue(teammate > 0D);
+            }
         }
     }
 

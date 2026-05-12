@@ -50,7 +50,6 @@ public class SmogonMonthlyStatCrawler {
     protected static final int META_USAGE_INDEX = 2;
     protected static final int USAGE_SCALE = 4;
     protected static final BigDecimal PERCENT_DIVISOR = new BigDecimal("100");
-    protected static final BigDecimal FACTOR_FOUR = new BigDecimal("4");
 
 
     private final HttpProxy httpProxy;
@@ -149,35 +148,38 @@ public class SmogonMonthlyStatCrawler {
         Usage usage = new Usage(0D, 0D, getIEEE754Value(smogonMonthlyPokemonStatDto.usage()));
         int count = smogonMonthlyPokemonStatDto.rawCount();
         double weight = 0D;
-        LinkedHashMap<String, Double> abilities = countUsage(smogonMonthlyPokemonStatDto.abilities(), BigDecimal.ONE,
+        BigDecimal weightCount = getPokemonWeightCount(smogonMonthlyPokemonStatDto);
+        LinkedHashMap<String, Double> abilities = countUsage(smogonMonthlyPokemonStatDto.abilities(), weightCount,
                 abilityInfoProvider::getName);
-        LinkedHashMap<String, Double> items = countUsage(smogonMonthlyPokemonStatDto.items(), BigDecimal.ONE,
+        LinkedHashMap<String, Double> items = countUsage(smogonMonthlyPokemonStatDto.items(), weightCount,
                 itemInfoProvider::getName);
-        LinkedHashMap<String, Double> moves = countUsage(smogonMonthlyPokemonStatDto.moves(), FACTOR_FOUR,
+        LinkedHashMap<String, Double> moves = countUsage(smogonMonthlyPokemonStatDto.moves(), weightCount,
                 moveInfoProvider::getName);
-        LinkedHashMap<String, Double> teraTypes = countUsage(smogonMonthlyPokemonStatDto.teraTypes(), BigDecimal.ONE,
+        LinkedHashMap<String, Double> teraTypes = countUsage(smogonMonthlyPokemonStatDto.teraTypes(), weightCount,
+                StringUtils::capitalize);
+        LinkedHashMap<String, Double> teammates = countUsage(smogonMonthlyPokemonStatDto.teammates(), weightCount,
                 StringUtils::capitalize);
         LinkedHashMap<String, Double> happiness = countUsage(smogonMonthlyPokemonStatDto.happinesses(),
-                BigDecimal.ONE, null);
-        LinkedHashMap<String, Double> spreads = countUsage(smogonMonthlyPokemonStatDto.spreads(), BigDecimal.ONE, null);
+                weightCount, null);
+        LinkedHashMap<String, Double> spreads = countUsage(smogonMonthlyPokemonStatDto.spreads(), weightCount, null);
 
         return new MonthlyPokemonStatDto(lead, usage, count, weight, Collections.emptyList(), abilities,
-                items, spreads, moves, teraTypes, new LinkedHashMap<>(), happiness, new LinkedHashMap<>());
+                items, spreads, moves, teraTypes, teammates, happiness, new LinkedHashMap<>());
     }
 
-    private LinkedHashMap<String, Double> countUsage(Map<String, BigDecimal> map, BigDecimal factor,
+    private BigDecimal getPokemonWeightCount(SmogonMonthlyPokemonStatDto smogonMonthlyPokemonStatDto) {
+        return smogonMonthlyPokemonStatDto.abilities().values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    private LinkedHashMap<String, Double> countUsage(Map<String, BigDecimal> map, BigDecimal weightCount,
                                                      UnaryOperator<String> keyMapFunction) {
         LinkedHashMap<String, Double> usageMap = new LinkedHashMap<>();
-        double totalCount = map.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add).doubleValue();
-        double factorValue = factor.doubleValue();
-        if (totalCount == 0) {
-            log.warn("zero count in stat");
-            return new LinkedHashMap<>();
-        }
+        double weightCountValue = weightCount.doubleValue();
+
         for (var entry : map.entrySet()) {
             String key = entry.getKey();
             double count = entry.getValue().doubleValue();
-            double usage = count / totalCount * factorValue;
+            double usage = count / weightCountValue;
 
             usage = getIEEE754Value(usage);
             if (usage > 0) {

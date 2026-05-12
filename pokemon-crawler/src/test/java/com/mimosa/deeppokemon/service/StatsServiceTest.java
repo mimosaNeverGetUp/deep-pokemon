@@ -7,7 +7,7 @@
 package com.mimosa.deeppokemon.service;
 
 import com.mimosa.deeppokemon.config.MongodbTestConfig;
-import com.mimosa.deeppokemon.crawler.stat.MonthlyStatCrawler;
+import com.mimosa.deeppokemon.crawler.stat.SmogonMonthlyStatCrawler;
 import com.mimosa.deeppokemon.crawler.stat.dto.MonthlyBattleStatDto;
 import com.mimosa.deeppokemon.entity.stat.monthly.MonthlyMetaStat;
 import org.junit.jupiter.api.Test;
@@ -31,14 +31,14 @@ class StatsServiceTest {
     private MongoTemplate mongoTemplate;
 
     @SpyBean
-    private MonthlyStatCrawler monthlyStatCrawler;
+    private SmogonMonthlyStatCrawler smogonMonthlyStatCrawler;
 
     @Test
     void crawStat() {
         MonthlyMetaStat latestMetaStat = statsService.getLatestMetaStat(GEN_9_OU);
         MonthlyBattleStatDto mockStat = new MonthlyBattleStatDto((int) latestMetaStat.total(), null, null);
-        Mockito.doReturn(mockStat).when(monthlyStatCrawler).craw(GEN_9_OU);
         String statId = "202407gen9ou";
+        Mockito.doReturn(mockStat).when(smogonMonthlyStatCrawler).craw(GEN_9_OU,statId);
         boolean result = statsService.crawStat(GEN_9_OU, statId);
         assertFalse(result);
 

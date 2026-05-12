@@ -14,10 +14,10 @@ import java.util.LinkedHashMap;
 public record SmogonMonthlyPokemonStatDto(
                                           Double usage, @JsonProperty("Raw count") Integer rawCount,
                                           @JsonProperty("Abilities") LinkedHashMap<String, BigDecimal> abilities,
-                                          @JsonProperty("Items") LinkedHashMap<String, BigDecimal> items,
-                                          @JsonProperty("Spreads") LinkedHashMap<String, BigDecimal> spreads,
-                                          @JsonProperty("Moves") LinkedHashMap<String, BigDecimal> moves,
-                                          @JsonProperty("Tera Types") LinkedHashMap<String, BigDecimal> teraTypes,
-                                          @JsonProperty("Teammates") LinkedHashMap<String, BigDecimal> teammates,
-                                          @JsonProperty("Happiness") LinkedHashMap<String, BigDecimal> happinesses) {
+                                          @JsonProperty("Items") LinkedHashMap<String, Double> items,
+                                          @JsonProperty("Spreads") LinkedHashMap<String, Double> spreads,
+                                          @JsonProperty("Moves") LinkedHashMap<String, Double> moves,
+                                          @JsonProperty("Tera Types") LinkedHashMap<String, Double> teraTypes,
+                                          @JsonProperty("Teammates") LinkedHashMap<String, Double> teammates,
+                                          @JsonProperty("Happiness") LinkedHashMap<String, Double> happinesses) {
 }

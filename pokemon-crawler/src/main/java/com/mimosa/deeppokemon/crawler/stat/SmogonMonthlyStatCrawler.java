@@ -149,7 +149,7 @@ public class SmogonMonthlyStatCrawler {
         int count = smogonMonthlyPokemonStatDto.rawCount();
         double weight = 0D;
         BigDecimal weightCount = getPokemonWeightCount(smogonMonthlyPokemonStatDto);
-        LinkedHashMap<String, Double> abilities = countUsage(smogonMonthlyPokemonStatDto.abilities(), weightCount,
+        LinkedHashMap<String, Double> abilities = countUsage(parseDoubleMap(smogonMonthlyPokemonStatDto.abilities()), weightCount,
                 abilityInfoProvider::getName);
         LinkedHashMap<String, Double> items = countUsage(smogonMonthlyPokemonStatDto.items(), weightCount,
                 itemInfoProvider::getName);
@@ -167,18 +167,26 @@ public class SmogonMonthlyStatCrawler {
                 items, spreads, moves, teraTypes, teammates, happiness, new LinkedHashMap<>());
     }
 
+    private Map<String, Double> parseDoubleMap(Map<String, BigDecimal> abilities) {
+        Map<String, Double> doubleMap = new HashMap<>();
+        for (var entry : abilities.entrySet()) {
+            doubleMap.put(entry.getKey(), entry.getValue().doubleValue());
+        }
+        return doubleMap;
+    }
+
     private BigDecimal getPokemonWeightCount(SmogonMonthlyPokemonStatDto smogonMonthlyPokemonStatDto) {
         return smogonMonthlyPokemonStatDto.abilities().values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    private LinkedHashMap<String, Double> countUsage(Map<String, BigDecimal> map, BigDecimal weightCount,
+    private LinkedHashMap<String, Double> countUsage(Map<String, Double> map, BigDecimal weightCount,
                                                      UnaryOperator<String> keyMapFunction) {
         LinkedHashMap<String, Double> usageMap = new LinkedHashMap<>();
         double weightCountValue = weightCount.doubleValue();
 
         for (var entry : map.entrySet()) {
             String key = entry.getKey();
-            double count = entry.getValue().doubleValue();
+            double count = entry.getValue();
             double usage = count / weightCountValue;
 
             usage = getIEEE754Value(usage);

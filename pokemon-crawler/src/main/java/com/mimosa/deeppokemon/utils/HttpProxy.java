@@ -59,6 +59,23 @@ public class HttpProxy {
         }
     }
 
+    public String getProxyUrl(String targetUrl) {
+        if (!enableProxy || apiKey == null) {
+            log.info("proxy is disable or api key is null, return origin url");
+            return targetUrl;
+        }
+
+        try {
+            return new URIBuilder(SCRAPER_API)
+                    .addParameter(PARAM_API_KEY, apiKey)
+                    .addParameter(URL, targetUrl)
+                    .build().toString();
+
+        } catch (URISyntaxException e) {
+            throw new ServerErrorException(e.getLocalizedMessage(), e);
+        }
+    }
+
     public <T> T get(String url, Class<T> tClass) {
         try {
             return OBJECT_MAPPER.readValue(get(url), tClass);

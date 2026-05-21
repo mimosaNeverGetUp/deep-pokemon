@@ -8,6 +8,7 @@ package com.mimosa.deeppokemon.provider;
 
 import com.mimosa.deeppokemon.entity.Replay;
 import com.mimosa.deeppokemon.entity.ReplaySource;
+import com.mimosa.deeppokemon.utils.HttpProxy;
 import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -26,16 +27,19 @@ public class ThreadReplayProvider implements ReplayProvider{
     private static final String REPLAY_POKEMONSHOWDOWN_COM = "replay.pokemonshowdown.com";
     protected static final int CONNECT_TIME_OUT = 60000;
 
+    protected final HttpProxy httpProxy;
+
     private boolean initialized = false;
     private final List<String> replayTypes;
     private final String pageUrl;
     private final String format;
     private final Deque<ReplaySource> replaySources = new LinkedList<>();
 
-    public ThreadReplayProvider(List<String> replayTypes, String pageUrl, String format) {
+    public ThreadReplayProvider(List<String> replayTypes, String pageUrl, String format, HttpProxy httpProxy) {
         this.replayTypes = replayTypes;
         this.pageUrl = pageUrl;
         this.format = format;
+        this.httpProxy = httpProxy;
     }
 
     @Override
@@ -68,7 +72,7 @@ public class ThreadReplayProvider implements ReplayProvider{
     private void extractFromReplayThread() {
         Set<String> existBattleIds = new HashSet<>();
         try {
-            Document doc = Jsoup.connect(pageUrl).timeout(CONNECT_TIME_OUT).get();
+            Document doc = Jsoup.connect(httpProxy.getProxyUrl(pageUrl)).timeout(CONNECT_TIME_OUT).get();
             extractFromDoc(doc, existBattleIds);
             extractAnotherPage(pageUrl, doc, existBattleIds);
         } catch (IOException e) {
@@ -93,7 +97,7 @@ public class ThreadReplayProvider implements ReplayProvider{
         URI uri = URI.create(threadUrl).resolve(String.format("page-%d", page));
         while (isUriExist(uri, document)) {
             try {
-                document = Jsoup.connect(uri.toString()).timeout(CONNECT_TIME_OUT).get();
+                document = Jsoup.connect(httpProxy.getProxyUrl(uri.toString())).timeout(CONNECT_TIME_OUT).get();
                 extractFromDoc(document, existBattleIds);
                 uri = URI.create(threadUrl).resolve(String.format("page-%d", ++page));
             } catch (IOException e) {

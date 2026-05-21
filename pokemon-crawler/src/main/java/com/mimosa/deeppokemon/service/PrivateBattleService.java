@@ -13,6 +13,7 @@ import com.mimosa.deeppokemon.crawler.ReplayBattleCrawler;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.provider.PlayerReplayProvider;
 import com.mimosa.deeppokemon.provider.ThreadReplayProvider;
+import com.mimosa.deeppokemon.utils.HttpProxy;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -24,18 +25,21 @@ public class PrivateBattleService {
     private final BattleService battleService;
     private final ReplayBattleCrawler replayBattleCrawler;
     private final BattleAnalyzer battleAnalyzer;
+    protected final HttpProxy httpProxy;
 
-    public PrivateBattleService(BattleService battleService, ReplayBattleCrawler replayBattleCrawler, BattleAnalyzer battleAnalyzer) {
+    public PrivateBattleService(BattleService battleService, ReplayBattleCrawler replayBattleCrawler, BattleAnalyzer battleAnalyzer, HttpProxy httpProxy) {
         this.battleService = battleService;
         this.replayBattleCrawler = replayBattleCrawler;
         this.battleAnalyzer = battleAnalyzer;
+        this.httpProxy = httpProxy;
     }
 
     public CompletableFuture<List<Battle>> crawPrivateBattle(String thread, String sourceName, String describe,
                                                              String format) {
         ThreadReplayProvider threadReplayProvider = new ThreadReplayProvider(Collections.singletonList(sourceName), thread,
-                format);
-        PrivateBattleCrawler privateBattleCrawler = new PrivateBattleCrawler(replayBattleCrawler, sourceName, describe);
+                format, httpProxy);
+        PrivateBattleCrawler privateBattleCrawler = new PrivateBattleCrawler(replayBattleCrawler, sourceName,
+                describe);
         return battleService.crawBattle(threadReplayProvider, privateBattleCrawler, battleAnalyzer, false, false);
     }
 

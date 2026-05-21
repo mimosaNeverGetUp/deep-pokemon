@@ -119,10 +119,6 @@ public class CacheService {
     public boolean loadMonthlyStat() {
         log.info("start load monthly stat");
         boolean res = loadMonthlyStat(GEN_9_OU);
-        res &= loadMonthlyStat("gen9uu");
-        res &= loadMonthlyStat("gen9ubers");
-        res &= loadMonthlyStat("gen9vgc2024");
-        res &= loadMonthlyStat("gen9nationaldex");
         return res;
     }
 

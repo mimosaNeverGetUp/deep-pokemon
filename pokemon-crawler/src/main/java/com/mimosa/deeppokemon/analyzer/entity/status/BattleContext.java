@@ -10,9 +10,11 @@ import com.mimosa.deeppokemon.analyzer.entity.Field;
 import com.mimosa.deeppokemon.analyzer.entity.Weather;
 import com.mimosa.deeppokemon.entity.Battle;
 import com.mimosa.deeppokemon.entity.Pokemon;
+import com.mimosa.deeppokemon.entity.stat.TurnEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BattleContext {
@@ -23,6 +25,7 @@ public class BattleContext {
     private Weather weather;
     private Field field;
     private Battle battle;
+    private List<TurnEvent> currentTurnImportanceEvents;
 
     public BattleContext(List<PlayerStatus> playerStatusList, Battle battle) {
         this.playerStatusList = playerStatusList;
@@ -30,6 +33,7 @@ public class BattleContext {
         this.weather = null;
         this.field = null;
         this.battle = battle;
+        this.currentTurnImportanceEvents = new ArrayList<>();
     }
 
     public List<PlayerStatus> getPlayerStatusList() {
@@ -70,6 +74,24 @@ public class BattleContext {
 
     public void setBattle(Battle battle) {
         this.battle = battle;
+    }
+
+    public List<TurnEvent> getCurrentTurnImportanceEvents() {
+        return currentTurnImportanceEvents;
+    }
+
+    public void setCurrentTurnImportanceEvents(List<TurnEvent> currentTurnImportanceEvents) {
+        this.currentTurnImportanceEvents = currentTurnImportanceEvents;
+    }
+
+    /**
+     * 记录一条当前回合的重要对战事件，入该回合的累积队列。
+     */
+    public void addTurnEvent(TurnEvent turnEvent) {
+        if (currentTurnImportanceEvents == null) {
+            currentTurnImportanceEvents = new ArrayList<>();
+        }
+        currentTurnImportanceEvents.add(turnEvent);
     }
 
     public void changePokemonName(int playerNumber, String nameBefore, String changeName) {

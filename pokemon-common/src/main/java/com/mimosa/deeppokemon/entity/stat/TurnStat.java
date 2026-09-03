@@ -17,20 +17,24 @@ import java.util.Objects;
 public class TurnStat {
     private int turn;
     private List<TurnPlayerStat> turnPlayerStatList;
+    private List<TurnEvent> turnEvents = new ArrayList<>();
 
     public TurnStat(int turn) {
-        this(turn, new ArrayList<>());
+        this(turn, new ArrayList<>(), new ArrayList<>());
     }
 
     public TurnStat(List<TurnPlayerStat> turnPlayerStatList) {
-        this(0, turnPlayerStatList);
+        this(0, turnPlayerStatList, new ArrayList<>());
     }
 
     @JsonCreator
     @PersistenceCreator
-    public TurnStat(@JsonProperty("turn") int turn, @JsonProperty("turnPlayerStatList") List<TurnPlayerStat> turnPlayerStatList) {
+    public TurnStat(@JsonProperty("turn") int turn,
+                    @JsonProperty("turnPlayerStatList") List<TurnPlayerStat> turnPlayerStatList,
+                    @JsonProperty("turnEvents") List<TurnEvent> turnEvents) {
         this.turn = turn;
         this.turnPlayerStatList = turnPlayerStatList;
+        this.turnEvents = turnEvents == null ? new ArrayList<>() : turnEvents;
     }
 
     public int getTurn() {
@@ -49,16 +53,25 @@ public class TurnStat {
         this.turnPlayerStatList = turnPlayerStatList;
     }
 
+    public List<TurnEvent> getTurnEvents() {
+        return turnEvents;
+    }
+
+    public void setTurnEvents(List<TurnEvent> turnEvents) {
+        this.turnEvents = turnEvents;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TurnStat turnStat = (TurnStat) o;
-        return turn == turnStat.turn && Objects.equals(turnPlayerStatList, turnStat.turnPlayerStatList);
+        return turn == turnStat.turn && Objects.equals(turnPlayerStatList, turnStat.turnPlayerStatList)
+                && Objects.equals(turnEvents, turnStat.turnEvents);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(turn, turnPlayerStatList);
+        return Objects.hash(turn, turnPlayerStatList, turnEvents);
     }
 }

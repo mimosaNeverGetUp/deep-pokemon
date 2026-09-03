@@ -23,6 +23,7 @@ import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -137,7 +138,36 @@ class DamageEventAnalyzerTest {
     }
 
     @Test
-    void analyzeSideDamage() {
+        void analyzeTurnEvent() {
+            BattleEvent battleEvent = new BattleEvent("damage", List.of("p2a: Raging Bolt", "80/100 brn", "[from] brn"),
+                    null, null);
+            BattleContext battleContext = new BattleContextBuilder()
+                    .addPokemon(2, RAGING_BOLT, RAGING_BOLT)
+                    .addPokemon(1, SKELEDIRGE, SKELEDIRGE)
+                    .setStatus(2, RAGING_BOLT, new Status("brn", new EventTarget(1, SKELEDIRGE, SKELEDIRGE)))
+                    .setTurnStartPokemon(2, RAGING_BOLT)
+                    .setHealth(2, RAGING_BOLT, BigDecimal.valueOf(86))
+                    .build();
+            BattleStat battleStat = new BattleStatBuilder()
+                    .addPokemonStat(1, SKELEDIRGE)
+                    .addPokemonStat(2, RAGING_BOLT)
+                    .build();
+            damageEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+
+            Assertions.assertEquals(1, battleContext.getCurrentTurnImportanceEvents().size());
+            TurnEvent turnEvent = battleContext.getCurrentTurnImportanceEvents().get(0);
+            Assertions.assertEquals("damage", turnEvent.getEventType());
+            Assertions.assertEquals(2, turnEvent.getPlayerNumber());
+            Assertions.assertEquals(RAGING_BOLT, turnEvent.getPokemon());
+            Assertions.assertEquals("brn", turnEvent.getEventFrom());
+            Assertions.assertEquals("took 6.0% damage", turnEvent.getDescription());
+            Assertions.assertFalse(turnEvent.isChildEvent());
+            Assertions.assertNull(turnEvent.getParentEventType());
+            Assertions.assertNull(turnEvent.getActionName());
+        }
+
+        @Test
+        void analyzeSideDamage() {
         BattleEvent switchEvent = new BattleEvent("switch", null, null, null);
         BattleEvent battleEvent = new BattleEvent("damage", List.of("p1a: Gholdengo", "94/100", "[from] Stealth Rock"), switchEvent, null);
         int sideFromPlayerNumber = 2;

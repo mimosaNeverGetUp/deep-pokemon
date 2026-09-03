@@ -19,6 +19,7 @@ import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +67,30 @@ class SwitchEventAnalyzerTest {
     }
 
     @Test
-    void analyzeDragEvent() {
+        void analyzeTurnEvent() {
+            BattleEvent battleEvent = new BattleEvent("switch", List.of("p1a: YOUCANTBREAKME", "Gliscor, M", "100/100"),
+                    null, null);
+            PlayerStat p1 = new PlayerStat(1, "");
+            p1.addPokemonBattleStat(new PokemonBattleStat("Gliscor"));
+            BattleStat battleStat = new BattleStat(null, List.of(p1), new ArrayList<>());
+
+            BattleContext battleContext = new BattleContextBuilder()
+                    .addPokemon(1, "Gliscor", "YOUCANTBREAKME")
+                    .build();
+
+            analyzer.analyze(battleEvent, battleStat, battleContext);
+            Assertions.assertEquals(1, battleContext.getCurrentTurnImportanceEvents().size());
+            TurnEvent turnEvent = battleContext.getCurrentTurnImportanceEvents().get(0);
+            Assertions.assertEquals("switch", turnEvent.getEventType());
+            Assertions.assertEquals(1, turnEvent.getPlayerNumber());
+            Assertions.assertEquals("Gliscor", turnEvent.getPokemon());
+            Assertions.assertFalse(turnEvent.isChildEvent());
+            Assertions.assertNull(turnEvent.getActionName());
+            Assertions.assertNull(turnEvent.getEventFrom());
+        }
+
+        @Test
+        void analyzeDragEvent() {
         BattleEvent battleEvent = new BattleEvent("drag", List.of("p1a: YOUCANTBREAKME", "Gliscor, M", "100/100"), null
                 , null);
         PlayerStat p1 = new PlayerStat(1, "");

@@ -93,9 +93,9 @@ class BattleAnalyzerTest {
         battle.setBattleID(exceptBattleStat.battleId());
         battle.setLog(battleReplay.getContentAsString(StandardCharsets.UTF_8));
         battleAnalyzer.analyze(Collections.singletonList(battle));
-        Assertions.assertNotNull(battle.getBattleStat());
-        Assertions.assertEquals(exceptBattleStat, battle.getBattleStat());
-    }
+                Assertions.assertNotNull(battle.getBattleStat());
+                Assertions.assertEquals(exceptBattleStat, battle.getBattleStat());
+            }
 
     @ParameterizedTest
     @MethodSource("provideBattleLog")

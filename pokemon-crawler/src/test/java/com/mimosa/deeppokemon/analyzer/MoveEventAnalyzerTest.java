@@ -18,6 +18,7 @@ import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,31 @@ class MoveEventAnalyzerTest {
         Assertions.assertEquals("YOUCANTBREAKME", stat.eventTarget().nickName());
         Assertions.assertEquals("Protect", stat.moveName());
     }
+
+    @Test
+    void analyzeTurnEvent() {
+        BattleEvent battleEvent = new BattleEvent("move", List.of("p1a: YOUCANTBREAKME", "Protect", "p1a: Gliscor"),
+                null, null);
+        PlayerStat p1 = new PlayerStat(1, "");
+        PokemonBattleStat gliscor = new PokemonBattleStat("Gliscor");
+        p1.addPokemonBattleStat(gliscor);
+        BattleStat battleStat = new BattleStat(null, List.of(p1), new ArrayList<>());
+
+        PlayerStatus p1Status = new PlayerStatus();
+        p1Status.setPokemonNickName("YOUCANTBREAKME", "Gliscor");
+        BattleContext battleContext = new BattleContext(List.of(p1Status), null);
+        moveEventAnalyzer.analyze(battleEvent, battleStat, battleContext);
+
+        Assertions.assertEquals(1, battleContext.getCurrentTurnImportanceEvents().size());
+        TurnEvent turnEvent = battleContext.getCurrentTurnImportanceEvents().get(0);
+        Assertions.assertEquals("move", turnEvent.getEventType());
+        Assertions.assertEquals(1, turnEvent.getPlayerNumber());
+        Assertions.assertEquals("Gliscor", turnEvent.getPokemon());
+        Assertions.assertEquals("Protect", turnEvent.getActionName());
+                Assertions.assertFalse(turnEvent.isChildEvent());
+                Assertions.assertNull(turnEvent.getParentEventType());
+                Assertions.assertNull(turnEvent.getEventFrom());
+            }
 
     @Test
     void analyzeTrick() {

@@ -1,1906 +1,2977 @@
 {
   "battleId" : "smogtours-gen9ou-746547",
-  "playerStatList": [
-    {
-      "playerNumber": 1,
-      "playerName": "RUBYBLOOD",
-      "switchCount": 11,
-      "switchDamage": 36,
-      "moveCount": 17,
-      "pokemonBattleStats": {
-        "Iron Valiant": {
-          "name": "Iron Valiant",
-          "switchCount": 2,
-          "moveCount": 6,
-          "killCount": 1,
-          "healthValue": 43,
-          "attackValue": 139
-        },
-        "Iron Moth": {
-          "name": "Iron Moth",
-          "switchCount": 1,
-          "moveCount": 1,
-          "killCount": 0,
-          "healthValue": 15,
-          "attackValue": 76
-        },
-        "Raging Bolt": {
-          "name": "Raging Bolt",
-          "switchCount": 2,
-          "moveCount": 3,
-          "killCount": 2,
-          "healthValue": 89,
-          "attackValue": 200
-        },
-        "Kingambit": {
-          "name": "Kingambit",
-          "switchCount": 2,
-          "moveCount": 3,
-          "killCount": 0,
-          "healthValue": -81,
-          "attackValue": 29
-        },
-        "Roaring Moon": {
-          "name": "Roaring Moon",
-          "switchCount": 2,
-          "moveCount": 2,
-          "killCount": 1,
-          "healthValue": -76,
-          "attackValue": 24
-        },
-        "Serperior": {
-          "name": "Serperior",
-          "switchCount": 3,
-          "moveCount": 2,
-          "killCount": 0,
-          "healthValue": -122,
-          "attackValue": 0
-        }
+  "playerStatList" : [ {
+    "playerNumber" : 1,
+    "playerName" : "RUBYBLOOD",
+    "switchCount" : 11,
+    "switchDamage" : 36.0,
+    "moveCount" : 17,
+    "pokemonBattleStats" : {
+      "Iron Valiant" : {
+        "name" : "Iron Valiant",
+        "switchCount" : 2,
+        "moveCount" : 6,
+        "killCount" : 1,
+        "healthValue" : 43.0,
+        "attackValue" : 139.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Glimmora",
+          "damageOf" : "Iron Valiant",
+          "damageFrom" : "Spirit Break",
+          "damage" : 39.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Raging Bolt",
+          "damageOf" : "Iron Valiant",
+          "damageFrom" : "Spirit Break",
+          "damage" : 100.0,
+          "triggerCount" : 1
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : 10.0,
+          "lossHealthValue" : 90.0,
+          "opponentLossHealthValue" : 100.0,
+          "opponentPokemon" : "Raging Bolt"
+        }, {
+          "healthValue" : 39.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 39.0,
+          "opponentPokemon" : "Great Tusk"
+        }, {
+          "healthValue" : -6.0,
+          "lossHealthValue" : 6.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Glimmora"
+        } ]
       },
-      "highLights": [
-        {
-          "turn": 2,
-          "type": "KILL",
-          "description": "Raging Bolt kill opponent Roaring Moon by Dragon Pulse"
-        },
-        {
-          "turn": 4,
-          "type": "SIDE",
-          "description": "side Reflect start"
-        },
-        {
-          "turn": 5,
-          "type": "SIDE",
-          "description": "side Light Screen start"
-        },
-        {
-          "turn": 9,
-          "type": "KILL",
-          "description": "Roaring Moon kill opponent Gholdengo by Knock Off"
-        },
-        {
-          "turn": 11,
-          "type": "END_SIDE",
-          "description": "side Reflect end from null of null"
-        },
-        {
-          "turn": 12,
-          "type": "KILL",
-          "description": "Raging Bolt kill opponent Dragonite by Dragon Pulse"
-        },
-        {
-          "turn": 12,
-          "type": "END_SIDE",
-          "description": "side move: Light Screen end from null of null"
-        },
-        {
-          "turn": 15,
-          "type": "SIDE",
-          "description": "side Stealth Rock start"
-        },
-        {
-          "turn": 18,
-          "type": "KILL",
-          "description": "Iron Valiant kill opponent Raging Bolt by Spirit Break"
-        },
-        {
-          "turn": 19,
-          "type": "SIDE",
-          "description": "side Toxic Spikes start"
-        }
-      ]
-    },
-    {
-      "playerNumber": 2,
-      "playerName": "xavgb",
-      "switchCount": 10,
-      "switchDamage": 0,
-      "moveCount": 20,
-      "pokemonBattleStats": {
-        "Gholdengo": {
-          "name": "Gholdengo",
-          "switchCount": 1,
-          "moveCount": 4,
-          "killCount": 1,
-          "healthValue": 0,
-          "attackValue": 100
-        },
-        "Great Tusk": {
-          "name": "Great Tusk",
-          "switchCount": 4,
-          "moveCount": 8,
-          "killCount": 5,
-          "healthValue": 201,
-          "attackValue": 269
-        },
-        "Dragonite": {
-          "name": "Dragonite",
-          "switchCount": 1,
-          "moveCount": 3,
-          "killCount": 0,
-          "healthValue": -100,
-          "attackValue": 0
-        },
-        "Raging Bolt": {
-          "name": "Raging Bolt",
-          "switchCount": 1,
-          "moveCount": 1,
-          "killCount": 0,
-          "healthValue": -10,
-          "attackValue": 90
-        },
-        "Roaring Moon": {
-          "name": "Roaring Moon",
-          "switchCount": 1,
-          "moveCount": 2,
-          "killCount": 0,
-          "healthValue": -13,
-          "attackValue": 87
-        },
-        "Glimmora": {
-          "name": "Glimmora",
-          "switchCount": 2,
-          "moveCount": 2,
-          "killCount": 0,
-          "healthValue": 54,
-          "attackValue": 54
-        }
+      "Iron Moth" : {
+        "name" : "Iron Moth",
+        "switchCount" : 1,
+        "moveCount" : 1,
+        "killCount" : 0,
+        "healthValue" : 15.0,
+        "attackValue" : 76.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Gholdengo",
+          "damageOf" : "Iron Moth",
+          "damageFrom" : "Fiery Dance",
+          "damage" : 76.0,
+          "triggerCount" : 1
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : 15.0,
+          "lossHealthValue" : 61.0,
+          "opponentLossHealthValue" : 76.0,
+          "opponentPokemon" : "Gholdengo"
+        } ]
       },
-      "highLights": [
-        {
-          "turn": 8,
-          "type": "KILL",
-          "description": "Gholdengo kill opponent Iron Moth by Shadow Ball"
-        },
-        {
-          "turn": 13,
-          "type": "KILL",
-          "description": "Great Tusk kill opponent Raging Bolt by Rapid Spin"
-        },
-        {
-          "turn": 21,
-          "type": "KILL",
-          "description": "Great Tusk kill opponent Iron Valiant by Rapid Spin"
-        },
-        {
-          "turn": 23,
-          "type": "KILL",
-          "description": "Great Tusk kill opponent Roaring Moon by Ice Spinner"
-        },
-        {
-          "turn": 24,
-          "type": "KILL",
-          "description": "Great Tusk kill opponent Serperior by Ice Spinner"
-        },
-        {
-          "turn": 26,
-          "type": "KILL",
-          "description": "Great Tusk kill opponent Kingambit by Earthquake"
-        }
-      ]
-    }
-  ],
-  "turnStats": [
-    {
-      "turn": 0,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 600,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 100
-            }
-          }
-        },
-        {
-          "totalHealth": 600,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 100
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
+      "Raging Bolt" : {
+        "name" : "Raging Bolt",
+        "switchCount" : 2,
+        "moveCount" : 3,
+        "killCount" : 2,
+        "healthValue" : 89.0,
+        "attackValue" : 200.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Dragonite",
+          "damageOf" : "Raging Bolt",
+          "damageFrom" : "Dragon Pulse",
+          "damage" : 100.0,
+          "triggerCount" : 2
+        }, {
+          "damageTarget" : "Roaring Moon",
+          "damageOf" : "Raging Bolt",
+          "damageFrom" : "Dragon Pulse",
+          "damage" : 100.0,
+          "triggerCount" : 1
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : 54.0,
+          "lossHealthValue" : 46.0,
+          "opponentLossHealthValue" : 100.0,
+          "opponentPokemon" : "Roaring Moon"
+        }, {
+          "healthValue" : -65.0,
+          "lossHealthValue" : 65.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Great Tusk"
+        }, {
+          "healthValue" : 100.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 100.0,
+          "opponentPokemon" : "Dragonite"
+        } ]
+      },
+      "Kingambit" : {
+        "name" : "Kingambit",
+        "switchCount" : 2,
+        "moveCount" : 3,
+        "killCount" : 0,
+        "healthValue" : -81.0,
+        "attackValue" : 29.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Great Tusk",
+          "damageOf" : "Kingambit",
+          "damageFrom" : "Sucker Punch",
+          "damage" : 29.0,
+          "triggerCount" : 1
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : -18.0,
+          "lossHealthValue" : 18.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Glimmora"
+        }, {
+          "healthValue" : -63.0,
+          "lossHealthValue" : 92.0,
+          "opponentLossHealthValue" : 29.0,
+          "opponentPokemon" : "Great Tusk"
+        } ]
+      },
+      "Roaring Moon" : {
+        "name" : "Roaring Moon",
+        "switchCount" : 2,
+        "moveCount" : 2,
+        "killCount" : 1,
+        "healthValue" : -76.0,
+        "attackValue" : 24.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Gholdengo",
+          "damageOf" : "Roaring Moon",
+          "damageFrom" : "Knock Off",
+          "damage" : 24.0,
+          "triggerCount" : 1
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : 24.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 24.0,
+          "opponentPokemon" : "Gholdengo"
+        }, {
+          "healthValue" : -24.0,
+          "lossHealthValue" : 24.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Glimmora"
+        }, {
+          "healthValue" : -76.0,
+          "lossHealthValue" : 76.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Great Tusk"
+        } ]
+      },
+      "Serperior" : {
+        "name" : "Serperior",
+        "switchCount" : 3,
+        "moveCount" : 2,
+        "killCount" : 0,
+        "healthValue" : -122.0,
+        "attackValue" : 0.0,
+        "battleDamageStats" : [ ],
+        "healthValueStats" : [ {
+          "healthValue" : -41.0,
+          "lossHealthValue" : 41.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Roaring Moon"
+        }, {
+          "healthValue" : -39.0,
+          "lossHealthValue" : 39.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Gholdengo"
+        }, {
+          "healthValue" : -36.0,
+          "lossHealthValue" : 36.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Great Tusk"
+        }, {
+          "healthValue" : -6.0,
+          "lossHealthValue" : 6.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Glimmora"
+        } ]
+      }
     },
-    {
-      "turn": 1,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 559,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 59
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 100
-            }
-          }
-        },
-        {
-          "totalHealth": 600,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 100
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
+    "highLights" : [ {
+      "turn" : 2,
+      "type" : "KILL",
+      "description" : "Raging Bolt kill opponent Roaring Moon by Dragon Pulse"
+    }, {
+      "turn" : 4,
+      "type" : "SIDE",
+      "description" : "side Reflect start"
+    }, {
+      "turn" : 5,
+      "type" : "SIDE",
+      "description" : "side Light Screen start"
+    }, {
+      "turn" : 9,
+      "type" : "KILL",
+      "description" : "Roaring Moon kill opponent Gholdengo by Knock Off"
+    }, {
+      "turn" : 11,
+      "type" : "END_SIDE",
+      "description" : "side Reflect end from null of null"
+    }, {
+      "turn" : 12,
+      "type" : "KILL",
+      "description" : "Raging Bolt kill opponent Dragonite by Dragon Pulse"
+    }, {
+      "turn" : 12,
+      "type" : "END_SIDE",
+      "description" : "side move: Light Screen end from null of null"
+    }, {
+      "turn" : 15,
+      "type" : "SIDE",
+      "description" : "side Stealth Rock start"
+    }, {
+      "turn" : 18,
+      "type" : "KILL",
+      "description" : "Iron Valiant kill opponent Raging Bolt by Spirit Break"
+    }, {
+      "turn" : 19,
+      "type" : "SIDE",
+      "description" : "side Toxic Spikes start"
+    } ]
+  }, {
+    "playerNumber" : 2,
+    "playerName" : "xavgb",
+    "switchCount" : 10,
+    "switchDamage" : 0.0,
+    "moveCount" : 20,
+    "pokemonBattleStats" : {
+      "Gholdengo" : {
+        "name" : "Gholdengo",
+        "switchCount" : 1,
+        "moveCount" : 4,
+        "killCount" : 1,
+        "healthValue" : 0.0,
+        "attackValue" : 100.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Iron Moth",
+          "damageOf" : "Gholdengo",
+          "damageFrom" : "Shadow Ball",
+          "damage" : 100.0,
+          "triggerCount" : 3
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : 39.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 39.0,
+          "opponentPokemon" : "Serperior"
+        }, {
+          "healthValue" : -15.0,
+          "lossHealthValue" : 76.0,
+          "opponentLossHealthValue" : 61.0,
+          "opponentPokemon" : "Iron Moth"
+        }, {
+          "healthValue" : -24.0,
+          "lossHealthValue" : 24.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Roaring Moon"
+        } ]
+      },
+      "Great Tusk" : {
+        "name" : "Great Tusk",
+        "switchCount" : 4,
+        "moveCount" : 8,
+        "killCount" : 5,
+        "healthValue" : 201.0,
+        "attackValue" : 269.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Iron Valiant",
+          "damageOf" : "Great Tusk",
+          "damageFrom" : "Rapid Spin",
+          "damage" : 4.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Kingambit",
+          "damageOf" : "Great Tusk",
+          "damageFrom" : "Earthquake",
+          "damage" : 71.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Kingambit",
+          "damageOf" : "Great Tusk",
+          "damageFrom" : "Ice Spinner",
+          "damage" : 17.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Raging Bolt",
+          "damageOf" : "Great Tusk",
+          "damageFrom" : "Rapid Spin",
+          "damage" : 13.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Roaring Moon",
+          "damageOf" : "Great Tusk",
+          "damageFrom" : "Ice Spinner",
+          "damage" : 76.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Serperior",
+          "damageOf" : "Great Tusk",
+          "damageFrom" : "Ice Spinner",
+          "damage" : 88.0,
+          "triggerCount" : 2
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : 65.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 65.0,
+          "opponentPokemon" : "Raging Bolt"
+        }, {
+          "healthValue" : -39.0,
+          "lossHealthValue" : 39.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Iron Valiant"
+        }, {
+          "healthValue" : 63.0,
+          "lossHealthValue" : 29.0,
+          "opponentLossHealthValue" : 92.0,
+          "opponentPokemon" : "Kingambit"
+        }, {
+          "healthValue" : 76.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 76.0,
+          "opponentPokemon" : "Roaring Moon"
+        }, {
+          "healthValue" : 36.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 36.0,
+          "opponentPokemon" : "Serperior"
+        } ]
+      },
+      "Dragonite" : {
+        "name" : "Dragonite",
+        "switchCount" : 1,
+        "moveCount" : 3,
+        "killCount" : 0,
+        "healthValue" : -100.0,
+        "attackValue" : 0.0,
+        "battleDamageStats" : [ ],
+        "healthValueStats" : [ {
+          "healthValue" : -100.0,
+          "lossHealthValue" : 100.0,
+          "opponentLossHealthValue" : 0.0,
+          "opponentPokemon" : "Raging Bolt"
+        } ]
+      },
+      "Raging Bolt" : {
+        "name" : "Raging Bolt",
+        "switchCount" : 1,
+        "moveCount" : 1,
+        "killCount" : 0,
+        "healthValue" : -10.0,
+        "attackValue" : 90.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Iron Valiant",
+          "damageOf" : "Raging Bolt",
+          "damageFrom" : "Thunderclap",
+          "damage" : 90.0,
+          "triggerCount" : 1
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : -10.0,
+          "lossHealthValue" : 100.0,
+          "opponentLossHealthValue" : 90.0,
+          "opponentPokemon" : "Iron Valiant"
+        } ]
+      },
+      "Roaring Moon" : {
+        "name" : "Roaring Moon",
+        "switchCount" : 1,
+        "moveCount" : 2,
+        "killCount" : 0,
+        "healthValue" : -13.0,
+        "attackValue" : 87.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Raging Bolt",
+          "damageOf" : "Roaring Moon",
+          "damageFrom" : "Knock Off",
+          "damage" : 87.0,
+          "triggerCount" : 2
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : 41.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 41.0,
+          "opponentPokemon" : "Serperior"
+        }, {
+          "healthValue" : -54.0,
+          "lossHealthValue" : 100.0,
+          "opponentLossHealthValue" : 46.0,
+          "opponentPokemon" : "Raging Bolt"
+        } ]
+      },
+      "Glimmora" : {
+        "name" : "Glimmora",
+        "switchCount" : 2,
+        "moveCount" : 2,
+        "killCount" : 0,
+        "healthValue" : 54.0,
+        "attackValue" : 54.0,
+        "battleDamageStats" : [ {
+          "damageTarget" : "Iron Valiant",
+          "damageOf" : "Glimmora",
+          "damageFrom" : "Stealth Rock",
+          "damage" : 6.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Kingambit",
+          "damageOf" : "Glimmora",
+          "damageFrom" : "Stealth Rock",
+          "damage" : 12.0,
+          "triggerCount" : 2
+        }, {
+          "damageTarget" : "Roaring Moon",
+          "damageOf" : "Glimmora",
+          "damageFrom" : "Stealth Rock",
+          "damage" : 12.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Roaring Moon",
+          "damageOf" : "Glimmora",
+          "damageFrom" : "psn",
+          "damage" : 12.0,
+          "triggerCount" : 1
+        }, {
+          "damageTarget" : "Serperior",
+          "damageOf" : "Glimmora",
+          "damageFrom" : "Stealth Rock",
+          "damage" : 12.0,
+          "triggerCount" : 1
+        } ],
+        "healthValueStats" : [ {
+          "healthValue" : 6.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 6.0,
+          "opponentPokemon" : "Iron Valiant"
+        }, {
+          "healthValue" : 18.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 18.0,
+          "opponentPokemon" : "Kingambit"
+        }, {
+          "healthValue" : 24.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 24.0,
+          "opponentPokemon" : "Roaring Moon"
+        }, {
+          "healthValue" : 6.0,
+          "lossHealthValue" : 0.0,
+          "opponentLossHealthValue" : 6.0,
+          "opponentPokemon" : "Serperior"
+        } ]
+      }
     },
-    {
-      "turn": 2,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 513,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 100
-            }
-          }
+    "highLights" : [ {
+      "turn" : 8,
+      "type" : "KILL",
+      "description" : "Gholdengo kill opponent Iron Moth by Shadow Ball"
+    }, {
+      "turn" : 13,
+      "type" : "KILL",
+      "description" : "Great Tusk kill opponent Raging Bolt by Rapid Spin"
+    }, {
+      "turn" : 21,
+      "type" : "KILL",
+      "description" : "Great Tusk kill opponent Iron Valiant by Rapid Spin"
+    }, {
+      "turn" : 23,
+      "type" : "KILL",
+      "description" : "Great Tusk kill opponent Roaring Moon by Ice Spinner"
+    }, {
+      "turn" : 24,
+      "type" : "KILL",
+      "description" : "Great Tusk kill opponent Serperior by Ice Spinner"
+    }, {
+      "turn" : 26,
+      "type" : "KILL",
+      "description" : "Great Tusk kill opponent Kingambit by Earthquake"
+    } ]
+  } ],
+  "turnStats" : [ {
+    "turn" : 0,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 600.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 500,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 100
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 3,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 461,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 500,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 100
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 4,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 461,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 500,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 100
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 5,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 461,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 500,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 100
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 6,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 422,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 61
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 500,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 100
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 100.0
         }
-      ]
-    },
-    {
-      "turn": 7,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 383,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 22
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+      }
+    }, {
+      "totalHealth" : 600.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 424,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 24
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 8,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 361,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 424,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 24
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 9,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 361,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 400,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 10,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 361,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 400,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 100
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 11,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 361,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 344,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 44
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
         }
-      ]
-    },
-    {
-      "turn": 12,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 361,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 13
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 1,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 559.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 300,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 13,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 348,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 300,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 14,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 348,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 59.0
         },
-        {
-          "totalHealth": 300,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 15,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 348,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 300,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 16,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 348,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 300,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 100.0
         }
-      ]
-    },
-    {
-      "turn": 17,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 348,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 100
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+      }
+    }, {
+      "totalHealth" : 600.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 300,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 18,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 258,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 10
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 100
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 200,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 100
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 19,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 252,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 10
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 94
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 161,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 61
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 20,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 252,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 10
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 94
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 100
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 161,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 61
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 21,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 230,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 0
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 94
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 88
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 161,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 61
-            }
-          }
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
         }
-      ]
-    },
-    {
-      "turn": 22,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 218,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 0
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 94
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 76
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 48
-            }
-          }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Roaring Moon",
+      "actionName" : "Knock Off",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : "Knock Off",
+      "description" : "took 41.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    } ]
+  }, {
+    "turn" : 2,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 513.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 161,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 61
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 23,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 130,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 0
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 94
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 36
-            }
-          }
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 161,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 61
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 24,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 88,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 0
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 88
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 0
-            }
-          }
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
         },
-        {
-          "totalHealth": 161,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 61
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 25,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 71,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 0
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 71
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 0
-            }
-          }
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 161,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 100
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 61
-            }
-          }
-        }
-      ]
-    },
-    {
-      "turn": 26,
-      "turnPlayerStatList": [
-        {
-          "totalHealth": 0,
-          "turnPokemonStatMap": {
-            "Iron Valiant": {
-              "pokemonName": "Iron Valiant",
-              "health": 0
-            },
-            "Iron Moth": {
-              "pokemonName": "Iron Moth",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Kingambit": {
-              "pokemonName": "Kingambit",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Serperior": {
-              "pokemonName": "Serperior",
-              "health": 0
-            }
-          }
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
         },
-        {
-          "totalHealth": 132,
-          "turnPokemonStatMap": {
-            "Gholdengo": {
-              "pokemonName": "Gholdengo",
-              "health": 0
-            },
-            "Great Tusk": {
-              "pokemonName": "Great Tusk",
-              "health": 71
-            },
-            "Dragonite": {
-              "pokemonName": "Dragonite",
-              "health": 0
-            },
-            "Raging Bolt": {
-              "pokemonName": "Raging Bolt",
-              "health": 0
-            },
-            "Roaring Moon": {
-              "pokemonName": "Roaring Moon",
-              "health": 0
-            },
-            "Glimmora": {
-              "pokemonName": "Glimmora",
-              "health": 61
-            }
-          }
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 100.0
         }
-      ]
-    }
-  ]
+      }
+    }, {
+      "totalHealth" : 500.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 100.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Roaring Moon",
+      "actionName" : "Knock Off",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : "Knock Off",
+      "description" : "took 46.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : "Dragon Pulse",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 2,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : "Dragon Pulse",
+      "description" : "took 100.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 2,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 3,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 461.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 500.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 100.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : "Ice Spinner",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : null,
+      "eventFrom" : "Ice Spinner",
+      "description" : "took 52.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    } ]
+  }, {
+    "turn" : 4,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 461.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 500.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 100.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Gholdengo",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : "Reflect",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 5,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 461.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 500.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 100.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : "Light Screen",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Gholdengo",
+      "actionName" : "Nasty Plot",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 6,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 422.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 61.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 500.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 100.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Moth",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Gholdengo",
+      "actionName" : "Shadow Ball",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Moth",
+      "actionName" : null,
+      "eventFrom" : "Shadow Ball",
+      "description" : "took 39.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    } ]
+  }, {
+    "turn" : 7,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 383.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 22.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 424.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 24.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Moth",
+      "actionName" : "Fiery Dance",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 2,
+      "pokemon" : "Gholdengo",
+      "actionName" : null,
+      "eventFrom" : "Fiery Dance",
+      "description" : "took 76.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Gholdengo",
+      "actionName" : "Shadow Ball",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Moth",
+      "actionName" : null,
+      "eventFrom" : "Shadow Ball",
+      "description" : "took 39.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    } ]
+  }, {
+    "turn" : 8,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 361.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 424.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 24.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Gholdengo",
+      "actionName" : "Shadow Ball",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Moth",
+      "actionName" : null,
+      "eventFrom" : "Shadow Ball",
+      "description" : "took 22.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Moth",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 9,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 361.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 400.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Roaring Moon",
+      "actionName" : "Knock Off",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 2,
+      "pokemon" : "Gholdengo",
+      "actionName" : null,
+      "eventFrom" : "Knock Off",
+      "description" : "took 24.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 2,
+      "pokemon" : "Gholdengo",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Dragonite",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 10,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 361.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 400.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 100.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Dragonite",
+      "actionName" : "Encore",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 11,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 361.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 344.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 44.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Dragonite",
+      "actionName" : "Scale Shot",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : "Dragon Pulse",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 2,
+      "pokemon" : "Dragonite",
+      "actionName" : null,
+      "eventFrom" : "Dragon Pulse",
+      "description" : "took 56.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    } ]
+  }, {
+    "turn" : 12,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 361.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 13.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 300.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Dragonite",
+      "actionName" : "Scale Shot",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : "Dragon Pulse",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 2,
+      "pokemon" : "Dragonite",
+      "actionName" : null,
+      "eventFrom" : "Dragon Pulse",
+      "description" : "took 44.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 2,
+      "pokemon" : "Dragonite",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 13,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 348.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 300.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : "Rapid Spin",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : "Rapid Spin",
+      "description" : "took 13.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 1,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 14,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 348.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 300.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Glimmora",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : "Encore",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 15,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 348.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 300.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : "Swords Dance",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Glimmora",
+      "actionName" : "Stealth Rock",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 16,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 348.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 300.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : "Encore",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Glimmora",
+      "actionName" : "Stealth Rock",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 17,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 348.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 100.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 300.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : "Swords Dance",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 18,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 258.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 10.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 100.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 200.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 100.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Raging Bolt",
+      "actionName" : "Thunderclap",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : null,
+      "eventFrom" : "Thunderclap",
+      "description" : "took 90.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : "Spirit Break",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 2,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : "Spirit Break",
+      "description" : "took 100.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 2,
+      "pokemon" : "Raging Bolt",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 19,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 252.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 10.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 94.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 161.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 61.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Glimmora",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : "Spirit Break",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 2,
+      "pokemon" : "Glimmora",
+      "actionName" : null,
+      "eventFrom" : "Spirit Break",
+      "description" : "took 39.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : null,
+      "eventFrom" : "Stealth Rock",
+      "description" : "took 6.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "drag"
+    } ]
+  }, {
+    "turn" : 20,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 252.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 10.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 94.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 100.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 161.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 61.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : "Sucker Punch",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 21,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 230.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 0.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 94.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 88.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 161.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 61.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : null,
+      "eventFrom" : "Stealth Rock",
+      "description" : "took 6.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "switch"
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : "Rapid Spin",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : null,
+      "eventFrom" : "Rapid Spin",
+      "description" : "took 4.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 1,
+      "pokemon" : "Iron Valiant",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : "Stealth Rock",
+      "description" : "took 12.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "switch"
+    } ]
+  }, {
+    "turn" : 22,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 218.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 0.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 94.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 76.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 48.0
+        }
+      }
+    }, {
+      "totalHealth" : 161.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 61.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : "Bulk Up",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Roaring Moon",
+      "actionName" : "Taunt",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : "psn",
+      "description" : "took 12.0% damage",
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 23,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 130.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 0.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 94.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 36.0
+        }
+      }
+    }, {
+      "totalHealth" : 161.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 61.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : "Ice Spinner",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : "Ice Spinner",
+      "description" : "took 76.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 1,
+      "pokemon" : "Roaring Moon",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : null,
+      "eventFrom" : "Stealth Rock",
+      "description" : "took 12.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "switch"
+    } ]
+  }, {
+    "turn" : 24,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 88.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 0.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 88.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 0.0
+        }
+      }
+    }, {
+      "totalHealth" : 161.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 61.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : "Ice Spinner",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : null,
+      "eventFrom" : "Ice Spinner",
+      "description" : "took 36.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 1,
+      "pokemon" : "Serperior",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "switch",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : null,
+      "eventFrom" : "Stealth Rock",
+      "description" : "took 6.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "switch"
+    } ]
+  }, {
+    "turn" : 25,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 71.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 0.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 71.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 0.0
+        }
+      }
+    }, {
+      "totalHealth" : 161.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 100.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 61.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : "Ice Spinner",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : null,
+      "eventFrom" : "Ice Spinner",
+      "description" : "took 17.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : "Swords Dance",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  }, {
+    "turn" : 26,
+    "turnPlayerStatList" : [ {
+      "totalHealth" : 0.0,
+      "turnPokemonStatMap" : {
+        "Iron Valiant" : {
+          "pokemonName" : "Iron Valiant",
+          "health" : 0.0
+        },
+        "Iron Moth" : {
+          "pokemonName" : "Iron Moth",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Kingambit" : {
+          "pokemonName" : "Kingambit",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Serperior" : {
+          "pokemonName" : "Serperior",
+          "health" : 0.0
+        }
+      }
+    }, {
+      "totalHealth" : 132.0,
+      "turnPokemonStatMap" : {
+        "Gholdengo" : {
+          "pokemonName" : "Gholdengo",
+          "health" : 0.0
+        },
+        "Great Tusk" : {
+          "pokemonName" : "Great Tusk",
+          "health" : 71.0
+        },
+        "Dragonite" : {
+          "pokemonName" : "Dragonite",
+          "health" : 0.0
+        },
+        "Raging Bolt" : {
+          "pokemonName" : "Raging Bolt",
+          "health" : 0.0
+        },
+        "Roaring Moon" : {
+          "pokemonName" : "Roaring Moon",
+          "health" : 0.0
+        },
+        "Glimmora" : {
+          "pokemonName" : "Glimmora",
+          "health" : 61.0
+        }
+      }
+    } ],
+    "turnEvents" : [ {
+      "eventType" : "move",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : "Sucker Punch",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : null,
+      "eventFrom" : "Sucker Punch",
+      "description" : "took 29.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "move",
+      "playerNumber" : 2,
+      "pokemon" : "Great Tusk",
+      "actionName" : "Earthquake",
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    }, {
+      "eventType" : "damage",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : null,
+      "eventFrom" : "Earthquake",
+      "description" : "took 71.0% damage",
+      "childEvent" : true,
+      "parentEventType" : "move"
+    }, {
+      "eventType" : "faint",
+      "playerNumber" : 1,
+      "pokemon" : "Kingambit",
+      "actionName" : null,
+      "eventFrom" : null,
+      "description" : null,
+      "childEvent" : false,
+      "parentEventType" : null
+    } ]
+  } ]
 }

@@ -17,6 +17,7 @@ import com.mimosa.deeppokemon.entity.stat.TurnStat;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Set;
 
 @Component
@@ -43,7 +44,13 @@ public class WinEventAnalyzer implements BattleEventAnalyzer {
             turnPlayerStat.setTotalHealth(totalHealth);
             turnStat.getTurnPlayerStatList().add(turnPlayerStat);
         }
+        setTurnEvents(turnStat, battleContext);
         battleStat.turnStats().add(turnStat);
+    }
+
+    private void setTurnEvents(TurnStat turnStat, BattleContext battleContext) {
+        turnStat.setTurnEvents(battleContext.getCurrentTurnImportanceEvents());
+        battleContext.setCurrentTurnImportanceEvents(new ArrayList<>());
     }
 
     @Override

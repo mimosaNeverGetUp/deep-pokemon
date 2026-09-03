@@ -77,12 +77,31 @@ public class DamageEventAnalyzer implements BattleEventAnalyzer {
                     playerStatus, healthDiff);
             battleEvent.setBattleEventStat(damageEventStat);
 
+            addTurnEvent(battleEvent, battleContext, eventTarget, damageEventStat);
+
             setPlayerSwitchDamageStat(battleEvent, battleStat, eventTarget, healthDiff);
 
             setPokemonItem(battleContext, damageEventStat, eventTarget);
             setPokemonAbility(battleContext, damageEventStat);
             setBattleDamageStat(battleStat, damageEventStat);
         }
+    }
+
+    private void addTurnEvent(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget,
+                              DamageEventStat damageEventStat) {
+        TurnEvent turnEvent = new TurnEvent();
+        turnEvent.setEventType(DAMAGE);
+        turnEvent.setPlayerNumber(eventTarget.playerNumber());
+        turnEvent.setPokemon(eventTarget.targetName());
+        if (battleEvent.getParentEvent() != null) {
+            turnEvent.setChildEvent(true);
+            turnEvent.setParentEventType(battleEvent.getParentEvent().getType());
+        }
+        if (damageEventStat != null) {
+            turnEvent.setEventFrom(damageEventStat.damageFrom());
+            turnEvent.setDescription(String.format("took %s%% damage", damageEventStat.healthDiff()));
+        }
+        battleContext.addTurnEvent(turnEvent);
     }
 
     private void setBattleDamageStat(BattleStat battleStat, DamageEventStat damageEventStat) {

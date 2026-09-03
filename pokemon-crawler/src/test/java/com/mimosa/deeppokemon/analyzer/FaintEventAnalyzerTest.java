@@ -16,6 +16,7 @@ import com.mimosa.deeppokemon.entity.stat.BattleHighLight;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +68,41 @@ class FaintEventAnalyzerTest {
     }
 
     @Test
-    void analyze_statusDamage_faint() {
+        void analyzeTurnEvent() {
+            String ogerpon = "Ogerpon";
+            String gliscor = "Gliscor";
+            int killPlayerNumber = 2;
+
+            BattleEvent damageEvent = new BattleEvent("damage", null, null, null);
+            EventTarget damageTarget = new EventTarget(1, ogerpon, ogerpon);
+            EventTarget damageOf = new EventTarget(killPlayerNumber, gliscor, gliscor);
+            damageEvent.setBattleEventStat(new DamageEventStat(damageTarget, damageOf, "Knock off",
+                    BigDecimal.valueOf(27)));
+            BattleEvent moveEvent = new BattleEvent("move", null, null, List.of(damageEvent));
+            BattleEvent faintEvent = new BattleEvent("faint", List.of("p1a: Ogerpon"), null, null, moveEvent);
+            BattleContext battleContext = new BattleContextBuilder()
+                    .addPokemon(killPlayerNumber, gliscor, gliscor)
+                    .addPokemon(1, ogerpon, ogerpon)
+                    .setTurn(5)
+                    .build();
+
+            BattleStat battleStat = new BattleStatBuilder()
+                    .addPokemonStat(killPlayerNumber, gliscor)
+                    .addPokemonStat(1, ogerpon)
+                    .build();
+            faintEventAnalyzer.analyze(faintEvent, battleStat, battleContext);
+            Assertions.assertEquals(1, battleContext.getCurrentTurnImportanceEvents().size());
+            TurnEvent turnEvent = battleContext.getCurrentTurnImportanceEvents().get(0);
+            Assertions.assertEquals("faint", turnEvent.getEventType());
+            Assertions.assertEquals(1, turnEvent.getPlayerNumber());
+            Assertions.assertEquals(ogerpon, turnEvent.getPokemon());
+            Assertions.assertFalse(turnEvent.isChildEvent());
+            Assertions.assertNull(turnEvent.getActionName());
+            Assertions.assertNull(turnEvent.getEventFrom());
+        }
+
+        @Test
+        void analyze_statusDamage_faint() {
         BattleEvent damageEvent = new BattleEvent("damage", null, null, null);
         String targetName = "Slowking-Galar";
         String oftargetName = "Weezing-Galar";

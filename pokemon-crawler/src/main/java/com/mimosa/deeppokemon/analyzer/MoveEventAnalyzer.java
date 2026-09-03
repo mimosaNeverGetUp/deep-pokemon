@@ -47,6 +47,8 @@ public class MoveEventAnalyzer implements BattleEventAnalyzer {
             playerStat.setMoveCount(playerStat.getMoveCount() + 1);
             battleEvent.setBattleEventStat(new MoveEventStat(eventTarget, move));
 
+            addTurnEvent(battleEvent, battleContext, eventTarget, move);
+
             if (StringUtils.equals(move, TRICK)) {
                 setTrickItem(battleEvent, battleContext);
             }
@@ -195,6 +197,16 @@ public class MoveEventAnalyzer implements BattleEventAnalyzer {
                 || StringUtils.equals(move, "Lunar Dance")
                 || StringUtils.equals(move, "Healing Wish");
     }
+
+    private void addTurnEvent(BattleEvent battleEvent, BattleContext battleContext, EventTarget eventTarget,
+                                  String move) {
+            TurnEvent turnEvent = new TurnEvent();
+            turnEvent.setEventType(MOVE);
+            turnEvent.setPlayerNumber(eventTarget.playerNumber());
+            turnEvent.setPokemon(eventTarget.targetName());
+            turnEvent.setActionName(move);
+            battleContext.addTurnEvent(turnEvent);
+        }
 
     private void setTrickItem(BattleEvent battleEvent, BattleContext battleContext) {
         List<EventTarget> trickTargetList = new ArrayList<>();

@@ -21,6 +21,7 @@ import com.mimosa.deeppokemon.entity.stat.BattleDamageStat;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnEvent;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,6 +71,7 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
             String pokemonName = playerStatus.getPokemonName(eventTarget.nickName());
             playerStatus.setActivePokemonName(pokemonName);
             changeFormChangingPokemonName(battleContext, battleStat, eventTarget.playerNumber(), pokemonName);
+            addTurnEvent(battleContext, eventTarget, pokemonName);
 
             if (battleEvent.getContents().size() > HEALTH_INDEX) {
                 BigDecimal pokemonHealth = BattleEventUtil.getHealthPercentage(battleEvent.getContents().get(HEALTH_INDEX));
@@ -265,6 +267,14 @@ public class SwitchEventAnalyzer implements BattleEventAnalyzer {
         BigDecimal healthBefore = playerStatus.getPokemonStatus(pokemonName).getHealth();
         playerStatus.getPokemonStatus(pokemonName).setHealth(pokemonHealth);
         return pokemonHealth.subtract(healthBefore);
+    }
+
+    private void addTurnEvent(BattleContext battleContext, EventTarget eventTarget, String pokemonName) {
+        TurnEvent turnEvent = new TurnEvent();
+        turnEvent.setEventType(SWITCH);
+        turnEvent.setPlayerNumber(eventTarget.playerNumber());
+        turnEvent.setPokemon(pokemonName);
+        battleContext.addTurnEvent(turnEvent);
     }
 
     @Override

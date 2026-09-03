@@ -6,19 +6,20 @@
 
 package com.mimosa.deeppokemon.analyzer;
 
-import com.mimosa.deeppokemon.entity.stat.BattleStat;
-import com.mimosa.deeppokemon.entity.stat.TurnPlayerStat;
-import com.mimosa.deeppokemon.entity.stat.TurnPokemonStat;
-import com.mimosa.deeppokemon.entity.stat.TurnStat;
 import com.mimosa.deeppokemon.analyzer.entity.event.BattleEvent;
 import com.mimosa.deeppokemon.analyzer.entity.status.BattleContext;
 import com.mimosa.deeppokemon.analyzer.entity.status.PlayerStatus;
 import com.mimosa.deeppokemon.analyzer.entity.status.PokemonStatus;
+import com.mimosa.deeppokemon.entity.stat.BattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnPlayerStat;
+import com.mimosa.deeppokemon.entity.stat.TurnPokemonStat;
+import com.mimosa.deeppokemon.entity.stat.TurnStat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Set;
 
 @Component
@@ -61,7 +62,13 @@ public class TurnEventAnalyzer implements BattleEventAnalyzer {
             turnPlayerStat.setTotalHealth(totalHealth);
             turnStat.getTurnPlayerStatList().add(turnPlayerStat);
         }
+        setTurnEvents(turnStat, battleContext);
         battleStat.turnStats().add(turnStat);
+    }
+
+    private void setTurnEvents(TurnStat turnStat, BattleContext battleContext) {
+        turnStat.setTurnEvents(battleContext.getCurrentTurnImportanceEvents());
+        battleContext.setCurrentTurnImportanceEvents(new ArrayList<>());
     }
 
     @Override

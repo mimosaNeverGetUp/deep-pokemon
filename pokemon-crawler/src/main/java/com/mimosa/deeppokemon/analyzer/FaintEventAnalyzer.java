@@ -15,6 +15,7 @@ import com.mimosa.deeppokemon.entity.stat.BattleHighLight;
 import com.mimosa.deeppokemon.entity.stat.BattleStat;
 import com.mimosa.deeppokemon.entity.stat.PlayerStat;
 import com.mimosa.deeppokemon.entity.stat.PokemonBattleStat;
+import com.mimosa.deeppokemon.entity.stat.TurnEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -51,6 +52,7 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer {
 
                 setKillCountAndHighLight(battleStat, battleContext, damageOf, eventTarget, damageEventStat);
             }
+            addTurnEvent(battleContext, eventTarget);
         }
     }
 
@@ -103,6 +105,14 @@ public class FaintEventAnalyzer implements BattleEventAnalyzer {
                     .orElse(null);
         }
         return null;
+    }
+
+    private void addTurnEvent(BattleContext battleContext, EventTarget eventTarget) {
+        TurnEvent turnEvent = new TurnEvent();
+        turnEvent.setEventType(FAINT);
+        turnEvent.setPlayerNumber(eventTarget.playerNumber());
+        turnEvent.setPokemon(eventTarget.targetName());
+        battleContext.addTurnEvent(turnEvent);
     }
 
     @Override

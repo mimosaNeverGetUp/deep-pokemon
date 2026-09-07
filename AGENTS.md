@@ -25,6 +25,14 @@
 - 后端：启动各模块的 `*Application` 主类，两种方式等价——通过 IDE 运行主类（可在 Run Config 选择 profile），或命令行 `mvn spring-boot:run`
 - 测试：见下方 `## 测试` 章节
 
+### Native Image 镜像构建
+- 通过 `-Pnative` profile + `spring-boot:build-image` 将模块编译为 GraalVM Native Image 并打出 Docker 镜像（无需本地安装 GraalVM，由 buildpack 完成）：
+  ```
+  mvn -Pnative -pl pokemon-crawler clean spring-boot:build-image -Dspring-boot.build-image.publish=false
+  mvn -Pnative -pl pokemon-portal  clean spring-boot:build-image -Dspring-boot.build-image.publish=false
+  ```
+- `-Dspring-boot.build-image.publish=false`：仅构建到本地 Docker 镜像仓库；设为 `true` 时构建完成后发布到 DockerHub。
+
 ## 测试
 - 框架：JUnit 5（junit-jupiter）+ Spring Boot Test；覆盖率 JaCoCo（Maven test 阶段生成 HTML/XML）
 - 执行方式：两种等价——通过 IDE 的 JUnit runner 直接运行测试类（复用同一 pom 依赖解析，不经 Maven test 阶段），或命令行 `mvn test`（若全局配置了跳过测试执行 `skipTests`，需去掉该参数才会真正执行）

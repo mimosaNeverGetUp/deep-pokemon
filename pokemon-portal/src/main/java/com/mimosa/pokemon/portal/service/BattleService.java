@@ -483,7 +483,7 @@ public class BattleService {
     }
 
     @RegisterReflectionForBinding({BattleStat.class, PlayerStat.class, PokemonBattleStat.class, TurnStat.class,
-            TurnPlayerStat.class, TurnPokemonStat.class})
+            TurnPlayerStat.class, TurnPokemonStat.class, TurnEvent.class})
     public BattleStat battleStat(String battleId) {
         BattleStat battleStat = mongoTemplate.findById(battleId, BattleStat.class);
         if (battleStat == null) {

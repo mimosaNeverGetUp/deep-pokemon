@@ -282,7 +282,7 @@ public class BattleService {
     }
 
     @RegisterReflectionForBinding({BattleStat.class, PlayerStat.class, PokemonBattleStat.class, TurnStat.class,
-            TurnPlayerStat.class, TurnPokemonStat.class})
+            TurnPlayerStat.class, TurnPokemonStat.class, TurnEvent.class})
     public BattleStat getBattleStat(String battleId) {
         FixedReplayProvider fixedReplayProvider = new FixedReplayProvider(Collections.singletonList(battleId));
         List<Battle> battles = battleCrawler.craw(fixedReplayProvider.next());
